@@ -1,10 +1,11 @@
-www.tripadvisor.com.br
-www.submarinoviagens.com.br
-www.hoteis.com
-www.trivago.com.br
-www.booking.com
-www.decolar.com
-www.hotelurbano.com
-www.expedia.com.br
-www.kayak.com.br
-www.cvc.com.br */hoteis
+1. www.tripadvisor.com.br<br />
+2.www.submarinoviagens.com.br<br />
+3.www.hoteis.com<br />
+4.www.trivago.com.br<br />
+5.www.booking.com<br />
+6.www.decolar.com<br />
+7.www.hotelurbano.com<br />
+8.www.expedia.com.br<br />
+9.www.kayak.com.br<br />
+10. www.momondo.pt<br />
+11.www.cvc.com.br */hoteis
