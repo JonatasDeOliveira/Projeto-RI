@@ -9,16 +9,16 @@
 ### Tarefas
 #### Localizar Páginas Relevantes
 1. Encontrar manualmente	10	sites	no	domínio
-2. Implementar	2	estratégias:
+2. Implementar	2	estratégias: <br />
 – Baseline:	busca em largura <br />
-– Heurística <br />
-3. Comparar estatégias:	
+– Heurística
+3. Comparar estatégias:	<br />
 – Harvest	ratio:	(número	de	páginas relevantes coletadas)/(total	de	
-páginas visitadas)	
-– Mostrar tabela	com	resultados
-• Importante:	
-– Evitar sobrecarregar	o	site	
-– Respeitar	o	robots.txt
+páginas visitadas)	<br />
+– Mostrar tabela	com	resultados <br />
+• Importante:	<br />
+– Evitar sobrecarregar	o	site	<br />
+– Respeitar	o	robots.txt <br />
 – Detectar	o	conteúdo	da	página	com	o	campo	Content-Type	
 
 #### Detectar Páginas	com	Instâncias
@@ -27,9 +27,9 @@ negativos por	site)
 2. Criar	o	conjunto	de	features	(ex.:	bag	of	words)	usando	feature	
 selection	(ex.	frequência ou	information	gain)	
 3. Treinar	o	classificador	com	uma ferramenta	de	ML	(ex.:	scikitlearn,
-weka etc)		
+weka etc)
 – Métodos:	Naïve	bayes,	Decision	tree	(J48),	SVM	(SMO),	Logitic	
-regression	(logistic),	Multilayer	perceptron	
+regression	(logistic),	Multilayer	perceptron
 4. Comparar estratégias:	
 – Accuracy,	precision	e	recall	
 – Tempo	de	treinamento
