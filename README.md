@@ -9,9 +9,9 @@
 ### Tarefas
 #### Localizar Páginas Relevantes
 1. Encontrar manualmente	10	sites	no	domínio
-2. Implementar	2	estratégias:	
-– Baseline:	busca em largura
-– Heurística
+2. Implementar	2	estratégias:
+– Baseline:	busca em largura <br />
+– Heurística <br />
 3. Comparar estatégias:	
 – Harvest	ratio:	(número	de	páginas relevantes coletadas)/(total	de	
 páginas visitadas)	
