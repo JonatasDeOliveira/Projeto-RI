@@ -16,6 +16,7 @@
 – Harvest	ratio:	(número	de	páginas relevantes coletadas)/(total	de	
 páginas visitadas)	<br />
 – Mostrar tabela	com	resultados <br />
+
 • Importante:	<br />
 – Evitar sobrecarregar	o	site	<br />
 – Respeitar	o	robots.txt <br />
@@ -27,21 +28,21 @@ negativos por	site)
 2. Criar	o	conjunto	de	features	(ex.:	bag	of	words)	usando	feature	
 selection	(ex.	frequência ou	information	gain)	
 3. Treinar	o	classificador	com	uma ferramenta	de	ML	(ex.:	scikitlearn,
-weka etc)
+weka etc) <br />
 – Métodos:	Naïve	bayes,	Decision	tree	(J48),	SVM	(SMO),	Logitic	
 regression	(logistic),	Multilayer	perceptron
-4. Comparar estratégias:	
-– Accuracy,	precision	e	recall	
-– Tempo	de	treinamento
+4. Comparar estratégias:	<br />
+– Accuracy,	precision	e	recall	<br />
+– Tempo	de	treinamento <br />
 – Mostrar tabela	com	os resultados
 
 #### Extrair Instâncias	com	seus Valores	e	Atributos
-1. Criar	um	wrapper	para cada	site	
+1. Criar	um	wrapper	para cada	site	<br />
 – Criação	do	conjunto rotulado
-2. Implementar uma solução que funcione para todos os	sites	
+2. Implementar uma solução que funcione para todos os	sites	<br />
 – Ex:	detectores	de	tipos	do	domínio
-3. Comparar estratégias:	
-– Accuracy,	precision	e	recall	
+3. Comparar estratégias:	<br />
+– Accuracy,	precision	e	recall	<br />
 – Mostrar tabela	com	os resultados
 
 
