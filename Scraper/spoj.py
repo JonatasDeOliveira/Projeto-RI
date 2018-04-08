@@ -84,4 +84,5 @@ sites = {"http://www.spoj.com/problems/TEST/", "http://www.spoj.com/problems/SBS
 
 for site in sites:
     getSpojData(site)
+    print ""
     print "\n"
