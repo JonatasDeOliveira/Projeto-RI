@@ -1,5 +1,5 @@
 import requests
-import BeautifulSoup 
+import bs4 
 
 def findIndex(array, string):
     for i in range(0, len(array)):
@@ -76,7 +76,7 @@ def getSpojData(url):
             if "Memory" in row.text:
                 info = (row.text).split("limit:")
                 data.append(info[1])
-    print data
+    print(data)
     return data
    
     
@@ -84,4 +84,4 @@ sites = {"http://www.spoj.com/problems/TEST/", "http://www.spoj.com/problems/SBS
 
 for site in sites:
     getSpojData(site)
-    print "\n"
+    print("\n")

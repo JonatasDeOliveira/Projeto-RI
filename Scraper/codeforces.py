@@ -1,5 +1,5 @@
 import requests
-import BeautifulSoup
+import bs4
 import re
 
 def treatStr(sample):
