@@ -1,21 +1,10 @@
 import requests
-import BeautifulSoup
+import bs4 as bs
 import re
-
-def treatStr(sample):
-    samples = re.findall('\>.*?\<',str(sample))
-    sampleStr = ""
-    for s in samples:
-        if len(s) > 2:
-            newS = s.replace(">", "")
-            newS = newS.replace("<", "")
-            sampleStr += newS + "\n"
-    return sampleStr[:-1]
+import util
     
 request = requests.get("http://codeforces.com/problemset/problem/949/A")
-page = BeautifulSoup.BeautifulSoup(request.content)
-    
-data = []
+page = bs.BeautifulSoup(request.content, "html.parser")
     
 #Container da descricao do problema
 problem = page.find("div", {"class" : "problem-statement"})
@@ -43,9 +32,7 @@ problemOutput = outputDescripton.text[6:]
 sampleTest = problem.find("div", {"class" : "sample-test"})
 samplesInput = sampleTest.findAll("div", {"class" : "input"})
 samplesOutput = sampleTest.findAll("div", {"class" : "output"})
-problemSample = ""
+problemSamples = ""
 
 for i in range(len(samplesInput)):
-    problemSample += treatStr(samplesInput[i]) + "\n" + treatStr(samplesOutput[i]) + "\n\n"
-    
-print problemSample[:-2]
+    problemSamples += util.treatStr(samplesInput[i]) + "\n" + util.treatStr(samplesOutput[i]) + "\n\n"
