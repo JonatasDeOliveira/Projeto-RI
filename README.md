@@ -1,4 +1,4 @@
-# Domínio Hotel
+# Domínio Problemas de Programação
 ### Recuperação da Informação
 
 ### Autores e Responsabilidades
