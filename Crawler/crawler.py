@@ -4,6 +4,7 @@ from urllib import robotparser
 import re
 import requests
 import queue
+import time
 
 
 r = "http://www.codeforces.com"
@@ -13,7 +14,7 @@ def robots(domain, path, rp):
     return rp.can_fetch("*", domain+path)
 
 def get_all_links(domain, path):
-    req = Request(domain+path)
+    req = Request(domain+path, headers={'User-Agent': 'Mozilla/5.0'})
     html_page = urlopen(req)
     soup = BeautifulSoup(html_page, "html5lib")
     links = []
@@ -54,9 +55,18 @@ def crawler(domain, pathseed, maxSize = 10):
         f.close
     return 0
 
+
 def folder(domain):
     if(domain=="http://www.codeforces.com"):
         return 'Codeforces'
+    if(domain=='http://www.spoj.com'):
+        return 'Spoj'
+    if(domain=='https://dmoj.ca'):
+        return 'Dmoj'
+    if(domain=='https://wcipeg.com'):
+        return 'Wcipeg'
+    if(domain=='http://acm.timus.ru'):
+        return 'Timus'
     
-    
-crawler("http://www.codeforces.com",'/problemset/')
+#crawler('https://wcipeg.com','/main')
+crawler('http://www.codeforces.com','')
