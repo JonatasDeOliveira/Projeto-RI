@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="not-ie" lang="en"> <!--<![endif]-->
+<head>
+	<!-- main header -->
+	<meta charset="utf-8">
+	
+				<title>Sphere Online Judge (SPOJ)  - User rivudas</title>
+	  
+	<meta name="keywords" content="language, algorithm, spoj, contest, contester, Java, C#, Pascal, C, C++, python, ruby, caml, ocaml, perl, haskell, lisp, prolog, fortran, assembler, asembler, functional, online, judge, problem, problemset, ACM">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  		<meta property="og:image" content="//stx1.spoj.com/gfx/spoj-fb.jpg"/>
+	<meta property="og:description" content="SPOJ (Sphere Online Judge) is an online judge system with over 315,000 registered users and over 20000 problems. The solution to problems can be submitted in over 60 languages including C, C++, Java, Python, C#, Go, Haskell, Ocaml, and F#. SPOJ has a rapidly growing problem set/tasks available for practice 24 hours/day, including many original tasks prepared by the community of expert problem setters associated with the project."/>
+	<meta name="description" content="SPOJ (Sphere Online Judge) is an online judge system with over 315,000 registered users and over 20000 problems. The solution to problems can be submitted in over 60 languages including C, C++, Java, Python, C#, Go, Haskell, Ocaml, and F#. SPOJ has a rapidly growing problem set/tasks available for practice 24 hours/day, including many original tasks prepared by the community of expert problem setters associated with the project."/>
+		<meta property="og:site_name" content="spoj.com"/>
+
+  <!--[if (gte IE 9)|!(IE)]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" id="metatag">
+  <![endif]--> 
+
+	  <!-- Favicon -->
+	  <link href="//stx1.spoj.com/gfx/favicon_new.png" rel="shortcut icon" type="image/x-icon" />
+	  
+	  <!-- RSS -->
+	  <link href="/rss/" rel="alternate" type="application/rss+xml" title="RSS Feed">
+	
+	  <!-- Web Fonts -->
+	  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet" type="text/css">  
+
+	<!-- Internet Explorer condition - HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]--> 
+	
+	
+	
+	<!-- CSS: Bootstrap, Font-awesome, Bootstrap libs,  -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" />
+  	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  	<link href="//stx1.spoj.com/gfx/bootstrap-tour/build/css/bootstrap-tour.min.css" rel="stylesheet" />
+  	<link href="//stx1.spoj.com/themes/bootstrap-social.css" rel="stylesheet" type="text/css" />
+  	
+	<link href="//stx1.spoj.com/themes/common.css?4" rel="stylesheet" type="text/css" id="theme0" />
+	<link href="//stx1.spoj.com/themes/en_new.css?4" rel="stylesheet" type="text/css" id="theme" />
+	
+	<!-- JS -->
+	<script type="text/javascript" src='//code.jquery.com/jquery-1.11.1.min.js'></script>
+	<script type="text/javascript" src="//code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+	
+		<link href="//stx1.spoj.com/themes/cal-heatmap.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src='//stx1.spoj.com/js/d3.v3.min.js'></script>
+	<script type="text/javascript" src='//stx1.spoj.com/js/cal-heatmap.min.js'></script>
+	<script type="text/javascript" src="//www.google.com/jsapi"></script>
+		
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>	
+	<script type="text/javascript" language="javascript">
+	$(function () { 
+		$("#profile-menu").popover();
+	});
+	function UnCryptMailto(s) {
+		var n=0;
+		var r="";
+		for(var i=0;i<s.length;i++) {		
+			n=s.charCodeAt(i); 
+			if (n>=8364) {n = 128;}
+			r += String.fromCharCode(n+(2));	
+		}
+		return r;
+	}
+	function linkTo_UnCryptMailto(s)	{
+		location.href=UnCryptMailto(s);
+	}
+	</script>
+	
+	<script type="text/javascript">
+	function recordOutboundLink(link, category, action) {
+	  try {
+	    var pageTracker=_gat._getTracker("UA-XXXXX-X");
+	    pageTracker._trackEvent(category, action);
+	    setTimeout('document.location = "' + link.href + '"', 100)
+	  }catch(err){}
+	}
+	</script>
+	
+</head>
+
+<body>
+
+	
+	<!-- <div class="space30"></div> -->
+	
+	<!-- Content -->
+	<div class="content">
+		<div class="container" id="header">
+			<div class="row">
+				<div class="col-md-12 text-right">
+										<form method="post" style="display: none;" action="/login/" id="login-form">
+						<div class="row">
+							<div class="col-md-10 col-md-offset-2">
+								<input type="hidden" name="next_raw" value="/"/>
+								<input type="hidden" name="autologin" value="1"/>
+								<input type="text" name="login_user" placeholder="Username" class="form-control input-sm" style="display: inline-block; width: 25%;"/>
+								<input type="password" name="password" placeholder="Password" class="form-control input-sm" style="display: inline-block; width: 25%;"/>
+																<button type="submit" class="btn btn-default btn-sm" style="display: inline-block; margin-right: 10px;"><span class="fa fa-sign-in fa-lg"></span> <strong>sign in</strong></button>
+																<a href="/register"><i class="fa fa-user-plus"></i> sign up</a> 
+								<a href="/forgot"><i class="fa fa-question-circle"></i> forgot</a>
+				        									</div>
+						</div>
+					</form>
+										
+					
+				</div>
+			</div>
+		
+			<div class="row">
+				<div class="col-md-4">
+					<a href="/" class="navbar-brand">
+						<img src="//stx1.spoj.com/gfx/2015e.png" style="height: 40px;"/>
+					</a>
+					<div class="navbar-header">
+				      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+				        <span class="sr-only">Toggle navigation</span>
+				        <i class="fa fa-bars"></i>
+				      </button>
+				    </div>
+				</div>
+				<div class="col-md-8" id="menu">
+				
+					
+					<div class="row">
+					<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation"  style="border: 0px;">
+				      <ul class="nav navbar-nav" style="  float: right; margin-top: 10px;">
+				      						        <li >
+					          <a href="/problems"><i class="fa fa-puzzle-piece"></i> PROBLEMS</a>
+					        </li>
+					        					        <li >
+					          <a href="/status"><i class="fa fa-circle"></i> STATUS</a>
+					        </li>
+					        <li >
+					          <a href="/ranks"><i class="fa fa-trophy"></i> RANKS</a>
+					        </li>
+					        <li >
+					          <a href="http://spoj.com/forum"><i class="fa fa-comments-o"></i> DISCUSS</a>
+					        </li>
+					        <li >
+					          <a href="/contests">CONTESTS</a>
+					        </li>
+											        					        <li >
+					        	<a href="/login" class="text-success" onclick="$('#login-form').show(); $('input[name=login_user]').focus(); return false;"><i class="fa fa-sign-in"></i> sign in</a>
+					        </li>
+					        						
+				        
+				      </ul>
+				    </nav>
+				    </div>
+				    
+				    
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class="container" id="menu">
+			
+		</div>
+		
+		<div class="container" id="content">
+		<div class="submenu">
+	<ol class="">
+			<li></li>
+		</ol>
+	
+	<ol class="navbar-right">
+			<li><a href="/status/rivudas/">History of submissions</a></li>
+		<li>(<a href="/status/rivudas/signedlist/">plaintext version</a>)</li>
+	</ol>
+	
+</div>
+
+<div>
+<div class="row">
+	<div class="col-md-3" id="user-profile-left">
+		<img  class="img-thumbnail" width="100%" style="max-width: 262px;" src="http://www.gravatar.com/avatar/33ff367a9e068bd1d8c79650f0ea541a?s=290&20180418" class="avatar small-left-margin">
+		<h3>Rivu Das</h3>		<h4>@rivudas</h4>
+		<p><i class="fa fa-map-marker"></i> India, Noida</p>		<p><i class="fa fa-clock-o"></i> Joined Aug 2013</p>
+		<p><i class="fa fa-trophy"></i> World Rank: #58 (211.1 points)</p>
+		<p><i class="fa fa-building-o "></i> Institution: IIIT Allahabad</p>				
+		
+		
+			</div>
+	<div class="col-md-9">
+	
+		<center>
+		<div class="c728x90"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-4453360425583535"
+     data-ad-slot="4026799034"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+		</center>
+	
+						<div class="row row-centered">
+			<div class="col-md-12">
+				<h3>Activity over the last year</h3>
+				<div class="top-4 col-centered" id="cal-heatmap"></div>
+
+				<h3 class="top-4">Effectiveness</h3>
+				<div class="row">
+					<div class="col-md-6 text-center valign-center">
+						<dl class="dl-horizontal profile-info-data profile-info-data-stats">
+							<dt><span class="fa fa-check fa-fw"></span>&nbsp;Problems solved</dt>
+								<dd>528</dd>
+							<dt><span class="fa fa-send fa-fw"></span>&nbsp;Solutions submitted</dt>
+								<dd>3078</dd>
+						</dl>
+					</div>
+					<div class="col-md-6">
+						<div id="chart_div"></div>
+					</div>
+				</div>
+				
+				<script type="text/javascript">
+					function BackTime(date) {
+						var y = date.getFullYear(),
+							m = date.getMonth();
+						return new Date(y-1, m+1, 15);
+					}
+					
+					function drawChart() {
+
+						var data = new google.visualization.DataTable();
+							data.addColumn('string', '?');
+							data.addColumn('number', 'ACC');
+							data.addColumn('number', 'WA');
+							data.addColumn('number', 'TLE');
+							data.addColumn('number', 'RE');
+							data.addColumn('number', 'CE');
+							data.addRows([
+							
+							['Submissions', 1399, 890, 278, 189, 85]
+							
+						]);
+	
+						var options = {
+							isStacked: 'percent',
+							pieSliceText: 'label',
+							colors: ['#348d34', '#ec971f', '#ec971f', '#c9302c', '#c9302c'],
+							//colors:['#00C030','#F09A24','#F09A24','#F09A24','#F09A24'],
+							'width':400,
+							'height':100,
+							chartArea:{left:10,top:10,width:'90%',height:'90%'},
+							fontName: '@font-family-base',
+							legend: {
+								position: 'top',
+								textStyle: {
+									fontName: '@font-family-base',
+									bold: true
+							}},
+							hAxis: {
+					            minValue: 0,
+					            ticks: [0, .25, .5, .75, 1]
+					          }
+						};
+	
+						var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+						chart.draw(data, options);
+					}
+					
+					$(document).ready(function(){
+					
+						var cal = new CalHeatMap();
+						cal.init({
+							domain: "month",
+							subDomain: "day",
+							domainGutter: 3,
+							tooltip: true,
+							start: BackTime(new Date()),
+							maxDate: new Date(),
+							colLimit: 4,
+							legend: [10, 20, 30, 40],
+							itemName: ["submission", "submissions"],
+							data: '/calendar/?ajax=1&uid=206805&start={{d:start}}&stop={{d:end}}'
+						});
+					});
+					
+					google.load('visualization', '1.0', {'packages':['corechart']});
+					google.setOnLoadCallback(drawChart);
+				</script>
+				
+				
+						
+			</div>
+		</div>
+
+		<h3 class="top-4 text-center">Problems</h3>
+		<div class="row row-centered" id="user-profile-tables">
+			<div class="col-md-12">
+				<h4>List of solved classical problems:</h4>
+				<table class="table table-condensed">
+								<tr>
+				<td align="left" width="14%"><a href="/status/AAC2,rivudas/">AAC2</a></td>
+				<td align="left" width="14%"><a href="/status/CHICKEGG,rivudas/">CHICKEGG</a></td>
+				<td align="left" width="14%"><a href="/status/EASYFACT,rivudas/">EASYFACT</a></td>
+				<td align="left" width="14%"><a href="/status/HS09EQ,rivudas/">HS09EQ</a></td>
+				<td align="left" width="14%"><a href="/status/MARYBMW,rivudas/">MARYBMW</a></td>
+				<td align="left" width="14%"><a href="/status/POWERPHI,rivudas/">POWERPHI</a></td>
+				<td align="left" width="14%"><a href="/status/SPEC_SET,rivudas/">SPEC_SET</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ABSP1,rivudas/">ABSP1</a></td>
+				<td align="left" width="14%"><a href="/status/CHOTU,rivudas/">CHOTU</a></td>
+				<td align="left" width="14%"><a href="/status/EASYPROB,rivudas/">EASYPROB</a></td>
+				<td align="left" width="14%"><a href="/status/HUBULLU,rivudas/">HUBULLU</a></td>
+				<td align="left" width="14%"><a href="/status/MAXLN,rivudas/">MAXLN</a></td>
+				<td align="left" width="14%"><a href="/status/POWERUP,rivudas/">POWERUP</a></td>
+				<td align="left" width="14%"><a href="/status/SPEED,rivudas/">SPEED</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACMT,rivudas/">ACMT</a></td>
+				<td align="left" width="14%"><a href="/status/CIPHERJ,rivudas/">CIPHERJ</a></td>
+				<td align="left" width="14%"><a href="/status/EBOXES,rivudas/">EBOXES</a></td>
+				<td align="left" width="14%"><a href="/status/IAPCR2D,rivudas/">IAPCR2D</a></td>
+				<td align="left" width="14%"><a href="/status/MAXRAD,rivudas/">MAXRAD</a></td>
+				<td align="left" width="14%"><a href="/status/POWFIB,rivudas/">POWFIB</a></td>
+				<td align="left" width="14%"><a href="/status/SPIKES,rivudas/">SPIKES</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACPC10A,rivudas/">ACPC10A</a></td>
+				<td align="left" width="14%"><a href="/status/CIRCLE_E,rivudas/">CIRCLE_E</a></td>
+				<td align="left" width="14%"><a href="/status/EC_CONB,rivudas/">EC_CONB</a></td>
+				<td align="left" width="14%"><a href="/status/IAPCR2F,rivudas/">IAPCR2F</a></td>
+				<td align="left" width="14%"><a href="/status/MAX_NUM,rivudas/">MAX_NUM</a></td>
+				<td align="left" width="14%"><a href="/status/PPBRJB,rivudas/">PPBRJB</a></td>
+				<td align="left" width="14%"><a href="/status/SPLITS,rivudas/">SPLITS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACPC11B,rivudas/">ACPC11B</a></td>
+				<td align="left" width="14%"><a href="/status/CLASSICO,rivudas/">CLASSICO</a></td>
+				<td align="left" width="14%"><a href="/status/EC_ESTA,rivudas/">EC_ESTA</a></td>
+				<td align="left" width="14%"><a href="/status/ICANDIES,rivudas/">ICANDIES</a></td>
+				<td align="left" width="14%"><a href="/status/MAY99_4,rivudas/">MAY99_4</a></td>
+				<td align="left" width="14%"><a href="/status/PPBRQ,rivudas/">PPBRQ</a></td>
+				<td align="left" width="14%"><a href="/status/SQRMINSUM,rivudas/">SQRMINSUM</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACPC11C,rivudas/">ACPC11C</a></td>
+				<td align="left" width="14%"><a href="/status/CLONES,rivudas/">CLONES</a></td>
+				<td align="left" width="14%"><a href="/status/EDIST,rivudas/">EDIST</a></td>
+				<td align="left" width="14%"><a href="/status/ICC,rivudas/">ICC</a></td>
+				<td align="left" width="14%"><a href="/status/MB1,rivudas/">MB1</a></td>
+				<td align="left" width="14%"><a href="/status/PR003004,rivudas/">PR003004</a></td>
+				<td align="left" width="14%"><a href="/status/STAMPS,rivudas/">STAMPS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACT,rivudas/">ACT</a></td>
+				<td align="left" width="14%"><a href="/status/CMG,rivudas/">CMG</a></td>
+				<td align="left" width="14%"><a href="/status/EGYPIZZA,rivudas/">EGYPIZZA</a></td>
+				<td align="left" width="14%"><a href="/status/ICKHELLO,rivudas/">ICKHELLO</a></td>
+				<td align="left" width="14%"><a href="/status/MCUR98,rivudas/">MCUR98</a></td>
+				<td align="left" width="14%"><a href="/status/PRESIDEN,rivudas/">PRESIDEN</a></td>
+				<td align="left" width="14%"><a href="/status/STARSBC,rivudas/">STARSBC</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADDREV,rivudas/">ADDREV</a></td>
+				<td align="left" width="14%"><a href="/status/CMPSSTR,rivudas/">CMPSSTR</a></td>
+				<td align="left" width="14%"><a href="/status/EIGHTS,rivudas/">EIGHTS</a></td>
+				<td align="left" width="14%"><a href="/status/ICPC12C,rivudas/">ICPC12C</a></td>
+				<td align="left" width="14%"><a href="/status/MIFF,rivudas/">MIFF</a></td>
+				<td align="left" width="14%"><a href="/status/PRIME1,rivudas/">PRIME1</a></td>
+				<td align="left" width="14%"><a href="/status/STAVATAR,rivudas/">STAVATAR</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADJDUCKS,rivudas/">ADJDUCKS</a></td>
+				<td align="left" width="14%"><a href="/status/CNTINDX,rivudas/">CNTINDX</a></td>
+				<td align="left" width="14%"><a href="/status/EKO,rivudas/">EKO</a></td>
+				<td align="left" width="14%"><a href="/status/IDC1948,rivudas/">IDC1948</a></td>
+				<td align="left" width="14%"><a href="/status/MINCOUNT,rivudas/">MINCOUNT</a></td>
+				<td align="left" width="14%"><a href="/status/PRINT,rivudas/">PRINT</a></td>
+				<td align="left" width="14%"><a href="/status/STPAR,rivudas/">STPAR</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADSPROP,rivudas/">ADSPROP</a></td>
+				<td align="left" width="14%"><a href="/status/CODCHESS,rivudas/">CODCHESS</a></td>
+				<td align="left" width="14%"><a href="/status/ELPESUM,rivudas/">ELPESUM</a></td>
+				<td align="left" width="14%"><a href="/status/IEEEBGAM,rivudas/">IEEEBGAM</a></td>
+				<td align="left" width="14%"><a href="/status/MINI,rivudas/">MINI</a></td>
+				<td align="left" width="14%"><a href="/status/PRISMSA,rivudas/">PRISMSA</a></td>
+				<td align="left" width="14%"><a href="/status/SUFEQPRE,rivudas/">SUFEQPRE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADST01,rivudas/">ADST01</a></td>
+				<td align="left" width="14%"><a href="/status/CODEIT03,rivudas/">CODEIT03</a></td>
+				<td align="left" width="14%"><a href="/status/EMTY2,rivudas/">EMTY2</a></td>
+				<td align="left" width="14%"><a href="/status/IGAME,rivudas/">IGAME</a></td>
+				<td align="left" width="14%"><a href="/status/MINNUM,rivudas/">MINNUM</a></td>
+				<td align="left" width="14%"><a href="/status/PRJAN15B,rivudas/">PRJAN15B</a></td>
+				<td align="left" width="14%"><a href="/status/SUMITR,rivudas/">SUMITR</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AE00,rivudas/">AE00</a></td>
+				<td align="left" width="14%"><a href="/status/CODEM4,rivudas/">CODEM4</a></td>
+				<td align="left" width="14%"><a href="/status/EMTY3,rivudas/">EMTY3</a></td>
+				<td align="left" width="14%"><a href="/status/IITD4,rivudas/">IITD4</a></td>
+				<td align="left" width="14%"><a href="/status/MKLABELS,rivudas/">MKLABELS</a></td>
+				<td align="left" width="14%"><a href="/status/PRJAN15C,rivudas/">PRJAN15C</a></td>
+				<td align="left" width="14%"><a href="/status/SUMPRO,rivudas/">SUMPRO</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AFS,rivudas/">AFS</a></td>
+				<td align="left" width="14%"><a href="/status/CODERE3,rivudas/">CODERE3</a></td>
+				<td align="left" width="14%"><a href="/status/ENIGMATH,rivudas/">ENIGMATH</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCB,rivudas/">IITKWPCB</a></td>
+				<td align="left" width="14%"><a href="/status/MKUHAR,rivudas/">MKUHAR</a></td>
+				<td align="left" width="14%"><a href="/status/PRJAN15F,rivudas/">PRJAN15F</a></td>
+				<td align="left" width="14%"><a href="/status/SYNC13C,rivudas/">SYNC13C</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AJOB,rivudas/">AJOB</a></td>
+				<td align="left" width="14%"><a href="/status/CODESPTB,rivudas/">CODESPTB</a></td>
+				<td align="left" width="14%"><a href="/status/EQU2,rivudas/">EQU2</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCD,rivudas/">IITKWPCD</a></td>
+				<td align="left" width="14%"><a href="/status/MLK,rivudas/">MLK</a></td>
+				<td align="left" width="14%"><a href="/status/PRLGAME2,rivudas/">PRLGAME2</a></td>
+				<td align="left" width="14%"><a href="/status/TANDC,rivudas/">TANDC</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AKVOD05,rivudas/">AKVOD05</a></td>
+				<td align="left" width="14%"><a href="/status/CODFURY,rivudas/">CODFURY</a></td>
+				<td align="left" width="14%"><a href="/status/EQUIPASS,rivudas/">EQUIPASS</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCE,rivudas/">IITKWPCE</a></td>
+				<td align="left" width="14%"><a href="/status/MOHIB,rivudas/">MOHIB</a></td>
+				<td align="left" width="14%"><a href="/status/PROBLEM4,rivudas/">PROBLEM4</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2013C,rivudas/">TAP2013C</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AKVOD06,rivudas/">AKVOD06</a></td>
+				<td align="left" width="14%"><a href="/status/CODGRF,rivudas/">CODGRF</a></td>
+				<td align="left" width="14%"><a href="/status/ESYRCRTN,rivudas/">ESYRCRTN</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCF,rivudas/">IITKWPCF</a></td>
+				<td align="left" width="14%"><a href="/status/MOHIBTREE,rivudas/">MOHIBTREE</a></td>
+				<td align="left" width="14%"><a href="/status/PROFF,rivudas/">PROFF</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2013G,rivudas/">TAP2013G</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AKVQLD03,rivudas/">AKVQLD03</a></td>
+				<td align="left" width="14%"><a href="/status/COINS,rivudas/">COINS</a></td>
+				<td align="left" width="14%"><a href="/status/ETF,rivudas/">ETF</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCG,rivudas/">IITKWPCG</a></td>
+				<td align="left" width="14%"><a href="/status/MSCHED,rivudas/">MSCHED</a></td>
+				<td align="left" width="14%"><a href="/status/PSYCHO3,rivudas/">PSYCHO3</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2013H,rivudas/">TAP2013H</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMR10G,rivudas/">AMR10G</a></td>
+				<td align="left" width="14%"><a href="/status/COMPLEX2,rivudas/">COMPLEX2</a></td>
+				<td align="left" width="14%"><a href="/status/ETFD,rivudas/">ETFD</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCH,rivudas/">IITKWPCH</a></td>
+				<td align="left" width="14%"><a href="/status/MTREE,rivudas/">MTREE</a></td>
+				<td align="left" width="14%"><a href="/status/PSYCHON,rivudas/">PSYCHON</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2014B,rivudas/">TAP2014B</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMR12D,rivudas/">AMR12D</a></td>
+				<td align="left" width="14%"><a href="/status/CONOR,rivudas/">CONOR</a></td>
+				<td align="left" width="14%"><a href="/status/ETFS,rivudas/">ETFS</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCO,rivudas/">IITKWPCO</a></td>
+				<td align="left" width="14%"><a href="/status/MYQ1,rivudas/">MYQ1</a></td>
+				<td align="left" width="14%"><a href="/status/PSYCHOT,rivudas/">PSYCHOT</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2014G,rivudas/">TAP2014G</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMR12I,rivudas/">AMR12I</a></td>
+				<td align="left" width="14%"><a href="/status/COURAGE,rivudas/">COURAGE</a></td>
+				<td align="left" width="14%"><a href="/status/FACENEMY,rivudas/">FACENEMY</a></td>
+				<td align="left" width="14%"><a href="/status/IITWPC4A,rivudas/">IITWPC4A</a></td>
+				<td align="left" width="14%"><a href="/status/MYQ7,rivudas/">MYQ7</a></td>
+				<td align="left" width="14%"><a href="/status/PTIME,rivudas/">PTIME</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2015C,rivudas/">TAP2015C</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMSCO1,rivudas/">AMSCO1</a></td>
+				<td align="left" width="14%"><a href="/status/CPCRC1C,rivudas/">CPCRC1C</a></td>
+				<td align="left" width="14%"><a href="/status/FACTCG2,rivudas/">FACTCG2</a></td>
+				<td align="left" width="14%"><a href="/status/IITWPC4B,rivudas/">IITWPC4B</a></td>
+				<td align="left" width="14%"><a href="/status/MZVRK,rivudas/">MZVRK</a></td>
+				<td align="left" width="14%"><a href="/status/PUCMM009,rivudas/">PUCMM009</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2015H,rivudas/">TAP2015H</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMSCO2,rivudas/">AMSCO2</a></td>
+				<td align="left" width="14%"><a href="/status/CPRMT,rivudas/">CPRMT</a></td>
+				<td align="left" width="14%"><a href="/status/FACTMUL,rivudas/">FACTMUL</a></td>
+				<td align="left" width="14%"><a href="/status/IITWPC4C,rivudas/">IITWPC4C</a></td>
+				<td align="left" width="14%"><a href="/status/M_SEQ,rivudas/">M_SEQ</a></td>
+				<td align="left" width="14%"><a href="/status/PUCMM210,rivudas/">PUCMM210</a></td>
+				<td align="left" width="14%"><a href="/status/TEAM2,rivudas/">TEAM2</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMZRCK,rivudas/">AMZRCK</a></td>
+				<td align="left" width="14%"><a href="/status/CRAN01,rivudas/">CRAN01</a></td>
+				<td align="left" width="14%"><a href="/status/FACTMULN,rivudas/">FACTMULN</a></td>
+				<td align="left" width="14%"><a href="/status/IITWPC4D,rivudas/">IITWPC4D</a></td>
+				<td align="left" width="14%"><a href="/status/NAGAY,rivudas/">NAGAY</a></td>
+				<td align="left" width="14%"><a href="/status/PUCMM334,rivudas/">PUCMM334</a></td>
+				<td align="left" width="14%"><a href="/status/TESSER,rivudas/">TESSER</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMZSEQ,rivudas/">AMZSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/CRAZYSK,rivudas/">CRAZYSK</a></td>
+				<td align="left" width="14%"><a href="/status/FAMWEALT,rivudas/">FAMWEALT</a></td>
+				<td align="left" width="14%"><a href="/status/IITWPC4H,rivudas/">IITWPC4H</a></td>
+				<td align="left" width="14%"><a href="/status/NAIVELOK,rivudas/">NAIVELOK</a></td>
+				<td align="left" width="14%"><a href="/status/QCJ3,rivudas/">QCJ3</a></td>
+				<td align="left" width="14%"><a href="/status/TEST,rivudas/">TEST</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANAGR,rivudas/">ANAGR</a></td>
+				<td align="left" width="14%"><a href="/status/CRDS,rivudas/">CRDS</a></td>
+				<td align="left" width="14%"><a href="/status/FANCY,rivudas/">FANCY</a></td>
+				<td align="left" width="14%"><a href="/status/IITWPC4I,rivudas/">IITWPC4I</a></td>
+				<td align="left" width="14%"><a href="/status/NAJ0001,rivudas/">NAJ0001</a></td>
+				<td align="left" width="14%"><a href="/status/QUADAREA,rivudas/">QUADAREA</a></td>
+				<td align="left" width="14%"><a href="/status/TETRAHED,rivudas/">TETRAHED</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC09A,rivudas/">ANARC09A</a></td>
+				<td align="left" width="14%"><a href="/status/CRNVALEN,rivudas/">CRNVALEN</a></td>
+				<td align="left" width="14%"><a href="/status/FASHION,rivudas/">FASHION</a></td>
+				<td align="left" width="14%"><a href="/status/IITWPC4J,rivudas/">IITWPC4J</a></td>
+				<td align="left" width="14%"><a href="/status/NAJGC,rivudas/">NAJGC</a></td>
+				<td align="left" width="14%"><a href="/status/RAFANOLE,rivudas/">RAFANOLE</a></td>
+				<td align="left" width="14%"><a href="/status/TIP1,rivudas/">TIP1</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC09C,rivudas/">ANARC09C</a></td>
+				<td align="left" width="14%"><a href="/status/CUBE,rivudas/">CUBE</a></td>
+				<td align="left" width="14%"><a href="/status/FATAWY,rivudas/">FATAWY</a></td>
+				<td align="left" width="14%"><a href="/status/IMBOX,rivudas/">IMBOX</a></td>
+				<td align="left" width="14%"><a href="/status/NAJHQ,rivudas/">NAJHQ</a></td>
+				<td align="left" width="14%"><a href="/status/RANGESUM,rivudas/">RANGESUM</a></td>
+				<td align="left" width="14%"><a href="/status/TIPTOP,rivudas/">TIPTOP</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AP2,rivudas/">AP2</a></td>
+				<td align="left" width="14%"><a href="/status/CUBEFR,rivudas/">CUBEFR</a></td>
+				<td align="left" width="14%"><a href="/status/FAVDICE,rivudas/">FAVDICE</a></td>
+				<td align="left" width="14%"><a href="/status/INGRED,rivudas/">INGRED</a></td>
+				<td align="left" width="14%"><a href="/status/NAJMS,rivudas/">NAJMS</a></td>
+				<td align="left" width="14%"><a href="/status/RANGZER2,rivudas/">RANGZER2</a></td>
+				<td align="left" width="14%"><a href="/status/TMSUM,rivudas/">TMSUM</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AP3,rivudas/">AP3</a></td>
+				<td align="left" width="14%"><a href="/status/CUBES,rivudas/">CUBES</a></td>
+				<td align="left" width="14%"><a href="/status/FCDC,rivudas/">FCDC</a></td>
+				<td align="left" width="14%"><a href="/status/INS14A,rivudas/">INS14A</a></td>
+				<td align="left" width="14%"><a href="/status/NAJPF,rivudas/">NAJPF</a></td>
+				<td align="left" width="14%"><a href="/status/RDRUG,rivudas/">RDRUG</a></td>
+				<td align="left" width="14%"><a href="/status/TOANDFRO,rivudas/">TOANDFRO</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/APCER,rivudas/">APCER</a></td>
+				<td align="left" width="14%"><a href="/status/CURDPROD,rivudas/">CURDPROD</a></td>
+				<td align="left" width="14%"><a href="/status/FCTRL,rivudas/">FCTRL</a></td>
+				<td align="left" width="14%"><a href="/status/INS14B,rivudas/">INS14B</a></td>
+				<td align="left" width="14%"><a href="/status/NAJPWG,rivudas/">NAJPWG</a></td>
+				<td align="left" width="14%"><a href="/status/REBOUND,rivudas/">REBOUND</a></td>
+				<td align="left" width="14%"><a href="/status/TRANCLS,rivudas/">TRANCLS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/APPROB,rivudas/">APPROB</a></td>
+				<td align="left" width="14%"><a href="/status/CUTCAKE,rivudas/">CUTCAKE</a></td>
+				<td align="left" width="14%"><a href="/status/FCTRL2,rivudas/">FCTRL2</a></td>
+				<td align="left" width="14%"><a href="/status/INS14C,rivudas/">INS14C</a></td>
+				<td align="left" width="14%"><a href="/status/NAKANJ,rivudas/">NAKANJ</a></td>
+				<td align="left" width="14%"><a href="/status/RKS,rivudas/">RKS</a></td>
+				<td align="left" width="14%"><a href="/status/TREEORD,rivudas/">TREEORD</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/APS,rivudas/">APS</a></td>
+				<td align="left" width="14%"><a href="/status/CWB,rivudas/">CWB</a></td>
+				<td align="left" width="14%"><a href="/status/FENCE1,rivudas/">FENCE1</a></td>
+				<td align="left" width="14%"><a href="/status/INS14D,rivudas/">INS14D</a></td>
+				<td align="left" width="14%"><a href="/status/NATALIAG,rivudas/">NATALIAG</a></td>
+				<td align="left" width="14%"><a href="/status/RLCIPHER,rivudas/">RLCIPHER</a></td>
+				<td align="left" width="14%"><a href="/status/TRGRID,rivudas/">TRGRID</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARMY,rivudas/">ARMY</a></td>
+				<td align="left" width="14%"><a href="/status/CWC2015,rivudas/">CWC2015</a></td>
+				<td align="left" width="14%"><a href="/status/FIBOSQRT,rivudas/">FIBOSQRT</a></td>
+				<td align="left" width="14%"><a href="/status/INS14E,rivudas/">INS14E</a></td>
+				<td align="left" width="14%"><a href="/status/NAUGHTY,rivudas/">NAUGHTY</a></td>
+				<td align="left" width="14%"><a href="/status/RLE,rivudas/">RLE</a></td>
+				<td align="left" width="14%"><a href="/status/TRICOUNT,rivudas/">TRICOUNT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ASCDFIB,rivudas/">ASCDFIB</a></td>
+				<td align="left" width="14%"><a href="/status/CYLINDER,rivudas/">CYLINDER</a></td>
+				<td align="left" width="14%"><a href="/status/FINGP,rivudas/">FINGP</a></td>
+				<td align="left" width="14%"><a href="/status/INS14F,rivudas/">INS14F</a></td>
+				<td align="left" width="14%"><a href="/status/NBIN,rivudas/">NBIN</a></td>
+				<td align="left" width="14%"><a href="/status/RLTOUR,rivudas/">RLTOUR</a></td>
+				<td align="left" width="14%"><a href="/status/TRIGALGE,rivudas/">TRIGALGE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ATOMS,rivudas/">ATOMS</a></td>
+				<td align="left" width="14%"><a href="/status/DALTSUM,rivudas/">DALTSUM</a></td>
+				<td align="left" width="14%"><a href="/status/FLWRS,rivudas/">FLWRS</a></td>
+				<td align="left" width="14%"><a href="/status/INS14G,rivudas/">INS14G</a></td>
+				<td align="left" width="14%"><a href="/status/NCLNE,rivudas/">NCLNE</a></td>
+				<td align="left" width="14%"><a href="/status/ROHAAN,rivudas/">ROHAAN</a></td>
+				<td align="left" width="14%"><a href="/status/TRIISO,rivudas/">TRIISO</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AU7_5,rivudas/">AU7_5</a></td>
+				<td align="left" width="14%"><a href="/status/DBALLZ,rivudas/">DBALLZ</a></td>
+				<td align="left" width="14%"><a href="/status/FONTSIZE,rivudas/">FONTSIZE</a></td>
+				<td align="left" width="14%"><a href="/status/INS14I,rivudas/">INS14I</a></td>
+				<td align="left" width="14%"><a href="/status/NDIV,rivudas/">NDIV</a></td>
+				<td align="left" width="14%"><a href="/status/ROOTCIPH,rivudas/">ROOTCIPH</a></td>
+				<td align="left" width="14%"><a href="/status/TRNGL,rivudas/">TRNGL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BADXOR,rivudas/">BADXOR</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC11B,rivudas/">DCEPC11B</a></td>
+				<td align="left" width="14%"><a href="/status/FOXLINGS,rivudas/">FOXLINGS</a></td>
+				<td align="left" width="14%"><a href="/status/INS14J,rivudas/">INS14J</a></td>
+				<td align="left" width="14%"><a href="/status/NFURY,rivudas/">NFURY</a></td>
+				<td align="left" width="14%"><a href="/status/RPLC,rivudas/">RPLC</a></td>
+				<td align="left" width="14%"><a href="/status/TRVCOST,rivudas/">TRVCOST</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BAT1,rivudas/">BAT1</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC11I,rivudas/">DCEPC11I</a></td>
+				<td align="left" width="14%"><a href="/status/FRMT,rivudas/">FRMT</a></td>
+				<td align="left" width="14%"><a href="/status/INS14K,rivudas/">INS14K</a></td>
+				<td align="left" width="14%"><a href="/status/NINJA3,rivudas/">NINJA3</a></td>
+				<td align="left" width="14%"><a href="/status/RPLH,rivudas/">RPLH</a></td>
+				<td align="left" width="14%"><a href="/status/TULIPNUM,rivudas/">TULIPNUM</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BAT3,rivudas/">BAT3</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC12E,rivudas/">DCEPC12E</a></td>
+				<td align="left" width="14%"><a href="/status/FRND,rivudas/">FRND</a></td>
+				<td align="left" width="14%"><a href="/status/INUM,rivudas/">INUM</a></td>
+				<td align="left" width="14%"><a href="/status/NITK06,rivudas/">NITK06</a></td>
+				<td align="left" width="14%"><a href="/status/RPLN,rivudas/">RPLN</a></td>
+				<td align="left" width="14%"><a href="/status/TWOGAME,rivudas/">TWOGAME</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BDOI16A,rivudas/">BDOI16A</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC12G,rivudas/">DCEPC12G</a></td>
+				<td align="left" width="14%"><a href="/status/FRNDCIRC,rivudas/">FRNDCIRC</a></td>
+				<td align="left" width="14%"><a href="/status/INVCNT,rivudas/">INVCNT</a></td>
+				<td align="left" width="14%"><a href="/status/NITT8,rivudas/">NITT8</a></td>
+				<td align="left" width="14%"><a href="/status/RROOT,rivudas/">RROOT</a></td>
+				<td align="left" width="14%"><a href="/status/UCV2013I,rivudas/">UCV2013I</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BDOI16B,rivudas/">BDOI16B</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC12H,rivudas/">DCEPC12H</a></td>
+				<td align="left" width="14%"><a href="/status/FRONT,rivudas/">FRONT</a></td>
+				<td align="left" width="14%"><a href="/status/IOPC1204,rivudas/">IOPC1204</a></td>
+				<td align="left" width="14%"><a href="/status/NPC2014B,rivudas/">NPC2014B</a></td>
+				<td align="left" width="14%"><a href="/status/RTREE,rivudas/">RTREE</a></td>
+				<td align="left" width="14%"><a href="/status/UCV2013J,rivudas/">UCV2013J</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BEENUMS,rivudas/">BEENUMS</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC13D,rivudas/">DCEPC13D</a></td>
+				<td align="left" width="14%"><a href="/status/FRSCR,rivudas/">FRSCR</a></td>
+				<td align="left" width="14%"><a href="/status/IPL1,rivudas/">IPL1</a></td>
+				<td align="left" width="14%"><a href="/status/NPC2014F,rivudas/">NPC2014F</a></td>
+				<td align="left" width="14%"><a href="/status/RTREE2,rivudas/">RTREE2</a></td>
+				<td align="left" width="14%"><a href="/status/UJ01,rivudas/">UJ01</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BGRAVITY,rivudas/">BGRAVITY</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC14G,rivudas/">DCEPC14G</a></td>
+				<td align="left" width="14%"><a href="/status/FTHEELF,rivudas/">FTHEELF</a></td>
+				<td align="left" width="14%"><a href="/status/IRECSQRT,rivudas/">IRECSQRT</a></td>
+				<td align="left" width="14%"><a href="/status/NPC2014G,rivudas/">NPC2014G</a></td>
+				<td align="left" width="14%"><a href="/status/SACITY,rivudas/">SACITY</a></td>
+				<td align="left" width="14%"><a href="/status/ULM02,rivudas/">ULM02</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BGTSTR,rivudas/">BGTSTR</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC203,rivudas/">DCEPC203</a></td>
+				<td align="left" width="14%"><a href="/status/GAMES,rivudas/">GAMES</a></td>
+				<td align="left" width="14%"><a href="/status/ISELECT,rivudas/">ISELECT</a></td>
+				<td align="left" width="14%"><a href="/status/NPC2015A,rivudas/">NPC2015A</a></td>
+				<td align="left" width="14%"><a href="/status/SAMER08F,rivudas/">SAMER08F</a></td>
+				<td align="left" width="14%"><a href="/status/ULM09,rivudas/">ULM09</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BIT2,rivudas/">BIT2</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC206,rivudas/">DCEPC206</a></td>
+				<td align="left" width="14%"><a href="/status/GARDENAR,rivudas/">GARDENAR</a></td>
+				<td align="left" width="14%"><a href="/status/JARJAR,rivudas/">JARJAR</a></td>
+				<td align="left" width="14%"><a href="/status/NPC2015D,rivudas/">NPC2015D</a></td>
+				<td align="left" width="14%"><a href="/status/SCPC11B,rivudas/">SCPC11B</a></td>
+				<td align="left" width="14%"><a href="/status/UOFTBC,rivudas/">UOFTBC</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BITPLAY,rivudas/">BITPLAY</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC504,rivudas/">DCEPC504</a></td>
+				<td align="left" width="14%"><a href="/status/GCD3,rivudas/">GCD3</a></td>
+				<td align="left" width="14%"><a href="/status/JC15A,rivudas/">JC15A</a></td>
+				<td align="left" width="14%"><a href="/status/NR1,rivudas/">NR1</a></td>
+				<td align="left" width="14%"><a href="/status/SETNJA,rivudas/">SETNJA</a></td>
+				<td align="left" width="14%"><a href="/status/UOFTBD,rivudas/">UOFTBD</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BLAMOEBA,rivudas/">BLAMOEBA</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC505,rivudas/">DCEPC505</a></td>
+				<td align="left" width="14%"><a href="/status/GCDSQF,rivudas/">GCDSQF</a></td>
+				<td align="left" width="14%"><a href="/status/JNEXT,rivudas/">JNEXT</a></td>
+				<td align="left" width="14%"><a href="/status/NR2,rivudas/">NR2</a></td>
+				<td align="left" width="14%"><a href="/status/SHAKTI,rivudas/">SHAKTI</a></td>
+				<td align="left" width="14%"><a href="/status/UOFTCC,rivudas/">UOFTCC</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BLKEK,rivudas/">BLKEK</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC703,rivudas/">DCEPC703</a></td>
+				<td align="left" width="14%"><a href="/status/GGD,rivudas/">GGD</a></td>
+				<td align="left" width="14%"><a href="/status/JOKER1,rivudas/">JOKER1</a></td>
+				<td align="left" width="14%"><a href="/status/NSTEPS,rivudas/">NSTEPS</a></td>
+				<td align="left" width="14%"><a href="/status/SHELL,rivudas/">SHELL</a></td>
+				<td align="left" width="14%"><a href="/status/UOFTCF,rivudas/">UOFTCF</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BLOPER,rivudas/">BLOPER</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC804,rivudas/">DCEPC804</a></td>
+				<td align="left" width="14%"><a href="/status/GIRLSNBS,rivudas/">GIRLSNBS</a></td>
+				<td align="left" width="14%"><a href="/status/JULKA,rivudas/">JULKA</a></td>
+				<td align="left" width="14%"><a href="/status/ODWS,rivudas/">ODWS</a></td>
+				<td align="left" width="14%"><a href="/status/SHOPPERS,rivudas/">SHOPPERS</a></td>
+				<td align="left" width="14%"><a href="/status/VACATION,rivudas/">VACATION</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOI02TRI,rivudas/">BOI02TRI</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPCA01,rivudas/">DCEPCA01</a></td>
+				<td align="left" width="14%"><a href="/status/GOALFR,rivudas/">GOALFR</a></td>
+				<td align="left" width="14%"><a href="/status/KAOS,rivudas/">KAOS</a></td>
+				<td align="left" width="14%"><a href="/status/OFFSIDE,rivudas/">OFFSIDE</a></td>
+				<td align="left" width="14%"><a href="/status/SHUFFLES,rivudas/">SHUFFLES</a></td>
+				<td align="left" width="14%"><a href="/status/VAPI01,rivudas/">VAPI01</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOKAM143SOU,rivudas/">BOKAM143SOU</a></td>
+				<td align="left" width="14%"><a href="/status/DCOWS,rivudas/">DCOWS</a></td>
+				<td align="left" width="14%"><a href="/status/GOO,rivudas/">GOO</a></td>
+				<td align="left" width="14%"><a href="/status/KATHTHI,rivudas/">KATHTHI</a></td>
+				<td align="left" width="14%"><a href="/status/OFORTUNE,rivudas/">OFORTUNE</a></td>
+				<td align="left" width="14%"><a href="/status/SICRANO,rivudas/">SICRANO</a></td>
+				<td align="left" width="14%"><a href="/status/VBOSS,rivudas/">VBOSS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOMARBLE,rivudas/">BOMARBLE</a></td>
+				<td align="left" width="14%"><a href="/status/DCRYPT,rivudas/">DCRYPT</a></td>
+				<td align="left" width="14%"><a href="/status/GOODB,rivudas/">GOODB</a></td>
+				<td align="left" width="14%"><a href="/status/KCARRY,rivudas/">KCARRY</a></td>
+				<td align="left" width="14%"><a href="/status/OHANIGAME,rivudas/">OHANIGAME</a></td>
+				<td align="left" width="14%"><a href="/status/SID,rivudas/">SID</a></td>
+				<td align="left" width="14%"><a href="/status/VENOM,rivudas/">VENOM</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOWLING1,rivudas/">BOWLING1</a></td>
+				<td align="left" width="14%"><a href="/status/DEADFR,rivudas/">DEADFR</a></td>
+				<td align="left" width="14%"><a href="/status/GOPI_SW,rivudas/">GOPI_SW</a></td>
+				<td align="left" width="14%"><a href="/status/KFSTB,rivudas/">KFSTB</a></td>
+				<td align="left" width="14%"><a href="/status/OHANISER,rivudas/">OHANISER</a></td>
+				<td align="left" width="14%"><a href="/status/SINEGGS,rivudas/">SINEGGS</a></td>
+				<td align="left" width="14%"><a href="/status/VFRIENDS,rivudas/">VFRIENDS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BPORT,rivudas/">BPORT</a></td>
+				<td align="left" width="14%"><a href="/status/DEFKIN,rivudas/">DEFKIN</a></td>
+				<td align="left" width="14%"><a href="/status/GP1,rivudas/">GP1</a></td>
+				<td align="left" width="14%"><a href="/status/KHANS,rivudas/">KHANS</a></td>
+				<td align="left" width="14%"><a href="/status/OLOLO,rivudas/">OLOLO</a></td>
+				<td align="left" width="14%"><a href="/status/SIOKULE,rivudas/">SIOKULE</a></td>
+				<td align="left" width="14%"><a href="/status/VHELSING,rivudas/">VHELSING</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BRDGHRD,rivudas/">BRDGHRD</a></td>
+				<td align="left" width="14%"><a href="/status/DIEHARD,rivudas/">DIEHARD</a></td>
+				<td align="left" width="14%"><a href="/status/GPA1,rivudas/">GPA1</a></td>
+				<td align="left" width="14%"><a href="/status/KINJUTSU,rivudas/">KINJUTSU</a></td>
+				<td align="left" width="14%"><a href="/status/ONP,rivudas/">ONP</a></td>
+				<td align="left" width="14%"><a href="/status/SIRNUMS,rivudas/">SIRNUMS</a></td>
+				<td align="left" width="14%"><a href="/status/VPL0_C,rivudas/">VPL0_C</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BRI,rivudas/">BRI</a></td>
+				<td align="left" width="14%"><a href="/status/DIG,rivudas/">DIG</a></td>
+				<td align="left" width="14%"><a href="/status/GRIMM,rivudas/">GRIMM</a></td>
+				<td align="left" width="14%"><a href="/status/KIT,rivudas/">KIT</a></td>
+				<td align="left" width="14%"><a href="/status/OPBIT,rivudas/">OPBIT</a></td>
+				<td align="left" width="14%"><a href="/status/SLIDE,rivudas/">SLIDE</a></td>
+				<td align="left" width="14%"><a href="/status/VPL2_AA,rivudas/">VPL2_AA</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BRII,rivudas/">BRII</a></td>
+				<td align="left" width="14%"><a href="/status/DIGCNT,rivudas/">DIGCNT</a></td>
+				<td align="left" width="14%"><a href="/status/GRUPVIVA,rivudas/">GRUPVIVA</a></td>
+				<td align="left" width="14%"><a href="/status/KOPC12D,rivudas/">KOPC12D</a></td>
+				<td align="left" width="14%"><a href="/status/OPCTRIP,rivudas/">OPCTRIP</a></td>
+				<td align="left" width="14%"><a href="/status/SMALL,rivudas/">SMALL</a></td>
+				<td align="left" width="14%"><a href="/status/VUDBOL7,rivudas/">VUDBOL7</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BSHIP,rivudas/">BSHIP</a></td>
+				<td align="left" width="14%"><a href="/status/DIGNUM,rivudas/">DIGNUM</a></td>
+				<td align="left" width="14%"><a href="/status/GSCANDY,rivudas/">GSCANDY</a></td>
+				<td align="left" width="14%"><a href="/status/KPRIMESB,rivudas/">KPRIMESB</a></td>
+				<td align="left" width="14%"><a href="/status/PAML,rivudas/">PAML</a></td>
+				<td align="left" width="14%"><a href="/status/SMALLM,rivudas/">SMALLM</a></td>
+				<td align="left" width="14%"><a href="/status/WAL3A,rivudas/">WAL3A</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BUYINT,rivudas/">BUYINT</a></td>
+				<td align="left" width="14%"><a href="/status/DIVEQL,rivudas/">DIVEQL</a></td>
+				<td align="left" width="14%"><a href="/status/GSHOP,rivudas/">GSHOP</a></td>
+				<td align="left" width="14%"><a href="/status/KURUK14,rivudas/">KURUK14</a></td>
+				<td align="left" width="14%"><a href="/status/PARCARD1,rivudas/">PARCARD1</a></td>
+				<td align="left" width="14%"><a href="/status/SMILEY1807,rivudas/">SMILEY1807</a></td>
+				<td align="left" width="14%"><a href="/status/WATER,rivudas/">WATER</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BVAAN,rivudas/">BVAAN</a></td>
+				<td align="left" width="14%"><a href="/status/DIVFACT,rivudas/">DIVFACT</a></td>
+				<td align="left" width="14%"><a href="/status/GSMATRIX,rivudas/">GSMATRIX</a></td>
+				<td align="left" width="14%"><a href="/status/KUSAC,rivudas/">KUSAC</a></td>
+				<td align="left" width="14%"><a href="/status/PCPC12D,rivudas/">PCPC12D</a></td>
+				<td align="left" width="14%"><a href="/status/SNGCP,rivudas/">SNGCP</a></td>
+				<td align="left" width="14%"><a href="/status/WAYHOME,rivudas/">WAYHOME</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BWB,rivudas/">BWB</a></td>
+				<td align="left" width="14%"><a href="/status/DIVFACT3,rivudas/">DIVFACT3</a></td>
+				<td align="left" width="14%"><a href="/status/GUESSING,rivudas/">GUESSING</a></td>
+				<td align="left" width="14%"><a href="/status/LARSUBP,rivudas/">LARSUBP</a></td>
+				<td align="left" width="14%"><a href="/status/PCPC12J,rivudas/">PCPC12J</a></td>
+				<td align="left" width="14%"><a href="/status/SNGDIV69,rivudas/">SNGDIV69</a></td>
+				<td align="left" width="14%"><a href="/status/WILLITST,rivudas/">WILLITST</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BWIDOW,rivudas/">BWIDOW</a></td>
+				<td align="left" width="14%"><a href="/status/DIVFIBS,rivudas/">DIVFIBS</a></td>
+				<td align="left" width="14%"><a href="/status/GUESSTHE,rivudas/">GUESSTHE</a></td>
+				<td align="left" width="14%"><a href="/status/LASER,rivudas/">LASER</a></td>
+				<td align="left" width="14%"><a href="/status/PERMUT2,rivudas/">PERMUT2</a></td>
+				<td align="left" width="14%"><a href="/status/SNGGW,rivudas/">SNGGW</a></td>
+				<td align="left" width="14%"><a href="/status/WPC5A,rivudas/">WPC5A</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BYECAKES,rivudas/">BYECAKES</a></td>
+				<td align="left" width="14%"><a href="/status/DIVISION,rivudas/">DIVISION</a></td>
+				<td align="left" width="14%"><a href="/status/HABLU,rivudas/">HABLU</a></td>
+				<td align="left" width="14%"><a href="/status/LASTDIG,rivudas/">LASTDIG</a></td>
+				<td align="left" width="14%"><a href="/status/PFND,rivudas/">PFND</a></td>
+				<td align="left" width="14%"><a href="/status/SNGINT,rivudas/">SNGINT</a></td>
+				<td align="left" width="14%"><a href="/status/WPC5D,rivudas/">WPC5D</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BYTESE2,rivudas/">BYTESE2</a></td>
+				<td align="left" width="14%"><a href="/status/DOSA,rivudas/">DOSA</a></td>
+				<td align="left" width="14%"><a href="/status/HACKRNDM,rivudas/">HACKRNDM</a></td>
+				<td align="left" width="14%"><a href="/status/LASTDIG2,rivudas/">LASTDIG2</a></td>
+				<td align="left" width="14%"><a href="/status/PFORLOOP,rivudas/">PFORLOOP</a></td>
+				<td align="left" width="14%"><a href="/status/SNGLOOP1,rivudas/">SNGLOOP1</a></td>
+				<td align="left" width="14%"><a href="/status/WPC5I,rivudas/">WPC5I</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BYU15W_2,rivudas/">BYU15W_2</a></td>
+				<td align="left" width="14%"><a href="/status/DOTAA,rivudas/">DOTAA</a></td>
+				<td align="left" width="14%"><a href="/status/HANGOVER,rivudas/">HANGOVER</a></td>
+				<td align="left" width="14%"><a href="/status/LCPC12E,rivudas/">LCPC12E</a></td>
+				<td align="left" width="14%"><a href="/status/PHT,rivudas/">PHT</a></td>
+				<td align="left" width="14%"><a href="/status/SNGMSG,rivudas/">SNGMSG</a></td>
+				<td align="left" width="14%"><a href="/status/WTK,rivudas/">WTK</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/C1TABOVI,rivudas/">C1TABOVI</a></td>
+				<td align="left" width="14%"><a href="/status/DRACULA,rivudas/">DRACULA</a></td>
+				<td align="left" width="14%"><a href="/status/HCT00001,rivudas/">HCT00001</a></td>
+				<td align="left" width="14%"><a href="/status/LCPC12F,rivudas/">LCPC12F</a></td>
+				<td align="left" width="14%"><a href="/status/PIHU1,rivudas/">PIHU1</a></td>
+				<td align="left" width="14%"><a href="/status/SNGNM2,rivudas/">SNGNM2</a></td>
+				<td align="left" width="14%"><a href="/status/XORROUND,rivudas/">XORROUND</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CADYDIST,rivudas/">CADYDIST</a></td>
+				<td align="left" width="14%"><a href="/status/DRINK,rivudas/">DRINK</a></td>
+				<td align="left" width="14%"><a href="/status/HDEVIL,rivudas/">HDEVIL</a></td>
+				<td align="left" width="14%"><a href="/status/LEXSTR,rivudas/">LEXSTR</a></td>
+				<td align="left" width="14%"><a href="/status/PIHU2,rivudas/">PIHU2</a></td>
+				<td align="left" width="14%"><a href="/status/SNGPG,rivudas/">SNGPG</a></td>
+				<td align="left" width="14%"><a href="/status/XYI,rivudas/">XYI</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CANDY,rivudas/">CANDY</a></td>
+				<td align="left" width="14%"><a href="/status/DRUIDEOI,rivudas/">DRUIDEOI</a></td>
+				<td align="left" width="14%"><a href="/status/HELPDONN,rivudas/">HELPDONN</a></td>
+				<td align="left" width="14%"><a href="/status/LOOPEXP,rivudas/">LOOPEXP</a></td>
+				<td align="left" width="14%"><a href="/status/PIR,rivudas/">PIR</a></td>
+				<td align="left" width="14%"><a href="/status/SOCNETC,rivudas/">SOCNETC</a></td>
+				<td align="left" width="14%"><a href="/status/YELBRICK,rivudas/">YELBRICK</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CANDY3,rivudas/">CANDY3</a></td>
+				<td align="left" width="14%"><a href="/status/DSWEETS,rivudas/">DSWEETS</a></td>
+				<td align="left" width="14%"><a href="/status/HG,rivudas/">HG</a></td>
+				<td align="left" width="14%"><a href="/status/LOTGAME,rivudas/">LOTGAME</a></td>
+				<td align="left" width="14%"><a href="/status/PIRACON,rivudas/">PIRACON</a></td>
+				<td align="left" width="14%"><a href="/status/SOLDIERS,rivudas/">SOLDIERS</a></td>
+				<td align="left" width="14%"><a href="/status/YOKOF,rivudas/">YOKOF</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CANTON,rivudas/">CANTON</a></td>
+				<td align="left" width="14%"><a href="/status/DUKKAR,rivudas/">DUKKAR</a></td>
+				<td align="left" width="14%"><a href="/status/HK,rivudas/">HK</a></td>
+				<td align="left" width="14%"><a href="/status/LOVEBIRDS,rivudas/">LOVEBIRDS</a></td>
+				<td align="left" width="14%"><a href="/status/PLNDROME,rivudas/">PLNDROME</a></td>
+				<td align="left" width="14%"><a href="/status/SPCE,rivudas/">SPCE</a></td>
+				<td align="left" width="14%"><a href="/status/YOYOCQM,rivudas/">YOYOCQM</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CARRHIM,rivudas/">CARRHIM</a></td>
+				<td align="left" width="14%"><a href="/status/DURIN,rivudas/">DURIN</a></td>
+				<td align="left" width="14%"><a href="/status/HLP_RAMS,rivudas/">HLP_RAMS</a></td>
+				<td align="left" width="14%"><a href="/status/LOVINGPW,rivudas/">LOVINGPW</a></td>
+				<td align="left" width="14%"><a href="/status/PLYGRND,rivudas/">PLYGRND</a></td>
+				<td align="left" width="14%"><a href="/status/SPCJ,rivudas/">SPCJ</a></td>
+				<td align="left" width="14%"><a href="/status/YUMMY,rivudas/">YUMMY</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CATHETEN,rivudas/">CATHETEN</a></td>
+				<td align="left" width="14%"><a href="/status/DWARFLOG,rivudas/">DWARFLOG</a></td>
+				<td align="left" width="14%"><a href="/status/HOMEW,rivudas/">HOMEW</a></td>
+				<td align="left" width="14%"><a href="/status/LQDCANDY,rivudas/">LQDCANDY</a></td>
+				<td align="left" width="14%"><a href="/status/POCRI,rivudas/">POCRI</a></td>
+				<td align="left" width="14%"><a href="/status/SPCM,rivudas/">SPCM</a></td>
+				<td align="left" width="14%"><a href="/status/ZSUM,rivudas/">ZSUM</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CDC12_B,rivudas/">CDC12_B</a></td>
+				<td align="left" width="14%"><a href="/status/DWRONG,rivudas/">DWRONG</a></td>
+				<td align="left" width="14%"><a href="/status/HONDA,rivudas/">HONDA</a></td>
+				<td align="left" width="14%"><a href="/status/MAIN12B,rivudas/">MAIN12B</a></td>
+				<td align="left" width="14%"><a href="/status/POLCONST,rivudas/">POLCONST</a></td>
+				<td align="left" width="14%"><a href="/status/SPCO,rivudas/">SPCO</a></td>
+				<td align="left" width="14%"><a href="/status/,rivudas/"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CDRSANJ,rivudas/">CDRSANJ</a></td>
+				<td align="left" width="14%"><a href="/status/DYZIO,rivudas/">DYZIO</a></td>
+				<td align="left" width="14%"><a href="/status/HPFORF,rivudas/">HPFORF</a></td>
+				<td align="left" width="14%"><a href="/status/MAJOR,rivudas/">MAJOR</a></td>
+				<td align="left" width="14%"><a href="/status/POLICEMEN,rivudas/">POLICEMEN</a></td>
+				<td align="left" width="14%"><a href="/status/SPCQ,rivudas/">SPCQ</a></td>
+				<td align="left" width="14%"><a href="/status/,rivudas/"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CEQU,rivudas/">CEQU</a></td>
+				<td align="left" width="14%"><a href="/status/EAGLE1,rivudas/">EAGLE1</a></td>
+				<td align="left" width="14%"><a href="/status/HPPROF,rivudas/">HPPROF</a></td>
+				<td align="left" width="14%"><a href="/status/MANGOES,rivudas/">MANGOES</a></td>
+				<td align="left" width="14%"><a href="/status/POTIONS,rivudas/">POTIONS</a></td>
+				<td align="left" width="14%"><a href="/status/SPCS,rivudas/">SPCS</a></td>
+				<td align="left" width="14%"><a href="/status/,rivudas/"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CHGROOM,rivudas/">CHGROOM</a></td>
+				<td align="left" width="14%"><a href="/status/EALP1,rivudas/">EALP1</a></td>
+				<td align="left" width="14%"><a href="/status/HPYNOS,rivudas/">HPYNOS</a></td>
+				<td align="left" width="14%"><a href="/status/MANJFIRE,rivudas/">MANJFIRE</a></td>
+				<td align="left" width="14%"><a href="/status/POWERCAR,rivudas/">POWERCAR</a></td>
+				<td align="left" width="14%"><a href="/status/SPCU,rivudas/">SPCU</a></td>
+				<td align="left" width="14%"><a href="/status/,rivudas/"></a></td>
+				</tr>
+								</table>
+				
+				
+								<h4><span title="List of problems to which solutions were submitted but none of them got AC.">TODO list of classical problems:</span></h4>
+				<table class="table">
+								<tr>
+				<td align="left" width="14%"><a href="/status/AFS2,rivudas/">AFS2</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPCA03,rivudas/">DCEPCA03</a></td>
+				<td align="left" width="14%"><a href="/status/HALD,rivudas/">HALD</a></td>
+				<td align="left" width="14%"><a href="/status/MAXXOR,rivudas/">MAXXOR</a></td>
+				<td align="left" width="14%"><a href="/status/NY10E,rivudas/">NY10E</a></td>
+				<td align="left" width="14%"><a href="/status/REDSUBLIA,rivudas/">REDSUBLIA</a></td>
+				<td align="left" width="14%"><a href="/status/UVA1,rivudas/">UVA1</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AGS,rivudas/">AGS</a></td>
+				<td align="left" width="14%"><a href="/status/DIVCNT2,rivudas/">DIVCNT2</a></td>
+				<td align="left" width="14%"><a href="/status/HEADSHOT,rivudas/">HEADSHOT</a></td>
+				<td align="left" width="14%"><a href="/status/MCHAOS,rivudas/">MCHAOS</a></td>
+				<td align="left" width="14%"><a href="/status/ODDDIV,rivudas/">ODDDIV</a></td>
+				<td align="left" width="14%"><a href="/status/RETRO,rivudas/">RETRO</a></td>
+				<td align="left" width="14%"><a href="/status/VUDBOL5,rivudas/">VUDBOL5</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARRHUDAI,rivudas/">ARRHUDAI</a></td>
+				<td align="left" width="14%"><a href="/status/DIVSUM2,rivudas/">DIVSUM2</a></td>
+				<td align="left" width="14%"><a href="/status/HEXGRAM,rivudas/">HEXGRAM</a></td>
+				<td align="left" width="14%"><a href="/status/MCIRCLE,rivudas/">MCIRCLE</a></td>
+				<td align="left" width="14%"><a href="/status/PALIN,rivudas/">PALIN</a></td>
+				<td align="left" width="14%"><a href="/status/RLCAT,rivudas/">RLCAT</a></td>
+				<td align="left" width="14%"><a href="/status/WITTY,rivudas/">WITTY</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/A_W_S_N,rivudas/">A_W_S_N</a></td>
+				<td align="left" width="14%"><a href="/status/EASYMATH,rivudas/">EASYMATH</a></td>
+				<td align="left" width="14%"><a href="/status/HPYNOSII,rivudas/">HPYNOSII</a></td>
+				<td align="left" width="14%"><a href="/status/MIB,rivudas/">MIB</a></td>
+				<td align="left" width="14%"><a href="/status/PRJAN15G,rivudas/">PRJAN15G</a></td>
+				<td align="left" width="14%"><a href="/status/SKYLINE2,rivudas/">SKYLINE2</a></td>
+				<td align="left" width="14%"><a href="/status/WORDCNT2,rivudas/">WORDCNT2</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BORING,rivudas/">BORING</a></td>
+				<td align="left" width="14%"><a href="/status/EXPOR,rivudas/">EXPOR</a></td>
+				<td align="left" width="14%"><a href="/status/INS14L,rivudas/">INS14L</a></td>
+				<td align="left" width="14%"><a href="/status/MKTHNUM,rivudas/">MKTHNUM</a></td>
+				<td align="left" width="14%"><a href="/status/PSYCHO2,rivudas/">PSYCHO2</a></td>
+				<td align="left" width="14%"><a href="/status/STACK,rivudas/">STACK</a></td>
+				<td align="left" width="14%"><a href="/status/WORDS1,rivudas/">WORDS1</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BYTESM1,rivudas/">BYTESM1</a></td>
+				<td align="left" width="14%"><a href="/status/FACT1,rivudas/">FACT1</a></td>
+				<td align="left" width="14%"><a href="/status/INTSUB,rivudas/">INTSUB</a></td>
+				<td align="left" width="14%"><a href="/status/MMAXPER,rivudas/">MMAXPER</a></td>
+				<td align="left" width="14%"><a href="/status/PTC,rivudas/">PTC</a></td>
+				<td align="left" width="14%"><a href="/status/SVAREA11,rivudas/">SVAREA11</a></td>
+				<td align="left" width="14%"><a href="/status/XMEN,rivudas/">XMEN</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CITY2,rivudas/">CITY2</a></td>
+				<td align="left" width="14%"><a href="/status/FIBFACT,rivudas/">FIBFACT</a></td>
+				<td align="left" width="14%"><a href="/status/LCMSUM,rivudas/">LCMSUM</a></td>
+				<td align="left" width="14%"><a href="/status/MULTQ3,rivudas/">MULTQ3</a></td>
+				<td align="left" width="14%"><a href="/status/PYTRIP2,rivudas/">PYTRIP2</a></td>
+				<td align="left" width="14%"><a href="/status/TRES,rivudas/">TRES</a></td>
+				<td align="left" width="14%"><a href="/status/ZQUERY,rivudas/">ZQUERY</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CNT_LUCK,rivudas/">CNT_LUCK</a></td>
+				<td align="left" width="14%"><a href="/status/FOODIES,rivudas/">FOODIES</a></td>
+				<td align="left" width="14%"><a href="/status/LCPC11B,rivudas/">LCPC11B</a></td>
+				<td align="left" width="14%"><a href="/status/NECSTASY,rivudas/">NECSTASY</a></td>
+				<td align="left" width="14%"><a href="/status/PYTRIP3,rivudas/">PYTRIP3</a></td>
+				<td align="left" width="14%"><a href="/status/TRIOMINO,rivudas/">TRIOMINO</a></td>
+				<td align="left" width="14%"><a href="/status/,rivudas/"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CODPABBU,rivudas/">CODPABBU</a></td>
+				<td align="left" width="14%"><a href="/status/GAME3,rivudas/">GAME3</a></td>
+				<td align="left" width="14%"><a href="/status/MAIN72,rivudas/">MAIN72</a></td>
+				<td align="left" width="14%"><a href="/status/NUMTRY,rivudas/">NUMTRY</a></td>
+				<td align="left" width="14%"><a href="/status/RANDG,rivudas/">RANDG</a></td>
+				<td align="left" width="14%"><a href="/status/TWOSQRS,rivudas/">TWOSQRS</a></td>
+				<td align="left" width="14%"><a href="/status/,rivudas/"></a></td>
+				</tr>
+								</table>
+								
+							</div>
+		</div>
+	
+	
+	
+	</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<table cellspacing="10" align="center">
+
+
+
+
+
+</table>
+
+
+	<br/>
+</div>
+		
+		
+		<div class="container" id="footer">
+			<div class="row">
+				<div class="col-md-2">
+					
+				</div>
+				<div class="col-md-8 text-center">
+					<a href="/info">About</a> | <a href="/tutorials">Tutorial</a> | <a href="/tools">Tools</a> | <a href="/clusters">Clusters</a> | <a href="/credits">Credits</a> | <a href="/jobs">Jobs</a> | <a href="/sphereengine">API</a> | <a href="/gfx/spoj-terms.pdf" target="_blank">Terms</a>
+				</div>
+				<div class="col-md-2 text-right">
+					<a href="/rss/" ><img src="//stx1.spoj.com/gfx/rss10x10.gif" border=0>&nbsp;RSS</a>&nbsp;
+				</div>
+			</div>
+		</div>
+		
+		<div class="text-center" id="footer-srl">
+			
+	&copy; Spoj.com. All Rights Reserved. Spoj uses <a href="http://sphere-engine.com?utm_campaign=permanent&amp;utm_medium=footer&amp;utm_source=spoj" style="color:black">Sphere Engine</a>&trade; &copy; by <a href="http://sphere-research.com?utm_campaign=permanent&amp;utm_medium=footer&amp;utm_source=spoj" style="color:black">Sphere Research Labs</a>.
+
+		</div> 
+	</div>
+
+	<!-- JavaScripts -->
+	
+		
+	
+	<script type="text/javascript">
+	$(function(){
+		setTimeout(function(){
+			$('.no_a_info').css('visibility', 'visible');
+		}, 5000);
+		
+		if(!$('.aProblemTop').length && !$('.aProblemsTop').length && !$('.aSubmitTop').length && !$('.aStatusTop').length && !$('.aMainRight').length){
+			ga('send', 'event', 'ads', 'no-ads', 'main-contest');
+		}
+		if ($('.aProblemTop').height() == 0){
+			$('.aProblemTop').css({'border': '1px solid #ddd', 'background': '#f0f4e3', 'height': 90});
+			$('.aProblemTop').html($('<p class="text-center">using adblock?</p><h4 class="text-center">Online ads help us to maintain site.</h4><p class="text-center"><strong>please whitelist *.spoj.com</strong></p>'));
+			ga('send', 'event', 'ads', 'adblock2', 'aProblemTop');
+		}
+		if ($('.aProblemsTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aProblemsTop');
+		}
+		if ($('.aSubmitTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aSubmitTop');
+		}
+		if ($('.aStatusTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aStatusTop');
+		}
+		if ($('.aMainRight').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aMainRight');
+		}
+	});
+	</script>
+	
+	
+	<script type="text/javascript" src="//stx1.spoj.com/gfx/jquery.timers.js"></script>
+	<script type="text/javascript" src="//stx1.spoj.com/gfx/jquery.cookie.js"></script>
+	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+	<script src="//stx1.spoj.com/gfx/md5.js"></script>
+	<script src="//stx1.spoj.com/gfx/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
+	<script src="//stx1.spoj.com/gfx/scripts/tour.js"></script>
+	
+	
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&appId=321676846207&version=v2.0";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	
+	
+
+
+<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-10507872-1', 'auto');
+	  ga('require', 'linkid', 'linkid.js');
+	  ga('send', 'pageview');
+	</script>
+<!-- Hotjar Tracking Code for http://www.spoj.com -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:334656,hjsv:5};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<script type="text/javascript">
+	$(function(){
+		$(document).on('click', '.track', function(){
+			var event = $(this).attr('data-event');
+			var action = $(this).attr('data-action');
+			var value = $(this).attr('data-value');
+			ga('send', 'event', event, action, value);
+		});
+	});
+	//window.open('http://incoming.hotjar.com/s/7366', '_blank');
+	</script>
+
+
+</body>
+</html>

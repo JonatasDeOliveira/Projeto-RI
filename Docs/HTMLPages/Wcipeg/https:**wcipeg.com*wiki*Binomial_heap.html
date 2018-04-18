@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Binomial heap - PEGWiki</title>
+<meta name="generator" content="MediaWiki 1.25.2" />
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/wiki/index.php?title=Binomial_heap&amp;action=edit" />
+<link rel="edit" title="Edit" href="/wiki/index.php?title=Binomial_heap&amp;action=edit" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/wiki/opensearch_desc.php" title="PEGWiki (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wcipeg.com/wiki/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/Binomial_heap" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="PEGWiki Atom feed" href="/wiki/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=ext.math.styles%7Cext.rtlcite%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:b36fd1c042133c9c9b60260f7c29b237 */</style>
+<script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Binomial_heap","wgTitle":"Binomial heap","wgCurRevisionId":1691,"wgRevisionId":1691,"wgArticleId":434,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Heaps","Pages needing diagrams","Pages needing code"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Binomial_heap","wgRelevantArticleId":434,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikidb:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Binomial_heap skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Binomial heap</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From PEGWiki</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>The <b>binomial heap</b> or <b>binomial queue</b> is a <a href="/wiki/Heap" title="Heap">heap</a> <a href="/wiki/Data_structure" title="Data structure">data structure</a> that implements all <a href="/wiki/index.php?title=Priority_queue&amp;action=edit&amp;redlink=1" class="new" title="Priority queue (page does not exist)">priority queue</a> operations in worst-case <img class="mwe-math-fallback-image-inline tex" alt="O(\log n)" src="/wiki/images/math/0/c/a/0ca47d9a481af371d1210a620c1945db.png" /> time (under the assumption of constant time to compare keys) and is desirable for its support for efficient merging (two binomial heaps of sizes <img class="mwe-math-fallback-image-inline tex" alt="m" src="/wiki/images/math/6/f/8/6f8f57715090da2632453988d9a1501b.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png" /> can be merged in <img class="mwe-math-fallback-image-inline tex" alt="O(\log(m+n))" src="/wiki/images/math/7/c/8/7c8c7c65d593ffd8c963fef6d2be90b7.png" /> time).
+</p><p>We follow Sedgewick's presentation of this data structure,<sup id="cite_ref-sedgewick_1-0" class="reference"><a href="#cite_note-sedgewick-1">[1]</a></sup> which is isomorphic to but easier to understand than the version presented in the original 1978 paper by Vuillemin.<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[2]</a></sup> (See section <a href="#Binomial_tree_representation">Binomial tree representation</a> below.)
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Structure_of_power-of-two_tree"><span class="tocnumber">1</span> <span class="toctext">Structure of power-of-two tree</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Merging_and_splitting_power-of-two_trees"><span class="tocnumber">2</span> <span class="toctext">Merging and splitting power-of-two trees</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Structure_of_binomial_heap"><span class="tocnumber">3</span> <span class="toctext">Structure of binomial heap</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Finding_the_maximum"><span class="tocnumber">4</span> <span class="toctext">Finding the maximum</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Merging"><span class="tocnumber">5</span> <span class="toctext">Merging</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Insertion"><span class="tocnumber">6</span> <span class="toctext">Insertion</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Deletion"><span class="tocnumber">7</span> <span class="toctext">Deletion</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Binomial_tree_representation"><span class="tocnumber">8</span> <span class="toctext">Binomial tree representation</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#References"><span class="tocnumber">9</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Structure_of_power-of-two_tree">Structure of power-of-two tree</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binomial_heap&amp;action=edit&amp;section=1" title="Edit section: Structure of power-of-two tree">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>A binomial heap is composed of zero or more <i>power-of-two trees</i> of unequal sizes. Each node of each power-of-two tree is labelled with one of the elements in the heap. A power-of-two tree has the following properties:
+</p>
+<ul><li> It is a binary tree.</li>
+<li> Every node's label is greater than or equal to the labels of all nodes in its <i>left</i> subtree, but not necessarily its <i>right</i>. (This is a relaxation of the max-heap property.)</li>
+<li> The root has no right child.</li>
+<li> The root's left subtree is a complete binary tree with <img class="mwe-math-fallback-image-inline tex" alt="2^k-1" src="/wiki/images/math/8/0/d/80d94b5dd6c72527fcdbc7c731f20bb4.png" /> nodes, where <img class="mwe-math-fallback-image-inline tex" alt="k" src="/wiki/images/math/8/c/e/8ce4b16b22b58894aa86c421e8759df3.png" /> is a non-negative integer.</li></ul>
+<p>Therefore, a power-of-two tree of height <img class="mwe-math-fallback-image-inline tex" alt="k" src="/wiki/images/math/8/c/e/8ce4b16b22b58894aa86c421e8759df3.png" /> has a total of <img class="mwe-math-fallback-image-inline tex" alt="2^k" src="/wiki/images/math/b/3/4/b340d3e11a01b97cc9a572c939977fa5.png" /> nodes, and since the root has all other nodes in its left subtree, it must be the greatest node in the tree.
+</p>
+<h2><span class="mw-headline" id="Merging_and_splitting_power-of-two_trees">Merging and splitting power-of-two trees</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binomial_heap&amp;action=edit&amp;section=2" title="Edit section: Merging and splitting power-of-two trees">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>A power-of-two tree with <img class="mwe-math-fallback-image-inline tex" alt="2^k" src="/wiki/images/math/b/3/4/b340d3e11a01b97cc9a572c939977fa5.png" /> nodes, where <img class="mwe-math-fallback-image-inline tex" alt="k \geq 1" src="/wiki/images/math/4/e/f/4ef6dfbf71dc3868a424c8411cd29c46.png" />, can be split into two power-of-two trees of size <img class="mwe-math-fallback-image-inline tex" alt="2^{k-1}" src="/wiki/images/math/1/1/c/11cee71240a8d81a0b94260894ce1c71.png" /> each, as follows. If <img class="mwe-math-fallback-image-inline tex" alt="k = 1" src="/wiki/images/math/c/e/e/ceef78b61bf01306cc7e80344c92c19d.png" />, then it is fairly obvious how to do this. Otherwise, call the root of the tree R; call R's left child P; and call P's right child Q. Now make Q the left child of R, so that P is no longer the left child of R, and P no longer has a right child. Now that P no longer has a right child, it is a power-of-two tree of size <img class="mwe-math-fallback-image-inline tex" alt="2^{k-1}" src="/wiki/images/math/1/1/c/11cee71240a8d81a0b94260894ce1c71.png" />. Also, because the subtree rooted at Q was initially part of R's left subtree, when Q is made the left child of R, the left-heap-ordering property continues to hold, so R's tree is <i>still</i> a valid power-of-two tree, again of size <img class="mwe-math-fallback-image-inline tex" alt="2^{k-1}" src="/wiki/images/math/1/1/c/11cee71240a8d81a0b94260894ce1c71.png" />. This procedure takes constant time.
+</p><p>Merging two power-of-two trees with size <img class="mwe-math-fallback-image-inline tex" alt="2^k" src="/wiki/images/math/b/3/4/b340d3e11a01b97cc9a572c939977fa5.png" /> to give one power-of-two tree with size <img class="mwe-math-fallback-image-inline tex" alt="2^{k+1}" src="/wiki/images/math/a/f/d/afd25d56d813aa83a004f3dbe5fa203d.png" /> is the reverse process. If <img class="mwe-math-fallback-image-inline tex" alt="k=0" src="/wiki/images/math/2/2/d/22d9bb2875d7a70aeb68696096f3b9b2.png" />, we simply make the node with the smaller label the left child of the node with the larger label. Otherwise, call the two roots P and Q, and their left children R and S, respectively. Then, if P's label is greater than or equal to Q's, then P is destined to become the root of the merged tree; we make Q its left child, and make R the right child of Q. R's label might be greater than Q's, but that's okay, since R is the <i>right</i> child of Q, not the left. (This is why this relaxation is so important; it allows this step to be performed in constant time, plus the cost of one comparison, which is usually also constant.) If Q's label is greater, we instead make P the left child of Q, and S the right child of P.
+</p>
+<h2><span class="mw-headline" id="Structure_of_binomial_heap">Structure of binomial heap</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binomial_heap&amp;action=edit&amp;section=3" title="Edit section: Structure of binomial heap">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Since a binomial heap is only allowed to contain at most one power-of-two tree of each size, the structure of a binomial heap is uniquely determined by the binary representation of its size. For example, if a binomial heap contains 13 elements, that is, 1101<sub>2</sub>, then we see that <img class="mwe-math-fallback-image-inline tex" alt="13 = 2^0 + 2^2 + 2^3 = 1 + 4 + 8" src="/wiki/images/math/8/6/4/8648d649f4bbba95a7e3adfaa853a314.png" />, so a binomial heap of size 13 contains three power-of-two trees, of sizes 1, 4, and 8, respectively.
+</p><p>It follows that the number of power-of-two trees in a binomial heap is no more than <img class="mwe-math-fallback-image-inline tex" alt="\lceil\log_2(n+1)\rceil" src="/wiki/images/math/5/5/3/553dee83ab28ff244937d54c55fedbb4.png" />, since that is the length of the number <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png" /> expressed as a bit string.
+</p>
+<h2><span class="mw-headline" id="Finding_the_maximum">Finding the maximum</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binomial_heap&amp;action=edit&amp;section=4" title="Edit section: Finding the maximum">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Since the root of each power-of-two tree is its greatest element, the greatest element in the entire heap must be the root of one of the trees. So all we have to do is check each root; the greatest root is then the greatest element in the entire heap. This requires only <img class="mwe-math-fallback-image-inline tex" alt="O(\log n)" src="/wiki/images/math/0/c/a/0ca47d9a481af371d1210a620c1945db.png" /> comparisons.
+</p>
+<h2><span class="mw-headline" id="Merging">Merging</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binomial_heap&amp;action=edit&amp;section=5" title="Edit section: Merging">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Let two binomial heaps be denoted <img class="mwe-math-fallback-image-inline tex" alt="A" src="/wiki/images/math/7/f/c/7fc56270e7a70fa81a5935b72eacbe29.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="B" src="/wiki/images/math/9/d/5/9d5ed678fe57bcca610140957afab571.png" />, with sizes <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="m" src="/wiki/images/math/6/f/8/6f8f57715090da2632453988d9a1501b.png" />, respectively. Let <img class="mwe-math-fallback-image-inline tex" alt="A_k" src="/wiki/images/math/d/9/3/d93f57d24bbe3378bf1116d752877d4f.png" /> denote <img class="mwe-math-fallback-image-inline tex" alt="A" src="/wiki/images/math/7/f/c/7fc56270e7a70fa81a5935b72eacbe29.png" />'s power-of-two tree of size <img class="mwe-math-fallback-image-inline tex" alt="2^k" src="/wiki/images/math/b/3/4/b340d3e11a01b97cc9a572c939977fa5.png" />, if it has one, and <img class="mwe-math-fallback-image-inline tex" alt="B_k" src="/wiki/images/math/6/6/9/66911070bee73ca216ba503ab7667746.png" /> denote likewise a power-of-two tree of <img class="mwe-math-fallback-image-inline tex" alt="B" src="/wiki/images/math/9/d/5/9d5ed678fe57bcca610140957afab571.png" />. We want to create a new binomial heap <img class="mwe-math-fallback-image-inline tex" alt="S" src="/wiki/images/math/5/d/b/5dbc98dcc983a70728bd082d1a47546e.png" /> that contains all the nodes from either <img class="mwe-math-fallback-image-inline tex" alt="A" src="/wiki/images/math/7/f/c/7fc56270e7a70fa81a5935b72eacbe29.png" /> or <img class="mwe-math-fallback-image-inline tex" alt="B" src="/wiki/images/math/9/d/5/9d5ed678fe57bcca610140957afab571.png" /> and has size <img class="mwe-math-fallback-image-inline tex" alt="m+n" src="/wiki/images/math/c/f/1/cf1ade4c34301c43d30481ed5d6c52c1.png" />. After this operation, <img class="mwe-math-fallback-image-inline tex" alt="A" src="/wiki/images/math/7/f/c/7fc56270e7a70fa81a5935b72eacbe29.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="B" src="/wiki/images/math/9/d/5/9d5ed678fe57bcca610140957afab571.png" /> will no longer exist as binomial heaps.
+</p><p>(In theory, we could create a new binomial heap <img class="mwe-math-fallback-image-inline tex" alt="S" src="/wiki/images/math/5/d/b/5dbc98dcc983a70728bd082d1a47546e.png" /> that contained all the elements from both <img class="mwe-math-fallback-image-inline tex" alt="A" src="/wiki/images/math/7/f/c/7fc56270e7a70fa81a5935b72eacbe29.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="B" src="/wiki/images/math/9/d/5/9d5ed678fe57bcca610140957afab571.png" /> <i>without</i> also destroying <img class="mwe-math-fallback-image-inline tex" alt="A" src="/wiki/images/math/7/f/c/7fc56270e7a70fa81a5935b72eacbe29.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="B" src="/wiki/images/math/9/d/5/9d5ed678fe57bcca610140957afab571.png" />. However, this would require copying over all the data from both heaps, which would take linear time (in the sum of their sizes). This would then be no more efficient than simply using the <a href="/wiki/Binary_heap" title="Binary heap">binary heaps</a>. For this reason, we assume we usually do not want to do this.)
+</p><p>The merge procedure is analogous to adding together two binary numbers.
+</p><p>We can think of the addition of binary numbers as being the shuffling around of bits, with the caveat that if we have too many bits, we have to perform a carry. We start from the rightmost column (the one's place), then proceed to the left, passing through the two's place, the four's place, and so on. At each step, we remember the <i>carry bit</i> from the previous step; this is initially zero, since there is no column to the right of the rightmost column to have produced a carry. Then, if we call the bits from the two numbers <b>A</b> and <b>B</b>, and the carry bit <b>C</b>, we do the following:
+</p>
+<ol><li> If <b>A</b>, <b>B</b>, and <b>C</b> are all zeroes, then the sum will contain a zero in this column, too; we don't have any bits to distribute.</li>
+<li> If exactly one of <b>A</b>, <b>B</b>, and <b>C</b> is a one, and the other two are zeroes, then this bit is transferred into the sum; that is, the sum has a one in this column. The carry bit will be zero after this step, since there are no bits left over from this column.</li>
+<li> If exactly two of <b>A</b>, <b>B</b>, and <b>C</b> are ones, then we don't have room in this column for both bits, so we have to exchange them for a single bit in the column to the left, and leave this column empty. That is, the carry bit is set to one, and the sum contains a zero in this column. This works because a set bit in column <img class="mwe-math-fallback-image-inline tex" alt="k" src="/wiki/images/math/8/c/e/8ce4b16b22b58894aa86c421e8759df3.png" /> (where 0 represents the rightmost column) represents the value <img class="mwe-math-fallback-image-inline tex" alt="2^k" src="/wiki/images/math/b/3/4/b340d3e11a01b97cc9a572c939977fa5.png" />. Adding two of these gives <img class="mwe-math-fallback-image-inline tex" alt="2^{k+1}" src="/wiki/images/math/a/f/d/afd25d56d813aa83a004f3dbe5fa203d.png" />, which is equivalent to a set bit in the next column to the left.</li>
+<li> if <b>A</b>, <b>B</b>, and <b>C</b> are all ones, then there are three bits that want to be in this column, but only room for two; so two of them are exchanged for a single bit in the column to the left (the carry bit), and the third gets to occupy the current column (so the sum contains a one in this column).</li></ol>
+<p>Eventually, we exhaust all bits in both original numbers, and if there is still a carry bit, it is copied into the leftmost column of the sum, and the procedure terminates.
+</p><p>When merging two binomial heaps, we merge them starting from the "rightmost column", that is, the power-of-two trees of size one, and then proceed to the power-of-two trees of size two, and then size four, and so on. A nonexistent power-of-two tree of size <img class="mwe-math-fallback-image-inline tex" alt="2^k" src="/wiki/images/math/b/3/4/b340d3e11a01b97cc9a572c939977fa5.png" /> corresponds to a zero in the <img class="mwe-math-fallback-image-inline tex" alt="k" src="/wiki/images/math/8/c/e/8ce4b16b22b58894aa86c421e8759df3.png" /><sup>th</sup> column from the right, and an existent tree corresponds to a one. Carrying&#8212;that is, exchanging two ones in a given column for a one in the next column on the right&#8212;corresponds to merging two power-of-two trees of size <img class="mwe-math-fallback-image-inline tex" alt="2^k" src="/wiki/images/math/b/3/4/b340d3e11a01b97cc9a572c939977fa5.png" /> to give a single power-of-two tree of size <img class="mwe-math-fallback-image-inline tex" alt="2^{k+1}" src="/wiki/images/math/a/f/d/afd25d56d813aa83a004f3dbe5fa203d.png" />. Intuitively, we merge whenever we have multiple power-of-two trees of a given size on our hands; there can only be one power-of-two tree of each size in the final sum. This is just like how we have to carry when adding binary numbers because there can only be one one in each column, so to speak.
+</p><p>This gives the following pseudocode:
+</p>
+<pre>n &#8592; n + m
+C &#8592; empty power-of-two tree
+S &#8592; empty power-of-two tree
+for k &#8712; [0..&#8970;lg(n)&#8971;]          // floor of base 2 logarithm
+    if A[k] is empty
+        if B[k] is empty
+            if C is empty      // 0 bits set; nothing to do
+                S[k] is empty
+            else               // 1 bit set; just copy
+                S[k] &#8592; C
+        else
+            if C is empty      // 1 bit set; just copy
+                S[k] &#8592; B[k]
+            else               // 2 bits set; so carry
+                S[k] is empty
+                merge B into C
+    else
+        if B[k] is empty
+            if C is empty      // 1 bit set; just copy
+                S[k] &#8592; A[k]
+            else               // 2 bits set; so carry
+                S[k] is empty
+                merge A into C
+        else
+            if C is empty      // 2 bits set; so carry
+                S[k] is empty
+                C &#8592; A[k] + B[k]
+            else               // 3 bits set; leave one behind, and carry
+                S[k] &#8592; A[k]
+                merge B into C
+</pre>
+<p>This procedure performs at most one merge (of a pair of power-of-two trees) at each iteration of the loop, which executes a logarithmic number of times; so it is <img class="mwe-math-fallback-image-inline tex" alt="O(\log n)" src="/wiki/images/math/0/c/a/0ca47d9a481af371d1210a620c1945db.png" />, overall.
+</p><p>We can make the merge operation run faster if we notice that we cam perform the merge in-place, i.e. merge the smaller heap into the larger one. We can stop once we have BOTH exhausted the smaller heap AND there is no notional "carry" propagating over to the next Binomial Tree. This trick allows us to perform an amortized O(1) insert into the Binomial Heap.
+</p>
+<h2><span class="mw-headline" id="Insertion">Insertion</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binomial_heap&amp;action=edit&amp;section=6" title="Edit section: Insertion">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Inserting an element into a binomial heap is done by simply creating a new power-of-two tree that contains only one node (labelled with the key we wish to insert) and merging it into the heap. By the time bound on merging, insertion takes <img class="mwe-math-fallback-image-inline tex" alt="O(\log n)" src="/wiki/images/math/0/c/a/0ca47d9a481af371d1210a620c1945db.png" /> time.
+</p>
+<h2><span class="mw-headline" id="Deletion">Deletion</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binomial_heap&amp;action=edit&amp;section=7" title="Edit section: Deletion">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Once we have identified the minimum element in the binomial heap, which takes logarithmic time, we can remove it, as follows. Suppose the minimum element is the root of the power-of-two tree with size <img class="mwe-math-fallback-image-inline tex" alt="2^k" src="/wiki/images/math/b/3/4/b340d3e11a01b97cc9a572c939977fa5.png" />. Then, we remove this tree from the heap and split the tree into two trees of size <img class="mwe-math-fallback-image-inline tex" alt="2^{k-1}" src="/wiki/images/math/1/1/c/11cee71240a8d81a0b94260894ce1c71.png" />. Whichever one does not contain the minimum element, we split again, so that now we have a tree of size <img class="mwe-math-fallback-image-inline tex" alt="2^{k-1}" src="/wiki/images/math/1/1/c/11cee71240a8d81a0b94260894ce1c71.png" /> and two trees of size <img class="mwe-math-fallback-image-inline tex" alt="2^{k-2}" src="/wiki/images/math/8/f/3/8f3fe17a3d891cd57ee56e8b8c9685f3.png" />. One of these two new trees again does not contain the minimum element, so we split it again. We continue splitting until finally we end up with one power-of-two tree of size <img class="mwe-math-fallback-image-inline tex" alt="2^{k-1}" src="/wiki/images/math/1/1/c/11cee71240a8d81a0b94260894ce1c71.png" />, one of size <img class="mwe-math-fallback-image-inline tex" alt="2^{k-2}" src="/wiki/images/math/8/f/3/8f3fe17a3d891cd57ee56e8b8c9685f3.png" />, and so on down; one of size 4, one of size 2, and two of size 1. One of the two singletons will be the minimum element, so we simply destroy that node. The rest of the power-of-two trees constitute an entire binomial heap in and of themselves, which is then merged back into the original heap from which we removed the tree of size <img class="mwe-math-fallback-image-inline tex" alt="2^k" src="/wiki/images/math/b/3/4/b340d3e11a01b97cc9a572c939977fa5.png" />. This procedure uses a logarithmic number of splits, which takes logarithmic time, followed by a merge of two binomial heaps, which takes logarithmic time; so it is <img class="mwe-math-fallback-image-inline tex" alt="O(\log n)" src="/wiki/images/math/0/c/a/0ca47d9a481af371d1210a620c1945db.png" /> overall.
+</p><p>Note that this procedure can be used to delete <i>any</i> element in the binomial heap, not just the minimum; we keep splitting power-of-two trees until we have the node all by itself, then we just get rid of it, and merge the other power-of-two trees back in. However, implementing this requires that each node maintain a pointer to its parent, and not just to its children (so that, given an arbitrary node, we can always figure out which power-of-two tree it is in, even after splitting).
+</p>
+<h2><span class="mw-headline" id="Binomial_tree_representation">Binomial tree representation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binomial_heap&amp;action=edit&amp;section=8" title="Edit section: Binomial tree representation">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The original presentation of the binomial heap was as a collection of <i>binomial trees</i>, rather than as a collection of power-of-two trees. Each binomial tree also has a size which is a power of two, and is isomorphic to a power-of-two tree. However, unlike a power-of-two tree:
+</p>
+<ul><li> A node in a binomial tree can have more than two children.</li>
+<li> Binomial trees are fully max-heap-ordered, rather than simply left-max-heap-ordered like power-of-two trees.</li></ul>
+<p>A binomial tree of height 0 is a single node. A binomial tree of height <img class="mwe-math-fallback-image-inline tex" alt="k &gt; 0" src="/wiki/images/math/1/c/e/1ceed399f1d8fa4a79cc94a5e6c5c76c.png" /> consists of a root node with <img class="mwe-math-fallback-image-inline tex" alt="k" src="/wiki/images/math/8/c/e/8ce4b16b22b58894aa86c421e8759df3.png" /> children. One of these children is the root of a binomial tree with height 0, one is the root of a binomial tree with height 1, and so on up to <img class="mwe-math-fallback-image-inline tex" alt="k-1" src="/wiki/images/math/1/4/4/14464ac1dfe6fa8ad8fda94bb6f01571.png" />.
+When we merge two binomial trees of the same size, we simply make the smaller root the child of the larger root. Observe that this instantly gives a binomial tree of twice the size (whose height is then one greater than the heights of the two original trees). When we split a binomial tree of height <img class="mwe-math-fallback-image-inline tex" alt="k &gt; 0" src="/wiki/images/math/1/c/e/1ceed399f1d8fa4a79cc94a5e6c5c76c.png" />, we simply detach the subtree of height <img class="mwe-math-fallback-image-inline tex" alt="k-1" src="/wiki/images/math/1/4/4/14464ac1dfe6fa8ad8fda94bb6f01571.png" />, giving two binomial trees of size <img class="mwe-math-fallback-image-inline tex" alt="k-1" src="/wiki/images/math/1/4/4/14464ac1dfe6fa8ad8fda94bb6f01571.png" />.
+</p><p>We could, in principle, convert a binomial tree of height <img class="mwe-math-fallback-image-inline tex" alt="k" src="/wiki/images/math/8/c/e/8ce4b16b22b58894aa86c421e8759df3.png" /> into a power-of-two tree of height <img class="mwe-math-fallback-image-inline tex" alt="k" src="/wiki/images/math/8/c/e/8ce4b16b22b58894aa86c421e8759df3.png" /> with the same keys, and <i>vice versa</i>. This is done recursively. If <img class="mwe-math-fallback-image-inline tex" alt="k=0" src="/wiki/images/math/2/2/d/22d9bb2875d7a70aeb68696096f3b9b2.png" />, then we don't do anything, since a binomial tree of height 0 is a single node, and so is a power-of-two tree of height 0. If <img class="mwe-math-fallback-image-inline tex" alt="k &gt; 0" src="/wiki/images/math/1/c/e/1ceed399f1d8fa4a79cc94a5e6c5c76c.png" />, then we split the binomial tree into two binomial trees of size <img class="mwe-math-fallback-image-inline tex" alt="k-1" src="/wiki/images/math/1/4/4/14464ac1dfe6fa8ad8fda94bb6f01571.png" />, recursively convert each one into its corresponding power-of-two tree, and then merge the results to get one power-of-two tree. The reverse procedure is analogous. This proves our claim that binomial trees and power-of-two trees are isomorphic.
+</p><p>In practice, power-of-two trees may be easier to work with than binomial trees because the former have a fixed maximum number of children per node (two) whereas the latter have to store <a href="/wiki/Linked_list" title="Linked list">linked lists</a> of children in each node.
+</p><p>The names <i>binomial tree</i> and <i>binomial heap</i> derive from a cute property of binomial trees: the <img class="mwe-math-fallback-image-inline tex" alt="k" src="/wiki/images/math/8/c/e/8ce4b16b22b58894aa86c421e8759df3.png" /><sup>th</sup> level of a binomial tree of height <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png" /> contains <img class="mwe-math-fallback-image-inline tex" alt="\binom{n}{k}" src="/wiki/images/math/6/b/2/6b2be63a1b8e310465d1b538e2d7d71b.png" /> nodes. This is easy to prove inductively; when merging two binomial trees, one of them is "shifted down" a level, so its nodes are added to the <i>previous</i> level of the other tree; this corresponds to the identity <img class="mwe-math-fallback-image-inline tex" alt="\binom{n}{k} + \binom{n}{k+1} = \binom{n+1}{k+1}" src="/wiki/images/math/8/2/9/82904f6e022b1a9f2e1dbc4fd44216d0.png" />.
+</p>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binomial_heap&amp;action=edit&amp;section=9" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ol class="references">
+<li id="cite_note-sedgewick-1"><span class="mw-cite-backlink"><a href="#cite_ref-sedgewick_1-0">↑</a></span> <span class="reference-text">Sedgewick, R. (2002). <i>Algorithms in C++. Parts 1-4: Fundamentals, Data Structure, Sorting, Searching (3rd Edition)</i>. Section 9.7, Binomial Queues</span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">Vuillemin, J. (1978). <i>A data structure for manipulating priority queues</i>. Communications of the ACM <b>21</b>, 309–314.</span>
+</li>
+</ol>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.103 seconds
+Real time usage: 0.118 seconds
+Preprocessor visited node count: 757/1000000
+Preprocessor generated node count: 1730/1000000
+Post‐expand include size: 32/2097152 bytes
+Template argument size: 9/2097152 bytes
+Highest expansion depth: 4/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    4.077      1 - -total
+100.00%    4.077      1 - Template:Binary
+ 44.74%    1.824      1 - Template:Radix
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:434-0!*!0!!en!*!*!math=0 and timestamp 20180417133357 and revision id 1691
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wcipeg.com/wiki/index.php?title=Binomial_heap&amp;oldid=1691">https://wcipeg.com/wiki/index.php?title=Binomial_heap&amp;oldid=1691</a>"					</div>
+													<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/wiki/Category:Heaps" title="Category:Heaps">Heaps</a></li><li><a href="/wiki/Category:Pages_needing_diagrams" title="Category:Pages needing diagrams">Pages needing diagrams</a></li><li><a href="/wiki/Category:Pages_needing_code" title="Category:Pages needing code">Pages needing code</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Binomial+heap&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Binomial+heap" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/Binomial_heap"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/wiki/index.php?title=Talk:Binomial_heap&amp;action=edit&amp;redlink=1"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Binomial_heap" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/wiki/index.php?title=Binomial_heap&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/wiki/index.php?title=Binomial_heap&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search PEGWiki [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+													<li id="n-Index"><a href="/wiki/Special:AllPages">Index</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+													<li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Binomial_heap" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Binomial_heap" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/wiki/index.php?title=Binomial_heap&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/wiki/index.php?title=Binomial_heap&amp;oldid=1691" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/wiki/index.php?title=Binomial_heap&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 10 October 2012, at 06:16.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Attribution 3.0 Unported</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/PEGWiki:Privacy_policy" title="PEGWiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/PEGWiki:About" title="PEGWiki:About">About PEGWiki</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/PEGWiki:General_disclaimer" title="PEGWiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by/3.0/"><img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Attribution 3.0 Unported" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wiki/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.cite","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wcipeg.com/wiki/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":85});
+}</script>
+	</body>
+</html>

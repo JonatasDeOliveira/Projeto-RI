@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=utf-8"><META NAME="viewport" CONTENT="width=768"><META HTTP-EQUIV="X-UA-Compatible" CONTENT="IE=edge"><TITLE>How to write Pascal solutions @ Timus Online Judge</TITLE><LINK REL="alternate" HREFLANG="x-default" HREF="/help.aspx?topic=pascal"><LINK REL="alternate" HREFLANG="en-us" HREF="/help.aspx?topic=pascal&amp;locale=en"><LINK REL="alternate" HREFLANG="ru-ru" HREF="/help.aspx?topic=pascal&amp;locale=ru"><LINK REL="stylesheet" TYPE="text/css" HREF="/style52.css"><LINK REL="shortcut icon" TYPE="image/x-icon" HREF="/favicon.ico"></HEAD><BODY><TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" CLASS="body"><TR><TD CLASS="caption"><TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"><TR><TD WIDTH="130" CLASS="locale"><A HREF="/help.aspx?topic=pascal&amp;locale=en">ENG</A>&nbsp;&nbsp;<A HREF="/help.aspx?topic=pascal&amp;locale=ru">RUS</A></TD><TD CLASS="title"><A HREF="/">Timus Online Judge</A></TD><TD WIDTH="130"></TD></TR></TABLE></TD></TR><TR><TD CLASS="panel"><TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"><TR><TD WIDTH="130" VALIGN="TOP" ALIGN="CENTER" STYLE="padding-bottom:5px;"><A HREF="/"><IMG BORDER="0" SRC="/images/usu-summer.jpg" HEIGHT="134" WIDTH="106" ALT=""></A></TD><TD VALIGN="TOP" ALIGN="LEFT"><TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" CLASS="panel"><TR><TH WIDTH="25%"><DIV>Online Judge</DIV></TH><TH WIDTH="25%"><DIV>Problems</DIV></TH><TH WIDTH="25%"><DIV>Authors</DIV></TH><TH WIDTH="25%"><DIV>Online contests</DIV></TH></TR><TR><TD VALIGN="TOP" ALIGN="LEFT"><A HREF="/">About Online Judge</A><BR><A HREF="/help.aspx?topic=faq">Frequently asked questions</A><BR><A HREF="/news.aspx">Site news</A><BR><A HREF="/forum/">Webboard</A><BR><A HREF="/help.aspx?topic=links">Links</A><BR></TD><TD VALIGN="TOP" ALIGN="LEFT"><A HREF="/problemset.aspx">Problem set</A><BR><A HREF="/submit.aspx">Submit solution</A><BR><A HREF="/status.aspx">Judge status</A><BR><A HREF="/help.aspx?topic=judge">Guide</A><BR></TD><TD VALIGN="TOP"><A HREF="/register.aspx">Register</A><BR><A HREF="/authedit.aspx">Update your info</A><BR><A HREF="/ranklist.aspx">Authors ranklist</A><BR><FORM ACTION="/search.aspx" METHOD="GET" STYLE="margin-top:0.6em;"><INPUT NAME="Str" SIZE="12" VALUE="" PLACEHOLDER="Author’s name"> <INPUT TYPE="SUBMIT" VALUE="Search"></FORM></TD><TD VALIGN="TOP"><A HREF="/contest.aspx">Current contest</A><BR><A HREF="/schedule.aspx">Scheduled contests</A><BR><A HREF="/archive.aspx">Past contests</A><BR><A HREF="/help.aspx?topic=contest">Rules</A><BR></TD></TR></TABLE></TD></TR></TABLE></TD></TR><TR><TD STYLE="padding-top: 32px; padding-bottom: 20px;"><STYLE>
+			@import url(/prism.css);
+		</STYLE><SCRIPT TYPE="text/javascript" SRC="/prism.js"></SCRIPT><TABLE ALIGN="CENTER" CELLSPACING="0" CELLPADDING="0"><TR><TD WIDTH="800"><H2 CLASS="title">How to write Pascal solutions</H2><DIV ID="help_text"><P CLASS="help_par">Pascal programs are compiled on the server with the 32-bit compiler <b>FreePascal 2.6.4</b>, which is adjusted to be compatible with Borland Delphi and is invoked with the following parameters:</P><PRE CLASS="with-background with-code"><CODE CLASS="language-none">ppc386 %1 -WC -Ci-o-r-t- -Xs -Sdgich -Se10 -l- -vwnh -n -dONLINE_JUDGE
+</CODE></PRE><P CLASS="help_par">You can download the FreePascal and read online documentation on <A HREF="http://www.freepascal.org/">www.freepascal.org</A>.</P><H3 CLASS="subtitle">An example of solving a problem</H3><P CLASS="help_par">This is a sample solution for the <A HREF="problem.aspx?space=1&amp;num=1000"> A + B problem</A> in Pascal:</P><PRE CLASS="with-background with-code"><CODE CLASS="language-pascal">var
+   a, b: integer;
+begin
+   readln(a, b);
+   writeln(a + b);
+end.</CODE></PRE><H3 CLASS="subtitle">What's new in the 32-bit compiler compared to the 16-bit one</H3><P CLASS="help_par">If you are used to writing programs for old 16-bit DOS compilers (for example, for Borland Pascal 7.0), then it would be useful for you to know the following:</P><UL><LI CLASS="help_par">It is allowed to use arrays of size greater than 64 KB.</LI><LI CLASS="help_par">The type <code>integer</code> is a 32-bit type and coincides with the type <code>longint</code>. The 16-bit signed integer type is called <code>smallint</code>.
+</LI><LI CLASS="help_par">Strings can be longer than 255 characters. Don't refer to the zero character in order to determine the length of a string; use the function <code>length(s)</code> for this. You can set the length of a string using the procedure <nobr><code>setlength(s, n)</code></nobr>.</LI></UL><P CLASS="help_par">Also, there are many new keywords. The following words cannot be redefined or used as identifiers:</P><PRE CLASS="with-background with-code"><CODE CLASS="language-pascal">as               false                new
+class            finalization         on
+dispose          finally              property
+except           initialization       raise
+exit             is                   true
+exports          library              try
+</CODE></PRE><P CLASS="help_par">In addition, the words <code>protected</code> and <code>published</code> are reserved within the description of an object. Also, the name <code>result</code> in the body of a function is reserved: the value of the corresponding variable is the result of the operation of the function, and a declaration of this name will lead to a compilation error. For example, the following definitions of functions are equivalent: </P><PRE CLASS="with-background with-code"><CODE CLASS="language-pascal">function Sum(a, b: integer): integer;
+begin
+   Sum := a + b;
+end;
+
+function Sum(a, b: integer): integer;
+begin
+   result := a + b;
+end;
+</CODE></PRE><P CLASS="help_par">And this code will not be compiled:</P><PRE CLASS="with-background with-code"><CODE CLASS="language-pascal">function Sum(a, b: integer): integer;
+var
+   result: integer;
+begin
+   result := a + b;
+   Sum := result;
+end;
+</CODE></PRE><H3 CLASS="subtitle">The distinctions of the compiler as compared to other 32-bit Pascal compilers</H3><P CLASS="help_par">It is useful to know some features of the compiler used on the server.</P><UL><LI CLASS="help_par">There are no modules <code>crt</code> and <code>wincrt</code> on the server because they contain procedures that are not needed for solving problems.</LI><LI CLASS="help_par">Dynamic memory allocation involves rounding the size of a block to a multiple of 16 bytes. For example, if you allocate a lot of blocks 4 bytes each, then your program will use four times more memory than you really need. Use static data structures, which are free from this drawback and work faster than dynamic structures.</LI><LI CLASS="help_par">Sets can occupy either 4 or 32 bytes, which also may lead to a significant memory overuse. In many cases a good alternative to sets is using bits of an integer (or of an array of integers).</LI><LI CLASS="help_par">It is forbidden to convert explicitly the types of integer and floating-point variables. For example, the expression <nobr>“<code>x := extended(i)</code>”</nobr>, where the type of <code>x</code> is <code>extended</code>, and <code>i</code> is <code>integer</code>, is incorrect, whereas the expression  <nobr>“<code>x := i</code>”</nobr> is valid.</LI></UL><P CLASS="help_par">It is forbidden to change the value of the variable of a <code>for</code> loop inside the loop. The following code will not be compiled:</P><PRE CLASS="with-background with-code"><CODE CLASS="language-pascal">for i := 1 to 10 do
+begin
+   if i mod 2 = 0 then inc(i);
+   writeln(i);
+end;
+</CODE></PRE><P CLASS="help_par">Moreover, after a <code>for</code> loop the value of the loop variable is not defined. Therefore, this value cannot be used, for example, for a search. The following example will work differently with different compilers. </P><PRE CLASS="with-background with-code"><CODE CLASS="language-pascal">var
+   a: array[1..10] of integer;
+   i: integer;
+begin
+   for i:=1 to 10 do
+      a[i] := i*i;
+   for i:=1 to 10 do
+      if a[i] = 17 then break;
+   writeln('i = ', i);
+end.
+{
+   Delphi output:      i = 11
+   FreePascal output:  i = 10
+}
+</CODE></PRE><H3 CLASS="subtitle">How to use 64-bit integer data types</H3><P CLASS="help_par">The compiler fully supports 64-bit integers (both signed and unsigned). A signed 64-bit integer ranges from –9223372036854775808 to 9223372036854775807 and an unsigned 64-bit integer ranges from 0 to 18446744073709551615. The signed type is called <code>int64</code>, and the unsigned type is called <code>qword</code>. The following example illustrates the use of 64-bit integer types:</P><PRE CLASS="with-background with-code"><CODE CLASS="language-pascal">var
+   a: int64;
+   b: qword;
+begin
+   read(a);
+   read(b);
+   writeln(a);
+   writeln(b);
+end.
+</CODE></PRE><H3 CLASS="subtitle">How to read input data until the end of stream</H3><P CLASS="help_par">You should know how to read the input data until the end of stream to solve certain problems. The following examples show how to implement reading input until the end of stream in case input data consists of numbers, lines or separate characters.</P><PRE CLASS="with-background with-code"><CODE CLASS="language-pascal">{numbers}
+var n: integer;
+...
+while not seekeof do
+begin
+   read(n);
+   ...
+end;
+
+{lines}
+var line: string;
+...
+while not eof do
+begin
+   readln(line);
+   ...
+end;
+
+{characters}
+var c: char;
+...
+while not eof do
+begin
+   read(с);
+   ...
+end;
+</CODE></PRE><H3 CLASS="subtitle">Other notes</H3><P CLASS="help_par">Sometimes the Wrong Answer verdict actually means Runtime error. This is because FreePascal independently intercepts some runtime errors and sends a message to the output flow.</P><P CLASS="help_par">In order to increase the size of a stack and to avoid its overflow when using a “deep” recursion, you should use a special directive (in the example, the size of the stack is set to be 16 MB):</P><PRE CLASS="with-background with-code"><CODE CLASS="language-pascal">{$M 16777216}
+</CODE></PRE><P CLASS="help_par">It is convenient to use the conditional directive ONLINE_JUDGE for debugging solutions:</P><PRE CLASS="with-background with-code"><CODE CLASS="language-pascal">var
+   a, b: longint;
+begin
+{$IFNDEF ONLINE_JUDGE}
+   assign(input, 'input.txt');
+   reset(input);
+   assign(output, 'output.txt');
+   rewrite(output);
+{$ENDIF}
+   readln(a, b);
+   writeln(a + b);
+{$IFNDEF ONLINE_JUDGE}
+   close(input);
+   close(output);
+{$ENDIF}
+end.
+</CODE></PRE><P CLASS="help_par">This program will read data from the file <code>input.txt</code> on your computer and output the result to the file <code>output.txt</code>. On the server, it will use the standard input and output flows.</P><H3 CLASS="subtitle">Earlier compilers</H3><UL><LI CLASS="help_par">FreePascal 1.0.6 was used until August 8, 2005.
+</LI><LI CLASS="help_par">FreePascal 2.0.1 was used until January 4, 2006.</LI><LI CLASS="help_par">FreePascal 2.0.2 was used until October 24, 2006.</LI><LI CLASS="help_par">FreePascal 2.0.4 was used until October 3, 2014.</LI></UL></DIV></TD></TR></TABLE></TD></TR><TR><TD CLASS="footer"><script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter20918869 = new Ya.Metrika({ id:20918869, clickmap:true, trackLinks:true, accurateTrackBounce:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="https://mc.yandex.ru/watch/20918869" style="position:absolute; left:-9999px;" alt=""></div></noscript>© 2000–2017 <A HREF="/team.aspx">Timus Online Judge Team</A>. All rights reserved.</TD></TR></TABLE></BODY></HTML>

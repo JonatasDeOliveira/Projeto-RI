@@ -1,0 +1,1852 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="not-ie" lang="en"> <!--<![endif]-->
+<head>
+	<!-- main header -->
+	<meta charset="utf-8">
+	
+				<title>Sphere Online Judge (SPOJ)  - User ikatanic</title>
+	  
+	<meta name="keywords" content="language, algorithm, spoj, contest, contester, Java, C#, Pascal, C, C++, python, ruby, caml, ocaml, perl, haskell, lisp, prolog, fortran, assembler, asembler, functional, online, judge, problem, problemset, ACM">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  		<meta property="og:image" content="//stx1.spoj.com/gfx/spoj-fb.jpg"/>
+	<meta property="og:description" content="SPOJ (Sphere Online Judge) is an online judge system with over 315,000 registered users and over 20000 problems. The solution to problems can be submitted in over 60 languages including C, C++, Java, Python, C#, Go, Haskell, Ocaml, and F#. SPOJ has a rapidly growing problem set/tasks available for practice 24 hours/day, including many original tasks prepared by the community of expert problem setters associated with the project."/>
+	<meta name="description" content="SPOJ (Sphere Online Judge) is an online judge system with over 315,000 registered users and over 20000 problems. The solution to problems can be submitted in over 60 languages including C, C++, Java, Python, C#, Go, Haskell, Ocaml, and F#. SPOJ has a rapidly growing problem set/tasks available for practice 24 hours/day, including many original tasks prepared by the community of expert problem setters associated with the project."/>
+		<meta property="og:site_name" content="spoj.com"/>
+
+  <!--[if (gte IE 9)|!(IE)]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" id="metatag">
+  <![endif]--> 
+
+	  <!-- Favicon -->
+	  <link href="//stx1.spoj.com/gfx/favicon_new.png" rel="shortcut icon" type="image/x-icon" />
+	  
+	  <!-- RSS -->
+	  <link href="/rss/" rel="alternate" type="application/rss+xml" title="RSS Feed">
+	
+	  <!-- Web Fonts -->
+	  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet" type="text/css">  
+
+	<!-- Internet Explorer condition - HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]--> 
+	
+	
+	
+	<!-- CSS: Bootstrap, Font-awesome, Bootstrap libs,  -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" />
+  	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  	<link href="//stx1.spoj.com/gfx/bootstrap-tour/build/css/bootstrap-tour.min.css" rel="stylesheet" />
+  	<link href="//stx1.spoj.com/themes/bootstrap-social.css" rel="stylesheet" type="text/css" />
+  	
+	<link href="//stx1.spoj.com/themes/common.css?4" rel="stylesheet" type="text/css" id="theme0" />
+	<link href="//stx1.spoj.com/themes/en_new.css?4" rel="stylesheet" type="text/css" id="theme" />
+	
+	<!-- JS -->
+	<script type="text/javascript" src='//code.jquery.com/jquery-1.11.1.min.js'></script>
+	<script type="text/javascript" src="//code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+	
+		<link href="//stx1.spoj.com/themes/cal-heatmap.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src='//stx1.spoj.com/js/d3.v3.min.js'></script>
+	<script type="text/javascript" src='//stx1.spoj.com/js/cal-heatmap.min.js'></script>
+	<script type="text/javascript" src="//www.google.com/jsapi"></script>
+		
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>	
+	<script type="text/javascript" language="javascript">
+	$(function () { 
+		$("#profile-menu").popover();
+	});
+	function UnCryptMailto(s) {
+		var n=0;
+		var r="";
+		for(var i=0;i<s.length;i++) {		
+			n=s.charCodeAt(i); 
+			if (n>=8364) {n = 128;}
+			r += String.fromCharCode(n+(2));	
+		}
+		return r;
+	}
+	function linkTo_UnCryptMailto(s)	{
+		location.href=UnCryptMailto(s);
+	}
+	</script>
+	
+	<script type="text/javascript">
+	function recordOutboundLink(link, category, action) {
+	  try {
+	    var pageTracker=_gat._getTracker("UA-XXXXX-X");
+	    pageTracker._trackEvent(category, action);
+	    setTimeout('document.location = "' + link.href + '"', 100)
+	  }catch(err){}
+	}
+	</script>
+	
+</head>
+
+<body>
+
+	
+	<!-- <div class="space30"></div> -->
+	
+	<!-- Content -->
+	<div class="content">
+		<div class="container" id="header">
+			<div class="row">
+				<div class="col-md-12 text-right">
+										<form method="post" style="display: none;" action="/login/" id="login-form">
+						<div class="row">
+							<div class="col-md-10 col-md-offset-2">
+								<input type="hidden" name="next_raw" value="/"/>
+								<input type="hidden" name="autologin" value="1"/>
+								<input type="text" name="login_user" placeholder="Username" class="form-control input-sm" style="display: inline-block; width: 25%;"/>
+								<input type="password" name="password" placeholder="Password" class="form-control input-sm" style="display: inline-block; width: 25%;"/>
+																<button type="submit" class="btn btn-default btn-sm" style="display: inline-block; margin-right: 10px;"><span class="fa fa-sign-in fa-lg"></span> <strong>sign in</strong></button>
+																<a href="/register"><i class="fa fa-user-plus"></i> sign up</a> 
+								<a href="/forgot"><i class="fa fa-question-circle"></i> forgot</a>
+				        									</div>
+						</div>
+					</form>
+										
+					
+				</div>
+			</div>
+		
+			<div class="row">
+				<div class="col-md-4">
+					<a href="/" class="navbar-brand">
+						<img src="//stx1.spoj.com/gfx/2015e.png" style="height: 40px;"/>
+					</a>
+					<div class="navbar-header">
+				      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+				        <span class="sr-only">Toggle navigation</span>
+				        <i class="fa fa-bars"></i>
+				      </button>
+				    </div>
+				</div>
+				<div class="col-md-8" id="menu">
+				
+					
+					<div class="row">
+					<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation"  style="border: 0px;">
+				      <ul class="nav navbar-nav" style="  float: right; margin-top: 10px;">
+				      						        <li >
+					          <a href="/problems"><i class="fa fa-puzzle-piece"></i> PROBLEMS</a>
+					        </li>
+					        					        <li >
+					          <a href="/status"><i class="fa fa-circle"></i> STATUS</a>
+					        </li>
+					        <li >
+					          <a href="/ranks"><i class="fa fa-trophy"></i> RANKS</a>
+					        </li>
+					        <li >
+					          <a href="http://spoj.com/forum"><i class="fa fa-comments-o"></i> DISCUSS</a>
+					        </li>
+					        <li >
+					          <a href="/contests">CONTESTS</a>
+					        </li>
+											        					        <li >
+					        	<a href="/login" class="text-success" onclick="$('#login-form').show(); $('input[name=login_user]').focus(); return false;"><i class="fa fa-sign-in"></i> sign in</a>
+					        </li>
+					        						
+				        
+				      </ul>
+				    </nav>
+				    </div>
+				    
+				    
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class="container" id="menu">
+			
+		</div>
+		
+		<div class="container" id="content">
+		<div class="submenu">
+	<ol class="">
+			<li></li>
+		</ol>
+	
+	<ol class="navbar-right">
+			<li><a href="/status/ikatanic/">History of submissions</a></li>
+		<li>(<a href="/status/ikatanic/signedlist/">plaintext version</a>)</li>
+	</ol>
+	
+</div>
+
+<div>
+<div class="row">
+	<div class="col-md-3" id="user-profile-left">
+		<img  class="img-thumbnail" width="100%" style="max-width: 262px;" src="http://www.gravatar.com/avatar/73bb7c6a1d162ddedc93f3d6bdbb0229?s=290&20180418" class="avatar small-left-margin">
+		<h3>Ivan Katanic</h3>		<h4>@ikatanic</h4>
+		<p><i class="fa fa-map-marker"></i> Croatia, Pleternica</p>		<p><i class="fa fa-clock-o"></i> Joined Jun 2008</p>
+		<p><i class="fa fa-trophy"></i> World Rank: #12 (403.6 points)</p>
+		<p><i class="fa fa-building-o "></i> Institution: FER Zagreb</p>				
+		
+		
+			</div>
+	<div class="col-md-9">
+	
+		<center>
+		<div class="c728x90"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-4453360425583535"
+     data-ad-slot="4026799034"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+		</center>
+	
+						<div class="row row-centered">
+			<div class="col-md-12">
+				<h3>Activity over the last year</h3>
+				<div class="top-4 col-centered" id="cal-heatmap"></div>
+
+				<h3 class="top-4">Effectiveness</h3>
+				<div class="row">
+					<div class="col-md-6 text-center valign-center">
+						<dl class="dl-horizontal profile-info-data profile-info-data-stats">
+							<dt><span class="fa fa-check fa-fw"></span>&nbsp;Problems solved</dt>
+								<dd>963</dd>
+							<dt><span class="fa fa-send fa-fw"></span>&nbsp;Solutions submitted</dt>
+								<dd>5156</dd>
+						</dl>
+					</div>
+					<div class="col-md-6">
+						<div id="chart_div"></div>
+					</div>
+				</div>
+				
+				<script type="text/javascript">
+					function BackTime(date) {
+						var y = date.getFullYear(),
+							m = date.getMonth();
+						return new Date(y-1, m+1, 15);
+					}
+					
+					function drawChart() {
+
+						var data = new google.visualization.DataTable();
+							data.addColumn('string', '?');
+							data.addColumn('number', 'ACC');
+							data.addColumn('number', 'WA');
+							data.addColumn('number', 'TLE');
+							data.addColumn('number', 'RE');
+							data.addColumn('number', 'CE');
+							data.addRows([
+							
+							['Submissions', 1957, 1713, 917, 228, 338]
+							
+						]);
+	
+						var options = {
+							isStacked: 'percent',
+							pieSliceText: 'label',
+							colors: ['#348d34', '#ec971f', '#ec971f', '#c9302c', '#c9302c'],
+							//colors:['#00C030','#F09A24','#F09A24','#F09A24','#F09A24'],
+							'width':400,
+							'height':100,
+							chartArea:{left:10,top:10,width:'90%',height:'90%'},
+							fontName: '@font-family-base',
+							legend: {
+								position: 'top',
+								textStyle: {
+									fontName: '@font-family-base',
+									bold: true
+							}},
+							hAxis: {
+					            minValue: 0,
+					            ticks: [0, .25, .5, .75, 1]
+					          }
+						};
+	
+						var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+						chart.draw(data, options);
+					}
+					
+					$(document).ready(function(){
+					
+						var cal = new CalHeatMap();
+						cal.init({
+							domain: "month",
+							subDomain: "day",
+							domainGutter: 3,
+							tooltip: true,
+							start: BackTime(new Date()),
+							maxDate: new Date(),
+							colLimit: 4,
+							legend: [10, 20, 30, 40],
+							itemName: ["submission", "submissions"],
+							data: '/calendar/?ajax=1&uid=29483&start={{d:start}}&stop={{d:end}}'
+						});
+					});
+					
+					google.load('visualization', '1.0', {'packages':['corechart']});
+					google.setOnLoadCallback(drawChart);
+				</script>
+				
+				
+						
+			</div>
+		</div>
+
+		<h3 class="top-4 text-center">Problems</h3>
+		<div class="row row-centered" id="user-profile-tables">
+			<div class="col-md-12">
+				<h4>List of solved classical problems:</h4>
+				<table class="table table-condensed">
+								<tr>
+				<td align="left" width="14%"><a href="/status/ABCDEF,ikatanic/">ABCDEF</a></td>
+				<td align="left" width="14%"><a href="/status/CAKE,ikatanic/">CAKE</a></td>
+				<td align="left" width="14%"><a href="/status/EDGE,ikatanic/">EDGE</a></td>
+				<td align="left" width="14%"><a href="/status/IM,ikatanic/">IM</a></td>
+				<td align="left" width="14%"><a href="/status/MJOURNEY,ikatanic/">MJOURNEY</a></td>
+				<td align="left" width="14%"><a href="/status/POLEVAL,ikatanic/">POLEVAL</a></td>
+				<td align="left" width="14%"><a href="/status/STACK,ikatanic/">STACK</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ABSYS,ikatanic/">ABSYS</a></td>
+				<td align="left" width="14%"><a href="/status/CANDY,ikatanic/">CANDY</a></td>
+				<td align="left" width="14%"><a href="/status/EDIST,ikatanic/">EDIST</a></td>
+				<td align="left" width="14%"><a href="/status/IMAGE,ikatanic/">IMAGE</a></td>
+				<td align="left" width="14%"><a href="/status/MKJUMPS,ikatanic/">MKJUMPS</a></td>
+				<td align="left" width="14%"><a href="/status/POLQUERY,ikatanic/">POLQUERY</a></td>
+				<td align="left" width="14%"><a href="/status/STAMPS,ikatanic/">STAMPS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACAB,ikatanic/">ACAB</a></td>
+				<td align="left" width="14%"><a href="/status/CANDY2,ikatanic/">CANDY2</a></td>
+				<td align="left" width="14%"><a href="/status/EIGHTS,ikatanic/">EIGHTS</a></td>
+				<td align="left" width="14%"><a href="/status/IMP,ikatanic/">IMP</a></td>
+				<td align="left" width="14%"><a href="/status/MKLABELS,ikatanic/">MKLABELS</a></td>
+				<td align="left" width="14%"><a href="/status/POLY1,ikatanic/">POLY1</a></td>
+				<td align="left" width="14%"><a href="/status/STC04,ikatanic/">STC04</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACANVAS,ikatanic/">ACANVAS</a></td>
+				<td align="left" width="14%"><a href="/status/CANDY3,ikatanic/">CANDY3</a></td>
+				<td align="left" width="14%"><a href="/status/ELECTRO,ikatanic/">ELECTRO</a></td>
+				<td align="left" width="14%"><a href="/status/IMPORT1,ikatanic/">IMPORT1</a></td>
+				<td align="left" width="14%"><a href="/status/MKMONEY,ikatanic/">MKMONEY</a></td>
+				<td align="left" width="14%"><a href="/status/POLYEQ,ikatanic/">POLYEQ</a></td>
+				<td align="left" width="14%"><a href="/status/STCKHOLM,ikatanic/">STCKHOLM</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACARGO,ikatanic/">ACARGO</a></td>
+				<td align="left" width="14%"><a href="/status/CANDY4,ikatanic/">CANDY4</a></td>
+				<td align="left" width="14%"><a href="/status/EMPODIA,ikatanic/">EMPODIA</a></td>
+				<td align="left" width="14%"><a href="/status/INCARDS,ikatanic/">INCARDS</a></td>
+				<td align="left" width="14%"><a href="/status/MKPAIRS,ikatanic/">MKPAIRS</a></td>
+				<td align="left" width="14%"><a href="/status/PON,ikatanic/">PON</a></td>
+				<td align="left" width="14%"><a href="/status/STEAD,ikatanic/">STEAD</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACMAKER,ikatanic/">ACMAKER</a></td>
+				<td align="left" width="14%"><a href="/status/CANTON,ikatanic/">CANTON</a></td>
+				<td align="left" width="14%"><a href="/status/EN,ikatanic/">EN</a></td>
+				<td align="left" width="14%"><a href="/status/INCDSEQ,ikatanic/">INCDSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/MKPALS,ikatanic/">MKPALS</a></td>
+				<td align="left" width="14%"><a href="/status/PONY1,ikatanic/">PONY1</a></td>
+				<td align="left" width="14%"><a href="/status/STEVE,ikatanic/">STEVE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACODE,ikatanic/">ACODE</a></td>
+				<td align="left" width="14%"><a href="/status/CAPCITY,ikatanic/">CAPCITY</a></td>
+				<td align="left" width="14%"><a href="/status/ENCODE,ikatanic/">ENCODE</a></td>
+				<td align="left" width="14%"><a href="/status/INCPOWK,ikatanic/">INCPOWK</a></td>
+				<td align="left" width="14%"><a href="/status/MKTHNUM,ikatanic/">MKTHNUM</a></td>
+				<td align="left" width="14%"><a href="/status/POSTERS,ikatanic/">POSTERS</a></td>
+				<td align="left" width="14%"><a href="/status/STONE,ikatanic/">STONE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACPC10A,ikatanic/">ACPC10A</a></td>
+				<td align="left" width="14%"><a href="/status/CARDSHUF,ikatanic/">CARDSHUF</a></td>
+				<td align="left" width="14%"><a href="/status/ENCONDIN,ikatanic/">ENCONDIN</a></td>
+				<td align="left" width="14%"><a href="/status/INCR,ikatanic/">INCR</a></td>
+				<td align="left" width="14%"><a href="/status/MKUHAR,ikatanic/">MKUHAR</a></td>
+				<td align="left" width="14%"><a href="/status/POTHOLE,ikatanic/">POTHOLE</a></td>
+				<td align="left" width="14%"><a href="/status/STORE,ikatanic/">STORE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACPC10B,ikatanic/">ACPC10B</a></td>
+				<td align="left" width="14%"><a href="/status/CASHIER,ikatanic/">CASHIER</a></td>
+				<td align="left" width="14%"><a href="/status/EOPERA,ikatanic/">EOPERA</a></td>
+				<td align="left" width="14%"><a href="/status/INCSEQ,ikatanic/">INCSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/MKWAVES,ikatanic/">MKWAVES</a></td>
+				<td align="left" width="14%"><a href="/status/POUR1,ikatanic/">POUR1</a></td>
+				<td align="left" width="14%"><a href="/status/STPAR,ikatanic/">STPAR</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACS,ikatanic/">ACS</a></td>
+				<td align="left" width="14%"><a href="/status/CATM,ikatanic/">CATM</a></td>
+				<td align="left" width="14%"><a href="/status/EPALIN,ikatanic/">EPALIN</a></td>
+				<td align="left" width="14%"><a href="/status/INDEPCNT,ikatanic/">INDEPCNT</a></td>
+				<td align="left" width="14%"><a href="/status/MLAND,ikatanic/">MLAND</a></td>
+				<td align="left" width="14%"><a href="/status/PPATH,ikatanic/">PPATH</a></td>
+				<td align="left" width="14%"><a href="/status/STREET,ikatanic/">STREET</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACT,ikatanic/">ACT</a></td>
+				<td align="left" width="14%"><a href="/status/CATTLEB,ikatanic/">CATTLEB</a></td>
+				<td align="left" width="14%"><a href="/status/EPURSE,ikatanic/">EPURSE</a></td>
+				<td align="left" width="14%"><a href="/status/ININT,ikatanic/">ININT</a></td>
+				<td align="left" width="14%"><a href="/status/MLASERP,ikatanic/">MLASERP</a></td>
+				<td align="left" width="14%"><a href="/status/PQUEUE,ikatanic/">PQUEUE</a></td>
+				<td align="left" width="14%"><a href="/status/STRLCP,ikatanic/">STRLCP</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADDREV,ikatanic/">ADDREV</a></td>
+				<td align="left" width="14%"><a href="/status/CAVLI,ikatanic/">CAVLI</a></td>
+				<td align="left" width="14%"><a href="/status/EQ,ikatanic/">EQ</a></td>
+				<td align="left" width="14%"><a href="/status/INTEGER1,ikatanic/">INTEGER1</a></td>
+				<td align="left" width="14%"><a href="/status/MMAHWIRE,ikatanic/">MMAHWIRE</a></td>
+				<td align="left" width="14%"><a href="/status/PRETILE,ikatanic/">PRETILE</a></td>
+				<td align="left" width="14%"><a href="/status/STSTRING,ikatanic/">STSTRING</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AE00,ikatanic/">AE00</a></td>
+				<td align="left" width="14%"><a href="/status/CCOST,ikatanic/">CCOST</a></td>
+				<td align="left" width="14%"><a href="/status/EQDIV,ikatanic/">EQDIV</a></td>
+				<td align="left" width="14%"><a href="/status/INTERVA2,ikatanic/">INTERVA2</a></td>
+				<td align="left" width="14%"><a href="/status/MMASS,ikatanic/">MMASS</a></td>
+				<td align="left" width="14%"><a href="/status/PRHYME,ikatanic/">PRHYME</a></td>
+				<td align="left" width="14%"><a href="/status/SUBS,ikatanic/">SUBS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AE2A,ikatanic/">AE2A</a></td>
+				<td align="left" width="14%"><a href="/status/CCROSS,ikatanic/">CCROSS</a></td>
+				<td align="left" width="14%"><a href="/status/EQU2,ikatanic/">EQU2</a></td>
+				<td align="left" width="14%"><a href="/status/INTERVAL,ikatanic/">INTERVAL</a></td>
+				<td align="left" width="14%"><a href="/status/MMATRIX,ikatanic/">MMATRIX</a></td>
+				<td align="left" width="14%"><a href="/status/PRIME1,ikatanic/">PRIME1</a></td>
+				<td align="left" width="14%"><a href="/status/SUBSEQ,ikatanic/">SUBSEQ</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AE2B,ikatanic/">AE2B</a></td>
+				<td align="left" width="14%"><a href="/status/CCROSSX,ikatanic/">CCROSSX</a></td>
+				<td align="left" width="14%"><a href="/status/ETF,ikatanic/">ETF</a></td>
+				<td align="left" width="14%"><a href="/status/INUMBER,ikatanic/">INUMBER</a></td>
+				<td align="left" width="14%"><a href="/status/MMAXPER,ikatanic/">MMAXPER</a></td>
+				<td align="left" width="14%"><a href="/status/PRIMIT,ikatanic/">PRIMIT</a></td>
+				<td align="left" width="14%"><a href="/status/SUBSET,ikatanic/">SUBSET</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AE3A,ikatanic/">AE3A</a></td>
+				<td align="left" width="14%"><a href="/status/CDOWN,ikatanic/">CDOWN</a></td>
+				<td align="left" width="14%"><a href="/status/EXPAND,ikatanic/">EXPAND</a></td>
+				<td align="left" width="14%"><a href="/status/INVCNT,ikatanic/">INVCNT</a></td>
+				<td align="left" width="14%"><a href="/status/MMINMAX,ikatanic/">MMINMAX</a></td>
+				<td align="left" width="14%"><a href="/status/PRIMPERM,ikatanic/">PRIMPERM</a></td>
+				<td align="left" width="14%"><a href="/status/SUBST1,ikatanic/">SUBST1</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AE4A,ikatanic/">AE4A</a></td>
+				<td align="left" width="14%"><a href="/status/CEOI09TR,ikatanic/">CEOI09TR</a></td>
+				<td align="left" width="14%"><a href="/status/EXPEDI,ikatanic/">EXPEDI</a></td>
+				<td align="left" width="14%"><a href="/status/INVENT,ikatanic/">INVENT</a></td>
+				<td align="left" width="14%"><a href="/status/MMINPAID,ikatanic/">MMINPAID</a></td>
+				<td align="left" width="14%"><a href="/status/PRO,ikatanic/">PRO</a></td>
+				<td align="left" width="14%"><a href="/status/SUBSUMS,ikatanic/">SUBSUMS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AE4B,ikatanic/">AE4B</a></td>
+				<td align="left" width="14%"><a href="/status/CEPC08B,ikatanic/">CEPC08B</a></td>
+				<td align="left" width="14%"><a href="/status/EXPLOSN,ikatanic/">EXPLOSN</a></td>
+				<td align="left" width="14%"><a href="/status/IOIISL08,ikatanic/">IOIISL08</a></td>
+				<td align="left" width="14%"><a href="/status/MMINPER,ikatanic/">MMINPER</a></td>
+				<td align="left" width="14%"><a href="/status/PROFIT,ikatanic/">PROFIT</a></td>
+				<td align="left" width="14%"><a href="/status/SUBWAYPL,ikatanic/">SUBWAYPL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AE5B1,ikatanic/">AE5B1</a></td>
+				<td align="left" width="14%"><a href="/status/CERC07B,ikatanic/">CERC07B</a></td>
+				<td align="left" width="14%"><a href="/status/FACT0,ikatanic/">FACT0</a></td>
+				<td align="left" width="14%"><a href="/status/IVAN,ikatanic/">IVAN</a></td>
+				<td align="left" width="14%"><a href="/status/MMMGAME,ikatanic/">MMMGAME</a></td>
+				<td align="left" width="14%"><a href="/status/PROOT,ikatanic/">PROOT</a></td>
+				<td align="left" width="14%"><a href="/status/SUB_PROB,ikatanic/">SUB_PROB</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AE5B2,ikatanic/">AE5B2</a></td>
+				<td align="left" width="14%"><a href="/status/CERC07K,ikatanic/">CERC07K</a></td>
+				<td align="left" width="14%"><a href="/status/FACVSPOW,ikatanic/">FACVSPOW</a></td>
+				<td align="left" width="14%"><a href="/status/IZBORI,ikatanic/">IZBORI</a></td>
+				<td align="left" width="14%"><a href="/status/MNERED,ikatanic/">MNERED</a></td>
+				<td align="left" width="14%"><a href="/status/PSTR,ikatanic/">PSTR</a></td>
+				<td align="left" width="14%"><a href="/status/SUM1SEQ,ikatanic/">SUM1SEQ</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AEROLITE,ikatanic/">AEROLITE</a></td>
+				<td align="left" width="14%"><a href="/status/CERC07N,ikatanic/">CERC07N</a></td>
+				<td align="left" width="14%"><a href="/status/FAIRONOT,ikatanic/">FAIRONOT</a></td>
+				<td align="left" width="14%"><a href="/status/JANE,ikatanic/">JANE</a></td>
+				<td align="left" width="14%"><a href="/status/MOBILE2,ikatanic/">MOBILE2</a></td>
+				<td align="left" width="14%"><a href="/status/PSTRING,ikatanic/">PSTRING</a></td>
+				<td align="left" width="14%"><a href="/status/SUMFOUR,ikatanic/">SUMFOUR</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AGGRCOW,ikatanic/">AGGRCOW</a></td>
+				<td align="left" width="14%"><a href="/status/CERC07P,ikatanic/">CERC07P</a></td>
+				<td align="left" width="14%"><a href="/status/FAMILY,ikatanic/">FAMILY</a></td>
+				<td align="left" width="14%"><a href="/status/JAVAC,ikatanic/">JAVAC</a></td>
+				<td align="left" width="14%"><a href="/status/MOBIVINA,ikatanic/">MOBIVINA</a></td>
+				<td align="left" width="14%"><a href="/status/PT07A,ikatanic/">PT07A</a></td>
+				<td align="left" width="14%"><a href="/status/SUMITR,ikatanic/">SUMITR</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AIBOHP,ikatanic/">AIBOHP</a></td>
+				<td align="left" width="14%"><a href="/status/CERC07R,ikatanic/">CERC07R</a></td>
+				<td align="left" width="14%"><a href="/status/FARMER,ikatanic/">FARMER</a></td>
+				<td align="left" width="14%"><a href="/status/JEDNAKOS,ikatanic/">JEDNAKOS</a></td>
+				<td align="left" width="14%"><a href="/status/MONSTER,ikatanic/">MONSTER</a></td>
+				<td align="left" width="14%"><a href="/status/PT07B,ikatanic/">PT07B</a></td>
+				<td align="left" width="14%"><a href="/status/SUMMUL,ikatanic/">SUMMUL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AIRLINES,ikatanic/">AIRLINES</a></td>
+				<td align="left" width="14%"><a href="/status/CERC07S,ikatanic/">CERC07S</a></td>
+				<td align="left" width="14%"><a href="/status/FASHION,ikatanic/">FASHION</a></td>
+				<td align="left" width="14%"><a href="/status/JMFILTER,ikatanic/">JMFILTER</a></td>
+				<td align="left" width="14%"><a href="/status/MORPH,ikatanic/">MORPH</a></td>
+				<td align="left" width="14%"><a href="/status/PT07F,ikatanic/">PT07F</a></td>
+				<td align="left" width="14%"><a href="/status/SUMSLOPE,ikatanic/">SUMSLOPE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ALIBB,ikatanic/">ALIBB</a></td>
+				<td align="left" width="14%"><a href="/status/CFPARTY,ikatanic/">CFPARTY</a></td>
+				<td align="left" width="14%"><a href="/status/FASTFLOW,ikatanic/">FASTFLOW</a></td>
+				<td align="left" width="14%"><a href="/status/JOCHEF,ikatanic/">JOCHEF</a></td>
+				<td align="left" width="14%"><a href="/status/MORSE,ikatanic/">MORSE</a></td>
+				<td align="left" width="14%"><a href="/status/PT07J,ikatanic/">PT07J</a></td>
+				<td align="left" width="14%"><a href="/status/SUMSUMS,ikatanic/">SUMSUMS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ALICE,ikatanic/">ALICE</a></td>
+				<td align="left" width="14%"><a href="/status/CFRAC,ikatanic/">CFRAC</a></td>
+				<td align="left" width="14%"><a href="/status/FAVDICE,ikatanic/">FAVDICE</a></td>
+				<td align="left" width="14%"><a href="/status/JRIDE,ikatanic/">JRIDE</a></td>
+				<td align="left" width="14%"><a href="/status/MOVIE,ikatanic/">MOVIE</a></td>
+				<td align="left" width="14%"><a href="/status/PT07X,ikatanic/">PT07X</a></td>
+				<td align="left" width="14%"><a href="/status/SUPPER,ikatanic/">SUPPER</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ALICEBOB,ikatanic/">ALICEBOB</a></td>
+				<td align="left" width="14%"><a href="/status/CFRAC2,ikatanic/">CFRAC2</a></td>
+				<td align="left" width="14%"><a href="/status/FCANDY,ikatanic/">FCANDY</a></td>
+				<td align="left" width="14%"><a href="/status/JRNTMRS,ikatanic/">JRNTMRS</a></td>
+				<td align="left" width="14%"><a href="/status/MOWS,ikatanic/">MOWS</a></td>
+				<td align="left" width="14%"><a href="/status/PT07Y,ikatanic/">PT07Y</a></td>
+				<td align="left" width="14%"><a href="/status/SVADA,ikatanic/">SVADA</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ALICECUB,ikatanic/">ALICECUB</a></td>
+				<td align="left" width="14%"><a href="/status/CHAIN,ikatanic/">CHAIN</a></td>
+				<td align="left" width="14%"><a href="/status/FCATTLE,ikatanic/">FCATTLE</a></td>
+				<td align="left" width="14%"><a href="/status/JULKA,ikatanic/">JULKA</a></td>
+				<td align="left" width="14%"><a href="/status/MPART,ikatanic/">MPART</a></td>
+				<td align="left" width="14%"><a href="/status/PUZZLE2,ikatanic/">PUZZLE2</a></td>
+				<td align="left" width="14%"><a href="/status/SWAPS,ikatanic/">SWAPS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ALIENS,ikatanic/">ALIENS</a></td>
+				<td align="left" width="14%"><a href="/status/CHASE,ikatanic/">CHASE</a></td>
+				<td align="left" width="14%"><a href="/status/FCSYS,ikatanic/">FCSYS</a></td>
+				<td align="left" width="14%"><a href="/status/KGSS,ikatanic/">KGSS</a></td>
+				<td align="left" width="14%"><a href="/status/MPIGS,ikatanic/">MPIGS</a></td>
+				<td align="left" width="14%"><a href="/status/QCJ1,ikatanic/">QCJ1</a></td>
+				<td align="left" width="14%"><a href="/status/SWTHIN,ikatanic/">SWTHIN</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ALL,ikatanic/">ALL</a></td>
+				<td align="left" width="14%"><a href="/status/CHASE1,ikatanic/">CHASE1</a></td>
+				<td align="left" width="14%"><a href="/status/FCTRL,ikatanic/">FCTRL</a></td>
+				<td align="left" width="14%"><a href="/status/KNIGHTS,ikatanic/">KNIGHTS</a></td>
+				<td align="left" width="14%"><a href="/status/MPILOT,ikatanic/">MPILOT</a></td>
+				<td align="left" width="14%"><a href="/status/QCJ2,ikatanic/">QCJ2</a></td>
+				<td align="left" width="14%"><a href="/status/TABLE5X5,ikatanic/">TABLE5X5</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ALTPERM,ikatanic/">ALTPERM</a></td>
+				<td align="left" width="14%"><a href="/status/CHEFMAR,ikatanic/">CHEFMAR</a></td>
+				<td align="left" width="14%"><a href="/status/FCTRL2,ikatanic/">FCTRL2</a></td>
+				<td align="left" width="14%"><a href="/status/KNIGHTSR,ikatanic/">KNIGHTSR</a></td>
+				<td align="left" width="14%"><a href="/status/MPOINT,ikatanic/">MPOINT</a></td>
+				<td align="left" width="14%"><a href="/status/QCJ3,ikatanic/">QCJ3</a></td>
+				<td align="left" width="14%"><a href="/status/TABLIC,ikatanic/">TABLIC</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMBIG,ikatanic/">AMBIG</a></td>
+				<td align="left" width="14%"><a href="/status/CHMAZE,ikatanic/">CHMAZE</a></td>
+				<td align="left" width="14%"><a href="/status/FENCE1,ikatanic/">FENCE1</a></td>
+				<td align="left" width="14%"><a href="/status/KNMD,ikatanic/">KNMD</a></td>
+				<td align="left" width="14%"><a href="/status/MPOLSTAR,ikatanic/">MPOLSTAR</a></td>
+				<td align="left" width="14%"><a href="/status/QCJ4,ikatanic/">QCJ4</a></td>
+				<td align="left" width="14%"><a href="/status/TAUT,ikatanic/">TAUT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMBM,ikatanic/">AMBM</a></td>
+				<td align="left" width="14%"><a href="/status/CHRIS,ikatanic/">CHRIS</a></td>
+				<td align="left" width="14%"><a href="/status/FERRY,ikatanic/">FERRY</a></td>
+				<td align="left" width="14%"><a href="/status/KOICOST,ikatanic/">KOICOST</a></td>
+				<td align="left" width="14%"><a href="/status/MPOLY,ikatanic/">MPOLY</a></td>
+				<td align="left" width="14%"><a href="/status/QKP,ikatanic/">QKP</a></td>
+				<td align="left" width="14%"><a href="/status/TAXI,ikatanic/">TAXI</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMR10D,ikatanic/">AMR10D</a></td>
+				<td align="left" width="14%"><a href="/status/CIJEVI,ikatanic/">CIJEVI</a></td>
+				<td align="left" width="14%"><a href="/status/FERT21_0,ikatanic/">FERT21_0</a></td>
+				<td align="left" width="14%"><a href="/status/KOILINE,ikatanic/">KOILINE</a></td>
+				<td align="left" width="14%"><a href="/status/MRECAMAN,ikatanic/">MRECAMAN</a></td>
+				<td align="left" width="14%"><a href="/status/QMAX3VN,ikatanic/">QMAX3VN</a></td>
+				<td align="left" width="14%"><a href="/status/TEMPERAT,ikatanic/">TEMPERAT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMR10I,ikatanic/">AMR10I</a></td>
+				<td align="left" width="14%"><a href="/status/CIRCLES,ikatanic/">CIRCLES</a></td>
+				<td align="left" width="14%"><a href="/status/FILTER,ikatanic/">FILTER</a></td>
+				<td align="left" width="14%"><a href="/status/KOIREP,ikatanic/">KOIREP</a></td>
+				<td align="left" width="14%"><a href="/status/MRECTCNT,ikatanic/">MRECTCNT</a></td>
+				<td align="left" width="14%"><a href="/status/QTGIFT3,ikatanic/">QTGIFT3</a></td>
+				<td align="left" width="14%"><a href="/status/TEMPTISL,ikatanic/">TEMPTISL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMR10J,ikatanic/">AMR10J</a></td>
+				<td align="left" width="14%"><a href="/status/CIRCSCR,ikatanic/">CIRCSCR</a></td>
+				<td align="left" width="14%"><a href="/status/FINDMAX,ikatanic/">FINDMAX</a></td>
+				<td align="left" width="14%"><a href="/status/KOLACI,ikatanic/">KOLACI</a></td>
+				<td align="left" width="14%"><a href="/status/MREPLBRC,ikatanic/">MREPLBRC</a></td>
+				<td align="left" width="14%"><a href="/status/QTREE,ikatanic/">QTREE</a></td>
+				<td align="left" width="14%"><a href="/status/TEST,ikatanic/">TEST</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC05B,ikatanic/">ANARC05B</a></td>
+				<td align="left" width="14%"><a href="/status/CISTFILL,ikatanic/">CISTFILL</a></td>
+				<td align="left" width="14%"><a href="/status/FINDPRM,ikatanic/">FINDPRM</a></td>
+				<td align="left" width="14%"><a href="/status/KPARCH,ikatanic/">KPARCH</a></td>
+				<td align="left" width="14%"><a href="/status/MROADS,ikatanic/">MROADS</a></td>
+				<td align="left" width="14%"><a href="/status/QTREE2,ikatanic/">QTREE2</a></td>
+				<td align="left" width="14%"><a href="/status/TETRIS3D,ikatanic/">TETRIS3D</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC05H,ikatanic/">ANARC05H</a></td>
+				<td align="left" width="14%"><a href="/status/CLEANRBT,ikatanic/">CLEANRBT</a></td>
+				<td align="left" width="14%"><a href="/status/FINFRAC,ikatanic/">FINFRAC</a></td>
+				<td align="left" width="14%"><a href="/status/KPEQU,ikatanic/">KPEQU</a></td>
+				<td align="left" width="14%"><a href="/status/MSAFE,ikatanic/">MSAFE</a></td>
+				<td align="left" width="14%"><a href="/status/QTREE4,ikatanic/">QTREE4</a></td>
+				<td align="left" width="14%"><a href="/status/TFOSS,ikatanic/">TFOSS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC05I,ikatanic/">ANARC05I</a></td>
+				<td align="left" width="14%"><a href="/status/CLEVER,ikatanic/">CLEVER</a></td>
+				<td align="left" width="14%"><a href="/status/FISHER,ikatanic/">FISHER</a></td>
+				<td align="left" width="14%"><a href="/status/KPMATRIX,ikatanic/">KPMATRIX</a></td>
+				<td align="left" width="14%"><a href="/status/MSE06H,ikatanic/">MSE06H</a></td>
+				<td align="left" width="14%"><a href="/status/QTREE5,ikatanic/">QTREE5</a></td>
+				<td align="left" width="14%"><a href="/status/TFSETS,ikatanic/">TFSETS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC07C,ikatanic/">ANARC07C</a></td>
+				<td align="left" width="14%"><a href="/status/CLK,ikatanic/">CLK</a></td>
+				<td align="left" width="14%"><a href="/status/FISHNET,ikatanic/">FISHNET</a></td>
+				<td align="left" width="14%"><a href="/status/KPSUM,ikatanic/">KPSUM</a></td>
+				<td align="left" width="14%"><a href="/status/MSE06I,ikatanic/">MSE06I</a></td>
+				<td align="left" width="14%"><a href="/status/QTREE7,ikatanic/">QTREE7</a></td>
+				<td align="left" width="14%"><a href="/status/THREECOL,ikatanic/">THREECOL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC07G,ikatanic/">ANARC07G</a></td>
+				<td align="left" width="14%"><a href="/status/CLONE,ikatanic/">CLONE</a></td>
+				<td align="left" width="14%"><a href="/status/FLOWERS2,ikatanic/">FLOWERS2</a></td>
+				<td align="left" width="14%"><a href="/status/KPURSUIT,ikatanic/">KPURSUIT</a></td>
+				<td align="left" width="14%"><a href="/status/MSE08G,ikatanic/">MSE08G</a></td>
+				<td align="left" width="14%"><a href="/status/QUADAREA,ikatanic/">QUADAREA</a></td>
+				<td align="left" width="14%"><a href="/status/TILING,ikatanic/">TILING</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC08A,ikatanic/">ANARC08A</a></td>
+				<td align="left" width="14%"><a href="/status/CLOPPAIR,ikatanic/">CLOPPAIR</a></td>
+				<td align="left" width="14%"><a href="/status/FLOWGROW,ikatanic/">FLOWGROW</a></td>
+				<td align="left" width="14%"><a href="/status/KQUERY,ikatanic/">KQUERY</a></td>
+				<td align="left" width="14%"><a href="/status/MSE08H,ikatanic/">MSE08H</a></td>
+				<td align="left" width="14%"><a href="/status/QUEEN,ikatanic/">QUEEN</a></td>
+				<td align="left" width="14%"><a href="/status/TLE,ikatanic/">TLE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC08B,ikatanic/">ANARC08B</a></td>
+				<td align="left" width="14%"><a href="/status/CLOSEST,ikatanic/">CLOSEST</a></td>
+				<td align="left" width="14%"><a href="/status/FNRANK,ikatanic/">FNRANK</a></td>
+				<td align="left" width="14%"><a href="/status/KRECT,ikatanic/">KRECT</a></td>
+				<td align="left" width="14%"><a href="/status/MSKYCODE,ikatanic/">MSKYCODE</a></td>
+				<td align="left" width="14%"><a href="/status/QUERYSTR,ikatanic/">QUERYSTR</a></td>
+				<td align="left" width="14%"><a href="/status/TOANDFRO,ikatanic/">TOANDFRO</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC08F,ikatanic/">ANARC08F</a></td>
+				<td align="left" width="14%"><a href="/status/CMPLS,ikatanic/">CMPLS</a></td>
+				<td align="left" width="14%"><a href="/status/FOOL,ikatanic/">FOOL</a></td>
+				<td align="left" width="14%"><a href="/status/KROW,ikatanic/">KROW</a></td>
+				<td align="left" width="14%"><a href="/status/MSTRING,ikatanic/">MSTRING</a></td>
+				<td align="left" width="14%"><a href="/status/QUEST4,ikatanic/">QUEST4</a></td>
+				<td align="left" width="14%"><a href="/status/TOE1,ikatanic/">TOE1</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC08G,ikatanic/">ANARC08G</a></td>
+				<td align="left" width="14%"><a href="/status/CNEASY,ikatanic/">CNEASY</a></td>
+				<td align="left" width="14%"><a href="/status/FP,ikatanic/">FP</a></td>
+				<td align="left" width="14%"><a href="/status/KRUS,ikatanic/">KRUS</a></td>
+				<td align="left" width="14%"><a href="/status/MSTS,ikatanic/">MSTS</a></td>
+				<td align="left" width="14%"><a href="/status/RABBIT1,ikatanic/">RABBIT1</a></td>
+				<td align="left" width="14%"><a href="/status/TOE2,ikatanic/">TOE2</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC08H,ikatanic/">ANARC08H</a></td>
+				<td align="left" width="14%"><a href="/status/COCONUTS,ikatanic/">COCONUTS</a></td>
+				<td align="left" width="14%"><a href="/status/FPOLICE,ikatanic/">FPOLICE</a></td>
+				<td align="left" width="14%"><a href="/status/KSEQ,ikatanic/">KSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/MTELE,ikatanic/">MTELE</a></td>
+				<td align="left" width="14%"><a href="/status/RACETIME,ikatanic/">RACETIME</a></td>
+				<td align="left" width="14%"><a href="/status/TOHU,ikatanic/">TOHU</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC08I,ikatanic/">ANARC08I</a></td>
+				<td align="left" width="14%"><a href="/status/CODE,ikatanic/">CODE</a></td>
+				<td align="left" width="14%"><a href="/status/FRACTION,ikatanic/">FRACTION</a></td>
+				<td align="left" width="14%"><a href="/status/KUTH,ikatanic/">KUTH</a></td>
+				<td align="left" width="14%"><a href="/status/MTOTALF,ikatanic/">MTOTALF</a></td>
+				<td align="left" width="14%"><a href="/status/RAIL,ikatanic/">RAIL</a></td>
+				<td align="left" width="14%"><a href="/status/TOMJERRY,ikatanic/">TOMJERRY</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC08J,ikatanic/">ANARC08J</a></td>
+				<td align="left" width="14%"><a href="/status/CODESPTF,ikatanic/">CODESPTF</a></td>
+				<td align="left" width="14%"><a href="/status/FREQUENT,ikatanic/">FREQUENT</a></td>
+				<td align="left" width="14%"><a href="/status/KVALTWR,ikatanic/">KVALTWR</a></td>
+				<td align="left" width="14%"><a href="/status/MTRAIN,ikatanic/">MTRAIN</a></td>
+				<td align="left" width="14%"><a href="/status/RAIN3,ikatanic/">RAIN3</a></td>
+				<td align="left" width="14%"><a href="/status/TOP10,ikatanic/">TOP10</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC09A,ikatanic/">ANARC09A</a></td>
+				<td align="left" width="14%"><a href="/status/COINS,ikatanic/">COINS</a></td>
+				<td align="left" width="14%"><a href="/status/FROGGER,ikatanic/">FROGGER</a></td>
+				<td align="left" width="14%"><a href="/status/LABYR1,ikatanic/">LABYR1</a></td>
+				<td align="left" width="14%"><a href="/status/MTREE,ikatanic/">MTREE</a></td>
+				<td align="left" width="14%"><a href="/status/RAINBOW,ikatanic/">RAINBOW</a></td>
+				<td align="left" width="14%"><a href="/status/TOPCODE,ikatanic/">TOPCODE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC09B,ikatanic/">ANARC09B</a></td>
+				<td align="left" width="14%"><a href="/status/COLORCAT,ikatanic/">COLORCAT</a></td>
+				<td align="left" width="14%"><a href="/status/FROGS,ikatanic/">FROGS</a></td>
+				<td align="left" width="14%"><a href="/status/LABYR2,ikatanic/">LABYR2</a></td>
+				<td align="left" width="14%"><a href="/status/MTRGAME,ikatanic/">MTRGAME</a></td>
+				<td align="left" width="14%"><a href="/status/RATING,ikatanic/">RATING</a></td>
+				<td align="left" width="14%"><a href="/status/TOURIST,ikatanic/">TOURIST</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC09C,ikatanic/">ANARC09C</a></td>
+				<td align="left" width="14%"><a href="/status/COMBAT,ikatanic/">COMBAT</a></td>
+				<td align="left" width="14%"><a href="/status/FRQPRIME,ikatanic/">FRQPRIME</a></td>
+				<td align="left" width="14%"><a href="/status/LAGRANGE,ikatanic/">LAGRANGE</a></td>
+				<td align="left" width="14%"><a href="/status/MTWALK,ikatanic/">MTWALK</a></td>
+				<td align="left" width="14%"><a href="/status/REC,ikatanic/">REC</a></td>
+				<td align="left" width="14%"><a href="/status/TPERML,ikatanic/">TPERML</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC09D,ikatanic/">ANARC09D</a></td>
+				<td align="left" width="14%"><a href="/status/COMCB,ikatanic/">COMCB</a></td>
+				<td align="left" width="14%"><a href="/status/FSEATS,ikatanic/">FSEATS</a></td>
+				<td align="left" width="14%"><a href="/status/LAND,ikatanic/">LAND</a></td>
+				<td align="left" width="14%"><a href="/status/MUDDY,ikatanic/">MUDDY</a></td>
+				<td align="left" width="14%"><a href="/status/RECTANGL,ikatanic/">RECTANGL</a></td>
+				<td align="left" width="14%"><a href="/status/TRAFFICN,ikatanic/">TRAFFICN</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC09F,ikatanic/">ANARC09F</a></td>
+				<td align="left" width="14%"><a href="/status/COMFUNC,ikatanic/">COMFUNC</a></td>
+				<td align="left" width="14%"><a href="/status/FTOUR2,ikatanic/">FTOUR2</a></td>
+				<td align="left" width="14%"><a href="/status/LASTDIG,ikatanic/">LASTDIG</a></td>
+				<td align="left" width="14%"><a href="/status/MUL,ikatanic/">MUL</a></td>
+				<td align="left" width="14%"><a href="/status/RECTNG1,ikatanic/">RECTNG1</a></td>
+				<td align="left" width="14%"><a href="/status/TRANK,ikatanic/">TRANK</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANDROUND,ikatanic/">ANDROUND</a></td>
+				<td align="left" width="14%"><a href="/status/COMPRESS,ikatanic/">COMPRESS</a></td>
+				<td align="left" width="14%"><a href="/status/FUNFACT,ikatanic/">FUNFACT</a></td>
+				<td align="left" width="14%"><a href="/status/LASTDIG2,ikatanic/">LASTDIG2</a></td>
+				<td align="left" width="14%"><a href="/status/MULTQ3,ikatanic/">MULTQ3</a></td>
+				<td align="left" width="14%"><a href="/status/RELATS1,ikatanic/">RELATS1</a></td>
+				<td align="left" width="14%"><a href="/status/TRANS,ikatanic/">TRANS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANGELS,ikatanic/">ANGELS</a></td>
+				<td align="left" width="14%"><a href="/status/CONTCITY,ikatanic/">CONTCITY</a></td>
+				<td align="left" width="14%"><a href="/status/FUNPROB,ikatanic/">FUNPROB</a></td>
+				<td align="left" width="14%"><a href="/status/LATTICE,ikatanic/">LATTICE</a></td>
+				<td align="left" width="14%"><a href="/status/MUSIC,ikatanic/">MUSIC</a></td>
+				<td align="left" width="14%"><a href="/status/RELINETS,ikatanic/">RELINETS</a></td>
+				<td align="left" width="14%"><a href="/status/TRANSMIT,ikatanic/">TRANSMIT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANTTT,ikatanic/">ANTTT</a></td>
+				<td align="left" width="14%"><a href="/status/CONTPACK,ikatanic/">CONTPACK</a></td>
+				<td align="left" width="14%"><a href="/status/FWFUNC,ikatanic/">FWFUNC</a></td>
+				<td align="left" width="14%"><a href="/status/LAZYCOWS,ikatanic/">LAZYCOWS</a></td>
+				<td align="left" width="14%"><a href="/status/MUSKET,ikatanic/">MUSKET</a></td>
+				<td align="left" width="14%"><a href="/status/RELJEF,ikatanic/">RELJEF</a></td>
+				<td align="left" width="14%"><a href="/status/TRAPEZBO,ikatanic/">TRAPEZBO</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/APIO14_A,ikatanic/">APIO14_A</a></td>
+				<td align="left" width="14%"><a href="/status/COOLNUMS,ikatanic/">COOLNUMS</a></td>
+				<td align="left" width="14%"><a href="/status/GALLUP,ikatanic/">GALLUP</a></td>
+				<td align="left" width="14%"><a href="/status/LAZYPROG,ikatanic/">LAZYPROG</a></td>
+				<td align="left" width="14%"><a href="/status/MVECTOR,ikatanic/">MVECTOR</a></td>
+				<td align="left" width="14%"><a href="/status/REMGAME,ikatanic/">REMGAME</a></td>
+				<td align="left" width="14%"><a href="/status/TREASURY,ikatanic/">TREASURY</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/APRIME,ikatanic/">APRIME</a></td>
+				<td align="left" width="14%"><a href="/status/COPYDNA,ikatanic/">COPYDNA</a></td>
+				<td align="left" width="14%"><a href="/status/GAME,ikatanic/">GAME</a></td>
+				<td align="left" width="14%"><a href="/status/LCMSUM,ikatanic/">LCMSUM</a></td>
+				<td align="left" width="14%"><a href="/status/MWORDS,ikatanic/">MWORDS</a></td>
+				<td align="left" width="14%"><a href="/status/RENT,ikatanic/">RENT</a></td>
+				<td align="left" width="14%"><a href="/status/TREE,ikatanic/">TREE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARDA1,ikatanic/">ARDA1</a></td>
+				<td align="left" width="14%"><a href="/status/CORNET,ikatanic/">CORNET</a></td>
+				<td align="left" width="14%"><a href="/status/GAME2,ikatanic/">GAME2</a></td>
+				<td align="left" width="14%"><a href="/status/LCS,ikatanic/">LCS</a></td>
+				<td align="left" width="14%"><a href="/status/MZVRK,ikatanic/">MZVRK</a></td>
+				<td align="left" width="14%"><a href="/status/REPAIR1,ikatanic/">REPAIR1</a></td>
+				<td align="left" width="14%"><a href="/status/TREE1,ikatanic/">TREE1</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARITH,ikatanic/">ARITH</a></td>
+				<td align="left" width="14%"><a href="/status/COT,ikatanic/">COT</a></td>
+				<td align="left" width="14%"><a href="/status/GAMEFIL,ikatanic/">GAMEFIL</a></td>
+				<td align="left" width="14%"><a href="/status/LEGO,ikatanic/">LEGO</a></td>
+				<td align="left" width="14%"><a href="/status/NAJKRACI,ikatanic/">NAJKRACI</a></td>
+				<td align="left" width="14%"><a href="/status/RIGHTTRI,ikatanic/">RIGHTTRI</a></td>
+				<td align="left" width="14%"><a href="/status/TREECST,ikatanic/">TREECST</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARITH2,ikatanic/">ARITH2</a></td>
+				<td align="left" width="14%"><a href="/status/COT2,ikatanic/">COT2</a></td>
+				<td align="left" width="14%"><a href="/status/GAMETIME,ikatanic/">GAMETIME</a></td>
+				<td align="left" width="14%"><a href="/status/LENGFACT,ikatanic/">LENGFACT</a></td>
+				<td align="left" width="14%"><a href="/status/NAPTIME,ikatanic/">NAPTIME</a></td>
+				<td align="left" width="14%"><a href="/status/RNDORDER,ikatanic/">RNDORDER</a></td>
+				<td align="left" width="14%"><a href="/status/TREEGAME,ikatanic/">TREEGAME</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARITHSEQ,ikatanic/">ARITHSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/COUNT,ikatanic/">COUNT</a></td>
+				<td align="left" width="14%"><a href="/status/GANNHAT,ikatanic/">GANNHAT</a></td>
+				<td align="left" width="14%"><a href="/status/LEONARDO,ikatanic/">LEONARDO</a></td>
+				<td align="left" width="14%"><a href="/status/NCKLCE,ikatanic/">NCKLCE</a></td>
+				<td align="left" width="14%"><a href="/status/ROADNET,ikatanic/">ROADNET</a></td>
+				<td align="left" width="14%"><a href="/status/TREEOI14,ikatanic/">TREEOI14</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARMY,ikatanic/">ARMY</a></td>
+				<td align="left" width="14%"><a href="/status/COURIER,ikatanic/">COURIER</a></td>
+				<td align="left" width="14%"><a href="/status/GARDENAR,ikatanic/">GARDENAR</a></td>
+				<td align="left" width="14%"><a href="/status/LFM,ikatanic/">LFM</a></td>
+				<td align="left" width="14%"><a href="/status/NEG2,ikatanic/">NEG2</a></td>
+				<td align="left" width="14%"><a href="/status/ROADS,ikatanic/">ROADS</a></td>
+				<td align="left" width="14%"><a href="/status/TREESUM,ikatanic/">TREESUM</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AROUND,ikatanic/">AROUND</a></td>
+				<td align="left" width="14%"><a href="/status/COVER2,ikatanic/">COVER2</a></td>
+				<td align="left" width="14%"><a href="/status/GCD2,ikatanic/">GCD2</a></td>
+				<td align="left" width="14%"><a href="/status/LIAR,ikatanic/">LIAR</a></td>
+				<td align="left" width="14%"><a href="/status/NG0FRCTN,ikatanic/">NG0FRCTN</a></td>
+				<td align="left" width="14%"><a href="/status/ROBBERY2,ikatanic/">ROBBERY2</a></td>
+				<td align="left" width="14%"><a href="/status/TRES,ikatanic/">TRES</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARRANGE,ikatanic/">ARRANGE</a></td>
+				<td align="left" width="14%"><a href="/status/COWCAR,ikatanic/">COWCAR</a></td>
+				<td align="left" width="14%"><a href="/status/GCDSQF,ikatanic/">GCDSQF</a></td>
+				<td align="left" width="14%"><a href="/status/LIFEGAME,ikatanic/">LIFEGAME</a></td>
+				<td align="left" width="14%"><a href="/status/NG1FRCTN,ikatanic/">NG1FRCTN</a></td>
+				<td align="left" width="14%"><a href="/status/ROCK,ikatanic/">ROCK</a></td>
+				<td align="left" width="14%"><a href="/status/TREZOR,ikatanic/">TREZOR</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARRANGE2,ikatanic/">ARRANGE2</a></td>
+				<td align="left" width="14%"><a href="/status/CPAIR,ikatanic/">CPAIR</a></td>
+				<td align="left" width="14%"><a href="/status/GCJ08C,ikatanic/">GCJ08C</a></td>
+				<td align="left" width="14%"><a href="/status/LIFTS,ikatanic/">LIFTS</a></td>
+				<td align="left" width="14%"><a href="/status/NGM,ikatanic/">NGM</a></td>
+				<td align="left" width="14%"><a href="/status/ROCKETS,ikatanic/">ROCKETS</a></td>
+				<td align="left" width="14%"><a href="/status/TRGRID,ikatanic/">TRGRID</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ASSIGN,ikatanic/">ASSIGN</a></td>
+				<td align="left" width="14%"><a href="/status/CPAIR2,ikatanic/">CPAIR2</a></td>
+				<td align="left" width="14%"><a href="/status/GEN,ikatanic/">GEN</a></td>
+				<td align="left" width="14%"><a href="/status/LIGHTS2,ikatanic/">LIGHTS2</a></td>
+				<td align="left" width="14%"><a href="/status/NGM2,ikatanic/">NGM2</a></td>
+				<td align="left" width="14%"><a href="/status/ROMAN,ikatanic/">ROMAN</a></td>
+				<td align="left" width="14%"><a href="/status/TRIBE2,ikatanic/">TRIBE2</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ASSIGN5,ikatanic/">ASSIGN5</a></td>
+				<td align="left" width="14%"><a href="/status/CPATTERN,ikatanic/">CPATTERN</a></td>
+				<td align="left" width="14%"><a href="/status/GEN2,ikatanic/">GEN2</a></td>
+				<td align="left" width="14%"><a href="/status/LIM,ikatanic/">LIM</a></td>
+				<td align="left" width="14%"><a href="/status/NHAY,ikatanic/">NHAY</a></td>
+				<td align="left" width="14%"><a href="/status/ROMANRDS,ikatanic/">ROMANRDS</a></td>
+				<td align="left" width="14%"><a href="/status/TRICENTR,ikatanic/">TRICENTR</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ASSIST,ikatanic/">ASSIST</a></td>
+				<td align="left" width="14%"><a href="/status/CPRIME,ikatanic/">CPRIME</a></td>
+				<td align="left" width="14%"><a href="/status/GENETIC,ikatanic/">GENETIC</a></td>
+				<td align="left" width="14%"><a href="/status/LINE,ikatanic/">LINE</a></td>
+				<td align="left" width="14%"><a href="/status/NICEDAY,ikatanic/">NICEDAY</a></td>
+				<td align="left" width="14%"><a href="/status/ROOBOT,ikatanic/">ROOBOT</a></td>
+				<td align="left" width="14%"><a href="/status/TRICOUNT,ikatanic/">TRICOUNT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ATMS,ikatanic/">ATMS</a></td>
+				<td align="left" width="14%"><a href="/status/CPRMT,ikatanic/">CPRMT</a></td>
+				<td align="left" width="14%"><a href="/status/GEOM,ikatanic/">GEOM</a></td>
+				<td align="left" width="14%"><a href="/status/LINES,ikatanic/">LINES</a></td>
+				<td align="left" width="14%"><a href="/status/NOCHANGE,ikatanic/">NOCHANGE</a></td>
+				<td align="left" width="14%"><a href="/status/ROOT,ikatanic/">ROOT</a></td>
+				<td align="left" width="14%"><a href="/status/TRIOMINO,ikatanic/">TRIOMINO</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ATOURISM,ikatanic/">ATOURISM</a></td>
+				<td align="left" width="14%"><a href="/status/CPU,ikatanic/">CPU</a></td>
+				<td align="left" width="14%"><a href="/status/GEOPROB,ikatanic/">GEOPROB</a></td>
+				<td align="left" width="14%"><a href="/status/LIS2,ikatanic/">LIS2</a></td>
+				<td align="left" width="14%"><a href="/status/NOTATRI,ikatanic/">NOTATRI</a></td>
+				<td align="left" width="14%"><a href="/status/ROUNDT,ikatanic/">ROUNDT</a></td>
+				<td align="left" width="14%"><a href="/status/TRIP,ikatanic/">TRIP</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AVARY,ikatanic/">AVARY</a></td>
+				<td align="left" width="14%"><a href="/status/CRYPTO1,ikatanic/">CRYPTO1</a></td>
+				<td align="left" width="14%"><a href="/status/GEORGE,ikatanic/">GEORGE</a></td>
+				<td align="left" width="14%"><a href="/status/LISA,ikatanic/">LISA</a></td>
+				<td align="left" width="14%"><a href="/status/NSTEPS,ikatanic/">NSTEPS</a></td>
+				<td align="left" width="14%"><a href="/status/RP,ikatanic/">RP</a></td>
+				<td align="left" width="14%"><a href="/status/TRKNIGHT,ikatanic/">TRKNIGHT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AVOIDSOS,ikatanic/">AVOIDSOS</a></td>
+				<td align="left" width="14%"><a href="/status/CRYPTO2,ikatanic/">CRYPTO2</a></td>
+				<td align="left" width="14%"><a href="/status/GERGOVIA,ikatanic/">GERGOVIA</a></td>
+				<td align="left" width="14%"><a href="/status/LITELANG,ikatanic/">LITELANG</a></td>
+				<td align="left" width="14%"><a href="/status/NSUBSTR2,ikatanic/">NSUBSTR2</a></td>
+				<td align="left" width="14%"><a href="/status/RPAR,ikatanic/">RPAR</a></td>
+				<td align="left" width="14%"><a href="/status/TROOPS,ikatanic/">TROOPS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BABTWR,ikatanic/">BABTWR</a></td>
+				<td align="left" width="14%"><a href="/status/CSTREET,ikatanic/">CSTREET</a></td>
+				<td align="left" width="14%"><a href="/status/GETBACK,ikatanic/">GETBACK</a></td>
+				<td align="left" width="14%"><a href="/status/LOGIC2,ikatanic/">LOGIC2</a></td>
+				<td align="left" width="14%"><a href="/status/NSYSTEM,ikatanic/">NSYSTEM</a></td>
+				<td align="left" width="14%"><a href="/status/RPS,ikatanic/">RPS</a></td>
+				<td align="left" width="14%"><a href="/status/TRT,ikatanic/">TRT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BACKPACK,ikatanic/">BACKPACK</a></td>
+				<td align="left" width="14%"><a href="/status/CSUBSEQS,ikatanic/">CSUBSEQS</a></td>
+				<td align="left" width="14%"><a href="/status/GIWED,ikatanic/">GIWED</a></td>
+				<td align="left" width="14%"><a href="/status/LPERMUT,ikatanic/">LPERMUT</a></td>
+				<td align="left" width="14%"><a href="/status/NWERC04H,ikatanic/">NWERC04H</a></td>
+				<td align="left" width="14%"><a href="/status/RPSSL,ikatanic/">RPSSL</a></td>
+				<td align="left" width="14%"><a href="/status/TRUTHORL,ikatanic/">TRUTHORL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BACKUP,ikatanic/">BACKUP</a></td>
+				<td align="left" width="14%"><a href="/status/CT,ikatanic/">CT</a></td>
+				<td align="left" width="14%"><a href="/status/GLASNICI,ikatanic/">GLASNICI</a></td>
+				<td align="left" width="14%"><a href="/status/LPRIME,ikatanic/">LPRIME</a></td>
+				<td align="left" width="14%"><a href="/status/NWERC10G,ikatanic/">NWERC10G</a></td>
+				<td align="left" width="14%"><a href="/status/RRSCHED,ikatanic/">RRSCHED</a></td>
+				<td align="left" width="14%"><a href="/status/TTABLE,ikatanic/">TTABLE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BAISED,ikatanic/">BAISED</a></td>
+				<td align="left" width="14%"><a href="/status/CT10R3B,ikatanic/">CT10R3B</a></td>
+				<td align="left" width="14%"><a href="/status/GLOVE,ikatanic/">GLOVE</a></td>
+				<td align="left" width="14%"><a href="/status/LPRISON,ikatanic/">LPRISON</a></td>
+				<td align="left" width="14%"><a href="/status/O2JAM,ikatanic/">O2JAM</a></td>
+				<td align="left" width="14%"><a href="/status/RSTAURNT,ikatanic/">RSTAURNT</a></td>
+				<td align="left" width="14%"><a href="/status/TTM,ikatanic/">TTM</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BALLOON,ikatanic/">BALLOON</a></td>
+				<td align="left" width="14%"><a href="/status/CT25C,ikatanic/">CT25C</a></td>
+				<td align="left" width="14%"><a href="/status/GLUE,ikatanic/">GLUE</a></td>
+				<td align="left" width="14%"><a href="/status/LSORT,ikatanic/">LSORT</a></td>
+				<td align="left" width="14%"><a href="/status/ODDDIV,ikatanic/">ODDDIV</a></td>
+				<td align="left" width="14%"><a href="/status/RUNAWAY,ikatanic/">RUNAWAY</a></td>
+				<td align="left" width="14%"><a href="/status/TTTABLE,ikatanic/">TTTABLE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BALNUM,ikatanic/">BALNUM</a></td>
+				<td align="left" width="14%"><a href="/status/CTAIN,ikatanic/">CTAIN</a></td>
+				<td align="left" width="14%"><a href="/status/GNY07C,ikatanic/">GNY07C</a></td>
+				<td align="left" width="14%"><a href="/status/LSQF,ikatanic/">LSQF</a></td>
+				<td align="left" width="14%"><a href="/status/OFFSIDE,ikatanic/">OFFSIDE</a></td>
+				<td align="left" width="14%"><a href="/status/SA04C,ikatanic/">SA04C</a></td>
+				<td align="left" width="14%"><a href="/status/TUTMRBL,ikatanic/">TUTMRBL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BASE,ikatanic/">BASE</a></td>
+				<td align="left" width="14%"><a href="/status/CTOI09_1,ikatanic/">CTOI09_1</a></td>
+				<td align="left" width="14%"><a href="/status/GNY07D,ikatanic/">GNY07D</a></td>
+				<td align="left" width="14%"><a href="/status/LUBEN,ikatanic/">LUBEN</a></td>
+				<td align="left" width="14%"><a href="/status/OILCOMP,ikatanic/">OILCOMP</a></td>
+				<td align="left" width="14%"><a href="/status/SA04D,ikatanic/">SA04D</a></td>
+				<td align="left" width="14%"><a href="/status/TWENDS,ikatanic/">TWENDS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BEADS,ikatanic/">BEADS</a></td>
+				<td align="left" width="14%"><a href="/status/CTOI10D3,ikatanic/">CTOI10D3</a></td>
+				<td align="left" width="14%"><a href="/status/GNY07E,ikatanic/">GNY07E</a></td>
+				<td align="left" width="14%"><a href="/status/LUCKY,ikatanic/">LUCKY</a></td>
+				<td align="left" width="14%"><a href="/status/OKRET,ikatanic/">OKRET</a></td>
+				<td align="left" width="14%"><a href="/status/SAM,ikatanic/">SAM</a></td>
+				<td align="left" width="14%"><a href="/status/TWICE,ikatanic/">TWICE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BENEFACT,ikatanic/">BENEFACT</a></td>
+				<td align="left" width="14%"><a href="/status/CTRICK,ikatanic/">CTRICK</a></td>
+				<td align="left" width="14%"><a href="/status/GNY07F,ikatanic/">GNY07F</a></td>
+				<td align="left" width="14%"><a href="/status/LUCKYNUM,ikatanic/">LUCKYNUM</a></td>
+				<td align="left" width="14%"><a href="/status/ONEZERO,ikatanic/">ONEZERO</a></td>
+				<td align="left" width="14%"><a href="/status/SAMER08A,ikatanic/">SAMER08A</a></td>
+				<td align="left" width="14%"><a href="/status/TWINSNOW,ikatanic/">TWINSNOW</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BFALG,ikatanic/">BFALG</a></td>
+				<td align="left" width="14%"><a href="/status/CUBES,ikatanic/">CUBES</a></td>
+				<td align="left" width="14%"><a href="/status/GNY07H,ikatanic/">GNY07H</a></td>
+				<td align="left" width="14%"><a href="/status/LWAR,ikatanic/">LWAR</a></td>
+				<td align="left" width="14%"><a href="/status/ONP,ikatanic/">ONP</a></td>
+				<td align="left" width="14%"><a href="/status/SAMER08B,ikatanic/">SAMER08B</a></td>
+				<td align="left" width="14%"><a href="/status/TWODEL,ikatanic/">TWODEL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BICYCLE,ikatanic/">BICYCLE</a></td>
+				<td align="left" width="14%"><a href="/status/CUCKOO,ikatanic/">CUCKOO</a></td>
+				<td align="left" width="14%"><a href="/status/GNYR09F,ikatanic/">GNYR09F</a></td>
+				<td align="left" width="14%"><a href="/status/M00PAIR,ikatanic/">M00PAIR</a></td>
+				<td align="left" width="14%"><a href="/status/OPTM,ikatanic/">OPTM</a></td>
+				<td align="left" width="14%"><a href="/status/SAMER08C,ikatanic/">SAMER08C</a></td>
+				<td align="left" width="14%"><a href="/status/TWOPATHS,ikatanic/">TWOPATHS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BIGSEQ,ikatanic/">BIGSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/CUTOUT,ikatanic/">CUTOUT</a></td>
+				<td align="left" width="14%"><a href="/status/GOALFR,ikatanic/">GOALFR</a></td>
+				<td align="left" width="14%"><a href="/status/M3TILE,ikatanic/">M3TILE</a></td>
+				<td align="left" width="14%"><a href="/status/OPTSUB,ikatanic/">OPTSUB</a></td>
+				<td align="left" width="14%"><a href="/status/SAMER08D,ikatanic/">SAMER08D</a></td>
+				<td align="left" width="14%"><a href="/status/TWORK,ikatanic/">TWORK</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BILLIARD,ikatanic/">BILLIARD</a></td>
+				<td align="left" width="14%"><a href="/status/CVJETICI,ikatanic/">CVJETICI</a></td>
+				<td align="left" width="14%"><a href="/status/GONDOR,ikatanic/">GONDOR</a></td>
+				<td align="left" width="14%"><a href="/status/MA1,ikatanic/">MA1</a></td>
+				<td align="left" width="14%"><a href="/status/ORDERS,ikatanic/">ORDERS</a></td>
+				<td align="left" width="14%"><a href="/status/SAMER08E,ikatanic/">SAMER08E</a></td>
+				<td align="left" width="14%"><a href="/status/TWOSQRS,ikatanic/">TWOSQRS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BINGO,ikatanic/">BINGO</a></td>
+				<td align="left" width="14%"><a href="/status/CVXPOLY,ikatanic/">CVXPOLY</a></td>
+				<td align="left" width="14%"><a href="/status/GOODA,ikatanic/">GOODA</a></td>
+				<td align="left" width="14%"><a href="/status/MACHMAY,ikatanic/">MACHMAY</a></td>
+				<td align="left" width="14%"><a href="/status/ORDERSET,ikatanic/">ORDERSET</a></td>
+				<td align="left" width="14%"><a href="/status/SAMER08F,ikatanic/">SAMER08F</a></td>
+				<td align="left" width="14%"><a href="/status/UCI2009B,ikatanic/">UCI2009B</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BINSTIRL,ikatanic/">BINSTIRL</a></td>
+				<td align="left" width="14%"><a href="/status/CYCLERUN,ikatanic/">CYCLERUN</a></td>
+				<td align="left" width="14%"><a href="/status/GOSSIPER,ikatanic/">GOSSIPER</a></td>
+				<td align="left" width="14%"><a href="/status/MAJMUN,ikatanic/">MAJMUN</a></td>
+				<td align="left" width="14%"><a href="/status/ORIGLIFE,ikatanic/">ORIGLIFE</a></td>
+				<td align="left" width="14%"><a href="/status/SAMER08G,ikatanic/">SAMER08G</a></td>
+				<td align="left" width="14%"><a href="/status/UCI2009D,ikatanic/">UCI2009D</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BIRTHDAY,ikatanic/">BIRTHDAY</a></td>
+				<td align="left" width="14%"><a href="/status/CYLINDER,ikatanic/">CYLINDER</a></td>
+				<td align="left" width="14%"><a href="/status/GPINTRI,ikatanic/">GPINTRI</a></td>
+				<td align="left" width="14%"><a href="/status/MAJSTOR,ikatanic/">MAJSTOR</a></td>
+				<td align="left" width="14%"><a href="/status/OROSNAKE,ikatanic/">OROSNAKE</a></td>
+				<td align="left" width="14%"><a href="/status/SAMER08K,ikatanic/">SAMER08K</a></td>
+				<td align="left" width="14%"><a href="/status/UFAST,ikatanic/">UFAST</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BISHOPS,ikatanic/">BISHOPS</a></td>
+				<td align="left" width="14%"><a href="/status/CZ_PROB1,ikatanic/">CZ_PROB1</a></td>
+				<td align="left" width="14%"><a href="/status/GRAPHGAM,ikatanic/">GRAPHGAM</a></td>
+				<td align="left" width="14%"><a href="/status/MAP,ikatanic/">MAP</a></td>
+				<td align="left" width="14%"><a href="/status/OTOCI,ikatanic/">OTOCI</a></td>
+				<td align="left" width="14%"><a href="/status/SBACT,ikatanic/">SBACT</a></td>
+				<td align="left" width="14%"><a href="/status/UMNOZAK,ikatanic/">UMNOZAK</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BITMAP,ikatanic/">BITMAP</a></td>
+				<td align="left" width="14%"><a href="/status/DAGCNT,ikatanic/">DAGCNT</a></td>
+				<td align="left" width="14%"><a href="/status/GRC,ikatanic/">GRC</a></td>
+				<td align="left" width="14%"><a href="/status/MARBLES,ikatanic/">MARBLES</a></td>
+				<td align="left" width="14%"><a href="/status/PA06ANT,ikatanic/">PA06ANT</a></td>
+				<td align="left" width="14%"><a href="/status/SBSTR1,ikatanic/">SBSTR1</a></td>
+				<td align="left" width="14%"><a href="/status/UNTITLE1,ikatanic/">UNTITLE1</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BLCATS,ikatanic/">BLCATS</a></td>
+				<td align="left" width="14%"><a href="/status/DAGCNT2,ikatanic/">DAGCNT2</a></td>
+				<td align="left" width="14%"><a href="/status/GREED,ikatanic/">GREED</a></td>
+				<td align="left" width="14%"><a href="/status/MARIOGAM,ikatanic/">MARIOGAM</a></td>
+				<td align="left" width="14%"><a href="/status/PAAAARTY,ikatanic/">PAAAARTY</a></td>
+				<td align="left" width="14%"><a href="/status/SCALE,ikatanic/">SCALE</a></td>
+				<td align="left" width="14%"><a href="/status/UPSUB,ikatanic/">UPSUB</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BLINNET,ikatanic/">BLINNET</a></td>
+				<td align="left" width="14%"><a href="/status/DANGER,ikatanic/">DANGER</a></td>
+				<td align="left" width="14%"><a href="/status/GREMLINS,ikatanic/">GREMLINS</a></td>
+				<td align="left" width="14%"><a href="/status/MARTIAN,ikatanic/">MARTIAN</a></td>
+				<td align="left" width="14%"><a href="/status/PAINTBLC,ikatanic/">PAINTBLC</a></td>
+				<td align="left" width="14%"><a href="/status/SCALES,ikatanic/">SCALES</a></td>
+				<td align="left" width="14%"><a href="/status/VFMUL,ikatanic/">VFMUL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BLOCK,ikatanic/">BLOCK</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC14C,ikatanic/">DCEPC14C</a></td>
+				<td align="left" width="14%"><a href="/status/GROCERY,ikatanic/">GROCERY</a></td>
+				<td align="left" width="14%"><a href="/status/MATCHING,ikatanic/">MATCHING</a></td>
+				<td align="left" width="14%"><a href="/status/PAINTBLK,ikatanic/">PAINTBLK</a></td>
+				<td align="left" width="14%"><a href="/status/SCAVHUNT,ikatanic/">SCAVHUNT</a></td>
+				<td align="left" width="14%"><a href="/status/VIENTIAN,ikatanic/">VIENTIAN</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BLOCKS,ikatanic/">BLOCKS</a></td>
+				<td align="left" width="14%"><a href="/status/DECOY,ikatanic/">DECOY</a></td>
+				<td align="left" width="14%"><a href="/status/GS,ikatanic/">GS</a></td>
+				<td align="left" width="14%"><a href="/status/MATGAME,ikatanic/">MATGAME</a></td>
+				<td align="left" width="14%"><a href="/status/PAINTTMP,ikatanic/">PAINTTMP</a></td>
+				<td align="left" width="14%"><a href="/status/SCITIES,ikatanic/">SCITIES</a></td>
+				<td align="left" width="14%"><a href="/status/VLATTICE,ikatanic/">VLATTICE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BLUEEQ2,ikatanic/">BLUEEQ2</a></td>
+				<td align="left" width="14%"><a href="/status/DEJAVU,ikatanic/">DEJAVU</a></td>
+				<td align="left" width="14%"><a href="/status/GSS1,ikatanic/">GSS1</a></td>
+				<td align="left" width="14%"><a href="/status/MATRICA,ikatanic/">MATRICA</a></td>
+				<td align="left" width="14%"><a href="/status/PAIRGRPH,ikatanic/">PAIRGRPH</a></td>
+				<td align="left" width="14%"><a href="/status/SCRAPER,ikatanic/">SCRAPER</a></td>
+				<td align="left" width="14%"><a href="/status/VMILI,ikatanic/">VMILI</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BMJ,ikatanic/">BMJ</a></td>
+				<td align="left" width="14%"><a href="/status/DEPEND,ikatanic/">DEPEND</a></td>
+				<td align="left" width="14%"><a href="/status/GSS2,ikatanic/">GSS2</a></td>
+				<td align="left" width="14%"><a href="/status/MATRIOSH,ikatanic/">MATRIOSH</a></td>
+				<td align="left" width="14%"><a href="/status/PAIRINT,ikatanic/">PAIRINT</a></td>
+				<td align="left" width="14%"><a href="/status/SCUBADIV,ikatanic/">SCUBADIV</a></td>
+				<td align="left" width="14%"><a href="/status/VNACM14H,ikatanic/">VNACM14H</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BNMT,ikatanic/">BNMT</a></td>
+				<td align="left" width="14%"><a href="/status/DEPOSIT,ikatanic/">DEPOSIT</a></td>
+				<td align="left" width="14%"><a href="/status/GSS3,ikatanic/">GSS3</a></td>
+				<td align="left" width="14%"><a href="/status/MATRIX,ikatanic/">MATRIX</a></td>
+				<td align="left" width="14%"><a href="/status/PALACE,ikatanic/">PALACE</a></td>
+				<td align="left" width="14%"><a href="/status/SDGAME,ikatanic/">SDGAME</a></td>
+				<td align="left" width="14%"><a href="/status/VOCV,ikatanic/">VOCV</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BNWNIM,ikatanic/">BNWNIM</a></td>
+				<td align="left" width="14%"><a href="/status/DESERT,ikatanic/">DESERT</a></td>
+				<td align="left" width="14%"><a href="/status/GSS5,ikatanic/">GSS5</a></td>
+				<td align="left" width="14%"><a href="/status/MATRIX2,ikatanic/">MATRIX2</a></td>
+				<td align="left" width="14%"><a href="/status/PALDR,ikatanic/">PALDR</a></td>
+				<td align="left" width="14%"><a href="/status/SEGMENTS,ikatanic/">SEGMENTS</a></td>
+				<td align="left" width="14%"><a href="/status/VOL,ikatanic/">VOL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BNYINT,ikatanic/">BNYINT</a></td>
+				<td align="left" width="14%"><a href="/status/DFLOOR,ikatanic/">DFLOOR</a></td>
+				<td align="left" width="14%"><a href="/status/GSS6,ikatanic/">GSS6</a></td>
+				<td align="left" width="14%"><a href="/status/MATSUM,ikatanic/">MATSUM</a></td>
+				<td align="left" width="14%"><a href="/status/PALIM,ikatanic/">PALIM</a></td>
+				<td align="left" width="14%"><a href="/status/SEGSQRSS,ikatanic/">SEGSQRSS</a></td>
+				<td align="left" width="14%"><a href="/status/VONNY,ikatanic/">VONNY</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOBALLS,ikatanic/">BOBALLS</a></td>
+				<td align="left" width="14%"><a href="/status/DICE1,ikatanic/">DICE1</a></td>
+				<td align="left" width="14%"><a href="/status/GSS7,ikatanic/">GSS7</a></td>
+				<td align="left" width="14%"><a href="/status/MAWORK,ikatanic/">MAWORK</a></td>
+				<td align="left" width="14%"><a href="/status/PALNUM,ikatanic/">PALNUM</a></td>
+				<td align="left" width="14%"><a href="/status/SEGVIS,ikatanic/">SEGVIS</a></td>
+				<td align="left" width="14%"><a href="/status/VORONOI,ikatanic/">VORONOI</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOBALLS2,ikatanic/">BOBALLS2</a></td>
+				<td align="left" width="14%"><a href="/status/DICTSUB,ikatanic/">DICTSUB</a></td>
+				<td align="left" width="14%"><a href="/status/GUESSING,ikatanic/">GUESSING</a></td>
+				<td align="left" width="14%"><a href="/status/MAXISET,ikatanic/">MAXISET</a></td>
+				<td align="left" width="14%"><a href="/status/PARADOX,ikatanic/">PARADOX</a></td>
+				<td align="left" width="14%"><a href="/status/SELTEAM,ikatanic/">SELTEAM</a></td>
+				<td align="left" width="14%"><a href="/status/VPALIN,ikatanic/">VPALIN</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOBERT,ikatanic/">BOBERT</a></td>
+				<td align="left" width="14%"><a href="/status/DINGRP,ikatanic/">DINGRP</a></td>
+				<td align="left" width="14%"><a href="/status/GUESSLNK,ikatanic/">GUESSLNK</a></td>
+				<td align="left" width="14%"><a href="/status/MAXLN,ikatanic/">MAXLN</a></td>
+				<td align="left" width="14%"><a href="/status/PARKINGL,ikatanic/">PARKINGL</a></td>
+				<td align="left" width="14%"><a href="/status/SEQ,ikatanic/">SEQ</a></td>
+				<td align="left" width="14%"><a href="/status/WALL,ikatanic/">WALL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOMB,ikatanic/">BOMB</a></td>
+				<td align="left" width="14%"><a href="/status/DISJPATH,ikatanic/">DISJPATH</a></td>
+				<td align="left" width="14%"><a href="/status/HALLOW,ikatanic/">HALLOW</a></td>
+				<td align="left" width="14%"><a href="/status/MAXSUMSQ,ikatanic/">MAXSUMSQ</a></td>
+				<td align="left" width="14%"><a href="/status/PARTIT,ikatanic/">PARTIT</a></td>
+				<td align="left" width="14%"><a href="/status/SEQ1,ikatanic/">SEQ1</a></td>
+				<td align="left" width="14%"><a href="/status/WATER,ikatanic/">WATER</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOMBER,ikatanic/">BOMBER</a></td>
+				<td align="left" width="14%"><a href="/status/DISQUERY,ikatanic/">DISQUERY</a></td>
+				<td align="left" width="14%"><a href="/status/HAMSTER1,ikatanic/">HAMSTER1</a></td>
+				<td align="left" width="14%"><a href="/status/MAYA,ikatanic/">MAYA</a></td>
+				<td align="left" width="14%"><a href="/status/PARTPALI,ikatanic/">PARTPALI</a></td>
+				<td align="left" width="14%"><a href="/status/SEQ5,ikatanic/">SEQ5</a></td>
+				<td align="left" width="14%"><a href="/status/WEIRDFN,ikatanic/">WEIRDFN</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOOKS1,ikatanic/">BOOKS1</a></td>
+				<td align="left" width="14%"><a href="/status/DISTANCE,ikatanic/">DISTANCE</a></td>
+				<td align="left" width="14%"><a href="/status/HANGOVER,ikatanic/">HANGOVER</a></td>
+				<td align="left" width="14%"><a href="/status/MAZE,ikatanic/">MAZE</a></td>
+				<td align="left" width="14%"><a href="/status/PARTSUM,ikatanic/">PARTSUM</a></td>
+				<td align="left" width="14%"><a href="/status/SEQ6,ikatanic/">SEQ6</a></td>
+				<td align="left" width="14%"><a href="/status/WIDGET,ikatanic/">WIDGET</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOTTOM,ikatanic/">BOTTOM</a></td>
+				<td align="left" width="14%"><a href="/status/DISTX,ikatanic/">DISTX</a></td>
+				<td align="left" width="14%"><a href="/status/HANOI07,ikatanic/">HANOI07</a></td>
+				<td align="left" width="14%"><a href="/status/MBEEWALK,ikatanic/">MBEEWALK</a></td>
+				<td align="left" width="14%"><a href="/status/PARTY,ikatanic/">PARTY</a></td>
+				<td align="left" width="14%"><a href="/status/SEQFUN,ikatanic/">SEQFUN</a></td>
+				<td align="left" width="14%"><a href="/status/WIJGT,ikatanic/">WIJGT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOX,ikatanic/">BOX</a></td>
+				<td align="left" width="14%"><a href="/status/DIV,ikatanic/">DIV</a></td>
+				<td align="left" width="14%"><a href="/status/HASHIT,ikatanic/">HASHIT</a></td>
+				<td align="left" width="14%"><a href="/status/MBIPALIN,ikatanic/">MBIPALIN</a></td>
+				<td align="left" width="14%"><a href="/status/PARTY2,ikatanic/">PARTY2</a></td>
+				<td align="left" width="14%"><a href="/status/SEQN,ikatanic/">SEQN</a></td>
+				<td align="left" width="14%"><a href="/status/WINDMILL,ikatanic/">WINDMILL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOXES,ikatanic/">BOXES</a></td>
+				<td align="left" width="14%"><a href="/status/DIV15,ikatanic/">DIV15</a></td>
+				<td align="left" width="14%"><a href="/status/HC12,ikatanic/">HC12</a></td>
+				<td align="left" width="14%"><a href="/status/MBLAST,ikatanic/">MBLAST</a></td>
+				<td align="left" width="14%"><a href="/status/PATHEADS,ikatanic/">PATHEADS</a></td>
+				<td align="left" width="14%"><a href="/status/SEQPAR,ikatanic/">SEQPAR</a></td>
+				<td align="left" width="14%"><a href="/status/WINDOW1,ikatanic/">WINDOW1</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOYSCOUT,ikatanic/">BOYSCOUT</a></td>
+				<td align="left" width="14%"><a href="/status/DIV2,ikatanic/">DIV2</a></td>
+				<td align="left" width="14%"><a href="/status/HC12II,ikatanic/">HC12II</a></td>
+				<td align="left" width="14%"><a href="/status/MBRACKET,ikatanic/">MBRACKET</a></td>
+				<td align="left" width="14%"><a href="/status/PATULJCI,ikatanic/">PATULJCI</a></td>
+				<td align="left" width="14%"><a href="/status/SEQPAR2,ikatanic/">SEQPAR2</a></td>
+				<td align="left" width="14%"><a href="/status/WIRELESS,ikatanic/">WIRELESS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BRCKGAME,ikatanic/">BRCKGAME</a></td>
+				<td align="left" width="14%"><a href="/status/DIVFACT3,ikatanic/">DIVFACT3</a></td>
+				<td align="left" width="14%"><a href="/status/HC12III,ikatanic/">HC12III</a></td>
+				<td align="left" width="14%"><a href="/status/MCARDS,ikatanic/">MCARDS</a></td>
+				<td align="left" width="14%"><a href="/status/PAYING,ikatanic/">PAYING</a></td>
+				<td align="left" width="14%"><a href="/status/SEQUOIA,ikatanic/">SEQUOIA</a></td>
+				<td align="left" width="14%"><a href="/status/WLOO0707,ikatanic/">WLOO0707</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BRCKTS,ikatanic/">BRCKTS</a></td>
+				<td align="left" width="14%"><a href="/status/DIVIDEKR,ikatanic/">DIVIDEKR</a></td>
+				<td align="left" width="14%"><a href="/status/HELPBOB,ikatanic/">HELPBOB</a></td>
+				<td align="left" width="14%"><a href="/status/MCHAOS,ikatanic/">MCHAOS</a></td>
+				<td align="left" width="14%"><a href="/status/PB,ikatanic/">PB</a></td>
+				<td align="left" width="14%"><a href="/status/SERVERS,ikatanic/">SERVERS</a></td>
+				<td align="left" width="14%"><a href="/status/WMELON,ikatanic/">WMELON</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BRCKTS2,ikatanic/">BRCKTS2</a></td>
+				<td align="left" width="14%"><a href="/status/DIVREL,ikatanic/">DIVREL</a></td>
+				<td align="left" width="14%"><a href="/status/HELPR2D2,ikatanic/">HELPR2D2</a></td>
+				<td align="left" width="14%"><a href="/status/MCIRGAME,ikatanic/">MCIRGAME</a></td>
+				<td align="left" width="14%"><a href="/status/PBCGAME,ikatanic/">PBCGAME</a></td>
+				<td align="left" width="14%"><a href="/status/SERVICE,ikatanic/">SERVICE</a></td>
+				<td align="left" width="14%"><a href="/status/WORD,ikatanic/">WORD</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BREAK,ikatanic/">BREAK</a></td>
+				<td align="left" width="14%"><a href="/status/DIVSUM2,ikatanic/">DIVSUM2</a></td>
+				<td align="left" width="14%"><a href="/status/HERDING,ikatanic/">HERDING</a></td>
+				<td align="left" width="14%"><a href="/status/MCLONUM,ikatanic/">MCLONUM</a></td>
+				<td align="left" width="14%"><a href="/status/PERIOD,ikatanic/">PERIOD</a></td>
+				<td align="left" width="14%"><a href="/status/SETNJA,ikatanic/">SETNJA</a></td>
+				<td align="left" width="14%"><a href="/status/WORDCNT,ikatanic/">WORDCNT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BRI,ikatanic/">BRI</a></td>
+				<td align="left" width="14%"><a href="/status/DNALAB,ikatanic/">DNALAB</a></td>
+				<td align="left" width="14%"><a href="/status/HIGH,ikatanic/">HIGH</a></td>
+				<td align="left" width="14%"><a href="/status/MCOINS,ikatanic/">MCOINS</a></td>
+				<td align="left" width="14%"><a href="/status/PERIODNI,ikatanic/">PERIODNI</a></td>
+				<td align="left" width="14%"><a href="/status/SETSTACK,ikatanic/">SETSTACK</a></td>
+				<td align="left" width="14%"><a href="/status/WORDEQ,ikatanic/">WORDEQ</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BRICKS,ikatanic/">BRICKS</a></td>
+				<td align="left" width="14%"><a href="/status/DNPALIN,ikatanic/">DNPALIN</a></td>
+				<td align="left" width="14%"><a href="/status/HIGHWAY,ikatanic/">HIGHWAY</a></td>
+				<td align="left" width="14%"><a href="/status/MCOMP,ikatanic/">MCOMP</a></td>
+				<td align="left" width="14%"><a href="/status/PERMJUMP,ikatanic/">PERMJUMP</a></td>
+				<td align="left" width="14%"><a href="/status/SHAMAN,ikatanic/">SHAMAN</a></td>
+				<td align="left" width="14%"><a href="/status/WORDRING,ikatanic/">WORDRING</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BROKEN,ikatanic/">BROKEN</a></td>
+				<td align="left" width="14%"><a href="/status/DOCTOR,ikatanic/">DOCTOR</a></td>
+				<td align="left" width="14%"><a href="/status/HIGHWAY1,ikatanic/">HIGHWAY1</a></td>
+				<td align="left" width="14%"><a href="/status/MCONSTR,ikatanic/">MCONSTR</a></td>
+				<td align="left" width="14%"><a href="/status/PERMPATT,ikatanic/">PERMPATT</a></td>
+				<td align="left" width="14%"><a href="/status/SHOP,ikatanic/">SHOP</a></td>
+				<td align="left" width="14%"><a href="/status/WORDS,ikatanic/">WORDS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BROUL,ikatanic/">BROUL</a></td>
+				<td align="left" width="14%"><a href="/status/DOMINO1,ikatanic/">DOMINO1</a></td>
+				<td align="left" width="14%"><a href="/status/HIGHWAYS,ikatanic/">HIGHWAYS</a></td>
+				<td align="left" width="14%"><a href="/status/MDIGITS,ikatanic/">MDIGITS</a></td>
+				<td align="left" width="14%"><a href="/status/PERMSG,ikatanic/">PERMSG</a></td>
+				<td align="left" width="14%"><a href="/status/SHOP2,ikatanic/">SHOP2</a></td>
+				<td align="left" width="14%"><a href="/status/WORDS1,ikatanic/">WORDS1</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BROW,ikatanic/">BROW</a></td>
+				<td align="left" width="14%"><a href="/status/DOMINO2,ikatanic/">DOMINO2</a></td>
+				<td align="left" width="14%"><a href="/status/HIKE,ikatanic/">HIKE</a></td>
+				<td align="left" width="14%"><a href="/status/MDIGITS1,ikatanic/">MDIGITS1</a></td>
+				<td align="left" width="14%"><a href="/status/PERMUT1,ikatanic/">PERMUT1</a></td>
+				<td align="left" width="14%"><a href="/status/SKIING,ikatanic/">SKIING</a></td>
+				<td align="left" width="14%"><a href="/status/WORMS,ikatanic/">WORMS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BRPAR,ikatanic/">BRPAR</a></td>
+				<td align="left" width="14%"><a href="/status/DOMINOES,ikatanic/">DOMINOES</a></td>
+				<td align="left" width="14%"><a href="/status/HILO,ikatanic/">HILO</a></td>
+				<td align="left" width="14%"><a href="/status/MDOLLS,ikatanic/">MDOLLS</a></td>
+				<td align="left" width="14%"><a href="/status/PERMUT2,ikatanic/">PERMUT2</a></td>
+				<td align="left" width="14%"><a href="/status/SKY,ikatanic/">SKY</a></td>
+				<td align="left" width="14%"><a href="/status/WSCIPHER,ikatanic/">WSCIPHER</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BRTREE,ikatanic/">BRTREE</a></td>
+				<td align="left" width="14%"><a href="/status/DOORSPEN,ikatanic/">DOORSPEN</a></td>
+				<td align="left" width="14%"><a href="/status/HIST2,ikatanic/">HIST2</a></td>
+				<td align="left" width="14%"><a href="/status/MDOSTAVA,ikatanic/">MDOSTAVA</a></td>
+				<td align="left" width="14%"><a href="/status/PFOLD,ikatanic/">PFOLD</a></td>
+				<td align="left" width="14%"><a href="/status/SLIKAR,ikatanic/">SLIKAR</a></td>
+				<td align="left" width="14%"><a href="/status/XMAX,ikatanic/">XMAX</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BSHEEP,ikatanic/">BSHEEP</a></td>
+				<td align="left" width="14%"><a href="/status/DOUBLE,ikatanic/">DOUBLE</a></td>
+				<td align="left" width="14%"><a href="/status/HISTOGRA,ikatanic/">HISTOGRA</a></td>
+				<td align="left" width="14%"><a href="/status/MELE2,ikatanic/">MELE2</a></td>
+				<td align="left" width="14%"><a href="/status/PHIDIAS,ikatanic/">PHIDIAS</a></td>
+				<td align="left" width="14%"><a href="/status/SNOOKER,ikatanic/">SNOOKER</a></td>
+				<td align="left" width="14%"><a href="/status/XOINC,ikatanic/">XOINC</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BST,ikatanic/">BST</a></td>
+				<td align="left" width="14%"><a href="/status/DP,ikatanic/">DP</a></td>
+				<td align="left" width="14%"><a href="/status/HITOMISS,ikatanic/">HITOMISS</a></td>
+				<td align="left" width="14%"><a href="/status/MELE3,ikatanic/">MELE3</a></td>
+				<td align="left" width="14%"><a href="/status/PHONELST,ikatanic/">PHONELST</a></td>
+				<td align="left" width="14%"><a href="/status/SOCOLA,ikatanic/">SOCOLA</a></td>
+				<td align="left" width="14%"><a href="/status/XORRAY,ikatanic/">XORRAY</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BTCODE_A,ikatanic/">BTCODE_A</a></td>
+				<td align="left" width="14%"><a href="/status/DPAIR,ikatanic/">DPAIR</a></td>
+				<td align="left" width="14%"><a href="/status/HKNAP,ikatanic/">HKNAP</a></td>
+				<td align="left" width="14%"><a href="/status/MEMDIS,ikatanic/">MEMDIS</a></td>
+				<td align="left" width="14%"><a href="/status/PHONY,ikatanic/">PHONY</a></td>
+				<td align="left" width="14%"><a href="/status/SOLDIER,ikatanic/">SOLDIER</a></td>
+				<td align="left" width="14%"><a href="/status/XORROUND,ikatanic/">XORROUND</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BUGLIFE,ikatanic/">BUGLIFE</a></td>
+				<td align="left" width="14%"><a href="/status/DPEQN,ikatanic/">DPEQN</a></td>
+				<td align="left" width="14%"><a href="/status/HMRO,ikatanic/">HMRO</a></td>
+				<td align="left" width="14%"><a href="/status/MEPPERM,ikatanic/">MEPPERM</a></td>
+				<td align="left" width="14%"><a href="/status/PHRASES,ikatanic/">PHRASES</a></td>
+				<td align="left" width="14%"><a href="/status/SOLIT,ikatanic/">SOLIT</a></td>
+				<td align="left" width="14%"><a href="/status/XXXXXXXX,ikatanic/">XXXXXXXX</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BUILD,ikatanic/">BUILD</a></td>
+				<td align="left" width="14%"><a href="/status/DPMAX,ikatanic/">DPMAX</a></td>
+				<td align="left" width="14%"><a href="/status/HOLIDAY1,ikatanic/">HOLIDAY1</a></td>
+				<td align="left" width="14%"><a href="/status/METEORS,ikatanic/">METEORS</a></td>
+				<td align="left" width="14%"><a href="/status/PHU09H,ikatanic/">PHU09H</a></td>
+				<td align="left" width="14%"><a href="/status/SPACESET,ikatanic/">SPACESET</a></td>
+				<td align="left" width="14%"><a href="/status/XYYHHTT,ikatanic/">XYYHHTT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BUILDING,ikatanic/">BUILDING</a></td>
+				<td align="left" width="14%"><a href="/status/DQUERY,ikatanic/">DQUERY</a></td>
+				<td align="left" width="14%"><a href="/status/HOLIDAY2,ikatanic/">HOLIDAY2</a></td>
+				<td align="left" width="14%"><a href="/status/MEXICAN,ikatanic/">MEXICAN</a></td>
+				<td align="left" width="14%"><a href="/status/PICAD,ikatanic/">PICAD</a></td>
+				<td align="left" width="14%"><a href="/status/SPFIBO,ikatanic/">SPFIBO</a></td>
+				<td align="left" width="14%"><a href="/status/YAPP,ikatanic/">YAPP</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BUS,ikatanic/">BUS</a></td>
+				<td align="left" width="14%"><a href="/status/DRAGON2,ikatanic/">DRAGON2</a></td>
+				<td align="left" width="14%"><a href="/status/HOUSES2,ikatanic/">HOUSES2</a></td>
+				<td align="left" width="14%"><a href="/status/MGAME1,ikatanic/">MGAME1</a></td>
+				<td align="left" width="14%"><a href="/status/PIE,ikatanic/">PIE</a></td>
+				<td align="left" width="14%"><a href="/status/SPHIWAY,ikatanic/">SPHIWAY</a></td>
+				<td align="left" width="14%"><a href="/status/YKH,ikatanic/">YKH</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BUSINESS,ikatanic/">BUSINESS</a></td>
+				<td align="left" width="14%"><a href="/status/DRAGONCU,ikatanic/">DRAGONCU</a></td>
+				<td align="left" width="14%"><a href="/status/HS08CODE,ikatanic/">HS08CODE</a></td>
+				<td align="left" width="14%"><a href="/status/MIB,ikatanic/">MIB</a></td>
+				<td align="left" width="14%"><a href="/status/PIR,ikatanic/">PIR</a></td>
+				<td align="left" width="14%"><a href="/status/SPP,ikatanic/">SPP</a></td>
+				<td align="left" width="14%"><a href="/status/YODA,ikatanic/">YODA</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BWHEELER,ikatanic/">BWHEELER</a></td>
+				<td align="left" width="14%"><a href="/status/DROOT,ikatanic/">DROOT</a></td>
+				<td align="left" width="14%"><a href="/status/HS08FOUR,ikatanic/">HS08FOUR</a></td>
+				<td align="left" width="14%"><a href="/status/MICEMAZE,ikatanic/">MICEMAZE</a></td>
+				<td align="left" width="14%"><a href="/status/PIZZALOC,ikatanic/">PIZZALOC</a></td>
+				<td align="left" width="14%"><a href="/status/SPQUEUE,ikatanic/">SPQUEUE</a></td>
+				<td align="left" width="14%"><a href="/status/YODANESS,ikatanic/">YODANESS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BYTESE1,ikatanic/">BYTESE1</a></td>
+				<td align="left" width="14%"><a href="/status/DSUBSEQ,ikatanic/">DSUBSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/HS08PAUL,ikatanic/">HS08PAUL</a></td>
+				<td align="left" width="14%"><a href="/status/MINCOUNT,ikatanic/">MINCOUNT</a></td>
+				<td align="left" width="14%"><a href="/status/PLAHTE,ikatanic/">PLAHTE</a></td>
+				<td align="left" width="14%"><a href="/status/SQDANCE,ikatanic/">SQDANCE</a></td>
+				<td align="left" width="14%"><a href="/status/ZEROCNT,ikatanic/">ZEROCNT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BYTESE2,ikatanic/">BYTESE2</a></td>
+				<td align="left" width="14%"><a href="/status/DTT,ikatanic/">DTT</a></td>
+				<td align="left" width="14%"><a href="/status/HSEQ,ikatanic/">HSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/MINDIST,ikatanic/">MINDIST</a></td>
+				<td align="left" width="14%"><a href="/status/PLATON,ikatanic/">PLATON</a></td>
+				<td align="left" width="14%"><a href="/status/SQFREE,ikatanic/">SQFREE</a></td>
+				<td align="left" width="14%"><a href="/status/ZIGZAG2,ikatanic/">ZIGZAG2</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BYTESH1,ikatanic/">BYTESH1</a></td>
+				<td align="left" width="14%"><a href="/status/DYNACON1,ikatanic/">DYNACON1</a></td>
+				<td align="left" width="14%"><a href="/status/HUBULLU,ikatanic/">HUBULLU</a></td>
+				<td align="left" width="14%"><a href="/status/MINES4,ikatanic/">MINES4</a></td>
+				<td align="left" width="14%"><a href="/status/PLAYSIGN,ikatanic/">PLAYSIGN</a></td>
+				<td align="left" width="14%"><a href="/status/SQRBR,ikatanic/">SQRBR</a></td>
+				<td align="left" width="14%"><a href="/status/ZOO,ikatanic/">ZOO</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BYTESM1,ikatanic/">BYTESM1</a></td>
+				<td align="left" width="14%"><a href="/status/DYNACON2,ikatanic/">DYNACON2</a></td>
+				<td align="left" width="14%"><a href="/status/ICAMPSEQ,ikatanic/">ICAMPSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/MINIMAX,ikatanic/">MINIMAX</a></td>
+				<td align="left" width="14%"><a href="/status/PLD,ikatanic/">PLD</a></td>
+				<td align="left" width="14%"><a href="/status/SQRROOT,ikatanic/">SQRROOT</a></td>
+				<td align="left" width="14%"><a href="/status/ZSEQ,ikatanic/">ZSEQ</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BYTESM2,ikatanic/">BYTESM2</a></td>
+				<td align="left" width="14%"><a href="/status/DYZIO,ikatanic/">DYZIO</a></td>
+				<td align="left" width="14%"><a href="/status/ICERINK,ikatanic/">ICERINK</a></td>
+				<td align="left" width="14%"><a href="/status/MINMOVE,ikatanic/">MINMOVE</a></td>
+				<td align="left" width="14%"><a href="/status/PLHOP,ikatanic/">PLHOP</a></td>
+				<td align="left" width="14%"><a href="/status/SSHUFFLE,ikatanic/">SSHUFFLE</a></td>
+				<td align="left" width="14%"><a href="/status/ZUMA,ikatanic/">ZUMA</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/C1TABOVI,ikatanic/">C1TABOVI</a></td>
+				<td align="left" width="14%"><a href="/status/EASYPIE,ikatanic/">EASYPIE</a></td>
+				<td align="left" width="14%"><a href="/status/ICODER,ikatanic/">ICODER</a></td>
+				<td align="left" width="14%"><a href="/status/MINSEQ,ikatanic/">MINSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/PLONK,ikatanic/">PLONK</a></td>
+				<td align="left" width="14%"><a href="/status/SSORT,ikatanic/">SSORT</a></td>
+				<td align="left" width="14%"><a href="/status/,ikatanic/"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/C2CRNI,ikatanic/">C2CRNI</a></td>
+				<td align="left" width="14%"><a href="/status/EASYPROB,ikatanic/">EASYPROB</a></td>
+				<td align="left" width="14%"><a href="/status/IEXPOLRE,ikatanic/">IEXPOLRE</a></td>
+				<td align="left" width="14%"><a href="/status/MINUS,ikatanic/">MINUS</a></td>
+				<td align="left" width="14%"><a href="/status/PMATRIX,ikatanic/">PMATRIX</a></td>
+				<td align="left" width="14%"><a href="/status/STABARDS,ikatanic/">STABARDS</a></td>
+				<td align="left" width="14%"><a href="/status/,ikatanic/"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CABLETV,ikatanic/">CABLETV</a></td>
+				<td align="left" width="14%"><a href="/status/EBOXES,ikatanic/">EBOXES</a></td>
+				<td align="left" width="14%"><a href="/status/IGARB,ikatanic/">IGARB</a></td>
+				<td align="left" width="14%"><a href="/status/MIXTURES,ikatanic/">MIXTURES</a></td>
+				<td align="left" width="14%"><a href="/status/POKER,ikatanic/">POKER</a></td>
+				<td align="left" width="14%"><a href="/status/STABLEMP,ikatanic/">STABLEMP</a></td>
+				<td align="left" width="14%"><a href="/status/,ikatanic/"></a></td>
+				</tr>
+								</table>
+				
+				
+								<h4><span title="List of problems to which solutions were submitted but none of them got AC.">TODO list of classical problems:</span></h4>
+				<table class="table">
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACFRAC,ikatanic/">ACFRAC</a></td>
+				<td align="left" width="14%"><a href="/status/CCCCUBE,ikatanic/">CCCCUBE</a></td>
+				<td align="left" width="14%"><a href="/status/CUBERT,ikatanic/">CUBERT</a></td>
+				<td align="left" width="14%"><a href="/status/IMATCH,ikatanic/">IMATCH</a></td>
+				<td align="left" width="14%"><a href="/status/NUMQDW,ikatanic/">NUMQDW</a></td>
+				<td align="left" width="14%"><a href="/status/PIB,ikatanic/">PIB</a></td>
+				<td align="left" width="14%"><a href="/status/SC1,ikatanic/">SC1</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADV04B1,ikatanic/">ADV04B1</a></td>
+				<td align="left" width="14%"><a href="/status/CFJUN21,ikatanic/">CFJUN21</a></td>
+				<td align="left" width="14%"><a href="/status/DELCOMM,ikatanic/">DELCOMM</a></td>
+				<td align="left" width="14%"><a href="/status/IMPORT,ikatanic/">IMPORT</a></td>
+				<td align="left" width="14%"><a href="/status/PAGAIN,ikatanic/">PAGAIN</a></td>
+				<td align="left" width="14%"><a href="/status/PIGBANK,ikatanic/">PIGBANK</a></td>
+				<td align="left" width="14%"><a href="/status/SERVICEH,ikatanic/">SERVICEH</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AHOCUR,ikatanic/">AHOCUR</a></td>
+				<td align="left" width="14%"><a href="/status/CHEM,ikatanic/">CHEM</a></td>
+				<td align="left" width="14%"><a href="/status/DELCOMM2,ikatanic/">DELCOMM2</a></td>
+				<td align="left" width="14%"><a href="/status/KPSORT,ikatanic/">KPSORT</a></td>
+				<td align="left" width="14%"><a href="/status/PAIRSORT,ikatanic/">PAIRSORT</a></td>
+				<td align="left" width="14%"><a href="/status/PRINT,ikatanic/">PRINT</a></td>
+				<td align="left" width="14%"><a href="/status/SHORTCUT,ikatanic/">SHORTCUT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AND,ikatanic/">AND</a></td>
+				<td align="left" width="14%"><a href="/status/CHICAGO,ikatanic/">CHICAGO</a></td>
+				<td align="left" width="14%"><a href="/status/DISUBSTR,ikatanic/">DISUBSTR</a></td>
+				<td align="left" width="14%"><a href="/status/LANDSCAP,ikatanic/">LANDSCAP</a></td>
+				<td align="left" width="14%"><a href="/status/PALIN,ikatanic/">PALIN</a></td>
+				<td align="left" width="14%"><a href="/status/PRMLX,ikatanic/">PRMLX</a></td>
+				<td align="left" width="14%"><a href="/status/SHPATH,ikatanic/">SHPATH</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARCTAN,ikatanic/">ARCTAN</a></td>
+				<td align="left" width="14%"><a href="/status/CHOCOLA,ikatanic/">CHOCOLA</a></td>
+				<td align="left" width="14%"><a href="/status/DRAGON,ikatanic/">DRAGON</a></td>
+				<td align="left" width="14%"><a href="/status/LCS2,ikatanic/">LCS2</a></td>
+				<td align="left" width="14%"><a href="/status/PALSEC,ikatanic/">PALSEC</a></td>
+				<td align="left" width="14%"><a href="/status/PT07C,ikatanic/">PT07C</a></td>
+				<td align="left" width="14%"><a href="/status/SQCOUNT,ikatanic/">SQCOUNT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AXIS,ikatanic/">AXIS</a></td>
+				<td align="left" width="14%"><a href="/status/CLTZ,ikatanic/">CLTZ</a></td>
+				<td align="left" width="14%"><a href="/status/EUROPEAN,ikatanic/">EUROPEAN</a></td>
+				<td align="left" width="14%"><a href="/status/LEXBRAC,ikatanic/">LEXBRAC</a></td>
+				<td align="left" width="14%"><a href="/status/PARITY,ikatanic/">PARITY</a></td>
+				<td align="left" width="14%"><a href="/status/PT07Z,ikatanic/">PT07Z</a></td>
+				<td align="left" width="14%"><a href="/status/TWOPROF,ikatanic/">TWOPROF</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BARB,ikatanic/">BARB</a></td>
+				<td align="left" width="14%"><a href="/status/COMPLETE,ikatanic/">COMPLETE</a></td>
+				<td align="left" width="14%"><a href="/status/FTOUR,ikatanic/">FTOUR</a></td>
+				<td align="left" width="14%"><a href="/status/LITEPIPE,ikatanic/">LITEPIPE</a></td>
+				<td align="left" width="14%"><a href="/status/PDECODE,ikatanic/">PDECODE</a></td>
+				<td align="left" width="14%"><a href="/status/QUEST5,ikatanic/">QUEST5</a></td>
+				<td align="left" width="14%"><a href="/status/UJ,ikatanic/">UJ</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BLUEEQ3,ikatanic/">BLUEEQ3</a></td>
+				<td align="left" width="14%"><a href="/status/CONTEST,ikatanic/">CONTEST</a></td>
+				<td align="left" width="14%"><a href="/status/FUPRCO,ikatanic/">FUPRCO</a></td>
+				<td align="left" width="14%"><a href="/status/MENU,ikatanic/">MENU</a></td>
+				<td align="left" width="14%"><a href="/status/PERMUT3,ikatanic/">PERMUT3</a></td>
+				<td align="left" width="14%"><a href="/status/RECTNG2,ikatanic/">RECTNG2</a></td>
+				<td align="left" width="14%"><a href="/status/WILD,ikatanic/">WILD</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOOK,ikatanic/">BOOK</a></td>
+				<td align="left" width="14%"><a href="/status/CRSCNTRY,ikatanic/">CRSCNTRY</a></td>
+				<td align="left" width="14%"><a href="/status/HARDQ,ikatanic/">HARDQ</a></td>
+				<td align="left" width="14%"><a href="/status/MLE,ikatanic/">MLE</a></td>
+				<td align="left" width="14%"><a href="/status/PFDEP,ikatanic/">PFDEP</a></td>
+				<td align="left" width="14%"><a href="/status/REPEATS,ikatanic/">REPEATS</a></td>
+				<td align="left" width="14%"><a href="/status/,ikatanic/"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BTCODE_B,ikatanic/">BTCODE_B</a></td>
+				<td align="left" width="14%"><a href="/status/CTGAME,ikatanic/">CTGAME</a></td>
+				<td align="left" width="14%"><a href="/status/HPYNOSII,ikatanic/">HPYNOSII</a></td>
+				<td align="left" width="14%"><a href="/status/MOLE,ikatanic/">MOLE</a></td>
+				<td align="left" width="14%"><a href="/status/PFND,ikatanic/">PFND</a></td>
+				<td align="left" width="14%"><a href="/status/SBANK,ikatanic/">SBANK</a></td>
+				<td align="left" width="14%"><a href="/status/,ikatanic/"></a></td>
+				</tr>
+								</table>
+								
+								<h4>Public problems created by user:</h4>
+				<table class="table">
+								<tr>
+				<td align="left" width="14%"><a href="/problems/PRETTY/">PRETTY</a></td>
+				<td align="left" width="14%"><a href="/problems/LUTRIJA/">LUTRIJA</a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/problems/HCHAINS/">HCHAINS</a></td>
+				<td align="left" width="14%"><a href="/problems/PRISTOJBA/">PRISTOJBA</a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/problems/ASISTENT/">ASISTENT</a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/problems/STJEPAN/">STJEPAN</a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/problems/POSAO/">POSAO</a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/problems/NORMA2/">NORMA2</a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/problems/OGLEDALA/">OGLEDALA</a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				</tr>
+								</table>
+				</h4>
+							</div>
+		</div>
+	
+	
+	
+	</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<table cellspacing="10" align="center">
+
+
+
+
+
+</table>
+
+
+	<br/>
+</div>
+		
+		
+		<div class="container" id="footer">
+			<div class="row">
+				<div class="col-md-2">
+					
+				</div>
+				<div class="col-md-8 text-center">
+					<a href="/info">About</a> | <a href="/tutorials">Tutorial</a> | <a href="/tools">Tools</a> | <a href="/clusters">Clusters</a> | <a href="/credits">Credits</a> | <a href="/jobs">Jobs</a> | <a href="/sphereengine">API</a> | <a href="/gfx/spoj-terms.pdf" target="_blank">Terms</a>
+				</div>
+				<div class="col-md-2 text-right">
+					<a href="/rss/" ><img src="//stx1.spoj.com/gfx/rss10x10.gif" border=0>&nbsp;RSS</a>&nbsp;
+				</div>
+			</div>
+		</div>
+		
+		<div class="text-center" id="footer-srl">
+			
+	&copy; Spoj.com. All Rights Reserved. Spoj uses <a href="http://sphere-engine.com?utm_campaign=permanent&amp;utm_medium=footer&amp;utm_source=spoj" style="color:black">Sphere Engine</a>&trade; &copy; by <a href="http://sphere-research.com?utm_campaign=permanent&amp;utm_medium=footer&amp;utm_source=spoj" style="color:black">Sphere Research Labs</a>.
+
+		</div> 
+	</div>
+
+	<!-- JavaScripts -->
+	
+		
+	
+	<script type="text/javascript">
+	$(function(){
+		setTimeout(function(){
+			$('.no_a_info').css('visibility', 'visible');
+		}, 5000);
+		
+		if(!$('.aProblemTop').length && !$('.aProblemsTop').length && !$('.aSubmitTop').length && !$('.aStatusTop').length && !$('.aMainRight').length){
+			ga('send', 'event', 'ads', 'no-ads', 'main-contest');
+		}
+		if ($('.aProblemTop').height() == 0){
+			$('.aProblemTop').css({'border': '1px solid #ddd', 'background': '#f0f4e3', 'height': 90});
+			$('.aProblemTop').html($('<p class="text-center">using adblock?</p><h4 class="text-center">Online ads help us to maintain site.</h4><p class="text-center"><strong>please whitelist *.spoj.com</strong></p>'));
+			ga('send', 'event', 'ads', 'adblock2', 'aProblemTop');
+		}
+		if ($('.aProblemsTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aProblemsTop');
+		}
+		if ($('.aSubmitTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aSubmitTop');
+		}
+		if ($('.aStatusTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aStatusTop');
+		}
+		if ($('.aMainRight').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aMainRight');
+		}
+	});
+	</script>
+	
+	
+	<script type="text/javascript" src="//stx1.spoj.com/gfx/jquery.timers.js"></script>
+	<script type="text/javascript" src="//stx1.spoj.com/gfx/jquery.cookie.js"></script>
+	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+	<script src="//stx1.spoj.com/gfx/md5.js"></script>
+	<script src="//stx1.spoj.com/gfx/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
+	<script src="//stx1.spoj.com/gfx/scripts/tour.js"></script>
+	
+	
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&appId=321676846207&version=v2.0";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	
+	
+
+
+<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-10507872-1', 'auto');
+	  ga('require', 'linkid', 'linkid.js');
+	  ga('send', 'pageview');
+	</script>
+<!-- Hotjar Tracking Code for http://www.spoj.com -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:334656,hjsv:5};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<script type="text/javascript">
+	$(function(){
+		$(document).on('click', '.track', function(){
+			var event = $(this).attr('data-event');
+			var action = $(this).attr('data-action');
+			var value = $(this).attr('data-value');
+			ga('send', 'event', event, action, value);
+		});
+	});
+	//window.open('http://incoming.hotjar.com/s/7366', '_blank');
+	</script>
+
+
+</body>
+</html>

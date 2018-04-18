@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=utf-8"><META NAME="viewport" CONTENT="width=768"><META HTTP-EQUIV="X-UA-Compatible" CONTENT="IE=edge"><TITLE>J. Routing Tables @ USU Open Personal Contest 2011 @ Timus Online Judge</TITLE><LINK REL="alternate" HREFLANG="x-default" HREF="/problem.aspx?space=84&amp;num=10"><LINK REL="alternate" HREFLANG="en-us" HREF="/problem.aspx?space=84&amp;num=10&amp;locale=en"><LINK REL="alternate" HREFLANG="ru-ru" HREF="/problem.aspx?space=84&amp;num=10&amp;locale=ru"><LINK REL="stylesheet" TYPE="text/css" HREF="/style52.css"><LINK REL="shortcut icon" TYPE="image/x-icon" HREF="/favicon.ico"></HEAD><BODY><TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" CLASS="body"><TR><TD CLASS="caption"><TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"><TR><TD WIDTH="130" CLASS="locale"><A HREF="/problem.aspx?space=84&amp;num=10&amp;locale=en">ENG</A>&nbsp;&nbsp;<A HREF="/problem.aspx?space=84&amp;num=10&amp;locale=ru">RUS</A></TD><TD CLASS="title"><A HREF="/">Timus Online Judge</A></TD><TD WIDTH="130"></TD></TR></TABLE></TD></TR><TR><TD CLASS="panel"><TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"><TR><TD WIDTH="130" VALIGN="TOP" ALIGN="CENTER" STYLE="padding-bottom:5px;"><A HREF="/"><IMG BORDER="0" SRC="/images/usu-summer.jpg" HEIGHT="134" WIDTH="106" ALT=""></A></TD><TD VALIGN="TOP" ALIGN="LEFT"><TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" CLASS="panel"><TR><TH WIDTH="25%"><DIV>Online Judge</DIV></TH><TH WIDTH="25%"><DIV>Problems</DIV></TH><TH WIDTH="25%"><DIV>Authors</DIV></TH><TH WIDTH="25%"><DIV>Online contests</DIV></TH></TR><TR><TD VALIGN="TOP" ALIGN="LEFT"><A HREF="/">About Online Judge</A><BR><A HREF="/help.aspx?topic=faq">Frequently asked questions</A><BR><A HREF="/news.aspx">Site news</A><BR><A HREF="/forum/">Webboard</A><BR><A HREF="/help.aspx?topic=links">Links</A><BR></TD><TD VALIGN="TOP" ALIGN="LEFT"><A HREF="/problemset.aspx">Problem set</A><BR><A HREF="/submit.aspx">Submit solution</A><BR><A HREF="/status.aspx">Judge status</A><BR><A HREF="/help.aspx?topic=judge">Guide</A><BR></TD><TD VALIGN="TOP"><A HREF="/register.aspx">Register</A><BR><A HREF="/authedit.aspx">Update your info</A><BR><A HREF="/ranklist.aspx">Authors ranklist</A><BR><FORM ACTION="/search.aspx" METHOD="GET" STYLE="margin-top:0.6em;"><INPUT NAME="Str" SIZE="12" VALUE="" PLACEHOLDER="Author’s name"> <INPUT TYPE="SUBMIT" VALUE="Search"></FORM></TD><TD VALIGN="TOP"><A HREF="/contest.aspx">Current contest</A><BR><A HREF="/schedule.aspx">Scheduled contests</A><BR><A HREF="/archive.aspx">Past contests</A><BR><A HREF="/help.aspx?topic=contest">Rules</A><BR></TD></TR></TABLE></TD></TR></TABLE></TD></TR><TR><TD STYLE="padding-top: 32px; padding-bottom: 20px;"><H2 CLASS="title">USU Open Personal Contest 2011</H2><DIV STYLE="text-align:center; margin-bottom:1em;"><A HREF="/contest.aspx?id=84">About</A> &nbsp; &nbsp; <A HREF="/problemset.aspx?space=84" CLASS="selectedMenu">Problems</A> &nbsp; &nbsp; <A HREF="/submit.aspx?space=84">Submit solution</A> &nbsp; &nbsp; <A HREF="/status.aspx?space=84">Judge status</A> &nbsp; &nbsp; <A HREF="/monitor.aspx?id=84">Standings</A></DIV><DIV STYLE="margin-bottom:1em;"><DIV STYLE="text-align:center; font-weight:bold;">Contest is over</DIV></DIV><TABLE ALIGN="CENTER" CELLSPACING="0" CELLPADDING="0"><TR><TD WIDTH="800"><DIV CLASS="problem_content"><H2 class="problem_title">J. Routing Tables</H2><DIV class="problem_limits">Time limit: 2.0 second<BR>Memory limit: 64 MB<BR></DIV><DIV ID="problem_text"><DIV CLASS="problem_par"><DIV CLASS="problem_par_normal">Routers are special devices used to forward data packets in modern computer 
+networks. The behavior of a router is defined by a routing table. This table 
+consists of several lines each of which contains the IP address of a 
+destination network <i>d</i>, a mask <i>m</i>, and the IP address of a gateway <i>g</i>. For 
+example, the line “192.168.24.0 255.255.255.0 192.168.14.1” means that a 
+packet addressed to network 192.168.24.0 with mask 255.255.255.0 should 
+be forwarded through gateway 192.168.14.1. 
+</DIV></DIV><DIV CLASS="problem_par"><DIV CLASS="problem_par_normal">An IP address is a 32-bit integer, which is divided 
+for convenience into four bytes. The value of each byte is written in decimal 
+notation and these values are separated by dots. For example, the notation 
+192.168.24.0 means the binary number 11000000101010000001100000000000. 
+Masks are written similarly; moreover, the binary representation of a mask is 
+started with ones only, which are followed by zeros only.
+</DIV></DIV><DIV CLASS="problem_par"><DIV CLASS="problem_par_normal">The algorithm of choosing a route is as follows. Consider a packet sent to 
+address <i>a</i>. The router selects form the table all the lines satisfying the 
+condition <i>d</i> and <i>m</i> = <i>a</i> and <i>m</i> (`and' is the bitwise AND operation). A line 
+with the maximal number of ones in the mask is then chosen from these lines and 
+the packet is sent to the gateway specified in this line. It is guaranteed that 
+there is at most one such line for any destination address. 
+</DIV></DIV><DIV CLASS="problem_par"><DIV CLASS="problem_par_normal">Two routing tables are equivalent if a packet with any destination address will be sent to 
+the same gateway (or will not be sent at all) according to these tables. The following
+routing tables are equivalent:
+<table>
+<td>
+<pre>
+192.168.0.0 255.255.255.0 192.168.14.1
+192.168.1.0 255.255.255.0 192.168.14.1
+192.168.2.0 255.255.255.0 192.168.14.2
+192.168.3.0 255.255.255.0 192.168.14.2
+<pre>
+</td><td>
+<pre>
+192.168.0.0 255.255.252.0 192.168.14.1
+192.168.2.0 255.255.254.0 192.168.14.2
+
+
+</pre>
+</td>
+</table>
+Write a program to check if two routing tables are equivalent. 
+</DIV></DIV><H3 CLASS="problem_subtitle">Input</H3><DIV CLASS="problem_par"><DIV CLASS="problem_par_normal">The first line contains the number of lines in the first routing table.
+This table is given in the following lines in the 
+format described above. Then follows the second routing table in the same format.
+The total number of lines in these tables doesn't exceed 65536.</DIV></DIV><H3 CLASS="problem_subtitle">Output</H3><DIV CLASS="problem_par"><DIV CLASS="problem_par_normal">If the tables are equivalent, output “YES”. Otherwise, output “NO”.</DIV></DIV><H3 CLASS="problem_subtitle">Samples</H3><TABLE CLASS="sample"><TR><TH WIDTH="350">input</TH><TH WIDTH="350">output</TH></TR><TR><TD><PRE>4
+192.168.0.0 255.255.255.0 192.168.14.1
+192.168.1.0 255.255.255.0 192.168.14.1
+192.168.2.0 255.255.255.0 192.168.14.2
+192.168.3.0 255.255.255.0 192.168.14.2
+2
+192.168.0.0 255.255.252.0 192.168.14.1
+192.168.2.0 255.255.254.0 192.168.14.2
+</PRE></TD><TD><PRE>YES
+
+</PRE></TD></TR><TR><TD><PRE>1
+192.168.0.0 255.255.255.0 192.168.14.1
+2
+192.168.0.0 255.255.255.0 192.168.14.1
+172.16.0.0 255.255.0.0 172.16.0.1</PRE></TD><TD><PRE>NO
+</PRE></TD></TR></TABLE><DIV CLASS="problem_source"><B>Problem Author: </B>Igor Andrianov<BR><B>Problem Source: </B>XII USU Open Personal Contest (March 19, 2011)<BR></DIV></DIV></DIV><DIV CLASS="problem_links"><A HREF="print.aspx?space=84&amp;num=10" TARGET="_blank">Printable version</A><BR></DIV>To submit the solution for this problem go to the Problem set: <A HREF="problem.aspx?space=1&amp;num=1829"><nobr>1829. Routing Tables</nobr></A></TD></TR></TABLE></TD></TR><TR><TD CLASS="footer"><script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter20918869 = new Ya.Metrika({ id:20918869, clickmap:true, trackLinks:true, accurateTrackBounce:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="https://mc.yandex.ru/watch/20918869" style="position:absolute; left:-9999px;" alt=""></div></noscript>© 2000–2017 <A HREF="/team.aspx">Timus Online Judge Team</A>. All rights reserved.</TD></TR></TABLE></BODY></HTML>

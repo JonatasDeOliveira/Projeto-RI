@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Shunting yard algorithm - PEGWiki</title>
+<meta name="generator" content="MediaWiki 1.25.2" />
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/wiki/index.php?title=Shunting_yard_algorithm&amp;action=edit" />
+<link rel="edit" title="Edit" href="/wiki/index.php?title=Shunting_yard_algorithm&amp;action=edit" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/wiki/opensearch_desc.php" title="PEGWiki (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wcipeg.com/wiki/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/Shunting_yard_algorithm" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="PEGWiki Atom feed" href="/wiki/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:b36fd1c042133c9c9b60260f7c29b237 */</style>
+<script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Shunting_yard_algorithm","wgTitle":"Shunting yard algorithm","wgCurRevisionId":1895,"wgRevisionId":1895,"wgArticleId":457,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Shunting_yard_algorithm","wgRelevantArticleId":457,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikidb:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Shunting_yard_algorithm skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Shunting yard algorithm</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From PEGWiki</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>The <b>shunting yard algorithm</b> is a simple technique for parsing <a href="/wiki/index.php?title=Infix&amp;action=edit&amp;redlink=1" class="new" title="Infix (page does not exist)">infix</a> expressions containing binary operators of varying precedence. It was first described by Edsgar Dijkstra in 1961. In general, the algorithm assigns to each operator its correct operands, taking into account the order of precedence. It can therefore be used to evaluate the expression immediately, to convert it into <a href="/wiki/index.php?title=Postfix&amp;action=edit&amp;redlink=1" class="new" title="Postfix (page does not exist)">postfix</a>, or to construct the corresponding syntax tree.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Motivation"><span class="tocnumber">1</span> <span class="toctext">Motivation</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#The_basic_algorithm"><span class="tocnumber">2</span> <span class="toctext">The basic algorithm</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Initial_version:_without_parentheses"><span class="tocnumber">2.1</span> <span class="toctext">Initial version: without parentheses</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#How_to_handle_parentheses"><span class="tocnumber">2.2</span> <span class="toctext">How to handle parentheses</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Summary"><span class="tocnumber">2.3</span> <span class="toctext">Summary</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Extensions"><span class="tocnumber">3</span> <span class="toctext">Extensions</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#Unary_operators"><span class="tocnumber">3.1</span> <span class="toctext">Unary operators</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Functions"><span class="tocnumber">3.2</span> <span class="toctext">Functions</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Variadic_functions"><span class="tocnumber">3.3</span> <span class="toctext">Variadic functions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#Variations"><span class="tocnumber">4</span> <span class="toctext">Variations</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="#Evaluation"><span class="tocnumber">4.1</span> <span class="toctext">Evaluation</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Conversion_into_syntax_tree"><span class="tocnumber">4.2</span> <span class="toctext">Conversion into syntax tree</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="#Code"><span class="tocnumber">5</span> <span class="toctext">Code</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Motivation">Motivation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Shunting_yard_algorithm&amp;action=edit&amp;section=1" title="Edit section: Motivation">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>To understand how the algorithm works, consider the two infix expressions <code>1*2+3</code> and <code>1*2&#8593;3+4</code> (where &#8593; represents exponentiation). In the first, the operand 2 belongs to the <code>*</code> operator, whereas in the second, it does not (instead, it belongs to the higher-precedence &#8593; operator). So we may formulate the general rule that an operand belongs to whichever of the two operators next to it has higher precedence. If it is between two operators of equal precedence, then it belongs to the operator on the left if it is left-associative (like <code>+</code> or <code>*</code>), or to the operator on the right if it is right-associative (like &#8593;).
+</p>
+<h2><span class="mw-headline" id="The_basic_algorithm">The basic algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Shunting_yard_algorithm&amp;action=edit&amp;section=2" title="Edit section: The basic algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Initial_version:_without_parentheses">Initial version: without parentheses</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Shunting_yard_algorithm&amp;action=edit&amp;section=3" title="Edit section: Initial version: without parentheses">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>We describe the version that produces postfix output, as it is the simplest conceptually. The algorithm parses the expression from left to right. It also constructs the postfix notation from left to right. Every time an operand is encountered, it is immediately transferred to the output stream. However, operators might have to be temporarily held on an auxiliary <a href="/wiki/Stack" title="Stack">stack</a> before they are moved to the output stream, in order to ensure that they are output in the correct order.
+</p><p>Specifically, in postfix notation, an operator is supposed to be output immediately after both of its operands have been output. When we encounter an operator in the input, we have not yet seen both of its operands (since its right operand is always to its right, and we parse the input from left to right). So we have to push it onto the stack; it is not ready to be output yet. Thus, after parsing the first three tokens of <code>1*2+3</code> or <code>1*2&#8593;3</code> we'll have <code>*</code> on the operator stack and <code>1 2</code> in the output stream.
+</p><p>What happens next is of critical importance. When parsing <code>1*2+3</code>, the final output is supposed to be <code>1 2 * 3 +</code>, but when parsing <code>1*2&#8593;3+4</code>, the final output is supposed to be <code>1 2 3 &#8593; * 4 +</code>. In the former, once we encounter the next operator, <code>+</code>, we can conclude that the preceding <code>2</code> belongs to the <code>*</code> operator, since <code>*</code> is of higher precedence than <code>+</code>. Therefore, we pop <code>*</code> off the stack and into the output stream. However, in the latter, we know the <code>2</code> does <i>not</i> belong to the <code>*</code>, since <code>&#8593;</code> is of higher precedence; instead, the right operand of the <code>*</code> is the entire expression <code>2&#8593;3</code>. Therefore, we can't pop <code>*</code> off the stack and into the output stream yet, but must instead now also push <code>&#8593;</code> onto the output stack. Then, we encounter the operand <code>3</code>, and move it to the output stream. Now, on encountering the operator <code>+</code>, since it is of lower precedence than the previous operator <code>&#8593;</code>, we know that the <code>3</code> belongs to the <code>&#8593;</code>, and thus pop <code>&#8593;</code> off into the output stream. But the <code>*</code> now on the top of the stack is <i>still</i> of higher precedence than the <code>+</code>, which means we should pop off the <code>*</code> too, because whatever is between the <code>*</code> and the <code>+</code> in the input belongs to the <code>*</code>, not to the <code>+</code>. The current output stream is therefore <code>1 2 3 &#8593; *</code>. So, in general, whenever we encounter an operator, we should add it to the stack only <i>after</i> we have popped off everything that is of higher precedence. (If the operator is left-associative, then we pop off operators of <i>equal</i> precedence as well; if it is right-associative, then we do not.)
+</p><p>Upon reaching the end of the output stream, all remaining operators are popped off the stack and transferred to the output stream. This makes sense because operators are supposed to appear in the postfix output immediately after their operands, and all operands have already been output; and since each of the operators left on the stack is waiting for its right operand, the operators should be output from right to left (that is, their order should be the reverse of the order in which they appear in the input). Thus, for example, <code>1+2*3</code> would become <code>1 2 3 * +</code>.
+</p>
+<h3><span class="mw-headline" id="How_to_handle_parentheses">How to handle parentheses</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Shunting_yard_algorithm&amp;action=edit&amp;section=4" title="Edit section: How to handle parentheses">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Now we consider what happens when the expression may contain parentheses. A pair of matching parentheses is equivalent to a compound operand that must itself be parsed as though it is an expression in its own right. It therefore stands to reason that:
+</p>
+<ul><li> an opening parenthesis behaves like the beginning of an expression, in the sense that none of the operands <i>after</i> belong to <i>any</i> of the operands <i>before</i> it; thus, when we encounter one, we push it onto the stack, and, until the corresponding closing parenthesis is encountered, we cannot examine any of the operators beneath it. So in the expression <code>1*2+3</code>, we would normally pop off the <code>*</code> after encountering the <code>+</code>; but if we have <code>1*(2+3)</code> instead, then, upon reaching the <code>+</code>, the stack will have <code>(</code> on the top and <code>*</code> below it; so here we do not pop off anything at all.</li>
+<li> a closing parenthesis behaves like the end of an expression, in the sense that once we reach it, we pop off all remaining operators that have accumulated on the stack since the corresponding opening parenthesis was encountered, and transfer them to the output stream. Finally, we pop off the <code>(</code>. However, we do not add either parenthesis to the output stream, since parentheses do not appear in postfix expressions.</li></ul>
+<p>Actually, if we add an opening parenthesis at the beginning of the input, and another one at the end, then we can eliminate the need to pop off all remaining operators at the end (as they will be popped when the final parenthesis is encountered), as well as the need to check whether the stack ever becomes empty (as it will always contain at least the initial parenthesis).
+</p>
+<h3><span class="mw-headline" id="Summary">Summary</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Shunting_yard_algorithm&amp;action=edit&amp;section=5" title="Edit section: Summary">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Start off with an empty output stream and an empty stack. Repeatedly read a symbol from the input. 
+</p>
+<ul><li> If it is part of a number (<i>i.e.</i>, a digit or a decimal separator), then keep reading tokens until an operand or parenthesis is encountered, and convert the entire string just read into a number, and transfer the number to the output stream.</li>
+<li> If it is a left-associative operator, then repeatedly pop from the stack into the output stream until either the stack becomes empty or the top of the stack is a parenthesis or a lower-precedence operator. After that, push it onto the stack.</li>
+<li> If it is a right-associative operator, then repeatedly pop from the stack into the output stream until either the stack becomes empty or the top of the stack is a parenthesis or an operator of lower or equal precedence. After that, push it onto the stack.</li>
+<li> If it is an opening parenthesis, push it onto the stack.</li>
+<li> If it is a closing parenthesis, repeatedly pop operators from the stack into the output stream until an opening parenthesis is encountered. Pop the opening parenthesis off the stack, but do not emit it into the output stream.</li></ul>
+<p>Upon reaching the end of the input stream, pop all remaining operators off the stack and into the output stream.
+</p><p>It is easy to see that this algorithm will run in linear time, as each symbol is read once from the input stream, written at most once into the output stream, pushed onto the stack at most once, and popped off the stack at most once. (Also, operators at the top of the stack can be <i>examined</i> without being popped; but this occurs at most once for every operator in the input, since popping stops once this happens; so this only makes another linear contribution to the running time.) The space requirement is also obviously linear.
+</p>
+<h2><span class="mw-headline" id="Extensions">Extensions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Shunting_yard_algorithm&amp;action=edit&amp;section=6" title="Edit section: Extensions">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Unary_operators">Unary operators</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Shunting_yard_algorithm&amp;action=edit&amp;section=7" title="Edit section: Unary operators">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Unary minus signs (and possibly unary plus signs) often appear in infix expressions. There are three modifications that have to be made to the algorithm in order to handle these:
+</p>
+<ul><li> A minus sign is always binary if it immediately follows an operand or a right parenthesis, and it is always unary if it immediately follows another operator or a left parenthesis, or if it occurs at the very beginning of the input. The algorithm must be modified in order to distinguish between the two.</li>
+<li> A unary minus sign does not cause any operators to be popped from the stack. This is because, in the postfix output, the unary minus sign will always immediately follow its operand (whereas it always immediately precedes it in the infix), so no other operators can be popped before it at this point.</li>
+<li> Unary minus signs and binary minus signs must be distinguished in the output in order to avoid ambiguity. Because postfix expressions are intended to be evaluated from left to right, we have a problem with an expression like <code>1 2 - 3 +</code> if the minus sign is allowed to be unary; upon reaching it, we cannot determine whether it is unary or binary. If it is binary, then both of the preceding operands belong to it, and if it is unary, then only one of the two belongs to it, but perhaps the other belongs to some following operator. It is advisable to have some separate symbol for unary and binary minus signs, as is common in handheld scientific calculators. Also, this symbolic distinction must be made before the operator is pushed onto the stack, because once it is on the stack, we lose the ability to retrospectively determine whether it was supposed to be unary or binary.</li></ul>
+<p>It should also be pointed out that the unary minus sign is usually treated as though it has higher precedence than <code>*</code> and <code>/</code>. For example, the expression <code>10/-1*-2</code> usually evaluates to 20 rather than 5.
+</p>
+<h3><span class="mw-headline" id="Functions">Functions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Shunting_yard_algorithm&amp;action=edit&amp;section=8" title="Edit section: Functions">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Infix expressions often contain not only basic operands and parentheses but also more complex mathematical functions such as <code>gcd(20,12)</code>. These are not hard to parse, either. When a function name like <code>gcd</code> is encountered, it is pushed onto the stack; immediately afterward, the following opening parenthesis will also be pushed onto the stack. Each comma behaves like a closing parenthesis, because it completes a subexpression&#8212;except that it does not cause the opening parenthesis to be popped. When the closing parenthesis is finally encountered, the opening parenthesis is popped, and if the top of the stack is now a function name, it too is popped, and transferred to the output stream.
+</p>
+<h3><span class="mw-headline" id="Variadic_functions">Variadic functions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Shunting_yard_algorithm&amp;action=edit&amp;section=9" title="Edit section: Variadic functions">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p><i>Variadic</i> functions (that is, functions that do not have a fixed arity, but can take varying numbers of arguments) present an especial difficulty. Like the unary and binary minus signs, these may cause ambiguity once converted into postfix, so we must find some way to tag such functions in the postfix output so that the evaluator can determine how many of the preceding arguments belong to them. Note that, <i>unlike</i> in the case of the unary and binary minus signs, we cannot determine in advance while scanning the input how many arguments the function is taking. The easiest way to handle this is to maintain a second stack, which we might call the <i>arity</i> stack. Every time we encounter a function name, we push the number 1 onto the arity stack. Every time we encounter a comma, we increment the number on the top of the arity stack, since the comma indicates another argument to the function. Finally, when it comes time to pop off the function name from the operator stack, we <i>also</i> pop the number off the top of the arity stack; this tells us the arity of the function.
+</p>
+<h2><span class="mw-headline" id="Variations">Variations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Shunting_yard_algorithm&amp;action=edit&amp;section=10" title="Edit section: Variations">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>As mentioned previously, the shunting yard algorithm can also be used to directly evaluate the input expression, or to convert it into a syntax tree.
+</p>
+<h3><span class="mw-headline" id="Evaluation">Evaluation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Shunting_yard_algorithm&amp;action=edit&amp;section=11" title="Edit section: Evaluation">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>It is a simple matter to obtain the postfix form of the input expression and then evaluate it, as postfix can be easily evaluated from left to right; it requires no knowledge of operator precedence, and contains no parentheses. However, we can also directly evaluate the input, without converting it into postfix. To do this, we replace the output stream with an output stack. Every time we encounter an operand, as before, we <i>push</i> it onto the output stack. Whenever we would normally transfer an operator into the output stream, we instead perform an evaluation; we pop off the correct number of operands from the output stack, apply the operator, and then push the result back onto the output stream. At the end of the input, as before, we process all remaining operators; and we should be left with a single value in the output stack&#8212;this is the value of the entire expression. So, for example, whenever we pop a <code>*</code> from the operator stack, we pop the top operand off the output stack; call this <code>y</code>; and we pop the next operand off the output stack too; call this <code>x</code>; and we push <code>x*y</code> onto the output stack. (Note that the order of the operands is the reverse of the order in which we pop them off; this is because a stack is a last-in, first-out structure.)
+</p>
+<h3><span class="mw-headline" id="Conversion_into_syntax_tree">Conversion into syntax tree</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Shunting_yard_algorithm&amp;action=edit&amp;section=12" title="Edit section: Conversion into syntax tree">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Direct conversion into a syntax tree follows the same principle as direct evaluation (the previous section). Here, we keep an output stack of subtrees. Every operand gets pushed onto the output stack immediately as a singleton tree, and, instead of pushing an operator directly onto the output stack, we pop off the appropriate number of operands from the output stack and make them the children of a new subtree (whose root is the operator), which we then push back onto the output stack. After the algorithm has finished, the output stack should contain a single tree: the syntax tree for the entire expression.
+</p><p>The use of a syntax tree representation relieves us of the responsibility of finding some way to tag unary minus signs and variadic functions in the output (although we must still identify unary minus signs before pushing them onto the operator stack); the correct number of operands of an operator is simply the number of children the operator's node has in the final syntax tree. A variation of the algorithm, in which function arguments are directly added as children to the function token still waiting on the operator stack as soon as they are finished construction, also eliminates the need for the arity stack; details are left as an exercise for the reader.
+</p>
+<h2><span class="mw-headline" id="Code">Code</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Shunting_yard_algorithm&amp;action=edit&amp;section=13" title="Edit section: Code">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> <a href="/wiki/Shunting_yard_algorithm/foo.hs" title="Shunting yard algorithm/foo.hs">Haskell reference implementation for this article</a></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Shunting_yard_algorithm&amp;action=edit&amp;section=14" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ol><li> Dijkstra, E. W. (1961). <i>ALGOL-60 Translation</i>. Retrieved from <a rel="nofollow" class="external free" href="http://www.cs.utexas.edu/~EWD/MCReps/MR35.PDF">http://www.cs.utexas.edu/~EWD/MCReps/MR35.PDF</a></li>
+<li> <a rel="nofollow" class="external text" href="http://en.wikipedia.org/w/index.php?title=Shunting-yard_algorithm&amp;oldid=477381628">Wikipedia</a></li></ol>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.026 seconds
+Real time usage: 0.027 seconds
+Preprocessor visited node count: 55/1000000
+Preprocessor generated node count: 60/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:457-0!*!0!!en!*!* and timestamp 20180417095723 and revision id 1895
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wcipeg.com/wiki/index.php?title=Shunting_yard_algorithm&amp;oldid=1895">https://wcipeg.com/wiki/index.php?title=Shunting_yard_algorithm&amp;oldid=1895</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Shunting+yard+algorithm&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Shunting+yard+algorithm" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/Shunting_yard_algorithm"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+															<li  id="ca-talk"><span><a href="/wiki/Talk:Shunting_yard_algorithm"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Shunting_yard_algorithm" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/wiki/index.php?title=Shunting_yard_algorithm&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/wiki/index.php?title=Shunting_yard_algorithm&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search PEGWiki [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+													<li id="n-Index"><a href="/wiki/Special:AllPages">Index</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+													<li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Shunting_yard_algorithm" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Shunting_yard_algorithm" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/wiki/index.php?title=Shunting_yard_algorithm&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/wiki/index.php?title=Shunting_yard_algorithm&amp;oldid=1895" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/wiki/index.php?title=Shunting_yard_algorithm&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 21 October 2015, at 19:07.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Attribution 3.0 Unported</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/PEGWiki:Privacy_policy" title="PEGWiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/PEGWiki:About" title="PEGWiki:About">About PEGWiki</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/PEGWiki:General_disclaimer" title="PEGWiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by/3.0/"><img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Attribution 3.0 Unported" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wiki/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wcipeg.com/wiki/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":66});
+}</script>
+	</body>
+</html>

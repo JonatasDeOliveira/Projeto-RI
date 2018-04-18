@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Pointer - PEGWiki</title>
+<meta name="generator" content="MediaWiki 1.25.2" />
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/wiki/index.php?title=Pointer&amp;action=edit" />
+<link rel="edit" title="Edit" href="/wiki/index.php?title=Pointer&amp;action=edit" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/wiki/opensearch_desc.php" title="PEGWiki (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wcipeg.com/wiki/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/Pointer" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="PEGWiki Atom feed" href="/wiki/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=ext.geshi.language.c%2Ccpp%2Cjava%7Cext.math.styles%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:b36fd1c042133c9c9b60260f7c29b237 */</style>
+<script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Pointer","wgTitle":"Pointer","wgCurRevisionId":1679,"wgRevisionId":1679,"wgArticleId":344,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Pointer","wgRelevantArticleId":344,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikidb:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Pointer skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Pointer</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From PEGWiki</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p><i>This article is intended to provide an introduction to and critical analysis of the concept of a pointer. Despite the samples of code shown below for various languages, it is not intended to provide a reference on how to use pointers in specific languages.</i>
+</p><p>A <b>pointer</b> is an object that contains information about the address of another object in memory (called the <b>referent</b> or the <b>pointee</b>) and which may be used to access that object. Accessing an object using a pointer to it rather than by referring to the object itself is known as <b>indirection</b>; using a pointer is said to <i>add a level of indirection</i>. When we use a particular pointer to access its referent, we say that we are <b>dereferencing</b> the pointer.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Definition"><span class="tocnumber">1</span> <span class="toctext">Definition</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#C"><span class="tocnumber">1.1</span> <span class="toctext">C</span></a>
+<ul>
+<li class="toclevel-3 tocsection-3"><a href="#Examples"><span class="tocnumber">1.1.1</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-3 tocsection-4"><a href="#Function_pointers"><span class="tocnumber">1.1.2</span> <span class="toctext">Function pointers</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-5"><a href="#C.2B.2B"><span class="tocnumber">1.2</span> <span class="toctext">C++</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="#References"><span class="tocnumber">1.2.1</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#Pointers_to_member"><span class="tocnumber">1.2.2</span> <span class="toctext">Pointers to member</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#Iterators"><span class="tocnumber">1.2.3</span> <span class="toctext">Iterators</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-9"><a href="#Java.2C_C.23.2C_Python.2C_Ruby.2C_etc."><span class="tocnumber">1.3</span> <span class="toctext">Java, C#, Python, Ruby, <i>etc.</i></span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Disk_.28and_other.29_pointers"><span class="tocnumber">1.4</span> <span class="toctext">Disk (and other) pointers</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Definition">Definition</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Pointer&amp;action=edit&amp;section=1" title="Edit section: Definition">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The usage of the term <i>pointer</i> among programmers does not quite mirror the general definition given above. Whether or not certain objects can be considered pointers is subject to dispute. We consider a few examples:
+</p>
+<h3><span class="mw-headline" id="C">C</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Pointer&amp;action=edit&amp;section=2" title="Edit section: C">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>In C, a pointer is a first class object. A pointer may be used in any place where it is appropriate. Pointers may be assigned to each passed to functions, and returned from functions. They may be converted to other values, they may be printed on the screen, and they may be read from and written to files. To every C data type <code>T</code> there corresponds a pointer type <code>T*</code>, and this is true even of pointers themselves; a pointer may point to another pointer. The programming community is in consensus that these objects are considered true pointers.
+</p><p>The standard does not prescribe the <i>nature</i> of a pointer; however, C is, by design, close to the machine and efficient with computing time and memory, and, therefore, in essentially all implementations of C, a pointer is a raw memory address, that is, one that contains no more and no less information than is required in order to unambiguously specify the address of an object in primary storage (RAM/ROM) or virtual memory in a form that the CPU can use directly. Today, the vast majority of computing devices in existence operate in <i>flat</i> memory addressing; here, a pointer is simply an unsigned integer from 0 to <img class="mwe-math-fallback-image-inline tex" alt="N-1" src="/wiki/images/math/5/b/1/5b1ba2fe7e642d05d58d3df27466b069.png" /> (where <img class="mwe-math-fallback-image-inline tex" alt="N" src="/wiki/images/math/8/d/9/8d9c307cb7f3c4a32822a51922d1ceaa.png" /> is the total size of available memory in bytes). The pointer that compares equal to the integer 0 is called the <i>null pointer</i> and is taken to mean a pointer that does not point to anything.
+</p><p>Pascal and its descendants have pointers that are similar to C pointers, but more limited (in that they cannot be operands to arithmetic operators, nor can they be read and written like numeric and character types).
+</p>
+<h4><span class="mw-headline" id="Examples">Examples</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Pointer&amp;action=edit&amp;section=3" title="Edit section: Examples">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="kw4">int</span> x <span class="sy0">=</span> <span class="nu0">123</span><span class="sy0">;</span>
+<span class="kw4">int</span><span class="sy0">*</span> p <span class="sy0">=</span> <span class="sy0">&amp;</span>x<span class="sy0">;</span>
+<span class="sy0">*</span>p <span class="sy0">=</span> <span class="nu0">456</span><span class="sy0">;</span>
+<span class="kw3">printf</span><span class="br0">&#40;</span><span class="st0">&quot;%d<span class="es1">\n</span>&quot;</span><span class="sy0">,</span> x<span class="br0">&#41;</span><span class="sy0">;</span> <span class="coMULTI">/* This prints &quot;456&quot; */</span></pre></div></div>
+<p>Note that <code>x</code> is an integer and <code>p</code> is a pointer to integer. In line 2, <code>p</code> is made to <i>point</i> to <code>x</code>. Beyond this point, <code>*p</code> and <code>x</code> are semantically indistinguishable; using the asterisk operator on <code>p</code> is said to <i>dereference</i> the pointer, providing access to the referent. This remains the case until either <code>x</code> or <code>p</code> goes out of scope, or <code>p</code> is reassigned to point somewhere else.
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="kw4">void</span> foo<span class="br0">&#40;</span><span class="kw4">int</span> z<span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    z <span class="sy0">=</span> <span class="nu0">456</span><span class="sy0">;</span>
+<span class="br0">&#125;</span>
+<span class="kw4">void</span> bar<span class="br0">&#40;</span><span class="kw4">int</span><span class="sy0">*</span> p<span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    <span class="sy0">*</span>p <span class="sy0">=</span> <span class="nu0">456</span><span class="sy0">;</span>
+<span class="br0">&#125;</span>
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="kw4">int</span> argc<span class="sy0">,</span> <span class="kw4">char</span><span class="sy0">**</span> argv<span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    <span class="kw4">int</span> x <span class="sy0">=</span> <span class="nu0">123</span><span class="sy0">;</span>
+    foo<span class="br0">&#40;</span>x<span class="br0">&#41;</span><span class="sy0">;</span>
+    <span class="kw3">printf</span><span class="br0">&#40;</span><span class="st0">&quot;%d<span class="es1">\n</span>&quot;</span><span class="sy0">,</span> x<span class="br0">&#41;</span><span class="sy0">;</span> <span class="coMULTI">/* This prints &quot;123&quot; */</span>
+    bar<span class="br0">&#40;</span><span class="sy0">&amp;</span>x<span class="br0">&#41;</span><span class="sy0">;</span>
+    <span class="kw3">printf</span><span class="br0">&#40;</span><span class="st0">&quot;%d<span class="es1">\n</span>&quot;</span><span class="sy0">,</span> x<span class="br0">&#41;</span><span class="sy0">;</span> <span class="coMULTI">/* This prints &quot;456&quot; */</span>
+    <span class="kw1">return</span> <span class="nu0">0</span><span class="sy0">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<p>This example shows how pointers may be used to <i>pass by reference</i>. If an integer variable is passed into a function, then a copy of the variable is made; any changes made to the parameter within the function will leave the variable in the caller unaffected. However, passing a pointer to <code>x</code> rather than <code>x</code> itself merely copies the <i>address information</i> of <code>x</code>, which, within the body of <code>f</code>, may still be used to refer to <code>x</code> itself.
+</p>
+<h4><span class="mw-headline" id="Function_pointers">Function pointers</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Pointer&amp;action=edit&amp;section=4" title="Edit section: Function pointers">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>Pointers to functions are also allowed. Unlike pointers to data types, these point to code, not data.
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="kw4">void</span> f<span class="br0">&#40;</span><span class="kw4">int</span> x<span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    <span class="kw3">printf</span><span class="br0">&#40;</span><span class="st0">&quot;%d<span class="es1">\n</span>&quot;</span><span class="sy0">,</span> x<span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="br0">&#125;</span>
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    <span class="kw4">void</span> <span class="br0">&#40;</span><span class="sy0">*</span>p<span class="br0">&#41;</span><span class="br0">&#40;</span><span class="kw4">int</span><span class="br0">&#41;</span> <span class="sy0">=</span> <span class="sy0">&amp;</span>f<span class="sy0">;</span>
+    <span class="br0">&#40;</span><span class="sy0">*</span>p<span class="br0">&#41;</span><span class="br0">&#40;</span><span class="nu0">123</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// prints &quot;123&quot; </span>
+    <span class="kw1">return</span> <span class="nu0">0</span><span class="sy0">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<p>The type <code>void (*)(int)</code> is a <i>pointer to function of <code>int</code> returning <code>void</code></i>. When <code>p</code> is declared, it is made to point to the function <code>f</code>. Then, <code>*p</code> will refer to <code>f</code>. A function pointer is also a fully first-class data type. Pointers to function pointers are allowed, as are pointers to functions taking or returning function pointers; however, the syntax quickly becomes confusing.
+</p><p>(Note that for function pointers the use of <code>&amp;</code> and <code>*</code> are <i>optional</i>; the syntax <code>void (*p)(int) = f;</code> is correct, as is <code>p(123);</code>)
+</p>
+<h3><span class="mw-headline" id="C.2B.2B">C++</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Pointer&amp;action=edit&amp;section=5" title="Edit section: C++">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<h4><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Pointer&amp;action=edit&amp;section=6" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>C++ inherits the "true" pointers found in C, but also has a type known as <i>reference</i>. The reference type corresponding to the type <code>T</code> is known as <code>T&amp;</code>. Here is an example to parallel the above:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="cpp source-cpp"><pre class="de1"><span class="kw4">int</span> x <span class="sy1">=</span> <span class="nu0">123</span><span class="sy4">;</span>
+<span class="kw4">int</span><span class="sy3">&amp;</span> r <span class="sy1">=</span> x<span class="sy4">;</span>
+r <span class="sy1">=</span> <span class="nu0">456</span><span class="sy4">;</span>
+std<span class="sy4">::</span><span class="kw3">cout</span> <span class="sy1">&lt;&lt;</span> x <span class="sy1">&lt;&lt;</span> std<span class="sy4">::</span><span class="me2">endl</span><span class="sy4">;</span> <span class="co1">// This prints &quot;456&quot;</span></pre></div></div>
+<p>Here, the object <code>r</code> is a reference to <code>x</code>. It differs from a pointer to <code>x</code> in that it is <i>implicitly</i> dereferenced at all future usage; <code>r</code> is semantically indistinguishable from <code>x</code> after line 2. Furthermore, <code>r</code> can never be reassigned so that it refers to any variable other than <code>x</code>. Effectively, <code>r</code> is an <i>alias</i> for <code>x</code>.
+</p><p>It is worth noting that the similarity to the corresponding C code using pointers demonstrates that references really are pointers that simply hide the fact that they have any independent existence as raw memory addresses.
+</p><p>References are not by any means first class objects in C++. References to references, arrays of references, and pointers to references are not allowed.
+</p><p>When a reference type is on a function's parameter list, <i>pass by reference</i> occurs. The reference parameter will be initialized when the function call is made, but, once within the body of the function, it will be semantically indistinguishable from the object from which it was initialized, and will go out of scope when the function returns. Changes made to the reference parameter will change the actual argument passed in. Thus:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="cpp source-cpp"><pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="kw4">void</span> bar<span class="br0">&#40;</span><span class="kw4">int</span><span class="sy3">&amp;</span> z<span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    z <span class="sy1">=</span> <span class="nu0">456</span><span class="sy4">;</span>
+<span class="br0">&#125;</span>
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="kw4">int</span> argc, <span class="kw4">char</span><span class="sy2">**</span> argv<span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    <span class="kw4">int</span> x <span class="sy1">=</span> <span class="nu0">123</span><span class="sy4">;</span>
+    bar<span class="br0">&#40;</span>x<span class="br0">&#41;</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><span class="kw3">cout</span> <span class="sy1">&lt;&lt;</span> x <span class="sy1">&lt;&lt;</span> std<span class="sy4">::</span><span class="me2">endl</span><span class="sy4">;</span> <span class="co1">// This prints &quot;456&quot;</span>
+    <span class="kw1">return</span> <span class="nu0">0</span><span class="sy4">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<p>On the other hand, if a variable of reference type is passed into a function, the effect will be the same as if the referent itself were passed into the function. 
+</p><p>References may be returned from functions, too. For example, the function <code>std::vector::operator[]</code> returns a reference to the vector's <code>value_type</code>. This is done so that we may write a statement such as <code>V[x] = y</code> (where <code>V</code> is a map). Because the value returned is from the vector's internal memory, this assignment statement will change the contents of the vector. If <code>operator[]</code> returned simply <code>value_type</code>, rather than <code>value_type&amp;</code>, then the return value would be a temporary copy of the value inside the vector, and it would not be an lvalue, so this assignment statement would not be valid, and, even if it were, it would have no hope of modifying the contents of the vector as desired.
+</p><p>C++ references are not referred to as pointers, because this would lead to confusion with the actual pointer type <code>T*</code>. The question of whether, in general, these objects should be considered pointers is more tricky. Yes, they contain address information about their referents, and yes, they may be used to access their referents in memory, but the fact that <code>r</code> and <code>x</code> are semantically indistinguishable after the initialization of <code>r</code> makes it logically dissatisfying to call <code>r</code> a pointer but not <code>x</code>. However, as everyone agrees on the statement, "C++ has pointers", this issue is not often discussed.
+</p>
+<h4><span class="mw-headline" id="Pointers_to_member">Pointers to member</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Pointer&amp;action=edit&amp;section=7" title="Edit section: Pointers to member">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>C++ also has <i>pointers to data member</i>. The following example illustrates their usage:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="cpp source-cpp"><pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="kw4">struct</span> A
+<span class="br0">&#123;</span>
+    <span class="kw4">int</span> x<span class="sy4">;</span>
+<span class="br0">&#125;</span><span class="sy4">;</span>
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    A a<span class="sy4">;</span> a.<span class="me1">x</span> <span class="sy1">=</span> <span class="nu0">123</span><span class="sy4">;</span>
+    <span class="kw4">int</span> A<span class="sy4">::</span><span class="sy2">*</span>p <span class="sy1">=</span> <span class="sy3">&amp;</span>A<span class="sy4">::</span><span class="me2">x</span><span class="sy4">;</span>
+    a.<span class="sy2">*</span>p <span class="sy1">=</span> <span class="nu0">456</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><span class="kw3">cout</span> <span class="sy1">&lt;&lt;</span> a.<span class="me1">x</span> <span class="sy1">&lt;&lt;</span> std<span class="sy4">::</span><span class="me2">endl</span><span class="sy4">;</span> <span class="co1">// this prints &quot;456&quot;</span>
+    <span class="kw1">return</span> <span class="nu0">0</span><span class="sy4">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<p>The type <code>int A::*</code> is a <i>pointer to <code>int</code> member of <code>A</code></i>. It is used to point to some <code>int</code> <i>field</i> of the <i>class</i> (or struct) <code>A</code> (and not to an <i>instance</i> thereof). In line 9, we initialize this pointer so that it points to the member <code>A::x</code>. However, this pointer does not actually refer to anything by itself; it only refers to a field within <code>A</code>. In order to use this pointer, we must <i>instantiate</i> it by actually <i>providing</i> an instance of the struct <code>A</code>. The value <code>a.*p</code> points to <code>a.x</code>, since <code>p</code> refers to the field <code>x</code> of some <code>A</code>.
+</p><p>In some implementations of C++, the pointer <code>p</code> in this example actually contains the <i>offset</i> of the member <code>A::x</code> from the beginning of the corresponding instance of <code>A</code> in memory. In the example above, the numerical value of <code>p</code> is probably actually zero, since <code>x</code> is the first field of <code>A</code>. However, this is <i>not</i> a null pointer. In fact, it is not a fully <i>qualified</i> pointer at all. It may <i>only</i> be used in conjunction with an object of type <code>A</code>. Arguably, since it does not contain enough information to refer to any specific value in memory, it should not be considered a true pointer at all. Yet, in C++ terminology, it is still a type of pointer, whereas the reference type discussed in the previous section is not!
+</p><p>There are also pointers to member <i>functions</i>:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="cpp source-cpp"><pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="kw4">struct</span> A
+<span class="br0">&#123;</span>
+    <span class="kw4">int</span> x<span class="sy4">;</span>
+    <span class="kw2">virtual</span> <span class="kw4">void</span> f<span class="br0">&#40;</span><span class="br0">&#41;</span>
+    <span class="br0">&#123;</span>
+        x <span class="sy1">=</span> <span class="nu0">123</span><span class="sy4">;</span>
+    <span class="br0">&#125;</span>
+<span class="br0">&#125;</span><span class="sy4">;</span>
+<span class="kw4">struct</span> B <span class="sy4">:</span> A
+<span class="br0">&#123;</span>
+    <span class="kw4">void</span> f<span class="br0">&#40;</span><span class="br0">&#41;</span>
+    <span class="br0">&#123;</span>
+        x <span class="sy1">=</span> <span class="nu0">456</span><span class="sy4">;</span>
+    <span class="br0">&#125;</span>
+<span class="br0">&#125;</span><span class="sy4">;</span>
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="kw4">int</span> argc, <span class="kw4">char</span><span class="sy2">**</span> argv<span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    A a<span class="sy4">;</span>
+    B b<span class="sy4">;</span>
+    <span class="kw4">void</span> <span class="br0">&#40;</span>A<span class="sy4">::</span><span class="sy2">*</span>p<span class="br0">&#41;</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy1">=</span> <span class="sy3">&amp;</span>A<span class="sy4">::</span><span class="me2">f</span><span class="sy4">;</span>
+    <span class="br0">&#40;</span>a.<span class="sy2">*</span>p<span class="br0">&#41;</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy4">;</span>
+    <span class="br0">&#40;</span>b.<span class="sy2">*</span>p<span class="br0">&#41;</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><span class="kw3">cout</span> <span class="sy1">&lt;&lt;</span> a.<span class="me1">x</span> <span class="sy1">&lt;&lt;</span> std<span class="sy4">::</span><span class="me2">endl</span><span class="sy4">;</span> <span class="co1">// this prints &quot;123&quot;</span>
+    std<span class="sy4">::</span><span class="kw3">cout</span> <span class="sy1">&lt;&lt;</span> b.<span class="me1">x</span> <span class="sy1">&lt;&lt;</span> std<span class="sy4">::</span><span class="me2">endl</span><span class="sy4">;</span> <span class="co1">// this prints &quot;456&quot;</span>
+    <span class="kw1">return</span> <span class="nu0">0</span><span class="sy4">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<p>These are more subtle than pointers to data members. The type <code>void (A::*)()</code> is a <i>pointer to member function of <code>A</code> taking no arguments and returning <code>void</code></i>. However, just as a pointer to data member is not a complete pointer capable of referring to a specific memory location, a pointer to member function does not completely specify the address of the function it points to, because of the possibility of <i>inheritance</i>. In this example, because of polymorphism, the object <code>b</code>, which is of type <code>B</code>, is <i>also</i> a valid object of type <code>A</code>. The pointer <code>p</code> is required to be able to invoke the function <code>f</code> on any object of type <code>A</code>. And yet <code>a.*p</code> and <code>b.*p</code> are <i>different functions</i> (that is, functions at different memory addresses), because <code>B::f</code> overrides <code>A::f</code>! This means <code>p</code> cannot store a simple address. Instead, <code>p</code> probably points to the offset of the entry for <code>f</code> from the beginning of <code>A</code>'s virtual method table; instantiating and invoking <code>f</code> then requires a lookup and a translation.
+</p>
+<h4><span class="mw-headline" id="Iterators">Iterators</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Pointer&amp;action=edit&amp;section=8" title="Edit section: Iterators">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>As C++ supports operator overloading, it is possible to define a type of object that behaves like a pointer syntactically, but doesn't have type <code>T*</code>. For example:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="cpp source-cpp"><pre class="de1"><span class="co2">#include &lt;set&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="kw4">int</span> argc, <span class="kw4">char</span><span class="sy2">**</span> argv<span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    std<span class="sy4">::</span><span class="me2">set</span><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span> S<span class="sy4">;</span>
+    S.<span class="me1">insert</span><span class="br0">&#40;</span><span class="nu0">123</span><span class="br0">&#41;</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><span class="me2">set</span><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">iterator</span> I <span class="sy1">=</span> S.<span class="me1">find</span><span class="br0">&#40;</span><span class="nu0">123</span><span class="br0">&#41;</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><span class="kw3">cout</span> <span class="sy1">&lt;&lt;</span> <span class="sy2">*</span>I <span class="sy1">&lt;&lt;</span> std<span class="sy4">::</span><span class="me2">endl</span><span class="sy4">;</span> <span class="co1">// this prints &quot;123&quot;</span>
+    <span class="kw1">return</span> <span class="nu0">0</span><span class="sy4">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<p>In this code, the object <code>I</code> is called an <i>iterator</i>. The <code>std::set&lt;&gt;::find</code> function returns an iterator, which is like a pointer to one of the set's elements. After this initialization of <code>I</code>, the expression <code>*I</code> may be used to dereference the iterator. As it points to the element of value 123 found within the set, <code>*I</code> equals 123.
+</p><p>An iterator must, at the very least, define <code>operator*</code>, so that it may be dereferenced using the same syntax as an ordinary pointer.
+</p><p>It is arguable whether an iterator can be considered a pointer. Iterators do provide access to their referents, but they are not required to contain their referents' memory addresses; they just need to store enough information to unambiguously determine their referents' addresses. Iterators are usually implemented as classes containing a private pointer member to their referents, but this is not a requirement. On the other hand, C pointers are also not required to contain raw memory addresses, even though they usually do; this suggests that iterators ought to be considered pointers just as much as "true" C pointers. The fact that iterators in C++ are generally considered more general objects than pointers, however, suggests that the term <i>pointer</i> should perhaps be best understood in the context of individual languages.
+</p>
+<h3><span class="mw-headline" id="Java.2C_C.23.2C_Python.2C_Ruby.2C_etc.">Java, C#, Python, Ruby, <i>etc.</i></span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Pointer&amp;action=edit&amp;section=9" title="Edit section: Java, C#, Python, Ruby, etc.">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>There is some controversy over the question of whether Java has pointers. Here is an example to illustrate the source of this confusion:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="java source-java"><pre class="de1"><span class="kw1">class</span> Foo <span class="br0">&#123;</span>
+        <span class="kw4">int</span> bar<span class="sy0">;</span>
+        Foo<span class="br0">&#40;</span><span class="kw4">int</span> x<span class="br0">&#41;</span> <span class="br0">&#123;</span>
+                bar <span class="sy0">=</span> x<span class="sy0">;</span>
+        <span class="br0">&#125;</span>
+        <span class="kw4">int</span> getBar<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+                <span class="kw1">return</span> bar<span class="sy0">;</span>
+        <span class="br0">&#125;</span>
+        <span class="kw4">void</span> setBar<span class="br0">&#40;</span><span class="kw4">int</span> x<span class="br0">&#41;</span> <span class="br0">&#123;</span>
+                bar <span class="sy0">=</span> x<span class="sy0">;</span>
+        <span class="br0">&#125;</span>
+<span class="br0">&#125;</span>
+&#160;
+<span class="kw1">public</span> <span class="kw1">class</span> Example <span class="br0">&#123;</span>
+        <span class="kw1">public</span> <span class="kw1">static</span> <span class="kw4">void</span> main<span class="br0">&#40;</span><span class="kw3">String</span><span class="br0">&#91;</span><span class="br0">&#93;</span> args<span class="br0">&#41;</span> <span class="br0">&#123;</span>
+                Foo f <span class="sy0">=</span> <span class="kw1">new</span> Foo<span class="br0">&#40;</span><span class="nu0">123</span><span class="br0">&#41;</span><span class="sy0">;</span>
+                Foo g <span class="sy0">=</span> f<span class="sy0">;</span>
+                g.<span class="me1">setBar</span><span class="br0">&#40;</span><span class="nu0">456</span><span class="br0">&#41;</span><span class="sy0">;</span>
+                <span class="kw3">System</span>.<span class="me1">out</span>.<span class="me1">println</span><span class="br0">&#40;</span>f.<span class="me1">getBar</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// This prints &quot;456&quot;</span>
+        <span class="br0">&#125;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<p>It is clear from this example that <code>f</code> and <code>g</code> are not value <i>instances</i> of the class <code>Foo</code>; if they were, then the statement <code>g = f;</code> would create a copy of <code>f</code>. Instead, <code>f</code> and <code>g</code> are like pointers with an anonymous referent constructed by the <code>new</code> invocation, so that after <code>f</code> is assigned to <code>g</code>, the two pointers will have the same referent.
+</p><p>When an object is passed into a function, it is as though a pointer to the object's data were passed into a C function. Hence, if a function takes a parameter <code>Foo f</code>, then assigning to <code>f</code> inside the function will simply rebind the name, and leave the original argument untouched; but any modification to <code>f</code>'s members will be reflected in the original argument, as it entails the dereferencing of this pointer.
+</p><p>Whereas in C we may have something like this:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="kw4">typedef</span> <span class="kw4">struct</span> node
+<span class="br0">&#123;</span>
+    <span class="kw4">int</span> value<span class="sy0">;</span>
+    <span class="kw4">struct</span> node<span class="sy0">*</span> left<span class="sy0">;</span>
+    <span class="kw4">struct</span> node<span class="sy0">*</span> right<span class="sy0">;</span>
+<span class="br0">&#125;</span> node<span class="sy0">;</span></pre></div></div>
+<p>the equivalent code in Java would be:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="java source-java"><pre class="de1"><span class="kw1">class</span> Node
+<span class="br0">&#123;</span>
+  <span class="kw1">public</span><span class="sy0">:</span>
+    <span class="kw4">int</span> value<span class="sy0">;</span>
+    Node left<span class="sy0">;</span>
+    Node right<span class="sy0">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<p>In the sense that pointers are necessary for the implementation of linked data structures, Java does have pointers; they are simply not presented as such to the programmer. The question is whether an entity can be called a pointer when its referent cannot be independently exposed in the language (in that it is impossible to pass an object "by value"). Also, there is no way to pass a primitive type such as <code>int</code> by reference, as would be done in C with a pointer to int; the int must instead be wrapped in an object. The inability of the programmer to create a reference to some data types may be a reason for saying that the language does not have pointers.
+</p><p>Of course, the knowledge of how to achieve equivalent effects to C's "pass by value" and "pass by reference" in Java and languages with similar reference semantics is far more important than a squabble over whether a language "has pointers" or not.
+</p>
+<h3><span class="mw-headline" id="Disk_.28and_other.29_pointers">Disk (and other) pointers</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Pointer&amp;action=edit&amp;section=10" title="Edit section: Disk (and other) pointers">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>File systems that organize data on disks also use pointers to keep track of where on the disk files are located; however, these are typically specialized data structures handled by an operating system kernel, and do not appear in application programs or in mainstream programming languages. These <i>disk pointers</i> are usually referred to as such to distinguish them from pointers into primary storage and virtual memory, which are simply called <i>pointers</i>. 
+</p><p>The term <i>memory</i> can, in general, refer not only to primary storage, disks, and virtual memory, but also to CPU registers, cache, and other machines (as in a network cluster). Nevertheless, the term <i>pointer</i> is very rarely used to describe objects that address these other forms of memory. For example, an IP address is not referred to as a pointer.
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.137 seconds
+Real time usage: 0.138 seconds
+Preprocessor visited node count: 158/1000000
+Preprocessor generated node count: 308/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:344-0!*!*!!en!*!*!math=0 and timestamp 20180417072109 and revision id 1679
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wcipeg.com/wiki/index.php?title=Pointer&amp;oldid=1679">https://wcipeg.com/wiki/index.php?title=Pointer&amp;oldid=1679</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Pointer&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Pointer" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/Pointer"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/wiki/index.php?title=Talk:Pointer&amp;action=edit&amp;redlink=1"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Pointer" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/wiki/index.php?title=Pointer&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/wiki/index.php?title=Pointer&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search PEGWiki [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+													<li id="n-Index"><a href="/wiki/Special:AllPages">Index</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+													<li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Pointer" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Pointer" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/wiki/index.php?title=Pointer&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/wiki/index.php?title=Pointer&amp;oldid=1679" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/wiki/index.php?title=Pointer&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 1 August 2012, at 19:59.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Attribution 3.0 Unported</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/PEGWiki:Privacy_policy" title="PEGWiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/PEGWiki:About" title="PEGWiki:About">About PEGWiki</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/PEGWiki:General_disclaimer" title="PEGWiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by/3.0/"><img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Attribution 3.0 Unported" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wiki/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wcipeg.com/wiki/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":68});
+}</script>
+	</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Heavy-light decomposition - PEGWiki</title>
+<meta name="generator" content="MediaWiki 1.25.2" />
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/wiki/index.php?title=Heavy-light_decomposition&amp;action=edit" />
+<link rel="edit" title="Edit" href="/wiki/index.php?title=Heavy-light_decomposition&amp;action=edit" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/wiki/opensearch_desc.php" title="PEGWiki (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wcipeg.com/wiki/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/Heavy-light_decomposition" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="PEGWiki Atom feed" href="/wiki/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=ext.math.styles%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:b36fd1c042133c9c9b60260f7c29b237 */</style>
+<script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Heavy-light_decomposition","wgTitle":"Heavy-light decomposition","wgCurRevisionId":1878,"wgRevisionId":1878,"wgArticleId":74,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Heavy-light_decomposition","wgRelevantArticleId":74,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikidb:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Heavy-light_decomposition skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Heavy-light decomposition</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From PEGWiki</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>The <b>heavy-light</b> (H-L) <b>decomposition</b> of a rooted tree is a method of partitioning of the vertices of the tree into disjoint paths (all vertices have degree two, except the endpoints of a path, with degree one) that gives important asymptotic time bounds for certain problems involving trees. It appears to have been introduced in passing in Sleator and Tarjan's analysis of the performance of the <a href="/wiki/index.php?title=Link-cut_tree&amp;action=edit&amp;redlink=1" class="new" title="Link-cut tree (page does not exist)">link-cut tree</a> data structure.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Definition"><span class="tocnumber">1</span> <span class="toctext">Definition</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Properties"><span class="tocnumber">2</span> <span class="toctext">Properties</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Construction"><span class="tocnumber">3</span> <span class="toctext">Construction</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Applications"><span class="tocnumber">4</span> <span class="toctext">Applications</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Dynamic_distance_query"><span class="tocnumber">4.1</span> <span class="toctext">Dynamic distance query</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Definition">Definition</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Heavy-light_decomposition&amp;action=edit&amp;section=1" title="Edit section: Definition">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The <i>heavy-light decomposition</i> of a tree <img class="mwe-math-fallback-image-inline tex" alt="T=(V,E)" src="/wiki/images/math/8/8/5/88548ce57f091c80ed609d7cbde96d71.png" /> is a coloring of the tree's edges. Each edge is either <i>heavy</i> or <i>light</i>. To determine which, consider the edge's two endpoints: one is closer to the root, and one is further away. If the size of the subtree rooted at the latter is more than half that of the subtree rooted at the former, the edge is heavy. Otherwise, it is light.
+</p>
+<h2><span class="mw-headline" id="Properties">Properties</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Heavy-light_decomposition&amp;action=edit&amp;section=2" title="Edit section: Properties">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Denote the size of a subtree rooted at vertex <img class="mwe-math-fallback-image-inline tex" alt="v" src="/wiki/images/math/9/e/3/9e3669d19b675bd57058fd4664205d2a.png" /> as <img class="mwe-math-fallback-image-inline tex" alt="\operatorname{size}(v)" src="/wiki/images/math/d/d/5/dd5c8c006306e1f97eaf1318b3835a8e.png" />.</p>
+<p>Suppose that a vertex <img class="mwe-math-fallback-image-inline tex" alt="v" src="/wiki/images/math/9/e/3/9e3669d19b675bd57058fd4664205d2a.png" /> has two children <img class="mwe-math-fallback-image-inline tex" alt="u" src="/wiki/images/math/7/b/7/7b774effe4a349c6dd82ad4f4f21d34c.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="w" src="/wiki/images/math/f/1/2/f1290186a5d0b1ceab27f4e77c0c5d68.png" /> and the edges <img class="mwe-math-fallback-image-inline tex" alt="v" src="/wiki/images/math/9/e/3/9e3669d19b675bd57058fd4664205d2a.png" />-<img class="mwe-math-fallback-image-inline tex" alt="u" src="/wiki/images/math/7/b/7/7b774effe4a349c6dd82ad4f4f21d34c.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="v" src="/wiki/images/math/9/e/3/9e3669d19b675bd57058fd4664205d2a.png" />-<img class="mwe-math-fallback-image-inline tex" alt="w" src="/wiki/images/math/f/1/2/f1290186a5d0b1ceab27f4e77c0c5d68.png" /> are both heavy. Then, <img class="mwe-math-fallback-image-inline tex" alt="\operatorname{size}(u) + \operatorname{size}(w) &gt; \frac{1}{2}\operatorname{size}(v)+\frac{1}{2}\operatorname{size}(v) = \operatorname{size}(v)" src="/wiki/images/math/5/2/6/526658e37396467db4b918aaf67c6277.png" />. This is a contradiction, since we know that <img class="mwe-math-fallback-image-inline tex" alt="\operatorname{size}(u) + \operatorname{size}(w) + 1 \le \operatorname{size}(v)" src="/wiki/images/math/9/3/1/931ed8459f57ede60dd6b47b1694b251.png" />. (<img class="mwe-math-fallback-image-inline tex" alt="v" src="/wiki/images/math/9/e/3/9e3669d19b675bd57058fd4664205d2a.png" />, of course, may have more than two children.) We conclude that <b>there may be at most one heavy edge of all the edges joining any given vertex to its children.</b></p>
+<p>At most two edges incident upon a given vertex may then be heavy: the one joining it to its parent, and at most one joining it to a child. Consider the subgraph of the tree in which all light edges are removed. Then, all resulting connected components are paths (although some contain only one vertex and no edges at all) and two neighboring vertices' heights differ by one. We conclude that <b>the heavy edges, along with the vertices upon which they are incident, partition the tree into disjoint paths, each of which is part of some path from the root to a leaf.</b></p>
+<p>Suppose a tree contains <img class="mwe-math-fallback-image-inline tex" alt="N" src="/wiki/images/math/8/d/9/8d9c307cb7f3c4a32822a51922d1ceaa.png" /> vertices. If we follow a light edge from the root, the subtree rooted at the resulting vertex has size at most <img class="mwe-math-fallback-image-inline tex" alt="N/2" src="/wiki/images/math/0/e/8/0e871a79d98cb1c7563b39b89aaf6153.png" />; if we repeat this, we reach a vertex with subtree size at most <img class="mwe-math-fallback-image-inline tex" alt="N/4" src="/wiki/images/math/7/a/9/7a9d409c8241b56490c850739a83f5aa.png" />, and so on. It follows that <b>the number of light edges on any path from root to leaf is at most <img class="mwe-math-fallback-image-inline tex" alt="\lg N" src="/wiki/images/math/1/e/e/1ee5de947440f0deed179588e30279e3.png" />.</b></p>
+<h2><span class="mw-headline" id="Construction">Construction</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Heavy-light_decomposition&amp;action=edit&amp;section=3" title="Edit section: Construction">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The paths can be obtained by the following pseudocode:
+</p>
+<pre>def getPath(node):
+    if node is a leaf:
+        return [node]
+    for each subtree S:
+        if S is not the largest subtree:
+            allPaths.append(getPath(S))
+    for each subtree S:
+        if S is the largest subtree:
+            return getPath(S).append(node)
+</pre>
+<p>Then all paths can be obtained by calling:
+</p>
+<pre>allPaths.append(getPath(root))</pre>
+<p>Note that by this construction, an edge is heavy if and only if the vertices which it connects are both in the same path. This creates more heavy edges than are strictly necessary by the definition, but the complexity is unchanged.
+</p>
+<h2><span class="mw-headline" id="Applications">Applications</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Heavy-light_decomposition&amp;action=edit&amp;section=4" title="Edit section: Applications">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The utility of the H-L decomposition lies in that problems involving paths between nodes can often be solved more efficiently by "skipping over" heavy paths rather than considering each edge in the path individually. This is because long paths in trees that are very poorly balanced tend to consist mostly of heavy edges.
+</p><p>To "skip" from any node in the tree to the root:
+</p>
+<pre>while current_node ≠ root
+     if color(current_node,parent(current_node)) = light
+          current_node = parent(current_node)
+     else
+          current_node = skip(current_node)
+</pre>
+<p>In the above, <code>color(u,v)</code> represents the color (heavy or light) of the edge from <code>u</code> to <code>v</code>, <code>parent(v)</code> represents the parent of a node <code>v</code>, and <code>skip(v)</code> represents the parent of the highest (<i>i.e.</i>, least deep) node that is located on the same heavy path as node <code>v</code>. (It is so named because it allows us to "skip" through heavy paths.) In order for the latter to be implemented efficiently, every node whose parent link is heavy must be augmented with a pointer to the result of the <code>skip</code> function, but that is trivial to achieve.
+</p><p>What is the running time of this fragment of code? There are at most a logarithmic number of light edges on the path, each of which takes constant time to traverse. There are also at most a logarithmic number of heavy subpaths, since between each pair of adjacent heavy paths lies a light path. We spend at most a constant amount of time on each of these, so overall this "skipping" operation runs in logarithmic time.
+</p><p>This might not seem like much, but let's see how it can be used to solve a simple problem.
+</p><p><br />
+</p>
+<h3><span class="mw-headline" id="Dynamic_distance_query">Dynamic distance query</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Heavy-light_decomposition&amp;action=edit&amp;section=5" title="Edit section: Dynamic distance query">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Consider the following problem: A weighted, rooted tree is given followed by a large number of queries and modifications interspersed with each other. A <i>query</i> asks for the distance between a given pair of nodes and a <i>modification</i> changes the weight of a specified edge to a new (specified) value. How can the queries and modifications be performed efficiently?
+</p><p>First of all, we notice that the distance between nodes <img class="mwe-math-fallback-image-inline tex" alt="u" src="/wiki/images/math/7/b/7/7b774effe4a349c6dd82ad4f4f21d34c.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="v" src="/wiki/images/math/9/e/3/9e3669d19b675bd57058fd4664205d2a.png" /> is given by <img class="mwe-math-fallback-image-inline tex" alt="\operatorname{dist}(u,v) = \operatorname{dist}(root,u) + \operatorname{dist}(root,v) - 2\,\operatorname{dist}(root,\operatorname{LCA}(u,v))" src="/wiki/images/math/d/6/9/d69b8a2d9a5d973f86215f80d5d24fe7.png" />. There are a number of techniques for efficiently answering <a href="/wiki/Lowest_common_ancestor" title="Lowest common ancestor">lowest common ancestor</a> queries,  so if we can efficiently solve queries of a node's distance from the root, a solution to this problem follows trivially.
+</p><p>To solve this simpler problem of querying the distance from the root to a given node, we augment our walk procedure as follows: when following a light edge, simply add its distance to a running total; when following a heavy path, add all the distances along the edges traversed to the running total (as well as the distance along the light edge at the top, if any). The latter can be performed efficiently, along with modifications, if each heavy path is augmented with a data structure such as a <a href="/wiki/Segment_tree" title="Segment tree">segment tree</a> or <a href="/wiki/index.php?title=Binary_indexed_tree&amp;action=edit&amp;redlink=1" class="new" title="Binary indexed tree (page does not exist)">binary indexed tree</a> (in which the individual array elements correspond to the weights of the edges of the heavy path).
+</p><p>This gives <img class="mwe-math-fallback-image-inline tex" alt="O(\log^2 n)" src="/wiki/images/math/5/5/a/55a7e98b4399f4b4ca0c408dcf550ce4.png" /> time for queries. It consists of two "skips" and a LCA query. In the "skips", we may have to ascend logarithmically many heavy paths each of which takes logarithmic time, and so we need <img class="mwe-math-fallback-image-inline tex" alt="O(\log^2 n)" src="/wiki/images/math/5/5/a/55a7e98b4399f4b4ca0c408dcf550ce4.png" /> time. An update, merely an update to the underlying array structure, takes <img class="mwe-math-fallback-image-inline tex" alt="O(\log n)" src="/wiki/images/math/0/c/a/0ca47d9a481af371d1210a620c1945db.png" /> time.
+</p>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Heavy-light_decomposition&amp;action=edit&amp;section=6" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> Wang, Hanson. (2009). Personal communication.</li>
+<li> D. D. Sleator and R. E. Tarjan, A data structure for dynamic trees, <i>in</i> "Proc. Thirteenth Annual ACM Symp. on Theory of Computing," pp. 114–122, 1981.</li></ul>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.042 seconds
+Real time usage: 0.046 seconds
+Preprocessor visited node count: 259/1000000
+Preprocessor generated node count: 552/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:74-0!*!0!!en!*!*!math=0 and timestamp 20180417223539 and revision id 1878
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wcipeg.com/wiki/index.php?title=Heavy-light_decomposition&amp;oldid=1878">https://wcipeg.com/wiki/index.php?title=Heavy-light_decomposition&amp;oldid=1878</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Heavy-light+decomposition&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Heavy-light+decomposition" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/Heavy-light_decomposition"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+															<li  id="ca-talk"><span><a href="/wiki/Talk:Heavy-light_decomposition"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Heavy-light_decomposition" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/wiki/index.php?title=Heavy-light_decomposition&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/wiki/index.php?title=Heavy-light_decomposition&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search PEGWiki [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+													<li id="n-Index"><a href="/wiki/Special:AllPages">Index</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+													<li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Heavy-light_decomposition" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Heavy-light_decomposition" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/wiki/index.php?title=Heavy-light_decomposition&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/wiki/index.php?title=Heavy-light_decomposition&amp;oldid=1878" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/wiki/index.php?title=Heavy-light_decomposition&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 6 August 2015, at 12:40.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Attribution 3.0 Unported</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/PEGWiki:Privacy_policy" title="PEGWiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/PEGWiki:About" title="PEGWiki:About">About PEGWiki</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/PEGWiki:General_disclaimer" title="PEGWiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by/3.0/"><img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Attribution 3.0 Unported" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wiki/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wcipeg.com/wiki/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":66});
+}</script>
+	</body>
+</html>

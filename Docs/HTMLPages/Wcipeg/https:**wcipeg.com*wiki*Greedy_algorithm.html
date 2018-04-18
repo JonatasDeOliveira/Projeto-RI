@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Greedy algorithm - PEGWiki</title>
+<meta name="generator" content="MediaWiki 1.25.2" />
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/wiki/index.php?title=Greedy_algorithm&amp;action=edit" />
+<link rel="edit" title="Edit" href="/wiki/index.php?title=Greedy_algorithm&amp;action=edit" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/wiki/opensearch_desc.php" title="PEGWiki (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wcipeg.com/wiki/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/Greedy_algorithm" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="PEGWiki Atom feed" href="/wiki/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:b36fd1c042133c9c9b60260f7c29b237 */</style>
+<script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Greedy_algorithm","wgTitle":"Greedy algorithm","wgCurRevisionId":1575,"wgRevisionId":1575,"wgArticleId":327,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Algorithms","Greedy algorithms"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Greedy_algorithm","wgRelevantArticleId":327,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikidb:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Greedy_algorithm skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Greedy algorithm</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From PEGWiki</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>A <b>greedy <a href="/wiki/Algorithm" title="Algorithm">algorithm</a></b> solves an <a href="/wiki/index.php?title=Optimization_problem&amp;action=edit&amp;redlink=1" class="new" title="Optimization problem (page does not exist)">optimization problem</a> in a series of steps by making a locally optimal choice at each step. For some problems, a greedy algorithm may produce a global optimum for all instances; we say that such problems may be <i>solved greedily</i>. For other problems, greedy algorithms will produce the correct answer only for some instances. When a greedy algorithm exists for a problem, it is generally the method of choice, because of its efficiency. Contrast this with <a href="/wiki/Dynamic_programming" title="Dynamic programming">dynamic programming</a>, which accounts for all possible choices at each step, whether optimal or not, in order to ensure that a global optimum will be found, but requires more time and memory to consider all the locally non-optimal choices than a greedy algorithm does.
+</p>
+<h2><span class="mw-headline" id="Change_problem">Change problem</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Greedy_algorithm&amp;action=edit&amp;section=1" title="Edit section: Change problem">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>A popular case study is a type of <a href="/wiki/index.php?title=Knapsack_problem&amp;action=edit&amp;redlink=1" class="new" title="Knapsack problem (page does not exist)">knapsack problem</a> known as the <i>change-making problem</i>. In this problem, we are given the denominations of coins available and a certain amount of money for which we wish to make change in the fewest coins possible. For example, if there exist coins in the denominations of 1, 5, 10, and 25 cents (as in Canada), then we can make change for 47 cents using one 25 cent coin, two 10 cent coins, and two 1 cent coins. This uses five coins, which is the fewest possible.
+</p><p>For small input sizes, dynamic programming is the technique of choice, but if the set of denominations is fixed, the problem might be greedily solvable. The greedy algorithm is as follows: choose the largest denomination less than or equal to the amount we wish to change, and use a coin of that denomination; subtract its value from the amount we wish to change and repeat as many times as necessary. For example, starting with 47 cents, we first use a 25 cent coin, leaving 22 cents. Then we can no longer use a 25 cent coin but we can use a 10 cent coin, leaving 12 cents. Again we use a 10 cent coin, leaving 2 cents. Now 10 cent coins and 5 cent coins are too big, so we finish using two 1 cent coins. As this example suggests, the Canadian system of currency is amenable to the greedy solution method. However, if the set of coins had values of 2, 3, and 4 cents, then the greedy algorithm would fail altogether in making change for 5 cents, as we would first use a 4 cent coin then be left with only 1 cent, for which making change is impossible.
+</p>
+<h2><span class="mw-headline" id="Other_examples">Other examples</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Greedy_algorithm&amp;action=edit&amp;section=2" title="Edit section: Other examples">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><i>Main page</i>: <a href="/wiki/Category:Greedy_algorithms" title="Category:Greedy algorithms">Category:Greedy algorithms</a>
+</p><p>The basic idea of greediness may be combined with other data structures and algorithmic innovations to solve a variety of problems. The following algorithms can be considered greedy:
+</p>
+<ul><li> <a href="/wiki/Dijkstra%27s_algorithm" title="Dijkstra's algorithm">Dijkstra's algorithm</a> builds a <a href="/wiki/Shortest_path" title="Shortest path">shortest paths</a> tree by repeatedly selecting the closest vertex adjacent to the partially built tree. This works only when edge weights are nonnegative; if negative edge weights are allowed, the dynamic <a href="/wiki/Bellman%E2%80%93Ford_algorithm" title="Bellman–Ford algorithm">Bellman&#8211;Ford algorithm</a> must be used instead.</li>
+<li> <a href="/wiki/Prim%27s_algorithm" title="Prim's algorithm">Prim's algorithm</a> builds a <a href="/wiki/Minimum_spanning_tree" title="Minimum spanning tree">minimum spanning tree</a> by repeatedly selecting the least costly edge that may be added to the partially built tree.</li>
+<li> <a href="/wiki/Kruskal%27s_algorithm" title="Kruskal's algorithm">Kruskal's algorithm</a> builds a <a href="/wiki/Minimum_spanning_tree" title="Minimum spanning tree">minimum spanning tree</a> by repeatedly selecting the least costly edge in the graph such that its addition to the current set of edges will not introduce a cycle.</li>
+<li> <a href="/wiki/index.php?title=Huffman_coding&amp;action=edit&amp;redlink=1" class="new" title="Huffman coding (page does not exist)">Huffman coding</a>, useful in data compression, is accomplished using a classic greedy algorithm.</li></ul>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.014 seconds
+Real time usage: 0.015 seconds
+Preprocessor visited node count: 7/1000000
+Preprocessor generated node count: 12/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:327-0!*!0!!*!*!* and timestamp 20180417041127 and revision id 1575
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wcipeg.com/wiki/index.php?title=Greedy_algorithm&amp;oldid=1575">https://wcipeg.com/wiki/index.php?title=Greedy_algorithm&amp;oldid=1575</a>"					</div>
+													<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/wiki/Category:Algorithms" title="Category:Algorithms">Algorithms</a></li><li><a href="/wiki/Category:Greedy_algorithms" title="Category:Greedy algorithms">Greedy algorithms</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Greedy+algorithm&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Greedy+algorithm" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/Greedy_algorithm"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/wiki/index.php?title=Talk:Greedy_algorithm&amp;action=edit&amp;redlink=1"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Greedy_algorithm" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/wiki/index.php?title=Greedy_algorithm&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/wiki/index.php?title=Greedy_algorithm&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search PEGWiki [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+													<li id="n-Index"><a href="/wiki/Special:AllPages">Index</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+													<li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Greedy_algorithm" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Greedy_algorithm" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/wiki/index.php?title=Greedy_algorithm&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/wiki/index.php?title=Greedy_algorithm&amp;oldid=1575" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/wiki/index.php?title=Greedy_algorithm&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 14 January 2012, at 00:32.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Attribution 3.0 Unported</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/PEGWiki:Privacy_policy" title="PEGWiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/PEGWiki:About" title="PEGWiki:About">About PEGWiki</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/PEGWiki:General_disclaimer" title="PEGWiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by/3.0/"><img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Attribution 3.0 Unported" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wiki/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wcipeg.com/wiki/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":78});
+}</script>
+	</body>
+</html>

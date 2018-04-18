@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="not-ie" lang="en"> <!--<![endif]-->
+<head>
+	<!-- main header -->
+	<meta charset="utf-8">
+	
+				<title>Sphere Online Judge (SPOJ)  - User azure97</title>
+	  
+	<meta name="keywords" content="language, algorithm, spoj, contest, contester, Java, C#, Pascal, C, C++, python, ruby, caml, ocaml, perl, haskell, lisp, prolog, fortran, assembler, asembler, functional, online, judge, problem, problemset, ACM">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  		<meta property="og:image" content="//stx1.spoj.com/gfx/spoj-fb.jpg"/>
+	<meta property="og:description" content="SPOJ (Sphere Online Judge) is an online judge system with over 315,000 registered users and over 20000 problems. The solution to problems can be submitted in over 60 languages including C, C++, Java, Python, C#, Go, Haskell, Ocaml, and F#. SPOJ has a rapidly growing problem set/tasks available for practice 24 hours/day, including many original tasks prepared by the community of expert problem setters associated with the project."/>
+	<meta name="description" content="SPOJ (Sphere Online Judge) is an online judge system with over 315,000 registered users and over 20000 problems. The solution to problems can be submitted in over 60 languages including C, C++, Java, Python, C#, Go, Haskell, Ocaml, and F#. SPOJ has a rapidly growing problem set/tasks available for practice 24 hours/day, including many original tasks prepared by the community of expert problem setters associated with the project."/>
+		<meta property="og:site_name" content="spoj.com"/>
+
+  <!--[if (gte IE 9)|!(IE)]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" id="metatag">
+  <![endif]--> 
+
+	  <!-- Favicon -->
+	  <link href="//stx1.spoj.com/gfx/favicon_new.png" rel="shortcut icon" type="image/x-icon" />
+	  
+	  <!-- RSS -->
+	  <link href="/rss/" rel="alternate" type="application/rss+xml" title="RSS Feed">
+	
+	  <!-- Web Fonts -->
+	  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet" type="text/css">  
+
+	<!-- Internet Explorer condition - HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]--> 
+	
+	
+	
+	<!-- CSS: Bootstrap, Font-awesome, Bootstrap libs,  -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" />
+  	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  	<link href="//stx1.spoj.com/gfx/bootstrap-tour/build/css/bootstrap-tour.min.css" rel="stylesheet" />
+  	<link href="//stx1.spoj.com/themes/bootstrap-social.css" rel="stylesheet" type="text/css" />
+  	
+	<link href="//stx1.spoj.com/themes/common.css?4" rel="stylesheet" type="text/css" id="theme0" />
+	<link href="//stx1.spoj.com/themes/en_new.css?4" rel="stylesheet" type="text/css" id="theme" />
+	
+	<!-- JS -->
+	<script type="text/javascript" src='//code.jquery.com/jquery-1.11.1.min.js'></script>
+	<script type="text/javascript" src="//code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+	
+		<link href="//stx1.spoj.com/themes/cal-heatmap.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src='//stx1.spoj.com/js/d3.v3.min.js'></script>
+	<script type="text/javascript" src='//stx1.spoj.com/js/cal-heatmap.min.js'></script>
+	<script type="text/javascript" src="//www.google.com/jsapi"></script>
+		
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>	
+	<script type="text/javascript" language="javascript">
+	$(function () { 
+		$("#profile-menu").popover();
+	});
+	function UnCryptMailto(s) {
+		var n=0;
+		var r="";
+		for(var i=0;i<s.length;i++) {		
+			n=s.charCodeAt(i); 
+			if (n>=8364) {n = 128;}
+			r += String.fromCharCode(n+(2));	
+		}
+		return r;
+	}
+	function linkTo_UnCryptMailto(s)	{
+		location.href=UnCryptMailto(s);
+	}
+	</script>
+	
+	<script type="text/javascript">
+	function recordOutboundLink(link, category, action) {
+	  try {
+	    var pageTracker=_gat._getTracker("UA-XXXXX-X");
+	    pageTracker._trackEvent(category, action);
+	    setTimeout('document.location = "' + link.href + '"', 100)
+	  }catch(err){}
+	}
+	</script>
+	
+</head>
+
+<body>
+
+	
+	<!-- <div class="space30"></div> -->
+	
+	<!-- Content -->
+	<div class="content">
+		<div class="container" id="header">
+			<div class="row">
+				<div class="col-md-12 text-right">
+										<form method="post" style="display: none;" action="/login/" id="login-form">
+						<div class="row">
+							<div class="col-md-10 col-md-offset-2">
+								<input type="hidden" name="next_raw" value="/"/>
+								<input type="hidden" name="autologin" value="1"/>
+								<input type="text" name="login_user" placeholder="Username" class="form-control input-sm" style="display: inline-block; width: 25%;"/>
+								<input type="password" name="password" placeholder="Password" class="form-control input-sm" style="display: inline-block; width: 25%;"/>
+																<button type="submit" class="btn btn-default btn-sm" style="display: inline-block; margin-right: 10px;"><span class="fa fa-sign-in fa-lg"></span> <strong>sign in</strong></button>
+																<a href="/register"><i class="fa fa-user-plus"></i> sign up</a> 
+								<a href="/forgot"><i class="fa fa-question-circle"></i> forgot</a>
+				        									</div>
+						</div>
+					</form>
+										
+					
+				</div>
+			</div>
+		
+			<div class="row">
+				<div class="col-md-4">
+					<a href="/" class="navbar-brand">
+						<img src="//stx1.spoj.com/gfx/2015e.png" style="height: 40px;"/>
+					</a>
+					<div class="navbar-header">
+				      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+				        <span class="sr-only">Toggle navigation</span>
+				        <i class="fa fa-bars"></i>
+				      </button>
+				    </div>
+				</div>
+				<div class="col-md-8" id="menu">
+				
+					
+					<div class="row">
+					<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation"  style="border: 0px;">
+				      <ul class="nav navbar-nav" style="  float: right; margin-top: 10px;">
+				      						        <li >
+					          <a href="/problems"><i class="fa fa-puzzle-piece"></i> PROBLEMS</a>
+					        </li>
+					        					        <li >
+					          <a href="/status"><i class="fa fa-circle"></i> STATUS</a>
+					        </li>
+					        <li >
+					          <a href="/ranks"><i class="fa fa-trophy"></i> RANKS</a>
+					        </li>
+					        <li >
+					          <a href="http://spoj.com/forum"><i class="fa fa-comments-o"></i> DISCUSS</a>
+					        </li>
+					        <li >
+					          <a href="/contests">CONTESTS</a>
+					        </li>
+											        					        <li >
+					        	<a href="/login" class="text-success" onclick="$('#login-form').show(); $('input[name=login_user]').focus(); return false;"><i class="fa fa-sign-in"></i> sign in</a>
+					        </li>
+					        						
+				        
+				      </ul>
+				    </nav>
+				    </div>
+				    
+				    
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class="container" id="menu">
+			
+		</div>
+		
+		<div class="container" id="content">
+		<div class="submenu">
+	<ol class="">
+			<li></li>
+		</ol>
+	
+	<ol class="navbar-right">
+			<li><a href="/status/azure97/">History of submissions</a></li>
+		<li>(<a href="/status/azure97/signedlist/">plaintext version</a>)</li>
+	</ol>
+	
+</div>
+
+<div>
+<div class="row">
+	<div class="col-md-3" id="user-profile-left">
+		<img  class="img-thumbnail" width="100%" style="max-width: 262px;" src="http://www.gravatar.com/avatar/fa379489fb98c259adc3da91a2a90c35?s=290&20180418" class="avatar small-left-margin">
+		<h3>Muhammad Ayaz Dzulfikar</h3>		<h4>@azure97</h4>
+		<p><i class="fa fa-map-marker"></i> Indonesia, Bontang</p>		<p><i class="fa fa-clock-o"></i> Joined Nov 2013</p>
+		<p><i class="fa fa-trophy"></i> World Rank: #49 (229.1 points)</p>
+				<p>http://ayazdzulfikar.blogspot.com</p>		
+		
+		
+			</div>
+	<div class="col-md-9">
+	
+		<center>
+		<div class="c728x90"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-4453360425583535"
+     data-ad-slot="4026799034"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+		</center>
+	
+						<div class="row row-centered">
+			<div class="col-md-12">
+				<h3>Activity over the last year</h3>
+				<div class="top-4 col-centered" id="cal-heatmap"></div>
+
+				<h3 class="top-4">Effectiveness</h3>
+				<div class="row">
+					<div class="col-md-6 text-center valign-center">
+						<dl class="dl-horizontal profile-info-data profile-info-data-stats">
+							<dt><span class="fa fa-check fa-fw"></span>&nbsp;Problems solved</dt>
+								<dd>391</dd>
+							<dt><span class="fa fa-send fa-fw"></span>&nbsp;Solutions submitted</dt>
+								<dd>955</dd>
+						</dl>
+					</div>
+					<div class="col-md-6">
+						<div id="chart_div"></div>
+					</div>
+				</div>
+				
+				<script type="text/javascript">
+					function BackTime(date) {
+						var y = date.getFullYear(),
+							m = date.getMonth();
+						return new Date(y-1, m+1, 15);
+					}
+					
+					function drawChart() {
+
+						var data = new google.visualization.DataTable();
+							data.addColumn('string', '?');
+							data.addColumn('number', 'ACC');
+							data.addColumn('number', 'WA');
+							data.addColumn('number', 'TLE');
+							data.addColumn('number', 'RE');
+							data.addColumn('number', 'CE');
+							data.addRows([
+							
+							['Submissions', 642, 159, 93, 49, 12]
+							
+						]);
+	
+						var options = {
+							isStacked: 'percent',
+							pieSliceText: 'label',
+							colors: ['#348d34', '#ec971f', '#ec971f', '#c9302c', '#c9302c'],
+							//colors:['#00C030','#F09A24','#F09A24','#F09A24','#F09A24'],
+							'width':400,
+							'height':100,
+							chartArea:{left:10,top:10,width:'90%',height:'90%'},
+							fontName: '@font-family-base',
+							legend: {
+								position: 'top',
+								textStyle: {
+									fontName: '@font-family-base',
+									bold: true
+							}},
+							hAxis: {
+					            minValue: 0,
+					            ticks: [0, .25, .5, .75, 1]
+					          }
+						};
+	
+						var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+						chart.draw(data, options);
+					}
+					
+					$(document).ready(function(){
+					
+						var cal = new CalHeatMap();
+						cal.init({
+							domain: "month",
+							subDomain: "day",
+							domainGutter: 3,
+							tooltip: true,
+							start: BackTime(new Date()),
+							maxDate: new Date(),
+							colLimit: 4,
+							legend: [10, 20, 30, 40],
+							itemName: ["submission", "submissions"],
+							data: '/calendar/?ajax=1&uid=225076&start={{d:start}}&stop={{d:end}}'
+						});
+					});
+					
+					google.load('visualization', '1.0', {'packages':['corechart']});
+					google.setOnLoadCallback(drawChart);
+				</script>
+				
+				
+						
+			</div>
+		</div>
+
+		<h3 class="top-4 text-center">Problems</h3>
+		<div class="row row-centered" id="user-profile-tables">
+			<div class="col-md-12">
+				<h4>List of solved classical problems:</h4>
+				<table class="table table-condensed">
+								<tr>
+				<td align="left" width="14%"><a href="/status/ABA12C,azure97/">ABA12C</a></td>
+				<td align="left" width="14%"><a href="/status/CLZSTRNG,azure97/">CLZSTRNG</a></td>
+				<td align="left" width="14%"><a href="/status/FAILURE,azure97/">FAILURE</a></td>
+				<td align="left" width="14%"><a href="/status/IITWPC4J,azure97/">IITWPC4J</a></td>
+				<td align="left" width="14%"><a href="/status/MOWS,azure97/">MOWS</a></td>
+				<td align="left" width="14%"><a href="/status/PUCMM333,azure97/">PUCMM333</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2013J,azure97/">TAP2013J</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ABCDEF,azure97/">ABCDEF</a></td>
+				<td align="left" width="14%"><a href="/status/CNTINDX,azure97/">CNTINDX</a></td>
+				<td align="left" width="14%"><a href="/status/FANCY,azure97/">FANCY</a></td>
+				<td align="left" width="14%"><a href="/status/IITWPC4L,azure97/">IITWPC4L</a></td>
+				<td align="left" width="14%"><a href="/status/MSCHED,azure97/">MSCHED</a></td>
+				<td align="left" width="14%"><a href="/status/QMAX3VN,azure97/">QMAX3VN</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2014F,azure97/">TAP2014F</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ABCPATH,azure97/">ABCPATH</a></td>
+				<td align="left" width="14%"><a href="/status/CNTPATHS,azure97/">CNTPATHS</a></td>
+				<td align="left" width="14%"><a href="/status/FARIDA,azure97/">FARIDA</a></td>
+				<td align="left" width="14%"><a href="/status/INCSEQ,azure97/">INCSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/MSE06H,azure97/">MSE06H</a></td>
+				<td align="left" width="14%"><a href="/status/QN01,azure97/">QN01</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2014G,azure97/">TAP2014G</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ABSP1,azure97/">ABSP1</a></td>
+				<td align="left" width="14%"><a href="/status/CNTPRIME,azure97/">CNTPRIME</a></td>
+				<td align="left" width="14%"><a href="/status/FBTOURS,azure97/">FBTOURS</a></td>
+				<td align="left" width="14%"><a href="/status/INGRED,azure97/">INGRED</a></td>
+				<td align="left" width="14%"><a href="/status/MTOTALF,azure97/">MTOTALF</a></td>
+				<td align="left" width="14%"><a href="/status/QN02,azure97/">QN02</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2014H,azure97/">TAP2014H</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACPC10C,azure97/">ACPC10C</a></td>
+				<td align="left" width="14%"><a href="/status/CNT_LUCK,azure97/">CNT_LUCK</a></td>
+				<td align="left" width="14%"><a href="/status/FCTRL,azure97/">FCTRL</a></td>
+				<td align="left" width="14%"><a href="/status/INS14C,azure97/">INS14C</a></td>
+				<td align="left" width="14%"><a href="/status/MYQ2,azure97/">MYQ2</a></td>
+				<td align="left" width="14%"><a href="/status/QTREE5,azure97/">QTREE5</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2015K,azure97/">TAP2015K</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACQUIRE,azure97/">ACQUIRE</a></td>
+				<td align="left" width="14%"><a href="/status/CODEM4,azure97/">CODEM4</a></td>
+				<td align="left" width="14%"><a href="/status/FCTRL2,azure97/">FCTRL2</a></td>
+				<td align="left" width="14%"><a href="/status/INS14K,azure97/">INS14K</a></td>
+				<td align="left" width="14%"><a href="/status/MYQ6,azure97/">MYQ6</a></td>
+				<td align="left" width="14%"><a href="/status/QUE2,azure97/">QUE2</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2016E,azure97/">TAP2016E</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACTIV,azure97/">ACTIV</a></td>
+				<td align="left" width="14%"><a href="/status/CODESPTB,azure97/">CODESPTB</a></td>
+				<td align="left" width="14%"><a href="/status/FEAST,azure97/">FEAST</a></td>
+				<td align="left" width="14%"><a href="/status/INS14L,azure97/">INS14L</a></td>
+				<td align="left" width="14%"><a href="/status/NAIVELOK,azure97/">NAIVELOK</a></td>
+				<td align="left" width="14%"><a href="/status/RANDG,azure97/">RANDG</a></td>
+				<td align="left" width="14%"><a href="/status/TBATTLE,azure97/">TBATTLE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADACAROT,azure97/">ADACAROT</a></td>
+				<td align="left" width="14%"><a href="/status/CODFURY,azure97/">CODFURY</a></td>
+				<td align="left" width="14%"><a href="/status/FN16ASGN,azure97/">FN16ASGN</a></td>
+				<td align="left" width="14%"><a href="/status/IOIGARD,azure97/">IOIGARD</a></td>
+				<td align="left" width="14%"><a href="/status/NAJ0001,azure97/">NAJ0001</a></td>
+				<td align="left" width="14%"><a href="/status/RANGESUM,azure97/">RANGESUM</a></td>
+				<td align="left" width="14%"><a href="/status/TESSER,azure97/">TESSER</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADAGROW,azure97/">ADAGROW</a></td>
+				<td align="left" width="14%"><a href="/status/COLONY,azure97/">COLONY</a></td>
+				<td align="left" width="14%"><a href="/status/FN16BASE,azure97/">FN16BASE</a></td>
+				<td align="left" width="14%"><a href="/status/IOIPALIN,azure97/">IOIPALIN</a></td>
+				<td align="left" width="14%"><a href="/status/NAJKRACI,azure97/">NAJKRACI</a></td>
+				<td align="left" width="14%"><a href="/status/RAONE,azure97/">RAONE</a></td>
+				<td align="left" width="14%"><a href="/status/TEST,azure97/">TEST</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADANUM,azure97/">ADANUM</a></td>
+				<td align="left" width="14%"><a href="/status/COMBAT,azure97/">COMBAT</a></td>
+				<td align="left" width="14%"><a href="/status/FN16OIL,azure97/">FN16OIL</a></td>
+				<td align="left" width="14%"><a href="/status/IQUERY,azure97/">IQUERY</a></td>
+				<td align="left" width="14%"><a href="/status/NATALIAS,azure97/">NATALIAS</a></td>
+				<td align="left" width="14%"><a href="/status/RDRUG,azure97/">RDRUG</a></td>
+				<td align="left" width="14%"><a href="/status/TETRAHRD,azure97/">TETRAHRD</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADAVISIT,azure97/">ADAVISIT</a></td>
+				<td align="left" width="14%"><a href="/status/COMDIV,azure97/">COMDIV</a></td>
+				<td align="left" width="14%"><a href="/status/FN16QUOT,azure97/">FN16QUOT</a></td>
+				<td align="left" width="14%"><a href="/status/JC15D,azure97/">JC15D</a></td>
+				<td align="left" width="14%"><a href="/status/NAUGHTY,azure97/">NAUGHTY</a></td>
+				<td align="left" width="14%"><a href="/status/RENT,azure97/">RENT</a></td>
+				<td align="left" width="14%"><a href="/status/TIEROPE,azure97/">TIEROPE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADDREV,azure97/">ADDREV</a></td>
+				<td align="left" width="14%"><a href="/status/CONOR,azure97/">CONOR</a></td>
+				<td align="left" width="14%"><a href="/status/FP,azure97/">FP</a></td>
+				<td align="left" width="14%"><a href="/status/JC15F,azure97/">JC15F</a></td>
+				<td align="left" width="14%"><a href="/status/NEXTLEX,azure97/">NEXTLEX</a></td>
+				<td align="left" width="14%"><a href="/status/RESOURCE,azure97/">RESOURCE</a></td>
+				<td align="left" width="14%"><a href="/status/TIPTOP,azure97/">TIPTOP</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADJDUCKS,azure97/">ADJDUCKS</a></td>
+				<td align="left" width="14%"><a href="/status/COU,azure97/">COU</a></td>
+				<td align="left" width="14%"><a href="/status/FRND,azure97/">FRND</a></td>
+				<td align="left" width="14%"><a href="/status/JNEXT,azure97/">JNEXT</a></td>
+				<td align="left" width="14%"><a href="/status/NFACTOR,azure97/">NFACTOR</a></td>
+				<td align="left" width="14%"><a href="/status/RETDIG,azure97/">RETDIG</a></td>
+				<td align="left" width="14%"><a href="/status/TKUDDUS,azure97/">TKUDDUS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AE00,azure97/">AE00</a></td>
+				<td align="left" width="14%"><a href="/status/COURAGE,azure97/">COURAGE</a></td>
+				<td align="left" width="14%"><a href="/status/FRNDCIRC,azure97/">FRNDCIRC</a></td>
+				<td align="left" width="14%"><a href="/status/JOLLYKINGDOM,azure97/">JOLLYKINGDOM</a></td>
+				<td align="left" width="14%"><a href="/status/NG0FRCTN,azure97/">NG0FRCTN</a></td>
+				<td align="left" width="14%"><a href="/status/RIOI_2_3,azure97/">RIOI_2_3</a></td>
+				<td align="left" width="14%"><a href="/status/TPCPALIN,azure97/">TPCPALIN</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AFS,azure97/">AFS</a></td>
+				<td align="left" width="14%"><a href="/status/CPAIR2,azure97/">CPAIR2</a></td>
+				<td align="left" width="14%"><a href="/status/GCJ082A,azure97/">GCJ082A</a></td>
+				<td align="left" width="14%"><a href="/status/JRIDE,azure97/">JRIDE</a></td>
+				<td align="left" width="14%"><a href="/status/NGM2,azure97/">NGM2</a></td>
+				<td align="left" width="14%"><a href="/status/RKS,azure97/">RKS</a></td>
+				<td align="left" width="14%"><a href="/status/TRAPEZBO,azure97/">TRAPEZBO</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AIBOHP,azure97/">AIBOHP</a></td>
+				<td align="left" width="14%"><a href="/status/CS345A1,azure97/">CS345A1</a></td>
+				<td align="left" width="14%"><a href="/status/GCJ1C09C,azure97/">GCJ1C09C</a></td>
+				<td align="left" width="14%"><a href="/status/KATHTHI,azure97/">KATHTHI</a></td>
+				<td align="left" width="14%"><a href="/status/NICEBTRE,azure97/">NICEBTRE</a></td>
+				<td align="left" width="14%"><a href="/status/RLCAT,azure97/">RLCAT</a></td>
+				<td align="left" width="14%"><a href="/status/TREEPAL,azure97/">TREEPAL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AJOB,azure97/">AJOB</a></td>
+				<td align="left" width="14%"><a href="/status/CSHOWB,azure97/">CSHOWB</a></td>
+				<td align="left" width="14%"><a href="/status/GHOSTS,azure97/">GHOSTS</a></td>
+				<td align="left" width="14%"><a href="/status/KBASEEN,azure97/">KBASEEN</a></td>
+				<td align="left" width="14%"><a href="/status/NITK06,azure97/">NITK06</a></td>
+				<td align="left" width="14%"><a href="/status/RLCIPHER,azure97/">RLCIPHER</a></td>
+				<td align="left" width="14%"><a href="/status/TRIP2,azure97/">TRIP2</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AKVQLD03,azure97/">AKVQLD03</a></td>
+				<td align="left" width="14%"><a href="/status/CWB,azure97/">CWB</a></td>
+				<td align="left" width="14%"><a href="/status/GIVEAWAY,azure97/">GIVEAWAY</a></td>
+				<td align="left" width="14%"><a href="/status/KGSS,azure97/">KGSS</a></td>
+				<td align="left" width="14%"><a href="/status/NITTROAD,azure97/">NITTROAD</a></td>
+				<td align="left" width="14%"><a href="/status/RLTHREE,azure97/">RLTHREE</a></td>
+				<td align="left" width="14%"><a href="/status/TRSTAGE,azure97/">TRSTAGE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ALIEN3,azure97/">ALIEN3</a></td>
+				<td align="left" width="14%"><a href="/status/DAVIDG,azure97/">DAVIDG</a></td>
+				<td align="left" width="14%"><a href="/status/GNYR04C,azure97/">GNYR04C</a></td>
+				<td align="left" width="14%"><a href="/status/KL11B,azure97/">KL11B</a></td>
+				<td align="left" width="14%"><a href="/status/NNS,azure97/">NNS</a></td>
+				<td align="left" width="14%"><a href="/status/RMID2,azure97/">RMID2</a></td>
+				<td align="left" width="14%"><a href="/status/TWENTYQ,azure97/">TWENTYQ</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMBLE,azure97/">AMBLE</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC11E,azure97/">DCEPC11E</a></td>
+				<td align="left" width="14%"><a href="/status/GNYR09F,azure97/">GNYR09F</a></td>
+				<td align="left" width="14%"><a href="/status/KMEDIAL,azure97/">KMEDIAL</a></td>
+				<td align="left" width="14%"><a href="/status/NOSQ,azure97/">NOSQ</a></td>
+				<td align="left" width="14%"><a href="/status/RPLN,azure97/">RPLN</a></td>
+				<td align="left" width="14%"><a href="/status/TWOGAME,azure97/">TWOGAME</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANAGR,azure97/">ANAGR</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC11I,azure97/">DCEPC11I</a></td>
+				<td align="left" width="14%"><a href="/status/GONE,azure97/">GONE</a></td>
+				<td align="left" width="14%"><a href="/status/KNMD,azure97/">KNMD</a></td>
+				<td align="left" width="14%"><a href="/status/NOVICE63,azure97/">NOVICE63</a></td>
+				<td align="left" width="14%"><a href="/status/RTREE,azure97/">RTREE</a></td>
+				<td align="left" width="14%"><a href="/status/UCV2013E,azure97/">UCV2013E</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC05H,azure97/">ANARC05H</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC13D,azure97/">DCEPC13D</a></td>
+				<td align="left" width="14%"><a href="/status/GOODA,azure97/">GOODA</a></td>
+				<td align="left" width="14%"><a href="/status/KNPSACK,azure97/">KNPSACK</a></td>
+				<td align="left" width="14%"><a href="/status/NOVICE65,azure97/">NOVICE65</a></td>
+				<td align="left" width="14%"><a href="/status/SAFECRAC,azure97/">SAFECRAC</a></td>
+				<td align="left" width="14%"><a href="/status/UCV2013K,azure97/">UCV2013K</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANIL_PRO,azure97/">ANIL_PRO</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC13F,azure97/">DCEPC13F</a></td>
+				<td align="left" width="14%"><a href="/status/GOODD,azure97/">GOODD</a></td>
+				<td align="left" width="14%"><a href="/status/KOSARE,azure97/">KOSARE</a></td>
+				<td align="left" width="14%"><a href="/status/NPC2014A,azure97/">NPC2014A</a></td>
+				<td align="left" width="14%"><a href="/status/SALMAN,azure97/">SALMAN</a></td>
+				<td align="left" width="14%"><a href="/status/UNHAPPY,azure97/">UNHAPPY</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/APIO10A,azure97/">APIO10A</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC14A,azure97/">DCEPC14A</a></td>
+				<td align="left" width="14%"><a href="/status/GOODE,azure97/">GOODE</a></td>
+				<td align="left" width="14%"><a href="/status/KSMALL,azure97/">KSMALL</a></td>
+				<td align="left" width="14%"><a href="/status/NR2,azure97/">NR2</a></td>
+				<td align="left" width="14%"><a href="/status/SAMER08A,azure97/">SAMER08A</a></td>
+				<td align="left" width="14%"><a href="/status/UOFTAE,azure97/">UOFTAE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/APIO14_A,azure97/">APIO14_A</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC14F,azure97/">DCEPC14F</a></td>
+				<td align="left" width="14%"><a href="/status/GOODF,azure97/">GOODF</a></td>
+				<td align="left" width="14%"><a href="/status/KURUK14,azure97/">KURUK14</a></td>
+				<td align="left" width="14%"><a href="/status/NSUBSTR2,azure97/">NSUBSTR2</a></td>
+				<td align="left" width="14%"><a href="/status/SAMER08F,azure97/">SAMER08F</a></td>
+				<td align="left" width="14%"><a href="/status/UOFTBF,azure97/">UOFTBF</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/APS,azure97/">APS</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC14H,azure97/">DCEPC14H</a></td>
+				<td align="left" width="14%"><a href="/status/GOODG,azure97/">GOODG</a></td>
+				<td align="left" width="14%"><a href="/status/LEXSTR,azure97/">LEXSTR</a></td>
+				<td align="left" width="14%"><a href="/status/NTICKETS,azure97/">NTICKETS</a></td>
+				<td align="left" width="14%"><a href="/status/SELLPHN2,azure97/">SELLPHN2</a></td>
+				<td align="left" width="14%"><a href="/status/UOFTCD,azure97/">UOFTCD</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AR2015PC,azure97/">AR2015PC</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC206,azure97/">DCEPC206</a></td>
+				<td align="left" width="14%"><a href="/status/GRAFFDEF,azure97/">GRAFFDEF</a></td>
+				<td align="left" width="14%"><a href="/status/LISTREE,azure97/">LISTREE</a></td>
+				<td align="left" width="14%"><a href="/status/NUMOFPAL,azure97/">NUMOFPAL</a></td>
+				<td align="left" width="14%"><a href="/status/SERVERS,azure97/">SERVERS</a></td>
+				<td align="left" width="14%"><a href="/status/UOFTCE,azure97/">UOFTCE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AR2015PF,azure97/">AR2015PF</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC501,azure97/">DCEPC501</a></td>
+				<td align="left" width="14%"><a href="/status/GRAFFTOL,azure97/">GRAFFTOL</a></td>
+				<td align="left" width="14%"><a href="/status/LOPOV,azure97/">LOPOV</a></td>
+				<td align="left" width="14%"><a href="/status/NY10A,azure97/">NY10A</a></td>
+				<td align="left" width="14%"><a href="/status/SHOP2,azure97/">SHOP2</a></td>
+				<td align="left" width="14%"><a href="/status/UOFTCF,azure97/">UOFTCF</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AROPE,azure97/">AROPE</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC810,azure97/">DCEPC810</a></td>
+				<td align="left" width="14%"><a href="/status/GSMATRIX,azure97/">GSMATRIX</a></td>
+				<td align="left" width="14%"><a href="/status/LSORT,azure97/">LSORT</a></td>
+				<td align="left" width="14%"><a href="/status/OGLEDALA,azure97/">OGLEDALA</a></td>
+				<td align="left" width="14%"><a href="/status/SIMPGAME,azure97/">SIMPGAME</a></td>
+				<td align="left" width="14%"><a href="/status/UPDATEIT,azure97/">UPDATEIT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARRAYSUB,azure97/">ARRAYSUB</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPCA03,azure97/">DCEPCA03</a></td>
+				<td align="left" width="14%"><a href="/status/HALD,azure97/">HALD</a></td>
+				<td align="left" width="14%"><a href="/status/LUCIFER,azure97/">LUCIFER</a></td>
+				<td align="left" width="14%"><a href="/status/OHANIBTR,azure97/">OHANIBTR</a></td>
+				<td align="left" width="14%"><a href="/status/SKY,azure97/">SKY</a></td>
+				<td align="left" width="14%"><a href="/status/UVA1,azure97/">UVA1</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ASSIGN,azure97/">ASSIGN</a></td>
+				<td align="left" width="14%"><a href="/status/DCOUNT,azure97/">DCOUNT</a></td>
+				<td align="left" width="14%"><a href="/status/HAP01,azure97/">HAP01</a></td>
+				<td align="left" width="14%"><a href="/status/MAFBOI08,azure97/">MAFBOI08</a></td>
+				<td align="left" width="14%"><a href="/status/ONBRIDGE,azure97/">ONBRIDGE</a></td>
+				<td align="left" width="14%"><a href="/status/SKYLINE,azure97/">SKYLINE</a></td>
+				<td align="left" width="14%"><a href="/status/VACATION,azure97/">VACATION</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AU7_5,azure97/">AU7_5</a></td>
+				<td align="left" width="14%"><a href="/status/DICTSUB,azure97/">DICTSUB</a></td>
+				<td align="left" width="14%"><a href="/status/HAROWS,azure97/">HAROWS</a></td>
+				<td align="left" width="14%"><a href="/status/MAIN112,azure97/">MAIN112</a></td>
+				<td align="left" width="14%"><a href="/status/ORDERSET,azure97/">ORDERSET</a></td>
+				<td align="left" width="14%"><a href="/status/SLIDE,azure97/">SLIDE</a></td>
+				<td align="left" width="14%"><a href="/status/VECTAR14,azure97/">VECTAR14</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BADXOR,azure97/">BADXOR</a></td>
+				<td align="left" width="14%"><a href="/status/DIGOKEYS,azure97/">DIGOKEYS</a></td>
+				<td align="left" width="14%"><a href="/status/HARSHAD,azure97/">HARSHAD</a></td>
+				<td align="left" width="14%"><a href="/status/MAIN113,azure97/">MAIN113</a></td>
+				<td align="left" width="14%"><a href="/status/PAAAARTY,azure97/">PAAAARTY</a></td>
+				<td align="left" width="14%"><a href="/status/SNGINT,azure97/">SNGINT</a></td>
+				<td align="left" width="14%"><a href="/status/VECTAR5,azure97/">VECTAR5</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BANKROB,azure97/">BANKROB</a></td>
+				<td align="left" width="14%"><a href="/status/DIST2,azure97/">DIST2</a></td>
+				<td align="left" width="14%"><a href="/status/HAYBALE,azure97/">HAYBALE</a></td>
+				<td align="left" width="14%"><a href="/status/MAIN72,azure97/">MAIN72</a></td>
+				<td align="left" width="14%"><a href="/status/PARADOX,azure97/">PARADOX</a></td>
+				<td align="left" width="14%"><a href="/status/SNGMSG,azure97/">SNGMSG</a></td>
+				<td align="left" width="14%"><a href="/status/VILLAGES,azure97/">VILLAGES</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BAT2,azure97/">BAT2</a></td>
+				<td align="left" width="14%"><a href="/status/DISTANCE,azure97/">DISTANCE</a></td>
+				<td align="left" width="14%"><a href="/status/HCMUS20A,azure97/">HCMUS20A</a></td>
+				<td align="left" width="14%"><a href="/status/MATCHING,azure97/">MATCHING</a></td>
+				<td align="left" width="14%"><a href="/status/PAREN,azure97/">PAREN</a></td>
+				<td align="left" width="14%"><a href="/status/SOLDIER,azure97/">SOLDIER</a></td>
+				<td align="left" width="14%"><a href="/status/WAL3A,azure97/">WAL3A</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BAT3,azure97/">BAT3</a></td>
+				<td align="left" width="14%"><a href="/status/DIV,azure97/">DIV</a></td>
+				<td align="left" width="14%"><a href="/status/HELPBTW,azure97/">HELPBTW</a></td>
+				<td align="left" width="14%"><a href="/status/MATSUM,azure97/">MATSUM</a></td>
+				<td align="left" width="14%"><a href="/status/PARTPALI,azure97/">PARTPALI</a></td>
+				<td align="left" width="14%"><a href="/status/SPACEBRG,azure97/">SPACEBRG</a></td>
+				<td align="left" width="14%"><a href="/status/WAR,azure97/">WAR</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BLUEEQ2,azure97/">BLUEEQ2</a></td>
+				<td align="left" width="14%"><a href="/status/DIVIDEKR,azure97/">DIVIDEKR</a></td>
+				<td align="left" width="14%"><a href="/status/HERDING,azure97/">HERDING</a></td>
+				<td align="left" width="14%"><a href="/status/MATT,azure97/">MATT</a></td>
+				<td align="left" width="14%"><a href="/status/PATULJCI,azure97/">PATULJCI</a></td>
+				<td align="left" width="14%"><a href="/status/SPCE,azure97/">SPCE</a></td>
+				<td align="left" width="14%"><a href="/status/WEBISL,azure97/">WEBISL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BNMT,azure97/">BNMT</a></td>
+				<td align="left" width="14%"><a href="/status/DOMINO8,azure97/">DOMINO8</a></td>
+				<td align="left" width="14%"><a href="/status/HIGHWAYS,azure97/">HIGHWAYS</a></td>
+				<td align="left" width="14%"><a href="/status/MAX2214,azure97/">MAX2214</a></td>
+				<td align="left" width="14%"><a href="/status/PAUWS,azure97/">PAUWS</a></td>
+				<td align="left" width="14%"><a href="/status/SPCO,azure97/">SPCO</a></td>
+				<td align="left" width="14%"><a href="/status/WPC4F,azure97/">WPC4F</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOBERT,azure97/">BOBERT</a></td>
+				<td align="left" width="14%"><a href="/status/DRAGON,azure97/">DRAGON</a></td>
+				<td align="left" width="14%"><a href="/status/HISIX,azure97/">HISIX</a></td>
+				<td align="left" width="14%"><a href="/status/MAXCHILDSUM,azure97/">MAXCHILDSUM</a></td>
+				<td align="left" width="14%"><a href="/status/PEGS,azure97/">PEGS</a></td>
+				<td align="left" width="14%"><a href="/status/SPCS,azure97/">SPCS</a></td>
+				<td align="left" width="14%"><a href="/status/WPC5C,azure97/">WPC5C</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BORW,azure97/">BORW</a></td>
+				<td align="left" width="14%"><a href="/status/DRAGON2,azure97/">DRAGON2</a></td>
+				<td align="left" width="14%"><a href="/status/HIST2,azure97/">HIST2</a></td>
+				<td align="left" width="14%"><a href="/status/MAXSUMSQ,azure97/">MAXSUMSQ</a></td>
+				<td align="left" width="14%"><a href="/status/PERMPATT,azure97/">PERMPATT</a></td>
+				<td align="left" width="14%"><a href="/status/SPEC_SET,azure97/">SPEC_SET</a></td>
+				<td align="left" width="14%"><a href="/status/WPC5E,azure97/">WPC5E</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BRDGHRD,azure97/">BRDGHRD</a></td>
+				<td align="left" width="14%"><a href="/status/DRTREE,azure97/">DRTREE</a></td>
+				<td align="left" width="14%"><a href="/status/HLP_RAMS,azure97/">HLP_RAMS</a></td>
+				<td align="left" width="14%"><a href="/status/MAX_NUM,azure97/">MAX_NUM</a></td>
+				<td align="left" width="14%"><a href="/status/PERMUT1,azure97/">PERMUT1</a></td>
+				<td align="left" width="14%"><a href="/status/SPQUEUE,azure97/">SPQUEUE</a></td>
+				<td align="left" width="14%"><a href="/status/WPC5F,azure97/">WPC5F</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BRIDGE,azure97/">BRIDGE</a></td>
+				<td align="left" width="14%"><a href="/status/DSWEETS,azure97/">DSWEETS</a></td>
+				<td align="left" width="14%"><a href="/status/HOLIDAY1,azure97/">HOLIDAY1</a></td>
+				<td align="left" width="14%"><a href="/status/MAY99_4,azure97/">MAY99_4</a></td>
+				<td align="left" width="14%"><a href="/status/PERMUT2,azure97/">PERMUT2</a></td>
+				<td align="left" width="14%"><a href="/status/SQRBR,azure97/">SQRBR</a></td>
+				<td align="left" width="14%"><a href="/status/WPC5G,azure97/">WPC5G</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BRKSTRNG,azure97/">BRKSTRNG</a></td>
+				<td align="left" width="14%"><a href="/status/EALP1,azure97/">EALP1</a></td>
+				<td align="left" width="14%"><a href="/status/HORRIBLE,azure97/">HORRIBLE</a></td>
+				<td align="left" width="14%"><a href="/status/MBALL,azure97/">MBALL</a></td>
+				<td align="left" width="14%"><a href="/status/PETYABRO,azure97/">PETYABRO</a></td>
+				<td align="left" width="14%"><a href="/status/SSTRCITS,azure97/">SSTRCITS</a></td>
+				<td align="left" width="14%"><a href="/status/WPC5H,azure97/">WPC5H</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BROKEN,azure97/">BROKEN</a></td>
+				<td align="left" width="14%"><a href="/status/EC_CONB,azure97/">EC_CONB</a></td>
+				<td align="left" width="14%"><a href="/status/HPPROF,azure97/">HPPROF</a></td>
+				<td align="left" width="14%"><a href="/status/MBLAST,azure97/">MBLAST</a></td>
+				<td align="left" width="14%"><a href="/status/PFORLOOP,azure97/">PFORLOOP</a></td>
+				<td align="left" width="14%"><a href="/status/STC00,azure97/">STC00</a></td>
+				<td align="left" width="14%"><a href="/status/WPC5I,azure97/">WPC5I</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BST,azure97/">BST</a></td>
+				<td align="left" width="14%"><a href="/status/EC_ESTA,azure97/">EC_ESTA</a></td>
+				<td align="left" width="14%"><a href="/status/HS09GAME,azure97/">HS09GAME</a></td>
+				<td align="left" width="14%"><a href="/status/MC,azure97/">MC</a></td>
+				<td align="left" width="14%"><a href="/status/PLNDTREE,azure97/">PLNDTREE</a></td>
+				<td align="left" width="14%"><a href="/status/STC05,azure97/">STC05</a></td>
+				<td align="left" width="14%"><a href="/status/XMAX,azure97/">XMAX</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BUD13TLF,azure97/">BUD13TLF</a></td>
+				<td align="left" width="14%"><a href="/status/EC_MODE,azure97/">EC_MODE</a></td>
+				<td align="left" width="14%"><a href="/status/ICPC12C,azure97/">ICPC12C</a></td>
+				<td align="left" width="14%"><a href="/status/MCAMP,azure97/">MCAMP</a></td>
+				<td align="left" width="14%"><a href="/status/PONY1,azure97/">PONY1</a></td>
+				<td align="left" width="14%"><a href="/status/STC10,azure97/">STC10</a></td>
+				<td align="left" width="14%"><a href="/status/XMEN,azure97/">XMEN</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BUGLIFE,azure97/">BUGLIFE</a></td>
+				<td align="left" width="14%"><a href="/status/EC_P,azure97/">EC_P</a></td>
+				<td align="left" width="14%"><a href="/status/IE2,azure97/">IE2</a></td>
+				<td align="left" width="14%"><a href="/status/MCQUERY,azure97/">MCQUERY</a></td>
+				<td align="left" width="14%"><a href="/status/POTHOLE,azure97/">POTHOLE</a></td>
+				<td align="left" width="14%"><a href="/status/STPAR,azure97/">STPAR</a></td>
+				<td align="left" width="14%"><a href="/status/XXXXXXXX,azure97/">XXXXXXXX</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BUSINESS,azure97/">BUSINESS</a></td>
+				<td align="left" width="14%"><a href="/status/EDIST,azure97/">EDIST</a></td>
+				<td align="left" width="14%"><a href="/status/IE4,azure97/">IE4</a></td>
+				<td align="left" width="14%"><a href="/status/METEORS,azure97/">METEORS</a></td>
+				<td align="left" width="14%"><a href="/status/POWERCAR,azure97/">POWERCAR</a></td>
+				<td align="left" width="14%"><a href="/status/STRANG,azure97/">STRANG</a></td>
+				<td align="left" width="14%"><a href="/status/YAPP,azure97/">YAPP</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BUYINT,azure97/">BUYINT</a></td>
+				<td align="left" width="14%"><a href="/status/ELEVTRBL,azure97/">ELEVTRBL</a></td>
+				<td align="left" width="14%"><a href="/status/IGAME,azure97/">IGAME</a></td>
+				<td align="left" width="14%"><a href="/status/MINSUB,azure97/">MINSUB</a></td>
+				<td align="left" width="14%"><a href="/status/PRIME1,azure97/">PRIME1</a></td>
+				<td align="left" width="14%"><a href="/status/STRINGQ,azure97/">STRINGQ</a></td>
+				<td align="left" width="14%"><a href="/status/YASSP,azure97/">YASSP</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CAC,azure97/">CAC</a></td>
+				<td align="left" width="14%"><a href="/status/EMTY2,azure97/">EMTY2</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCA,azure97/">IITKWPCA</a></td>
+				<td align="left" width="14%"><a href="/status/MKTHNUM,azure97/">MKTHNUM</a></td>
+				<td align="left" width="14%"><a href="/status/PRJAN15E,azure97/">PRJAN15E</a></td>
+				<td align="left" width="14%"><a href="/status/SUBSN,azure97/">SUBSN</a></td>
+				<td align="left" width="14%"><a href="/status/YODANESS,azure97/">YODANESS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CAGES,azure97/">CAGES</a></td>
+				<td align="left" width="14%"><a href="/status/EPALIN,azure97/">EPALIN</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCE,azure97/">IITKWPCE</a></td>
+				<td align="left" width="14%"><a href="/status/MMMAGIC3,azure97/">MMMAGIC3</a></td>
+				<td align="left" width="14%"><a href="/status/PRJAN15G,azure97/">PRJAN15G</a></td>
+				<td align="left" width="14%"><a href="/status/SUBTLEBA,azure97/">SUBTLEBA</a></td>
+				<td align="left" width="14%"><a href="/status/YOUWIN,azure97/">YOUWIN</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CBANK,azure97/">CBANK</a></td>
+				<td align="left" width="14%"><a href="/status/EST,azure97/">EST</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCH,azure97/">IITKWPCH</a></td>
+				<td align="left" width="14%"><a href="/status/MMMAGIC4,azure97/">MMMAGIC4</a></td>
+				<td align="left" width="14%"><a href="/status/PROD1GCD,azure97/">PROD1GCD</a></td>
+				<td align="left" width="14%"><a href="/status/SUBXOR,azure97/">SUBXOR</a></td>
+				<td align="left" width="14%"><a href="/status/YOYOCQM,azure97/">YOYOCQM</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CDC12_A,azure97/">CDC12_A</a></td>
+				<td align="left" width="14%"><a href="/status/EXPLOSN,azure97/">EXPLOSN</a></td>
+				<td align="left" width="14%"><a href="/status/IITWPC4F,azure97/">IITWPC4F</a></td>
+				<td align="left" width="14%"><a href="/status/MMMAGIC5,azure97/">MMMAGIC5</a></td>
+				<td align="left" width="14%"><a href="/status/PSYCHON,azure97/">PSYCHON</a></td>
+				<td align="left" width="14%"><a href="/status/SUMSUM,azure97/">SUMSUM</a></td>
+				<td align="left" width="14%"><a href="/status/ZAMENA,azure97/">ZAMENA</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CDC12_H,azure97/">CDC12_H</a></td>
+				<td align="left" width="14%"><a href="/status/EXPOR,azure97/">EXPOR</a></td>
+				<td align="left" width="14%"><a href="/status/IITWPC4G,azure97/">IITWPC4G</a></td>
+				<td align="left" width="14%"><a href="/status/MMMAGIC6,azure97/">MMMAGIC6</a></td>
+				<td align="left" width="14%"><a href="/status/PT07Z,azure97/">PT07Z</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2012D,azure97/">TAP2012D</a></td>
+				<td align="left" width="14%"><a href="/status/ZNANSTVE,azure97/">ZNANSTVE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CHGROOM,azure97/">CHGROOM</a></td>
+				<td align="left" width="14%"><a href="/status/FACTCG2,azure97/">FACTCG2</a></td>
+				<td align="left" width="14%"><a href="/status/IITWPC4H,azure97/">IITWPC4H</a></td>
+				<td align="left" width="14%"><a href="/status/MON2012,azure97/">MON2012</a></td>
+				<td align="left" width="14%"><a href="/status/PTRELIC,azure97/">PTRELIC</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2013C,azure97/">TAP2013C</a></td>
+				<td align="left" width="14%"><a href="/status/ZQUERY,azure97/">ZQUERY</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CLZBICYC,azure97/">CLZBICYC</a></td>
+				<td align="left" width="14%"><a href="/status/FACTMUL,azure97/">FACTMUL</a></td>
+				<td align="left" width="14%"><a href="/status/IITWPC4I,azure97/">IITWPC4I</a></td>
+				<td align="left" width="14%"><a href="/status/MONO,azure97/">MONO</a></td>
+				<td align="left" width="14%"><a href="/status/PUCMM210,azure97/">PUCMM210</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2013H,azure97/">TAP2013H</a></td>
+				<td align="left" width="14%"><a href="/status/,azure97/"></a></td>
+				</tr>
+								</table>
+				
+				
+								<h4><span title="List of problems to which solutions were submitted but none of them got AC.">TODO list of classical problems:</span></h4>
+				<table class="table">
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADACYCLE,azure97/">ADACYCLE</a></td>
+				<td align="left" width="14%"><a href="/status/MDOSTAVA,azure97/">MDOSTAVA</a></td>
+				<td align="left" width="14%"><a href="/status/TOP10,azure97/">TOP10</a></td>
+				<td align="left" width="14%"><a href="/status/,azure97/"></a></td>
+				<td align="left" width="14%"><a href="/status/,azure97/"></a></td>
+				<td align="left" width="14%"><a href="/status/,azure97/"></a></td>
+				<td align="left" width="14%"><a href="/status/,azure97/"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CAVE,azure97/">CAVE</a></td>
+				<td align="left" width="14%"><a href="/status/MXSBMTRX,azure97/">MXSBMTRX</a></td>
+				<td align="left" width="14%"><a href="/status/,azure97/"></a></td>
+				<td align="left" width="14%"><a href="/status/,azure97/"></a></td>
+				<td align="left" width="14%"><a href="/status/,azure97/"></a></td>
+				<td align="left" width="14%"><a href="/status/,azure97/"></a></td>
+				<td align="left" width="14%"><a href="/status/,azure97/"></a></td>
+				</tr>
+								</table>
+								
+							</div>
+		</div>
+	
+	
+	
+	</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<table cellspacing="10" align="center">
+
+
+
+
+
+</table>
+
+
+	<br/>
+</div>
+		
+		
+		<div class="container" id="footer">
+			<div class="row">
+				<div class="col-md-2">
+					
+				</div>
+				<div class="col-md-8 text-center">
+					<a href="/info">About</a> | <a href="/tutorials">Tutorial</a> | <a href="/tools">Tools</a> | <a href="/clusters">Clusters</a> | <a href="/credits">Credits</a> | <a href="/jobs">Jobs</a> | <a href="/sphereengine">API</a> | <a href="/gfx/spoj-terms.pdf" target="_blank">Terms</a>
+				</div>
+				<div class="col-md-2 text-right">
+					<a href="/rss/" ><img src="//stx1.spoj.com/gfx/rss10x10.gif" border=0>&nbsp;RSS</a>&nbsp;
+				</div>
+			</div>
+		</div>
+		
+		<div class="text-center" id="footer-srl">
+			
+	&copy; Spoj.com. All Rights Reserved. Spoj uses <a href="http://sphere-engine.com?utm_campaign=permanent&amp;utm_medium=footer&amp;utm_source=spoj" style="color:black">Sphere Engine</a>&trade; &copy; by <a href="http://sphere-research.com?utm_campaign=permanent&amp;utm_medium=footer&amp;utm_source=spoj" style="color:black">Sphere Research Labs</a>.
+
+		</div> 
+	</div>
+
+	<!-- JavaScripts -->
+	
+		
+	
+	<script type="text/javascript">
+	$(function(){
+		setTimeout(function(){
+			$('.no_a_info').css('visibility', 'visible');
+		}, 5000);
+		
+		if(!$('.aProblemTop').length && !$('.aProblemsTop').length && !$('.aSubmitTop').length && !$('.aStatusTop').length && !$('.aMainRight').length){
+			ga('send', 'event', 'ads', 'no-ads', 'main-contest');
+		}
+		if ($('.aProblemTop').height() == 0){
+			$('.aProblemTop').css({'border': '1px solid #ddd', 'background': '#f0f4e3', 'height': 90});
+			$('.aProblemTop').html($('<p class="text-center">using adblock?</p><h4 class="text-center">Online ads help us to maintain site.</h4><p class="text-center"><strong>please whitelist *.spoj.com</strong></p>'));
+			ga('send', 'event', 'ads', 'adblock2', 'aProblemTop');
+		}
+		if ($('.aProblemsTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aProblemsTop');
+		}
+		if ($('.aSubmitTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aSubmitTop');
+		}
+		if ($('.aStatusTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aStatusTop');
+		}
+		if ($('.aMainRight').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aMainRight');
+		}
+	});
+	</script>
+	
+	
+	<script type="text/javascript" src="//stx1.spoj.com/gfx/jquery.timers.js"></script>
+	<script type="text/javascript" src="//stx1.spoj.com/gfx/jquery.cookie.js"></script>
+	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+	<script src="//stx1.spoj.com/gfx/md5.js"></script>
+	<script src="//stx1.spoj.com/gfx/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
+	<script src="//stx1.spoj.com/gfx/scripts/tour.js"></script>
+	
+	
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&appId=321676846207&version=v2.0";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	
+	
+
+
+<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-10507872-1', 'auto');
+	  ga('require', 'linkid', 'linkid.js');
+	  ga('send', 'pageview');
+	</script>
+<!-- Hotjar Tracking Code for http://www.spoj.com -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:334656,hjsv:5};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<script type="text/javascript">
+	$(function(){
+		$(document).on('click', '.track', function(){
+			var event = $(this).attr('data-event');
+			var action = $(this).attr('data-action');
+			var value = $(this).attr('data-value');
+			ga('send', 'event', event, action, value);
+		});
+	});
+	//window.open('http://incoming.hotjar.com/s/7366', '_blank');
+	</script>
+
+
+</body>
+</html>

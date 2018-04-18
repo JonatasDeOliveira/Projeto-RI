@@ -1,0 +1,2257 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="not-ie" lang="en"> <!--<![endif]-->
+<head>
+	<!-- main header -->
+	<meta charset="utf-8">
+	
+				<title>Sphere Online Judge (SPOJ)  - User hodobox</title>
+	  
+	<meta name="keywords" content="language, algorithm, spoj, contest, contester, Java, C#, Pascal, C, C++, python, ruby, caml, ocaml, perl, haskell, lisp, prolog, fortran, assembler, asembler, functional, online, judge, problem, problemset, ACM">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  		<meta property="og:image" content="//stx1.spoj.com/gfx/spoj-fb.jpg"/>
+	<meta property="og:description" content="SPOJ (Sphere Online Judge) is an online judge system with over 315,000 registered users and over 20000 problems. The solution to problems can be submitted in over 60 languages including C, C++, Java, Python, C#, Go, Haskell, Ocaml, and F#. SPOJ has a rapidly growing problem set/tasks available for practice 24 hours/day, including many original tasks prepared by the community of expert problem setters associated with the project."/>
+	<meta name="description" content="SPOJ (Sphere Online Judge) is an online judge system with over 315,000 registered users and over 20000 problems. The solution to problems can be submitted in over 60 languages including C, C++, Java, Python, C#, Go, Haskell, Ocaml, and F#. SPOJ has a rapidly growing problem set/tasks available for practice 24 hours/day, including many original tasks prepared by the community of expert problem setters associated with the project."/>
+		<meta property="og:site_name" content="spoj.com"/>
+
+  <!--[if (gte IE 9)|!(IE)]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" id="metatag">
+  <![endif]--> 
+
+	  <!-- Favicon -->
+	  <link href="//stx1.spoj.com/gfx/favicon_new.png" rel="shortcut icon" type="image/x-icon" />
+	  
+	  <!-- RSS -->
+	  <link href="/rss/" rel="alternate" type="application/rss+xml" title="RSS Feed">
+	
+	  <!-- Web Fonts -->
+	  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet" type="text/css">  
+
+	<!-- Internet Explorer condition - HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]--> 
+	
+	
+	
+	<!-- CSS: Bootstrap, Font-awesome, Bootstrap libs,  -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" />
+  	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  	<link href="//stx1.spoj.com/gfx/bootstrap-tour/build/css/bootstrap-tour.min.css" rel="stylesheet" />
+  	<link href="//stx1.spoj.com/themes/bootstrap-social.css" rel="stylesheet" type="text/css" />
+  	
+	<link href="//stx1.spoj.com/themes/common.css?4" rel="stylesheet" type="text/css" id="theme0" />
+	<link href="//stx1.spoj.com/themes/en_new.css?4" rel="stylesheet" type="text/css" id="theme" />
+	
+	<!-- JS -->
+	<script type="text/javascript" src='//code.jquery.com/jquery-1.11.1.min.js'></script>
+	<script type="text/javascript" src="//code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+	
+		<link href="//stx1.spoj.com/themes/cal-heatmap.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src='//stx1.spoj.com/js/d3.v3.min.js'></script>
+	<script type="text/javascript" src='//stx1.spoj.com/js/cal-heatmap.min.js'></script>
+	<script type="text/javascript" src="//www.google.com/jsapi"></script>
+		
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>	
+	<script type="text/javascript" language="javascript">
+	$(function () { 
+		$("#profile-menu").popover();
+	});
+	function UnCryptMailto(s) {
+		var n=0;
+		var r="";
+		for(var i=0;i<s.length;i++) {		
+			n=s.charCodeAt(i); 
+			if (n>=8364) {n = 128;}
+			r += String.fromCharCode(n+(2));	
+		}
+		return r;
+	}
+	function linkTo_UnCryptMailto(s)	{
+		location.href=UnCryptMailto(s);
+	}
+	</script>
+	
+	<script type="text/javascript">
+	function recordOutboundLink(link, category, action) {
+	  try {
+	    var pageTracker=_gat._getTracker("UA-XXXXX-X");
+	    pageTracker._trackEvent(category, action);
+	    setTimeout('document.location = "' + link.href + '"', 100)
+	  }catch(err){}
+	}
+	</script>
+	
+</head>
+
+<body>
+
+	
+	<!-- <div class="space30"></div> -->
+	
+	<!-- Content -->
+	<div class="content">
+		<div class="container" id="header">
+			<div class="row">
+				<div class="col-md-12 text-right">
+										<form method="post" style="display: none;" action="/login/" id="login-form">
+						<div class="row">
+							<div class="col-md-10 col-md-offset-2">
+								<input type="hidden" name="next_raw" value="/"/>
+								<input type="hidden" name="autologin" value="1"/>
+								<input type="text" name="login_user" placeholder="Username" class="form-control input-sm" style="display: inline-block; width: 25%;"/>
+								<input type="password" name="password" placeholder="Password" class="form-control input-sm" style="display: inline-block; width: 25%;"/>
+																<button type="submit" class="btn btn-default btn-sm" style="display: inline-block; margin-right: 10px;"><span class="fa fa-sign-in fa-lg"></span> <strong>sign in</strong></button>
+																<a href="/register"><i class="fa fa-user-plus"></i> sign up</a> 
+								<a href="/forgot"><i class="fa fa-question-circle"></i> forgot</a>
+				        									</div>
+						</div>
+					</form>
+										
+					
+				</div>
+			</div>
+		
+			<div class="row">
+				<div class="col-md-4">
+					<a href="/" class="navbar-brand">
+						<img src="//stx1.spoj.com/gfx/2015e.png" style="height: 40px;"/>
+					</a>
+					<div class="navbar-header">
+				      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+				        <span class="sr-only">Toggle navigation</span>
+				        <i class="fa fa-bars"></i>
+				      </button>
+				    </div>
+				</div>
+				<div class="col-md-8" id="menu">
+				
+					
+					<div class="row">
+					<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation"  style="border: 0px;">
+				      <ul class="nav navbar-nav" style="  float: right; margin-top: 10px;">
+				      						        <li >
+					          <a href="/problems"><i class="fa fa-puzzle-piece"></i> PROBLEMS</a>
+					        </li>
+					        					        <li >
+					          <a href="/status"><i class="fa fa-circle"></i> STATUS</a>
+					        </li>
+					        <li >
+					          <a href="/ranks"><i class="fa fa-trophy"></i> RANKS</a>
+					        </li>
+					        <li >
+					          <a href="http://spoj.com/forum"><i class="fa fa-comments-o"></i> DISCUSS</a>
+					        </li>
+					        <li >
+					          <a href="/contests">CONTESTS</a>
+					        </li>
+											        					        <li >
+					        	<a href="/login" class="text-success" onclick="$('#login-form').show(); $('input[name=login_user]').focus(); return false;"><i class="fa fa-sign-in"></i> sign in</a>
+					        </li>
+					        						
+				        
+				      </ul>
+				    </nav>
+				    </div>
+				    
+				    
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class="container" id="menu">
+			
+		</div>
+		
+		<div class="container" id="content">
+		<div class="submenu">
+	<ol class="">
+			<li></li>
+		</ol>
+	
+	<ol class="navbar-right">
+			<li><a href="/status/hodobox/">History of submissions</a></li>
+		<li>(<a href="/status/hodobox/signedlist/">plaintext version</a>)</li>
+	</ol>
+	
+</div>
+
+<div>
+<div class="row">
+	<div class="col-md-3" id="user-profile-left">
+		<img  class="img-thumbnail" width="100%" style="max-width: 262px;" src="http://www.gravatar.com/avatar/05a3c56bce133291d831156f72fb8544?s=290&20180418" class="avatar small-left-margin">
+		<h3>Samuel Gurský</h3>		<h4>@hodobox</h4>
+		<p><i class="fa fa-map-marker"></i> Slovakia, Bratislava</p>		<p><i class="fa fa-clock-o"></i> Joined May 2015</p>
+		<p><i class="fa fa-trophy"></i> World Rank: #5 (543.8 points)</p>
+		<p><i class="fa fa-building-o "></i> Institution: Comenius University</p>		<p>I find solving problems fun. So here I am :)</p>		
+		
+		
+			</div>
+	<div class="col-md-9">
+	
+		<center>
+		<div class="c728x90"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-4453360425583535"
+     data-ad-slot="4026799034"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+		</center>
+	
+						<div class="row row-centered">
+			<div class="col-md-12">
+				<h3>Activity over the last year</h3>
+				<div class="top-4 col-centered" id="cal-heatmap"></div>
+
+				<h3 class="top-4">Effectiveness</h3>
+				<div class="row">
+					<div class="col-md-6 text-center valign-center">
+						<dl class="dl-horizontal profile-info-data profile-info-data-stats">
+							<dt><span class="fa fa-check fa-fw"></span>&nbsp;Problems solved</dt>
+								<dd>1273</dd>
+							<dt><span class="fa fa-send fa-fw"></span>&nbsp;Solutions submitted</dt>
+								<dd>4749</dd>
+						</dl>
+					</div>
+					<div class="col-md-6">
+						<div id="chart_div"></div>
+					</div>
+				</div>
+				
+				<script type="text/javascript">
+					function BackTime(date) {
+						var y = date.getFullYear(),
+							m = date.getMonth();
+						return new Date(y-1, m+1, 15);
+					}
+					
+					function drawChart() {
+
+						var data = new google.visualization.DataTable();
+							data.addColumn('string', '?');
+							data.addColumn('number', 'ACC');
+							data.addColumn('number', 'WA');
+							data.addColumn('number', 'TLE');
+							data.addColumn('number', 'RE');
+							data.addColumn('number', 'CE');
+							data.addRows([
+							
+							['Submissions', 2475, 1190, 631, 245, 199]
+							
+						]);
+	
+						var options = {
+							isStacked: 'percent',
+							pieSliceText: 'label',
+							colors: ['#348d34', '#ec971f', '#ec971f', '#c9302c', '#c9302c'],
+							//colors:['#00C030','#F09A24','#F09A24','#F09A24','#F09A24'],
+							'width':400,
+							'height':100,
+							chartArea:{left:10,top:10,width:'90%',height:'90%'},
+							fontName: '@font-family-base',
+							legend: {
+								position: 'top',
+								textStyle: {
+									fontName: '@font-family-base',
+									bold: true
+							}},
+							hAxis: {
+					            minValue: 0,
+					            ticks: [0, .25, .5, .75, 1]
+					          }
+						};
+	
+						var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+						chart.draw(data, options);
+					}
+					
+					$(document).ready(function(){
+					
+						var cal = new CalHeatMap();
+						cal.init({
+							domain: "month",
+							subDomain: "day",
+							domainGutter: 3,
+							tooltip: true,
+							start: BackTime(new Date()),
+							maxDate: new Date(),
+							colLimit: 4,
+							legend: [10, 20, 30, 40],
+							itemName: ["submission", "submissions"],
+							data: '/calendar/?ajax=1&uid=330737&start={{d:start}}&stop={{d:end}}'
+						});
+					});
+					
+					google.load('visualization', '1.0', {'packages':['corechart']});
+					google.setOnLoadCallback(drawChart);
+				</script>
+				
+				
+						
+			</div>
+		</div>
+
+		<h3 class="top-4 text-center">Problems</h3>
+		<div class="row row-centered" id="user-profile-tables">
+			<div class="col-md-12">
+				<h4>List of solved classical problems:</h4>
+				<table class="table table-condensed">
+								<tr>
+				<td align="left" width="14%"><a href="/status/AAC2,hodobox/">AAC2</a></td>
+				<td align="left" width="14%"><a href="/status/BYTESE1,hodobox/">BYTESE1</a></td>
+				<td align="left" width="14%"><a href="/status/DUGDUG,hodobox/">DUGDUG</a></td>
+				<td align="left" width="14%"><a href="/status/HERDING,hodobox/">HERDING</a></td>
+				<td align="left" width="14%"><a href="/status/MAYCA,hodobox/">MAYCA</a></td>
+				<td align="left" width="14%"><a href="/status/POUR1,hodobox/">POUR1</a></td>
+				<td align="left" width="14%"><a href="/status/SSORT,hodobox/">SSORT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ABA12C,hodobox/">ABA12C</a></td>
+				<td align="left" width="14%"><a href="/status/BYTESE2,hodobox/">BYTESE2</a></td>
+				<td align="left" width="14%"><a href="/status/DWARFLOG,hodobox/">DWARFLOG</a></td>
+				<td align="left" width="14%"><a href="/status/HG,hodobox/">HG</a></td>
+				<td align="left" width="14%"><a href="/status/MB1,hodobox/">MB1</a></td>
+				<td align="left" width="14%"><a href="/status/POWERCAR,hodobox/">POWERCAR</a></td>
+				<td align="left" width="14%"><a href="/status/STAMPS,hodobox/">STAMPS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ABA12D,hodobox/">ABA12D</a></td>
+				<td align="left" width="14%"><a href="/status/BYTESM1,hodobox/">BYTESM1</a></td>
+				<td align="left" width="14%"><a href="/status/DWRONG,hodobox/">DWRONG</a></td>
+				<td align="left" width="14%"><a href="/status/HIGHBABA,hodobox/">HIGHBABA</a></td>
+				<td align="left" width="14%"><a href="/status/MBINGO,hodobox/">MBINGO</a></td>
+				<td align="left" width="14%"><a href="/status/POWERUP,hodobox/">POWERUP</a></td>
+				<td align="left" width="14%"><a href="/status/STARSBC,hodobox/">STARSBC</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ABA12E,hodobox/">ABA12E</a></td>
+				<td align="left" width="14%"><a href="/status/BYTESM2,hodobox/">BYTESM2</a></td>
+				<td align="left" width="14%"><a href="/status/DYZIO,hodobox/">DYZIO</a></td>
+				<td align="left" width="14%"><a href="/status/HIGHWAYS,hodobox/">HIGHWAYS</a></td>
+				<td align="left" width="14%"><a href="/status/MCHAOS,hodobox/">MCHAOS</a></td>
+				<td align="left" width="14%"><a href="/status/POWFIB,hodobox/">POWFIB</a></td>
+				<td align="left" width="14%"><a href="/status/STAVATAR,hodobox/">STAVATAR</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ABCDEF,hodobox/">ABCDEF</a></td>
+				<td align="left" width="14%"><a href="/status/C1LJUTNJ,hodobox/">C1LJUTNJ</a></td>
+				<td align="left" width="14%"><a href="/status/EAGLE1,hodobox/">EAGLE1</a></td>
+				<td align="left" width="14%"><a href="/status/HIKE,hodobox/">HIKE</a></td>
+				<td align="left" width="14%"><a href="/status/MCOINS,hodobox/">MCOINS</a></td>
+				<td align="left" width="14%"><a href="/status/PPATH,hodobox/">PPATH</a></td>
+				<td align="left" width="14%"><a href="/status/STK,hodobox/">STK</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ABCPATH,hodobox/">ABCPATH</a></td>
+				<td align="left" width="14%"><a href="/status/C1TABOVI,hodobox/">C1TABOVI</a></td>
+				<td align="left" width="14%"><a href="/status/EASYMATH,hodobox/">EASYMATH</a></td>
+				<td align="left" width="14%"><a href="/status/HIPPO,hodobox/">HIPPO</a></td>
+				<td align="left" width="14%"><a href="/status/MCU20A,hodobox/">MCU20A</a></td>
+				<td align="left" width="14%"><a href="/status/PPBRJB,hodobox/">PPBRJB</a></td>
+				<td align="left" width="14%"><a href="/status/STPAR,hodobox/">STPAR</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ABSHIP,hodobox/">ABSHIP</a></td>
+				<td align="left" width="14%"><a href="/status/CADYDIST,hodobox/">CADYDIST</a></td>
+				<td align="left" width="14%"><a href="/status/EBOXES,hodobox/">EBOXES</a></td>
+				<td align="left" width="14%"><a href="/status/HISIX,hodobox/">HISIX</a></td>
+				<td align="left" width="14%"><a href="/status/MCUR98,hodobox/">MCUR98</a></td>
+				<td align="left" width="14%"><a href="/status/PPBRQ,hodobox/">PPBRQ</a></td>
+				<td align="left" width="14%"><a href="/status/STRAWB,hodobox/">STRAWB</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ABSP1,hodobox/">ABSP1</a></td>
+				<td align="left" width="14%"><a href="/status/CAGES,hodobox/">CAGES</a></td>
+				<td align="left" width="14%"><a href="/status/EC_CONB,hodobox/">EC_CONB</a></td>
+				<td align="left" width="14%"><a href="/status/HITOMISS,hodobox/">HITOMISS</a></td>
+				<td align="left" width="14%"><a href="/status/MECGROUP,hodobox/">MECGROUP</a></td>
+				<td align="left" width="14%"><a href="/status/PQUEUE,hodobox/">PQUEUE</a></td>
+				<td align="left" width="14%"><a href="/status/STRCOUNT,hodobox/">STRCOUNT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ABSYS,hodobox/">ABSYS</a></td>
+				<td align="left" width="14%"><a href="/status/CAM5,hodobox/">CAM5</a></td>
+				<td align="left" width="14%"><a href="/status/EC_DIVS,hodobox/">EC_DIVS</a></td>
+				<td align="left" width="14%"><a href="/status/HMBY,hodobox/">HMBY</a></td>
+				<td align="left" width="14%"><a href="/status/MELE2,hodobox/">MELE2</a></td>
+				<td align="left" width="14%"><a href="/status/PR003004,hodobox/">PR003004</a></td>
+				<td align="left" width="14%"><a href="/status/STREETR,hodobox/">STREETR</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACMT,hodobox/">ACMT</a></td>
+				<td align="left" width="14%"><a href="/status/CANDN,hodobox/">CANDN</a></td>
+				<td align="left" width="14%"><a href="/status/EC_ESTA,hodobox/">EC_ESTA</a></td>
+				<td align="left" width="14%"><a href="/status/HNUMBERS,hodobox/">HNUMBERS</a></td>
+				<td align="left" width="14%"><a href="/status/MELE3,hodobox/">MELE3</a></td>
+				<td align="left" width="14%"><a href="/status/PRATA,hodobox/">PRATA</a></td>
+				<td align="left" width="14%"><a href="/status/STRNGSLV,hodobox/">STRNGSLV</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACODE,hodobox/">ACODE</a></td>
+				<td align="left" width="14%"><a href="/status/CANDY,hodobox/">CANDY</a></td>
+				<td align="left" width="14%"><a href="/status/EC_MODE,hodobox/">EC_MODE</a></td>
+				<td align="left" width="14%"><a href="/status/HOMO,hodobox/">HOMO</a></td>
+				<td align="left" width="14%"><a href="/status/MENU,hodobox/">MENU</a></td>
+				<td align="left" width="14%"><a href="/status/PRESIDEN,hodobox/">PRESIDEN</a></td>
+				<td align="left" width="14%"><a href="/status/STUN,hodobox/">STUN</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACPC10A,hodobox/">ACPC10A</a></td>
+				<td align="left" width="14%"><a href="/status/CANDY3,hodobox/">CANDY3</a></td>
+				<td align="left" width="14%"><a href="/status/EC_P,hodobox/">EC_P</a></td>
+				<td align="left" width="14%"><a href="/status/HORRIBLE,hodobox/">HORRIBLE</a></td>
+				<td align="left" width="14%"><a href="/status/MESS,hodobox/">MESS</a></td>
+				<td align="left" width="14%"><a href="/status/PRHYME,hodobox/">PRHYME</a></td>
+				<td align="left" width="14%"><a href="/status/SUBMERGE,hodobox/">SUBMERGE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACPC10B,hodobox/">ACPC10B</a></td>
+				<td align="left" width="14%"><a href="/status/CAPCITY,hodobox/">CAPCITY</a></td>
+				<td align="left" width="14%"><a href="/status/EDDIST,hodobox/">EDDIST</a></td>
+				<td align="left" width="14%"><a href="/status/HOTELS,hodobox/">HOTELS</a></td>
+				<td align="left" width="14%"><a href="/status/MFLAR10,hodobox/">MFLAR10</a></td>
+				<td align="left" width="14%"><a href="/status/PRIME1,hodobox/">PRIME1</a></td>
+				<td align="left" width="14%"><a href="/status/SUBS,hodobox/">SUBS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACPC10C,hodobox/">ACPC10C</a></td>
+				<td align="left" width="14%"><a href="/status/CAPRICA,hodobox/">CAPRICA</a></td>
+				<td align="left" width="14%"><a href="/status/EDS,hodobox/">EDS</a></td>
+				<td align="left" width="14%"><a href="/status/HPFORF,hodobox/">HPFORF</a></td>
+				<td align="left" width="14%"><a href="/status/MGCSCLS,hodobox/">MGCSCLS</a></td>
+				<td align="left" width="14%"><a href="/status/PRIMEZUK,hodobox/">PRIMEZUK</a></td>
+				<td align="left" width="14%"><a href="/status/SUBSN,hodobox/">SUBSN</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACPC10D,hodobox/">ACPC10D</a></td>
+				<td align="left" width="14%"><a href="/status/CARRALLY,hodobox/">CARRALLY</a></td>
+				<td align="left" width="14%"><a href="/status/EGYPIZZA,hodobox/">EGYPIZZA</a></td>
+				<td align="left" width="14%"><a href="/status/HPPROF,hodobox/">HPPROF</a></td>
+				<td align="left" width="14%"><a href="/status/MHLAR10,hodobox/">MHLAR10</a></td>
+				<td align="left" width="14%"><a href="/status/PRIMPERM,hodobox/">PRIMPERM</a></td>
+				<td align="left" width="14%"><a href="/status/SUBSUMS,hodobox/">SUBSUMS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACPC10E,hodobox/">ACPC10E</a></td>
+				<td align="left" width="14%"><a href="/status/CARRHIM,hodobox/">CARRHIM</a></td>
+				<td align="left" width="14%"><a href="/status/EIGHT,hodobox/">EIGHT</a></td>
+				<td align="left" width="14%"><a href="/status/HPYNOS,hodobox/">HPYNOS</a></td>
+				<td align="left" width="14%"><a href="/status/MICEMAZE,hodobox/">MICEMAZE</a></td>
+				<td align="left" width="14%"><a href="/status/PRINT,hodobox/">PRINT</a></td>
+				<td align="left" width="14%"><a href="/status/SUMITR,hodobox/">SUMITR</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACPC10H,hodobox/">ACPC10H</a></td>
+				<td align="left" width="14%"><a href="/status/CATHETEN,hodobox/">CATHETEN</a></td>
+				<td align="left" width="14%"><a href="/status/EIGHTS,hodobox/">EIGHTS</a></td>
+				<td align="left" width="14%"><a href="/status/HS08PAUL,hodobox/">HS08PAUL</a></td>
+				<td align="left" width="14%"><a href="/status/MIDEARTH,hodobox/">MIDEARTH</a></td>
+				<td align="left" width="14%"><a href="/status/PRJAN15B,hodobox/">PRJAN15B</a></td>
+				<td align="left" width="14%"><a href="/status/SUMMATION,hodobox/">SUMMATION</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACPC11B,hodobox/">ACPC11B</a></td>
+				<td align="left" width="14%"><a href="/status/CATINV,hodobox/">CATINV</a></td>
+				<td align="left" width="14%"><a href="/status/EIUASSEMBLY,hodobox/">EIUASSEMBLY</a></td>
+				<td align="left" width="14%"><a href="/status/HS09EQ,hodobox/">HS09EQ</a></td>
+				<td align="left" width="14%"><a href="/status/MIDO,hodobox/">MIDO</a></td>
+				<td align="left" width="14%"><a href="/status/PRJAN15F,hodobox/">PRJAN15F</a></td>
+				<td align="left" width="14%"><a href="/status/SUMMUL,hodobox/">SUMMUL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACPC13,hodobox/">ACPC13</a></td>
+				<td align="left" width="14%"><a href="/status/CATM,hodobox/">CATM</a></td>
+				<td align="left" width="14%"><a href="/status/EKO,hodobox/">EKO</a></td>
+				<td align="left" width="14%"><a href="/status/HS10SQFT,hodobox/">HS10SQFT</a></td>
+				<td align="left" width="14%"><a href="/status/MINI,hodobox/">MINI</a></td>
+				<td align="left" width="14%"><a href="/status/PRMLX,hodobox/">PRMLX</a></td>
+				<td align="left" width="14%"><a href="/status/SUSY,hodobox/">SUSY</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACS,hodobox/">ACS</a></td>
+				<td align="left" width="14%"><a href="/status/CATTACK,hodobox/">CATTACK</a></td>
+				<td align="left" width="14%"><a href="/status/ELCS,hodobox/">ELCS</a></td>
+				<td align="left" width="14%"><a href="/status/HS12PRIM,hodobox/">HS12PRIM</a></td>
+				<td align="left" width="14%"><a href="/status/MINMOVE,hodobox/">MINMOVE</a></td>
+				<td align="left" width="14%"><a href="/status/PRMQUER,hodobox/">PRMQUER</a></td>
+				<td align="left" width="14%"><a href="/status/SVAREA11,hodobox/">SVAREA11</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACTIV,hodobox/">ACTIV</a></td>
+				<td align="left" width="14%"><a href="/status/CBANK,hodobox/">CBANK</a></td>
+				<td align="left" width="14%"><a href="/status/ELEVTRBL,hodobox/">ELEVTRBL</a></td>
+				<td align="left" width="14%"><a href="/status/HUBULLU,hodobox/">HUBULLU</a></td>
+				<td align="left" width="14%"><a href="/status/MINNUM,hodobox/">MINNUM</a></td>
+				<td align="left" width="14%"><a href="/status/PROBOR,hodobox/">PROBOR</a></td>
+				<td align="left" width="14%"><a href="/status/SWTHIN,hodobox/">SWTHIN</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADACITY,hodobox/">ADACITY</a></td>
+				<td align="left" width="14%"><a href="/status/CCHESS,hodobox/">CCHESS</a></td>
+				<td align="left" width="14%"><a href="/status/ELIM,hodobox/">ELIM</a></td>
+				<td align="left" width="14%"><a href="/status/IAPCR2C,hodobox/">IAPCR2C</a></td>
+				<td align="left" width="14%"><a href="/status/MINVEST,hodobox/">MINVEST</a></td>
+				<td align="left" width="14%"><a href="/status/PROFF,hodobox/">PROFF</a></td>
+				<td align="left" width="14%"><a href="/status/SYNC13C,hodobox/">SYNC13C</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADACLEAN,hodobox/">ADACLEAN</a></td>
+				<td align="left" width="14%"><a href="/status/CDC12_E,hodobox/">CDC12_E</a></td>
+				<td align="left" width="14%"><a href="/status/EMOTICON,hodobox/">EMOTICON</a></td>
+				<td align="left" width="14%"><a href="/status/IAPCR2D,hodobox/">IAPCR2D</a></td>
+				<td align="left" width="14%"><a href="/status/MINVSMIN,hodobox/">MINVSMIN</a></td>
+				<td align="left" width="14%"><a href="/status/PROOT,hodobox/">PROOT</a></td>
+				<td align="left" width="14%"><a href="/status/TANDV,hodobox/">TANDV</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADACROP,hodobox/">ADACROP</a></td>
+				<td align="left" width="14%"><a href="/status/CDC12_G,hodobox/">CDC12_G</a></td>
+				<td align="left" width="14%"><a href="/status/EMTY2,hodobox/">EMTY2</a></td>
+				<td align="left" width="14%"><a href="/status/IAPCR2F,hodobox/">IAPCR2F</a></td>
+				<td align="left" width="14%"><a href="/status/MISERMAN,hodobox/">MISERMAN</a></td>
+				<td align="left" width="14%"><a href="/status/PROSCORE,hodobox/">PROSCORE</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2012A,hodobox/">TAP2012A</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADACYCLE,hodobox/">ADACYCLE</a></td>
+				<td align="left" width="14%"><a href="/status/CDC12_H,hodobox/">CDC12_H</a></td>
+				<td align="left" width="14%"><a href="/status/EMTY3,hodobox/">EMTY3</a></td>
+				<td align="left" width="14%"><a href="/status/ICANDIES,hodobox/">ICANDIES</a></td>
+				<td align="left" width="14%"><a href="/status/MJLAR10,hodobox/">MJLAR10</a></td>
+				<td align="left" width="14%"><a href="/status/PSWITCH,hodobox/">PSWITCH</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2012B,hodobox/">TAP2012B</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADADUNG,hodobox/">ADADUNG</a></td>
+				<td align="left" width="14%"><a href="/status/CDOWN,hodobox/">CDOWN</a></td>
+				<td align="left" width="14%"><a href="/status/ENCONDIN,hodobox/">ENCONDIN</a></td>
+				<td align="left" width="14%"><a href="/status/ICPC12C,hodobox/">ICPC12C</a></td>
+				<td align="left" width="14%"><a href="/status/MKEQUAL,hodobox/">MKEQUAL</a></td>
+				<td align="left" width="14%"><a href="/status/PSYCHON,hodobox/">PSYCHON</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2012F,hodobox/">TAP2012F</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADAFIELD,hodobox/">ADAFIELD</a></td>
+				<td align="left" width="14%"><a href="/status/CDRSANJ,hodobox/">CDRSANJ</a></td>
+				<td align="left" width="14%"><a href="/status/ENIGMATH,hodobox/">ENIGMATH</a></td>
+				<td align="left" width="14%"><a href="/status/IDC1948,hodobox/">IDC1948</a></td>
+				<td align="left" width="14%"><a href="/status/MKLABELS,hodobox/">MKLABELS</a></td>
+				<td align="left" width="14%"><a href="/status/PT07F,hodobox/">PT07F</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2013C,hodobox/">TAP2013C</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADAGAME,hodobox/">ADAGAME</a></td>
+				<td align="left" width="14%"><a href="/status/CENCRY,hodobox/">CENCRY</a></td>
+				<td align="left" width="14%"><a href="/status/EPTT,hodobox/">EPTT</a></td>
+				<td align="left" width="14%"><a href="/status/IEEEBGAM,hodobox/">IEEEBGAM</a></td>
+				<td align="left" width="14%"><a href="/status/MKMONEY,hodobox/">MKMONEY</a></td>
+				<td align="left" width="14%"><a href="/status/PT07Y,hodobox/">PT07Y</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2013E,hodobox/">TAP2013E</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADAGAME4,hodobox/">ADAGAME4</a></td>
+				<td align="left" width="14%"><a href="/status/CEPC08B,hodobox/">CEPC08B</a></td>
+				<td align="left" width="14%"><a href="/status/EQ,hodobox/">EQ</a></td>
+				<td align="left" width="14%"><a href="/status/IGALAXY,hodobox/">IGALAXY</a></td>
+				<td align="left" width="14%"><a href="/status/MKUHAR,hodobox/">MKUHAR</a></td>
+				<td align="left" width="14%"><a href="/status/PT07Z,hodobox/">PT07Z</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2013G,hodobox/">TAP2013G</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADAGCD,hodobox/">ADAGCD</a></td>
+				<td align="left" width="14%"><a href="/status/CEQU,hodobox/">CEQU</a></td>
+				<td align="left" width="14%"><a href="/status/EQDIV,hodobox/">EQDIV</a></td>
+				<td align="left" width="14%"><a href="/status/IIITD1,hodobox/">IIITD1</a></td>
+				<td align="left" width="14%"><a href="/status/MLASERP,hodobox/">MLASERP</a></td>
+				<td align="left" width="14%"><a href="/status/PTIME,hodobox/">PTIME</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2013H,hodobox/">TAP2013H</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADAINDEX,hodobox/">ADAINDEX</a></td>
+				<td align="left" width="14%"><a href="/status/CERC07K,hodobox/">CERC07K</a></td>
+				<td align="left" width="14%"><a href="/status/EQUI,hodobox/">EQUI</a></td>
+				<td align="left" width="14%"><a href="/status/IIITMSTUD,hodobox/">IIITMSTUD</a></td>
+				<td align="left" width="14%"><a href="/status/MLK,hodobox/">MLK</a></td>
+				<td align="left" width="14%"><a href="/status/PTRELIC,hodobox/">PTRELIC</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2013I,hodobox/">TAP2013I</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADALIST,hodobox/">ADALIST</a></td>
+				<td align="left" width="14%"><a href="/status/CERC07L,hodobox/">CERC07L</a></td>
+				<td align="left" width="14%"><a href="/status/EQUIPASS,hodobox/">EQUIPASS</a></td>
+				<td align="left" width="14%"><a href="/status/IITD4,hodobox/">IITD4</a></td>
+				<td align="left" width="14%"><a href="/status/MMATRIX,hodobox/">MMATRIX</a></td>
+				<td align="left" width="14%"><a href="/status/PUBLICAT,hodobox/">PUBLICAT</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2014E,hodobox/">TAP2014E</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADAPLANT,hodobox/">ADAPLANT</a></td>
+				<td align="left" width="14%"><a href="/status/CERC07R,hodobox/">CERC07R</a></td>
+				<td align="left" width="14%"><a href="/status/ESCJAILA,hodobox/">ESCJAILA</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCA,hodobox/">IITKWPCA</a></td>
+				<td align="left" width="14%"><a href="/status/MMINPAID,hodobox/">MMINPAID</a></td>
+				<td align="left" width="14%"><a href="/status/PUCMM009,hodobox/">PUCMM009</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2014G,hodobox/">TAP2014G</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADAPLUS,hodobox/">ADAPLUS</a></td>
+				<td align="left" width="14%"><a href="/status/CF33C,hodobox/">CF33C</a></td>
+				<td align="left" width="14%"><a href="/status/ESJAIL,hodobox/">ESJAIL</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCB,hodobox/">IITKWPCB</a></td>
+				<td align="left" width="14%"><a href="/status/MMINPER,hodobox/">MMINPER</a></td>
+				<td align="left" width="14%"><a href="/status/PUCMM025,hodobox/">PUCMM025</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2014J,hodobox/">TAP2014J</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADAQUEUE,hodobox/">ADAQUEUE</a></td>
+				<td align="left" width="14%"><a href="/status/CFATHER,hodobox/">CFATHER</a></td>
+				<td align="left" width="14%"><a href="/status/ESYRCRTN,hodobox/">ESYRCRTN</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCD,hodobox/">IITKWPCD</a></td>
+				<td align="left" width="14%"><a href="/status/MMMAGIC3,hodobox/">MMMAGIC3</a></td>
+				<td align="left" width="14%"><a href="/status/PUCMM210,hodobox/">PUCMM210</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2015B,hodobox/">TAP2015B</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADARAIN,hodobox/">ADARAIN</a></td>
+				<td align="left" width="14%"><a href="/status/CFPARTY,hodobox/">CFPARTY</a></td>
+				<td align="left" width="14%"><a href="/status/ETF,hodobox/">ETF</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCF,hodobox/">IITKWPCF</a></td>
+				<td align="left" width="14%"><a href="/status/MNERED,hodobox/">MNERED</a></td>
+				<td align="left" width="14%"><a href="/status/PUCMM215,hodobox/">PUCMM215</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2015C,hodobox/">TAP2015C</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADARAINB,hodobox/">ADARAINB</a></td>
+				<td align="left" width="14%"><a href="/status/CHAIR,hodobox/">CHAIR</a></td>
+				<td align="left" width="14%"><a href="/status/ETFD,hodobox/">ETFD</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCG,hodobox/">IITKWPCG</a></td>
+				<td align="left" width="14%"><a href="/status/MNIU,hodobox/">MNIU</a></td>
+				<td align="left" width="14%"><a href="/status/PUCMM223,hodobox/">PUCMM223</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2015D,hodobox/">TAP2015D</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADAROBOT,hodobox/">ADAROBOT</a></td>
+				<td align="left" width="14%"><a href="/status/CHGROOM,hodobox/">CHGROOM</a></td>
+				<td align="left" width="14%"><a href="/status/ETFS,hodobox/">ETFS</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCI,hodobox/">IITKWPCI</a></td>
+				<td align="left" width="14%"><a href="/status/MNNITAR,hodobox/">MNNITAR</a></td>
+				<td align="left" width="14%"><a href="/status/PUCMM334,hodobox/">PUCMM334</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2015H,hodobox/">TAP2015H</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADASEA,hodobox/">ADASEA</a></td>
+				<td align="left" width="14%"><a href="/status/CHICAGO,hodobox/">CHICAGO</a></td>
+				<td align="left" width="14%"><a href="/status/EXCLSEC,hodobox/">EXCLSEC</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCJ,hodobox/">IITKWPCJ</a></td>
+				<td align="left" width="14%"><a href="/status/MOHIB,hodobox/">MOHIB</a></td>
+				<td align="left" width="14%"><a href="/status/PUCMM335,hodobox/">PUCMM335</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2016C,hodobox/">TAP2016C</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADASUM,hodobox/">ADASUM</a></td>
+				<td align="left" width="14%"><a href="/status/CHMAZE,hodobox/">CHMAZE</a></td>
+				<td align="left" width="14%"><a href="/status/EXPEDI,hodobox/">EXPEDI</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCN,hodobox/">IITKWPCN</a></td>
+				<td align="left" width="14%"><a href="/status/MOHIBTREE,hodobox/">MOHIBTREE</a></td>
+				<td align="left" width="14%"><a href="/status/PYRSUM,hodobox/">PYRSUM</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2016J,hodobox/">TAP2016J</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADATAXES,hodobox/">ADATAXES</a></td>
+				<td align="left" width="14%"><a href="/status/CHOTU,hodobox/">CHOTU</a></td>
+				<td align="left" width="14%"><a href="/status/EXPOR,hodobox/">EXPOR</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCO,hodobox/">IITKWPCO</a></td>
+				<td align="left" width="14%"><a href="/status/MONKK,hodobox/">MONKK</a></td>
+				<td align="left" width="14%"><a href="/status/PYRSUM2,hodobox/">PYRSUM2</a></td>
+				<td align="left" width="14%"><a href="/status/TAUT,hodobox/">TAUT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADATEAMS,hodobox/">ADATEAMS</a></td>
+				<td align="left" width="14%"><a href="/status/CIJEVI,hodobox/">CIJEVI</a></td>
+				<td align="left" width="14%"><a href="/status/FACEFRND,hodobox/">FACEFRND</a></td>
+				<td align="left" width="14%"><a href="/status/IITWPC4A,hodobox/">IITWPC4A</a></td>
+				<td align="left" width="14%"><a href="/status/MOVIFAN,hodobox/">MOVIFAN</a></td>
+				<td align="left" width="14%"><a href="/status/QCJ1,hodobox/">QCJ1</a></td>
+				<td align="left" width="14%"><a href="/status/TBATTLE,hodobox/">TBATTLE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADATREE,hodobox/">ADATREE</a></td>
+				<td align="left" width="14%"><a href="/status/CINEMACON,hodobox/">CINEMACON</a></td>
+				<td align="left" width="14%"><a href="/status/FACT0,hodobox/">FACT0</a></td>
+				<td align="left" width="14%"><a href="/status/IITWPC4B,hodobox/">IITWPC4B</a></td>
+				<td align="left" width="14%"><a href="/status/MOWGLI,hodobox/">MOWGLI</a></td>
+				<td align="left" width="14%"><a href="/status/QCJ2,hodobox/">QCJ2</a></td>
+				<td align="left" width="14%"><a href="/status/TCUTTER,hodobox/">TCUTTER</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADATRIP,hodobox/">ADATRIP</a></td>
+				<td align="left" width="14%"><a href="/status/CIRCLE_E,hodobox/">CIRCLE_E</a></td>
+				<td align="left" width="14%"><a href="/status/FACTCG2,hodobox/">FACTCG2</a></td>
+				<td align="left" width="14%"><a href="/status/IITWPC4D,hodobox/">IITWPC4D</a></td>
+				<td align="left" width="14%"><a href="/status/MOWS,hodobox/">MOWS</a></td>
+				<td align="left" width="14%"><a href="/status/QKP,hodobox/">QKP</a></td>
+				<td align="left" width="14%"><a href="/status/TDKPRIME,hodobox/">TDKPRIME</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADDAP,hodobox/">ADDAP</a></td>
+				<td align="left" width="14%"><a href="/status/CITY2,hodobox/">CITY2</a></td>
+				<td align="left" width="14%"><a href="/status/FACTDIV,hodobox/">FACTDIV</a></td>
+				<td align="left" width="14%"><a href="/status/IITWPC4E,hodobox/">IITWPC4E</a></td>
+				<td align="left" width="14%"><a href="/status/MRECAMAN,hodobox/">MRECAMAN</a></td>
+				<td align="left" width="14%"><a href="/status/QN01,hodobox/">QN01</a></td>
+				<td align="left" width="14%"><a href="/status/TDPRIMES,hodobox/">TDPRIMES</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADDREV,hodobox/">ADDREV</a></td>
+				<td align="left" width="14%"><a href="/status/CLASSICO,hodobox/">CLASSICO</a></td>
+				<td align="left" width="14%"><a href="/status/FACTMUL,hodobox/">FACTMUL</a></td>
+				<td align="left" width="14%"><a href="/status/IITWPC4F,hodobox/">IITWPC4F</a></td>
+				<td align="left" width="14%"><a href="/status/MRECT1,hodobox/">MRECT1</a></td>
+				<td align="left" width="14%"><a href="/status/QN02,hodobox/">QN02</a></td>
+				<td align="left" width="14%"><a href="/status/TEAM2,hodobox/">TEAM2</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADSPROP,hodobox/">ADSPROP</a></td>
+				<td align="left" width="14%"><a href="/status/CLAW,hodobox/">CLAW</a></td>
+				<td align="left" width="14%"><a href="/status/FACTMULN,hodobox/">FACTMULN</a></td>
+				<td align="left" width="14%"><a href="/status/IITWPC4H,hodobox/">IITWPC4H</a></td>
+				<td align="left" width="14%"><a href="/status/MROADS,hodobox/">MROADS</a></td>
+				<td align="left" width="14%"><a href="/status/QUE1,hodobox/">QUE1</a></td>
+				<td align="left" width="14%"><a href="/status/TEMPERAT,hodobox/">TEMPERAT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADV04B1,hodobox/">ADV04B1</a></td>
+				<td align="left" width="14%"><a href="/status/CLEANRBT,hodobox/">CLEANRBT</a></td>
+				<td align="left" width="14%"><a href="/status/FACTMULO,hodobox/">FACTMULO</a></td>
+				<td align="left" width="14%"><a href="/status/IITWPC4I,hodobox/">IITWPC4I</a></td>
+				<td align="left" width="14%"><a href="/status/MSAFE,hodobox/">MSAFE</a></td>
+				<td align="left" width="14%"><a href="/status/QUEEN,hodobox/">QUEEN</a></td>
+				<td align="left" width="14%"><a href="/status/TEMPLE01,hodobox/">TEMPLE01</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADV04F1,hodobox/">ADV04F1</a></td>
+				<td align="left" width="14%"><a href="/status/CLOCKS,hodobox/">CLOCKS</a></td>
+				<td align="left" width="14%"><a href="/status/FAKETSP,hodobox/">FAKETSP</a></td>
+				<td align="left" width="14%"><a href="/status/IITWPC4J,hodobox/">IITWPC4J</a></td>
+				<td align="left" width="14%"><a href="/status/MSCHED,hodobox/">MSCHED</a></td>
+				<td align="left" width="14%"><a href="/status/QUEST5,hodobox/">QUEST5</a></td>
+				<td align="left" width="14%"><a href="/status/TEMPTISL,hodobox/">TEMPTISL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADV04L,hodobox/">ADV04L</a></td>
+				<td align="left" width="14%"><a href="/status/CLONE,hodobox/">CLONE</a></td>
+				<td align="left" width="14%"><a href="/status/FALTAENV,hodobox/">FALTAENV</a></td>
+				<td align="left" width="14%"><a href="/status/IMAGE,hodobox/">IMAGE</a></td>
+				<td align="left" width="14%"><a href="/status/MSE06H,hodobox/">MSE06H</a></td>
+				<td align="left" width="14%"><a href="/status/R6PL,hodobox/">R6PL</a></td>
+				<td align="left" width="14%"><a href="/status/TENNIS,hodobox/">TENNIS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AE00,hodobox/">AE00</a></td>
+				<td align="left" width="14%"><a href="/status/CLZBICYC,hodobox/">CLZBICYC</a></td>
+				<td align="left" width="14%"><a href="/status/FAMWEALT,hodobox/">FAMWEALT</a></td>
+				<td align="left" width="14%"><a href="/status/IMMERSED,hodobox/">IMMERSED</a></td>
+				<td align="left" width="14%"><a href="/status/MSE06I,hodobox/">MSE06I</a></td>
+				<td align="left" width="14%"><a href="/status/RAFANOLE,hodobox/">RAFANOLE</a></td>
+				<td align="left" width="14%"><a href="/status/TEST,hodobox/">TEST</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AFS,hodobox/">AFS</a></td>
+				<td align="left" width="14%"><a href="/status/CMG,hodobox/">CMG</a></td>
+				<td align="left" width="14%"><a href="/status/FANCY,hodobox/">FANCY</a></td>
+				<td align="left" width="14%"><a href="/status/IMPORT,hodobox/">IMPORT</a></td>
+				<td align="left" width="14%"><a href="/status/MSE08G,hodobox/">MSE08G</a></td>
+				<td align="left" width="14%"><a href="/status/RAINBOW,hodobox/">RAINBOW</a></td>
+				<td align="left" width="14%"><a href="/status/TETRAVEX,hodobox/">TETRAVEX</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AGGRCOW,hodobox/">AGGRCOW</a></td>
+				<td align="left" width="14%"><a href="/status/CMPSSTR,hodobox/">CMPSSTR</a></td>
+				<td align="left" width="14%"><a href="/status/FARIDA,hodobox/">FARIDA</a></td>
+				<td align="left" width="14%"><a href="/status/IMPORT1,hodobox/">IMPORT1</a></td>
+				<td align="left" width="14%"><a href="/status/MSTRMND,hodobox/">MSTRMND</a></td>
+				<td align="left" width="14%"><a href="/status/RANDG,hodobox/">RANDG</a></td>
+				<td align="left" width="14%"><a href="/status/TFRIENDS,hodobox/">TFRIENDS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AGPC01G,hodobox/">AGPC01G</a></td>
+				<td align="left" width="14%"><a href="/status/CNEASY,hodobox/">CNEASY</a></td>
+				<td align="left" width="14%"><a href="/status/FASHION,hodobox/">FASHION</a></td>
+				<td align="left" width="14%"><a href="/status/IMPUNITS,hodobox/">IMPUNITS</a></td>
+				<td align="left" width="14%"><a href="/status/MTHUR,hodobox/">MTHUR</a></td>
+				<td align="left" width="14%"><a href="/status/RANGESUM,hodobox/">RANGESUM</a></td>
+				<td align="left" width="14%"><a href="/status/THEATRE,hodobox/">THEATRE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AHORCADO,hodobox/">AHORCADO</a></td>
+				<td align="left" width="14%"><a href="/status/CNTDO,hodobox/">CNTDO</a></td>
+				<td align="left" width="14%"><a href="/status/FAST2,hodobox/">FAST2</a></td>
+				<td align="left" width="14%"><a href="/status/INDIPROG,hodobox/">INDIPROG</a></td>
+				<td align="left" width="14%"><a href="/status/MUL,hodobox/">MUL</a></td>
+				<td align="left" width="14%"><a href="/status/RANJAN05,hodobox/">RANJAN05</a></td>
+				<td align="left" width="14%"><a href="/status/THRBL,hodobox/">THRBL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AIRLINE2,hodobox/">AIRLINE2</a></td>
+				<td align="left" width="14%"><a href="/status/CNTINDX,hodobox/">CNTINDX</a></td>
+				<td align="left" width="14%"><a href="/status/FATAWY,hodobox/">FATAWY</a></td>
+				<td align="left" width="14%"><a href="/status/INGRED,hodobox/">INGRED</a></td>
+				<td align="left" width="14%"><a href="/status/MULTQ3,hodobox/">MULTQ3</a></td>
+				<td align="left" width="14%"><a href="/status/RAONE,hodobox/">RAONE</a></td>
+				<td align="left" width="14%"><a href="/status/THREECOL,hodobox/">THREECOL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AKBAR,hodobox/">AKBAR</a></td>
+				<td align="left" width="14%"><a href="/status/CNTPRIME,hodobox/">CNTPRIME</a></td>
+				<td align="left" width="14%"><a href="/status/FAVDICE,hodobox/">FAVDICE</a></td>
+				<td align="left" width="14%"><a href="/status/INS14C,hodobox/">INS14C</a></td>
+				<td align="left" width="14%"><a href="/status/MYQ1,hodobox/">MYQ1</a></td>
+				<td align="left" width="14%"><a href="/status/RDNWK,hodobox/">RDNWK</a></td>
+				<td align="left" width="14%"><a href="/status/THRPWRS,hodobox/">THRPWRS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AKVQLD03,hodobox/">AKVQLD03</a></td>
+				<td align="left" width="14%"><a href="/status/CNT_LUCK,hodobox/">CNT_LUCK</a></td>
+				<td align="left" width="14%"><a href="/status/FAVSUBS,hodobox/">FAVSUBS</a></td>
+				<td align="left" width="14%"><a href="/status/INS14G,hodobox/">INS14G</a></td>
+				<td align="left" width="14%"><a href="/status/MYQ12,hodobox/">MYQ12</a></td>
+				<td align="left" width="14%"><a href="/status/RE1,hodobox/">RE1</a></td>
+				<td align="left" width="14%"><a href="/status/TIEROPE,hodobox/">TIEROPE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ALCATRAZ2,hodobox/">ALCATRAZ2</a></td>
+				<td align="left" width="14%"><a href="/status/COD1,hodobox/">COD1</a></td>
+				<td align="left" width="14%"><a href="/status/FCDC,hodobox/">FCDC</a></td>
+				<td align="left" width="14%"><a href="/status/INS14K,hodobox/">INS14K</a></td>
+				<td align="left" width="14%"><a href="/status/MYQ2,hodobox/">MYQ2</a></td>
+				<td align="left" width="14%"><a href="/status/REALNO,hodobox/">REALNO</a></td>
+				<td align="left" width="14%"><a href="/status/TIP1,hodobox/">TIP1</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ALICESIE,hodobox/">ALICESIE</a></td>
+				<td align="left" width="14%"><a href="/status/CODCHESS,hodobox/">CODCHESS</a></td>
+				<td align="left" width="14%"><a href="/status/FCTRL,hodobox/">FCTRL</a></td>
+				<td align="left" width="14%"><a href="/status/INTERVAL,hodobox/">INTERVAL</a></td>
+				<td align="left" width="14%"><a href="/status/MYQ6,hodobox/">MYQ6</a></td>
+				<td align="left" width="14%"><a href="/status/REDRONESIA,hodobox/">REDRONESIA</a></td>
+				<td align="left" width="14%"><a href="/status/TIPTOP,hodobox/">TIPTOP</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ALIEN,hodobox/">ALIEN</a></td>
+				<td align="left" width="14%"><a href="/status/CODEIT03,hodobox/">CODEIT03</a></td>
+				<td align="left" width="14%"><a href="/status/FCTRL2,hodobox/">FCTRL2</a></td>
+				<td align="left" width="14%"><a href="/status/INTSUB,hodobox/">INTSUB</a></td>
+				<td align="left" width="14%"><a href="/status/MYQ7,hodobox/">MYQ7</a></td>
+				<td align="left" width="14%"><a href="/status/REDSUBLIA,hodobox/">REDSUBLIA</a></td>
+				<td align="left" width="14%"><a href="/status/TLIGHTS,hodobox/">TLIGHTS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ALIEN2,hodobox/">ALIEN2</a></td>
+				<td align="left" width="14%"><a href="/status/CODESPTB,hodobox/">CODESPTB</a></td>
+				<td align="left" width="14%"><a href="/status/FEAST,hodobox/">FEAST</a></td>
+				<td align="left" width="14%"><a href="/status/INUM,hodobox/">INUM</a></td>
+				<td align="left" width="14%"><a href="/status/MYQ8,hodobox/">MYQ8</a></td>
+				<td align="left" width="14%"><a href="/status/RELINETS,hodobox/">RELINETS</a></td>
+				<td align="left" width="14%"><a href="/status/TLL237,hodobox/">TLL237</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ALIEN3,hodobox/">ALIEN3</a></td>
+				<td align="left" width="14%"><a href="/status/CODFURY,hodobox/">CODFURY</a></td>
+				<td align="left" width="14%"><a href="/status/FENCE1,hodobox/">FENCE1</a></td>
+				<td align="left" width="14%"><a href="/status/INVCNT,hodobox/">INVCNT</a></td>
+				<td align="left" width="14%"><a href="/status/NAGAY1,hodobox/">NAGAY1</a></td>
+				<td align="left" width="14%"><a href="/status/RELJEF,hodobox/">RELJEF</a></td>
+				<td align="left" width="14%"><a href="/status/TMSUM,hodobox/">TMSUM</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ALLIZWEL,hodobox/">ALLIZWEL</a></td>
+				<td align="left" width="14%"><a href="/status/CODGRF,hodobox/">CODGRF</a></td>
+				<td align="left" width="14%"><a href="/status/FERT21_0,hodobox/">FERT21_0</a></td>
+				<td align="left" width="14%"><a href="/status/INVESORT,hodobox/">INVESORT</a></td>
+				<td align="left" width="14%"><a href="/status/NAJGC,hodobox/">NAJGC</a></td>
+				<td align="left" width="14%"><a href="/status/RETDIG,hodobox/">RETDIG</a></td>
+				<td align="left" width="14%"><a href="/status/TOANDFRO,hodobox/">TOANDFRO</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ALTSEQ,hodobox/">ALTSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/CODHASH,hodobox/">CODHASH</a></td>
+				<td align="left" width="14%"><a href="/status/FERT21_1,hodobox/">FERT21_1</a></td>
+				<td align="left" width="14%"><a href="/status/INVPHI,hodobox/">INVPHI</a></td>
+				<td align="left" width="14%"><a href="/status/NAJHQ,hodobox/">NAJHQ</a></td>
+				<td align="left" width="14%"><a href="/status/REVIEW,hodobox/">REVIEW</a></td>
+				<td align="left" width="14%"><a href="/status/TOE1,hodobox/">TOE1</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMR10C,hodobox/">AMR10C</a></td>
+				<td align="left" width="14%"><a href="/status/COINS,hodobox/">COINS</a></td>
+				<td align="left" width="14%"><a href="/status/FIBOSUM,hodobox/">FIBOSUM</a></td>
+				<td align="left" width="14%"><a href="/status/IOPC1204,hodobox/">IOPC1204</a></td>
+				<td align="left" width="14%"><a href="/status/NAJKRACI,hodobox/">NAJKRACI</a></td>
+				<td align="left" width="14%"><a href="/status/RIOI_2_3,hodobox/">RIOI_2_3</a></td>
+				<td align="left" width="14%"><a href="/status/TOE2,hodobox/">TOE2</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMR10G,hodobox/">AMR10G</a></td>
+				<td align="left" width="14%"><a href="/status/COINTOSS,hodobox/">COINTOSS</a></td>
+				<td align="left" width="14%"><a href="/status/FINDMAX,hodobox/">FINDMAX</a></td>
+				<td align="left" width="14%"><a href="/status/ISAB,hodobox/">ISAB</a></td>
+				<td align="left" width="14%"><a href="/status/NAJMS,hodobox/">NAJMS</a></td>
+				<td align="left" width="14%"><a href="/status/RIVALS,hodobox/">RIVALS</a></td>
+				<td align="left" width="14%"><a href="/status/TOHU2,hodobox/">TOHU2</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMR10I,hodobox/">AMR10I</a></td>
+				<td align="left" width="14%"><a href="/status/COLONY,hodobox/">COLONY</a></td>
+				<td align="left" width="14%"><a href="/status/FINDPRM,hodobox/">FINDPRM</a></td>
+				<td align="left" width="14%"><a href="/status/ISELECT,hodobox/">ISELECT</a></td>
+				<td align="left" width="14%"><a href="/status/NAJPWG,hodobox/">NAJPWG</a></td>
+				<td align="left" width="14%"><a href="/status/RKS,hodobox/">RKS</a></td>
+				<td align="left" width="14%"><a href="/status/TOPOLAND,hodobox/">TOPOLAND</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMR11A,hodobox/">AMR11A</a></td>
+				<td align="left" width="14%"><a href="/status/COLORSEG,hodobox/">COLORSEG</a></td>
+				<td align="left" width="14%"><a href="/status/FINDSR,hodobox/">FINDSR</a></td>
+				<td align="left" width="14%"><a href="/status/ISLHOP,hodobox/">ISLHOP</a></td>
+				<td align="left" width="14%"><a href="/status/NAKANJ,hodobox/">NAKANJ</a></td>
+				<td align="left" width="14%"><a href="/status/RLCIPHER,hodobox/">RLCIPHER</a></td>
+				<td align="left" width="14%"><a href="/status/TOUGH,hodobox/">TOUGH</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMR11E,hodobox/">AMR11E</a></td>
+				<td align="left" width="14%"><a href="/status/COMCB,hodobox/">COMCB</a></td>
+				<td align="left" width="14%"><a href="/status/FINGP,hodobox/">FINGP</a></td>
+				<td align="left" width="14%"><a href="/status/ITRIX_C,hodobox/">ITRIX_C</a></td>
+				<td align="left" width="14%"><a href="/status/NATALIAG,hodobox/">NATALIAG</a></td>
+				<td align="left" width="14%"><a href="/status/RLE,hodobox/">RLE</a></td>
+				<td align="left" width="14%"><a href="/status/TOURNEY,hodobox/">TOURNEY</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMR11F,hodobox/">AMR11F</a></td>
+				<td align="left" width="14%"><a href="/status/COMDIV,hodobox/">COMDIV</a></td>
+				<td align="left" width="14%"><a href="/status/FLWRS,hodobox/">FLWRS</a></td>
+				<td align="left" width="14%"><a href="/status/ITRIX_E,hodobox/">ITRIX_E</a></td>
+				<td align="left" width="14%"><a href="/status/NATALIAS,hodobox/">NATALIAS</a></td>
+				<td align="left" width="14%"><a href="/status/RLM,hodobox/">RLM</a></td>
+				<td align="left" width="14%"><a href="/status/TRAFFICN,hodobox/">TRAFFICN</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMR11J,hodobox/">AMR11J</a></td>
+				<td align="left" width="14%"><a href="/status/CONHONPR,hodobox/">CONHONPR</a></td>
+				<td align="left" width="14%"><a href="/status/FN16CEIL,hodobox/">FN16CEIL</a></td>
+				<td align="left" width="14%"><a href="/status/IWGBS,hodobox/">IWGBS</a></td>
+				<td align="left" width="14%"><a href="/status/NAUGHTY,hodobox/">NAUGHTY</a></td>
+				<td align="left" width="14%"><a href="/status/RLTHREE,hodobox/">RLTHREE</a></td>
+				<td align="left" width="14%"><a href="/status/TRANCLS,hodobox/">TRANCLS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMR12B,hodobox/">AMR12B</a></td>
+				<td align="left" width="14%"><a href="/status/CONTEST,hodobox/">CONTEST</a></td>
+				<td align="left" width="14%"><a href="/status/FONTSIZE,hodobox/">FONTSIZE</a></td>
+				<td align="left" width="14%"><a href="/status/JARJAR,hodobox/">JARJAR</a></td>
+				<td align="left" width="14%"><a href="/status/NBIN,hodobox/">NBIN</a></td>
+				<td align="left" width="14%"><a href="/status/RLTOUR,hodobox/">RLTOUR</a></td>
+				<td align="left" width="14%"><a href="/status/TRANK,hodobox/">TRANK</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMR12D,hodobox/">AMR12D</a></td>
+				<td align="left" width="14%"><a href="/status/CORN,hodobox/">CORN</a></td>
+				<td align="left" width="14%"><a href="/status/FOODIES,hodobox/">FOODIES</a></td>
+				<td align="left" width="14%"><a href="/status/JAVAC,hodobox/">JAVAC</a></td>
+				<td align="left" width="14%"><a href="/status/NCLNE,hodobox/">NCLNE</a></td>
+				<td align="left" width="14%"><a href="/status/RMID,hodobox/">RMID</a></td>
+				<td align="left" width="14%"><a href="/status/TRAVERSE,hodobox/">TRAVERSE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMR12G,hodobox/">AMR12G</a></td>
+				<td align="left" width="14%"><a href="/status/COU,hodobox/">COU</a></td>
+				<td align="left" width="14%"><a href="/status/FOUROW,hodobox/">FOUROW</a></td>
+				<td align="left" width="14%"><a href="/status/JC15A,hodobox/">JC15A</a></td>
+				<td align="left" width="14%"><a href="/status/NDIV,hodobox/">NDIV</a></td>
+				<td align="left" width="14%"><a href="/status/RMID2,hodobox/">RMID2</a></td>
+				<td align="left" width="14%"><a href="/status/TREEDEGREE,hodobox/">TREEDEGREE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMSCO1,hodobox/">AMSCO1</a></td>
+				<td align="left" width="14%"><a href="/status/COUNTPAS,hodobox/">COUNTPAS</a></td>
+				<td align="left" width="14%"><a href="/status/FOXLINGS,hodobox/">FOXLINGS</a></td>
+				<td align="left" width="14%"><a href="/status/JERRY,hodobox/">JERRY</a></td>
+				<td align="left" width="14%"><a href="/status/NDS,hodobox/">NDS</a></td>
+				<td align="left" width="14%"><a href="/status/ROADTRIP,hodobox/">ROADTRIP</a></td>
+				<td align="left" width="14%"><a href="/status/TREENUM2,hodobox/">TREENUM2</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMSCO2,hodobox/">AMSCO2</a></td>
+				<td align="left" width="14%"><a href="/status/COURAGE,hodobox/">COURAGE</a></td>
+				<td align="left" width="14%"><a href="/status/FOXWOLF,hodobox/">FOXWOLF</a></td>
+				<td align="left" width="14%"><a href="/status/JHAGIRLS,hodobox/">JHAGIRLS</a></td>
+				<td align="left" width="14%"><a href="/status/NFACTOR,hodobox/">NFACTOR</a></td>
+				<td align="left" width="14%"><a href="/status/ROBBERY2,hodobox/">ROBBERY2</a></td>
+				<td align="left" width="14%"><a href="/status/TREEORD,hodobox/">TREEORD</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMZRCK,hodobox/">AMZRCK</a></td>
+				<td align="left" width="14%"><a href="/status/COURIER,hodobox/">COURIER</a></td>
+				<td align="left" width="14%"><a href="/status/FP,hodobox/">FP</a></td>
+				<td align="left" width="14%"><a href="/status/JLNT,hodobox/">JLNT</a></td>
+				<td align="left" width="14%"><a href="/status/NFURY,hodobox/">NFURY</a></td>
+				<td align="left" width="14%"><a href="/status/ROBOTGRI,hodobox/">ROBOTGRI</a></td>
+				<td align="left" width="14%"><a href="/status/TREEPAL,hodobox/">TREEPAL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMZSEQ,hodobox/">AMZSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/COWCAR,hodobox/">COWCAR</a></td>
+				<td align="left" width="14%"><a href="/status/FPLAN,hodobox/">FPLAN</a></td>
+				<td align="left" width="14%"><a href="/status/JMFILTER,hodobox/">JMFILTER</a></td>
+				<td align="left" width="14%"><a href="/status/NG0FRCTN,hodobox/">NG0FRCTN</a></td>
+				<td align="left" width="14%"><a href="/status/ROHAAN,hodobox/">ROHAAN</a></td>
+				<td align="left" width="14%"><a href="/status/TRICOUNT,hodobox/">TRICOUNT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANAGR,hodobox/">ANAGR</a></td>
+				<td align="left" width="14%"><a href="/status/COWWORDS,hodobox/">COWWORDS</a></td>
+				<td align="left" width="14%"><a href="/status/FPOLICE,hodobox/">FPOLICE</a></td>
+				<td align="left" width="14%"><a href="/status/JNEXT,hodobox/">JNEXT</a></td>
+				<td align="left" width="14%"><a href="/status/NGIRL,hodobox/">NGIRL</a></td>
+				<td align="left" width="14%"><a href="/status/ROMAN008,hodobox/">ROMAN008</a></td>
+				<td align="left" width="14%"><a href="/status/TRIKA,hodobox/">TRIKA</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC05I,hodobox/">ANARC05I</a></td>
+				<td align="left" width="14%"><a href="/status/CPAIR2,hodobox/">CPAIR2</a></td>
+				<td align="left" width="14%"><a href="/status/FREQUENT,hodobox/">FREQUENT</a></td>
+				<td align="left" width="14%"><a href="/status/JOKER1,hodobox/">JOKER1</a></td>
+				<td align="left" width="14%"><a href="/status/NGM,hodobox/">NGM</a></td>
+				<td align="left" width="14%"><a href="/status/ROT,hodobox/">ROT</a></td>
+				<td align="left" width="14%"><a href="/status/TRIPINV,hodobox/">TRIPINV</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC07C,hodobox/">ANARC07C</a></td>
+				<td align="left" width="14%"><a href="/status/CPCRC1C,hodobox/">CPCRC1C</a></td>
+				<td align="left" width="14%"><a href="/status/FRMT,hodobox/">FRMT</a></td>
+				<td align="left" width="14%"><a href="/status/JOSWAP,hodobox/">JOSWAP</a></td>
+				<td align="left" width="14%"><a href="/status/NGM2,hodobox/">NGM2</a></td>
+				<td align="left" width="14%"><a href="/status/RPAR,hodobox/">RPAR</a></td>
+				<td align="left" width="14%"><a href="/status/TROOPS,hodobox/">TROOPS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC08A,hodobox/">ANARC08A</a></td>
+				<td align="left" width="14%"><a href="/status/CPRIME,hodobox/">CPRIME</a></td>
+				<td align="left" width="14%"><a href="/status/FRND,hodobox/">FRND</a></td>
+				<td align="left" width="14%"><a href="/status/JRIDE,hodobox/">JRIDE</a></td>
+				<td align="left" width="14%"><a href="/status/NHAY,hodobox/">NHAY</a></td>
+				<td align="left" width="14%"><a href="/status/RPLA,hodobox/">RPLA</a></td>
+				<td align="left" width="14%"><a href="/status/TRSTAGE,hodobox/">TRSTAGE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC08B,hodobox/">ANARC08B</a></td>
+				<td align="left" width="14%"><a href="/status/CPRMT,hodobox/">CPRMT</a></td>
+				<td align="left" width="14%"><a href="/status/FRNDCIRC,hodobox/">FRNDCIRC</a></td>
+				<td align="left" width="14%"><a href="/status/JULKA,hodobox/">JULKA</a></td>
+				<td align="left" width="14%"><a href="/status/NICEBTRE,hodobox/">NICEBTRE</a></td>
+				<td align="left" width="14%"><a href="/status/RPLB,hodobox/">RPLB</a></td>
+				<td align="left" width="14%"><a href="/status/TRUTHORL,hodobox/">TRUTHORL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC08F,hodobox/">ANARC08F</a></td>
+				<td align="left" width="14%"><a href="/status/CQM1TREE,hodobox/">CQM1TREE</a></td>
+				<td align="left" width="14%"><a href="/status/FRNDZND,hodobox/">FRNDZND</a></td>
+				<td align="left" width="14%"><a href="/status/JUMPPY,hodobox/">JUMPPY</a></td>
+				<td align="left" width="14%"><a href="/status/NINJA1,hodobox/">NINJA1</a></td>
+				<td align="left" width="14%"><a href="/status/RPLC,hodobox/">RPLC</a></td>
+				<td align="left" width="14%"><a href="/status/TRVCOST,hodobox/">TRVCOST</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC08J,hodobox/">ANARC08J</a></td>
+				<td align="left" width="14%"><a href="/status/CRAN02,hodobox/">CRAN02</a></td>
+				<td align="left" width="14%"><a href="/status/FROGGER,hodobox/">FROGGER</a></td>
+				<td align="left" width="14%"><a href="/status/JUMPY,hodobox/">JUMPY</a></td>
+				<td align="left" width="14%"><a href="/status/NINJA2,hodobox/">NINJA2</a></td>
+				<td align="left" width="14%"><a href="/status/RPLD,hodobox/">RPLD</a></td>
+				<td align="left" width="14%"><a href="/status/TRYCOMP,hodobox/">TRYCOMP</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC09A,hodobox/">ANARC09A</a></td>
+				<td align="left" width="14%"><a href="/status/CRAN04,hodobox/">CRAN04</a></td>
+				<td align="left" width="14%"><a href="/status/FROGS,hodobox/">FROGS</a></td>
+				<td align="left" width="14%"><a href="/status/JUNL,hodobox/">JUNL</a></td>
+				<td align="left" width="14%"><a href="/status/NINJA3,hodobox/">NINJA3</a></td>
+				<td align="left" width="14%"><a href="/status/RPLG,hodobox/">RPLG</a></td>
+				<td align="left" width="14%"><a href="/status/TSHOW1,hodobox/">TSHOW1</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC09B,hodobox/">ANARC09B</a></td>
+				<td align="left" width="14%"><a href="/status/CRAYON,hodobox/">CRAYON</a></td>
+				<td align="left" width="14%"><a href="/status/FRONT,hodobox/">FRONT</a></td>
+				<td align="left" width="14%"><a href="/status/KAOS,hodobox/">KAOS</a></td>
+				<td align="left" width="14%"><a href="/status/NINJA4,hodobox/">NINJA4</a></td>
+				<td align="left" width="14%"><a href="/status/RPLH,hodobox/">RPLH</a></td>
+				<td align="left" width="14%"><a href="/status/TSUNAMI,hodobox/">TSUNAMI</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC09C,hodobox/">ANARC09C</a></td>
+				<td align="left" width="14%"><a href="/status/CRAZYSK,hodobox/">CRAZYSK</a></td>
+				<td align="left" width="14%"><a href="/status/FRQPRIME,hodobox/">FRQPRIME</a></td>
+				<td align="left" width="14%"><a href="/status/KATHTHI,hodobox/">KATHTHI</a></td>
+				<td align="left" width="14%"><a href="/status/NINJA5,hodobox/">NINJA5</a></td>
+				<td align="left" width="14%"><a href="/status/RPLK,hodobox/">RPLK</a></td>
+				<td align="left" width="14%"><a href="/status/TTTABLE,hodobox/">TTTABLE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC09D,hodobox/">ANARC09D</a></td>
+				<td align="left" width="14%"><a href="/status/CRDS,hodobox/">CRDS</a></td>
+				<td align="left" width="14%"><a href="/status/FRSCR,hodobox/">FRSCR</a></td>
+				<td align="left" width="14%"><a href="/status/KATHTHI2,hodobox/">KATHTHI2</a></td>
+				<td align="left" width="14%"><a href="/status/NINJA6,hodobox/">NINJA6</a></td>
+				<td align="left" width="14%"><a href="/status/RPLN,hodobox/">RPLN</a></td>
+				<td align="left" width="14%"><a href="/status/TULIPNUM,hodobox/">TULIPNUM</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC09F,hodobox/">ANARC09F</a></td>
+				<td align="left" width="14%"><a href="/status/CRNVALEN,hodobox/">CRNVALEN</a></td>
+				<td align="left" width="14%"><a href="/status/FSEATS,hodobox/">FSEATS</a></td>
+				<td align="left" width="14%"><a href="/status/KCARRY,hodobox/">KCARRY</a></td>
+				<td align="left" width="14%"><a href="/status/NINJA7,hodobox/">NINJA7</a></td>
+				<td align="left" width="14%"><a href="/status/RPS,hodobox/">RPS</a></td>
+				<td align="left" width="14%"><a href="/status/TUTMRBL,hodobox/">TUTMRBL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC09G,hodobox/">ANARC09G</a></td>
+				<td align="left" width="14%"><a href="/status/CROBOTS,hodobox/">CROBOTS</a></td>
+				<td align="left" width="14%"><a href="/status/FTHEELF,hodobox/">FTHEELF</a></td>
+				<td align="left" width="14%"><a href="/status/KFSTB,hodobox/">KFSTB</a></td>
+				<td align="left" width="14%"><a href="/status/NITK06,hodobox/">NITK06</a></td>
+				<td align="left" width="14%"><a href="/status/RRANGE,hodobox/">RRANGE</a></td>
+				<td align="left" width="14%"><a href="/status/TWINSNOW,hodobox/">TWINSNOW</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANTP,hodobox/">ANTP</a></td>
+				<td align="left" width="14%"><a href="/status/CROSSOVER,hodobox/">CROSSOVER</a></td>
+				<td align="left" width="14%"><a href="/status/FUNNUMS,hodobox/">FUNNUMS</a></td>
+				<td align="left" width="14%"><a href="/status/KGSS,hodobox/">KGSS</a></td>
+				<td align="left" width="14%"><a href="/status/NITT1,hodobox/">NITT1</a></td>
+				<td align="left" width="14%"><a href="/status/RRSCHED,hodobox/">RRSCHED</a></td>
+				<td align="left" width="14%"><a href="/status/TWOSQRS,hodobox/">TWOSQRS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANTTT,hodobox/">ANTTT</a></td>
+				<td align="left" width="14%"><a href="/status/CRYPTON,hodobox/">CRYPTON</a></td>
+				<td align="left" width="14%"><a href="/status/FUPRCO,hodobox/">FUPRCO</a></td>
+				<td align="left" width="14%"><a href="/status/KING,hodobox/">KING</a></td>
+				<td align="left" width="14%"><a href="/status/NITT2,hodobox/">NITT2</a></td>
+				<td align="left" width="14%"><a href="/status/RSHIFT,hodobox/">RSHIFT</a></td>
+				<td align="left" width="14%"><a href="/status/TYPESET,hodobox/">TYPESET</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/APCER,hodobox/">APCER</a></td>
+				<td align="left" width="14%"><a href="/status/CRZYSMKR,hodobox/">CRZYSMKR</a></td>
+				<td align="left" width="14%"><a href="/status/FURYROAD,hodobox/">FURYROAD</a></td>
+				<td align="left" width="14%"><a href="/status/KIT,hodobox/">KIT</a></td>
+				<td align="left" width="14%"><a href="/status/NITT8,hodobox/">NITT8</a></td>
+				<td align="left" width="14%"><a href="/status/RTREE,hodobox/">RTREE</a></td>
+				<td align="left" width="14%"><a href="/status/UCBINTB,hodobox/">UCBINTB</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/APS,hodobox/">APS</a></td>
+				<td align="left" width="14%"><a href="/status/CSHOWB,hodobox/">CSHOWB</a></td>
+				<td align="left" width="14%"><a href="/status/GAMARENA,hodobox/">GAMARENA</a></td>
+				<td align="left" width="14%"><a href="/status/KITROB,hodobox/">KITROB</a></td>
+				<td align="left" width="14%"><a href="/status/NITTROAD,hodobox/">NITTROAD</a></td>
+				<td align="left" width="14%"><a href="/status/RTREE2,hodobox/">RTREE2</a></td>
+				<td align="left" width="14%"><a href="/status/UCBINTC,hodobox/">UCBINTC</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARITH2,hodobox/">ARITH2</a></td>
+				<td align="left" width="14%"><a href="/status/CSLIKAR,hodobox/">CSLIKAR</a></td>
+				<td align="left" width="14%"><a href="/status/GAME,hodobox/">GAME</a></td>
+				<td align="left" width="14%"><a href="/status/KMOVES,hodobox/">KMOVES</a></td>
+				<td align="left" width="14%"><a href="/status/NNUM,hodobox/">NNUM</a></td>
+				<td align="left" width="14%"><a href="/status/SA04C,hodobox/">SA04C</a></td>
+				<td align="left" width="14%"><a href="/status/UCBINTD,hodobox/">UCBINTD</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARMY,hodobox/">ARMY</a></td>
+				<td align="left" width="14%"><a href="/status/CT14E,hodobox/">CT14E</a></td>
+				<td align="left" width="14%"><a href="/status/GAME3,hodobox/">GAME3</a></td>
+				<td align="left" width="14%"><a href="/status/KNGCHECK,hodobox/">KNGCHECK</a></td>
+				<td align="left" width="14%"><a href="/status/NOCHANGE,hodobox/">NOCHANGE</a></td>
+				<td align="left" width="14%"><a href="/status/SABBIRGAME,hodobox/">SABBIRGAME</a></td>
+				<td align="left" width="14%"><a href="/status/UCBINTG,hodobox/">UCBINTG</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARRAYSUB,hodobox/">ARRAYSUB</a></td>
+				<td align="left" width="14%"><a href="/status/CT25C,hodobox/">CT25C</a></td>
+				<td align="left" width="14%"><a href="/status/GAME31,hodobox/">GAME31</a></td>
+				<td align="left" width="14%"><a href="/status/KNJIGE,hodobox/">KNJIGE</a></td>
+				<td align="left" width="14%"><a href="/status/NOSQ,hodobox/">NOSQ</a></td>
+				<td align="left" width="14%"><a href="/status/SACITY,hodobox/">SACITY</a></td>
+				<td align="left" width="14%"><a href="/status/UCBINTH,hodobox/">UCBINTH</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARRPRM,hodobox/">ARRPRM</a></td>
+				<td align="left" width="14%"><a href="/status/CTOI09_1,hodobox/">CTOI09_1</a></td>
+				<td align="left" width="14%"><a href="/status/GAMEFIL,hodobox/">GAMEFIL</a></td>
+				<td align="left" width="14%"><a href="/status/KNMD,hodobox/">KNMD</a></td>
+				<td align="left" width="14%"><a href="/status/NOTATRI,hodobox/">NOTATRI</a></td>
+				<td align="left" width="14%"><a href="/status/SAFECRAC,hodobox/">SAFECRAC</a></td>
+				<td align="left" width="14%"><a href="/status/UCI2009B,hodobox/">UCI2009B</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARTHEVAL,hodobox/">ARTHEVAL</a></td>
+				<td align="left" width="14%"><a href="/status/CUBARTWK,hodobox/">CUBARTWK</a></td>
+				<td align="left" width="14%"><a href="/status/GAMETIME,hodobox/">GAMETIME</a></td>
+				<td align="left" width="14%"><a href="/status/KNMOVE,hodobox/">KNMOVE</a></td>
+				<td align="left" width="14%"><a href="/status/NOVICE43,hodobox/">NOVICE43</a></td>
+				<td align="left" width="14%"><a href="/status/SALES,hodobox/">SALES</a></td>
+				<td align="left" width="14%"><a href="/status/UCV2013A,hodobox/">UCV2013A</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ASCDFIB,hodobox/">ASCDFIB</a></td>
+				<td align="left" width="14%"><a href="/status/CUBE,hodobox/">CUBE</a></td>
+				<td align="left" width="14%"><a href="/status/GARBAGE,hodobox/">GARBAGE</a></td>
+				<td align="left" width="14%"><a href="/status/KNPSACK,hodobox/">KNPSACK</a></td>
+				<td align="left" width="14%"><a href="/status/NOVICE62,hodobox/">NOVICE62</a></td>
+				<td align="left" width="14%"><a href="/status/SALMAN,hodobox/">SALMAN</a></td>
+				<td align="left" width="14%"><a href="/status/UCV2013C,hodobox/">UCV2013C</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ASSIST,hodobox/">ASSIST</a></td>
+				<td align="left" width="14%"><a href="/status/CUBEFR,hodobox/">CUBEFR</a></td>
+				<td align="left" width="14%"><a href="/status/GARDENAR,hodobox/">GARDENAR</a></td>
+				<td align="left" width="14%"><a href="/status/KOILINE,hodobox/">KOILINE</a></td>
+				<td align="left" width="14%"><a href="/status/NOVICE63,hodobox/">NOVICE63</a></td>
+				<td align="left" width="14%"><a href="/status/SAMER08A,hodobox/">SAMER08A</a></td>
+				<td align="left" width="14%"><a href="/status/UCV2013E,hodobox/">UCV2013E</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ATOMS,hodobox/">ATOMS</a></td>
+				<td align="left" width="14%"><a href="/status/CUBES,hodobox/">CUBES</a></td>
+				<td align="left" width="14%"><a href="/status/GASOLINE,hodobox/">GASOLINE</a></td>
+				<td align="left" width="14%"><a href="/status/KOIREP,hodobox/">KOIREP</a></td>
+				<td align="left" width="14%"><a href="/status/NOVICE65,hodobox/">NOVICE65</a></td>
+				<td align="left" width="14%"><a href="/status/SAMER08E,hodobox/">SAMER08E</a></td>
+				<td align="left" width="14%"><a href="/status/UCV2013H,hodobox/">UCV2013H</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AU7_5,hodobox/">AU7_5</a></td>
+				<td align="left" width="14%"><a href="/status/CUBNUM,hodobox/">CUBNUM</a></td>
+				<td align="left" width="14%"><a href="/status/GCD2,hodobox/">GCD2</a></td>
+				<td align="left" width="14%"><a href="/status/KOLICA,hodobox/">KOLICA</a></td>
+				<td align="left" width="14%"><a href="/status/NPC2014C,hodobox/">NPC2014C</a></td>
+				<td align="left" width="14%"><a href="/status/SAMER08F,hodobox/">SAMER08F</a></td>
+				<td align="left" width="14%"><a href="/status/UCV2013I,hodobox/">UCV2013I</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AUT,hodobox/">AUT</a></td>
+				<td align="left" width="14%"><a href="/status/CURDPROD,hodobox/">CURDPROD</a></td>
+				<td align="left" width="14%"><a href="/status/GCDS,hodobox/">GCDS</a></td>
+				<td align="left" width="14%"><a href="/status/KOMPICI,hodobox/">KOMPICI</a></td>
+				<td align="left" width="14%"><a href="/status/NPC2014F,hodobox/">NPC2014F</a></td>
+				<td align="left" width="14%"><a href="/status/SAMER08J,hodobox/">SAMER08J</a></td>
+				<td align="left" width="14%"><a href="/status/UCV2013J,hodobox/">UCV2013J</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AVCHESS,hodobox/">AVCHESS</a></td>
+				<td align="left" width="14%"><a href="/status/CUTCAKE,hodobox/">CUTCAKE</a></td>
+				<td align="left" width="14%"><a href="/status/GCDSQF,hodobox/">GCDSQF</a></td>
+				<td align="left" width="14%"><a href="/status/KOZE,hodobox/">KOZE</a></td>
+				<td align="left" width="14%"><a href="/status/NPC2015A,hodobox/">NPC2015A</a></td>
+				<td align="left" width="14%"><a href="/status/SAMTWARR,hodobox/">SAMTWARR</a></td>
+				<td align="left" width="14%"><a href="/status/UCV2013K,hodobox/">UCV2013K</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AVMG1,hodobox/">AVMG1</a></td>
+				<td align="left" width="14%"><a href="/status/CVJETICI,hodobox/">CVJETICI</a></td>
+				<td align="left" width="14%"><a href="/status/GCJ082A,hodobox/">GCJ082A</a></td>
+				<td align="left" width="14%"><a href="/status/KPRIMESB,hodobox/">KPRIMESB</a></td>
+				<td align="left" width="14%"><a href="/status/NPC2015B,hodobox/">NPC2015B</a></td>
+				<td align="left" width="14%"><a href="/status/SANTA1,hodobox/">SANTA1</a></td>
+				<td align="left" width="14%"><a href="/status/UFPR14D,hodobox/">UFPR14D</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/A_W_S_N,hodobox/">A_W_S_N</a></td>
+				<td align="left" width="14%"><a href="/status/CWB,hodobox/">CWB</a></td>
+				<td align="left" width="14%"><a href="/status/GCJ1C09A,hodobox/">GCJ1C09A</a></td>
+				<td align="left" width="14%"><a href="/status/KPURSUIT,hodobox/">KPURSUIT</a></td>
+				<td align="left" width="14%"><a href="/status/NPC2015D,hodobox/">NPC2015D</a></td>
+				<td align="left" width="14%"><a href="/status/SANTA2,hodobox/">SANTA2</a></td>
+				<td align="left" width="14%"><a href="/status/UJ01,hodobox/">UJ01</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BAD,hodobox/">BAD</a></td>
+				<td align="left" width="14%"><a href="/status/CWC2015,hodobox/">CWC2015</a></td>
+				<td align="left" width="14%"><a href="/status/GCJ1C09C,hodobox/">GCJ1C09C</a></td>
+				<td align="left" width="14%"><a href="/status/KROW,hodobox/">KROW</a></td>
+				<td align="left" width="14%"><a href="/status/NPC2016A,hodobox/">NPC2016A</a></td>
+				<td align="left" width="14%"><a href="/status/SANTA3,hodobox/">SANTA3</a></td>
+				<td align="left" width="14%"><a href="/status/ULM02,hodobox/">ULM02</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BADXOR,hodobox/">BADXOR</a></td>
+				<td align="left" width="14%"><a href="/status/CWORLD,hodobox/">CWORLD</a></td>
+				<td align="left" width="14%"><a href="/status/GCJ2012C,hodobox/">GCJ2012C</a></td>
+				<td align="left" width="14%"><a href="/status/KRUS,hodobox/">KRUS</a></td>
+				<td align="left" width="14%"><a href="/status/NR2,hodobox/">NR2</a></td>
+				<td align="left" width="14%"><a href="/status/SBACT,hodobox/">SBACT</a></td>
+				<td align="left" width="14%"><a href="/status/ULM09,hodobox/">ULM09</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BAISED,hodobox/">BAISED</a></td>
+				<td align="left" width="14%"><a href="/status/CZ_PROB1,hodobox/">CZ_PROB1</a></td>
+				<td align="left" width="14%"><a href="/status/GCPC11A,hodobox/">GCPC11A</a></td>
+				<td align="left" width="14%"><a href="/status/LABYR1,hodobox/">LABYR1</a></td>
+				<td align="left" width="14%"><a href="/status/NSQUARE,hodobox/">NSQUARE</a></td>
+				<td align="left" width="14%"><a href="/status/SBANK,hodobox/">SBANK</a></td>
+				<td align="left" width="14%"><a href="/status/UNHAPPY,hodobox/">UNHAPPY</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BALLOON,hodobox/">BALLOON</a></td>
+				<td align="left" width="14%"><a href="/status/DANDVIOL,hodobox/">DANDVIOL</a></td>
+				<td align="left" width="14%"><a href="/status/GCPC11B,hodobox/">GCPC11B</a></td>
+				<td align="left" width="14%"><a href="/status/LAGRANGE,hodobox/">LAGRANGE</a></td>
+				<td align="left" width="14%"><a href="/status/NSQUARE2,hodobox/">NSQUARE2</a></td>
+				<td align="left" width="14%"><a href="/status/SBO,hodobox/">SBO</a></td>
+				<td align="left" width="14%"><a href="/status/UOFTAB,hodobox/">UOFTAB</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BALLOT,hodobox/">BALLOT</a></td>
+				<td align="left" width="14%"><a href="/status/DARKASLT,hodobox/">DARKASLT</a></td>
+				<td align="left" width="14%"><a href="/status/GCPC11F,hodobox/">GCPC11F</a></td>
+				<td align="left" width="14%"><a href="/status/LARSUBP,hodobox/">LARSUBP</a></td>
+				<td align="left" width="14%"><a href="/status/NSTEPS,hodobox/">NSTEPS</a></td>
+				<td align="left" width="14%"><a href="/status/SC1,hodobox/">SC1</a></td>
+				<td align="left" width="14%"><a href="/status/UOFTAC,hodobox/">UOFTAC</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BALLSUM,hodobox/">BALLSUM</a></td>
+				<td align="left" width="14%"><a href="/status/DAVIDG,hodobox/">DAVIDG</a></td>
+				<td align="left" width="14%"><a href="/status/GCPC11J,hodobox/">GCPC11J</a></td>
+				<td align="left" width="14%"><a href="/status/LAS,hodobox/">LAS</a></td>
+				<td align="left" width="14%"><a href="/status/NUMOFPAL,hodobox/">NUMOFPAL</a></td>
+				<td align="left" width="14%"><a href="/status/SCALE,hodobox/">SCALE</a></td>
+				<td align="left" width="14%"><a href="/status/UOFTAD,hodobox/">UOFTAD</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BANDW,hodobox/">BANDW</a></td>
+				<td align="left" width="14%"><a href="/status/DCD,hodobox/">DCD</a></td>
+				<td align="left" width="14%"><a href="/status/GDCOFTI,hodobox/">GDCOFTI</a></td>
+				<td align="left" width="14%"><a href="/status/LASER,hodobox/">LASER</a></td>
+				<td align="left" width="14%"><a href="/status/NUMPATH,hodobox/">NUMPATH</a></td>
+				<td align="left" width="14%"><a href="/status/SCAVHUNT,hodobox/">SCAVHUNT</a></td>
+				<td align="left" width="14%"><a href="/status/UOFTAE,hodobox/">UOFTAE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BASE,hodobox/">BASE</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC11B,hodobox/">DCEPC11B</a></td>
+				<td align="left" width="14%"><a href="/status/GDIL,hodobox/">GDIL</a></td>
+				<td align="left" width="14%"><a href="/status/LASTDIG,hodobox/">LASTDIG</a></td>
+				<td align="left" width="14%"><a href="/status/NUMPLAY,hodobox/">NUMPLAY</a></td>
+				<td align="left" width="14%"><a href="/status/SCCCER,hodobox/">SCCCER</a></td>
+				<td align="left" width="14%"><a href="/status/UOFTBB,hodobox/">UOFTBB</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BAT3,hodobox/">BAT3</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC11C,hodobox/">DCEPC11C</a></td>
+				<td align="left" width="14%"><a href="/status/GEEKOUNT,hodobox/">GEEKOUNT</a></td>
+				<td align="left" width="14%"><a href="/status/LASTDIG2,hodobox/">LASTDIG2</a></td>
+				<td align="left" width="14%"><a href="/status/NUMTSN,hodobox/">NUMTSN</a></td>
+				<td align="left" width="14%"><a href="/status/SCPC11B,hodobox/">SCPC11B</a></td>
+				<td align="left" width="14%"><a href="/status/UOFTBC,hodobox/">UOFTBC</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BAT4,hodobox/">BAT4</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC11F,hodobox/">DCEPC11F</a></td>
+				<td align="left" width="14%"><a href="/status/GEM,hodobox/">GEM</a></td>
+				<td align="left" width="14%"><a href="/status/LASTSHOT,hodobox/">LASTSHOT</a></td>
+				<td align="left" width="14%"><a href="/status/NWERC10H,hodobox/">NWERC10H</a></td>
+				<td align="left" width="14%"><a href="/status/SCPC11F,hodobox/">SCPC11F</a></td>
+				<td align="left" width="14%"><a href="/status/UOFTBD,hodobox/">UOFTBD</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BCAKE,hodobox/">BCAKE</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC11I,hodobox/">DCEPC11I</a></td>
+				<td align="left" width="14%"><a href="/status/GEORGE,hodobox/">GEORGE</a></td>
+				<td align="left" width="14%"><a href="/status/LAWNMWR,hodobox/">LAWNMWR</a></td>
+				<td align="left" width="14%"><a href="/status/NWERC11C,hodobox/">NWERC11C</a></td>
+				<td align="left" width="14%"><a href="/status/SCPC11G,hodobox/">SCPC11G</a></td>
+				<td align="left" width="14%"><a href="/status/UOFTBE,hodobox/">UOFTBE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BDOI16A,hodobox/">BDOI16A</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC12E,hodobox/">DCEPC12E</a></td>
+				<td align="left" width="14%"><a href="/status/GERGOVIA,hodobox/">GERGOVIA</a></td>
+				<td align="left" width="14%"><a href="/status/LAZYPROG,hodobox/">LAZYPROG</a></td>
+				<td align="left" width="14%"><a href="/status/NWERC11H,hodobox/">NWERC11H</a></td>
+				<td align="left" width="14%"><a href="/status/SCUBADIV,hodobox/">SCUBADIV</a></td>
+				<td align="left" width="14%"><a href="/status/UOFTCC,hodobox/">UOFTCC</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BDOI16B,hodobox/">BDOI16B</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC12G,hodobox/">DCEPC12G</a></td>
+				<td align="left" width="14%"><a href="/status/GGD,hodobox/">GGD</a></td>
+				<td align="left" width="14%"><a href="/status/LCA,hodobox/">LCA</a></td>
+				<td align="left" width="14%"><a href="/status/NY10A,hodobox/">NY10A</a></td>
+				<td align="left" width="14%"><a href="/status/SEGFAULT,hodobox/">SEGFAULT</a></td>
+				<td align="left" width="14%"><a href="/status/UOFTCD,hodobox/">UOFTCD</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BDOI16C,hodobox/">BDOI16C</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC12H,hodobox/">DCEPC12H</a></td>
+				<td align="left" width="14%"><a href="/status/GIRLSNBS,hodobox/">GIRLSNBS</a></td>
+				<td align="left" width="14%"><a href="/status/LCM,hodobox/">LCM</a></td>
+				<td align="left" width="14%"><a href="/status/NY10C,hodobox/">NY10C</a></td>
+				<td align="left" width="14%"><a href="/status/SEGSQRSS,hodobox/">SEGSQRSS</a></td>
+				<td align="left" width="14%"><a href="/status/UOFTCE,hodobox/">UOFTCE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BEADS,hodobox/">BEADS</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC14A,hodobox/">DCEPC14A</a></td>
+				<td align="left" width="14%"><a href="/status/GIWED,hodobox/">GIWED</a></td>
+				<td align="left" width="14%"><a href="/status/LCPC11B,hodobox/">LCPC11B</a></td>
+				<td align="left" width="14%"><a href="/status/NY10D,hodobox/">NY10D</a></td>
+				<td align="left" width="14%"><a href="/status/SENSORNT,hodobox/">SENSORNT</a></td>
+				<td align="left" width="14%"><a href="/status/UOFTCF,hodobox/">UOFTCF</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BEENUMS,hodobox/">BEENUMS</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC202,hodobox/">DCEPC202</a></td>
+				<td align="left" width="14%"><a href="/status/GK,hodobox/">GK</a></td>
+				<td align="left" width="14%"><a href="/status/LCPC12C,hodobox/">LCPC12C</a></td>
+				<td align="left" width="14%"><a href="/status/ODDDIV,hodobox/">ODDDIV</a></td>
+				<td align="left" width="14%"><a href="/status/SEQ7,hodobox/">SEQ7</a></td>
+				<td align="left" width="14%"><a href="/status/UPDATEIT,hodobox/">UPDATEIT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BEHAPPY,hodobox/">BEHAPPY</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC206,hodobox/">DCEPC206</a></td>
+				<td align="left" width="14%"><a href="/status/GLJIVE,hodobox/">GLJIVE</a></td>
+				<td align="left" width="14%"><a href="/status/LCPC12D,hodobox/">LCPC12D</a></td>
+				<td align="left" width="14%"><a href="/status/ODWS,hodobox/">ODWS</a></td>
+				<td align="left" width="14%"><a href="/status/SEQUENCE,hodobox/">SEQUENCE</a></td>
+				<td align="left" width="14%"><a href="/status/URJC2_A,hodobox/">URJC2_A</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BENEFACT,hodobox/">BENEFACT</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC207,hodobox/">DCEPC207</a></td>
+				<td align="left" width="14%"><a href="/status/GNTFNTN,hodobox/">GNTFNTN</a></td>
+				<td align="left" width="14%"><a href="/status/LCPC12F,hodobox/">LCPC12F</a></td>
+				<td align="left" width="14%"><a href="/status/OFFSIDE,hodobox/">OFFSIDE</a></td>
+				<td align="left" width="14%"><a href="/status/SERGEARS,hodobox/">SERGEARS</a></td>
+				<td align="left" width="14%"><a href="/status/URJC2_E,hodobox/">URJC2_E</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BGSHOOT,hodobox/">BGSHOOT</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC501,hodobox/">DCEPC501</a></td>
+				<td align="left" width="14%"><a href="/status/GNYR04C,hodobox/">GNYR04C</a></td>
+				<td align="left" width="14%"><a href="/status/LCPC12H,hodobox/">LCPC12H</a></td>
+				<td align="left" width="14%"><a href="/status/OFFSTRAT,hodobox/">OFFSTRAT</a></td>
+				<td align="left" width="14%"><a href="/status/SERGRID,hodobox/">SERGRID</a></td>
+				<td align="left" width="14%"><a href="/status/URJC2_F,hodobox/">URJC2_F</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BHAT007,hodobox/">BHAT007</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC502,hodobox/">DCEPC502</a></td>
+				<td align="left" width="14%"><a href="/status/GOC11A,hodobox/">GOC11A</a></td>
+				<td align="left" width="14%"><a href="/status/LEXSTR,hodobox/">LEXSTR</a></td>
+				<td align="left" width="14%"><a href="/status/OHANISER,hodobox/">OHANISER</a></td>
+				<td align="left" width="14%"><a href="/status/SETNJA,hodobox/">SETNJA</a></td>
+				<td align="left" width="14%"><a href="/status/VACATION,hodobox/">VACATION</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BINGO,hodobox/">BINGO</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC504,hodobox/">DCEPC504</a></td>
+				<td align="left" width="14%"><a href="/status/GOIT,hodobox/">GOIT</a></td>
+				<td align="left" width="14%"><a href="/status/LFM,hodobox/">LFM</a></td>
+				<td align="left" width="14%"><a href="/status/OLOLO,hodobox/">OLOLO</a></td>
+				<td align="left" width="14%"><a href="/status/SETSTACK,hodobox/">SETSTACK</a></td>
+				<td align="left" width="14%"><a href="/status/VAPI01,hodobox/">VAPI01</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BINPRNUM,hodobox/">BINPRNUM</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC505,hodobox/">DCEPC505</a></td>
+				<td align="left" width="14%"><a href="/status/GOLDG,hodobox/">GOLDG</a></td>
+				<td align="left" width="14%"><a href="/status/LIFERACE,hodobox/">LIFERACE</a></td>
+				<td align="left" width="14%"><a href="/status/OMWG,hodobox/">OMWG</a></td>
+				<td align="left" width="14%"><a href="/status/SGAME,hodobox/">SGAME</a></td>
+				<td align="left" width="14%"><a href="/status/VBOSS,hodobox/">VBOSS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BINSTIRL,hodobox/">BINSTIRL</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC701,hodobox/">DCEPC701</a></td>
+				<td align="left" width="14%"><a href="/status/GONDOR,hodobox/">GONDOR</a></td>
+				<td align="left" width="14%"><a href="/status/LINES,hodobox/">LINES</a></td>
+				<td align="left" width="14%"><a href="/status/ONP,hodobox/">ONP</a></td>
+				<td align="left" width="14%"><a href="/status/SGIFT,hodobox/">SGIFT</a></td>
+				<td align="left" width="14%"><a href="/status/VDATE,hodobox/">VDATE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BIO1,hodobox/">BIO1</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC706,hodobox/">DCEPC706</a></td>
+				<td align="left" width="14%"><a href="/status/GONE,hodobox/">GONE</a></td>
+				<td align="left" width="14%"><a href="/status/LINEUP,hodobox/">LINEUP</a></td>
+				<td align="left" width="14%"><a href="/status/OPBIT,hodobox/">OPBIT</a></td>
+				<td align="left" width="14%"><a href="/status/SHAHBG,hodobox/">SHAHBG</a></td>
+				<td align="left" width="14%"><a href="/status/VECTAR10,hodobox/">VECTAR10</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BIRD,hodobox/">BIRD</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC803,hodobox/">DCEPC803</a></td>
+				<td align="left" width="14%"><a href="/status/GONESORT,hodobox/">GONESORT</a></td>
+				<td align="left" width="14%"><a href="/status/LITE,hodobox/">LITE</a></td>
+				<td align="left" width="14%"><a href="/status/OPCPIZZA,hodobox/">OPCPIZZA</a></td>
+				<td align="left" width="14%"><a href="/status/SHAKTI,hodobox/">SHAKTI</a></td>
+				<td align="left" width="14%"><a href="/status/VECTAR11,hodobox/">VECTAR11</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BIT2,hodobox/">BIT2</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC807,hodobox/">DCEPC807</a></td>
+				<td align="left" width="14%"><a href="/status/GOO,hodobox/">GOO</a></td>
+				<td align="left" width="14%"><a href="/status/LKS,hodobox/">LKS</a></td>
+				<td align="left" width="14%"><a href="/status/OPTSUB,hodobox/">OPTSUB</a></td>
+				<td align="left" width="14%"><a href="/status/SHANGUL,hodobox/">SHANGUL</a></td>
+				<td align="left" width="14%"><a href="/status/VECTAR12,hodobox/">VECTAR12</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BITDIFF,hodobox/">BITDIFF</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC810,hodobox/">DCEPC810</a></td>
+				<td align="left" width="14%"><a href="/status/GOODB,hodobox/">GOODB</a></td>
+				<td align="left" width="14%"><a href="/status/LLCA,hodobox/">LLCA</a></td>
+				<td align="left" width="14%"><a href="/status/ORDERS,hodobox/">ORDERS</a></td>
+				<td align="left" width="14%"><a href="/status/SHELL,hodobox/">SHELL</a></td>
+				<td align="left" width="14%"><a href="/status/VECTAR13,hodobox/">VECTAR13</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BITMAP,hodobox/">BITMAP</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPCA02,hodobox/">DCEPCA02</a></td>
+				<td align="left" width="14%"><a href="/status/GOODC,hodobox/">GOODC</a></td>
+				<td align="left" width="14%"><a href="/status/LOGIC,hodobox/">LOGIC</a></td>
+				<td align="left" width="14%"><a href="/status/ORDSUM23,hodobox/">ORDSUM23</a></td>
+				<td align="left" width="14%"><a href="/status/SHILL,hodobox/">SHILL</a></td>
+				<td align="left" width="14%"><a href="/status/VECTAR5,hodobox/">VECTAR5</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BITPLAY,hodobox/">BITPLAY</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPCA04,hodobox/">DCEPCA04</a></td>
+				<td align="left" width="14%"><a href="/status/GOODD,hodobox/">GOODD</a></td>
+				<td align="left" width="14%"><a href="/status/LONGCS,hodobox/">LONGCS</a></td>
+				<td align="left" width="14%"><a href="/status/ORGNZ,hodobox/">ORGNZ</a></td>
+				<td align="left" width="14%"><a href="/status/SHLIGHTS,hodobox/">SHLIGHTS</a></td>
+				<td align="left" width="14%"><a href="/status/VECTAR7,hodobox/">VECTAR7</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BLACKOUT,hodobox/">BLACKOUT</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPCA09,hodobox/">DCEPCA09</a></td>
+				<td align="left" width="14%"><a href="/status/GOODE,hodobox/">GOODE</a></td>
+				<td align="left" width="14%"><a href="/status/LOPOV,hodobox/">LOPOV</a></td>
+				<td align="left" width="14%"><a href="/status/ORIGLIFE,hodobox/">ORIGLIFE</a></td>
+				<td align="left" width="14%"><a href="/status/SHOP,hodobox/">SHOP</a></td>
+				<td align="left" width="14%"><a href="/status/VECTAR8,hodobox/">VECTAR8</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BLKEK,hodobox/">BLKEK</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPCA10,hodobox/">DCEPCA10</a></td>
+				<td align="left" width="14%"><a href="/status/GOODF,hodobox/">GOODF</a></td>
+				<td align="left" width="14%"><a href="/status/LOSTNSURVIVED,hodobox/">LOSTNSURVIVED</a></td>
+				<td align="left" width="14%"><a href="/status/PAIRSUM,hodobox/">PAIRSUM</a></td>
+				<td align="left" width="14%"><a href="/status/SHOPPERS,hodobox/">SHOPPERS</a></td>
+				<td align="left" width="14%"><a href="/status/VECTAR9,hodobox/">VECTAR9</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BLOCK,hodobox/">BLOCK</a></td>
+				<td align="left" width="14%"><a href="/status/DCRYPT,hodobox/">DCRYPT</a></td>
+				<td align="left" width="14%"><a href="/status/GOODH,hodobox/">GOODH</a></td>
+				<td align="left" width="14%"><a href="/status/LOVINGPW,hodobox/">LOVINGPW</a></td>
+				<td align="left" width="14%"><a href="/status/PALACE,hodobox/">PALACE</a></td>
+				<td align="left" width="14%"><a href="/status/SHPATH,hodobox/">SHPATH</a></td>
+				<td align="left" width="14%"><a href="/status/VERODOOM,hodobox/">VERODOOM</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BLOPER,hodobox/">BLOPER</a></td>
+				<td align="left" width="14%"><a href="/status/DEFKIN,hodobox/">DEFKIN</a></td>
+				<td align="left" width="14%"><a href="/status/GOPI_SW,hodobox/">GOPI_SW</a></td>
+				<td align="left" width="14%"><a href="/status/LPIS,hodobox/">LPIS</a></td>
+				<td align="left" width="14%"><a href="/status/PANCAKES,hodobox/">PANCAKES</a></td>
+				<td align="left" width="14%"><a href="/status/SHUB1307,hodobox/">SHUB1307</a></td>
+				<td align="left" width="14%"><a href="/status/VHELSING,hodobox/">VHELSING</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BLUNIQ,hodobox/">BLUNIQ</a></td>
+				<td align="left" width="14%"><a href="/status/DEFKIN2,hodobox/">DEFKIN2</a></td>
+				<td align="left" width="14%"><a href="/status/GORELIAN,hodobox/">GORELIAN</a></td>
+				<td align="left" width="14%"><a href="/status/LQDCANDY,hodobox/">LQDCANDY</a></td>
+				<td align="left" width="14%"><a href="/status/PARKET1,hodobox/">PARKET1</a></td>
+				<td align="left" width="14%"><a href="/status/SICRANO,hodobox/">SICRANO</a></td>
+				<td align="left" width="14%"><a href="/status/VHUFFM,hodobox/">VHUFFM</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOARD1,hodobox/">BOARD1</a></td>
+				<td align="left" width="14%"><a href="/status/DELIVER,hodobox/">DELIVER</a></td>
+				<td align="left" width="14%"><a href="/status/GR,hodobox/">GR</a></td>
+				<td align="left" width="14%"><a href="/status/LUCKYNUM,hodobox/">LUCKYNUM</a></td>
+				<td align="left" width="14%"><a href="/status/PARKINGL,hodobox/">PARKINGL</a></td>
+				<td align="left" width="14%"><a href="/status/SILVER,hodobox/">SILVER</a></td>
+				<td align="left" width="14%"><a href="/status/VISIBLEBOX,hodobox/">VISIBLEBOX</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOBERT,hodobox/">BOBERT</a></td>
+				<td align="left" width="14%"><a href="/status/DEPEND,hodobox/">DEPEND</a></td>
+				<td align="left" width="14%"><a href="/status/GRAFFTRI,hodobox/">GRAFFTRI</a></td>
+				<td align="left" width="14%"><a href="/status/LVADER,hodobox/">LVADER</a></td>
+				<td align="left" width="14%"><a href="/status/PARSUMS,hodobox/">PARSUMS</a></td>
+				<td align="left" width="14%"><a href="/status/SINEGGS,hodobox/">SINEGGS</a></td>
+				<td align="left" width="14%"><a href="/status/VPL0_A,hodobox/">VPL0_A</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOCOMP,hodobox/">BOCOMP</a></td>
+				<td align="left" width="14%"><a href="/status/DESRUG,hodobox/">DESRUG</a></td>
+				<td align="left" width="14%"><a href="/status/GRAPHGAM,hodobox/">GRAPHGAM</a></td>
+				<td align="left" width="14%"><a href="/status/M00PAIR,hodobox/">M00PAIR</a></td>
+				<td align="left" width="14%"><a href="/status/PARTSUM,hodobox/">PARTSUM</a></td>
+				<td align="left" width="14%"><a href="/status/SKY,hodobox/">SKY</a></td>
+				<td align="left" width="14%"><a href="/status/VPL0_B,hodobox/">VPL0_B</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOGGLE,hodobox/">BOGGLE</a></td>
+				<td align="left" width="14%"><a href="/status/DICT,hodobox/">DICT</a></td>
+				<td align="left" width="14%"><a href="/status/GRC,hodobox/">GRC</a></td>
+				<td align="left" width="14%"><a href="/status/MABJ,hodobox/">MABJ</a></td>
+				<td align="left" width="14%"><a href="/status/PARTY,hodobox/">PARTY</a></td>
+				<td align="left" width="14%"><a href="/status/SLIDE,hodobox/">SLIDE</a></td>
+				<td align="left" width="14%"><a href="/status/VPL0_C,hodobox/">VPL0_C</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOI7SOU,hodobox/">BOI7SOU</a></td>
+				<td align="left" width="14%"><a href="/status/DIEHARD,hodobox/">DIEHARD</a></td>
+				<td align="left" width="14%"><a href="/status/GREAT_E,hodobox/">GREAT_E</a></td>
+				<td align="left" width="14%"><a href="/status/MADN,hodobox/">MADN</a></td>
+				<td align="left" width="14%"><a href="/status/PATHEADS,hodobox/">PATHEADS</a></td>
+				<td align="left" width="14%"><a href="/status/SLIKAR,hodobox/">SLIKAR</a></td>
+				<td align="left" width="14%"><a href="/status/VPL1_AA,hodobox/">VPL1_AA</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOKAM143SOU,hodobox/">BOKAM143SOU</a></td>
+				<td align="left" width="14%"><a href="/status/DIFERENC,hodobox/">DIFERENC</a></td>
+				<td align="left" width="14%"><a href="/status/GRIMM,hodobox/">GRIMM</a></td>
+				<td align="left" width="14%"><a href="/status/MAIN111,hodobox/">MAIN111</a></td>
+				<td align="left" width="14%"><a href="/status/PATHGAME,hodobox/">PATHGAME</a></td>
+				<td align="left" width="14%"><a href="/status/SMALL,hodobox/">SMALL</a></td>
+				<td align="left" width="14%"><a href="/status/VPL1_AB,hodobox/">VPL1_AB</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOMARBLE,hodobox/">BOMARBLE</a></td>
+				<td align="left" width="14%"><a href="/status/DIFFDIAG,hodobox/">DIFFDIAG</a></td>
+				<td align="left" width="14%"><a href="/status/GRUPVIVA,hodobox/">GRUPVIVA</a></td>
+				<td align="left" width="14%"><a href="/status/MAIN112,hodobox/">MAIN112</a></td>
+				<td align="left" width="14%"><a href="/status/PCLNMBR,hodobox/">PCLNMBR</a></td>
+				<td align="left" width="14%"><a href="/status/SMALLM,hodobox/">SMALLM</a></td>
+				<td align="left" width="14%"><a href="/status/VPL2_AC,hodobox/">VPL2_AC</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOMB2,hodobox/">BOMB2</a></td>
+				<td align="left" width="14%"><a href="/status/DIGCNT,hodobox/">DIGCNT</a></td>
+				<td align="left" width="14%"><a href="/status/GSHOP,hodobox/">GSHOP</a></td>
+				<td align="left" width="14%"><a href="/status/MAIN113,hodobox/">MAIN113</a></td>
+				<td align="left" width="14%"><a href="/status/PCPC12D,hodobox/">PCPC12D</a></td>
+				<td align="left" width="14%"><a href="/status/SMARIO,hodobox/">SMARIO</a></td>
+				<td align="left" width="14%"><a href="/status/VPL2_AD,hodobox/">VPL2_AD</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOMBER1,hodobox/">BOMBER1</a></td>
+				<td align="left" width="14%"><a href="/status/DIGNUM,hodobox/">DIGNUM</a></td>
+				<td align="left" width="14%"><a href="/status/GSMATRIX,hodobox/">GSMATRIX</a></td>
+				<td align="left" width="14%"><a href="/status/MAIN12A,hodobox/">MAIN12A</a></td>
+				<td align="left" width="14%"><a href="/status/PCPC12E,hodobox/">PCPC12E</a></td>
+				<td align="left" width="14%"><a href="/status/SMILEY1807,hodobox/">SMILEY1807</a></td>
+				<td align="left" width="14%"><a href="/status/VPL2_BC,hodobox/">VPL2_BC</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOOK,hodobox/">BOOK</a></td>
+				<td align="left" width="14%"><a href="/status/DIGOKEYS,hodobox/">DIGOKEYS</a></td>
+				<td align="left" width="14%"><a href="/status/GUANGGUN,hodobox/">GUANGGUN</a></td>
+				<td align="left" width="14%"><a href="/status/MAIN12B,hodobox/">MAIN12B</a></td>
+				<td align="left" width="14%"><a href="/status/PCPC12J,hodobox/">PCPC12J</a></td>
+				<td align="left" width="14%"><a href="/status/SNGCP,hodobox/">SNGCP</a></td>
+				<td align="left" width="14%"><a href="/status/VUDBOL7,hodobox/">VUDBOL7</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOOKWORM,hodobox/">BOOKWORM</a></td>
+				<td align="left" width="14%"><a href="/status/DINOSM,hodobox/">DINOSM</a></td>
+				<td align="left" width="14%"><a href="/status/GUERNICA,hodobox/">GUERNICA</a></td>
+				<td align="left" width="14%"><a href="/status/MAIN72,hodobox/">MAIN72</a></td>
+				<td align="left" width="14%"><a href="/status/PEBBLE,hodobox/">PEBBLE</a></td>
+				<td align="left" width="14%"><a href="/status/SNGDIV69,hodobox/">SNGDIV69</a></td>
+				<td align="left" width="14%"><a href="/status/WACHOVIA,hodobox/">WACHOVIA</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOPERISH,hodobox/">BOPERISH</a></td>
+				<td align="left" width="14%"><a href="/status/DISNEY,hodobox/">DISNEY</a></td>
+				<td align="left" width="14%"><a href="/status/GUESSING,hodobox/">GUESSING</a></td>
+				<td align="left" width="14%"><a href="/status/MAIN8_C,hodobox/">MAIN8_C</a></td>
+				<td align="left" width="14%"><a href="/status/PERIOD2,hodobox/">PERIOD2</a></td>
+				<td align="left" width="14%"><a href="/status/SNGGW,hodobox/">SNGGW</a></td>
+				<td align="left" width="14%"><a href="/status/WAGE,hodobox/">WAGE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOTTOM,hodobox/">BOTTOM</a></td>
+				<td align="left" width="14%"><a href="/status/DISQUERY,hodobox/">DISQUERY</a></td>
+				<td align="left" width="14%"><a href="/status/GUESSNM2,hodobox/">GUESSNM2</a></td>
+				<td align="left" width="14%"><a href="/status/MAIN8_E,hodobox/">MAIN8_E</a></td>
+				<td align="left" width="14%"><a href="/status/PERMCODE,hodobox/">PERMCODE</a></td>
+				<td align="left" width="14%"><a href="/status/SNGINT,hodobox/">SNGINT</a></td>
+				<td align="left" width="14%"><a href="/status/WAL3A,hodobox/">WAL3A</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOXLINGS,hodobox/">BOXLINGS</a></td>
+				<td align="left" width="14%"><a href="/status/DISTO,hodobox/">DISTO</a></td>
+				<td align="left" width="14%"><a href="/status/GUESSTHE,hodobox/">GUESSTHE</a></td>
+				<td align="left" width="14%"><a href="/status/MAJOR,hodobox/">MAJOR</a></td>
+				<td align="left" width="14%"><a href="/status/PERMUT2,hodobox/">PERMUT2</a></td>
+				<td align="left" width="14%"><a href="/status/SNGMSG,hodobox/">SNGMSG</a></td>
+				<td align="left" width="14%"><a href="/status/WALK1,hodobox/">WALK1</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOXSCHOC,hodobox/">BOXSCHOC</a></td>
+				<td align="left" width="14%"><a href="/status/DIV,hodobox/">DIV</a></td>
+				<td align="left" width="14%"><a href="/status/GUMATH2,hodobox/">GUMATH2</a></td>
+				<td align="left" width="14%"><a href="/status/MAJSTOR,hodobox/">MAJSTOR</a></td>
+				<td align="left" width="14%"><a href="/status/PETYABRO,hodobox/">PETYABRO</a></td>
+				<td align="left" width="14%"><a href="/status/SNGPG,hodobox/">SNGPG</a></td>
+				<td align="left" width="14%"><a href="/status/WALKROBO,hodobox/">WALKROBO</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BRIDGES2,hodobox/">BRIDGES2</a></td>
+				<td align="left" width="14%"><a href="/status/DIV2,hodobox/">DIV2</a></td>
+				<td align="left" width="14%"><a href="/status/HACKERS,hodobox/">HACKERS</a></td>
+				<td align="left" width="14%"><a href="/status/MAKEMAZE,hodobox/">MAKEMAZE</a></td>
+				<td align="left" width="14%"><a href="/status/PFDEP,hodobox/">PFDEP</a></td>
+				<td align="left" width="14%"><a href="/status/SOCNETC,hodobox/">SOCNETC</a></td>
+				<td align="left" width="14%"><a href="/status/WEBISL,hodobox/">WEBISL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BRODOVI,hodobox/">BRODOVI</a></td>
+				<td align="left" width="14%"><a href="/status/DIVFACT,hodobox/">DIVFACT</a></td>
+				<td align="left" width="14%"><a href="/status/HACKING,hodobox/">HACKING</a></td>
+				<td align="left" width="14%"><a href="/status/MAKETREE,hodobox/">MAKETREE</a></td>
+				<td align="left" width="14%"><a href="/status/PFND,hodobox/">PFND</a></td>
+				<td align="left" width="14%"><a href="/status/SOLDIERS,hodobox/">SOLDIERS</a></td>
+				<td align="left" width="14%"><a href="/status/WEIGHT3,hodobox/">WEIGHT3</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BROKEN,hodobox/">BROKEN</a></td>
+				<td align="left" width="14%"><a href="/status/DIVFIBS,hodobox/">DIVFIBS</a></td>
+				<td align="left" width="14%"><a href="/status/HACKRNDM,hodobox/">HACKRNDM</a></td>
+				<td align="left" width="14%"><a href="/status/MANGOES,hodobox/">MANGOES</a></td>
+				<td align="left" width="14%"><a href="/status/PFORLOOP,hodobox/">PFORLOOP</a></td>
+				<td align="left" width="14%"><a href="/status/SOLIT,hodobox/">SOLIT</a></td>
+				<td align="left" width="14%"><a href="/status/WILLITST,hodobox/">WILLITST</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BRTREE,hodobox/">BRTREE</a></td>
+				<td align="left" width="14%"><a href="/status/DIVISION,hodobox/">DIVISION</a></td>
+				<td align="left" width="14%"><a href="/status/HALCAND,hodobox/">HALCAND</a></td>
+				<td align="left" width="14%"><a href="/status/MARKUP,hodobox/">MARKUP</a></td>
+				<td align="left" width="14%"><a href="/status/PHONELST,hodobox/">PHONELST</a></td>
+				<td align="left" width="14%"><a href="/status/SOLVEIT,hodobox/">SOLVEIT</a></td>
+				<td align="left" width="14%"><a href="/status/WINDVANE,hodobox/">WINDVANE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BSHIP,hodobox/">BSHIP</a></td>
+				<td align="left" width="14%"><a href="/status/DIVSEQ,hodobox/">DIVSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/HALLOW,hodobox/">HALLOW</a></td>
+				<td align="left" width="14%"><a href="/status/MARSCOL,hodobox/">MARSCOL</a></td>
+				<td align="left" width="14%"><a href="/status/PHONY,hodobox/">PHONY</a></td>
+				<td align="left" width="14%"><a href="/status/SORTMAC,hodobox/">SORTMAC</a></td>
+				<td align="left" width="14%"><a href="/status/WONOWON,hodobox/">WONOWON</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BSMATH1,hodobox/">BSMATH1</a></td>
+				<td align="left" width="14%"><a href="/status/DIVSUM2,hodobox/">DIVSUM2</a></td>
+				<td align="left" width="14%"><a href="/status/HANDS,hodobox/">HANDS</a></td>
+				<td align="left" width="14%"><a href="/status/MARYBMW,hodobox/">MARYBMW</a></td>
+				<td align="left" width="14%"><a href="/status/PHRASES,hodobox/">PHRASES</a></td>
+				<td align="left" width="14%"><a href="/status/SORTMUCH,hodobox/">SORTMUCH</a></td>
+				<td align="left" width="14%"><a href="/status/WORDCNT,hodobox/">WORDCNT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BSPRIME,hodobox/">BSPRIME</a></td>
+				<td align="left" width="14%"><a href="/status/DIXDOOM,hodobox/">DIXDOOM</a></td>
+				<td align="left" width="14%"><a href="/status/HANGOVER,hodobox/">HANGOVER</a></td>
+				<td align="left" width="14%"><a href="/status/MATHII,hodobox/">MATHII</a></td>
+				<td align="left" width="14%"><a href="/status/PHT,hodobox/">PHT</a></td>
+				<td align="left" width="14%"><a href="/status/SPACEBRG,hodobox/">SPACEBRG</a></td>
+				<td align="left" width="14%"><a href="/status/WORDCNT2,hodobox/">WORDCNT2</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BST,hodobox/">BST</a></td>
+				<td align="left" width="14%"><a href="/status/DNPALIN,hodobox/">DNPALIN</a></td>
+				<td align="left" width="14%"><a href="/status/HAP01,hodobox/">HAP01</a></td>
+				<td align="left" width="14%"><a href="/status/MATHLOVE,hodobox/">MATHLOVE</a></td>
+				<td align="left" width="14%"><a href="/status/PIHU1,hodobox/">PIHU1</a></td>
+				<td align="left" width="14%"><a href="/status/SPACESET,hodobox/">SPACESET</a></td>
+				<td align="left" width="14%"><a href="/status/WORDEQ,hodobox/">WORDEQ</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BTCODE_C,hodobox/">BTCODE_C</a></td>
+				<td align="left" width="14%"><a href="/status/DOCTOR,hodobox/">DOCTOR</a></td>
+				<td align="left" width="14%"><a href="/status/HAPPYTL,hodobox/">HAPPYTL</a></td>
+				<td align="left" width="14%"><a href="/status/MATNUM,hodobox/">MATNUM</a></td>
+				<td align="left" width="14%"><a href="/status/PIZZALOC,hodobox/">PIZZALOC</a></td>
+				<td align="left" width="14%"><a href="/status/SPCE,hodobox/">SPCE</a></td>
+				<td align="left" width="14%"><a href="/status/WORMS,hodobox/">WORMS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BTCODE_D,hodobox/">BTCODE_D</a></td>
+				<td align="left" width="14%"><a href="/status/DOL,hodobox/">DOL</a></td>
+				<td align="left" width="14%"><a href="/status/HARISH_PUZZLE,hodobox/">HARISH_PUZZLE</a></td>
+				<td align="left" width="14%"><a href="/status/MAUMAU,hodobox/">MAUMAU</a></td>
+				<td align="left" width="14%"><a href="/status/PLNDROME,hodobox/">PLNDROME</a></td>
+				<td align="left" width="14%"><a href="/status/SPCM,hodobox/">SPCM</a></td>
+				<td align="left" width="14%"><a href="/status/WOWSUBSTR,hodobox/">WOWSUBSTR</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BTCODE_F,hodobox/">BTCODE_F</a></td>
+				<td align="left" width="14%"><a href="/status/DOMINST,hodobox/">DOMINST</a></td>
+				<td align="left" width="14%"><a href="/status/HAROWS,hodobox/">HAROWS</a></td>
+				<td align="left" width="14%"><a href="/status/MAWORK,hodobox/">MAWORK</a></td>
+				<td align="left" width="14%"><a href="/status/PLNDTREE,hodobox/">PLNDTREE</a></td>
+				<td align="left" width="14%"><a href="/status/SPCO,hodobox/">SPCO</a></td>
+				<td align="left" width="14%"><a href="/status/WOWSUBSTR2,hodobox/">WOWSUBSTR2</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BUBBLESORT,hodobox/">BUBBLESORT</a></td>
+				<td align="left" width="14%"><a href="/status/DONALDO,hodobox/">DONALDO</a></td>
+				<td align="left" width="14%"><a href="/status/HARSHAD,hodobox/">HARSHAD</a></td>
+				<td align="left" width="14%"><a href="/status/MAXGRITH,hodobox/">MAXGRITH</a></td>
+				<td align="left" width="14%"><a href="/status/PLUS,hodobox/">PLUS</a></td>
+				<td align="left" width="14%"><a href="/status/SPCQ,hodobox/">SPCQ</a></td>
+				<td align="left" width="14%"><a href="/status/WPC4F,hodobox/">WPC4F</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BUGLIFE,hodobox/">BUGLIFE</a></td>
+				<td align="left" width="14%"><a href="/status/DOTAA,hodobox/">DOTAA</a></td>
+				<td align="left" width="14%"><a href="/status/HARSTR,hodobox/">HARSTR</a></td>
+				<td align="left" width="14%"><a href="/status/MAXLN,hodobox/">MAXLN</a></td>
+				<td align="left" width="14%"><a href="/status/PLUSEVI,hodobox/">PLUSEVI</a></td>
+				<td align="left" width="14%"><a href="/status/SPCS,hodobox/">SPCS</a></td>
+				<td align="left" width="14%"><a href="/status/WPC5A,hodobox/">WPC5A</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BUILDTOW,hodobox/">BUILDTOW</a></td>
+				<td align="left" width="14%"><a href="/status/DOUBLEVI,hodobox/">DOUBLEVI</a></td>
+				<td align="left" width="14%"><a href="/status/HASHIT,hodobox/">HASHIT</a></td>
+				<td align="left" width="14%"><a href="/status/MAXRAD,hodobox/">MAXRAD</a></td>
+				<td align="left" width="14%"><a href="/status/POCRI,hodobox/">POCRI</a></td>
+				<td align="left" width="14%"><a href="/status/SPCU,hodobox/">SPCU</a></td>
+				<td align="left" width="14%"><a href="/status/WPC5I,hodobox/">WPC5I</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BUREAU,hodobox/">BUREAU</a></td>
+				<td align="left" width="14%"><a href="/status/DP,hodobox/">DP</a></td>
+				<td align="left" width="14%"><a href="/status/HAYBALE,hodobox/">HAYBALE</a></td>
+				<td align="left" width="14%"><a href="/status/MAXSUB,hodobox/">MAXSUB</a></td>
+				<td align="left" width="14%"><a href="/status/POKER,hodobox/">POKER</a></td>
+				<td align="left" width="14%"><a href="/status/SPEC_SET,hodobox/">SPEC_SET</a></td>
+				<td align="left" width="14%"><a href="/status/XYI,hodobox/">XYI</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BURGLARY,hodobox/">BURGLARY</a></td>
+				<td align="left" width="14%"><a href="/status/DRACULA,hodobox/">DRACULA</a></td>
+				<td align="left" width="14%"><a href="/status/HC,hodobox/">HC</a></td>
+				<td align="left" width="14%"><a href="/status/MAXSUMSQ,hodobox/">MAXSUMSQ</a></td>
+				<td align="left" width="14%"><a href="/status/POLCONST,hodobox/">POLCONST</a></td>
+				<td align="left" width="14%"><a href="/status/SPEED,hodobox/">SPEED</a></td>
+				<td align="left" width="14%"><a href="/status/YAPP,hodobox/">YAPP</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BUSINESS,hodobox/">BUSINESS</a></td>
+				<td align="left" width="14%"><a href="/status/DRAWIT,hodobox/">DRAWIT</a></td>
+				<td align="left" width="14%"><a href="/status/HC12,hodobox/">HC12</a></td>
+				<td align="left" width="14%"><a href="/status/MAXWOODS,hodobox/">MAXWOODS</a></td>
+				<td align="left" width="14%"><a href="/status/POLICEMEN,hodobox/">POLICEMEN</a></td>
+				<td align="left" width="14%"><a href="/status/SPIDY,hodobox/">SPIDY</a></td>
+				<td align="left" width="14%"><a href="/status/YASSP,hodobox/">YASSP</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BUSYMAN,hodobox/">BUSYMAN</a></td>
+				<td align="left" width="14%"><a href="/status/DRAWM,hodobox/">DRAWM</a></td>
+				<td align="left" width="14%"><a href="/status/HDEVIL,hodobox/">HDEVIL</a></td>
+				<td align="left" width="14%"><a href="/status/MAXXOR,hodobox/">MAXXOR</a></td>
+				<td align="left" width="14%"><a href="/status/POLYNOM,hodobox/">POLYNOM</a></td>
+				<td align="left" width="14%"><a href="/status/SPIKES,hodobox/">SPIKES</a></td>
+				<td align="left" width="14%"><a href="/status/YELBRICK,hodobox/">YELBRICK</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BUYINT,hodobox/">BUYINT</a></td>
+				<td align="left" width="14%"><a href="/status/DRUIDEOI,hodobox/">DRUIDEOI</a></td>
+				<td align="left" width="14%"><a href="/status/HEADSHOT,hodobox/">HEADSHOT</a></td>
+				<td align="left" width="14%"><a href="/status/MAX_NUM,hodobox/">MAX_NUM</a></td>
+				<td align="left" width="14%"><a href="/status/PON,hodobox/">PON</a></td>
+				<td align="left" width="14%"><a href="/status/SPIRALGR,hodobox/">SPIRALGR</a></td>
+				<td align="left" width="14%"><a href="/status/YOUWIN,hodobox/">YOUWIN</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BUZZW,hodobox/">BUZZW</a></td>
+				<td align="left" width="14%"><a href="/status/DSH,hodobox/">DSH</a></td>
+				<td align="left" width="14%"><a href="/status/HEISLAZY,hodobox/">HEISLAZY</a></td>
+				<td align="left" width="14%"><a href="/status/MAY99_1,hodobox/">MAY99_1</a></td>
+				<td align="left" width="14%"><a href="/status/PONY1,hodobox/">PONY1</a></td>
+				<td align="left" width="14%"><a href="/status/SPLITS,hodobox/">SPLITS</a></td>
+				<td align="left" width="14%"><a href="/status/YOYOCQM,hodobox/">YOYOCQM</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BVAAN,hodobox/">BVAAN</a></td>
+				<td align="left" width="14%"><a href="/status/DSWEETS,hodobox/">DSWEETS</a></td>
+				<td align="left" width="14%"><a href="/status/HELPBOB,hodobox/">HELPBOB</a></td>
+				<td align="left" width="14%"><a href="/status/MAY99_2,hodobox/">MAY99_2</a></td>
+				<td align="left" width="14%"><a href="/status/PONY4,hodobox/">PONY4</a></td>
+				<td align="left" width="14%"><a href="/status/SQ2SQ,hodobox/">SQ2SQ</a></td>
+				<td align="left" width="14%"><a href="/status/ZCR,hodobox/">ZCR</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BWB,hodobox/">BWB</a></td>
+				<td align="left" width="14%"><a href="/status/DTRAP,hodobox/">DTRAP</a></td>
+				<td align="left" width="14%"><a href="/status/HELPBTW,hodobox/">HELPBTW</a></td>
+				<td align="left" width="14%"><a href="/status/MAY99_3,hodobox/">MAY99_3</a></td>
+				<td align="left" width="14%"><a href="/status/PONY8,hodobox/">PONY8</a></td>
+				<td align="left" width="14%"><a href="/status/SQFREE,hodobox/">SQFREE</a></td>
+				<td align="left" width="14%"><a href="/status/ZNANSTVE,hodobox/">ZNANSTVE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BWIDOW,hodobox/">BWIDOW</a></td>
+				<td align="left" width="14%"><a href="/status/DTT,hodobox/">DTT</a></td>
+				<td align="left" width="14%"><a href="/status/HELPDONN,hodobox/">HELPDONN</a></td>
+				<td align="left" width="14%"><a href="/status/MAY99_4,hodobox/">MAY99_4</a></td>
+				<td align="left" width="14%"><a href="/status/POSTERIN,hodobox/">POSTERIN</a></td>
+				<td align="left" width="14%"><a href="/status/SQRMINSUM,hodobox/">SQRMINSUM</a></td>
+				<td align="left" width="14%"><a href="/status/ZTC,hodobox/">ZTC</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BYECAKES,hodobox/">BYECAKES</a></td>
+				<td align="left" width="14%"><a href="/status/DTWW,hodobox/">DTWW</a></td>
+				<td align="left" width="14%"><a href="/status/HEPNUM,hodobox/">HEPNUM</a></td>
+				<td align="left" width="14%"><a href="/status/MAYACAL,hodobox/">MAYACAL</a></td>
+				<td align="left" width="14%"><a href="/status/POSTERS,hodobox/">POSTERS</a></td>
+				<td align="left" width="14%"><a href="/status/SQUAREV1,hodobox/">SQUAREV1</a></td>
+				<td align="left" width="14%"><a href="/status/,hodobox/"></a></td>
+				</tr>
+								</table>
+				
+				
+								<h4><span title="List of problems to which solutions were submitted but none of them got AC.">TODO list of classical problems:</span></h4>
+				<table class="table">
+								<tr>
+				<td align="left" width="14%"><a href="/status/ABCD,hodobox/">ABCD</a></td>
+				<td align="left" width="14%"><a href="/status/CHASE,hodobox/">CHASE</a></td>
+				<td align="left" width="14%"><a href="/status/FUNFACT,hodobox/">FUNFACT</a></td>
+				<td align="left" width="14%"><a href="/status/KSMALL,hodobox/">KSMALL</a></td>
+				<td align="left" width="14%"><a href="/status/PAGAIN,hodobox/">PAGAIN</a></td>
+				<td align="left" width="14%"><a href="/status/RAIN1,hodobox/">RAIN1</a></td>
+				<td align="left" width="14%"><a href="/status/TRANSJ,hodobox/">TRANSJ</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADALICI,hodobox/">ADALICI</a></td>
+				<td align="left" width="14%"><a href="/status/CODPABBU,hodobox/">CODPABBU</a></td>
+				<td align="left" width="14%"><a href="/status/GHOSTS,hodobox/">GHOSTS</a></td>
+				<td align="left" width="14%"><a href="/status/KULE,hodobox/">KULE</a></td>
+				<td align="left" width="14%"><a href="/status/PARITY,hodobox/">PARITY</a></td>
+				<td align="left" width="14%"><a href="/status/RPLM,hodobox/">RPLM</a></td>
+				<td align="left" width="14%"><a href="/status/TREEISO,hodobox/">TREEISO</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADST01,hodobox/">ADST01</a></td>
+				<td align="left" width="14%"><a href="/status/CUBERT,hodobox/">CUBERT</a></td>
+				<td align="left" width="14%"><a href="/status/GSS1,hodobox/">GSS1</a></td>
+				<td align="left" width="14%"><a href="/status/LEONARDO,hodobox/">LEONARDO</a></td>
+				<td align="left" width="14%"><a href="/status/PATULJCI,hodobox/">PATULJCI</a></td>
+				<td align="left" width="14%"><a href="/status/SEQ5,hodobox/">SEQ5</a></td>
+				<td align="left" width="14%"><a href="/status/TRIISO,hodobox/">TRIISO</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ALLBARN2,hodobox/">ALLBARN2</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC14G,hodobox/">DCEPC14G</a></td>
+				<td align="left" width="14%"><a href="/status/HEXGRAM,hodobox/">HEXGRAM</a></td>
+				<td align="left" width="14%"><a href="/status/MCAMP,hodobox/">MCAMP</a></td>
+				<td align="left" width="14%"><a href="/status/PGTV,hodobox/">PGTV</a></td>
+				<td align="left" width="14%"><a href="/status/SNIPE,hodobox/">SNIPE</a></td>
+				<td align="left" width="14%"><a href="/status/TRNGL,hodobox/">TRNGL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BAT1,hodobox/">BAT1</a></td>
+				<td align="left" width="14%"><a href="/status/DISJPATH,hodobox/">DISJPATH</a></td>
+				<td align="left" width="14%"><a href="/status/HOLIDAY2,hodobox/">HOLIDAY2</a></td>
+				<td align="left" width="14%"><a href="/status/MEDIAN3,hodobox/">MEDIAN3</a></td>
+				<td align="left" width="14%"><a href="/status/PKA,hodobox/">PKA</a></td>
+				<td align="left" width="14%"><a href="/status/SOCIALNE,hodobox/">SOCIALNE</a></td>
+				<td align="left" width="14%"><a href="/status/TRT,hodobox/">TRT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BORING,hodobox/">BORING</a></td>
+				<td align="left" width="14%"><a href="/status/DISTX,hodobox/">DISTX</a></td>
+				<td align="left" width="14%"><a href="/status/HXH,hodobox/">HXH</a></td>
+				<td align="left" width="14%"><a href="/status/MST9,hodobox/">MST9</a></td>
+				<td align="left" width="14%"><a href="/status/POLEVAL,hodobox/">POLEVAL</a></td>
+				<td align="left" width="14%"><a href="/status/SQRROOT,hodobox/">SQRROOT</a></td>
+				<td align="left" width="14%"><a href="/status/TWICE,hodobox/">TWICE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOWLING1,hodobox/">BOWLING1</a></td>
+				<td align="left" width="14%"><a href="/status/DNALAB,hodobox/">DNALAB</a></td>
+				<td align="left" width="14%"><a href="/status/IE1,hodobox/">IE1</a></td>
+				<td align="left" width="14%"><a href="/status/MUSKET,hodobox/">MUSKET</a></td>
+				<td align="left" width="14%"><a href="/status/PRIMIT,hodobox/">PRIMIT</a></td>
+				<td align="left" width="14%"><a href="/status/SSEQ,hodobox/">SSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/TWOGAME,hodobox/">TWOGAME</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOXES,hodobox/">BOXES</a></td>
+				<td align="left" width="14%"><a href="/status/DOUBLE,hodobox/">DOUBLE</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCE,hodobox/">IITKWPCE</a></td>
+				<td align="left" width="14%"><a href="/status/NAJ0001,hodobox/">NAJ0001</a></td>
+				<td align="left" width="14%"><a href="/status/PROGPROG,hodobox/">PROGPROG</a></td>
+				<td align="left" width="14%"><a href="/status/SUBSEQ,hodobox/">SUBSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/VPL2_AB,hodobox/">VPL2_AB</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CARNIVAL,hodobox/">CARNIVAL</a></td>
+				<td align="left" width="14%"><a href="/status/EASYPROB,hodobox/">EASYPROB</a></td>
+				<td align="left" width="14%"><a href="/status/INTERVA2,hodobox/">INTERVA2</a></td>
+				<td align="left" width="14%"><a href="/status/NAJPF,hodobox/">NAJPF</a></td>
+				<td align="left" width="14%"><a href="/status/PSTR,hodobox/">PSTR</a></td>
+				<td align="left" width="14%"><a href="/status/SUFEQPRE,hodobox/">SUFEQPRE</a></td>
+				<td align="left" width="14%"><a href="/status/WMELON,hodobox/">WMELON</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CATMO1,hodobox/">CATMO1</a></td>
+				<td align="left" width="14%"><a href="/status/FLLM,hodobox/">FLLM</a></td>
+				<td align="left" width="14%"><a href="/status/INVDIV,hodobox/">INVDIV</a></td>
+				<td align="left" width="14%"><a href="/status/NDIVPHI,hodobox/">NDIVPHI</a></td>
+				<td align="left" width="14%"><a href="/status/PSYCHO3,hodobox/">PSYCHO3</a></td>
+				<td align="left" width="14%"><a href="/status/SUMFOUR,hodobox/">SUMFOUR</a></td>
+				<td align="left" width="14%"><a href="/status/WPUZZLES,hodobox/">WPUZZLES</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CDC12_D,hodobox/">CDC12_D</a></td>
+				<td align="left" width="14%"><a href="/status/FLOWGROW,hodobox/">FLOWGROW</a></td>
+				<td align="left" width="14%"><a href="/status/JRNTMRS,hodobox/">JRNTMRS</a></td>
+				<td align="left" width="14%"><a href="/status/NGCD,hodobox/">NGCD</a></td>
+				<td align="left" width="14%"><a href="/status/PTRI,hodobox/">PTRI</a></td>
+				<td align="left" width="14%"><a href="/status/TPCPPLAR,hodobox/">TPCPPLAR</a></td>
+				<td align="left" width="14%"><a href="/status/,hodobox/"></a></td>
+				</tr>
+								</table>
+								
+								<h4>Public problems created by user:</h4>
+				<table class="table">
+								<tr>
+				<td align="left" width="14%"><a href="/problems/HSHW/">HSHW</a></td>
+				<td align="left" width="14%"><a href="/problems/CSTATE3/">CSTATE3</a></td>
+				<td align="left" width="14%"><a href="/problems/SIGNPOST/">SIGNPOST</a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/problems/UNIHW/">UNIHW</a></td>
+				<td align="left" width="14%"><a href="/problems/WHT/">WHT</a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/problems/RPSWAR/">RPSWAR</a></td>
+				<td align="left" width="14%"><a href="/problems/KNIGHTSG/">KNIGHTSG</a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/problems/IFCHAIN/">IFCHAIN</a></td>
+				<td align="left" width="14%"><a href="/problems/FROGPARTY/">FROGPARTY</a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/problems/PARAG/">PARAG</a></td>
+				<td align="left" width="14%"><a href="/problems/MEETSHIP/">MEETSHIP</a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/problems/CSTATE1/">CSTATE1</a></td>
+				<td align="left" width="14%"><a href="/problems/LCMP/">LCMP</a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/problems/CSTATE2/">CSTATE2</a></td>
+				<td align="left" width="14%"><a href="/problems/PRIMEP/">PRIMEP</a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				</tr>
+								</table>
+				</h4>
+							</div>
+		</div>
+	
+	
+	
+	</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<table cellspacing="10" align="center">
+
+
+
+
+
+</table>
+
+
+	<br/>
+</div>
+		
+		
+		<div class="container" id="footer">
+			<div class="row">
+				<div class="col-md-2">
+					
+				</div>
+				<div class="col-md-8 text-center">
+					<a href="/info">About</a> | <a href="/tutorials">Tutorial</a> | <a href="/tools">Tools</a> | <a href="/clusters">Clusters</a> | <a href="/credits">Credits</a> | <a href="/jobs">Jobs</a> | <a href="/sphereengine">API</a> | <a href="/gfx/spoj-terms.pdf" target="_blank">Terms</a>
+				</div>
+				<div class="col-md-2 text-right">
+					<a href="/rss/" ><img src="//stx1.spoj.com/gfx/rss10x10.gif" border=0>&nbsp;RSS</a>&nbsp;
+				</div>
+			</div>
+		</div>
+		
+		<div class="text-center" id="footer-srl">
+			
+	&copy; Spoj.com. All Rights Reserved. Spoj uses <a href="http://sphere-engine.com?utm_campaign=permanent&amp;utm_medium=footer&amp;utm_source=spoj" style="color:black">Sphere Engine</a>&trade; &copy; by <a href="http://sphere-research.com?utm_campaign=permanent&amp;utm_medium=footer&amp;utm_source=spoj" style="color:black">Sphere Research Labs</a>.
+
+		</div> 
+	</div>
+
+	<!-- JavaScripts -->
+	
+		
+	
+	<script type="text/javascript">
+	$(function(){
+		setTimeout(function(){
+			$('.no_a_info').css('visibility', 'visible');
+		}, 5000);
+		
+		if(!$('.aProblemTop').length && !$('.aProblemsTop').length && !$('.aSubmitTop').length && !$('.aStatusTop').length && !$('.aMainRight').length){
+			ga('send', 'event', 'ads', 'no-ads', 'main-contest');
+		}
+		if ($('.aProblemTop').height() == 0){
+			$('.aProblemTop').css({'border': '1px solid #ddd', 'background': '#f0f4e3', 'height': 90});
+			$('.aProblemTop').html($('<p class="text-center">using adblock?</p><h4 class="text-center">Online ads help us to maintain site.</h4><p class="text-center"><strong>please whitelist *.spoj.com</strong></p>'));
+			ga('send', 'event', 'ads', 'adblock2', 'aProblemTop');
+		}
+		if ($('.aProblemsTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aProblemsTop');
+		}
+		if ($('.aSubmitTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aSubmitTop');
+		}
+		if ($('.aStatusTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aStatusTop');
+		}
+		if ($('.aMainRight').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aMainRight');
+		}
+	});
+	</script>
+	
+	
+	<script type="text/javascript" src="//stx1.spoj.com/gfx/jquery.timers.js"></script>
+	<script type="text/javascript" src="//stx1.spoj.com/gfx/jquery.cookie.js"></script>
+	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+	<script src="//stx1.spoj.com/gfx/md5.js"></script>
+	<script src="//stx1.spoj.com/gfx/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
+	<script src="//stx1.spoj.com/gfx/scripts/tour.js"></script>
+	
+	
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&appId=321676846207&version=v2.0";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	
+	
+
+
+<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-10507872-1', 'auto');
+	  ga('require', 'linkid', 'linkid.js');
+	  ga('send', 'pageview');
+	</script>
+<!-- Hotjar Tracking Code for http://www.spoj.com -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:334656,hjsv:5};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<script type="text/javascript">
+	$(function(){
+		$(document).on('click', '.track', function(){
+			var event = $(this).attr('data-event');
+			var action = $(this).attr('data-action');
+			var value = $(this).attr('data-value');
+			ga('send', 'event', event, action, value);
+		});
+	});
+	//window.open('http://incoming.hotjar.com/s/7366', '_blank');
+	</script>
+
+
+</body>
+</html>

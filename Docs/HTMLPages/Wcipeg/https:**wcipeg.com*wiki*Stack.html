@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Stack - PEGWiki</title>
+<meta name="generator" content="MediaWiki 1.25.2" />
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/wiki/index.php?title=Stack&amp;action=edit" />
+<link rel="edit" title="Edit" href="/wiki/index.php?title=Stack&amp;action=edit" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/wiki/opensearch_desc.php" title="PEGWiki (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wcipeg.com/wiki/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/Stack" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="PEGWiki Atom feed" href="/wiki/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:b36fd1c042133c9c9b60260f7c29b237 */</style>
+<script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Stack","wgTitle":"Stack","wgCurRevisionId":1075,"wgRevisionId":1075,"wgArticleId":32,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Data structures"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Stack","wgRelevantArticleId":32,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikidb:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Stack skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Stack</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From PEGWiki</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>A <b>stack</b> is a data structure containing zero or more items, all of the same type, which supports two basic operations:
+</p>
+<ul><li> <i>Push</i> an element onto the stack.</li>
+<li> <i>Pop</i> the most recently added item off the stack, returning its value in the process.</li></ul>
+<p>In practice, we might choose to include the following operations as well:
+</p>
+<ul><li> <i>Construct</i> a new, empty stack. (This one is more or less implicit.)</li>
+<li> <i>Copy</i> the contents of one stack to another.</li>
+<li> <i>Peek</i> at the top element in the stack (the one which would be popped next), without removing it.</li>
+<li> <i>Empty</i> an already existing stack.</li>
+<li> <i>Find size</i> of a stack.</li>
+<li> <i>Test if empty</i>.</li></ul>
+<p>Notice that the <i>peek</i> operation can be implemented as a pop followed by a push (and is therefore not fundamental) and the <i>test if empty</i> operation is the same as the <i>find size</i> operation followed by a test of whether or not the size is zero.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Anatomy_and_terminology"><span class="tocnumber">1</span> <span class="toctext">Anatomy and terminology</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Implementation"><span class="tocnumber">2</span> <span class="toctext">Implementation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Call_stack"><span class="tocnumber">2.1</span> <span class="toctext">Call stack</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Explicit_stack"><span class="tocnumber">2.2</span> <span class="toctext">Explicit stack</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="#Array_implementation"><span class="tocnumber">2.2.1</span> <span class="toctext">Array implementation</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#Linked_list_implementation"><span class="tocnumber">2.2.2</span> <span class="toctext">Linked list implementation</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#C.2B.2B_STL_stack_class"><span class="tocnumber">2.2.3</span> <span class="toctext">C++ STL stack class</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Anatomy_and_terminology">Anatomy and terminology</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Stack&amp;action=edit&amp;section=1" title="Edit section: Anatomy and terminology">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The name <i>stack</i> is quite simply based on real-life objects which are also known as stacks. For example, a stack of paper, a stack of books, a stack of plates. In such stacks, we add new items to the top, and we also remove items from the top; attempting to add or remove items anywhere else has potentially disastrous consequences. In computer science, of course, there does not always need to be a <i>top</i> and <i>bottom</i>. Instead, elements are added one-by-one to the stack. The most recently added element (and the first that would be removed) is at the <i>top</i>, and the oldest element (the last that would be removed) is at the <i>bottom</i>. An element is said to be <i>higher</i> than another if the former was added later (and will be removed sooner) than the latter; the latter element is said to be <i>lower</i>. To <i>push</i> means to add an element, and to <i>pop</i> means to remove an element.
+</p>
+<h2><span class="mw-headline" id="Implementation">Implementation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Stack&amp;action=edit&amp;section=2" title="Edit section: Implementation">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Call_stack">Call stack</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Stack&amp;action=edit&amp;section=3" title="Edit section: Call stack">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The current state of program execution is partially described by a <i>call stack</i>. Each item in the call stack is a <i>stack frame</i>, that stores the entire environment of a specific invocation of a function. When a function calls another, a stack frame is created for the latter and pushed onto the call stack; when a function returns, its stack frame is popped off the stack. For example, if the function <code>main</code> calls the function <code>fox</code>, which in turn calls itself with different arguments, then during the deeper call to <code>fox</code>, the call stack will contain, from bottom to top, frames for <code>main</code>, <code>fox</code>, and <code>fox</code>. Each frame will contain the parameters of the corresponding function call, as well as any local variables in the corresponding function call. Hence, the two <code>fox</code> frames will differ in that the higher one will contain the parameters for the deeper <code>fox</code> call, and the lower one the parameters for the other. The call stack is implemented implicitly in essentially all programming languages that support function calls (that is, almost all useful programming languages).
+</p>
+<h3><span class="mw-headline" id="Explicit_stack">Explicit stack</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Stack&amp;action=edit&amp;section=4" title="Edit section: Explicit stack">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>When explicit <a href="/wiki/Recursion" title="Recursion" class="mw-redirect">recursion</a> is not involved, a stack must be stored separately in memory from the call stack. This is almost always done with either an array or a <a href="/wiki/Linked_list" title="Linked list">linked list</a>.
+</p>
+<h4><span class="mw-headline" id="Array_implementation">Array implementation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Stack&amp;action=edit&amp;section=5" title="Edit section: Array implementation">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>In an array implementation of a stack, the contents of the stack are stored in contiguous indices in an array. Usually, the bottom of the stack is at the lowest index (such as 0), and the top of the stack at the highest. We may then implement the stack as follows:
+</p>
+<pre>object stack
+     function construct(max_size)
+          let A be an array that can hold at least max_size elements
+          let top = 0
+     function push(x)
+          A[top]=x
+          top = top + 1
+     function pop
+          top = top - 1
+          return A[top]
+     function peek
+          return A[top-1]
+     function size
+          return top
+     function make_empty
+          top = 0
+</pre>
+<p>Error-checking code has been omitted (consider what happens for example if we attempt to pop from an empty stack). The <i>test if empty</i> and <i>copy</i> operations have been omitted for the sake of brevity. 
+</p>
+<h4><span class="mw-headline" id="Linked_list_implementation">Linked list implementation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Stack&amp;action=edit&amp;section=6" title="Edit section: Linked list implementation">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>The array implementation will almost always be appropriate. However, for rare instances in which a contiguous block of memory of the required size cannot be found, a linked list can be used instead. Details of the list implementation are omitted below:
+</p>
+<pre>object stack
+     function construct
+          let L be an empty linked list
+     function push(x)
+          insert x after tail of L
+     function pop
+          remove tail of L, returning its data element
+     function peek
+          return data element at tail of L
+     function size
+          return size of L
+     function make_empty
+          empty L
+</pre>
+<p>As one can easily see, the stack is merely a container over the operations supported by the list itself. (Here we assume that the list maintains its own size; if this is not so then we can add a <code>size</code> field to the stack object.)
+</p>
+<h4><span class="mw-headline" id="C.2B.2B_STL_stack_class">C++ STL stack class</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Stack&amp;action=edit&amp;section=7" title="Edit section: C++ STL stack class">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>In the C++ STL, <code>std::stack</code>, found in the <code>&lt;stack&gt;</code> header, is a template container capable of holding items of any (fixed) type, the type being supplied as a template argument. Hence, for example, <code>stack&lt;char&gt;</code> is a stack of characters. The container supplies the following member functions (note that <code>T</code> is the type of the elements of the stack):
+</p>
+<ul><li> <code>void push(const T&amp; x)</code>: pushes <code>x</code> onto the stack.</li>
+<li> <code>void pop()</code>: performs a pop.</li>
+<li> <code>T&amp; top()</code>: returns the element which is to be popped next</li>
+<li> <code>size_type size()</code>: returns the number of elements currently on the stack</li>
+<li> <code>bool empty()</code>: returns <code>true</code> if the stack is empty, <code>false</code> otherwise.</li></ul>
+<p>The <code>stack</code> container should be used whenever it is sufficient for the problem at hand; it is quicker and less error-prone to use it than to code your own stack. There are, however, times when it might be necessary to execute some unsupported operation such as <a href="/wiki/index.php?title=Iterator&amp;action=edit&amp;redlink=1" class="new" title="Iterator (page does not exist)">iteration</a> through the elements of the stack. In such circumstances the STL <code>stack</code> cannot be used and a custom stack must be implemented.
+</p><p>Note that the pop operation defined by this container is not identical to our own; it only removes the element and it does not return its value. To do both, call <code>top</code> followed by <code>pop</code>.
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.017 seconds
+Real time usage: 0.019 seconds
+Preprocessor visited node count: 45/1000000
+Preprocessor generated node count: 72/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:32-0!*!0!!en!*!* and timestamp 20180417101746 and revision id 1075
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wcipeg.com/wiki/index.php?title=Stack&amp;oldid=1075">https://wcipeg.com/wiki/index.php?title=Stack&amp;oldid=1075</a>"					</div>
+													<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:Data_structures" title="Category:Data structures">Data structures</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Stack&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Stack" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/Stack"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/wiki/index.php?title=Talk:Stack&amp;action=edit&amp;redlink=1"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Stack" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/wiki/index.php?title=Stack&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/wiki/index.php?title=Stack&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search PEGWiki [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+													<li id="n-Index"><a href="/wiki/Special:AllPages">Index</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+													<li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Stack" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Stack" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/wiki/index.php?title=Stack&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/wiki/index.php?title=Stack&amp;oldid=1075" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/wiki/index.php?title=Stack&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 5 March 2011, at 04:48.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Attribution 3.0 Unported</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/PEGWiki:Privacy_policy" title="PEGWiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/PEGWiki:About" title="PEGWiki:About">About PEGWiki</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/PEGWiki:General_disclaimer" title="PEGWiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by/3.0/"><img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Attribution 3.0 Unported" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wiki/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wcipeg.com/wiki/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":97});
+}</script>
+	</body>
+</html>

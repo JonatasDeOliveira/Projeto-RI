@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Convex hull - PEGWiki</title>
+<meta name="generator" content="MediaWiki 1.25.2" />
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/wiki/index.php?title=Convex_hull&amp;action=edit" />
+<link rel="edit" title="Edit" href="/wiki/index.php?title=Convex_hull&amp;action=edit" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/wiki/opensearch_desc.php" title="PEGWiki (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wcipeg.com/wiki/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/Convex_hull" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="PEGWiki Atom feed" href="/wiki/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=ext.math.styles%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:b36fd1c042133c9c9b60260f7c29b237 */</style>
+<script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Convex_hull","wgTitle":"Convex hull","wgCurRevisionId":1350,"wgRevisionId":1350,"wgArticleId":72,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Algorithms","Geometry","Pages needing diagrams"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Convex_hull","wgRelevantArticleId":72,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikidb:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Convex_hull skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Convex hull</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From PEGWiki</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>In <a href="/wiki/Computational_geometry" title="Computational geometry">computational geometry</a>, the <b>convex hull</b> of a set of points is the smallest convex set (minimal area, volume, <i>etc</i>.) which contains every point in that set.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Intuitive_interpretations_for_the_planar_convex_hull"><span class="tocnumber">1</span> <span class="toctext">Intuitive interpretations for the planar convex hull</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Planar_convex_hull_algorithms"><span class="tocnumber">2</span> <span class="toctext">Planar convex hull algorithms</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Gift-wrapping_algorithm"><span class="tocnumber">2.1</span> <span class="toctext">Gift-wrapping algorithm</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Graham_scan"><span class="tocnumber">2.2</span> <span class="toctext">Graham scan</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Monotone_chains_algorithm"><span class="tocnumber">2.3</span> <span class="toctext">Monotone chains algorithm</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Degenerate_input"><span class="tocnumber">2.4</span> <span class="toctext">Degenerate input</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Applications"><span class="tocnumber">3</span> <span class="toctext">Applications</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Three-dimensional_convex_hull"><span class="tocnumber">4</span> <span class="toctext">Three-dimensional convex hull</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Intuitive_interpretations_for_the_planar_convex_hull">Intuitive interpretations for the planar convex hull</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Convex_hull&amp;action=edit&amp;section=1" title="Edit section: Intuitive interpretations for the planar convex hull">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> If a set of points were given in two dimensions by hammering nails into them on a flat wooden board, the convex hull would be the polygon whose boundary is given by stretching and releasing a rubber band around all of the nails.</li>
+<li> If the points represented the locations of sheep grazing in a field, the convex hull would be the minimal-perimeter fence enclosing all of the sheep. <a rel="nofollow" class="external autonumber" href="http://www.spoj.pl/problems/BSHEEP">[1]</a></li>
+<li> If the points represented the locations of fence posts, the convex hull would be the fence enclosing the maximum possible area while consisting only of straight segments using those fence posts as endpoints. <a rel="nofollow" class="external autonumber" href="http://www.wcipeg.com/problem/ccc07s2p1">[2]</a></li>
+<li> If the points represented the locations of prize-winning maple trees, the perimeter of the convex hull would be the minimum length of blue ribbon required to enclose all of them. <a rel="nofollow" class="external autonumber" href="http://www.wcipeg.com/problem/ccc99s2p4">[3]</a></li></ul>
+<h2><span class="mw-headline" id="Planar_convex_hull_algorithms">Planar convex hull algorithms</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Convex_hull&amp;action=edit&amp;section=2" title="Edit section: Planar convex hull algorithms">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The problem of finding the convex hull of a set of points in the plane is one of the best-studied in computational geometry and a variety of algorithms exist for solving it. Here are three algorithms introduced in increasing order of conceptual difficulty:
+</p>
+<h3><span class="mw-headline" id="Gift-wrapping_algorithm">Gift-wrapping algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Convex_hull&amp;action=edit&amp;section=3" title="Edit section: Gift-wrapping algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The <i>gift-wrapping</i> algorithm, also known as the <i>Jarvis march</i>, is one of the simplest and most intuitive planar convex hull algorithms. The name derives from the analogy of the method to walking around the set of points with gift wrapping paper until arriving back at one's starting location.
+</p><p>The first step in the algorithm is to select a point which <i>must</i> be in the convex hull, for example, the point with highest y-coordinate. The wrapping paper will start here, and we will walk around the point set until we arrive back at this point. Initially we will face the right (increasing x-coordinate). At any given time we maintain both a point <img class="mwe-math-fallback-image-inline tex" alt="P" src="/wiki/images/math/4/4/c/44c29edb103a2872f519ad0c9a0fdaaa.png" /> (our location) and a <a href="/wiki/Computational_geometry#Vectors" title="Computational geometry">vector</a> <img class="mwe-math-fallback-image-inline tex" alt="\mathbf{v}" src="/wiki/images/math/0/a/a/0aa3ec374bdc0d6a17aecbb6bcda6a89.png" /> (the direction we are facing). The algorithm then proceeds in a series of steps. In each step, we turn clockwise until we are directly facing a point, say, <img class="mwe-math-fallback-image-inline tex" alt="Q" src="/wiki/images/math/f/0/9/f09564c9ca56850d4cd6b3319e541aee.png" />. Then, we walk over to that point (bringing the wrapping paper along with us). In doing so, notice that the new value of <img class="mwe-math-fallback-image-inline tex" alt="\mathbf{v}" src="/wiki/images/math/0/a/a/0aa3ec374bdc0d6a17aecbb6bcda6a89.png" /> is set to <img class="mwe-math-fallback-image-inline tex" alt="Q-P" src="/wiki/images/math/0/f/5/0f58895c1cddbab46d75a5cab76307e7.png" /> (since that is the direction we now face) and <img class="mwe-math-fallback-image-inline tex" alt="P" src="/wiki/images/math/4/4/c/44c29edb103a2872f519ad0c9a0fdaaa.png" /> is set to <img class="mwe-math-fallback-image-inline tex" alt="Q" src="/wiki/images/math/f/0/9/f09564c9ca56850d4cd6b3319e541aee.png" /> (that's where we are). This procedure is repeated until <img class="mwe-math-fallback-image-inline tex" alt="P" src="/wiki/images/math/4/4/c/44c29edb103a2872f519ad0c9a0fdaaa.png" /> equals its starting value. After the completion of the algorithm we will have visited all of the points of the convex hull in clockwise order.
+</p><p>To determine which point we actually see first as we turn clockwise, we loop through all points <img class="mwe-math-fallback-image-inline tex" alt="R" src="/wiki/images/math/e/1/e/e1e1d3d40573127e9ee0480caf1283d6.png" /> (except for <img class="mwe-math-fallback-image-inline tex" alt="P" src="/wiki/images/math/4/4/c/44c29edb103a2872f519ad0c9a0fdaaa.png" /> itself), for each point considering the vector <img class="mwe-math-fallback-image-inline tex" alt="\mathbf{u} = R-P" src="/wiki/images/math/5/3/4/5344acc78924c12fb12bae0594430821.png" />. The <img class="mwe-math-fallback-image-inline tex" alt="\mathbf{u}" src="/wiki/images/math/2/5/c/25cdaba0e466192c4086c413c442def1.png" /> which makes the smallest angle <img class="mwe-math-fallback-image-inline tex" alt="\theta" src="/wiki/images/math/5/0/d/50d91f80cbb8feda1d10e167107ad1ff.png" /> with <img class="mwe-math-fallback-image-inline tex" alt="\mathbf{v}" src="/wiki/images/math/0/a/a/0aa3ec374bdc0d6a17aecbb6bcda6a89.png" /> corresponds to <img class="mwe-math-fallback-image-inline tex" alt="Q" src="/wiki/images/math/f/0/9/f09564c9ca56850d4cd6b3319e541aee.png" />, the point we should visit next. (This makes sense; it means we will have to turn through the smallest possible angle to get there). To minimize <img class="mwe-math-fallback-image-inline tex" alt="\theta" src="/wiki/images/math/5/0/d/50d91f80cbb8feda1d10e167107ad1ff.png" />, we maximize <img class="mwe-math-fallback-image-inline tex" alt="\cos \theta" src="/wiki/images/math/9/3/a/93a4d3e2443c7e649d1fd9627795a36c.png" />, which can be computed as simply <img class="mwe-math-fallback-image-inline tex" alt="\frac{\mathbf{u}\cdot\mathbf{v}}{\|\mathbf{u}\|\|\mathbf{v}\|}" src="/wiki/images/math/4/3/c/43ceb4864f79500ccc9d53c3fc8befec.png" />.
+</p><p>Each step of the algorithm (picking the next point) requires considering all the other points in the set, so it takes <img class="mwe-math-fallback-image-inline tex" alt="O(n)" src="/wiki/images/math/7/b/a/7ba55e7c64a9405a0b39a1107e90ca94.png" /> time, where <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png" /> is the total number of points. The number of steps executed equals the number of points that are actually on the hull, denoted <img class="mwe-math-fallback-image-inline tex" alt="h" src="/wiki/images/math/2/5/1/2510c39011c5be704182423e3a695e91.png" />, so the total time taken is <img class="mwe-math-fallback-image-inline tex" alt="O(nh)" src="/wiki/images/math/2/a/4/2a4e45a8d8e238bbfe776d2eee4c3178.png" />. In the worst case, in which <img class="mwe-math-fallback-image-inline tex" alt="h=n" src="/wiki/images/math/c/a/2/ca29cb47249cdbeed8e5be375d64580e.png" /> and all the points in the input already form a convex polygon, the performance is <img class="mwe-math-fallback-image-inline tex" alt="O(n^2)" src="/wiki/images/math/1/8/9/189317b4b935a745fcfaf95940d2b4f0.png" />. It is not recommended to use this algorithm when <img class="mwe-math-fallback-image-inline tex" alt="n &gt; 5000" src="/wiki/images/math/7/8/b/78b4d279846d7c586ead355f5b536e11.png" />.
+</p>
+<h3><span class="mw-headline" id="Graham_scan">Graham scan</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Convex_hull&amp;action=edit&amp;section=4" title="Edit section: Graham scan">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The <i>Graham scan</i> has much better worst-case performance than the Jarvis march, but is also more complicated. First, some point (not necessarily one of the points in input) is identified which is definitely <i>inside</i> the convex hull. Averaging the coordinates of all of the points given is the recommended technique for doing so. We place the origin of our coordinate system there, transforming the coordinates of the input points accordingly. We then proceed to sort the points by angle. (That is, for each point <img class="mwe-math-fallback-image-inline tex" alt="P" src="/wiki/images/math/4/4/c/44c29edb103a2872f519ad0c9a0fdaaa.png" /> in the input, we consider the directed angle the ray <img class="mwe-math-fallback-image-inline tex" alt="\overrightarrow{OP}" src="/wiki/images/math/8/4/c/84ca96b2eee3f7df2f464c4cd7244f22.png" /> makes with the positive x-axis; we sort in increasing order of this angle.) Ties are broken arbitrarily. Initially we don't know any points which might be in the hull, so we set <img class="mwe-math-fallback-image-inline tex" alt="h=0" src="/wiki/images/math/2/b/a/2ba1b3acb05d4cc60dedf59890f964f6.png" />. We then consider all points in order of increasing angle, modifying what we believe to be the hull so far during each step. Denote the current hull <img class="mwe-math-fallback-image-inline tex" alt="H" src="/wiki/images/math/c/1/d/c1d9f50f86825a1a2302ec2449c17196.png" />, the point added earliest to <img class="mwe-math-fallback-image-inline tex" alt="H_1" src="/wiki/images/math/7/f/c/7fc2922e5316a1012606a2e9c181c4af.png" />, and so on up to <img class="mwe-math-fallback-image-inline tex" alt="H_h" src="/wiki/images/math/3/4/1/341e9900d265e1af1e092b0b60d4268a.png" />, the point most recently added. In each step we do the following:
+</p>
+<ol><li> Add the current point <img class="mwe-math-fallback-image-inline tex" alt="P" src="/wiki/images/math/4/4/c/44c29edb103a2872f519ad0c9a0fdaaa.png" /> to the end of <img class="mwe-math-fallback-image-inline tex" alt="H" src="/wiki/images/math/c/1/d/c1d9f50f86825a1a2302ec2449c17196.png" />. That is, increment <img class="mwe-math-fallback-image-inline tex" alt="h" src="/wiki/images/math/2/5/1/2510c39011c5be704182423e3a695e91.png" /> and set <img class="mwe-math-fallback-image-inline tex" alt="H_h = P" src="/wiki/images/math/5/9/1/5914b6227c9815a407a8b38258c25aaf.png" />.</li>
+<li> If <img class="mwe-math-fallback-image-inline tex" alt="h &lt; 3" src="/wiki/images/math/6/a/5/6a5bf16af92208fb9928a0c0b3a9879c.png" />, proceed to the next point.</li>
+<li> Consider the points <img class="mwe-math-fallback-image-inline tex" alt="H_h" src="/wiki/images/math/3/4/1/341e9900d265e1af1e092b0b60d4268a.png" />, <img class="mwe-math-fallback-image-inline tex" alt="H_{h-1}" src="/wiki/images/math/2/5/b/25b4b68f8eae1fefdfc6f6edd3b442e6.png" />, and <img class="mwe-math-fallback-image-inline tex" alt="H_{h-2}" src="/wiki/images/math/d/c/9/dc9b2ba77044363cd358afe3dc366fb2.png" />. It is possible that after we have added the point <img class="mwe-math-fallback-image-inline tex" alt="H_h" src="/wiki/images/math/3/4/1/341e9900d265e1af1e092b0b60d4268a.png" />, we are now certain that <img class="mwe-math-fallback-image-inline tex" alt="H_{h-1}" src="/wiki/images/math/2/5/b/25b4b68f8eae1fefdfc6f6edd3b442e6.png" /> is not actually part of the hull. Consider the vectors <img class="mwe-math-fallback-image-inline tex" alt="\mathbf{u} = H_{h-1} - H_{h-2}" src="/wiki/images/math/0/9/4/0944df590ac60e444afd296bc7d3f4d6.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="\mathbf{v} = H_h - H_{h-1}" src="/wiki/images/math/7/2/a/72aec6215d1844b588465a34337d535e.png" />. If <img class="mwe-math-fallback-image-inline tex" alt="\mathbf{v}" src="/wiki/images/math/0/a/a/0aa3ec374bdc0d6a17aecbb6bcda6a89.png" /> is a counterclockwise turn from <img class="mwe-math-fallback-image-inline tex" alt="\mathbf{u}" src="/wiki/images/math/2/5/c/25cdaba0e466192c4086c413c442def1.png" />, that is, <a href="/wiki/Computational_geometry#Determinant" title="Computational geometry"><img class="mwe-math-fallback-image-inline tex" alt="\mathbf{u} \times \mathbf{v} &gt; 0 " src="/wiki/images/math/7/8/7/7870b315e11da123710ff8043bfac51a.png" /></a>, then everything is fine, and we go on to the next point. But if <img class="mwe-math-fallback-image-inline tex" alt="\mathbf{v}" src="/wiki/images/math/0/a/a/0aa3ec374bdc0d6a17aecbb6bcda6a89.png" /> is a clockwise turn from <img class="mwe-math-fallback-image-inline tex" alt="\mathbf{u}" src="/wiki/images/math/2/5/c/25cdaba0e466192c4086c413c442def1.png" />, that is, <img class="mwe-math-fallback-image-inline tex" alt="\mathbf{u} \times \mathbf{v} &lt; 0" src="/wiki/images/math/8/2/0/8202b467cd7bd10bb76949c027ae6264.png" />, then the angle <img class="mwe-math-fallback-image-inline tex" alt="\angle H_{h-2} H_{h-1} H_h" src="/wiki/images/math/7/4/d/74d18e37b05fcbeb899d0e27b653fb41.png" /> is "concave" and <img class="mwe-math-fallback-image-inline tex" alt="H_{h-1}" src="/wiki/images/math/2/5/b/25b4b68f8eae1fefdfc6f6edd3b442e6.png" /> must be removed. This means that <img class="mwe-math-fallback-image-inline tex" alt="H_{h-1}" src="/wiki/images/math/2/5/b/25b4b68f8eae1fefdfc6f6edd3b442e6.png" /> is set to <img class="mwe-math-fallback-image-inline tex" alt="H_h" src="/wiki/images/math/3/4/1/341e9900d265e1af1e092b0b60d4268a.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="h" src="/wiki/images/math/2/5/1/2510c39011c5be704182423e3a695e91.png" /> is decremented. Then go back to step 2.</li></ol>
+<p>At this point we have a set of points <img class="mwe-math-fallback-image-inline tex" alt="H_1, H_2, ..., H_h" src="/wiki/images/math/1/b/9/1b96f660219c969fb56653a4b7ef7ac9.png" /> sorted in counterclockwise order. The problem is that we do not actually know whether <img class="mwe-math-fallback-image-inline tex" alt="H_1" src="/wiki/images/math/7/f/c/7fc2922e5316a1012606a2e9c181c4af.png" /> is in the hull or not; notice that it can never be removed during the first phase of the algorithm. Also, since the convex hull is a ring, not a chain, we also have to consider the fact that <img class="mwe-math-fallback-image-inline tex" alt="H_h" src="/wiki/images/math/3/4/1/341e9900d265e1af1e092b0b60d4268a.png" /> is not really part of the hull either; note that it also wouldn't have been removed during the first phase of the algorithm. The way we eliminated points before was by considering three consecutive points in the hull and deciding whether to remove the middle one. We must now subject <img class="mwe-math-fallback-image-inline tex" alt="H_1" src="/wiki/images/math/7/f/c/7fc2922e5316a1012606a2e9c181c4af.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="H_h" src="/wiki/images/math/3/4/1/341e9900d265e1af1e092b0b60d4268a.png" /> to this repeatedly until no more changes can be made:
+</p>
+<ol><li> Consider the three points <img class="mwe-math-fallback-image-inline tex" alt="H_2" src="/wiki/images/math/4/f/6/4f645cef778354b6fc6e9a9fa63ed844.png" />, <img class="mwe-math-fallback-image-inline tex" alt="H_1" src="/wiki/images/math/7/f/c/7fc2922e5316a1012606a2e9c181c4af.png" />, and <img class="mwe-math-fallback-image-inline tex" alt="H_h" src="/wiki/images/math/3/4/1/341e9900d265e1af1e092b0b60d4268a.png" />. Let <img class="mwe-math-fallback-image-inline tex" alt="\mathbf{u} = H_1 - H_h" src="/wiki/images/math/2/2/2/222d20d3c338bf8a6311ddb2f88b8308.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="\mathbf{v} = H_2 - H_1" src="/wiki/images/math/6/3/5/6357a0c8ef7aa1a75dd569c9c8488bea.png" />. If <img class="mwe-math-fallback-image-inline tex" alt="\mathbf{u} \times \mathbf{v} &lt; 0" src="/wiki/images/math/8/2/0/8202b467cd7bd10bb76949c027ae6264.png" />, then <img class="mwe-math-fallback-image-inline tex" alt="H_1" src="/wiki/images/math/7/f/c/7fc2922e5316a1012606a2e9c181c4af.png" /> must be removed from the hull.</li>
+<li> Consider the three points <img class="mwe-math-fallback-image-inline tex" alt="H_1" src="/wiki/images/math/7/f/c/7fc2922e5316a1012606a2e9c181c4af.png" />, <img class="mwe-math-fallback-image-inline tex" alt="H_h" src="/wiki/images/math/3/4/1/341e9900d265e1af1e092b0b60d4268a.png" />, and <img class="mwe-math-fallback-image-inline tex" alt="H_{h-1}" src="/wiki/images/math/2/5/b/25b4b68f8eae1fefdfc6f6edd3b442e6.png" />. Let <img class="mwe-math-fallback-image-inline tex" alt="\mathbf{u} = H_h - H_{h-1}" src="/wiki/images/math/8/7/a/87a7963502f196683bed47df493a34dc.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="\mathbf{v} = H_1 - H_h" src="/wiki/images/math/e/6/5/e6536ddae1a0f21f9c3bc08ad81793ed.png" />. If <img class="mwe-math-fallback-image-inline tex" alt="\mathbf{u} \times \mathbf{v} &lt; 0" src="/wiki/images/math/8/2/0/8202b467cd7bd10bb76949c027ae6264.png" />, then <img class="mwe-math-fallback-image-inline tex" alt="H_h" src="/wiki/images/math/3/4/1/341e9900d265e1af1e092b0b60d4268a.png" /> must be removed from the hull.</li>
+<li> If neither of steps 1 and 2 were executed, we are done; what remains is the true convex hull, given in counterclockwise order. Otherwise, go back to step 1.</li></ol>
+<p>In order to ensure that we can delete <img class="mwe-math-fallback-image-inline tex" alt="H_1" src="/wiki/images/math/7/f/c/7fc2922e5316a1012606a2e9c181c4af.png" /> in constant time (which shifts over all the other elements, so that the new <img class="mwe-math-fallback-image-inline tex" alt="H_1" src="/wiki/images/math/7/f/c/7fc2922e5316a1012606a2e9c181c4af.png" /> is the old <img class="mwe-math-fallback-image-inline tex" alt="H_2" src="/wiki/images/math/4/f/6/4f645cef778354b6fc6e9a9fa63ed844.png" />, and so on), we should use a <a href="/wiki/Deque" title="Deque">deque</a> or <a href="/wiki/Linked_list" title="Linked list">linked list</a> to store <img class="mwe-math-fallback-image-inline tex" alt="H" src="/wiki/images/math/c/1/d/c1d9f50f86825a1a2302ec2449c17196.png" />.
+</p><p>The initial sort takes <img class="mwe-math-fallback-image-inline tex" alt="O(n \log n)" src="/wiki/images/math/f/4/9/f49341ab621f12e8cb93d0146ea51d34.png" /> time. In the remainder of the algorithm, each point is added to the hull exactly once, so all the "add" operations take <img class="mwe-math-fallback-image-inline tex" alt="O(n)" src="/wiki/images/math/7/b/a/7ba55e7c64a9405a0b39a1107e90ca94.png" /> time in total. Each point can also be removed up to once, so all the "remove" operations take <img class="mwe-math-fallback-image-inline tex" alt="O(n)" src="/wiki/images/math/7/b/a/7ba55e7c64a9405a0b39a1107e90ca94.png" /> time total. Finally, in each step, in which we may examine several triples of consecutive points to determine if the middle point should be removed, notice that we stop after we encounter a point which should not be removed. That is, in each step, the number of "consider" operations is at most one more than the number of points removed, and hence in total the number of "consider" operations is at most <img class="mwe-math-fallback-image-inline tex" alt="2n" src="/wiki/images/math/2/1/e/21e2c0c0472b331622877accbe29b91b.png" />, and take <img class="mwe-math-fallback-image-inline tex" alt="O(n)" src="/wiki/images/math/7/b/a/7ba55e7c64a9405a0b39a1107e90ca94.png" /> time in total. Overall, the sort dominates the running time, which is <img class="mwe-math-fallback-image-inline tex" alt="O(n \log n)" src="/wiki/images/math/f/4/9/f49341ab621f12e8cb93d0146ea51d34.png" />, suitable for almost any application.
+</p>
+<h3><span class="mw-headline" id="Monotone_chains_algorithm">Monotone chains algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Convex_hull&amp;action=edit&amp;section=5" title="Edit section: Monotone chains algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The <i>monotone chains algorithm</i> is both easy to code (although arguably conceptually difficult) and the fastest of the three algorithms in this section. It is based on computing two "monotone chains" of the convex hull: the <i>upper chain</i> and the <i>lower chain</i>. The leftmost and rightmost points of the input set must both be in the convex hull. The part of the hull clockwise from the leftmost point and counterclockwise from the rightmost point is called the <i>upper chain</i>; the rest is the <i>lower chain</i>. We compute the upper and lower chains separately.
+</p><p>The first step is to sort all of the given points in increasing order of x-coordinate. Ties are broken by increasing order of y-coordinate. We then begin to compute the upper chain. The first point in the set is the leftmost point (or the lowest leftmost point, if there are several), and must be on the hull. We then consider the points in order. Again, denote the current hull as <img class="mwe-math-fallback-image-inline tex" alt="H" src="/wiki/images/math/c/1/d/c1d9f50f86825a1a2302ec2449c17196.png" /> and the size of the hull as <img class="mwe-math-fallback-image-inline tex" alt="h" src="/wiki/images/math/2/5/1/2510c39011c5be704182423e3a695e91.png" />, where <img class="mwe-math-fallback-image-inline tex" alt="H_1" src="/wiki/images/math/7/f/c/7fc2922e5316a1012606a2e9c181c4af.png" /> is the first point in the hull and <img class="mwe-math-fallback-image-inline tex" alt="H_h" src="/wiki/images/math/3/4/1/341e9900d265e1af1e092b0b60d4268a.png" /> is the last. For each point considered:
+</p>
+<ol><li> Add this point to <img class="mwe-math-fallback-image-inline tex" alt="H" src="/wiki/images/math/c/1/d/c1d9f50f86825a1a2302ec2449c17196.png" />.</li>
+<li> If <img class="mwe-math-fallback-image-inline tex" alt="h &lt; 3" src="/wiki/images/math/6/a/5/6a5bf16af92208fb9928a0c0b3a9879c.png" />, continue to the next point.</li>
+<li> Consider the vectors <img class="mwe-math-fallback-image-inline tex" alt="\mathbf{u} = H_{h-1} - H_{h-2}" src="/wiki/images/math/0/9/4/0944df590ac60e444afd296bc7d3f4d6.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="\mathbf{v} = H_h - H_{h-1}" src="/wiki/images/math/7/2/a/72aec6215d1844b588465a34337d535e.png" />. This time, since we have to travel clockwise to build the upper hull, we check if <img class="mwe-math-fallback-image-inline tex" alt="\mathbf{u} \times \mathbf{v} &lt; 0" src="/wiki/images/math/8/2/0/8202b467cd7bd10bb76949c027ae6264.png" />. If so, we proceed to the next point. Otherwise, we remove <img class="mwe-math-fallback-image-inline tex" alt="H_{h-1}" src="/wiki/images/math/2/5/b/25b4b68f8eae1fefdfc6f6edd3b442e6.png" /> and go back to step 2.</li></ol>
+<p>After considering all of the points in this manner, <img class="mwe-math-fallback-image-inline tex" alt="H" src="/wiki/images/math/c/1/d/c1d9f50f86825a1a2302ec2449c17196.png" /> contains the entire upper chain. We then proceed to compute the lower chain in exactly the same way, except that we consider the points in <i>reverse</i> order (that is, we start at the rightmost point). (Take care not to add the rightmost point to the hull twice.) On termination of the algorithm, <img class="mwe-math-fallback-image-inline tex" alt="H" src="/wiki/images/math/c/1/d/c1d9f50f86825a1a2302ec2449c17196.png" /> will contain the entire hull in clockwise order, with the first point repeated at the end.
+</p><p>Again, the running time is <img class="mwe-math-fallback-image-inline tex" alt="O(n \log n)" src="/wiki/images/math/f/4/9/f49341ab621f12e8cb93d0146ea51d34.png" />; the sorting cost dominates. The monotone chains algorithm is the algorithm recommended for all applications, being simpler than the Graham scan and a bit faster (since we don't have to compute angles).
+</p>
+<h3><span class="mw-headline" id="Degenerate_input">Degenerate input</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Convex_hull&amp;action=edit&amp;section=6" title="Edit section: Degenerate input">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Ideally, we would like to have the input points in <i>general position</i>, with no two points coincident nor three points lying on the same line. However, this is not always possible, and coincident and collinear points must be dealt with. To lapse into a full discussion of cases would be tedious and boring. Instead, consider the following:
+</p>
+<ul><li> Read the problem statement for clarification on what to do with degenerate input. (Note that it will almost surely not refer to it as <i>degenerate</i>.)</li>
+<li> If there are coincident points:</li></ul>
+<dl><dd><ul><li> the Jarvis march might divide by zero. This <b>must</b> be avoided to ensure the correctness of the implementation.</li>
+<li> If we only need to report the perimeter or area of the hull, the other two algorithms have no trouble with handling coincident points (except for the pathological case discussed further below for the Graham scan).</li>
+<li> If we actually have to report the points, there are three conceivable orders in which we might be asked to do so: clockwise, counterclockwise, or in the same order as in the input file (increasing "ID"). Clearly the first two are meaningless if coincident points are allowed. In the third, we might be asked to report only the first point if several points are coincident, or to report all of them. Read the problem statement carefully. In any case, we can efficiently postprocess the points to make the output conform to specification. This is probably easier than attempting to compute the correct output exactly while running the convex hull algorithm.</li></ul></dd></dl>
+<ul><li> If there are collinear points:</li></ul>
+<dl><dd><ul><li> We need to know whether the problem statement requires us to output the maximum possible number of points or the minimum possible number of points. That is, should we include points that fall in the interior of an edge in the hull? If there are collinear points but no coincident ones, the Graham scan and the monotone chains algorithm can be used to handle either case gracefully, by using either a <img class="mwe-math-fallback-image-inline tex" alt="&lt;" src="/wiki/images/math/5/2/4/524a50782178998021a88b8cd4c8dcd8.png" /> or a <img class="mwe-math-fallback-image-inline tex" alt="\le" src="/wiki/images/math/4/9/d/49dc1443f33cf63082d6e193dd2af78f.png" /> sign in our test. In the Jarvis march, we choose either the closest or the farthest point when there are ties in angle.</li>
+<li> Ordering is not an issue, unless we're asked to output the maximum possible number of points in increasing order of ID to break ties along edges. In this case, postprocessing is almost certainly the easiest solution.</li></ul></dd></dl>
+<ul><li> The worst pathological cases occur when the area of the hull is zero. There are two ways in which this might happen, but both are trivial to handle: all points might be coincident, or all points might lie on a single line. If such cases are allowed to be given in the input:</li></ul>
+<dl><dd><ul><li> The monotone chains algorithm will still work properly if only the perimeter or area needs to be reported.</li>
+<li> If the points themselves need to be reported, it is probably not worth the effort to make the algorithms handle them gracefully; instead, it is trivial to simply compute the hulls separately by sorting the points.</li></ul></dd></dl>
+<h2><span class="mw-headline" id="Applications">Applications</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Convex_hull&amp;action=edit&amp;section=7" title="Edit section: Applications">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Other than the obvious interpretations:
+</p>
+<ul><li> <a href="/wiki/index.php?title=Farthest_pair_of_points&amp;action=edit&amp;redlink=1" class="new" title="Farthest pair of points (page does not exist)">Farthest pair of points</a></li>
+<li> Consider the following problem <sup>[can someone track down the source, please?]</sup>: you are given several colors of paint. Each one was created by mixing together a certain nonzero amount of each of the three primary subtractive colors (cyan, magenta, and yellow), and is hence given as a triplet in the input. Assume that the color of a given mixture depends only on the ratios of the amounts of the three primary colors present. By mixing paints, can we obtain a target color (also given as a triplet)? The amount is not important. It turns out that this problem may be solved using the two-dimensional convex hull. First of all, we <i>normalize</i> each paint by dividing each component by the amount of cyan paint present. (This does not actually change the color, as ratios are preserved.) We do the same for the target triplet. Then we discard all the cyan components entirely, since they are all 1, and focus on the other two components. Each color may then be plotted as a point on the plane. The possible target colors are those which lie inside the convex hull of the colors given. This is because when we mix together two paints, each component of the new color is the same linear combination of the components of the two original paints; since ratios are unimportant we can always normalize the result, so that the cyan 1s will always stay as 1s; and the new point obtained will therefore lie on the line segment joining the two original points. The convex hull is the set of all points reachable by executing this procedure an arbitrary number of times.</li></ul>
+<h2><span class="mw-headline" id="Three-dimensional_convex_hull">Three-dimensional convex hull</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Convex_hull&amp;action=edit&amp;section=8" title="Edit section: Three-dimensional convex hull">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Computing a convex hull in <img class="mwe-math-fallback-image-inline tex" alt="\mathbb{R}^3" src="/wiki/images/math/4/3/2/4323e25409ba6e2046668f8fc174381a.png" /> is significantly more challenging. It is a task which will most likely never be given on competitions such as the <a href="/wiki/IOI" title="IOI" class="mw-redirect">IOI</a>, and it is not recommended that high school students learn it. However, there is a fairly simple <img class="mwe-math-fallback-image-inline tex" alt="O(n^2)" src="/wiki/images/math/1/8/9/189317b4b935a745fcfaf95940d2b4f0.png" /> algorithm, which works as follows: first project all of the points onto the xy-plane, and find an edge that is definitely on the hull by selecting the point with highest y-coordinate and then doing one iteration of gift wrapping to determine the other endpoint of the edge. This is the first part of the incomplete hull. We then build the hull iteratively. Consider this first edge; now find another point in order to form the first triangular face of the hull. We do this by picking the point such that all the other points lie to the right of this triangle, when viewed appropriately (just as in the gift-wrapping algorithm, in which we picked an edge such that all other points lay to the right of that edge). Now there are three edges in the hull; to continue, we pick one of them arbitrarily, and again scan through all the points to find another point to build a new triangle with this edge, and repeat this until there are no edges left. (When we create a new triangular face, we add two edges to the pool; however, we have to first check if they have <i>already</i> been added to the hull, in which case we ignore them.) There are <img class="mwe-math-fallback-image-inline tex" alt="O(n)" src="/wiki/images/math/7/b/a/7ba55e7c64a9405a0b39a1107e90ca94.png" /> faces, and each iteration takes <img class="mwe-math-fallback-image-inline tex" alt="O(n)" src="/wiki/images/math/7/b/a/7ba55e7c64a9405a0b39a1107e90ca94.png" /> time since we must scan all of the remaining points, giving <img class="mwe-math-fallback-image-inline tex" alt="O(n^2)" src="/wiki/images/math/1/8/9/189317b4b935a745fcfaf95940d2b4f0.png" />. (If you feel like coding this, you might try <a rel="nofollow" class="external text" href="http://www.spoj.pl/problems/CH3D"><span class="__cf_email__" data-cfemail="e7a4afd4a3a7b4b7a8ad">[email&#160;protected]</span></a>.) It is possible to speed up this algorithm significantly by initially discarding a large number of points we know not to be in the hull; one easy way that performs quite well is to find both extremal points with respect to each of the three coordinate axes, and discard all points in the interior of the octahedron they form.
+</p><p>It is possible to compute a 3D convex hull in <img class="mwe-math-fallback-image-inline tex" alt="O(n \log n)" src="/wiki/images/math/f/4/9/f49341ab621f12e8cb93d0146ea51d34.png" /> time using a divide-and-conquer algorithm, but this is extremely difficult.
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.118 seconds
+Real time usage: 0.133 seconds
+Preprocessor visited node count: 971/1000000
+Preprocessor generated node count: 2272/1000000
+Post‐expand include size: 295/2097152 bytes
+Template argument size: 37/2097152 bytes
+Highest expansion depth: 4/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   88.304      1 - -total
+  7.59%    6.699      2 - Template:Problem
+  4.77%    4.209      2 - Template:JudgeRoot
+  2.60%    2.298      2 - Template:SPOJ
+  2.33%    2.058      2 - Template:Root
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:72-0!*!0!!en!*!*!math=0 and timestamp 20180417190533 and revision id 1350
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wcipeg.com/wiki/index.php?title=Convex_hull&amp;oldid=1350">https://wcipeg.com/wiki/index.php?title=Convex_hull&amp;oldid=1350</a>"					</div>
+													<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/wiki/Category:Algorithms" title="Category:Algorithms">Algorithms</a></li><li><a href="/wiki/Category:Geometry" title="Category:Geometry">Geometry</a></li><li><a href="/wiki/Category:Pages_needing_diagrams" title="Category:Pages needing diagrams">Pages needing diagrams</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Convex+hull&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Convex+hull" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/Convex_hull"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/wiki/index.php?title=Talk:Convex_hull&amp;action=edit&amp;redlink=1"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Convex_hull" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/wiki/index.php?title=Convex_hull&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/wiki/index.php?title=Convex_hull&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search PEGWiki [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+													<li id="n-Index"><a href="/wiki/Special:AllPages">Index</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+													<li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Convex_hull" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Convex_hull" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/wiki/index.php?title=Convex_hull&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/wiki/index.php?title=Convex_hull&amp;oldid=1350" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/wiki/index.php?title=Convex_hull&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 31 May 2011, at 05:49.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Attribution 3.0 Unported</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/PEGWiki:Privacy_policy" title="PEGWiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/PEGWiki:About" title="PEGWiki:About">About PEGWiki</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/PEGWiki:General_disclaimer" title="PEGWiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by/3.0/"><img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Attribution 3.0 Unported" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wiki/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script data-cfasync="false" src="/cdn-cgi/scripts/d07b1474/cloudflare-static/email-decode.min.js"></script><script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wcipeg.com/wiki/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":71});
+}</script>
+	</body>
+</html>

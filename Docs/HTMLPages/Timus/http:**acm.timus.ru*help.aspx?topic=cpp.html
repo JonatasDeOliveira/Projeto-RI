@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=utf-8"><META NAME="viewport" CONTENT="width=768"><META HTTP-EQUIV="X-UA-Compatible" CONTENT="IE=edge"><TITLE>How to write C/C++ solutions @ Timus Online Judge</TITLE><LINK REL="alternate" HREFLANG="x-default" HREF="/help.aspx?topic=cpp"><LINK REL="alternate" HREFLANG="en-us" HREF="/help.aspx?topic=cpp&amp;locale=en"><LINK REL="alternate" HREFLANG="ru-ru" HREF="/help.aspx?topic=cpp&amp;locale=ru"><LINK REL="stylesheet" TYPE="text/css" HREF="/style52.css"><LINK REL="shortcut icon" TYPE="image/x-icon" HREF="/favicon.ico"></HEAD><BODY><TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" CLASS="body"><TR><TD CLASS="caption"><TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"><TR><TD WIDTH="130" CLASS="locale"><A HREF="/help.aspx?topic=cpp&amp;locale=en">ENG</A>&nbsp;&nbsp;<A HREF="/help.aspx?topic=cpp&amp;locale=ru">RUS</A></TD><TD CLASS="title"><A HREF="/">Timus Online Judge</A></TD><TD WIDTH="130"></TD></TR></TABLE></TD></TR><TR><TD CLASS="panel"><TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"><TR><TD WIDTH="130" VALIGN="TOP" ALIGN="CENTER" STYLE="padding-bottom:5px;"><A HREF="/"><IMG BORDER="0" SRC="/images/usu-summer.jpg" HEIGHT="134" WIDTH="106" ALT=""></A></TD><TD VALIGN="TOP" ALIGN="LEFT"><TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" CLASS="panel"><TR><TH WIDTH="25%"><DIV>Online Judge</DIV></TH><TH WIDTH="25%"><DIV>Problems</DIV></TH><TH WIDTH="25%"><DIV>Authors</DIV></TH><TH WIDTH="25%"><DIV>Online contests</DIV></TH></TR><TR><TD VALIGN="TOP" ALIGN="LEFT"><A HREF="/">About Online Judge</A><BR><A HREF="/help.aspx?topic=faq">Frequently asked questions</A><BR><A HREF="/news.aspx">Site news</A><BR><A HREF="/forum/">Webboard</A><BR><A HREF="/help.aspx?topic=links">Links</A><BR></TD><TD VALIGN="TOP" ALIGN="LEFT"><A HREF="/problemset.aspx">Problem set</A><BR><A HREF="/submit.aspx">Submit solution</A><BR><A HREF="/status.aspx">Judge status</A><BR><A HREF="/help.aspx?topic=judge">Guide</A><BR></TD><TD VALIGN="TOP"><A HREF="/register.aspx">Register</A><BR><A HREF="/authedit.aspx">Update your info</A><BR><A HREF="/ranklist.aspx">Authors ranklist</A><BR><FORM ACTION="/search.aspx" METHOD="GET" STYLE="margin-top:0.6em;"><INPUT NAME="Str" SIZE="12" VALUE="" PLACEHOLDER="Author’s name"> <INPUT TYPE="SUBMIT" VALUE="Search"></FORM></TD><TD VALIGN="TOP"><A HREF="/contest.aspx">Current contest</A><BR><A HREF="/schedule.aspx">Scheduled contests</A><BR><A HREF="/archive.aspx">Past contests</A><BR><A HREF="/help.aspx?topic=contest">Rules</A><BR></TD></TR></TABLE></TD></TR></TABLE></TD></TR><TR><TD STYLE="padding-top: 32px; padding-bottom: 20px;"><STYLE>
+			@import url(/prism.css);
+		</STYLE><SCRIPT TYPE="text/javascript" SRC="/prism.js"></SCRIPT><TABLE ALIGN="CENTER" CELLSPACING="0" CELLPADDING="0"><TR><TD WIDTH="800"><H2 CLASS="title">How to write C/C++ solutions</H2><DIV ID="help_text"><P CLASS="help_par">C and C++ programs are compiled on the server with the 32-bit <b>Microsoft Visual C++ 2017</b> or <b>MinGW GCC 7.1</b> or <b><nobr>Clang 4.0.1</nobr></b>. All compilers are provided in C11 and C++14 standards.</P><P CLASS="help_par"><b>Visual C++ 2017</b> has a version included in Visual Studio 2017 v15.3. It is invoked with the following arguments:</P><PRE CLASS="with-background with-code"><CODE CLASS="language-batch">// C
+cl /TC /MT /EHsc /GL /O2 /W3 /Za /D "_CRT_SECURE_NO_WARNINGS" 
+   /D "_CRT_SECURE_NO_DEPRECATE" /D "ONLINE_JUDGE"
+
+// C++
+cl /TP /MT /EHsc /GL /O2 /W3 /Za /std:c++14 /D "_CRT_SECURE_NO_WARNINGS" 
+   /D "_CRT_SECURE_NO_DEPRECATE" /D "ONLINE_JUDGE"
+</CODE></PRE><P CLASS="help_par">You can get the online <A HREF="https://docs.microsoft.com/en-us/cpp/cpp/c-cpp-language-and-standard-libraries">C/C++ Language and Standard Libraries</A> and download the free <A HREF="https://www.visualstudio.com/downloads/">Visual Studio Community 2017</A>.</P><P CLASS="help_par">The <b>MinGW GCC 7.1</b> is invoked with the following arguments:</P><PRE CLASS="with-background with-code"><CODE CLASS="language-batch">// C
+gcc -static -fno-strict-aliasing -DONLINE_JUDGE -lm -s 
+    -std=c11 -Wl,--stack=67108864 -O2 -o %1.exe %1
+
+// C++
+g++ -static -fno-strict-aliasing -DONLINE_JUDGE -lm -s 
+    -x c++ -std=c++14 -Wl,--stack=67108864 -O2 -o %1.exe %1
+</CODE></PRE><P CLASS="help_par">Despite <code>-static</code> option the programs are linked against MSVCRT. To improve compatibility with the latest standards MinGW is configured to link programs against libmsvcr120 (Visual C++ 2013 CRT) instead of default libmsvcrt (Visual C++ 6 CRT).</P><P CLASS="help_par">You can get the full MinGW toolchain on the <a href="https://sourceforge.net/projects/mingw-w64">official web page</a>.
+</P><P CLASS="help_par">The <b>Clang 4.0.1</b> works on top of the MinGW GCC 7.1 toolchain and is invoked with the following arguments:</P><PRE CLASS="with-background with-code"><CODE CLASS="language-batch">// C++
+clang++ -static -fno-strict-aliasing -DONLINE_JUDGE -lm -s 
+    -x c++ -std=c++14 -Wl,--stack=67108864 -O2 -o %1.exe %1
+</CODE></PRE><P CLASS="help_par">You can get the online documentation and the pre-built binaries on the <a href="http://llvm.org/releases/">LLVM web page</a>.</P><H3 CLASS="subtitle">An example of solving a problem</H3><P CLASS="help_par">This is a sample solution for the <A HREF="problem.aspx?space=1&amp;num=1000">A + B problem</A> in the C language: </P><PRE CLASS="with-background with-code"><CODE CLASS="language-cpp">#include &lt;stdio.h&gt;
+int main()
+{
+   int a, b;
+   scanf("%d%d", &amp;a, &amp;b);
+   printf("%d\n", a + b);
+   return 0;
+}</CODE></PRE><P CLASS="help_par">And this is a sample solution for the same problem in C++:</P><PRE CLASS="with-background with-code"><CODE CLASS="language-cpp">#include &lt;iostream&gt;
+int main()
+{
+   int a, b;
+   std::cin &gt;&gt; a &gt;&gt; b;
+   std::cout &lt;&lt; a + b &lt;&lt; std::endl;
+   return 0;
+}
+</CODE></PRE><H3 CLASS="subtitle">Input/output</H3><P CLASS="help_par">An example of how to use input/output is given above. C++ programmers may always choose between two input/output libraries: standard (<code>scanf</code>, <code>printf</code>) or stream (<code>cin</code>, <code>cout</code>) input/output. Stream input/output is easy to use, but it works much slower than standard input/output. This may even cause receiving the Time limit exceeded verdict. Therefore, if you see that a problem requires reading a lot of input data (for example, more than a megabyte) or a large output is expected, then you should better use standard input/output.</P><P CLASS="help_par">Remember that symbol reading functions return negative values for symbols with codes 128-255. If the input data may contain such symbols, then it is better to transform the type of the symbol read to <code>unsigned char</code> explicitly than to get the Wrong answer or Runtime error (access violation) verdicts because of this.</P><P CLASS="help_par">You should know how to read the input data until the end of the stream to solve certain problems. The following examples show how to implement reading input until the end of stream in case input data consists of numbers, lines or separate characters.</P><P CLASS="help_par"><TABLE CELLSPACING="6" WIDTH="100%"><TR><TD VALIGN="TOP" WIDTH="50%"><PRE CLASS="with-background with-code"><CODE CLASS="language-cpp">#include &lt;stdio.h&gt;
+...
+// numbers
+int n;
+while (scanf("%d", &n) != EOF)
+{
+   ...
+}
+// lines
+char line[1000];
+while (gets(line))
+{
+   ...
+}
+// characters
+int c;
+while ((c = getchar()) != EOF)
+{
+   ...
+}</CODE></PRE></TD><TD VALIGN="TOP" WIDTH="50%"><PRE CLASS="with-background with-code"><CODE CLASS="language-cpp">#include &lt;iostream&gt;
+...
+// numbers
+int n;
+while (std::cin >> n)
+{
+   ...
+}
+// lines
+std::string line;
+while (std::getline(std::cin, line))
+{
+   ...
+}
+// characters
+char c;
+while (std::cin.get(c))
+{
+   ...
+}</CODE></PRE></TD></TR></TABLE></P><H3 CLASS="subtitle">The distinctions of the compiler as compared to other 32-bit C++ compilers</H3><P CLASS="help_par"><b>Visual C++ Only.</b> In order not to get a Compilation error, you should know some features of the compiler used on the server.</P><UL><LI CLASS="help_par">It is impossible to use functions from the header file <code>math.h</code> for integer parameters. For example, this code will not be compiled: <code>sqrt(2)</code>. It is correct to write <code>sqrt((double)2)</code> or <code>sqrt(2.0)</code>.</LI><LI CLASS="help_par">The header file <code>math.h</code> contains functions <code>j0</code>, <code>j1</code>, <code>jn</code>, <code>y0</code>, <code>y1</code>, and <code>yn</code>. Therefore, you should not declare global variables with such names if you use <code>math.h</code>. The STL header files contains functions <code>next</code>, <code>prev</code>, <code>begin</code>, <code>end</code>, <code>rank</code>, <code>count</code>, <code>hash</code>. These names can not be used for naming global variables and functions.</LI><LI CLASS="help_par">The type <code>long double</code> coincides with <code>double</code>. So, <code>sizeof(long double) = sizeof(double) = 8</code>. When solving problems, it is always sufficient to use the type <code>double</code> (unless a special implementation of floating-point numbers is required).</LI><LI CLASS="help_par">The function <code>itoa</code> is not supported. Use the function <code>sprintf</code>.</LI><LI CLASS="help_par">A variable declared in a <code>for</code> statement is accessible only within the body of this statement.</LI></UL><H3 CLASS="subtitle">How to use 64-bit integer data types </H3><P CLASS="help_par">The compiler fully supports 64-bit integers (both signed and unsigned). A signed 64-bit integer ranges from –9223372036854775808 to 9223372036854775807 and an unsigned 64-bit integer ranges from 0 to 18446744073709551615. A 64-bit variable can be declared in the following way:</P><PRE CLASS="with-background with-code"><CODE CLASS="language-cpp">long long a;
+unsigned long long b;
+</CODE></PRE><P CLASS="help_par">64-bit variables can be read and written in two ways as well depending on the input/output library used:</P><PRE CLASS="with-background with-code"><CODE CLASS="language-cpp">#include &lt;stdio.h&gt;
+...
+scanf("%lld", &amp;a);
+scanf("%llu", &amp;b);
+printf("%lld", a);
+printf("%llu", b);
+
+#include &lt;iostream&gt;
+...
+std::cin &gt;&gt; a;
+std::cin &gt;&gt; b;
+std::cout &lt;&lt; a;
+std::cout &lt;&lt; b;
+</CODE></PRE><H3 CLASS="subtitle">STL library</H3><P CLASS="help_par">The Standard Template Library, or STL, is a C++ library of container classes, algorithms, and iterators; it provides many of the basic algorithms and data structures of computer science, thus helping programmers to shorten their code and to quicken the process of writing a program.
+</P><P CLASS="help_par">STL containers are ready-made implementations of common data structures. The most useful for solving problems are the following containers:</P><UL><LI CLASS="help_par">a dynamic array <code>vector</code>;</LI><LI CLASS="help_par">a sorted associative array <code>map</code> and a sorted set <code>set</code>, which are based on red-black trees (search, insert, and delete operations are performed in logarithmic time);</LI><LI CLASS="help_par"><code>queue</code>, <code>priority_queue</code>, <code>deque</code>, and <code>stack</code>.</LI></UL><P CLASS="help_par">An iterator in STL is an abstraction that allows traversing elements of a container. From a programmer's point of view, an iterator is any object that supports the operations of dereferencing a pointer to a current element (<code>*</code>, <code>-&gt;</code>) and moving to the next element (<code>++</code>) (the usual pointer is also an iterator). All STL containers provide iterators for traversing their elements; they are available by calling <code>container_type::iterator</code>.</P><P CLASS="help_par">The most popular STL algorithm is the quicksort <code>sort</code>, which works in time O(N &times; log N). There are altogether around 60 algorithms in the library, including the binary search <code>binary_search</code>, the generation of the next permutation of elements <code>next_permutation</code>, the linear search <code>find</code>, and many others.</P><P CLASS="help_par">Let us consider an example of solving a problem using STL. Given a set of lines, it is required to output all differing lines in the lexicographic order and to specify for each line the number of times it occurs in the set. </P><PRE CLASS="with-background with-code"><CODE CLASS="language-cpp">#include &lt;iostream&gt;
+#include &lt;map&gt;
+#include &lt;string&gt;
+
+int main()
+{
+   std::map&lt;std::string, int&gt; words;
+   std::string word;
+
+   while (std::getline(std::cin, word))
+      words[word]++;
+   for (std::map&lt;std::string, int&gt;::iterator it = words.begin(); it != words.end(); it++)
+      std::cout &lt;&lt; it-&gt;first &lt;&lt; " - " &lt;&lt; it-&gt;second &lt;&lt; std::endl;
+
+   return 0;
+}</CODE></PRE><P CLASS="help_par">Since operations with the container <code>map</code> are performed in logarithmic time, the complexity of the solution is O(N &times; log N), where N is the size of the input data.</P><H3 CLASS="subtitle">Other notes</H3><P CLASS="help_par">You must not throw exceptions in solutions of problems (even inside a block <code>try … catch</code>)—this will be interpreted by the checker as a Runtime error.</P><P CLASS="help_par"><b>Visual C++ Only.</b> In order to increase the size of a stack and to avoid its overflow when using a “deep” recursion, you should use a special directive (in the example, the size of the stack is set to be 16 MB):</P><PRE CLASS="with-background with-code"><CODE CLASS="language-cpp">#pragma comment(linker, "/STACK:16777216")</CODE></PRE><P CLASS="help_par">It is convenient to use the conditional directive <code>ONLINE_JUDGE</code> for debugging solutions.</P><PRE CLASS="with-background with-code"><CODE CLASS="language-cpp">#include &lt;stdio.h&gt;
+int main()
+{
+#ifndef ONLINE_JUDGE
+   freopen("input.txt", "rt", stdin);
+   freopen("output.txt", "wt", stdout);
+#endif
+   int a, b;
+   scanf("%d%d", &amp;a, &amp;b);
+   printf("%d\n", a + b);
+   return 0;
+}</CODE></PRE><P CLASS="help_par">Note that the function <code>freopen</code> may also be used with stream input/output.</P><PRE CLASS="with-background with-code"><CODE CLASS="language-cpp">#include &lt;iostream&gt;
+int main()
+{
+#ifndef ONLINE_JUDGE
+   freopen("input.txt", "rt", stdin);
+   freopen("output.txt", "wt", stdout);
+#endif
+   int a, b;
+   std::cin &gt;&gt; a &gt;&gt; b;
+   std::cout &lt;&lt; a + b &lt;&lt; std::endl;
+   return 0;
+}</CODE></PRE><H3 CLASS="subtitle">Earlier compilers</H3><UL><LI CLASS="help_par">The Intel C++ Compiler 7.0 was used until August 3, 2010.</LI><LI CLASS="help_par">MinGW GCC 4.7.2 was used until October 3, 2014.</LI><LI CLASS="help_par">Microsoft Visual C++ 2010 was used until Septemper 22, 2015.</LI><LI CLASS="help_par">Microsoft Visual C++ 2013 was used until September 1, 2017.</LI><LI CLASS="help_par">MinGW GCC 4.9.1 was used until September 1, 2017.</LI><LI CLASS="help_par">Clang 3.5 was used until September 1, 2017.</LI></UL></DIV></TD></TR></TABLE></TD></TR><TR><TD CLASS="footer"><script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter20918869 = new Ya.Metrika({ id:20918869, clickmap:true, trackLinks:true, accurateTrackBounce:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="https://mc.yandex.ru/watch/20918869" style="position:absolute; left:-9999px;" alt=""></div></noscript>© 2000–2017 <A HREF="/team.aspx">Timus Online Judge Team</A>. All rights reserved.</TD></TR></TABLE></BODY></HTML>

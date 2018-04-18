@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Judge:System calls - PEGWiki</title>
+<meta name="generator" content="MediaWiki 1.25.2" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/wiki/opensearch_desc.php" title="PEGWiki (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wcipeg.com/wiki/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/Judge:System_calls" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="PEGWiki Atom feed" href="/wiki/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:b36fd1c042133c9c9b60260f7c29b237 */</style>
+<script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"Judge","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":102,"wgPageName":"Judge:System_calls","wgTitle":"System calls","wgCurRevisionId":1537,"wgRevisionId":1537,"wgArticleId":425,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Judge:System_calls","wgRelevantArticleId":425,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikidb:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-102 ns-subject page-Judge_System_calls skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Judge:System calls</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From PEGWiki</div>
+								<div id="contentSub"><div id="mw-revision-info">Revision as of 22:24, 24 December 2011 by <a href="/wiki/User:Brian" title="User:Brian" class="mw-userlink">Brian</a> <span class="mw-usertoollinks">(<a href="/wiki/User_talk:Brian" title="User talk:Brian">Talk</a> | <a href="/wiki/Special:Contributions/Brian" title="Special:Contributions/Brian">contribs</a>)</span></div><br />
+				<div id="mw-revision-nav">(<a href="/wiki/index.php?title=Judge:System_calls&amp;diff=prev&amp;oldid=1537" title="Judge:System calls">diff</a>) <a href="/wiki/index.php?title=Judge:System_calls&amp;direction=prev&amp;oldid=1537" title="Judge:System calls">← Older revision</a> | Latest revision (diff) | Newer revision → (diff)</div></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>This page lists some common Linux system calls and discusses their usage in programs graded by the PEG Judge. Note that almost all of these have corresponding wrappers in libc without the "sys_" prefix (<i>e.g.</i>, <i>read</i> for <i>sys_read</i>).
+</p><p>In general, the state of the filesystem is required to be identical before and after your program runs (except that the judge collects your output and automatically determines execution time and other statistics), and your program is not allowed to examine the filesystem at all except by reading from standard input. Thus, you may not create files, delete files, move files, open additional files, examine file attributes, nor change file attributes, nor may you do any of the same on directories; you also are not allowed to change working directory. Obviously, you should also not try to do anything that requires root privileges, such as increasing your resource limits.
+</p>
+<ul><li> <b>sys_brk</b>: This is essential for dynamic memory allocation, but you'll only ever want to call it directly if you're using assembly language; otherwise the programming language or standard libraries should be allowed to take care of it. Note that if you try to allocate more memory this way than the memory limit for your program, this call will fail.</li>
+<li> <b>sys_clone</b>: See <i>sys_fork</i>.</li>
+<li> <b>sys_close</b>: This does not necessarily have to be called, as the kernel automatically closes all open file descriptors when a program terminates in any way. However, it is almost always called indirectly when a program terminates (unless this program is written in assembly language).</li>
+<li> <b>sys_execve</b>: <b>Not allowed</b>. Your program may not invoke any other programs. If it tries, either it will be killed, or the system call will simply fail.</li>
+<li> <b>sys_exit</b>: Every program must <i>sys_exit</i> when it is done executing. You can exit your program at any time, and return any exit code. If your output is correct, you will receive points regardless of the exit code; however, if your program is not accepted, the submission status will indicate "Invalid Return" (IR). Note that calling <i>sys_exit</i> does not flush the standard output stream, but instead immediately discards anything left in the buffer. This is not a problem when <i>sys_exit</i> is called indirectly by <i>exit</i> in libc, which always closes the standard streams before calling <i>sys_exit</i>.</li>
+<li> <b>sys_fcntl</b>: Your programming language runtime might use this call. There is probably no use for it in the code you submit.</li>
+<li> <b>sys_fork</b>: <b>Not allowed</b>. Programs may not <i>sys_fork</i>, and may be killed if they try, or the attempt will just fail anyway..</li>
+<li> <b>sys_getitimer</b>: See <i>sys_setitimer</i>.</li>
+<li> <b>sys_getpid</b>: This is often useful for seeding random number generators.</li>
+<li> <b>sys_kill</b>: It's obviously <b>not allowed</b> to <i>sys_kill</i> other processes, and trying to do so will either cause your program to be <i>sys_kill</i>ed itself, or simply fail. Programs can <i>sys_kill</i> themselves though.</li>
+<li> <b>sys_lseek</b>, <b>sys_llseek</b>: You can use this if you want, but be aware that it won't work if the standard streams turn out to be pipes instead of files.</li>
+<li> <b>sys_mmap</b>: Analogous to <i>sys_lseek</i>.</li>
+<li> <b>sys_open</b>: <b>Not allowed</b>. Your program will have standard input, standard output, and standard error streams already open when it is invoked. You are not allowed to attempt to read from or write to other files.</li>
+<li> <b>sys_read</b>: This system call is necessary for reading input. Be aware however that the input may come from a pipe, in which case it won't be possible to <i>sys_read</i> large amounts of data in at once, but instead it will be necessary to check the return value to determine how many bytes were actually read, and then try again if there is yet more data to be read. This is not an issue when using I/O functions from programming language standard libraries (such as <i>fread</i>), as these will automatically call <i>sys_read</i> multiple times if necessary.</li>
+<li> <b>sys_setitimer</b>: This might be useful for arranging for a recursive backtracking algorithm to automatically terminate when your program's time limit has nearly expired, so that your program can print out the best solution it's found so far and you can hope for the best.</li>
+<li> <b>sys_sigaction</b>, <b>sys_signal</b>: Could be useful if used in conjunction with <i>sys_setitimer</i>. Note that attempts to use this system call to circumvent the grader are futile. For example, catching SIGXCPU might allow your program to execute for longer than the CPU time limit, but you'll get a TLE mark anyway, since the grader knows how much CPU time you used. (It also won't allow you to exceed the wall clock limit, since your program receives SIGKILL when this happens.)</li>
+<li> <b>sys_socketcall</b>: <b>Not allowed</b>, since programs are not supposed to access the network. They will fail anyway since your program is not allowed to open new file descriptors.</li>
+<li> <b>sys_time</b>: Like <i>sys_getpid</i>.</li>
+<li> <b>sys_write</b>: Like <i>sys_read</i>.</li></ul>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.005 seconds
+Real time usage: 0.006 seconds
+Preprocessor visited node count: 1/1000000
+Preprocessor generated node count: 4/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 1/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:425-0!*!*!*!*!*!* and timestamp 20180418000127 and revision id 1537
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wcipeg.com/wiki/index.php?title=Judge:System_calls&amp;oldid=1537">https://wcipeg.com/wiki/index.php?title=Judge:System_calls&amp;oldid=1537</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Judge%3ASystem+calls&amp;returntoquery=oldid%3D1537&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Judge%3ASystem+calls&amp;returntoquery=oldid%3D1537" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-judge" class="selected"><span><a href="/wiki/Judge:System_calls" >Judge</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/wiki/index.php?title=Judge_talk:System_calls&amp;action=edit&amp;redlink=1"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Judge:System_calls" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="/wiki/index.php?title=Judge:System_calls&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/wiki/index.php?title=Judge:System_calls&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search PEGWiki [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+													<li id="n-Index"><a href="/wiki/Special:AllPages">Index</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+													<li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Judge:System_calls" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Judge:System_calls" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/wiki/index.php?title=Judge:System_calls&amp;oldid=1537&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/wiki/index.php?title=Judge:System_calls&amp;oldid=1537" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/wiki/index.php?title=Judge:System_calls&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 24 December 2011, at 22:24.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Attribution 3.0 Unported</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/PEGWiki:Privacy_policy" title="PEGWiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/PEGWiki:About" title="PEGWiki:About">About PEGWiki</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/PEGWiki:General_disclaimer" title="PEGWiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by/3.0/"><img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Attribution 3.0 Unported" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wiki/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wcipeg.com/wiki/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":72});
+}</script>
+	</body>
+</html>

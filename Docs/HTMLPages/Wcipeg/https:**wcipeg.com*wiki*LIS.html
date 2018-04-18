@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Longest increasing subsequence - PEGWiki</title>
+<meta name="generator" content="MediaWiki 1.25.2" />
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/wiki/index.php?title=Longest_increasing_subsequence&amp;action=edit" />
+<link rel="edit" title="Edit" href="/wiki/index.php?title=Longest_increasing_subsequence&amp;action=edit" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/wiki/opensearch_desc.php" title="PEGWiki (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wcipeg.com/wiki/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/Longest_increasing_subsequence" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="PEGWiki Atom feed" href="/wiki/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="canonical" href="/wiki/Longest_increasing_subsequence" />
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=ext.math.styles%7Cext.rtlcite%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:b36fd1c042133c9c9b60260f7c29b237 */</style>
+<script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Longest_increasing_subsequence","wgTitle":"Longest increasing subsequence","wgCurRevisionId":1932,"wgRevisionId":1932,"wgArticleId":127,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Dynamic programming"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Longest_increasing_subsequence","wgRelevantArticleId":127,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"LIS","wgInternalRedirectTargetUrl":"/wiki/Longest_increasing_subsequence"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikidb:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.redirect","mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Longest_increasing_subsequence skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Longest increasing subsequence</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From PEGWiki</div>
+								<div id="contentSub"><span class="mw-redirectedfrom">(Redirected from <a href="/wiki/index.php?title=LIS&amp;redirect=no" title="LIS">LIS</a>)</span></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>The <b>longest increasing subsequence</b> (LIS) problem is to find an <a href="/wiki/Subsequence#Definitions" title="Subsequence" class="mw-redirect">increasing subsequence</a> (either strictly or non-strictly) of maximum length, given a (finite) input sequence whose elements are taken from a partially ordered set. For example, consider the sequence [9,2,6,3,1,5,0,7]. An increasing subsequence is [2,3,5,7], and, in fact, there is no longer increasing subsequence. Therefore [2,3,5,7] is a longest increasing subsequence of [9,2,6,3,1,5,0,7]. The <i>longest decreasing subsequence</i> can be defined analogously; it is clear that a solution to one gives a solution to the other.
+</p><p>We will focus on the non-strict case (with some parenthetical comments about the strict case).
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Discussion"><span class="tocnumber">1</span> <span class="toctext">Discussion</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Reduction_to_LCS_from_non-strict_case"><span class="tocnumber">2</span> <span class="toctext">Reduction to LCS from non-strict case</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Dynamic_programming_solution"><span class="tocnumber">3</span> <span class="toctext">Dynamic programming solution</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Optimal_substructure"><span class="tocnumber">3.1</span> <span class="toctext">Optimal substructure</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Overlapping_subproblems"><span class="tocnumber">3.2</span> <span class="toctext">Overlapping subproblems</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Implementation"><span class="tocnumber">3.3</span> <span class="toctext">Implementation</span></a>
+<ul>
+<li class="toclevel-3 tocsection-7"><a href="#Pseudocode"><span class="tocnumber">3.3.1</span> <span class="toctext">Pseudocode</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-8"><a href="#Analysis"><span class="tocnumber">3.4</span> <span class="toctext">Analysis</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="#Time"><span class="tocnumber">3.4.1</span> <span class="toctext">Time</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#Memory"><span class="tocnumber">3.4.2</span> <span class="toctext">Memory</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="#A_faster_algorithm"><span class="tocnumber">4</span> <span class="toctext">A faster algorithm</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="#Pseudocode_2"><span class="tocnumber">4.1</span> <span class="toctext">Pseudocode</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Analysis_2"><span class="tocnumber">4.2</span> <span class="toctext">Analysis</span></a>
+<ul>
+<li class="toclevel-3 tocsection-14"><a href="#Time_2"><span class="tocnumber">4.2.1</span> <span class="toctext">Time</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="#Memory_2"><span class="tocnumber">4.2.2</span> <span class="toctext">Memory</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Discussion">Discussion</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Longest_increasing_subsequence&amp;action=edit&amp;section=1" title="Edit section: Discussion">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>There are three possible ways to state the problem:
+</p>
+<ol><li> Return <i>all</i> longest increasing subsequences. There may be an exponential number of these; for example, consider a sequence that starts [1,0,3,2,5,4,7,6,...]; if it has length <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png" /> (even) then there are <img class="mwe-math-fallback-image-inline tex" alt="2^{n/2}" src="/wiki/images/math/4/a/d/4addf4efa85422bf46470f4c8a39a260.png" /> increasing subsequences of length <img class="mwe-math-fallback-image-inline tex" alt="n/2" src="/wiki/images/math/a/2/f/a2f070a31330443ceb0dcf352fe50035.png" /> (each obtained by choosing one out of each of the pairs (1,0), (3,2), ...), and no longer increasing subsequences. Thus, this problem cannot possibly be solved efficiently.</li>
+<li> Return <i>one</i> longest increasing subsequence. This can be solved efficiently.</li>
+<li> Return only the maximum length that a increasing subsequence can have. This can be solved efficiently.</li></ol>
+<h2><span class="mw-headline" id="Reduction_to_LCS_from_non-strict_case">Reduction to LCS from non-strict case</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Longest_increasing_subsequence&amp;action=edit&amp;section=2" title="Edit section: Reduction to LCS from non-strict case">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Any increasing subsequence of a sequence is also a subsequence of the sequence sorted. For example, [9,2,6,3,1,5,0,7], when sorted, gives [0,1,2,3,5,6,7,9], and [2,3,5,7] is certainly a subsequence of this. Furthermore, if a subsequence of the original sequence is also a subsequence of the sorted sequence, then clearly it is increasing (<i>non-strictly</i>), and therefore an increasing subsequence of the original sequence. It follows trivially that we can compute a longest <i>non-strictly</i> increasing subsequence by computing a <a href="/wiki/Longest_common_subsequence" title="Longest common subsequence">longest common subsequence</a> of the sequence and a sorted copy of itself.
+</p>
+<h2><span class="mw-headline" id="Dynamic_programming_solution">Dynamic programming solution</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Longest_increasing_subsequence&amp;action=edit&amp;section=3" title="Edit section: Dynamic programming solution">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>To compute the longest increasing subsequence contained with a given sequence <img class="mwe-math-fallback-image-inline tex" alt="x = [x_1, x_2, ..., x_n]" src="/wiki/images/math/6/2/1/621e79c67b0b6441801885ad6a9e6bbd.png" />, first notice that unless <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png" /> is empty, an LIS will have length at least one, and given that this is the case, it has some last element <img class="mwe-math-fallback-image-inline tex" alt="x_i" src="/wiki/images/math/0/5/e/05e42209d67fe1eb15a055e9d3b3770e.png" />. Denote the (non-empty) prefixes of <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png" /> by <img class="mwe-math-fallback-image-inline tex" alt="x[1] = [x_1], x[2] = [x_1, x_2], ..., x[n] = x" src="/wiki/images/math/2/3/9/2396e4d2839ee5d54d6aa9dfc7b04487.png" />. Then, an LIS that ends with element <img class="mwe-math-fallback-image-inline tex" alt="x_i" src="/wiki/images/math/0/5/e/05e42209d67fe1eb15a055e9d3b3770e.png" /> has the property that it is an LIS that uses the last element of <img class="mwe-math-fallback-image-inline tex" alt="x[i]" src="/wiki/images/math/e/c/a/eca9bd72b911b96661e70a7bf689d0ca.png" />. Thus, for each of the prefixes <img class="mwe-math-fallback-image-inline tex" alt="x[1], x[2], ..., x[n]" src="/wiki/images/math/4/1/6/416c6a38c37b23141c0aae1eef870e46.png" />, we will determine an increasing subsequence that contains the last element of this prefix sequence such that no longer increasing subsequence has this property. Then, one of these must be a LIS for the original sequence.
+</p><p>For example, consider the sequence [9,2,6,3,1,5,0]. Its nonempty prefixes are [9], [9,2], [9,2,6], [9,2,6,3], [9,2,6,3,1], [9,2,6,3,1,5], and [9,2,6,3,1,5,0]. For each of these, we may find an increasing subsequence that uses the last element of maximal length, for example, [9], [2], [2,6], [2,3], [1], [2,3,5], and [0], respectively. The longest of these, [2,3,5], is then also an (unrestricted) LIS of the original sequence, [9,2,6,3,1,5,0,7].
+</p><p>Denote the LIS of <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png" /> by <img class="mwe-math-fallback-image-inline tex" alt="\operatorname{LIS}(x)" src="/wiki/images/math/7/b/a/7baeb5dc3aeef0a4d72b81278143230f.png" />, and denote the LIS subject to the restriction that the last element must be used as <img class="mwe-math-fallback-image-inline tex" alt="\operatorname{LIS}&#39;(i)" src="/wiki/images/math/6/3/d/63de1aef2c12d610adfe855851c70163.png" />. Then we see that <img class="mwe-math-fallback-image-inline tex" alt="|\operatorname{LIS}(x)| = \max_{1 \leq i \leq n} |\operatorname{LIS}&#39;(i)|" src="/wiki/images/math/5/3/a/53af3158ddcb2f4aab2ad97dff8dc1f1.png" />. We will now focus on calculating the <img class="mwe-math-fallback-image-inline tex" alt="\operatorname{LIS}&#39;" src="/wiki/images/math/5/9/c/59c34748809c82d7acad7c70755e3da8.png" /> values, of which there are <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png" /> (one for each nonempty prefix of <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png" />).
+</p>
+<h3><span class="mw-headline" id="Optimal_substructure">Optimal substructure</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Longest_increasing_subsequence&amp;action=edit&amp;section=4" title="Edit section: Optimal substructure">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The value for <img class="mwe-math-fallback-image-inline tex" alt="\operatorname{LIS}&#39;(i)" src="/wiki/images/math/6/3/d/63de1aef2c12d610adfe855851c70163.png" /> consists of either:
+</p>
+<ul><li> the element <img class="mwe-math-fallback-image-inline tex" alt="x_i" src="/wiki/images/math/0/5/e/05e42209d67fe1eb15a055e9d3b3770e.png" /> alone, which always forms an increasing subsequence by itself, or</li>
+<li> the element <img class="mwe-math-fallback-image-inline tex" alt="x_i" src="/wiki/images/math/0/5/e/05e42209d67fe1eb15a055e9d3b3770e.png" /> tacked on to the end of an increasing subsequence ending with <img class="mwe-math-fallback-image-inline tex" alt="x_j" src="/wiki/images/math/f/4/b/f4bb95e27d8505366199bb81f2b75b6f.png" />, where <img class="mwe-math-fallback-image-inline tex" alt="j &lt; i" src="/wiki/images/math/e/0/0/e00a1cf3e30f9cdfe98fa86474f38b9f.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="x_j \leq x_i" src="/wiki/images/math/0/1/1/011a06666e23ebe473cad51329978e8b.png" /> (for the non-strict case) or <img class="mwe-math-fallback-image-inline tex" alt="x_j &lt; x_i" src="/wiki/images/math/f/c/b/fcb6762f0a312d3da7e77d8683d37989.png" /> (for the strict case).</li></ul>
+<p>For example, the longest increasing subsequence that ends on the last element of <img class="mwe-math-fallback-image-inline tex" alt="[9,2,6,3,1]" src="/wiki/images/math/2/8/2/2824ba6a694a1cbb33bcbc4dd0b9845a.png" /> is just the element <img class="mwe-math-fallback-image-inline tex" alt="1" src="/wiki/images/math/c/4/c/c4ca4238a0b923820dcc509a6f75849b.png" /> itself, the element at the very end. But if we consider <img class="mwe-math-fallback-image-inline tex" alt="[9,2,6,3,1,5]" src="/wiki/images/math/3/3/9/33945c6653ad9b9190b8293b38741303.png" />, which has as a longest increasing subsequence ending at its last element <img class="mwe-math-fallback-image-inline tex" alt="[2,3,5]" src="/wiki/images/math/3/3/c/33cd7433211350933b73bc316943e6b8.png" />, we see that <img class="mwe-math-fallback-image-inline tex" alt="[2,3]" src="/wiki/images/math/d/5/1/d5138fec13c27bb6c645b29cdfa97a84.png" /> is an increasing subsequence of <img class="mwe-math-fallback-image-inline tex" alt="[9,2,6,3]" src="/wiki/images/math/8/4/b/84b2b8698c67105233fed595d56323d7.png" /> ending at <i>its</i> last element and that <img class="mwe-math-fallback-image-inline tex" alt="3 &lt; 5" src="/wiki/images/math/2/d/2/2d2476da4e0a28ad11412e856144fee4.png" /> as required.
+</p><p>Furthermore, it is not hard to see that the increasing subsequence we are left with after removing the last element, in the second case, must itself be optimal for the element it ends on; that is, must be a possible value of <img class="mwe-math-fallback-image-inline tex" alt="\operatorname{LIS}&#39;(j)" src="/wiki/images/math/5/c/4/5c4bd6fb85d5d284c6ac4e0e84f2ae16.png" />. If this were not the case, then we would have a longer increasing subsequence ending on <img class="mwe-math-fallback-image-inline tex" alt="x_j" src="/wiki/images/math/f/4/b/f4bb95e27d8505366199bb81f2b75b6f.png" />, and then we could tack the element <img class="mwe-math-fallback-image-inline tex" alt="x_i" src="/wiki/images/math/0/5/e/05e42209d67fe1eb15a055e9d3b3770e.png" /> on the end to obtain an increasing subsequence ending at <img class="mwe-math-fallback-image-inline tex" alt="x_i" src="/wiki/images/math/0/5/e/05e42209d67fe1eb15a055e9d3b3770e.png" /> that is longer than the one we originally supposed was longest --- a contradiction.
+</p><p>Also, if we already know <img class="mwe-math-fallback-image-inline tex" alt="\operatorname{LIS}&#39;(j)" src="/wiki/images/math/5/c/4/5c4bd6fb85d5d284c6ac4e0e84f2ae16.png" /> for all <img class="mwe-math-fallback-image-inline tex" alt="j &lt; i" src="/wiki/images/math/e/0/0/e00a1cf3e30f9cdfe98fa86474f38b9f.png" />, then one of them, when the element <img class="mwe-math-fallback-image-inline tex" alt="x_i" src="/wiki/images/math/0/5/e/05e42209d67fe1eb15a055e9d3b3770e.png" /> is appended to the end, must give a LIS that ends at <img class="mwe-math-fallback-image-inline tex" alt="x_i" src="/wiki/images/math/0/5/e/05e42209d67fe1eb15a055e9d3b3770e.png" />, unless <img class="mwe-math-fallback-image-inline tex" alt="\operatorname{LIS}&#39;(x[i])" src="/wiki/images/math/a/0/9/a09ea6dcfead478b0b4ac6bb0a096a3b.png" /> consists of <img class="mwe-math-fallback-image-inline tex" alt="x_i" src="/wiki/images/math/0/5/e/05e42209d67fe1eb15a055e9d3b3770e.png" /> only. This is because if this were not the case, then whenever we were allowed to append <img class="mwe-math-fallback-image-inline tex" alt="x_i" src="/wiki/images/math/0/5/e/05e42209d67fe1eb15a055e9d3b3770e.png" /> we would obtain a suboptimal solution --- but then removing the last element from <img class="mwe-math-fallback-image-inline tex" alt="\operatorname{LIS}&#39;(i)" src="/wiki/images/math/6/3/d/63de1aef2c12d610adfe855851c70163.png" /> would give a suboptimal solution to a subinstance, which we know to be impossible.
+</p>
+<h3><span class="mw-headline" id="Overlapping_subproblems">Overlapping subproblems</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Longest_increasing_subsequence&amp;action=edit&amp;section=5" title="Edit section: Overlapping subproblems">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>When computing <img class="mwe-math-fallback-image-inline tex" alt="\operatorname{LIS}&#39;(x[i])" src="/wiki/images/math/a/0/9/a09ea6dcfead478b0b4ac6bb0a096a3b.png" />, we might need to know the values of <img class="mwe-math-fallback-image-inline tex" alt="\operatorname{LIS}&#39;(x[j])" src="/wiki/images/math/2/6/2/2622812a25f0ba36ff5cc6071cf50fa7.png" /> for all <img class="mwe-math-fallback-image-inline tex" alt="j &lt; i" src="/wiki/images/math/e/0/0/e00a1cf3e30f9cdfe98fa86474f38b9f.png" />. These are the shared subinstances; there are only <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png" /> possible values in the <img class="mwe-math-fallback-image-inline tex" alt="\operatorname{LIS}&#39;" src="/wiki/images/math/5/9/c/59c34748809c82d7acad7c70755e3da8.png" /> table in total.
+</p>
+<h3><span class="mw-headline" id="Implementation">Implementation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Longest_increasing_subsequence&amp;action=edit&amp;section=6" title="Edit section: Implementation">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The optimal substructure discussed gives a very simple formula:
+</p>
+<dl><dd><img class="mwe-math-fallback-image-inline tex" alt="\operatorname{LIS}&#39;(i) = (\text{the longest out of } (\{\operatorname{LIS}&#39;(j) \mid 1 \leq j &lt; i \wedge x_j \leq x_i\} \cup \{[\,]\}))x_i" src="/wiki/images/math/e/5/5/e55474191f01c6dcdf11484eb608b408.png" /></dd></dl>
+<p>(In the strict case, we have <img class="mwe-math-fallback-image-inline tex" alt="x_j &lt; x_i" src="/wiki/images/math/f/c/b/fcb6762f0a312d3da7e77d8683d37989.png" /> strictly.)
+</p><p>We can easily compute this bottom-up, since we only need to know values of smaller subinstances.
+</p><p>The LIS of the entire sequence <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png" /> is then just the largest of all <img class="mwe-math-fallback-image-inline tex" alt="\operatorname{LIS}&#39;" src="/wiki/images/math/5/9/c/59c34748809c82d7acad7c70755e3da8.png" /> values.
+</p><p>If only the length is desired, the above formula becomes
+</p>
+<dl><dd><img class="mwe-math-fallback-image-inline tex" alt="\operatorname{LIS\_len}&#39;(i) = 1 + \max (\{\operatorname{LIS\_len}&#39;(j) \mid 1 \leq j &lt; i \wedge x_j \leq x_i\} \cup \{0\})" src="/wiki/images/math/5/b/a/5baf99d865291a438b024c8a2f01c86c.png" /></dd></dl>
+<h4><span class="mw-headline" id="Pseudocode">Pseudocode</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Longest_increasing_subsequence&amp;action=edit&amp;section=7" title="Edit section: Pseudocode">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>(This is for the non-strict case.)
+</p>
+<pre>input x
+n &#8592; length of x
+for each i &#8712; [1..n]
+     lis[i] &#8592; 1
+     for each j &#8712; [1..(i-1)]
+          if x[i] &#8805; x[j]
+               lis[i] &#8592; max(lis[i],1+lis[j])
+return max element of lis
+</pre>
+<h3><span class="mw-headline" id="Analysis">Analysis</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Longest_increasing_subsequence&amp;action=edit&amp;section=8" title="Edit section: Analysis">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<h4><span class="mw-headline" id="Time">Time</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Longest_increasing_subsequence&amp;action=edit&amp;section=9" title="Edit section: Time">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>With the length-only formula above, computing the <img class="mwe-math-fallback-image-inline tex" alt="i^{\text{th}}" src="/wiki/images/math/c/e/1/ce18df95f1f6bc2d4291caae16c3552b.png" /> entry takes <img class="mwe-math-fallback-image-inline tex" alt="O(i)" src="/wiki/images/math/a/3/6/a36b17d0c569c2a71a696385a9a9a778.png" /> time to compute, giving <img class="mwe-math-fallback-image-inline tex" alt="O(1) + O(2) + ... + O(n) = O(n^2)" src="/wiki/images/math/1/e/d/1ed004150f341c8b38fdece0db0539f7.png" /> time overall.
+</p><p>This bound still holds when computing the LIS itself, but since we probably wish to avoid needless copying and concatenation of sequences, a better way is to, instead of storing the <img class="mwe-math-fallback-image-inline tex" alt="\operatorname{LIS}&#39;" src="/wiki/images/math/5/9/c/59c34748809c82d7acad7c70755e3da8.png" /> values themselves in the table, simply storing their lengths as well as making a note of the next-to-last element of the sequence (or storing a zero if there is none) so that we can backtrack to reconstruct the original sequence.
+</p>
+<h4><span class="mw-headline" id="Memory">Memory</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Longest_increasing_subsequence&amp;action=edit&amp;section=10" title="Edit section: Memory">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p><img class="mwe-math-fallback-image-inline tex" alt="\Theta(n)" src="/wiki/images/math/5/c/1/5c151486ce3904339687c2bac3cccd8d.png" /> memory is used.
+</p>
+<h2><span class="mw-headline" id="A_faster_algorithm">A faster algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Longest_increasing_subsequence&amp;action=edit&amp;section=11" title="Edit section: A faster algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>If the set from which the elements of <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png" /> is taken is totally ordered, then we can do even better than this. As a matter of fact, this is usually the case, as the elements will often be integers or real numbers. This algorithm runs in <img class="mwe-math-fallback-image-inline tex" alt="O(n \log n)" src="/wiki/images/math/f/4/9/f49341ab621f12e8cb93d0146ea51d34.png" /> time, which is asymptotically optimal.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup>
+</p><p>The idea behind the algorithm is that if an increasing subsequence is long, then it is useful because it might give optimal subsequences that end on later elements, and if an increasing subsequence ends on a small value, then it is useful because it is versatile concerning what may be appended to the end, but if it is short and it ends on a large value, then it is not very useful. In the <img class="mwe-math-fallback-image-inline tex" alt="O(n^2)" src="/wiki/images/math/1/8/9/189317b4b935a745fcfaf95940d2b4f0.png" /> algorithm already described, a lot of time is spent looking at possibly useless increasing subsequences; for example, when computing <img class="mwe-math-fallback-image-inline tex" alt="\operatorname{LIS}&#39;(i)" src="/wiki/images/math/6/3/d/63de1aef2c12d610adfe855851c70163.png" />, we examine all values of <img class="mwe-math-fallback-image-inline tex" alt="\operatorname{LIS}&#39;(j)" src="/wiki/images/math/5/c/4/5c4bd6fb85d5d284c6ac4e0e84f2ae16.png" />, where <img class="mwe-math-fallback-image-inline tex" alt="j &lt; i" src="/wiki/images/math/e/0/0/e00a1cf3e30f9cdfe98fa86474f38b9f.png" />, even though some <img class="mwe-math-fallback-image-inline tex" alt="x_j" src="/wiki/images/math/f/4/b/f4bb95e27d8505366199bb81f2b75b6f.png" />'s may be larger than <img class="mwe-math-fallback-image-inline tex" alt="x_i" src="/wiki/images/math/0/5/e/05e42209d67fe1eb15a055e9d3b3770e.png" />.
+</p><p>Thus we will maintain an auxiliary array <img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png" /> indexed by LIS length. The entry <img class="mwe-math-fallback-image-inline tex" alt="a[i]" src="/wiki/images/math/5/9/5/595711c58954cfc2eb727cba561e3512.png" /> will, at any given time, hold the least possible value for the last element of an increasing subsequence of <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png" /> of length <img class="mwe-math-fallback-image-inline tex" alt="i" src="/wiki/images/math/8/6/5/865c0c0b4ab0e063e5caa3387c1a8741.png" /> composed of elements we have so far examined. Initially all entries of <img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png" /> will be set to <img class="mwe-math-fallback-image-inline tex" alt="+\infty" src="/wiki/images/math/2/8/c/28cfe0a2608499ff5984a938e0d16d64.png" />. At the conclusion of the algorithm, the highest index at which a finite value is found is the length of the LIS.
+</p><p>The first thing to note is that the entries of <img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png" /> are (non-strictly) increasing. For example, consider the sequence <img class="mwe-math-fallback-image-inline tex" alt="[9,2,6,3,1,5,0,7]" src="/wiki/images/math/a/3/e/a3e4109270a19cac82c7e91bec7564e4.png" />. At the conclusion of the algorithm, the array <img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png" /> will contain the values <img class="mwe-math-fallback-image-inline tex" alt="[0,3,5,7,+\infty,+\infty,+\infty,+\infty]" src="/wiki/images/math/e/d/f/edf8093f85a066c41d1b2a9844332692.png" />. This tells us that the last element of any increasing subsequence of length 1 will be at least 0, the last element of any increasing subsequence of length 2 will be at least 3, and so on; the infinite values indicate that subsequences of those lengths do not exist. We know that <img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png" /> is increasing because it would be absurd if it were not. For example, suppose that <img class="mwe-math-fallback-image-inline tex" alt="a_3 &lt; a_2" src="/wiki/images/math/e/4/5/e458efee1df2ce50099e2616df3f4ab3.png" />, so that the least last element attainable for an increasing sequence of length 3 were less than the least last element attainable for an increasing sequence of length 2. Then we could remove the last element from the sequence of length 3 to obtain an even smaller element (possibly) at the end of an increasing sequence of length 2, which contradicts the optimality of the value we already have on file.
+</p><p>Now let's see how the array <img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png" /> allows us to find the length of the LIS. We consider the elements of <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png" /> one at a time starting from <img class="mwe-math-fallback-image-inline tex" alt="x_1" src="/wiki/images/math/f/9/a/f9a3b8e9e501458e8face47cae8826de.png" />. For each element <img class="mwe-math-fallback-image-inline tex" alt="x_i" src="/wiki/images/math/0/5/e/05e42209d67fe1eb15a055e9d3b3770e.png" /> we consider, we notice that we want to find the <i>longest increasing subsequence so far discovered that ends on a value less than or equal to <img class="mwe-math-fallback-image-inline tex" alt="x_i" src="/wiki/images/math/0/5/e/05e42209d67fe1eb15a055e9d3b3770e.png" /></i>. To do this, we perform a <a href="/wiki/Binary_search" title="Binary search">binary search</a> on the array <img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png" /> for the largest index <img class="mwe-math-fallback-image-inline tex" alt="j" src="/wiki/images/math/3/6/3/363b122c528f54df4a0446b6bab05515.png" /> for which <img class="mwe-math-fallback-image-inline tex" alt="a_j \leq x_i" src="/wiki/images/math/6/e/0/6e0d34d9c6082ea1f3c95c269a714a5d.png" />, or return <img class="mwe-math-fallback-image-inline tex" alt="j=0" src="/wiki/images/math/8/c/e/8ce91474779c9115367408f3651ba4e6.png" /> if no such index exists (empty sequence). Then, we know we can obtain an increasing subsequence of length <img class="mwe-math-fallback-image-inline tex" alt="j+1" src="/wiki/images/math/d/0/3/d0316e6933541181a928466f31d962cd.png" /> by appending <img class="mwe-math-fallback-image-inline tex" alt="x_i" src="/wiki/images/math/0/5/e/05e42209d67fe1eb15a055e9d3b3770e.png" /> to the end of the increasing subsequence of length <img class="mwe-math-fallback-image-inline tex" alt="j" src="/wiki/images/math/3/6/3/363b122c528f54df4a0446b6bab05515.png" /> ending at on value <img class="mwe-math-fallback-image-inline tex" alt="a_j" src="/wiki/images/math/c/d/2/cd2d31f4876de2ca5afbffde34d0dade.png" />; if there is no such value then we get an increasing subsequence of length 1 by taking <img class="mwe-math-fallback-image-inline tex" alt="x_i" src="/wiki/images/math/0/5/e/05e42209d67fe1eb15a055e9d3b3770e.png" /> by itself. What effect does this have on <img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png" />? We know that <img class="mwe-math-fallback-image-inline tex" alt="x_i &lt; a_{j+1}" src="/wiki/images/math/c/f/c/cfc2352cb7d05930bd1cf3b6ac5f4e05.png" />, and we also know that we have obtained an increasing subsequence of length <img class="mwe-math-fallback-image-inline tex" alt="j+1" src="/wiki/images/math/d/0/3/d0316e6933541181a928466f31d962cd.png" /> whose last element is <img class="mwe-math-fallback-image-inline tex" alt="x_i" src="/wiki/images/math/0/5/e/05e42209d67fe1eb15a055e9d3b3770e.png" />, which is therefore <i>better</i> than what we have on file for <img class="mwe-math-fallback-image-inline tex" alt="a_{j+1}" src="/wiki/images/math/0/3/5/035af606c7cd98e3d39b13db73052810.png" />. Therefore, we update <img class="mwe-math-fallback-image-inline tex" alt="a_{j+1}" src="/wiki/images/math/0/3/5/035af606c7cd98e3d39b13db73052810.png" /> so that it equals <img class="mwe-math-fallback-image-inline tex" alt="x_i" src="/wiki/images/math/0/5/e/05e42209d67fe1eb15a055e9d3b3770e.png" />. Note that after this operation, <i><img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png" /> will still be sorted</i>, because <img class="mwe-math-fallback-image-inline tex" alt="x_i" src="/wiki/images/math/0/5/e/05e42209d67fe1eb15a055e9d3b3770e.png" /> was originally less than <img class="mwe-math-fallback-image-inline tex" alt="a_{j+2}" src="/wiki/images/math/5/a/a/5aa6b9408ead5062920889de3b71211e.png" />, so <img class="mwe-math-fallback-image-inline tex" alt="a_{j+1}" src="/wiki/images/math/0/3/5/035af606c7cd98e3d39b13db73052810.png" /> will be less after the update, and <img class="mwe-math-fallback-image-inline tex" alt="a_{j+1}" src="/wiki/images/math/0/3/5/035af606c7cd98e3d39b13db73052810.png" /> will still be greater than or equal to <img class="mwe-math-fallback-image-inline tex" alt="a_j" src="/wiki/images/math/c/d/2/cd2d31f4876de2ca5afbffde34d0dade.png" />, because <img class="mwe-math-fallback-image-inline tex" alt="x_i \geq a_j" src="/wiki/images/math/f/6/4/f643279e445bd5b0cfbc295059570f98.png" />. After iterating through all elements of <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png" /> and updating <img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png" /> at each step, the algorithm terminates.
+</p>
+<h3><span class="mw-headline" id="Pseudocode_2">Pseudocode</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Longest_increasing_subsequence&amp;action=edit&amp;section=12" title="Edit section: Pseudocode">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>(Non-strict case.)
+</p>
+<pre>input x
+n &#8592; length of x
+result &#8592; 0
+a[0] &#8592; -&#8734;
+for each i &#8712; [1..n]
+     a[i] &#8592; +&#8734;
+for each i &#8712; [1..n]
+     l &#8592; 0
+     u &#8592; n
+     while u &gt; l
+          if a[&#8970;(l+u)/2&#8971;] &#8804; x[i]
+               l &#8592; 1 + &#8970;(l+u)/2&#8971;
+          else
+               u &#8592; &#8970;(l+u)/2&#8971;
+     a[l] &#8592; x[i]
+     result &#8592; max(result,l)
+return result
+</pre>
+<h3><span class="mw-headline" id="Analysis_2">Analysis</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Longest_increasing_subsequence&amp;action=edit&amp;section=13" title="Edit section: Analysis">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The reason why we expect this algorithm to be more efficient is that, by examining only <img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png" /> instead of the preceding <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png" />-values, all the irrelevant increasing subsequences (the ones that are both short and high at the end) are ignored, as they cannot "win" on either front and hence secure a position in <img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png" />.
+</p>
+<h4><span class="mw-headline" id="Time_2">Time</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Longest_increasing_subsequence&amp;action=edit&amp;section=14" title="Edit section: Time">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>The time taken for a binary search in the auxiliary array, of size <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png" />, is <img class="mwe-math-fallback-image-inline tex" alt="O(\log n)" src="/wiki/images/math/0/c/a/0ca47d9a481af371d1210a620c1945db.png" />, and one is executed as each element of <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png" /> is examined. Therefore this algorithm achieves the stated time bound of <img class="mwe-math-fallback-image-inline tex" alt="O(n \log n)" src="/wiki/images/math/f/4/9/f49341ab621f12e8cb93d0146ea51d34.png" />.
+</p>
+<h4><span class="mw-headline" id="Memory_2">Memory</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Longest_increasing_subsequence&amp;action=edit&amp;section=15" title="Edit section: Memory">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>Still <img class="mwe-math-fallback-image-inline tex" alt="O(n)" src="/wiki/images/math/7/b/a/7ba55e7c64a9405a0b39a1107e90ca94.png" />, as our auxiliary array has size <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png" />.
+</p>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Longest_increasing_subsequence&amp;action=edit&amp;section=16" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">Fredman, Michael L. (1975), "On computing the length of longest increasing subsequences", <i>Discrete Mathematics</i> <b>11</b> (1): 29–35, <a rel="nofollow" class="external text" href="http://dx.doi.org/10.1016%2F0012-365X%2875%2990103-X">doi:10.1016/0012-365X(75)90103-X</a></span>
+</li>
+</ol>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.137 seconds
+Real time usage: 0.157 seconds
+Preprocessor visited node count: 1167/1000000
+Preprocessor generated node count: 2558/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:127-0!*!0!!en!*!*!math=0 and timestamp 20180417151616 and revision id 1932
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wcipeg.com/wiki/index.php?title=Longest_increasing_subsequence&amp;oldid=1932">https://wcipeg.com/wiki/index.php?title=Longest_increasing_subsequence&amp;oldid=1932</a>"					</div>
+													<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:Dynamic_programming" title="Category:Dynamic programming">Dynamic programming</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Longest+increasing+subsequence&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Longest+increasing+subsequence" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/Longest_increasing_subsequence"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/wiki/index.php?title=Talk:Longest_increasing_subsequence&amp;action=edit&amp;redlink=1"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Longest_increasing_subsequence" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/wiki/index.php?title=Longest_increasing_subsequence&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/wiki/index.php?title=Longest_increasing_subsequence&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search PEGWiki [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+													<li id="n-Index"><a href="/wiki/Special:AllPages">Index</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+													<li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Longest_increasing_subsequence" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Longest_increasing_subsequence" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/wiki/index.php?title=Longest_increasing_subsequence&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/wiki/index.php?title=Longest_increasing_subsequence&amp;oldid=1932" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/wiki/index.php?title=Longest_increasing_subsequence&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 18 January 2016, at 18:33.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Attribution 3.0 Unported</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/PEGWiki:Privacy_policy" title="PEGWiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/PEGWiki:About" title="PEGWiki:About">About PEGWiki</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/PEGWiki:General_disclaimer" title="PEGWiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by/3.0/"><img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Attribution 3.0 Unported" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wiki/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.cite","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wcipeg.com/wiki/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":81});
+}</script>
+	</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=utf-8"><META NAME="viewport" CONTENT="width=768"><META HTTP-EQUIV="X-UA-Compatible" CONTENT="IE=edge"><TITLE>How to write Java solutions @ Timus Online Judge</TITLE><LINK REL="alternate" HREFLANG="x-default" HREF="/help.aspx?topic=java"><LINK REL="alternate" HREFLANG="en-us" HREF="/help.aspx?topic=java&amp;locale=en"><LINK REL="alternate" HREFLANG="ru-ru" HREF="/help.aspx?topic=java&amp;locale=ru"><LINK REL="stylesheet" TYPE="text/css" HREF="/style52.css"><LINK REL="shortcut icon" TYPE="image/x-icon" HREF="/favicon.ico"></HEAD><BODY><TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" CLASS="body"><TR><TD CLASS="caption"><TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"><TR><TD WIDTH="130" CLASS="locale"><A HREF="/help.aspx?topic=java&amp;locale=en">ENG</A>&nbsp;&nbsp;<A HREF="/help.aspx?topic=java&amp;locale=ru">RUS</A></TD><TD CLASS="title"><A HREF="/">Timus Online Judge</A></TD><TD WIDTH="130"></TD></TR></TABLE></TD></TR><TR><TD CLASS="panel"><TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"><TR><TD WIDTH="130" VALIGN="TOP" ALIGN="CENTER" STYLE="padding-bottom:5px;"><A HREF="/"><IMG BORDER="0" SRC="/images/usu-summer.jpg" HEIGHT="134" WIDTH="106" ALT=""></A></TD><TD VALIGN="TOP" ALIGN="LEFT"><TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" CLASS="panel"><TR><TH WIDTH="25%"><DIV>Online Judge</DIV></TH><TH WIDTH="25%"><DIV>Problems</DIV></TH><TH WIDTH="25%"><DIV>Authors</DIV></TH><TH WIDTH="25%"><DIV>Online contests</DIV></TH></TR><TR><TD VALIGN="TOP" ALIGN="LEFT"><A HREF="/">About Online Judge</A><BR><A HREF="/help.aspx?topic=faq">Frequently asked questions</A><BR><A HREF="/news.aspx">Site news</A><BR><A HREF="/forum/">Webboard</A><BR><A HREF="/help.aspx?topic=links">Links</A><BR></TD><TD VALIGN="TOP" ALIGN="LEFT"><A HREF="/problemset.aspx">Problem set</A><BR><A HREF="/submit.aspx">Submit solution</A><BR><A HREF="/status.aspx">Judge status</A><BR><A HREF="/help.aspx?topic=judge">Guide</A><BR></TD><TD VALIGN="TOP"><A HREF="/register.aspx">Register</A><BR><A HREF="/authedit.aspx">Update your info</A><BR><A HREF="/ranklist.aspx">Authors ranklist</A><BR><FORM ACTION="/search.aspx" METHOD="GET" STYLE="margin-top:0.6em;"><INPUT NAME="Str" SIZE="12" VALUE="" PLACEHOLDER="Author’s name"> <INPUT TYPE="SUBMIT" VALUE="Search"></FORM></TD><TD VALIGN="TOP"><A HREF="/contest.aspx">Current contest</A><BR><A HREF="/schedule.aspx">Scheduled contests</A><BR><A HREF="/archive.aspx">Past contests</A><BR><A HREF="/help.aspx?topic=contest">Rules</A><BR></TD></TR></TABLE></TD></TR></TABLE></TD></TR><TR><TD STYLE="padding-top: 32px; padding-bottom: 20px;"><STYLE>
+			@import url(/prism.css);
+		</STYLE><SCRIPT TYPE="text/javascript" SRC="/prism.js"></SCRIPT><TABLE ALIGN="CENTER" CELLSPACING="0" CELLPADDING="0"><TR><TD WIDTH="800"><H2 CLASS="title">How to write Java solutions</H2><DIV ID="help_text"><P CLASS="help_par">The <b>J2SE Development Kit (JDK) 8.0 Update 20</b> (for Windows x86) is used to compile and run solutions written in Java. You can download JDK and read online documentation on the <A HREF="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">official site</A>.</P><P CLASS="help_par">Java programs are executed on the server with the following command line:</P><PRE CLASS="with-background with-code"><CODE CLASS="language-none">java -client -Xmx544m -Xss64m -DONLINE_JUDGE YourClassName</CODE></PRE><H3 CLASS="subtitle">How to write a Java solution</H3><P CLASS="help_par">A solution written in Java must contain a single public class. This class may have any name and must contain the method "<CODE>public static void main(String[] args)</CODE>". Furthermore, the solution may contain any number of nested classes and global non-public classes. Here is an example of <A HREF="problem.aspx?spcae=1&amp;num=1000">A + B problem</A> solution:</P><PRE CLASS="with-background with-code"><CODE CLASS="language-java">import java.io.*;
+import java.util.*;
+
+public class Sum
+{
+   public static void main(String[] args)
+   {
+      Scanner in = new Scanner(System.in);
+      PrintWriter out = new PrintWriter(System.out);
+
+      int a = in.nextInt();
+      int b = in.nextInt();
+      out.println(a + b);
+
+      out.flush();
+   }
+}</CODE></PRE><P CLASS="help_par">The following solution is also correct:</P><PRE CLASS="with-background with-code"><CODE CLASS="language-java">import java.util.*;
+
+class YouCanUseSuchClasses {}
+public class Sum2
+{
+   class AndSuchClassesToo {}
+   public static void main(String[] args)
+   {
+      Scanner in = new Scanner(System.in);
+      System.out.println(in.nextInt() + in.nextInt());
+   }
+}</CODE></PRE><H3 CLASS="subtitle">Localization</H3><P CLASS="help_par">The locale <CODE>Locale.US</CODE> is used at the server by default. Setting another locale in your solution may have an influence on how your solution reads/writes floating point numbers.</P><H3 CLASS="subtitle">Input/output</H3><P CLASS="help_par">Input/output operations in Java may be very slow in the case of wrong usage. Here are some rules which should be followed to avoid input/output performance problems:</P><UL><LI CLASS="help_par"><CODE>Scanner</CODE> is suitable to read input data for the most of problems, but it is very slow. You should use it to read small input data only.</LI><LI CLASS="help_par"><CODE>BufferedReader</CODE> provides quite fast read operations for almost all problems. But this class may be used to read single characters and lines only. To read tokens and numbers you should use <CODE>StringTokenizer</CODE> or <CODE>StreamTokenizer</CODE>.</LI><LI CLASS="help_par"><CODE>PrintWriter</CODE> is preferred in all cases and works rather fast. But its method <CODE>printf</CODE> is too slow as well as calls like <CODE>println(a + " " + b)</CODE>. You should output variables one-by-one to reach the highest performance.</LI></UL><P CLASS="help_par">Here is an example of a proper usage of <CODE>StreamTokenizer</CODE> and <CODE>PrintWriter</CODE> classes (the problem is to input the integer numbers A and B and then to output their sum and difference separated by single space):</P><PRE CLASS="with-background with-code"><CODE CLASS="language-java">import java.io.*;
+import java.util.*;
+
+public class SumDif
+{
+   public static void main(String[] args) throws IOException
+   {
+      new SumDif().run();
+   }
+
+   StreamTokenizer in;
+   PrintWriter out;
+
+   int nextInt() throws IOException
+   {
+      in.nextToken();
+      return (int)in.nval;
+   }
+
+   void run() throws IOException
+   {
+      in = new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
+      out = new PrintWriter(System.out);
+      solve();
+      out.flush();
+   }
+
+   void solve() throws IOException
+   {
+      int a = nextInt();
+      int b = nextInt();
+      out.print(a + b);
+      out.print(" ");
+      out.println(a - b);
+   }
+}
+</CODE></PRE><P CLASS="help_par">To read and write ASCII characters with codes more than 127 in the same way as in other programming languages, you should use the following constructors:</P><PRE CLASS="with-background with-code"><CODE CLASS="language-java">Scanner scanner = new Scanner(System.in, "ISO-8859-1");
+BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, "ISO-8859-1"));
+PrintWriter writer = new PrintWriter(new OutputStreamWriter(System.out, "ISO-8859-1"));
+</CODE></PRE><P CLASS="help_par">It should be done since the default server charset does not guarantee a proper input in this case. If a default charset is used, some characters with codes from 128 to 255 might be converted to Unicode characters with codes more that 255. And then such characters may be printed as, for example, question marks.</P><H3 CLASS="subtitle">Using property ONLINE_JUDGE</H3><P CLASS="help_par">Programs are executed on the server with the defined property <code>ONLINE_JUDGE</code>. This property can be used to determine if the program is run on the server. You can use it, for example, to decide whether to work with files or with the standard i/o:</P><PRE CLASS="with-background with-code"><CODE CLASS="language-java">boolean oj = System.getProperty("ONLINE_JUDGE") != null;
+Reader reader = oj ? new InputStreamReader(System.in) : new FileReader("input.txt");
+Writer writer = oj ? new OutputStreamWriter(System.out) : new FileWriter("output.txt");
+StreamTokenizer in = new StreamTokenizer(new BufferedReader(reader));
+PrintWriter out = new PrintWriter(writer);
+</CODE></PRE><H3 CLASS="subtitle">Earlier compilers</H3><UL><LI CLASS="help_par">Since June, 1 2006 till February, 2 2009 the JDK 5.0 was used.</LI><LI CLASS="help_par">The JDK 6.0 was used until January, 18 2013</LI><LI CLASS="help_par">The JDK 7.0 was used until October, 3 2014.</LI></UL></DIV></TD></TR></TABLE></TD></TR><TR><TD CLASS="footer"><script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter20918869 = new Ya.Metrika({ id:20918869, clickmap:true, trackLinks:true, accurateTrackBounce:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="https://mc.yandex.ru/watch/20918869" style="position:absolute; left:-9999px;" alt=""></div></noscript>© 2000–2017 <A HREF="/team.aspx">Timus Online Judge Team</A>. All rights reserved.</TD></TR></TABLE></BODY></HTML>

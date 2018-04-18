@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="not-ie" lang="en"> <!--<![endif]-->
+<head>
+	<!-- main header -->
+	<meta charset="utf-8">
+	
+				<title>Sphere Online Judge (SPOJ)  - User luckymastermin</title>
+	  
+	<meta name="keywords" content="language, algorithm, spoj, contest, contester, Java, C#, Pascal, C, C++, python, ruby, caml, ocaml, perl, haskell, lisp, prolog, fortran, assembler, asembler, functional, online, judge, problem, problemset, ACM">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  		<meta property="og:image" content="//stx1.spoj.com/gfx/spoj-fb.jpg"/>
+	<meta property="og:description" content="SPOJ (Sphere Online Judge) is an online judge system with over 315,000 registered users and over 20000 problems. The solution to problems can be submitted in over 60 languages including C, C++, Java, Python, C#, Go, Haskell, Ocaml, and F#. SPOJ has a rapidly growing problem set/tasks available for practice 24 hours/day, including many original tasks prepared by the community of expert problem setters associated with the project."/>
+	<meta name="description" content="SPOJ (Sphere Online Judge) is an online judge system with over 315,000 registered users and over 20000 problems. The solution to problems can be submitted in over 60 languages including C, C++, Java, Python, C#, Go, Haskell, Ocaml, and F#. SPOJ has a rapidly growing problem set/tasks available for practice 24 hours/day, including many original tasks prepared by the community of expert problem setters associated with the project."/>
+		<meta property="og:site_name" content="spoj.com"/>
+
+  <!--[if (gte IE 9)|!(IE)]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" id="metatag">
+  <![endif]--> 
+
+	  <!-- Favicon -->
+	  <link href="//stx1.spoj.com/gfx/favicon_new.png" rel="shortcut icon" type="image/x-icon" />
+	  
+	  <!-- RSS -->
+	  <link href="/rss/" rel="alternate" type="application/rss+xml" title="RSS Feed">
+	
+	  <!-- Web Fonts -->
+	  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet" type="text/css">  
+
+	<!-- Internet Explorer condition - HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]--> 
+	
+	
+	
+	<!-- CSS: Bootstrap, Font-awesome, Bootstrap libs,  -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" />
+  	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  	<link href="//stx1.spoj.com/gfx/bootstrap-tour/build/css/bootstrap-tour.min.css" rel="stylesheet" />
+  	<link href="//stx1.spoj.com/themes/bootstrap-social.css" rel="stylesheet" type="text/css" />
+  	
+	<link href="//stx1.spoj.com/themes/common.css?4" rel="stylesheet" type="text/css" id="theme0" />
+	<link href="//stx1.spoj.com/themes/en_new.css?4" rel="stylesheet" type="text/css" id="theme" />
+	
+	<!-- JS -->
+	<script type="text/javascript" src='//code.jquery.com/jquery-1.11.1.min.js'></script>
+	<script type="text/javascript" src="//code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+	
+		<link href="//stx1.spoj.com/themes/cal-heatmap.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src='//stx1.spoj.com/js/d3.v3.min.js'></script>
+	<script type="text/javascript" src='//stx1.spoj.com/js/cal-heatmap.min.js'></script>
+	<script type="text/javascript" src="//www.google.com/jsapi"></script>
+		
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>	
+	<script type="text/javascript" language="javascript">
+	$(function () { 
+		$("#profile-menu").popover();
+	});
+	function UnCryptMailto(s) {
+		var n=0;
+		var r="";
+		for(var i=0;i<s.length;i++) {		
+			n=s.charCodeAt(i); 
+			if (n>=8364) {n = 128;}
+			r += String.fromCharCode(n+(2));	
+		}
+		return r;
+	}
+	function linkTo_UnCryptMailto(s)	{
+		location.href=UnCryptMailto(s);
+	}
+	</script>
+	
+	<script type="text/javascript">
+	function recordOutboundLink(link, category, action) {
+	  try {
+	    var pageTracker=_gat._getTracker("UA-XXXXX-X");
+	    pageTracker._trackEvent(category, action);
+	    setTimeout('document.location = "' + link.href + '"', 100)
+	  }catch(err){}
+	}
+	</script>
+	
+</head>
+
+<body>
+
+	
+	<!-- <div class="space30"></div> -->
+	
+	<!-- Content -->
+	<div class="content">
+		<div class="container" id="header">
+			<div class="row">
+				<div class="col-md-12 text-right">
+										<form method="post" style="display: none;" action="/login/" id="login-form">
+						<div class="row">
+							<div class="col-md-10 col-md-offset-2">
+								<input type="hidden" name="next_raw" value="/"/>
+								<input type="hidden" name="autologin" value="1"/>
+								<input type="text" name="login_user" placeholder="Username" class="form-control input-sm" style="display: inline-block; width: 25%;"/>
+								<input type="password" name="password" placeholder="Password" class="form-control input-sm" style="display: inline-block; width: 25%;"/>
+																<button type="submit" class="btn btn-default btn-sm" style="display: inline-block; margin-right: 10px;"><span class="fa fa-sign-in fa-lg"></span> <strong>sign in</strong></button>
+																<a href="/register"><i class="fa fa-user-plus"></i> sign up</a> 
+								<a href="/forgot"><i class="fa fa-question-circle"></i> forgot</a>
+				        									</div>
+						</div>
+					</form>
+										
+					
+				</div>
+			</div>
+		
+			<div class="row">
+				<div class="col-md-4">
+					<a href="/" class="navbar-brand">
+						<img src="//stx1.spoj.com/gfx/2015e.png" style="height: 40px;"/>
+					</a>
+					<div class="navbar-header">
+				      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+				        <span class="sr-only">Toggle navigation</span>
+				        <i class="fa fa-bars"></i>
+				      </button>
+				    </div>
+				</div>
+				<div class="col-md-8" id="menu">
+				
+					
+					<div class="row">
+					<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation"  style="border: 0px;">
+				      <ul class="nav navbar-nav" style="  float: right; margin-top: 10px;">
+				      						        <li >
+					          <a href="/problems"><i class="fa fa-puzzle-piece"></i> PROBLEMS</a>
+					        </li>
+					        					        <li >
+					          <a href="/status"><i class="fa fa-circle"></i> STATUS</a>
+					        </li>
+					        <li >
+					          <a href="/ranks"><i class="fa fa-trophy"></i> RANKS</a>
+					        </li>
+					        <li >
+					          <a href="http://spoj.com/forum"><i class="fa fa-comments-o"></i> DISCUSS</a>
+					        </li>
+					        <li >
+					          <a href="/contests">CONTESTS</a>
+					        </li>
+											        					        <li >
+					        	<a href="/login" class="text-success" onclick="$('#login-form').show(); $('input[name=login_user]').focus(); return false;"><i class="fa fa-sign-in"></i> sign in</a>
+					        </li>
+					        						
+				        
+				      </ul>
+				    </nav>
+				    </div>
+				    
+				    
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class="container" id="menu">
+			
+		</div>
+		
+		<div class="container" id="content">
+		<div class="submenu">
+	<ol class="">
+			<li></li>
+		</ol>
+	
+	<ol class="navbar-right">
+			<li><a href="/status/luckymastermin/">History of submissions</a></li>
+		<li>(<a href="/status/luckymastermin/signedlist/">plaintext version</a>)</li>
+	</ol>
+	
+</div>
+
+<div>
+<div class="row">
+	<div class="col-md-3" id="user-profile-left">
+		<img  class="img-thumbnail" width="100%" style="max-width: 262px;" src="http://www.gravatar.com/avatar/4a5f9cc25627af69c4eecc2703f0943b?s=290&20180418" class="avatar small-left-margin">
+		<h3>Lakshman Tiwari</h3>		<h4>@luckymastermin</h4>
+		<p><i class="fa fa-map-marker"></i> India, Bangalore</p>		<p><i class="fa fa-clock-o"></i> Joined Feb 2009</p>
+		<p><i class="fa fa-trophy"></i> World Rank: #68 (193.3 points)</p>
+		<p><i class="fa fa-building-o "></i> Institution: DELL Technologies.</p>		<p>Good Karma!!!!!</p>		
+		
+		
+			</div>
+	<div class="col-md-9">
+	
+		<center>
+		<div class="c728x90"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-4453360425583535"
+     data-ad-slot="4026799034"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+		</center>
+	
+						<div class="row row-centered">
+			<div class="col-md-12">
+				<h3>Activity over the last year</h3>
+				<div class="top-4 col-centered" id="cal-heatmap"></div>
+
+				<h3 class="top-4">Effectiveness</h3>
+				<div class="row">
+					<div class="col-md-6 text-center valign-center">
+						<dl class="dl-horizontal profile-info-data profile-info-data-stats">
+							<dt><span class="fa fa-check fa-fw"></span>&nbsp;Problems solved</dt>
+								<dd>564</dd>
+							<dt><span class="fa fa-send fa-fw"></span>&nbsp;Solutions submitted</dt>
+								<dd>15367</dd>
+						</dl>
+					</div>
+					<div class="col-md-6">
+						<div id="chart_div"></div>
+					</div>
+				</div>
+				
+				<script type="text/javascript">
+					function BackTime(date) {
+						var y = date.getFullYear(),
+							m = date.getMonth();
+						return new Date(y-1, m+1, 15);
+					}
+					
+					function drawChart() {
+
+						var data = new google.visualization.DataTable();
+							data.addColumn('string', '?');
+							data.addColumn('number', 'ACC');
+							data.addColumn('number', 'WA');
+							data.addColumn('number', 'TLE');
+							data.addColumn('number', 'RE');
+							data.addColumn('number', 'CE');
+							data.addRows([
+							
+							['Submissions', 8327, 3578, 1660, 896, 829]
+							
+						]);
+	
+						var options = {
+							isStacked: 'percent',
+							pieSliceText: 'label',
+							colors: ['#348d34', '#ec971f', '#ec971f', '#c9302c', '#c9302c'],
+							//colors:['#00C030','#F09A24','#F09A24','#F09A24','#F09A24'],
+							'width':400,
+							'height':100,
+							chartArea:{left:10,top:10,width:'90%',height:'90%'},
+							fontName: '@font-family-base',
+							legend: {
+								position: 'top',
+								textStyle: {
+									fontName: '@font-family-base',
+									bold: true
+							}},
+							hAxis: {
+					            minValue: 0,
+					            ticks: [0, .25, .5, .75, 1]
+					          }
+						};
+	
+						var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+						chart.draw(data, options);
+					}
+					
+					$(document).ready(function(){
+					
+						var cal = new CalHeatMap();
+						cal.init({
+							domain: "month",
+							subDomain: "day",
+							domainGutter: 3,
+							tooltip: true,
+							start: BackTime(new Date()),
+							maxDate: new Date(),
+							colLimit: 4,
+							legend: [10, 20, 30, 40],
+							itemName: ["submission", "submissions"],
+							data: '/calendar/?ajax=1&uid=41364&start={{d:start}}&stop={{d:end}}'
+						});
+					});
+					
+					google.load('visualization', '1.0', {'packages':['corechart']});
+					google.setOnLoadCallback(drawChart);
+				</script>
+				
+				
+						
+			</div>
+		</div>
+
+		<h3 class="top-4 text-center">Problems</h3>
+		<div class="row row-centered" id="user-profile-tables">
+			<div class="col-md-12">
+				<h4>List of solved classical problems:</h4>
+				<table class="table table-condensed">
+								<tr>
+				<td align="left" width="14%"><a href="/status/ABA12D,luckymastermin/">ABA12D</a></td>
+				<td align="left" width="14%"><a href="/status/CEQU,luckymastermin/">CEQU</a></td>
+				<td align="left" width="14%"><a href="/status/ENIGMATH,luckymastermin/">ENIGMATH</a></td>
+				<td align="left" width="14%"><a href="/status/HS09EQ,luckymastermin/">HS09EQ</a></td>
+				<td align="left" width="14%"><a href="/status/MAY99_3,luckymastermin/">MAY99_3</a></td>
+				<td align="left" width="14%"><a href="/status/POWERPHI,luckymastermin/">POWERPHI</a></td>
+				<td align="left" width="14%"><a href="/status/SPCU,luckymastermin/">SPCU</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ABCDEF,luckymastermin/">ABCDEF</a></td>
+				<td align="left" width="14%"><a href="/status/CFPARTY,luckymastermin/">CFPARTY</a></td>
+				<td align="left" width="14%"><a href="/status/EQBOX,luckymastermin/">EQBOX</a></td>
+				<td align="left" width="14%"><a href="/status/HS10SQFT,luckymastermin/">HS10SQFT</a></td>
+				<td align="left" width="14%"><a href="/status/MAY99_4,luckymastermin/">MAY99_4</a></td>
+				<td align="left" width="14%"><a href="/status/POWERUP,luckymastermin/">POWERUP</a></td>
+				<td align="left" width="14%"><a href="/status/SPEED,luckymastermin/">SPEED</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ABSP1,luckymastermin/">ABSP1</a></td>
+				<td align="left" width="14%"><a href="/status/CHOTU,luckymastermin/">CHOTU</a></td>
+				<td align="left" width="14%"><a href="/status/EQU2,luckymastermin/">EQU2</a></td>
+				<td align="left" width="14%"><a href="/status/HUBULLU,luckymastermin/">HUBULLU</a></td>
+				<td align="left" width="14%"><a href="/status/MB1,luckymastermin/">MB1</a></td>
+				<td align="left" width="14%"><a href="/status/POWFIB,luckymastermin/">POWFIB</a></td>
+				<td align="left" width="14%"><a href="/status/SQFREE,luckymastermin/">SQFREE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ABSYS,luckymastermin/">ABSYS</a></td>
+				<td align="left" width="14%"><a href="/status/CIRCLE_E,luckymastermin/">CIRCLE_E</a></td>
+				<td align="left" width="14%"><a href="/status/ESYRCRTN,luckymastermin/">ESYRCRTN</a></td>
+				<td align="left" width="14%"><a href="/status/IAPCR2D,luckymastermin/">IAPCR2D</a></td>
+				<td align="left" width="14%"><a href="/status/MBEEWALK,luckymastermin/">MBEEWALK</a></td>
+				<td align="left" width="14%"><a href="/status/POWPOW,luckymastermin/">POWPOW</a></td>
+				<td align="left" width="14%"><a href="/status/SQRROOT,luckymastermin/">SQRROOT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACPC10A,luckymastermin/">ACPC10A</a></td>
+				<td align="left" width="14%"><a href="/status/CIRCLE_H,luckymastermin/">CIRCLE_H</a></td>
+				<td align="left" width="14%"><a href="/status/ETF,luckymastermin/">ETF</a></td>
+				<td align="left" width="14%"><a href="/status/ICC,luckymastermin/">ICC</a></td>
+				<td align="left" width="14%"><a href="/status/MBINGO,luckymastermin/">MBINGO</a></td>
+				<td align="left" width="14%"><a href="/status/POWPOW2,luckymastermin/">POWPOW2</a></td>
+				<td align="left" width="14%"><a href="/status/SQUAREV1,luckymastermin/">SQUAREV1</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACPC11B,luckymastermin/">ACPC11B</a></td>
+				<td align="left" width="14%"><a href="/status/CLASSICO,luckymastermin/">CLASSICO</a></td>
+				<td align="left" width="14%"><a href="/status/ETFS,luckymastermin/">ETFS</a></td>
+				<td align="left" width="14%"><a href="/status/ICKHELLO,luckymastermin/">ICKHELLO</a></td>
+				<td align="left" width="14%"><a href="/status/MC,luckymastermin/">MC</a></td>
+				<td align="left" width="14%"><a href="/status/POWTOW,luckymastermin/">POWTOW</a></td>
+				<td align="left" width="14%"><a href="/status/STAMPS,luckymastermin/">STAMPS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADACHES2,luckymastermin/">ADACHES2</a></td>
+				<td align="left" width="14%"><a href="/status/CLTZ,luckymastermin/">CLTZ</a></td>
+				<td align="left" width="14%"><a href="/status/FACEFRND,luckymastermin/">FACEFRND</a></td>
+				<td align="left" width="14%"><a href="/status/IDC1948,luckymastermin/">IDC1948</a></td>
+				<td align="left" width="14%"><a href="/status/MCUR98,luckymastermin/">MCUR98</a></td>
+				<td align="left" width="14%"><a href="/status/PPATH,luckymastermin/">PPATH</a></td>
+				<td align="left" width="14%"><a href="/status/SUBMERGE,luckymastermin/">SUBMERGE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADACOINS,luckymastermin/">ADACOINS</a></td>
+				<td align="left" width="14%"><a href="/status/CNTDO,luckymastermin/">CNTDO</a></td>
+				<td align="left" width="14%"><a href="/status/FACT0,luckymastermin/">FACT0</a></td>
+				<td align="left" width="14%"><a href="/status/IITD4,luckymastermin/">IITD4</a></td>
+				<td align="left" width="14%"><a href="/status/MELE3,luckymastermin/">MELE3</a></td>
+				<td align="left" width="14%"><a href="/status/PPBRJB,luckymastermin/">PPBRJB</a></td>
+				<td align="left" width="14%"><a href="/status/SUBSEQ,luckymastermin/">SUBSEQ</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADADIGIT,luckymastermin/">ADADIGIT</a></td>
+				<td align="left" width="14%"><a href="/status/CNTINDX,luckymastermin/">CNTINDX</a></td>
+				<td align="left" width="14%"><a href="/status/FACT1,luckymastermin/">FACT1</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCA,luckymastermin/">IITKWPCA</a></td>
+				<td align="left" width="14%"><a href="/status/MICEMAZE,luckymastermin/">MICEMAZE</a></td>
+				<td align="left" width="14%"><a href="/status/PR003004,luckymastermin/">PR003004</a></td>
+				<td align="left" width="14%"><a href="/status/SUBSHARD,luckymastermin/">SUBSHARD</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADADUNG,luckymastermin/">ADADUNG</a></td>
+				<td align="left" width="14%"><a href="/status/CNTPRIME,luckymastermin/">CNTPRIME</a></td>
+				<td align="left" width="14%"><a href="/status/FACT2,luckymastermin/">FACT2</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCB,luckymastermin/">IITKWPCB</a></td>
+				<td align="left" width="14%"><a href="/status/MINCOUNT,luckymastermin/">MINCOUNT</a></td>
+				<td align="left" width="14%"><a href="/status/PRIME1,luckymastermin/">PRIME1</a></td>
+				<td align="left" width="14%"><a href="/status/SUMDEC2,luckymastermin/">SUMDEC2</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADAGIFT,luckymastermin/">ADAGIFT</a></td>
+				<td align="left" width="14%"><a href="/status/CNT_LUCK,luckymastermin/">CNT_LUCK</a></td>
+				<td align="left" width="14%"><a href="/status/FACTCG2,luckymastermin/">FACTCG2</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCD,luckymastermin/">IITKWPCD</a></td>
+				<td align="left" width="14%"><a href="/status/MINI,luckymastermin/">MINI</a></td>
+				<td align="left" width="14%"><a href="/status/PRIMES2,luckymastermin/">PRIMES2</a></td>
+				<td align="left" width="14%"><a href="/status/SUMMATION,luckymastermin/">SUMMATION</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADAHW,luckymastermin/">ADAHW</a></td>
+				<td align="left" width="14%"><a href="/status/CODCHESS,luckymastermin/">CODCHESS</a></td>
+				<td align="left" width="14%"><a href="/status/FACTDIV,luckymastermin/">FACTDIV</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCE,luckymastermin/">IITKWPCE</a></td>
+				<td align="left" width="14%"><a href="/status/MINMOVE,luckymastermin/">MINMOVE</a></td>
+				<td align="left" width="14%"><a href="/status/PRIMEZUK,luckymastermin/">PRIMEZUK</a></td>
+				<td align="left" width="14%"><a href="/status/SUMMUL,luckymastermin/">SUMMUL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADAINDEX,luckymastermin/">ADAINDEX</a></td>
+				<td align="left" width="14%"><a href="/status/CODERE3,luckymastermin/">CODERE3</a></td>
+				<td align="left" width="14%"><a href="/status/FACTMUL,luckymastermin/">FACTMUL</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCF,luckymastermin/">IITKWPCF</a></td>
+				<td align="left" width="14%"><a href="/status/MINNUM,luckymastermin/">MINNUM</a></td>
+				<td align="left" width="14%"><a href="/status/PRIMPERM,luckymastermin/">PRIMPERM</a></td>
+				<td align="left" width="14%"><a href="/status/SUMPRO,luckymastermin/">SUMPRO</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADAPRIME,luckymastermin/">ADAPRIME</a></td>
+				<td align="left" width="14%"><a href="/status/CODESPTB,luckymastermin/">CODESPTB</a></td>
+				<td align="left" width="14%"><a href="/status/FACTMULN,luckymastermin/">FACTMULN</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCG,luckymastermin/">IITKWPCG</a></td>
+				<td align="left" width="14%"><a href="/status/MKEQUAL,luckymastermin/">MKEQUAL</a></td>
+				<td align="left" width="14%"><a href="/status/PRINT,luckymastermin/">PRINT</a></td>
+				<td align="left" width="14%"><a href="/status/SYNC13C,luckymastermin/">SYNC13C</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADAROBOT,luckymastermin/">ADAROBOT</a></td>
+				<td align="left" width="14%"><a href="/status/CODGRF,luckymastermin/">CODGRF</a></td>
+				<td align="left" width="14%"><a href="/status/FACTMULO,luckymastermin/">FACTMULO</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCH,luckymastermin/">IITKWPCH</a></td>
+				<td align="left" width="14%"><a href="/status/MNNITAR,luckymastermin/">MNNITAR</a></td>
+				<td align="left" width="14%"><a href="/status/PRO,luckymastermin/">PRO</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2013G,luckymastermin/">TAP2013G</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADASETS,luckymastermin/">ADASETS</a></td>
+				<td align="left" width="14%"><a href="/status/CODPABBU,luckymastermin/">CODPABBU</a></td>
+				<td align="left" width="14%"><a href="/status/FACVSPOW,luckymastermin/">FACVSPOW</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCJ,luckymastermin/">IITKWPCJ</a></td>
+				<td align="left" width="14%"><a href="/status/MOD,luckymastermin/">MOD</a></td>
+				<td align="left" width="14%"><a href="/status/PROBLEM4,luckymastermin/">PROBLEM4</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2013H,luckymastermin/">TAP2013H</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADAUSORT,luckymastermin/">ADAUSORT</a></td>
+				<td align="left" width="14%"><a href="/status/COINS,luckymastermin/">COINS</a></td>
+				<td align="left" width="14%"><a href="/status/FANCY,luckymastermin/">FANCY</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCM,luckymastermin/">IITKWPCM</a></td>
+				<td align="left" width="14%"><a href="/status/MOHIBTREE,luckymastermin/">MOHIBTREE</a></td>
+				<td align="left" width="14%"><a href="/status/PROD1GCD,luckymastermin/">PROD1GCD</a></td>
+				<td align="left" width="14%"><a href="/status/TDKPRIME,luckymastermin/">TDKPRIME</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADDREV,luckymastermin/">ADDREV</a></td>
+				<td align="left" width="14%"><a href="/status/COLONY,luckymastermin/">COLONY</a></td>
+				<td align="left" width="14%"><a href="/status/FARIDA,luckymastermin/">FARIDA</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCN,luckymastermin/">IITKWPCN</a></td>
+				<td align="left" width="14%"><a href="/status/MRECAMAN,luckymastermin/">MRECAMAN</a></td>
+				<td align="left" width="14%"><a href="/status/PROFF,luckymastermin/">PROFF</a></td>
+				<td align="left" width="14%"><a href="/status/TDPRIMES,luckymastermin/">TDPRIMES</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADV04J,luckymastermin/">ADV04J</a></td>
+				<td align="left" width="14%"><a href="/status/COMDIV,luckymastermin/">COMDIV</a></td>
+				<td align="left" width="14%"><a href="/status/FASHION,luckymastermin/">FASHION</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCO,luckymastermin/">IITKWPCO</a></td>
+				<td align="left" width="14%"><a href="/status/MSCHED,luckymastermin/">MSCHED</a></td>
+				<td align="left" width="14%"><a href="/status/PROOT,luckymastermin/">PROOT</a></td>
+				<td align="left" width="14%"><a href="/status/TESSER,luckymastermin/">TESSER</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AE00,luckymastermin/">AE00</a></td>
+				<td align="left" width="14%"><a href="/status/COMPLEX2,luckymastermin/">COMPLEX2</a></td>
+				<td align="left" width="14%"><a href="/status/FAST2,luckymastermin/">FAST2</a></td>
+				<td align="left" width="14%"><a href="/status/IITWPC4B,luckymastermin/">IITWPC4B</a></td>
+				<td align="left" width="14%"><a href="/status/MSET,luckymastermin/">MSET</a></td>
+				<td align="left" width="14%"><a href="/status/PSYCHO2,luckymastermin/">PSYCHO2</a></td>
+				<td align="left" width="14%"><a href="/status/TEST,luckymastermin/">TEST</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AFS,luckymastermin/">AFS</a></td>
+				<td align="left" width="14%"><a href="/status/CPCRC1C,luckymastermin/">CPCRC1C</a></td>
+				<td align="left" width="14%"><a href="/status/FAVDICE,luckymastermin/">FAVDICE</a></td>
+				<td align="left" width="14%"><a href="/status/INCPOWK,luckymastermin/">INCPOWK</a></td>
+				<td align="left" width="14%"><a href="/status/MTETRA,luckymastermin/">MTETRA</a></td>
+				<td align="left" width="14%"><a href="/status/PSYCHO3,luckymastermin/">PSYCHO3</a></td>
+				<td align="left" width="14%"><a href="/status/TETRAHRD,luckymastermin/">TETRAHRD</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AFS2,luckymastermin/">AFS2</a></td>
+				<td align="left" width="14%"><a href="/status/CPRIME,luckymastermin/">CPRIME</a></td>
+				<td align="left" width="14%"><a href="/status/FCDC,luckymastermin/">FCDC</a></td>
+				<td align="left" width="14%"><a href="/status/INCSEQ,luckymastermin/">INCSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/MUL,luckymastermin/">MUL</a></td>
+				<td align="left" width="14%"><a href="/status/PSYCHON,luckymastermin/">PSYCHON</a></td>
+				<td align="left" width="14%"><a href="/status/THREENUMBERS,luckymastermin/">THREENUMBERS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AFSK,luckymastermin/">AFSK</a></td>
+				<td align="left" width="14%"><a href="/status/CPRMT,luckymastermin/">CPRMT</a></td>
+				<td align="left" width="14%"><a href="/status/FCTRL,luckymastermin/">FCTRL</a></td>
+				<td align="left" width="14%"><a href="/status/INS14B,luckymastermin/">INS14B</a></td>
+				<td align="left" width="14%"><a href="/status/MYQ7,luckymastermin/">MYQ7</a></td>
+				<td align="left" width="14%"><a href="/status/PSYCHOT,luckymastermin/">PSYCHOT</a></td>
+				<td align="left" width="14%"><a href="/status/THRPWRS,luckymastermin/">THRPWRS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AGS,luckymastermin/">AGS</a></td>
+				<td align="left" width="14%"><a href="/status/CRAN04,luckymastermin/">CRAN04</a></td>
+				<td align="left" width="14%"><a href="/status/FCTRL2,luckymastermin/">FCTRL2</a></td>
+				<td align="left" width="14%"><a href="/status/INS14D,luckymastermin/">INS14D</a></td>
+				<td align="left" width="14%"><a href="/status/M_SEQ,luckymastermin/">M_SEQ</a></td>
+				<td align="left" width="14%"><a href="/status/PT07Y,luckymastermin/">PT07Y</a></td>
+				<td align="left" width="14%"><a href="/status/TIP1,luckymastermin/">TIP1</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AIBOHP,luckymastermin/">AIBOHP</a></td>
+				<td align="left" width="14%"><a href="/status/CRAZYSK,luckymastermin/">CRAZYSK</a></td>
+				<td align="left" width="14%"><a href="/status/FCTRL4,luckymastermin/">FCTRL4</a></td>
+				<td align="left" width="14%"><a href="/status/INS14F,luckymastermin/">INS14F</a></td>
+				<td align="left" width="14%"><a href="/status/NAJ0001,luckymastermin/">NAJ0001</a></td>
+				<td align="left" width="14%"><a href="/status/PTC,luckymastermin/">PTC</a></td>
+				<td align="left" width="14%"><a href="/status/TIP2,luckymastermin/">TIP2</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AJOB,luckymastermin/">AJOB</a></td>
+				<td align="left" width="14%"><a href="/status/CRDS,luckymastermin/">CRDS</a></td>
+				<td align="left" width="14%"><a href="/status/FENCE1,luckymastermin/">FENCE1</a></td>
+				<td align="left" width="14%"><a href="/status/INS14G,luckymastermin/">INS14G</a></td>
+				<td align="left" width="14%"><a href="/status/NAJGC,luckymastermin/">NAJGC</a></td>
+				<td align="left" width="14%"><a href="/status/PTIME,luckymastermin/">PTIME</a></td>
+				<td align="left" width="14%"><a href="/status/TIPTOP,luckymastermin/">TIPTOP</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AKVQLD03,luckymastermin/">AKVQLD03</a></td>
+				<td align="left" width="14%"><a href="/status/CRYPTO6,luckymastermin/">CRYPTO6</a></td>
+				<td align="left" width="14%"><a href="/status/FIBOSQRT,luckymastermin/">FIBOSQRT</a></td>
+				<td align="left" width="14%"><a href="/status/INS14I,luckymastermin/">INS14I</a></td>
+				<td align="left" width="14%"><a href="/status/NAJPF,luckymastermin/">NAJPF</a></td>
+				<td align="left" width="14%"><a href="/status/PTR2,luckymastermin/">PTR2</a></td>
+				<td align="left" width="14%"><a href="/status/TOANDFRO,luckymastermin/">TOANDFRO</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ALICESIE,luckymastermin/">ALICESIE</a></td>
+				<td align="left" width="14%"><a href="/status/CRYPTON,luckymastermin/">CRYPTON</a></td>
+				<td align="left" width="14%"><a href="/status/FIBOSUM,luckymastermin/">FIBOSUM</a></td>
+				<td align="left" width="14%"><a href="/status/INTEGER1,luckymastermin/">INTEGER1</a></td>
+				<td align="left" width="14%"><a href="/status/NAJPWG,luckymastermin/">NAJPWG</a></td>
+				<td align="left" width="14%"><a href="/status/PTRI,luckymastermin/">PTRI</a></td>
+				<td align="left" width="14%"><a href="/status/TPC07,luckymastermin/">TPC07</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ALIEN,luckymastermin/">ALIEN</a></td>
+				<td align="left" width="14%"><a href="/status/CSQUARE,luckymastermin/">CSQUARE</a></td>
+				<td align="left" width="14%"><a href="/status/FIBTWIST,luckymastermin/">FIBTWIST</a></td>
+				<td align="left" width="14%"><a href="/status/INVCNT,luckymastermin/">INVCNT</a></td>
+				<td align="left" width="14%"><a href="/status/NBIN,luckymastermin/">NBIN</a></td>
+				<td align="left" width="14%"><a href="/status/PUCMM025,luckymastermin/">PUCMM025</a></td>
+				<td align="left" width="14%"><a href="/status/TRAFFICN,luckymastermin/">TRAFFICN</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ALMISPY,luckymastermin/">ALMISPY</a></td>
+				<td align="left" width="14%"><a href="/status/CSTREET,luckymastermin/">CSTREET</a></td>
+				<td align="left" width="14%"><a href="/status/FINDPRM,luckymastermin/">FINDPRM</a></td>
+				<td align="left" width="14%"><a href="/status/INVDIV,luckymastermin/">INVDIV</a></td>
+				<td align="left" width="14%"><a href="/status/NDIV,luckymastermin/">NDIV</a></td>
+				<td align="left" width="14%"><a href="/status/PUCMM210,luckymastermin/">PUCMM210</a></td>
+				<td align="left" width="14%"><a href="/status/TREENUM2,luckymastermin/">TREENUM2</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMR10C,luckymastermin/">AMR10C</a></td>
+				<td align="left" width="14%"><a href="/status/CT,luckymastermin/">CT</a></td>
+				<td align="left" width="14%"><a href="/status/FINDSR,luckymastermin/">FINDSR</a></td>
+				<td align="left" width="14%"><a href="/status/INVPHI,luckymastermin/">INVPHI</a></td>
+				<td align="left" width="14%"><a href="/status/NDIVPHI,luckymastermin/">NDIVPHI</a></td>
+				<td align="left" width="14%"><a href="/status/PUCMMT02,luckymastermin/">PUCMMT02</a></td>
+				<td align="left" width="14%"><a href="/status/TREEORD,luckymastermin/">TREEORD</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMR10G,luckymastermin/">AMR10G</a></td>
+				<td align="left" width="14%"><a href="/status/CUBE,luckymastermin/">CUBE</a></td>
+				<td align="left" width="14%"><a href="/status/FLIB,luckymastermin/">FLIB</a></td>
+				<td align="left" width="14%"><a href="/status/IOIPALIN,luckymastermin/">IOIPALIN</a></td>
+				<td align="left" width="14%"><a href="/status/NDIVPHI2,luckymastermin/">NDIVPHI2</a></td>
+				<td align="left" width="14%"><a href="/status/PWRANDMOD,luckymastermin/">PWRANDMOD</a></td>
+				<td align="left" width="14%"><a href="/status/TRGRID,luckymastermin/">TRGRID</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMR11E,luckymastermin/">AMR11E</a></td>
+				<td align="left" width="14%"><a href="/status/CUBEFR,luckymastermin/">CUBEFR</a></td>
+				<td align="left" width="14%"><a href="/status/FMODF,luckymastermin/">FMODF</a></td>
+				<td align="left" width="14%"><a href="/status/IOPC1204,luckymastermin/">IOPC1204</a></td>
+				<td align="left" width="14%"><a href="/status/NFACTOR,luckymastermin/">NFACTOR</a></td>
+				<td align="left" width="14%"><a href="/status/PYTRIP2,luckymastermin/">PYTRIP2</a></td>
+				<td align="left" width="14%"><a href="/status/TRICOUNT,luckymastermin/">TRICOUNT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMR12D,luckymastermin/">AMR12D</a></td>
+				<td align="left" width="14%"><a href="/status/CUBERT,luckymastermin/">CUBERT</a></td>
+				<td align="left" width="14%"><a href="/status/FRQPRIME,luckymastermin/">FRQPRIME</a></td>
+				<td align="left" width="14%"><a href="/status/IRECSQRT,luckymastermin/">IRECSQRT</a></td>
+				<td align="left" width="14%"><a href="/status/NFURY,luckymastermin/">NFURY</a></td>
+				<td align="left" width="14%"><a href="/status/QN01,luckymastermin/">QN01</a></td>
+				<td align="left" width="14%"><a href="/status/TRIISO,luckymastermin/">TRIISO</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMSCO1,luckymastermin/">AMSCO1</a></td>
+				<td align="left" width="14%"><a href="/status/CUBES,luckymastermin/">CUBES</a></td>
+				<td align="left" width="14%"><a href="/status/FRS2,luckymastermin/">FRS2</a></td>
+				<td align="left" width="14%"><a href="/status/IWGBS,luckymastermin/">IWGBS</a></td>
+				<td align="left" width="14%"><a href="/status/NGIRL,luckymastermin/">NGIRL</a></td>
+				<td align="left" width="14%"><a href="/status/QUADAREA,luckymastermin/">QUADAREA</a></td>
+				<td align="left" width="14%"><a href="/status/TRIP,luckymastermin/">TRIP</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMZRCK,luckymastermin/">AMZRCK</a></td>
+				<td align="left" width="14%"><a href="/status/CURDPROD,luckymastermin/">CURDPROD</a></td>
+				<td align="left" width="14%"><a href="/status/FRSKH,luckymastermin/">FRSKH</a></td>
+				<td align="left" width="14%"><a href="/status/JAVAC,luckymastermin/">JAVAC</a></td>
+				<td align="left" width="14%"><a href="/status/NGM,luckymastermin/">NGM</a></td>
+				<td align="left" width="14%"><a href="/status/QUE1,luckymastermin/">QUE1</a></td>
+				<td align="left" width="14%"><a href="/status/TRVCOST,luckymastermin/">TRVCOST</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMZSEQ,luckymastermin/">AMZSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/CUTCAKE,luckymastermin/">CUTCAKE</a></td>
+				<td align="left" width="14%"><a href="/status/FRSKT,luckymastermin/">FRSKT</a></td>
+				<td align="left" width="14%"><a href="/status/JGTLE,luckymastermin/">JGTLE</a></td>
+				<td align="left" width="14%"><a href="/status/NGM2,luckymastermin/">NGM2</a></td>
+				<td align="left" width="14%"><a href="/status/RABBIT1,luckymastermin/">RABBIT1</a></td>
+				<td align="left" width="14%"><a href="/status/TSHOW1,luckymastermin/">TSHOW1</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC08F,luckymastermin/">ANARC08F</a></td>
+				<td align="left" width="14%"><a href="/status/CWC2015,luckymastermin/">CWC2015</a></td>
+				<td align="left" width="14%"><a href="/status/FUNPROB,luckymastermin/">FUNPROB</a></td>
+				<td align="left" width="14%"><a href="/status/JNEXT,luckymastermin/">JNEXT</a></td>
+				<td align="left" width="14%"><a href="/status/NINJA3,luckymastermin/">NINJA3</a></td>
+				<td align="left" width="14%"><a href="/status/RAFANOLE,luckymastermin/">RAFANOLE</a></td>
+				<td align="left" width="14%"><a href="/status/TUG,luckymastermin/">TUG</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC09B,luckymastermin/">ANARC09B</a></td>
+				<td align="left" width="14%"><a href="/status/CYLINDER,luckymastermin/">CYLINDER</a></td>
+				<td align="left" width="14%"><a href="/status/GAMES,luckymastermin/">GAMES</a></td>
+				<td align="left" width="14%"><a href="/status/JOKER1,luckymastermin/">JOKER1</a></td>
+				<td align="left" width="14%"><a href="/status/NITK06,luckymastermin/">NITK06</a></td>
+				<td align="left" width="14%"><a href="/status/RANGESUM,luckymastermin/">RANGESUM</a></td>
+				<td align="left" width="14%"><a href="/status/TULIPNUM,luckymastermin/">TULIPNUM</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AP2,luckymastermin/">AP2</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC11B,luckymastermin/">DCEPC11B</a></td>
+				<td align="left" width="14%"><a href="/status/GCD2,luckymastermin/">GCD2</a></td>
+				<td align="left" width="14%"><a href="/status/JULKA,luckymastermin/">JULKA</a></td>
+				<td align="left" width="14%"><a href="/status/NITT2,luckymastermin/">NITT2</a></td>
+				<td align="left" width="14%"><a href="/status/RANJAN02,luckymastermin/">RANJAN02</a></td>
+				<td align="left" width="14%"><a href="/status/TUTMRBL,luckymastermin/">TUTMRBL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AP3,luckymastermin/">AP3</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC12E,luckymastermin/">DCEPC12E</a></td>
+				<td align="left" width="14%"><a href="/status/GCD3,luckymastermin/">GCD3</a></td>
+				<td align="left" width="14%"><a href="/status/KGSS,luckymastermin/">KGSS</a></td>
+				<td align="left" width="14%"><a href="/status/NNUM,luckymastermin/">NNUM</a></td>
+				<td align="left" width="14%"><a href="/status/REBOUND,luckymastermin/">REBOUND</a></td>
+				<td align="left" width="14%"><a href="/status/TWOSQRS,luckymastermin/">TWOSQRS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/APPROB,luckymastermin/">APPROB</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC12G,luckymastermin/">DCEPC12G</a></td>
+				<td align="left" width="14%"><a href="/status/GCDEASY,luckymastermin/">GCDEASY</a></td>
+				<td align="left" width="14%"><a href="/status/KINJUTSU,luckymastermin/">KINJUTSU</a></td>
+				<td align="left" width="14%"><a href="/status/NOSQ,luckymastermin/">NOSQ</a></td>
+				<td align="left" width="14%"><a href="/status/REC,luckymastermin/">REC</a></td>
+				<td align="left" width="14%"><a href="/status/UCV2013A,luckymastermin/">UCV2013A</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/APS,luckymastermin/">APS</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC13D,luckymastermin/">DCEPC13D</a></td>
+				<td align="left" width="14%"><a href="/status/GCDEX,luckymastermin/">GCDEX</a></td>
+				<td align="left" width="14%"><a href="/status/KIT,luckymastermin/">KIT</a></td>
+				<td align="left" width="14%"><a href="/status/NOTATRI,luckymastermin/">NOTATRI</a></td>
+				<td align="left" width="14%"><a href="/status/RIVALS,luckymastermin/">RIVALS</a></td>
+				<td align="left" width="14%"><a href="/status/UCV2013C,luckymastermin/">UCV2013C</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/APS2,luckymastermin/">APS2</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC203,luckymastermin/">DCEPC203</a></td>
+				<td align="left" width="14%"><a href="/status/GCDS,luckymastermin/">GCDS</a></td>
+				<td align="left" width="14%"><a href="/status/KOMPICI,luckymastermin/">KOMPICI</a></td>
+				<td align="left" width="14%"><a href="/status/NPC2015D,luckymastermin/">NPC2015D</a></td>
+				<td align="left" width="14%"><a href="/status/RKS,luckymastermin/">RKS</a></td>
+				<td align="left" width="14%"><a href="/status/UCV2013E,luckymastermin/">UCV2013E</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARBITRAG,luckymastermin/">ARBITRAG</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC206,luckymastermin/">DCEPC206</a></td>
+				<td align="left" width="14%"><a href="/status/GCPC11A,luckymastermin/">GCPC11A</a></td>
+				<td align="left" width="14%"><a href="/status/KOPC12B,luckymastermin/">KOPC12B</a></td>
+				<td align="left" width="14%"><a href="/status/NR2,luckymastermin/">NR2</a></td>
+				<td align="left" width="14%"><a href="/status/RLE,luckymastermin/">RLE</a></td>
+				<td align="left" width="14%"><a href="/status/UCV2013I,luckymastermin/">UCV2013I</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARITH,luckymastermin/">ARITH</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC504,luckymastermin/">DCEPC504</a></td>
+				<td align="left" width="14%"><a href="/status/GDCOFTI,luckymastermin/">GDCOFTI</a></td>
+				<td align="left" width="14%"><a href="/status/KPEQU,luckymastermin/">KPEQU</a></td>
+				<td align="left" width="14%"><a href="/status/NSTEPS,luckymastermin/">NSTEPS</a></td>
+				<td align="left" width="14%"><a href="/status/RMID,luckymastermin/">RMID</a></td>
+				<td align="left" width="14%"><a href="/status/UCV2013J,luckymastermin/">UCV2013J</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARITH2,luckymastermin/">ARITH2</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC505,luckymastermin/">DCEPC505</a></td>
+				<td align="left" width="14%"><a href="/status/GEOPROB,luckymastermin/">GEOPROB</a></td>
+				<td align="left" width="14%"><a href="/status/KPRIMES2,luckymastermin/">KPRIMES2</a></td>
+				<td align="left" width="14%"><a href="/status/NTHPRIME,luckymastermin/">NTHPRIME</a></td>
+				<td align="left" width="14%"><a href="/status/RMID2,luckymastermin/">RMID2</a></td>
+				<td align="left" width="14%"><a href="/status/UDIVSUM,luckymastermin/">UDIVSUM</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARMY,luckymastermin/">ARMY</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC804,luckymastermin/">DCEPC804</a></td>
+				<td align="left" width="14%"><a href="/status/GGD,luckymastermin/">GGD</a></td>
+				<td align="left" width="14%"><a href="/status/KPRIMESB,luckymastermin/">KPRIMESB</a></td>
+				<td align="left" width="14%"><a href="/status/NUMOFPAL,luckymastermin/">NUMOFPAL</a></td>
+				<td align="left" width="14%"><a href="/status/ROHAAN,luckymastermin/">ROHAAN</a></td>
+				<td align="left" width="14%"><a href="/status/UJ,luckymastermin/">UJ</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARRANGE,luckymastermin/">ARRANGE</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPCA03,luckymastermin/">DCEPCA03</a></td>
+				<td align="left" width="14%"><a href="/status/GLJIVE,luckymastermin/">GLJIVE</a></td>
+				<td align="left" width="14%"><a href="/status/KSMALL,luckymastermin/">KSMALL</a></td>
+				<td align="left" width="14%"><a href="/status/NUMTRY,luckymastermin/">NUMTRY</a></td>
+				<td align="left" width="14%"><a href="/status/ROOT,luckymastermin/">ROOT</a></td>
+				<td align="left" width="14%"><a href="/status/ULM09,luckymastermin/">ULM09</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARRAYSUB,luckymastermin/">ARRAYSUB</a></td>
+				<td align="left" width="14%"><a href="/status/DCRYPT,luckymastermin/">DCRYPT</a></td>
+				<td align="left" width="14%"><a href="/status/GNYR04C,luckymastermin/">GNYR04C</a></td>
+				<td align="left" width="14%"><a href="/status/LARSUBP,luckymastermin/">LARSUBP</a></td>
+				<td align="left" width="14%"><a href="/status/NY10E,luckymastermin/">NY10E</a></td>
+				<td align="left" width="14%"><a href="/status/ROOTCIPH,luckymastermin/">ROOTCIPH</a></td>
+				<td align="left" width="14%"><a href="/status/UOFTBB,luckymastermin/">UOFTBB</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ASCDFIB,luckymastermin/">ASCDFIB</a></td>
+				<td align="left" width="14%"><a href="/status/DIEHARD,luckymastermin/">DIEHARD</a></td>
+				<td align="left" width="14%"><a href="/status/GOODB,luckymastermin/">GOODB</a></td>
+				<td align="left" width="14%"><a href="/status/LASTDIG,luckymastermin/">LASTDIG</a></td>
+				<td align="left" width="14%"><a href="/status/ODDDIV,luckymastermin/">ODDDIV</a></td>
+				<td align="left" width="14%"><a href="/status/RPLD,luckymastermin/">RPLD</a></td>
+				<td align="left" width="14%"><a href="/status/UPDATEIT,luckymastermin/">UPDATEIT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ASSIST,luckymastermin/">ASSIST</a></td>
+				<td align="left" width="14%"><a href="/status/DIG,luckymastermin/">DIG</a></td>
+				<td align="left" width="14%"><a href="/status/GOPI_SW,luckymastermin/">GOPI_SW</a></td>
+				<td align="left" width="14%"><a href="/status/LASTDIG2,luckymastermin/">LASTDIG2</a></td>
+				<td align="left" width="14%"><a href="/status/OHANISER,luckymastermin/">OHANISER</a></td>
+				<td align="left" width="14%"><a href="/status/RPLH,luckymastermin/">RPLH</a></td>
+				<td align="left" width="14%"><a href="/status/URD,luckymastermin/">URD</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ASUMHARD,luckymastermin/">ASUMHARD</a></td>
+				<td align="left" width="14%"><a href="/status/DISUBSTR,luckymastermin/">DISUBSTR</a></td>
+				<td align="left" width="14%"><a href="/status/GSHOP,luckymastermin/">GSHOP</a></td>
+				<td align="left" width="14%"><a href="/status/LCA,luckymastermin/">LCA</a></td>
+				<td align="left" width="14%"><a href="/status/OLOLO,luckymastermin/">OLOLO</a></td>
+				<td align="left" width="14%"><a href="/status/RPLN,luckymastermin/">RPLN</a></td>
+				<td align="left" width="14%"><a href="/status/VACATION,luckymastermin/">VACATION</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ATOMS,luckymastermin/">ATOMS</a></td>
+				<td align="left" width="14%"><a href="/status/DIV,luckymastermin/">DIV</a></td>
+				<td align="left" width="14%"><a href="/status/GSS1,luckymastermin/">GSS1</a></td>
+				<td align="left" width="14%"><a href="/status/LCMSUM,luckymastermin/">LCMSUM</a></td>
+				<td align="left" width="14%"><a href="/status/ONP,luckymastermin/">ONP</a></td>
+				<td align="left" width="14%"><a href="/status/RROOT,luckymastermin/">RROOT</a></td>
+				<td align="left" width="14%"><a href="/status/VECTAR4,luckymastermin/">VECTAR4</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BALIFE,luckymastermin/">BALIFE</a></td>
+				<td align="left" width="14%"><a href="/status/DIV2,luckymastermin/">DIV2</a></td>
+				<td align="left" width="14%"><a href="/status/GSS4,luckymastermin/">GSS4</a></td>
+				<td align="left" width="14%"><a href="/status/LCPC11B,luckymastermin/">LCPC11B</a></td>
+				<td align="left" width="14%"><a href="/status/OPBIT,luckymastermin/">OPBIT</a></td>
+				<td align="left" width="14%"><a href="/status/SAMER08F,luckymastermin/">SAMER08F</a></td>
+				<td align="left" width="14%"><a href="/status/VECTAR5,luckymastermin/">VECTAR5</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BALLSUM,luckymastermin/">BALLSUM</a></td>
+				<td align="left" width="14%"><a href="/status/DIVCNT1,luckymastermin/">DIVCNT1</a></td>
+				<td align="left" width="14%"><a href="/status/GUANGGUN,luckymastermin/">GUANGGUN</a></td>
+				<td align="left" width="14%"><a href="/status/LCPC12E,luckymastermin/">LCPC12E</a></td>
+				<td align="left" width="14%"><a href="/status/OPCPIZZA,luckymastermin/">OPCPIZZA</a></td>
+				<td align="left" width="14%"><a href="/status/SAS002,luckymastermin/">SAS002</a></td>
+				<td align="left" width="14%"><a href="/status/VECTAR8,luckymastermin/">VECTAR8</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BASE,luckymastermin/">BASE</a></td>
+				<td align="left" width="14%"><a href="/status/DIVCNT2,luckymastermin/">DIVCNT2</a></td>
+				<td align="left" width="14%"><a href="/status/GUESSING,luckymastermin/">GUESSING</a></td>
+				<td align="left" width="14%"><a href="/status/LCPC12F,luckymastermin/">LCPC12F</a></td>
+				<td align="left" width="14%"><a href="/status/OPMODULO,luckymastermin/">OPMODULO</a></td>
+				<td align="left" width="14%"><a href="/status/SBANK,luckymastermin/">SBANK</a></td>
+				<td align="left" width="14%"><a href="/status/VECTAR9,luckymastermin/">VECTAR9</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BC,luckymastermin/">BC</a></td>
+				<td align="left" width="14%"><a href="/status/DIVEQL,luckymastermin/">DIVEQL</a></td>
+				<td align="left" width="14%"><a href="/status/GUESSTHE,luckymastermin/">GUESSTHE</a></td>
+				<td align="left" width="14%"><a href="/status/LEGRENDS,luckymastermin/">LEGRENDS</a></td>
+				<td align="left" width="14%"><a href="/status/ORDSUM23,luckymastermin/">ORDSUM23</a></td>
+				<td align="left" width="14%"><a href="/status/SBSTR1,luckymastermin/">SBSTR1</a></td>
+				<td align="left" width="14%"><a href="/status/VENOM,luckymastermin/">VENOM</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BDOI16B,luckymastermin/">BDOI16B</a></td>
+				<td align="left" width="14%"><a href="/status/DIVFACT,luckymastermin/">DIVFACT</a></td>
+				<td align="left" width="14%"><a href="/status/GUMATH2,luckymastermin/">GUMATH2</a></td>
+				<td align="left" width="14%"><a href="/status/LENGFACT,luckymastermin/">LENGFACT</a></td>
+				<td align="left" width="14%"><a href="/status/PAGAIN,luckymastermin/">PAGAIN</a></td>
+				<td align="left" width="14%"><a href="/status/SCPC11B,luckymastermin/">SCPC11B</a></td>
+				<td align="left" width="14%"><a href="/status/VFMUL,luckymastermin/">VFMUL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BEENUMS,luckymastermin/">BEENUMS</a></td>
+				<td align="left" width="14%"><a href="/status/DIVFACT3,luckymastermin/">DIVFACT3</a></td>
+				<td align="left" width="14%"><a href="/status/HABLU,luckymastermin/">HABLU</a></td>
+				<td align="left" width="14%"><a href="/status/LKS,luckymastermin/">LKS</a></td>
+				<td align="left" width="14%"><a href="/status/PALPRIM,luckymastermin/">PALPRIM</a></td>
+				<td align="left" width="14%"><a href="/status/SEQ,luckymastermin/">SEQ</a></td>
+				<td align="left" width="14%"><a href="/status/VFRIENDS,luckymastermin/">VFRIENDS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BINSTIRL,luckymastermin/">BINSTIRL</a></td>
+				<td align="left" width="14%"><a href="/status/DIVFACT4,luckymastermin/">DIVFACT4</a></td>
+				<td align="left" width="14%"><a href="/status/HACKRNDM,luckymastermin/">HACKRNDM</a></td>
+				<td align="left" width="14%"><a href="/status/LOCKER,luckymastermin/">LOCKER</a></td>
+				<td align="left" width="14%"><a href="/status/PARCARD1,luckymastermin/">PARCARD1</a></td>
+				<td align="left" width="14%"><a href="/status/SEQ6,luckymastermin/">SEQ6</a></td>
+				<td align="left" width="14%"><a href="/status/VISIBLEBOX,luckymastermin/">VISIBLEBOX</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BISHOPS,luckymastermin/">BISHOPS</a></td>
+				<td align="left" width="14%"><a href="/status/DIVFIBS,luckymastermin/">DIVFIBS</a></td>
+				<td align="left" width="14%"><a href="/status/HALD,luckymastermin/">HALD</a></td>
+				<td align="left" width="14%"><a href="/status/LOOPEXP,luckymastermin/">LOOPEXP</a></td>
+				<td align="left" width="14%"><a href="/status/PCLNMBR,luckymastermin/">PCLNMBR</a></td>
+				<td align="left" width="14%"><a href="/status/SEQAGAIN,luckymastermin/">SEQAGAIN</a></td>
+				<td align="left" width="14%"><a href="/status/VPL2_AA,luckymastermin/">VPL2_AA</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BIT2,luckymastermin/">BIT2</a></td>
+				<td align="left" width="14%"><a href="/status/DIVFIBS2,luckymastermin/">DIVFIBS2</a></td>
+				<td align="left" width="14%"><a href="/status/HANGOVER,luckymastermin/">HANGOVER</a></td>
+				<td align="left" width="14%"><a href="/status/LOVINGPW,luckymastermin/">LOVINGPW</a></td>
+				<td align="left" width="14%"><a href="/status/PCPC12J,luckymastermin/">PCPC12J</a></td>
+				<td align="left" width="14%"><a href="/status/SGIFT,luckymastermin/">SGIFT</a></td>
+				<td align="left" width="14%"><a href="/status/WAYHOME,luckymastermin/">WAYHOME</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BITDIFF,luckymastermin/">BITDIFF</a></td>
+				<td align="left" width="14%"><a href="/status/DIVISER9,luckymastermin/">DIVISER9</a></td>
+				<td align="left" width="14%"><a href="/status/HAP01,luckymastermin/">HAP01</a></td>
+				<td align="left" width="14%"><a href="/status/M3TILE,luckymastermin/">M3TILE</a></td>
+				<td align="left" width="14%"><a href="/status/PEBBLE,luckymastermin/">PEBBLE</a></td>
+				<td align="left" width="14%"><a href="/status/SHAHBG,luckymastermin/">SHAHBG</a></td>
+				<td align="left" width="14%"><a href="/status/WEBISL,luckymastermin/">WEBISL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BITPLAY,luckymastermin/">BITPLAY</a></td>
+				<td align="left" width="14%"><a href="/status/DIVISION,luckymastermin/">DIVISION</a></td>
+				<td align="left" width="14%"><a href="/status/HARSHAD,luckymastermin/">HARSHAD</a></td>
+				<td align="left" width="14%"><a href="/status/MAIN12A,luckymastermin/">MAIN12A</a></td>
+				<td align="left" width="14%"><a href="/status/PELL2,luckymastermin/">PELL2</a></td>
+				<td align="left" width="14%"><a href="/status/SHAKTI,luckymastermin/">SHAKTI</a></td>
+				<td align="left" width="14%"><a href="/status/WEIRDFN,luckymastermin/">WEIRDFN</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOI7SEQ,luckymastermin/">BOI7SEQ</a></td>
+				<td align="left" width="14%"><a href="/status/DIVSUM2,luckymastermin/">DIVSUM2</a></td>
+				<td align="left" width="14%"><a href="/status/HAYBALE,luckymastermin/">HAYBALE</a></td>
+				<td align="left" width="14%"><a href="/status/MAIN12B,luckymastermin/">MAIN12B</a></td>
+				<td align="left" width="14%"><a href="/status/PERIOD2,luckymastermin/">PERIOD2</a></td>
+				<td align="left" width="14%"><a href="/status/SHPATH,luckymastermin/">SHPATH</a></td>
+				<td align="left" width="14%"><a href="/status/WILLITST,luckymastermin/">WILLITST</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOMARBLE,luckymastermin/">BOMARBLE</a></td>
+				<td align="left" width="14%"><a href="/status/DOL,luckymastermin/">DOL</a></td>
+				<td align="left" width="14%"><a href="/status/HC12,luckymastermin/">HC12</a></td>
+				<td align="left" width="14%"><a href="/status/MAIN12C,luckymastermin/">MAIN12C</a></td>
+				<td align="left" width="14%"><a href="/status/PERMUT2,luckymastermin/">PERMUT2</a></td>
+				<td align="left" width="14%"><a href="/status/SILVER,luckymastermin/">SILVER</a></td>
+				<td align="left" width="14%"><a href="/status/WORDCNT,luckymastermin/">WORDCNT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BORING,luckymastermin/">BORING</a></td>
+				<td align="left" width="14%"><a href="/status/DRUIDEOI,luckymastermin/">DRUIDEOI</a></td>
+				<td align="left" width="14%"><a href="/status/HDEVIL,luckymastermin/">HDEVIL</a></td>
+				<td align="left" width="14%"><a href="/status/MAIN72,luckymastermin/">MAIN72</a></td>
+				<td align="left" width="14%"><a href="/status/PHONELST,luckymastermin/">PHONELST</a></td>
+				<td align="left" width="14%"><a href="/status/SINEGGS,luckymastermin/">SINEGGS</a></td>
+				<td align="left" width="14%"><a href="/status/WORKB,luckymastermin/">WORKB</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BORING2,luckymastermin/">BORING2</a></td>
+				<td align="left" width="14%"><a href="/status/DSUBSEQ,luckymastermin/">DSUBSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/HEADSHOT,luckymastermin/">HEADSHOT</a></td>
+				<td align="left" width="14%"><a href="/status/MAIN74,luckymastermin/">MAIN74</a></td>
+				<td align="left" width="14%"><a href="/status/PHONY,luckymastermin/">PHONY</a></td>
+				<td align="left" width="14%"><a href="/status/SIRNUMS,luckymastermin/">SIRNUMS</a></td>
+				<td align="left" width="14%"><a href="/status/WPC5A,luckymastermin/">WPC5A</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BRKSTRNG,luckymastermin/">BRKSTRNG</a></td>
+				<td align="left" width="14%"><a href="/status/DTPOLY,luckymastermin/">DTPOLY</a></td>
+				<td align="left" width="14%"><a href="/status/HG,luckymastermin/">HG</a></td>
+				<td align="left" width="14%"><a href="/status/MAIN8_D,luckymastermin/">MAIN8_D</a></td>
+				<td align="left" width="14%"><a href="/status/PHT,luckymastermin/">PHT</a></td>
+				<td align="left" width="14%"><a href="/status/SMALLM,luckymastermin/">SMALLM</a></td>
+				<td align="left" width="14%"><a href="/status/WPC5D,luckymastermin/">WPC5D</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BSPRIME,luckymastermin/">BSPRIME</a></td>
+				<td align="left" width="14%"><a href="/status/DUKKAR,luckymastermin/">DUKKAR</a></td>
+				<td align="left" width="14%"><a href="/status/HIGHWAYS,luckymastermin/">HIGHWAYS</a></td>
+				<td align="left" width="14%"><a href="/status/MAJOR,luckymastermin/">MAJOR</a></td>
+				<td align="left" width="14%"><a href="/status/PIE,luckymastermin/">PIE</a></td>
+				<td align="left" width="14%"><a href="/status/SNGDIV69,luckymastermin/">SNGDIV69</a></td>
+				<td align="left" width="14%"><a href="/status/WPC5I,luckymastermin/">WPC5I</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BUBBLESORT,luckymastermin/">BUBBLESORT</a></td>
+				<td align="left" width="14%"><a href="/status/EASYMATH,luckymastermin/">EASYMATH</a></td>
+				<td align="left" width="14%"><a href="/status/HISTOGRA,luckymastermin/">HISTOGRA</a></td>
+				<td align="left" width="14%"><a href="/status/MANGOES,luckymastermin/">MANGOES</a></td>
+				<td align="left" width="14%"><a href="/status/PIHU1,luckymastermin/">PIHU1</a></td>
+				<td align="left" width="14%"><a href="/status/SNGINT,luckymastermin/">SNGINT</a></td>
+				<td align="left" width="14%"><a href="/status/WTK,luckymastermin/">WTK</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BUGLIFE,luckymastermin/">BUGLIFE</a></td>
+				<td align="left" width="14%"><a href="/status/EASYPROB,luckymastermin/">EASYPROB</a></td>
+				<td align="left" width="14%"><a href="/status/HLP_RAMS,luckymastermin/">HLP_RAMS</a></td>
+				<td align="left" width="14%"><a href="/status/MARBLES,luckymastermin/">MARBLES</a></td>
+				<td align="left" width="14%"><a href="/status/PIRACON,luckymastermin/">PIRACON</a></td>
+				<td align="left" width="14%"><a href="/status/SNGLOOP1,luckymastermin/">SNGLOOP1</a></td>
+				<td align="left" width="14%"><a href="/status/XYI,luckymastermin/">XYI</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BUILDTOW,luckymastermin/">BUILDTOW</a></td>
+				<td align="left" width="14%"><a href="/status/EBOXES,luckymastermin/">EBOXES</a></td>
+				<td align="left" width="14%"><a href="/status/HNUMBERS,luckymastermin/">HNUMBERS</a></td>
+				<td align="left" width="14%"><a href="/status/MATHII,luckymastermin/">MATHII</a></td>
+				<td align="left" width="14%"><a href="/status/PISANO,luckymastermin/">PISANO</a></td>
+				<td align="left" width="14%"><a href="/status/SNGMSG,luckymastermin/">SNGMSG</a></td>
+				<td align="left" width="14%"><a href="/status/YAPP,luckymastermin/">YAPP</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BWIDOW,luckymastermin/">BWIDOW</a></td>
+				<td align="left" width="14%"><a href="/status/EC_CONB,luckymastermin/">EC_CONB</a></td>
+				<td align="left" width="14%"><a href="/status/HOMEW,luckymastermin/">HOMEW</a></td>
+				<td align="left" width="14%"><a href="/status/MATHLOVE,luckymastermin/">MATHLOVE</a></td>
+				<td align="left" width="14%"><a href="/status/PLNDROME,luckymastermin/">PLNDROME</a></td>
+				<td align="left" width="14%"><a href="/status/SNGPG,luckymastermin/">SNGPG</a></td>
+				<td align="left" width="14%"><a href="/status/YODANESS,luckymastermin/">YODANESS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CANDY,luckymastermin/">CANDY</a></td>
+				<td align="left" width="14%"><a href="/status/EC_ESTA,luckymastermin/">EC_ESTA</a></td>
+				<td align="left" width="14%"><a href="/status/HORRIBLE,luckymastermin/">HORRIBLE</a></td>
+				<td align="left" width="14%"><a href="/status/MATHS,luckymastermin/">MATHS</a></td>
+				<td align="left" width="14%"><a href="/status/POLCONST,luckymastermin/">POLCONST</a></td>
+				<td align="left" width="14%"><a href="/status/SOLDIERS,luckymastermin/">SOLDIERS</a></td>
+				<td align="left" width="14%"><a href="/status/YUMMY,luckymastermin/">YUMMY</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CANDY3,luckymastermin/">CANDY3</a></td>
+				<td align="left" width="14%"><a href="/status/EDIST,luckymastermin/">EDIST</a></td>
+				<td align="left" width="14%"><a href="/status/HPPROF,luckymastermin/">HPPROF</a></td>
+				<td align="left" width="14%"><a href="/status/MATSUM,luckymastermin/">MATSUM</a></td>
+				<td align="left" width="14%"><a href="/status/PON,luckymastermin/">PON</a></td>
+				<td align="left" width="14%"><a href="/status/SPCJ,luckymastermin/">SPCJ</a></td>
+				<td align="left" width="14%"><a href="/status/Z124,luckymastermin/">Z124</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CANTON,luckymastermin/">CANTON</a></td>
+				<td align="left" width="14%"><a href="/status/EGYPIZZA,luckymastermin/">EGYPIZZA</a></td>
+				<td align="left" width="14%"><a href="/status/HPYNOS,luckymastermin/">HPYNOS</a></td>
+				<td align="left" width="14%"><a href="/status/MAXGRITH,luckymastermin/">MAXGRITH</a></td>
+				<td align="left" width="14%"><a href="/status/POP1,luckymastermin/">POP1</a></td>
+				<td align="left" width="14%"><a href="/status/SPCM,luckymastermin/">SPCM</a></td>
+				<td align="left" width="14%"><a href="/status/ZSUM,luckymastermin/">ZSUM</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CARRHIM,luckymastermin/">CARRHIM</a></td>
+				<td align="left" width="14%"><a href="/status/EIGHTS,luckymastermin/">EIGHTS</a></td>
+				<td align="left" width="14%"><a href="/status/HPYNOSII,luckymastermin/">HPYNOSII</a></td>
+				<td align="left" width="14%"><a href="/status/MAXSUMSQ,luckymastermin/">MAXSUMSQ</a></td>
+				<td align="left" width="14%"><a href="/status/POP2,luckymastermin/">POP2</a></td>
+				<td align="left" width="14%"><a href="/status/SPCO,luckymastermin/">SPCO</a></td>
+				<td align="left" width="14%"><a href="/status/,luckymastermin/"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CATHETEN,luckymastermin/">CATHETEN</a></td>
+				<td align="left" width="14%"><a href="/status/EMTY2,luckymastermin/">EMTY2</a></td>
+				<td align="left" width="14%"><a href="/status/HS08CODE,luckymastermin/">HS08CODE</a></td>
+				<td align="left" width="14%"><a href="/status/MAXXOR,luckymastermin/">MAXXOR</a></td>
+				<td align="left" width="14%"><a href="/status/POP3,luckymastermin/">POP3</a></td>
+				<td align="left" width="14%"><a href="/status/SPCQ,luckymastermin/">SPCQ</a></td>
+				<td align="left" width="14%"><a href="/status/,luckymastermin/"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CEPC08B,luckymastermin/">CEPC08B</a></td>
+				<td align="left" width="14%"><a href="/status/EMTY3,luckymastermin/">EMTY3</a></td>
+				<td align="left" width="14%"><a href="/status/HS08PAUL,luckymastermin/">HS08PAUL</a></td>
+				<td align="left" width="14%"><a href="/status/MAY99_2,luckymastermin/">MAY99_2</a></td>
+				<td align="left" width="14%"><a href="/status/POUR1,luckymastermin/">POUR1</a></td>
+				<td align="left" width="14%"><a href="/status/SPCS,luckymastermin/">SPCS</a></td>
+				<td align="left" width="14%"><a href="/status/,luckymastermin/"></a></td>
+				</tr>
+								</table>
+				
+				
+								<h4><span title="List of problems to which solutions were submitted but none of them got AC.">TODO list of classical problems:</span></h4>
+				<table class="table">
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACODE,luckymastermin/">ACODE</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC703,luckymastermin/">DCEPC703</a></td>
+				<td align="left" width="14%"><a href="/status/FCANDY,luckymastermin/">FCANDY</a></td>
+				<td align="left" width="14%"><a href="/status/IITWPC4D,luckymastermin/">IITWPC4D</a></td>
+				<td align="left" width="14%"><a href="/status/NPC2015A,luckymastermin/">NPC2015A</a></td>
+				<td align="left" width="14%"><a href="/status/SID,luckymastermin/">SID</a></td>
+				<td align="left" width="14%"><a href="/status/TRIOMINO,luckymastermin/">TRIOMINO</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADACON,luckymastermin/">ADACON</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC810,luckymastermin/">DCEPC810</a></td>
+				<td align="left" width="14%"><a href="/status/FIBOSUM2,luckymastermin/">FIBOSUM2</a></td>
+				<td align="left" width="14%"><a href="/status/INS14C,luckymastermin/">INS14C</a></td>
+				<td align="left" width="14%"><a href="/status/PALIN,luckymastermin/">PALIN</a></td>
+				<td align="left" width="14%"><a href="/status/SIMPGAME,luckymastermin/">SIMPGAME</a></td>
+				<td align="left" width="14%"><a href="/status/VECTAR6,luckymastermin/">VECTAR6</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADAQUEUE,luckymastermin/">ADAQUEUE</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPCA09,luckymastermin/">DCEPCA09</a></td>
+				<td align="left" width="14%"><a href="/status/FUNFACT,luckymastermin/">FUNFACT</a></td>
+				<td align="left" width="14%"><a href="/status/INS14J,luckymastermin/">INS14J</a></td>
+				<td align="left" width="14%"><a href="/status/PAUL2,luckymastermin/">PAUL2</a></td>
+				<td align="left" width="14%"><a href="/status/SKEY,luckymastermin/">SKEY</a></td>
+				<td align="left" width="14%"><a href="/status/VGCD,luckymastermin/">VGCD</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADDLCM,luckymastermin/">ADDLCM</a></td>
+				<td align="left" width="14%"><a href="/status/DIVREL,luckymastermin/">DIVREL</a></td>
+				<td align="left" width="14%"><a href="/status/GCPC11C,luckymastermin/">GCPC11C</a></td>
+				<td align="left" width="14%"><a href="/status/KQUERYO,luckymastermin/">KQUERYO</a></td>
+				<td align="left" width="14%"><a href="/status/PERIOD1,luckymastermin/">PERIOD1</a></td>
+				<td align="left" width="14%"><a href="/status/SPFIBO,luckymastermin/">SPFIBO</a></td>
+				<td align="left" width="14%"><a href="/status/WORDCNT2,luckymastermin/">WORDCNT2</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC08B,luckymastermin/">ANARC08B</a></td>
+				<td align="left" width="14%"><a href="/status/DSWEETS,luckymastermin/">DSWEETS</a></td>
+				<td align="left" width="14%"><a href="/status/GEEKOUNT,luckymastermin/">GEEKOUNT</a></td>
+				<td align="left" width="14%"><a href="/status/LCS,luckymastermin/">LCS</a></td>
+				<td align="left" width="14%"><a href="/status/PIHU2,luckymastermin/">PIHU2</a></td>
+				<td align="left" width="14%"><a href="/status/SUBST1,luckymastermin/">SUBST1</a></td>
+				<td align="left" width="14%"><a href="/status/WOWSUBSTR,luckymastermin/">WOWSUBSTR</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARITHSEQ,luckymastermin/">ARITHSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/DTPOLY2,luckymastermin/">DTPOLY2</a></td>
+				<td align="left" width="14%"><a href="/status/GP1,luckymastermin/">GP1</a></td>
+				<td align="left" width="14%"><a href="/status/LCS0,luckymastermin/">LCS0</a></td>
+				<td align="left" width="14%"><a href="/status/PLD,luckymastermin/">PLD</a></td>
+				<td align="left" width="14%"><a href="/status/SUB_PROB,luckymastermin/">SUB_PROB</a></td>
+				<td align="left" width="14%"><a href="/status/Z124H,luckymastermin/">Z124H</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BFALG,luckymastermin/">BFALG</a></td>
+				<td align="left" width="14%"><a href="/status/EC_DIVS,luckymastermin/">EC_DIVS</a></td>
+				<td align="left" width="14%"><a href="/status/GSS3,luckymastermin/">GSS3</a></td>
+				<td align="left" width="14%"><a href="/status/LIS2,luckymastermin/">LIS2</a></td>
+				<td align="left" width="14%"><a href="/status/PRIMEPOW,luckymastermin/">PRIMEPOW</a></td>
+				<td align="left" width="14%"><a href="/status/SUMPRIM2,luckymastermin/">SUMPRIM2</a></td>
+				<td align="left" width="14%"><a href="/status/,luckymastermin/"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BSHIP,luckymastermin/">BSHIP</a></td>
+				<td align="left" width="14%"><a href="/status/ELEVTRBL,luckymastermin/">ELEVTRBL</a></td>
+				<td align="left" width="14%"><a href="/status/HS08EQ,luckymastermin/">HS08EQ</a></td>
+				<td align="left" width="14%"><a href="/status/MNIU,luckymastermin/">MNIU</a></td>
+				<td align="left" width="14%"><a href="/status/PRIMPOW2,luckymastermin/">PRIMPOW2</a></td>
+				<td align="left" width="14%"><a href="/status/SVADA,luckymastermin/">SVADA</a></td>
+				<td align="left" width="14%"><a href="/status/,luckymastermin/"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CALCULAT,luckymastermin/">CALCULAT</a></td>
+				<td align="left" width="14%"><a href="/status/FACTMULM,luckymastermin/">FACTMULM</a></td>
+				<td align="left" width="14%"><a href="/status/IAPCR2E,luckymastermin/">IAPCR2E</a></td>
+				<td align="left" width="14%"><a href="/status/MONKK,luckymastermin/">MONKK</a></td>
+				<td align="left" width="14%"><a href="/status/PRMQUER,luckymastermin/">PRMQUER</a></td>
+				<td align="left" width="14%"><a href="/status/TIP3,luckymastermin/">TIP3</a></td>
+				<td align="left" width="14%"><a href="/status/,luckymastermin/"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/DCEPC200,luckymastermin/">DCEPC200</a></td>
+				<td align="left" width="14%"><a href="/status/FACTMULP,luckymastermin/">FACTMULP</a></td>
+				<td align="left" width="14%"><a href="/status/IITD1,luckymastermin/">IITD1</a></td>
+				<td align="left" width="14%"><a href="/status/NITT4,luckymastermin/">NITT4</a></td>
+				<td align="left" width="14%"><a href="/status/QUE2,luckymastermin/">QUE2</a></td>
+				<td align="left" width="14%"><a href="/status/TKUDDUS,luckymastermin/">TKUDDUS</a></td>
+				<td align="left" width="14%"><a href="/status/,luckymastermin/"></a></td>
+				</tr>
+								</table>
+								
+								<h4>Public problems created by user:</h4>
+				<table class="table">
+								<tr>
+				<td align="left" width="14%"><a href="/problems/LKID/">LKID</a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/problems/LCMSUMH/">LCMSUMH</a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/problems/ETFD/">ETFD</a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/problems/SMALL/">SMALL</a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/problems/EASYFACT/">EASYFACT</a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/problems/POWFIB2/">POWFIB2</a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				</tr>
+								</table>
+				</h4>
+							</div>
+		</div>
+	
+	
+	
+	</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<table cellspacing="10" align="center">
+
+
+
+
+
+</table>
+
+
+	<br/>
+</div>
+		
+		
+		<div class="container" id="footer">
+			<div class="row">
+				<div class="col-md-2">
+					
+				</div>
+				<div class="col-md-8 text-center">
+					<a href="/info">About</a> | <a href="/tutorials">Tutorial</a> | <a href="/tools">Tools</a> | <a href="/clusters">Clusters</a> | <a href="/credits">Credits</a> | <a href="/jobs">Jobs</a> | <a href="/sphereengine">API</a> | <a href="/gfx/spoj-terms.pdf" target="_blank">Terms</a>
+				</div>
+				<div class="col-md-2 text-right">
+					<a href="/rss/" ><img src="//stx1.spoj.com/gfx/rss10x10.gif" border=0>&nbsp;RSS</a>&nbsp;
+				</div>
+			</div>
+		</div>
+		
+		<div class="text-center" id="footer-srl">
+			
+	&copy; Spoj.com. All Rights Reserved. Spoj uses <a href="http://sphere-engine.com?utm_campaign=permanent&amp;utm_medium=footer&amp;utm_source=spoj" style="color:black">Sphere Engine</a>&trade; &copy; by <a href="http://sphere-research.com?utm_campaign=permanent&amp;utm_medium=footer&amp;utm_source=spoj" style="color:black">Sphere Research Labs</a>.
+
+		</div> 
+	</div>
+
+	<!-- JavaScripts -->
+	
+		
+	
+	<script type="text/javascript">
+	$(function(){
+		setTimeout(function(){
+			$('.no_a_info').css('visibility', 'visible');
+		}, 5000);
+		
+		if(!$('.aProblemTop').length && !$('.aProblemsTop').length && !$('.aSubmitTop').length && !$('.aStatusTop').length && !$('.aMainRight').length){
+			ga('send', 'event', 'ads', 'no-ads', 'main-contest');
+		}
+		if ($('.aProblemTop').height() == 0){
+			$('.aProblemTop').css({'border': '1px solid #ddd', 'background': '#f0f4e3', 'height': 90});
+			$('.aProblemTop').html($('<p class="text-center">using adblock?</p><h4 class="text-center">Online ads help us to maintain site.</h4><p class="text-center"><strong>please whitelist *.spoj.com</strong></p>'));
+			ga('send', 'event', 'ads', 'adblock2', 'aProblemTop');
+		}
+		if ($('.aProblemsTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aProblemsTop');
+		}
+		if ($('.aSubmitTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aSubmitTop');
+		}
+		if ($('.aStatusTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aStatusTop');
+		}
+		if ($('.aMainRight').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aMainRight');
+		}
+	});
+	</script>
+	
+	
+	<script type="text/javascript" src="//stx1.spoj.com/gfx/jquery.timers.js"></script>
+	<script type="text/javascript" src="//stx1.spoj.com/gfx/jquery.cookie.js"></script>
+	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+	<script src="//stx1.spoj.com/gfx/md5.js"></script>
+	<script src="//stx1.spoj.com/gfx/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
+	<script src="//stx1.spoj.com/gfx/scripts/tour.js"></script>
+	
+	
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&appId=321676846207&version=v2.0";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	
+	
+
+
+<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-10507872-1', 'auto');
+	  ga('require', 'linkid', 'linkid.js');
+	  ga('send', 'pageview');
+	</script>
+<!-- Hotjar Tracking Code for http://www.spoj.com -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:334656,hjsv:5};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<script type="text/javascript">
+	$(function(){
+		$(document).on('click', '.track', function(){
+			var event = $(this).attr('data-event');
+			var action = $(this).attr('data-action');
+			var value = $(this).attr('data-value');
+			ga('send', 'event', event, action, value);
+		});
+	});
+	//window.open('http://incoming.hotjar.com/s/7366', '_blank');
+	</script>
+
+
+</body>
+</html>

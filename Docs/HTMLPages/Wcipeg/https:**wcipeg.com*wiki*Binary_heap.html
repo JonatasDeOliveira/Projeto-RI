@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Binary heap - PEGWiki</title>
+<meta name="generator" content="MediaWiki 1.25.2" />
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/wiki/index.php?title=Binary_heap&amp;action=edit" />
+<link rel="edit" title="Edit" href="/wiki/index.php?title=Binary_heap&amp;action=edit" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/wiki/opensearch_desc.php" title="PEGWiki (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wcipeg.com/wiki/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/Binary_heap" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="PEGWiki Atom feed" href="/wiki/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=ext.math.styles%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:b36fd1c042133c9c9b60260f7c29b237 */</style>
+<script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Binary_heap","wgTitle":"Binary heap","wgCurRevisionId":1794,"wgRevisionId":1794,"wgArticleId":378,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Pages needing diagrams","Pages needing code","Heaps","Data structures"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Binary_heap","wgRelevantArticleId":378,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikidb:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Binary_heap skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Binary heap</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From PEGWiki</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>A <b>binary heap</b> is a <a href="/wiki/Tree#Binary_and_k-ary_trees" title="Tree">complete binary tree</a> in which nodes are labelled with elements from a <a href="/wiki/Totally_ordered_set" title="Totally ordered set" class="mw-redirect">totally ordered set</a> and each node's label is greater than the labels of its children, if any. (We call this variation the <b>max heap</b>, because the maximum element is at the root; the <b>min heap</b> is defined analogously.) It is used to implement the <a href="/wiki/index.php?title=Priority_queue&amp;action=edit&amp;redlink=1" class="new" title="Priority queue (page does not exist)">priority queue</a> <a href="/wiki/Abstract_data_type" title="Abstract data type" class="mw-redirect">abstract data type</a>.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Details"><span class="tocnumber">1</span> <span class="toctext">Details</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Finding_the_maximum"><span class="tocnumber">1.1</span> <span class="toctext">Finding the maximum</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Insertion"><span class="tocnumber">1.2</span> <span class="toctext">Insertion</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Deletion"><span class="tocnumber">1.3</span> <span class="toctext">Deletion</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Increasing_a_key"><span class="tocnumber">1.4</span> <span class="toctext">Increasing a key</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Construction"><span class="tocnumber">1.5</span> <span class="toctext">Construction</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Analysis"><span class="tocnumber">2</span> <span class="toctext">Analysis</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="#Finding_the_maximum_2"><span class="tocnumber">2.1</span> <span class="toctext">Finding the maximum</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Insertion_2"><span class="tocnumber">2.2</span> <span class="toctext">Insertion</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Deletion_2"><span class="tocnumber">2.3</span> <span class="toctext">Deletion</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Increasing_a_key_2"><span class="tocnumber">2.4</span> <span class="toctext">Increasing a key</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Construction_2"><span class="tocnumber">2.5</span> <span class="toctext">Construction</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="#Implementation"><span class="tocnumber">3</span> <span class="toctext">Implementation</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Details">Details</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binary_heap&amp;action=edit&amp;section=1" title="Edit section: Details">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The unifying principle of binary heap operations is that they must never violate the completeness property, but may temporarily violate the max-heap property.
+</p>
+<h3><span class="mw-headline" id="Finding_the_maximum">Finding the maximum</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binary_heap&amp;action=edit&amp;section=2" title="Edit section: Finding the maximum">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The maximum node in a heap is always at the top. This is obvious from the fact that every node other than the root has a parent (that is greater than or equal to it).
+</p>
+<h3><span class="mw-headline" id="Insertion">Insertion</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binary_heap&amp;action=edit&amp;section=3" title="Edit section: Insertion">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Inserting a node into an empty heap is easy; all we have to do is make it the root.
+</p><p>Otherwise, when a node is inserted, there is only one possible place for it; either it goes immediately to the right of the rightmost node on the deepest level, or, if the bottom level is already full, it begins a new level, taking the leftmost position there.
+</p><p>If this node is less than or equal to its parent, we are done already; we have a new heap that contains all the original nodes plus the new one and the max-heap property is satisfied. Otherwise we must <i>bottom-up heapify</i> the new tree. That is, if the node we just inserted is greater than its parent, we must swap the node with its parent, and if it is greater than its new parent, we must swap again, and so on. This process will terminate either when the node is less than or equal to its parent, or when the node reaches the root (which occurs if and only if it is the greatest element in the heap).
+</p><p>It is easy to see that bottom-up heapification results in the restoration of the max-heap property. The proof is left as an exercise to the reader.
+</p>
+<h3><span class="mw-headline" id="Deletion">Deletion</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binary_heap&amp;action=edit&amp;section=4" title="Edit section: Deletion">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Only the greatest element in a max heap can be deleted. Of course, we can't delete it while it is still at the root of the heap (unless the heap contains only a single element). Instead, we will remove the rightmost node on the bottom level, because we want to maintain the completeness property of the heap. Thus, we will start by swapping the label of the root node with the label of the rightmost node on the bottom level, and then removing the latter.
+</p><p>If the node now at the root is greater than or equal to both of its children, then we are done. Otherwise, we must perform a <i>top-down heapify</i>. Since the node is less than at least one of its children, we reason that it is less than the greater of its two children. So we will swap the node with the greater of its two children; the new root will now be greater than both of its children. However, if the node previously at the root is still less than at least one of its children, we must swap it down again, and so on; this process will terminate either when the node is greater than or equal to both of its children or when it reaches the bottom of the heap (<i>i.e.</i>, becomes a leaf), and no longer has children.
+</p><p>The proof that top-down heapification results in the restoration of the max-heap property is left as an exercise to the reader.
+</p>
+<h3><span class="mw-headline" id="Increasing_a_key">Increasing a key</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binary_heap&amp;action=edit&amp;section=5" title="Edit section: Increasing a key">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>If we know where in the heap a given key (label) can be found, we can efficiently change the key's value. If we increase the key's value, we may have to perform bottom-up heapification starting at the node; if we decrease the key's value, we may have to perform top-down heapification. The former is more common, and occurs, for example, in <a href="/wiki/Dijkstra%27s_algorithm" title="Dijkstra's algorithm">Dijkstra's algorithm</a> and <a href="/wiki/Prim%27s_algorithm" title="Prim's algorithm">Prim's algorithm</a>, when we update distances. (Note that in this case we would use a min heap and decrease the key.)
+</p>
+<h3><span class="mw-headline" id="Construction">Construction</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binary_heap&amp;action=edit&amp;section=6" title="Edit section: Construction">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Given a set of <img class="mwe-math-fallback-image-inline tex" alt="N" src="/wiki/images/math/8/d/9/8d9c307cb7f3c4a32822a51922d1ceaa.png" /> labels, we can construct a heap containing <img class="mwe-math-fallback-image-inline tex" alt="N" src="/wiki/images/math/8/d/9/8d9c307cb7f3c4a32822a51922d1ceaa.png" /> nodes, each of which has one of the given labels, simply by performing <img class="mwe-math-fallback-image-inline tex" alt="N" src="/wiki/images/math/8/d/9/8d9c307cb7f3c4a32822a51922d1ceaa.png" /> insertions. However, a more efficient technique is <i>bottom-up construction</i>. This technique entails first constructing a complete binary tree with all <img class="mwe-math-fallback-image-inline tex" alt="N" src="/wiki/images/math/8/d/9/8d9c307cb7f3c4a32822a51922d1ceaa.png" /> labels, in any order, and then performing top-down heapification on each node, in decreasing order of depth. The proof that this results in a valid binary heap is not difficult; heapifying at a given node may be thought of as being like "adding" the node at the top.
+</p><p>The reason for constructing the heap in this manner will become evident when we analyze the running time of the implementations of these operations.
+</p>
+<h2><span class="mw-headline" id="Analysis">Analysis</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binary_heap&amp;action=edit&amp;section=7" title="Edit section: Analysis">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>We use the fact that the height of a binary heap with <img class="mwe-math-fallback-image-inline tex" alt="N" src="/wiki/images/math/8/d/9/8d9c307cb7f3c4a32822a51922d1ceaa.png" /> nodes is <img class="mwe-math-fallback-image-inline tex" alt="h = \lceil \log_2(N+1) \rceil - 1 \approx \log_2 N" src="/wiki/images/math/9/2/9/929cf96ea619ca61e7ccb5ecebead45f.png" />.
+</p><p>Average-case analyses are difficult, as they make assumptions about the likely distribution of keys to be inserted as well as the distribution of keys that are already <i>in</i> the heap. The analyses given below are not rigorous.
+</p>
+<h3><span class="mw-headline" id="Finding_the_maximum_2">Finding the maximum</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binary_heap&amp;action=edit&amp;section=8" title="Edit section: Finding the maximum">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Simply looking at the root of the heap takes <img class="mwe-math-fallback-image-inline tex" alt="O(1)" src="/wiki/images/math/5/e/0/5e079a28737d5dd019a3b8f6133ee55e.png" /> time.
+</p>
+<h3><span class="mw-headline" id="Insertion_2">Insertion</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binary_heap&amp;action=edit&amp;section=9" title="Edit section: Insertion">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>A bottom-up heapification, in the worst case, uses approximately <img class="mwe-math-fallback-image-inline tex" alt="\log_2 N" src="/wiki/images/math/f/e/3/fe36608d3d8dfe2525f5b9b13b3f8d4a.png" /> swaps (if it goes all the way up to the top of the tree), each of which is assumed to take constant time, giving <img class="mwe-math-fallback-image-inline tex" alt="O(\log N)" src="/wiki/images/math/7/0/6/70664169d1bc6295401283e5520056e1.png" />. However, on average, the newly inserted element does not travel very far up the tree. In particular, assuming a uniform distribution of keys, it has a one-half chance of being greater than its parent; it has a one-half chance of being greater than its grandparent given that it is greater than its parent; it has a one-half chance of being greater than its great-grandparent given that it is greater than its parent, and so on, so that the expected number of swaps is <img class="mwe-math-fallback-image-inline tex" alt="\frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + ... = 1" src="/wiki/images/math/a/e/c/aec2f4830b6b4fe42bb65d5b681aa0b2.png" />, so that in the average case insertion takes constant time, <img class="mwe-math-fallback-image-inline tex" alt="O(1)" src="/wiki/images/math/5/e/0/5e079a28737d5dd019a3b8f6133ee55e.png" /> (and the expected final depth of the node is <img class="mwe-math-fallback-image-inline tex" alt="h-1" src="/wiki/images/math/d/1/d/d1d41106630da1ee4622057722ce14b6.png" />).
+</p><p>(A madly handwaving way to reach the same conclusion is to claim that the newly inserted node has an equal probability of ending up anywhere in the heap, so the average final depth is about <img class="mwe-math-fallback-image-inline tex" alt="(1/2)h + (1/4)(h-1) + (1/8)(h-2) + ... \approx h-1" src="/wiki/images/math/a/b/0/ab0ae7ef30252c97965413128ce25aa7.png" /> since about half the nodes in a complete binary tree are on the bottom level, about a quarter are on the level above that, and so on. Obviously, this premise is false, but it gives the same result.)
+</p>
+<h3><span class="mw-headline" id="Deletion_2">Deletion</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binary_heap&amp;action=edit&amp;section=10" title="Edit section: Deletion">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>A top-down heapification, in the worst case, uses approximately <img class="mwe-math-fallback-image-inline tex" alt="\log_2 N" src="/wiki/images/math/f/e/3/fe36608d3d8dfe2525f5b9b13b3f8d4a.png" /> swaps (if it goes all the way back down to the bottom of the tree), each of which is assumed to take constant time, giving <img class="mwe-math-fallback-image-inline tex" alt="O(\log N)" src="/wiki/images/math/7/0/6/70664169d1bc6295401283e5520056e1.png" /> time. In the average case, the analysis is more complicated. Assume, for simplicity, uniform distribution of keys and assume that no two keys are equal. Consider the path from the root to the now vacated original position of the key that now occupies the root. As long as the key stays on this path, it will have to be swapped down further, because we know it is less than its child on the path, but as soon as the key leaves the path, it finds itself among a subtree of keys whose sizes relative to it are unknown and uniformly distributed. The expected final depth will then be <img class="mwe-math-fallback-image-inline tex" alt="h-1" src="/wiki/images/math/d/1/d/d1d41106630da1ee4622057722ce14b6.png" />, as in the insertion analysis. So we find that the overall expected final depth is <img class="mwe-math-fallback-image-inline tex" alt="\frac{1}{2}(h-1) + \frac{1}{4}(h-1) + \frac{1}{8}(h-1) + ... = h-1" src="/wiki/images/math/8/4/a/84ac854e12a839aad10d2b3ad9ee5ee3.png" /> (where the first term corresponds to the key leaving the path on the first swap, the second the second swap, and so on). Thus, on average, <img class="mwe-math-fallback-image-inline tex" alt="h-1" src="/wiki/images/math/d/1/d/d1d41106630da1ee4622057722ce14b6.png" /> swaps occur, so the average-case time for deletion is no better asymptotically than the worst-case time.
+</p>
+<h3><span class="mw-headline" id="Increasing_a_key_2">Increasing a key</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binary_heap&amp;action=edit&amp;section=11" title="Edit section: Increasing a key">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>We will not attempt an analysis of the average-case running time of this operation, as the expected amount by which a key is to be increased may vary and hence cause the expected running time to vary with it. The worst case, however, remains <img class="mwe-math-fallback-image-inline tex" alt="O(\log N)" src="/wiki/images/math/7/0/6/70664169d1bc6295401283e5520056e1.png" />.
+</p>
+<h3><span class="mw-headline" id="Construction_2">Construction</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binary_heap&amp;action=edit&amp;section=12" title="Edit section: Construction">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>In the average case, construction by repeated insertion takes <img class="mwe-math-fallback-image-inline tex" alt="NO(1) = O(N)" src="/wiki/images/math/6/3/4/634b69a3ae44d00be72e72d8e3dc21ee.png" /> time. However, in the worst case, it takes <img class="mwe-math-fallback-image-inline tex" alt="O(\log 1 + \log 2 + ... + \log N)" src="/wiki/images/math/d/7/d/d7da3e399b4aa224d9413b8844c2bee9.png" /> time, as the heap will have one node after the first insertion, two after the second insertion, and so on; this is <img class="mwe-math-fallback-image-inline tex" alt="O(N \log N)" src="/wiki/images/math/6/c/2/6c2e9feb68e08f18ea437bca3531293e.png" />.
+</p><p>The construction technique described above, however, has the property that a node at depth <img class="mwe-math-fallback-image-inline tex" alt="k" src="/wiki/images/math/8/c/e/8ce4b16b22b58894aa86c421e8759df3.png" /> will only be swapped down up to <img class="mwe-math-fallback-image-inline tex" alt="d-k" src="/wiki/images/math/c/e/f/cefbba05ef7e6ca5574dfb81d55f0a1a.png" /> times. Approximately half of the nodes in the heap will be on the bottom level, because such is the structure of a complete binary tree; they will therefore not be swapped down at all. Then approximately one fourth of the nodes will be on the second level from the bottom, and will be swapped down up to once; an eighth will be swapped down at most twice, and so on, giving the total number of swaps as approximately <img class="mwe-math-fallback-image-inline tex" alt="\frac{1}{4}N + \frac{2}{8}N + \frac{3}{16}N + \frac{4}{32}N + ... = N" src="/wiki/images/math/6/8/c/68cde802f236c1faab6ee2b279349547.png" />. Thus, this procedure has a worst-case performance of <img class="mwe-math-fallback-image-inline tex" alt="O(N)" src="/wiki/images/math/3/3/6/33697ce7dfa48ba80980d298c8089378.png" />.
+</p>
+<h2><span class="mw-headline" id="Implementation">Implementation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binary_heap&amp;action=edit&amp;section=13" title="Edit section: Implementation">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>A binary heap is almost always implemented using an <a href="/wiki/Array" title="Array">array</a>. Generally the root is placed at index one of the array, and if an element is placed at index <img class="mwe-math-fallback-image-inline tex" alt="k" src="/wiki/images/math/8/c/e/8ce4b16b22b58894aa86c421e8759df3.png" />, then its left child is placed at <img class="mwe-math-fallback-image-inline tex" alt="2k" src="/wiki/images/math/2/6/7/26794630b04f565641b4c9576677fa61.png" /> and its right at <img class="mwe-math-fallback-image-inline tex" alt="2k+1" src="/wiki/images/math/8/5/0/850f81286d0f9f3505c5c917c0dac929.png" />. Using this system, the root's left child goes at index 2, the root's right child at 3, the root's left child's left child at 4, and so on; indices from <img class="mwe-math-fallback-image-inline tex" alt="2^n" src="/wiki/images/math/9/a/a/9aa0ec0374c89d2f7f3d9cd2e05a4bc5.png" /> to <img class="mwe-math-fallback-image-inline tex" alt="2^{n+1}-1" src="/wiki/images/math/8/d/8/8d8052e685d7e0e25a0acca925a17657.png" /> are occupied by elements of depth <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png" />, and no space is wasted.
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.053 seconds
+Real time usage: 0.059 seconds
+Preprocessor visited node count: 303/1000000
+Preprocessor generated node count: 696/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:378-0!*!0!!en!*!*!math=0 and timestamp 20180417105834 and revision id 1794
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wcipeg.com/wiki/index.php?title=Binary_heap&amp;oldid=1794">https://wcipeg.com/wiki/index.php?title=Binary_heap&amp;oldid=1794</a>"					</div>
+													<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/wiki/Category:Pages_needing_diagrams" title="Category:Pages needing diagrams">Pages needing diagrams</a></li><li><a href="/wiki/Category:Pages_needing_code" title="Category:Pages needing code">Pages needing code</a></li><li><a href="/wiki/Category:Heaps" title="Category:Heaps">Heaps</a></li><li><a href="/wiki/Category:Data_structures" title="Category:Data structures">Data structures</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Binary+heap&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Binary+heap" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/Binary_heap"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+															<li  id="ca-talk"><span><a href="/wiki/Talk:Binary_heap"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Binary_heap" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/wiki/index.php?title=Binary_heap&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/wiki/index.php?title=Binary_heap&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search PEGWiki [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+													<li id="n-Index"><a href="/wiki/Special:AllPages">Index</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+													<li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Binary_heap" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Binary_heap" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/wiki/index.php?title=Binary_heap&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/wiki/index.php?title=Binary_heap&amp;oldid=1794" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/wiki/index.php?title=Binary_heap&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 27 July 2014, at 08:58.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Attribution 3.0 Unported</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/PEGWiki:Privacy_policy" title="PEGWiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/PEGWiki:About" title="PEGWiki:About">About PEGWiki</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/PEGWiki:General_disclaimer" title="PEGWiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by/3.0/"><img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Attribution 3.0 Unported" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wiki/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wcipeg.com/wiki/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":77});
+}</script>
+	</body>
+</html>

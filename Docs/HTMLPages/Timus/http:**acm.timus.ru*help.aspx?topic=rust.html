@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=utf-8"><META NAME="viewport" CONTENT="width=768"><META HTTP-EQUIV="X-UA-Compatible" CONTENT="IE=edge"><TITLE>How to write Rust solutions @ Timus Online Judge</TITLE><LINK REL="alternate" HREFLANG="x-default" HREF="/help.aspx?topic=rust"><LINK REL="alternate" HREFLANG="en-us" HREF="/help.aspx?topic=rust&amp;locale=en"><LINK REL="alternate" HREFLANG="ru-ru" HREF="/help.aspx?topic=rust&amp;locale=ru"><LINK REL="stylesheet" TYPE="text/css" HREF="/style52.css"><LINK REL="shortcut icon" TYPE="image/x-icon" HREF="/favicon.ico"></HEAD><BODY><TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" CLASS="body"><TR><TD CLASS="caption"><TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"><TR><TD WIDTH="130" CLASS="locale"><A HREF="/help.aspx?topic=rust&amp;locale=en">ENG</A>&nbsp;&nbsp;<A HREF="/help.aspx?topic=rust&amp;locale=ru">RUS</A></TD><TD CLASS="title"><A HREF="/">Timus Online Judge</A></TD><TD WIDTH="130"></TD></TR></TABLE></TD></TR><TR><TD CLASS="panel"><TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"><TR><TD WIDTH="130" VALIGN="TOP" ALIGN="CENTER" STYLE="padding-bottom:5px;"><A HREF="/"><IMG BORDER="0" SRC="/images/usu-summer.jpg" HEIGHT="134" WIDTH="106" ALT=""></A></TD><TD VALIGN="TOP" ALIGN="LEFT"><TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" CLASS="panel"><TR><TH WIDTH="25%"><DIV>Online Judge</DIV></TH><TH WIDTH="25%"><DIV>Problems</DIV></TH><TH WIDTH="25%"><DIV>Authors</DIV></TH><TH WIDTH="25%"><DIV>Online contests</DIV></TH></TR><TR><TD VALIGN="TOP" ALIGN="LEFT"><A HREF="/">About Online Judge</A><BR><A HREF="/help.aspx?topic=faq">Frequently asked questions</A><BR><A HREF="/news.aspx">Site news</A><BR><A HREF="/forum/">Webboard</A><BR><A HREF="/help.aspx?topic=links">Links</A><BR></TD><TD VALIGN="TOP" ALIGN="LEFT"><A HREF="/problemset.aspx">Problem set</A><BR><A HREF="/submit.aspx">Submit solution</A><BR><A HREF="/status.aspx">Judge status</A><BR><A HREF="/help.aspx?topic=judge">Guide</A><BR></TD><TD VALIGN="TOP"><A HREF="/register.aspx">Register</A><BR><A HREF="/authedit.aspx">Update your info</A><BR><A HREF="/ranklist.aspx">Authors ranklist</A><BR><FORM ACTION="/search.aspx" METHOD="GET" STYLE="margin-top:0.6em;"><INPUT NAME="Str" SIZE="12" VALUE="" PLACEHOLDER="Author’s name"> <INPUT TYPE="SUBMIT" VALUE="Search"></FORM></TD><TD VALIGN="TOP"><A HREF="/contest.aspx">Current contest</A><BR><A HREF="/schedule.aspx">Scheduled contests</A><BR><A HREF="/archive.aspx">Past contests</A><BR><A HREF="/help.aspx?topic=contest">Rules</A><BR></TD></TR></TABLE></TD></TR></TABLE></TD></TR><TR><TD STYLE="padding-top: 32px; padding-bottom: 20px;"><STYLE>
+			@import url(/prism.css);
+		</STYLE><SCRIPT TYPE="text/javascript" SRC="/prism.js"></SCRIPT><TABLE ALIGN="CENTER" CELLSPACING="0" CELLPADDING="0"><TR><TD WIDTH="800"><H2 CLASS="title">How to write Rust solutions</H2><DIV ID="help_text"><P CLASS="help_par">Rust programs are compiled using <b>rustc</b> compiler version 1.25.0 with the following parameters:</P><PRE CLASS="with-background with-code"><CODE CLASS="language-none">rustc -O %1</CODE></PRE><P CLASS="help_par">You can get the latest rust compiler from the <A HREF="https://www.rust-lang.org/">official site</A>.
+</P><H3 CLASS="subtitle">Examples of solving a problem</H3><P CLASS="help_par">A sample solution for the <A HREF="/problem.aspx?space=1&amp;num=1000">1000. A + B problem</A> in Rust:</P><PRE CLASS="with-background with-code"><CODE CLASS="language-rust">use std::io;
+
+fn main() {
+    let mut input = String::new();
+
+    io::stdin()
+        .read_line(&amp;mut input)
+        .unwrap();
+
+    let mut s = input.trim().split(' ');
+
+    let a_str = s.next().unwrap();
+    let a: i32 = a_str.parse().unwrap();
+
+    let b_str = s.next().unwrap();
+    let b: i32 = b_str.parse().unwrap();
+
+    println!("{}", a + b);
+}
+</CODE></PRE><P CLASS="help_par">Or more advanced and effective solution for the same problem:</P><PRE CLASS="with-background with-code"><CODE CLASS="language-rust">use std::io;
+
+fn main() {
+    let mut input = String::new();
+
+    io::stdin()
+        .read_line(&amp;mut input)
+        .expect("correct input");
+    let res = input.trim()
+                   .split(' ')
+                   .map(|a| a.parse::&lt;i32&gt;())
+                   .map(|a| a.expect("parsed integer"))
+                   .fold(0i32, |sum, a| sum + a);
+
+    println!("{}", res);
+}
+</CODE></PRE><P CLASS="help_par">A sample solution for the <A HREF="/problem.aspx?space=1&amp;num=1001">1001. Reverse Root</A> in Rust:</P><PRE CLASS="with-background with-code"><CODE CLASS="language-rust">use std::io;
+use std::io::prelude::*;
+
+fn main() {
+    let mut v: Vec&lt;i64&gt; = Vec::new();
+    let stdin = io::stdin();
+
+    for t in stdin.lock().lines() {
+        let cur_line = t.unwrap();
+        for u in cur_line.split(' ') {
+            let cur_txt = u.trim();
+            if cur_txt.len() &gt; 0 {
+                let cur_num: i64 = cur_txt.parse().unwrap();
+                v.push(cur_num);
+            }
+        }
+    }
+    let mut i = v.len();
+    while i &gt; 0 {
+        i -= 1;
+        let f_num = v[i] as f64;
+        println!("{:.*}", 4, f_num.sqrt());
+    }
+}
+</CODE></PRE><P CLASS="help_par">Or more advanced and effective solution for the same problem:</P><PRE CLASS="with-background with-code"><CODE CLASS="language-rust">use std::io::{self, BufReader};
+use std::io::prelude::*;
+
+fn solve(input: &amp;mut Read, output: &amp;mut Write) {
+    let reader = BufReader::new(input);
+    let mut v: Vec&lt;i64&gt; = Vec::new();
+
+    for t in reader.lines()
+                   .map(|a| a.expect("correct input")) {
+        for u in t.split(' ')
+                  .map(|a| a.trim())
+                  .filter(|a| a.len() &gt; 0)
+                  .map(|a| a.parse::&lt;i64&gt;().expect("parsed integer")) {
+            v.push(u);
+        }
+    }
+
+    for u in v.into_iter().rev().map(|a| a as f64) {
+        writeln!(output, "{:.*}", 4, u.sqrt()).expect("valid output");
+    }
+}
+
+fn main() {
+    solve(&amp;mut io::stdin(), &amp;mut io::stdout());
+}
+</CODE></PRE><H3 CLASS="subtitle">Tests</H3><P CLASS="help_par">Rust has a built-in engine for unit tests. One can write a test section using a special <code style="white-space: nowrap;">#[test]</code> directive and it will be compiled only if a special option is defined for the compiler:</P><PRE CLASS="with-background with-code"><CODE CLASS="language-none">rustc --test main.rs</CODE></PRE><P CLASS="help_par">Here is an example of reading a test data from a file (for the problem 1001 solution above):</P><PRE CLASS="with-background with-code"><CODE CLASS="language-rust">fn solve(input: &amp;mut Read, output: &amp;mut Write) {
+    ...
+}
+
+fn main() {
+    solve(&amp;mut io::stdin(), &amp;mut io::stdout());
+}
+
+#[cfg(test)]
+mod tests {
+    use std::fs::File;
+    use solve;
+
+    #[test]
+    fn basic_test() {
+        let mut f = File::open("test1.txt").expect("correct test");
+        let mut buf: Vec&lt;u8&gt; = Vec::new();
+
+        solve(&amp;mut f, &amp;mut buf);
+
+        let res = String::from_utf8(buf).expect("valid string");
+        assert_eq!(res,
+"2297.0716
+936297014.1164
+0.0000
+37.7757
+");
+    }
+}</CODE></PRE><H3 CLASS="subtitle">Earlier compilers</H3><UL><LI CLASS="help_par">The Rust 1.9.0 was used until April, 12 2018.
+</LI></UL></DIV></TD></TR></TABLE></TD></TR><TR><TD CLASS="footer"><script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter20918869 = new Ya.Metrika({ id:20918869, clickmap:true, trackLinks:true, accurateTrackBounce:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="https://mc.yandex.ru/watch/20918869" style="position:absolute; left:-9999px;" alt=""></div></noscript>© 2000–2017 <A HREF="/team.aspx">Timus Online Judge Team</A>. All rights reserved.</TD></TR></TABLE></BODY></HTML>

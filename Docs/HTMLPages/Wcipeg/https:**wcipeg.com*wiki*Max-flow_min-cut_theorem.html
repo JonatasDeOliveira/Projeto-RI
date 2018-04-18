@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Max-flow min-cut theorem - PEGWiki</title>
+<meta name="generator" content="MediaWiki 1.25.2" />
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/wiki/index.php?title=Max-flow_min-cut_theorem&amp;action=edit" />
+<link rel="edit" title="Edit" href="/wiki/index.php?title=Max-flow_min-cut_theorem&amp;action=edit" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/wiki/opensearch_desc.php" title="PEGWiki (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wcipeg.com/wiki/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/Max-flow_min-cut_theorem" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="PEGWiki Atom feed" href="/wiki/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=ext.math.styles%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:b36fd1c042133c9c9b60260f7c29b237 */</style>
+<script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Max-flow_min-cut_theorem","wgTitle":"Max-flow min-cut theorem","wgCurRevisionId":1730,"wgRevisionId":1730,"wgArticleId":483,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Max-flow_min-cut_theorem","wgRelevantArticleId":483,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikidb:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Max-flow_min-cut_theorem skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Max-flow min-cut theorem</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From PEGWiki</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>The <strong class="selflink">max-flow min-cut theorem</strong> is an important result in <a href="/wiki/Graph_theory" title="Graph theory">graph theory</a>. It states that a weight of a minimum s-t cut in a graph equals the value of a <a href="/wiki/Maximum_flow" title="Maximum flow">maximum flow</a> in a corresponding flow network.
+</p><p>As a consequence of this theorem, every max flow algorithm may be employed to solve the minimum s-t cut problem, and <i>vice versa</i>.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Statement_of_the_theorem"><span class="tocnumber">1</span> <span class="toctext">Statement of the theorem</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Proof"><span class="tocnumber">2</span> <span class="toctext">Proof</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Lemma_1"><span class="tocnumber">2.1</span> <span class="toctext">Lemma 1</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Lemma_2"><span class="tocnumber">2.2</span> <span class="toctext">Lemma 2</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Main_result"><span class="tocnumber">2.3</span> <span class="toctext">Main result</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Discussion"><span class="tocnumber">3</span> <span class="toctext">Discussion</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Statement_of_the_theorem">Statement of the theorem</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Max-flow_min-cut_theorem&amp;action=edit&amp;section=1" title="Edit section: Statement of the theorem">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>To every weighted s-t graph <img class="mwe-math-fallback-image-inline tex" alt="(V, E, s, t, w)" src="/wiki/images/math/4/5/a/45a916e3f3efc0c2f31d6ef06c79dafb.png" /> we can associate a corresponding flow network <img class="mwe-math-fallback-image-inline tex" alt="(V, s, t, c)" src="/wiki/images/math/7/f/d/7fd9cd693ea0ba768d118f582ecfef11.png" /> in which <img class="mwe-math-fallback-image-inline tex" alt="c(u, v) = w((u, v))" src="/wiki/images/math/0/0/c/00c92872da9df5a1f3d1b466bf194cc6.png" /> if <img class="mwe-math-fallback-image-inline tex" alt="(u, v) \in E" src="/wiki/images/math/2/0/7/2077a4df35530fa21c75805d81eb3822.png" />, and <img class="mwe-math-fallback-image-inline tex" alt="c(u, v) = 0" src="/wiki/images/math/a/3/c/a3c4fb13c8640fe281ae8a56189a50f1.png" /> otherwise. That is, the edges of the flow network are the same as the edges of the weighted s-t graph, with weights replaced by capacities.
+</p><p>Let <img class="mwe-math-fallback-image-inline tex" alt="f" src="/wiki/images/math/8/f/a/8fa14cdd754f91cc6554c9e71929cce7.png" /> be a maximum flow in a flow network <img class="mwe-math-fallback-image-inline tex" alt="(V, s, t, c)" src="/wiki/images/math/7/f/d/7fd9cd693ea0ba768d118f582ecfef11.png" />. Consider the set <img class="mwe-math-fallback-image-inline tex" alt="S \subset V" src="/wiki/images/math/f/a/f/faf064cdbc214250a8ebb269c3d60c0a.png" /> consisting of vertices reachable from <img class="mwe-math-fallback-image-inline tex" alt="s" src="/wiki/images/math/0/3/c/03c7c0ace395d80182db07ae2c30f034.png" /> in the residual network corresponding to <img class="mwe-math-fallback-image-inline tex" alt="f" src="/wiki/images/math/8/f/a/8fa14cdd754f91cc6554c9e71929cce7.png" />. A minimum s-t cut of the corresponding weighted s-t graph <img class="mwe-math-fallback-image-inline tex" alt="(V, E, s, t, w)" src="/wiki/images/math/4/5/a/45a916e3f3efc0c2f31d6ef06c79dafb.png" /> is then given by <img class="mwe-math-fallback-image-inline tex" alt="C = \{e = (u, v) \mid e \in E, u \in S, v \notin S \}" src="/wiki/images/math/e/f/f/eff8320224a255179dcc999ce8664605.png" />. Furthermore, <img class="mwe-math-fallback-image-inline tex" alt="\sum_{v \in V} f(s, v) = \sum_{e \in C} w(e)" src="/wiki/images/math/5/c/8/5c8c19fddda22c9dfe5b491e0d352be5.png" />, that is, the max flow and the cut thus obtained are equal in value.
+</p>
+<h2><span class="mw-headline" id="Proof">Proof</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Max-flow_min-cut_theorem&amp;action=edit&amp;section=2" title="Edit section: Proof">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>We will first state and prove two Lemmas.
+</p>
+<h3><span class="mw-headline" id="Lemma_1">Lemma 1</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Max-flow_min-cut_theorem&amp;action=edit&amp;section=3" title="Edit section: Lemma 1">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Let <img class="mwe-math-fallback-image-inline tex" alt="f" src="/wiki/images/math/8/f/a/8fa14cdd754f91cc6554c9e71929cce7.png" /> be a flow in a flow network <img class="mwe-math-fallback-image-inline tex" alt="(V, s, t, c)" src="/wiki/images/math/7/f/d/7fd9cd693ea0ba768d118f582ecfef11.png" />. Suppose we have a set <img class="mwe-math-fallback-image-inline tex" alt="S \subset V" src="/wiki/images/math/f/a/f/faf064cdbc214250a8ebb269c3d60c0a.png" /> such that <img class="mwe-math-fallback-image-inline tex" alt="s \in S" src="/wiki/images/math/a/1/5/a15fda5331218e41f76a749880c5c2f8.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="t \notin S" src="/wiki/images/math/a/5/3/a53458fc9cc90431943100cb84516e3d.png" />. Then the value of the flow <img class="mwe-math-fallback-image-inline tex" alt="\sum_{v \in S} f(s, v)" src="/wiki/images/math/9/4/a/94a1b42534ca51718b93498e1d4ca6b4.png" /> equals the total flow leaving <img class="mwe-math-fallback-image-inline tex" alt="S" src="/wiki/images/math/5/d/b/5dbc98dcc983a70728bd082d1a47546e.png" />, <img class="mwe-math-fallback-image-inline tex" alt="\sum_{u \in S} \sum_{v \notin S} f(u, v)" src="/wiki/images/math/b/5/3/b535995a9f89811d24be343c761252ea.png" />.
+</p><p><b>Proof</b>:
+</p>
+<dl><dd><img class="mwe-math-fallback-image-inline tex" alt="\sum_{u \in S} \sum_{v \notin S} f(u, v)" src="/wiki/images/math/b/5/3/b535995a9f89811d24be343c761252ea.png" /></dd>
+<dd><img class="mwe-math-fallback-image-inline tex" alt="= \sum_{u \in S} \sum_{v \in V} f(u, v) - \sum_{u \in S} \sum_{v \in S} f(u, v)" src="/wiki/images/math/5/7/9/579bf3e02d3b7c4af45b1509753984ca.png" /></dd>
+<dd><img class="mwe-math-fallback-image-inline tex" alt="= \sum_{u \in S} \sum_{v \in V} f(u, v)" src="/wiki/images/math/b/0/2/b028ad20fc5e3eaef942fca3e1ab4f0b.png" /> <i>(by skew symmetry)</i></dd>
+<dd><img class="mwe-math-fallback-image-inline tex" alt="= \sum_{u \in S-\{s\}} \sum_{v \in V} f(u, v) + \sum_{v \in V} f(s, v)" src="/wiki/images/math/f/7/8/f788f702a8bb256c5a5f301ea619f02d.png" /></dd>
+<dd><img class="mwe-math-fallback-image-inline tex" alt="= \sum_{v \in V} f(s, v)" src="/wiki/images/math/3/7/6/37627c3796e81d41b226e7986bed6b65.png" /> <i>(by flow conservation)</i> <img class="mwe-math-fallback-image-inline tex" alt="_\blacksquare" src="/wiki/images/math/7/7/3/773d97c085dfd2ddd2d1d170ff65aa2e.png" /></dd></dl>
+<p>Lemma 1 tells us that we can compute the value of a flow by arbitrarily partitioning the flow network into two sets <img class="mwe-math-fallback-image-inline tex" alt="S" src="/wiki/images/math/5/d/b/5dbc98dcc983a70728bd082d1a47546e.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="T" src="/wiki/images/math/b/9/e/b9ece18c950afbfa6b0fdbfa4ff731d3.png" />, where <img class="mwe-math-fallback-image-inline tex" alt="s \in S" src="/wiki/images/math/a/1/5/a15fda5331218e41f76a749880c5c2f8.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="t \in T" src="/wiki/images/math/5/a/5/5a580b07cd6a1ab7e4e4d0647b3010d5.png" />, and adding only the flows along edges from <img class="mwe-math-fallback-image-inline tex" alt="S" src="/wiki/images/math/5/d/b/5dbc98dcc983a70728bd082d1a47546e.png" /> to <img class="mwe-math-fallback-image-inline tex" alt="T" src="/wiki/images/math/b/9/e/b9ece18c950afbfa6b0fdbfa4ff731d3.png" />. Intuitively, the conservation of flow implies that the total flow out of <img class="mwe-math-fallback-image-inline tex" alt="S" src="/wiki/images/math/5/d/b/5dbc98dcc983a70728bd082d1a47546e.png" /> must equal the total flow emanating from the source; that flow has to get from <img class="mwe-math-fallback-image-inline tex" alt="S" src="/wiki/images/math/5/d/b/5dbc98dcc983a70728bd082d1a47546e.png" /> to <img class="mwe-math-fallback-image-inline tex" alt="T" src="/wiki/images/math/b/9/e/b9ece18c950afbfa6b0fdbfa4ff731d3.png" /> somehow.
+</p>
+<h3><span class="mw-headline" id="Lemma_2">Lemma 2</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Max-flow_min-cut_theorem&amp;action=edit&amp;section=4" title="Edit section: Lemma 2">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Let <img class="mwe-math-fallback-image-inline tex" alt="f" src="/wiki/images/math/8/f/a/8fa14cdd754f91cc6554c9e71929cce7.png" /> be a flow in a flow network <img class="mwe-math-fallback-image-inline tex" alt="(V, s, t, c)" src="/wiki/images/math/7/f/d/7fd9cd693ea0ba768d118f582ecfef11.png" />. Let <img class="mwe-math-fallback-image-inline tex" alt="C" src="/wiki/images/math/0/d/6/0d61f8370cad1d412f80b84d143e1257.png" /> be an s-t cut in the corresponding weighted s-t graph <img class="mwe-math-fallback-image-inline tex" alt="(V, E, s, t, w)" src="/wiki/images/math/4/5/a/45a916e3f3efc0c2f31d6ef06c79dafb.png" />. Then the value of <img class="mwe-math-fallback-image-inline tex" alt="f" src="/wiki/images/math/8/f/a/8fa14cdd754f91cc6554c9e71929cce7.png" />, <img class="mwe-math-fallback-image-inline tex" alt="\sum_{v \in V} f(s, v)" src="/wiki/images/math/6/1/8/61835efb231f5166b178bc95268f76cc.png" />, is less than or equal to the total weight of <img class="mwe-math-fallback-image-inline tex" alt="C" src="/wiki/images/math/0/d/6/0d61f8370cad1d412f80b84d143e1257.png" />, <img class="mwe-math-fallback-image-inline tex" alt="\sum_{e \in C} w(e)" src="/wiki/images/math/e/d/b/edb0b71f366989f663751cb6f15b85ba.png" />.
+</p><p><b>Proof</b>: Since <img class="mwe-math-fallback-image-inline tex" alt="C" src="/wiki/images/math/0/d/6/0d61f8370cad1d412f80b84d143e1257.png" /> is an s-t cut, in the weighted s-t graph <img class="mwe-math-fallback-image-inline tex" alt="(V, E \setminus C, s, t, w)" src="/wiki/images/math/c/b/b/cbb03e0b351c211fc7733216d90d5b8f.png" />, there is no path from <img class="mwe-math-fallback-image-inline tex" alt="s" src="/wiki/images/math/0/3/c/03c7c0ace395d80182db07ae2c30f034.png" /> to <img class="mwe-math-fallback-image-inline tex" alt="t" src="/wiki/images/math/e/3/5/e358efa489f58062f10dd7316b65649e.png" />. We can therefore consider the set <img class="mwe-math-fallback-image-inline tex" alt="S" src="/wiki/images/math/5/d/b/5dbc98dcc983a70728bd082d1a47546e.png" /> of all vertices reachable from <img class="mwe-math-fallback-image-inline tex" alt="s" src="/wiki/images/math/0/3/c/03c7c0ace395d80182db07ae2c30f034.png" /> in this graph. Note that <img class="mwe-math-fallback-image-inline tex" alt="t \notin S" src="/wiki/images/math/a/5/3/a53458fc9cc90431943100cb84516e3d.png" />. Applying Lemma 1, we find that <img class="mwe-math-fallback-image-inline tex" alt="\sum_{v \in S} f(s, v) = \sum_{u \in S} \sum_{v \notin S} f(u, v) \leq \sum_{u \in S} \sum_{v \notin S} c(u, v) = \sum_{e \in C&#39;} w(e)" src="/wiki/images/math/7/7/5/7758ba022a7ec89c54cf2e8e0574556a.png" />. <img class="mwe-math-fallback-image-inline tex" alt="_\blacksquare" src="/wiki/images/math/7/7/3/773d97c085dfd2ddd2d1d170ff65aa2e.png" />
+</p><p>The idea behind Lemma 2 is simple. The value of a flow, which by Lemma 1 equals the total flow along edges out of <img class="mwe-math-fallback-image-inline tex" alt="S" src="/wiki/images/math/5/d/b/5dbc98dcc983a70728bd082d1a47546e.png" />, cannot exceed the total capacity of such edges, but this is precisely the total weight of those edges in the corresponding weighted s-t graph. Lemma 2 is a useful result in its own right, telling us that every flow's value is less than or equal to every cut's weight.
+</p>
+<h3><span class="mw-headline" id="Main_result">Main result</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Max-flow_min-cut_theorem&amp;action=edit&amp;section=5" title="Edit section: Main result">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>It suffices to show that <img class="mwe-math-fallback-image-inline tex" alt="\sum_{v \in V} f(s, v) = \sum_{e \in C} w(e)" src="/wiki/images/math/5/c/8/5c8c19fddda22c9dfe5b491e0d352be5.png" />. The fact that the cut <img class="mwe-math-fallback-image-inline tex" alt="C" src="/wiki/images/math/0/d/6/0d61f8370cad1d412f80b84d143e1257.png" /> is minimal then follows immediately from Lemma 2.
+</p><p>Since the flow <img class="mwe-math-fallback-image-inline tex" alt="f" src="/wiki/images/math/8/f/a/8fa14cdd754f91cc6554c9e71929cce7.png" /> is maximal, there is no <a href="/wiki/Augmenting_path" title="Augmenting path">augmenting path</a> in the residual network <img class="mwe-math-fallback-image-inline tex" alt="(V, s, t, r)" src="/wiki/images/math/1/d/6/1d60b8f666aa07804bde18739146ddd6.png" />. Therefore, <img class="mwe-math-fallback-image-inline tex" alt="t \notin S" src="/wiki/images/math/a/5/3/a53458fc9cc90431943100cb84516e3d.png" />. Now, <img class="mwe-math-fallback-image-inline tex" alt="r(u, v) = 0" src="/wiki/images/math/c/4/5/c45c591ed38b9eff7d9338d3ec14b305.png" /> for all <img class="mwe-math-fallback-image-inline tex" alt="u \in S" src="/wiki/images/math/3/6/4/3643d6055b31486321d3d8ee2f42753b.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="v \notin S" src="/wiki/images/math/9/2/5/925c692b3dc5e20b105801dcc2fe67c1.png" />, by definition of <img class="mwe-math-fallback-image-inline tex" alt="S" src="/wiki/images/math/5/d/b/5dbc98dcc983a70728bd082d1a47546e.png" />. Therefore, <img class="mwe-math-fallback-image-inline tex" alt="c(u, v) = f(u, v)" src="/wiki/images/math/2/6/7/267e2f620672ef06d227e93966977b57.png" /> for all such edges. By Lemma 1, <img class="mwe-math-fallback-image-inline tex" alt="\sum_{v \in V} f(s, v) = \sum_{u \in S} \sum_{v \notin S} f(u, v) = \sum_{u \in S} \sum_{v \notin S} c(u, v) = \sum_{e \in C} w(e)" src="/wiki/images/math/9/1/d/91dc51a518c20179bd126ed31f60124b.png" />. <img class="mwe-math-fallback-image-inline tex" alt="_\blacksquare" src="/wiki/images/math/7/7/3/773d97c085dfd2ddd2d1d170ff65aa2e.png" />
+</p>
+<h2><span class="mw-headline" id="Discussion">Discussion</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Max-flow_min-cut_theorem&amp;action=edit&amp;section=6" title="Edit section: Discussion">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In other words, we can solve the minimum s-t cut problem simply by converting all the edge weights to capacities and then finding a maximum flow in the resulting flow network. If we only want the weight of the min cut, we can simply find the value of the max flow, and be done with it. If we want to find the cut explicitly, then it is still straightforward to do so using the residual graph corresponding to the max flow. The "s part" of the s-t cut will consist of vertices reachable from <img class="mwe-math-fallback-image-inline tex" alt="s" src="/wiki/images/math/0/3/c/03c7c0ace395d80182db07ae2c30f034.png" /> in the residual graph, with the remainder the "t part". The edges we want to cut are the ones from the "s part" to the "t part".
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.064 seconds
+Real time usage: 0.075 seconds
+Preprocessor visited node count: 620/1000000
+Preprocessor generated node count: 1368/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:483-0!*!0!!en!*!*!math=0 and timestamp 20180417121326 and revision id 1730
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wcipeg.com/wiki/index.php?title=Max-flow_min-cut_theorem&amp;oldid=1730">https://wcipeg.com/wiki/index.php?title=Max-flow_min-cut_theorem&amp;oldid=1730</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Max-flow+min-cut+theorem&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Max-flow+min-cut+theorem" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/Max-flow_min-cut_theorem"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/wiki/index.php?title=Talk:Max-flow_min-cut_theorem&amp;action=edit&amp;redlink=1"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Max-flow_min-cut_theorem" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/wiki/index.php?title=Max-flow_min-cut_theorem&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/wiki/index.php?title=Max-flow_min-cut_theorem&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search PEGWiki [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+													<li id="n-Index"><a href="/wiki/Special:AllPages">Index</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+													<li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Max-flow_min-cut_theorem" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Max-flow_min-cut_theorem" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/wiki/index.php?title=Max-flow_min-cut_theorem&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/wiki/index.php?title=Max-flow_min-cut_theorem&amp;oldid=1730" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/wiki/index.php?title=Max-flow_min-cut_theorem&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 9 September 2013, at 03:18.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Attribution 3.0 Unported</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/PEGWiki:Privacy_policy" title="PEGWiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/PEGWiki:About" title="PEGWiki:About">About PEGWiki</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/PEGWiki:General_disclaimer" title="PEGWiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by/3.0/"><img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Attribution 3.0 Unported" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wiki/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wcipeg.com/wiki/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":65});
+}</script>
+	</body>
+</html>

@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="not-ie" lang="en"> <!--<![endif]-->
+<head>
+	<!-- main header -->
+	<meta charset="utf-8">
+	
+				<title>Sphere Online Judge (SPOJ)  - User numerix</title>
+	  
+	<meta name="keywords" content="language, algorithm, spoj, contest, contester, Java, C#, Pascal, C, C++, python, ruby, caml, ocaml, perl, haskell, lisp, prolog, fortran, assembler, asembler, functional, online, judge, problem, problemset, ACM">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  		<meta property="og:image" content="//stx1.spoj.com/gfx/spoj-fb.jpg"/>
+	<meta property="og:description" content="SPOJ (Sphere Online Judge) is an online judge system with over 315,000 registered users and over 20000 problems. The solution to problems can be submitted in over 60 languages including C, C++, Java, Python, C#, Go, Haskell, Ocaml, and F#. SPOJ has a rapidly growing problem set/tasks available for practice 24 hours/day, including many original tasks prepared by the community of expert problem setters associated with the project."/>
+	<meta name="description" content="SPOJ (Sphere Online Judge) is an online judge system with over 315,000 registered users and over 20000 problems. The solution to problems can be submitted in over 60 languages including C, C++, Java, Python, C#, Go, Haskell, Ocaml, and F#. SPOJ has a rapidly growing problem set/tasks available for practice 24 hours/day, including many original tasks prepared by the community of expert problem setters associated with the project."/>
+		<meta property="og:site_name" content="spoj.com"/>
+
+  <!--[if (gte IE 9)|!(IE)]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" id="metatag">
+  <![endif]--> 
+
+	  <!-- Favicon -->
+	  <link href="//stx1.spoj.com/gfx/favicon_new.png" rel="shortcut icon" type="image/x-icon" />
+	  
+	  <!-- RSS -->
+	  <link href="/rss/" rel="alternate" type="application/rss+xml" title="RSS Feed">
+	
+	  <!-- Web Fonts -->
+	  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet" type="text/css">  
+
+	<!-- Internet Explorer condition - HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]--> 
+	
+	
+	
+	<!-- CSS: Bootstrap, Font-awesome, Bootstrap libs,  -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" />
+  	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  	<link href="//stx1.spoj.com/gfx/bootstrap-tour/build/css/bootstrap-tour.min.css" rel="stylesheet" />
+  	<link href="//stx1.spoj.com/themes/bootstrap-social.css" rel="stylesheet" type="text/css" />
+  	
+	<link href="//stx1.spoj.com/themes/common.css?4" rel="stylesheet" type="text/css" id="theme0" />
+	<link href="//stx1.spoj.com/themes/en_new.css?4" rel="stylesheet" type="text/css" id="theme" />
+	
+	<!-- JS -->
+	<script type="text/javascript" src='//code.jquery.com/jquery-1.11.1.min.js'></script>
+	<script type="text/javascript" src="//code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+	
+		<link href="//stx1.spoj.com/themes/cal-heatmap.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src='//stx1.spoj.com/js/d3.v3.min.js'></script>
+	<script type="text/javascript" src='//stx1.spoj.com/js/cal-heatmap.min.js'></script>
+	<script type="text/javascript" src="//www.google.com/jsapi"></script>
+		
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>	
+	<script type="text/javascript" language="javascript">
+	$(function () { 
+		$("#profile-menu").popover();
+	});
+	function UnCryptMailto(s) {
+		var n=0;
+		var r="";
+		for(var i=0;i<s.length;i++) {		
+			n=s.charCodeAt(i); 
+			if (n>=8364) {n = 128;}
+			r += String.fromCharCode(n+(2));	
+		}
+		return r;
+	}
+	function linkTo_UnCryptMailto(s)	{
+		location.href=UnCryptMailto(s);
+	}
+	</script>
+	
+	<script type="text/javascript">
+	function recordOutboundLink(link, category, action) {
+	  try {
+	    var pageTracker=_gat._getTracker("UA-XXXXX-X");
+	    pageTracker._trackEvent(category, action);
+	    setTimeout('document.location = "' + link.href + '"', 100)
+	  }catch(err){}
+	}
+	</script>
+	
+</head>
+
+<body>
+
+	
+	<!-- <div class="space30"></div> -->
+	
+	<!-- Content -->
+	<div class="content">
+		<div class="container" id="header">
+			<div class="row">
+				<div class="col-md-12 text-right">
+										<form method="post" style="display: none;" action="/login/" id="login-form">
+						<div class="row">
+							<div class="col-md-10 col-md-offset-2">
+								<input type="hidden" name="next_raw" value="/"/>
+								<input type="hidden" name="autologin" value="1"/>
+								<input type="text" name="login_user" placeholder="Username" class="form-control input-sm" style="display: inline-block; width: 25%;"/>
+								<input type="password" name="password" placeholder="Password" class="form-control input-sm" style="display: inline-block; width: 25%;"/>
+																<button type="submit" class="btn btn-default btn-sm" style="display: inline-block; margin-right: 10px;"><span class="fa fa-sign-in fa-lg"></span> <strong>sign in</strong></button>
+																<a href="/register"><i class="fa fa-user-plus"></i> sign up</a> 
+								<a href="/forgot"><i class="fa fa-question-circle"></i> forgot</a>
+				        									</div>
+						</div>
+					</form>
+										
+					
+				</div>
+			</div>
+		
+			<div class="row">
+				<div class="col-md-4">
+					<a href="/" class="navbar-brand">
+						<img src="//stx1.spoj.com/gfx/2015e.png" style="height: 40px;"/>
+					</a>
+					<div class="navbar-header">
+				      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+				        <span class="sr-only">Toggle navigation</span>
+				        <i class="fa fa-bars"></i>
+				      </button>
+				    </div>
+				</div>
+				<div class="col-md-8" id="menu">
+				
+					
+					<div class="row">
+					<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation"  style="border: 0px;">
+				      <ul class="nav navbar-nav" style="  float: right; margin-top: 10px;">
+				      						        <li >
+					          <a href="/problems"><i class="fa fa-puzzle-piece"></i> PROBLEMS</a>
+					        </li>
+					        					        <li >
+					          <a href="/status"><i class="fa fa-circle"></i> STATUS</a>
+					        </li>
+					        <li >
+					          <a href="/ranks"><i class="fa fa-trophy"></i> RANKS</a>
+					        </li>
+					        <li >
+					          <a href="http://spoj.com/forum"><i class="fa fa-comments-o"></i> DISCUSS</a>
+					        </li>
+					        <li >
+					          <a href="/contests">CONTESTS</a>
+					        </li>
+											        					        <li >
+					        	<a href="/login" class="text-success" onclick="$('#login-form').show(); $('input[name=login_user]').focus(); return false;"><i class="fa fa-sign-in"></i> sign in</a>
+					        </li>
+					        						
+				        
+				      </ul>
+				    </nav>
+				    </div>
+				    
+				    
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class="container" id="menu">
+			
+		</div>
+		
+		<div class="container" id="content">
+		<div class="submenu">
+	<ol class="">
+			<li></li>
+		</ol>
+	
+	<ol class="navbar-right">
+			<li><a href="/status/numerix/">History of submissions</a></li>
+		<li>(<a href="/status/numerix/signedlist/">plaintext version</a>)</li>
+	</ol>
+	
+</div>
+
+<div>
+<div class="row">
+	<div class="col-md-3" id="user-profile-left">
+		<img  class="img-thumbnail" width="100%" style="max-width: 262px;" src="http://www.gravatar.com/avatar/7042755d81de6134e3b748f033e88689?s=290&20180418" class="avatar small-left-margin">
+				<h4>@numerix</h4>
+		<p><i class="fa fa-map-marker"></i> Germany</p>		<p><i class="fa fa-clock-o"></i> Joined Feb 2009</p>
+		<p><i class="fa fa-trophy"></i> World Rank: #60 (207.2 points)</p>
+						
+		
+		
+			</div>
+	<div class="col-md-9">
+	
+		<center>
+		<div class="c728x90"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-4453360425583535"
+     data-ad-slot="4026799034"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+		</center>
+	
+						<div class="row row-centered">
+			<div class="col-md-12">
+				<h3>Activity over the last year</h3>
+				<div class="top-4 col-centered" id="cal-heatmap"></div>
+
+				<h3 class="top-4">Effectiveness</h3>
+				<div class="row">
+					<div class="col-md-6 text-center valign-center">
+						<dl class="dl-horizontal profile-info-data profile-info-data-stats">
+							<dt><span class="fa fa-check fa-fw"></span>&nbsp;Problems solved</dt>
+								<dd>678</dd>
+							<dt><span class="fa fa-send fa-fw"></span>&nbsp;Solutions submitted</dt>
+								<dd>3878</dd>
+						</dl>
+					</div>
+					<div class="col-md-6">
+						<div id="chart_div"></div>
+					</div>
+				</div>
+				
+				<script type="text/javascript">
+					function BackTime(date) {
+						var y = date.getFullYear(),
+							m = date.getMonth();
+						return new Date(y-1, m+1, 15);
+					}
+					
+					function drawChart() {
+
+						var data = new google.visualization.DataTable();
+							data.addColumn('string', '?');
+							data.addColumn('number', 'ACC');
+							data.addColumn('number', 'WA');
+							data.addColumn('number', 'TLE');
+							data.addColumn('number', 'RE');
+							data.addColumn('number', 'CE');
+							data.addRows([
+							
+							['Submissions', 2855, 297, 166, 393, 65]
+							
+						]);
+	
+						var options = {
+							isStacked: 'percent',
+							pieSliceText: 'label',
+							colors: ['#348d34', '#ec971f', '#ec971f', '#c9302c', '#c9302c'],
+							//colors:['#00C030','#F09A24','#F09A24','#F09A24','#F09A24'],
+							'width':400,
+							'height':100,
+							chartArea:{left:10,top:10,width:'90%',height:'90%'},
+							fontName: '@font-family-base',
+							legend: {
+								position: 'top',
+								textStyle: {
+									fontName: '@font-family-base',
+									bold: true
+							}},
+							hAxis: {
+					            minValue: 0,
+					            ticks: [0, .25, .5, .75, 1]
+					          }
+						};
+	
+						var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+						chart.draw(data, options);
+					}
+					
+					$(document).ready(function(){
+					
+						var cal = new CalHeatMap();
+						cal.init({
+							domain: "month",
+							subDomain: "day",
+							domainGutter: 3,
+							tooltip: true,
+							start: BackTime(new Date()),
+							maxDate: new Date(),
+							colLimit: 4,
+							legend: [10, 20, 30, 40],
+							itemName: ["submission", "submissions"],
+							data: '/calendar/?ajax=1&uid=41515&start={{d:start}}&stop={{d:end}}'
+						});
+					});
+					
+					google.load('visualization', '1.0', {'packages':['corechart']});
+					google.setOnLoadCallback(drawChart);
+				</script>
+				
+				
+						
+			</div>
+		</div>
+
+		<h3 class="top-4 text-center">Problems</h3>
+		<div class="row row-centered" id="user-profile-tables">
+			<div class="col-md-12">
+				<h4>List of solved classical problems:</h4>
+				<table class="table table-condensed">
+								<tr>
+				<td align="left" width="14%"><a href="/status/ABA12D,numerix/">ABA12D</a></td>
+				<td align="left" width="14%"><a href="/status/BYTESM2,numerix/">BYTESM2</a></td>
+				<td align="left" width="14%"><a href="/status/DSUBSEQ,numerix/">DSUBSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/HAN01,numerix/">HAN01</a></td>
+				<td align="left" width="14%"><a href="/status/MATHS,numerix/">MATHS</a></td>
+				<td align="left" width="14%"><a href="/status/PCPC12J,numerix/">PCPC12J</a></td>
+				<td align="left" width="14%"><a href="/status/SETNJA,numerix/">SETNJA</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ABCDEF,numerix/">ABCDEF</a></td>
+				<td align="left" width="14%"><a href="/status/C1LJUTNJ,numerix/">C1LJUTNJ</a></td>
+				<td align="left" width="14%"><a href="/status/DTT,numerix/">DTT</a></td>
+				<td align="left" width="14%"><a href="/status/HANDS,numerix/">HANDS</a></td>
+				<td align="left" width="14%"><a href="/status/MAXLN,numerix/">MAXLN</a></td>
+				<td align="left" width="14%"><a href="/status/PDECODE,numerix/">PDECODE</a></td>
+				<td align="left" width="14%"><a href="/status/SGAME,numerix/">SGAME</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ABSURD,numerix/">ABSURD</a></td>
+				<td align="left" width="14%"><a href="/status/CALCULAT,numerix/">CALCULAT</a></td>
+				<td align="left" width="14%"><a href="/status/EASYMATH,numerix/">EASYMATH</a></td>
+				<td align="left" width="14%"><a href="/status/HANGOVER,numerix/">HANGOVER</a></td>
+				<td align="left" width="14%"><a href="/status/MAY99_2,numerix/">MAY99_2</a></td>
+				<td align="left" width="14%"><a href="/status/PEBBLE,numerix/">PEBBLE</a></td>
+				<td align="left" width="14%"><a href="/status/SICRANO,numerix/">SICRANO</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ABSYS,numerix/">ABSYS</a></td>
+				<td align="left" width="14%"><a href="/status/CANDY,numerix/">CANDY</a></td>
+				<td align="left" width="14%"><a href="/status/EASYPIE,numerix/">EASYPIE</a></td>
+				<td align="left" width="14%"><a href="/status/HAPPYTL,numerix/">HAPPYTL</a></td>
+				<td align="left" width="14%"><a href="/status/MAYA,numerix/">MAYA</a></td>
+				<td align="left" width="14%"><a href="/status/PEBBMOV,numerix/">PEBBMOV</a></td>
+				<td align="left" width="14%"><a href="/status/SILVER,numerix/">SILVER</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACFRAC,numerix/">ACFRAC</a></td>
+				<td align="left" width="14%"><a href="/status/CANDY2,numerix/">CANDY2</a></td>
+				<td align="left" width="14%"><a href="/status/EASYPROB,numerix/">EASYPROB</a></td>
+				<td align="left" width="14%"><a href="/status/HARSHAD,numerix/">HARSHAD</a></td>
+				<td align="left" width="14%"><a href="/status/MAYACAL,numerix/">MAYACAL</a></td>
+				<td align="left" width="14%"><a href="/status/PELL2,numerix/">PELL2</a></td>
+				<td align="left" width="14%"><a href="/status/SIRNUMS,numerix/">SIRNUMS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACODE,numerix/">ACODE</a></td>
+				<td align="left" width="14%"><a href="/status/CANDY3,numerix/">CANDY3</a></td>
+				<td align="left" width="14%"><a href="/status/EBOXES,numerix/">EBOXES</a></td>
+				<td align="left" width="14%"><a href="/status/HASHIT,numerix/">HASHIT</a></td>
+				<td align="left" width="14%"><a href="/status/MAYCA,numerix/">MAYCA</a></td>
+				<td align="left" width="14%"><a href="/status/PERMUT1,numerix/">PERMUT1</a></td>
+				<td align="left" width="14%"><a href="/status/SKYLINE,numerix/">SKYLINE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACPC10A,numerix/">ACPC10A</a></td>
+				<td align="left" width="14%"><a href="/status/CANTON,numerix/">CANTON</a></td>
+				<td align="left" width="14%"><a href="/status/EC_CONB,numerix/">EC_CONB</a></td>
+				<td align="left" width="14%"><a href="/status/HC,numerix/">HC</a></td>
+				<td align="left" width="14%"><a href="/status/MB1,numerix/">MB1</a></td>
+				<td align="left" width="14%"><a href="/status/PERMUT2,numerix/">PERMUT2</a></td>
+				<td align="left" width="14%"><a href="/status/SMALL,numerix/">SMALL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACPC10B,numerix/">ACPC10B</a></td>
+				<td align="left" width="14%"><a href="/status/CATM,numerix/">CATM</a></td>
+				<td align="left" width="14%"><a href="/status/EDGE,numerix/">EDGE</a></td>
+				<td align="left" width="14%"><a href="/status/HDEVIL,numerix/">HDEVIL</a></td>
+				<td align="left" width="14%"><a href="/status/MBEEWALK,numerix/">MBEEWALK</a></td>
+				<td align="left" width="14%"><a href="/status/PHONELST,numerix/">PHONELST</a></td>
+				<td align="left" width="14%"><a href="/status/SNAKYNUM,numerix/">SNAKYNUM</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACPC10E,numerix/">ACPC10E</a></td>
+				<td align="left" width="14%"><a href="/status/CBANK,numerix/">CBANK</a></td>
+				<td align="left" width="14%"><a href="/status/EDIST,numerix/">EDIST</a></td>
+				<td align="left" width="14%"><a href="/status/HEADSHOT,numerix/">HEADSHOT</a></td>
+				<td align="left" width="14%"><a href="/status/MBINGO,numerix/">MBINGO</a></td>
+				<td align="left" width="14%"><a href="/status/PHT,numerix/">PHT</a></td>
+				<td align="left" width="14%"><a href="/status/SNGDIV69,numerix/">SNGDIV69</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACPC11B,numerix/">ACPC11B</a></td>
+				<td align="left" width="14%"><a href="/status/CENCRY,numerix/">CENCRY</a></td>
+				<td align="left" width="14%"><a href="/status/EDIT,numerix/">EDIT</a></td>
+				<td align="left" width="14%"><a href="/status/HEPNUM,numerix/">HEPNUM</a></td>
+				<td align="left" width="14%"><a href="/status/MBR,numerix/">MBR</a></td>
+				<td align="left" width="14%"><a href="/status/PIE,numerix/">PIE</a></td>
+				<td align="left" width="14%"><a href="/status/SNGINT,numerix/">SNGINT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACPC11C,numerix/">ACPC11C</a></td>
+				<td align="left" width="14%"><a href="/status/CEQU,numerix/">CEQU</a></td>
+				<td align="left" width="14%"><a href="/status/EDS,numerix/">EDS</a></td>
+				<td align="left" width="14%"><a href="/status/HEXAGON,numerix/">HEXAGON</a></td>
+				<td align="left" width="14%"><a href="/status/MCIRGAME,numerix/">MCIRGAME</a></td>
+				<td align="left" width="14%"><a href="/status/PIGBANK,numerix/">PIGBANK</a></td>
+				<td align="left" width="14%"><a href="/status/SNGLOOP1,numerix/">SNGLOOP1</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACS,numerix/">ACS</a></td>
+				<td align="left" width="14%"><a href="/status/CERC07N,numerix/">CERC07N</a></td>
+				<td align="left" width="14%"><a href="/status/EGYPIZZA,numerix/">EGYPIZZA</a></td>
+				<td align="left" width="14%"><a href="/status/HEXBOARD,numerix/">HEXBOARD</a></td>
+				<td align="left" width="14%"><a href="/status/MCOINS,numerix/">MCOINS</a></td>
+				<td align="left" width="14%"><a href="/status/PIR,numerix/">PIR</a></td>
+				<td align="left" width="14%"><a href="/status/SNGMSG,numerix/">SNGMSG</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACT,numerix/">ACT</a></td>
+				<td align="left" width="14%"><a href="/status/CERC07R,numerix/">CERC07R</a></td>
+				<td align="left" width="14%"><a href="/status/EIGHTS,numerix/">EIGHTS</a></td>
+				<td align="left" width="14%"><a href="/status/HHEMANT,numerix/">HHEMANT</a></td>
+				<td align="left" width="14%"><a href="/status/MCONVERT,numerix/">MCONVERT</a></td>
+				<td align="left" width="14%"><a href="/status/PLOT1,numerix/">PLOT1</a></td>
+				<td align="left" width="14%"><a href="/status/SNGPG,numerix/">SNGPG</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADDREV,numerix/">ADDREV</a></td>
+				<td align="left" width="14%"><a href="/status/CFRAC,numerix/">CFRAC</a></td>
+				<td align="left" width="14%"><a href="/status/EKO,numerix/">EKO</a></td>
+				<td align="left" width="14%"><a href="/status/HIGHWAYS,numerix/">HIGHWAYS</a></td>
+				<td align="left" width="14%"><a href="/status/MCUR98,numerix/">MCUR98</a></td>
+				<td align="left" width="14%"><a href="/status/PLSEARCH,numerix/">PLSEARCH</a></td>
+				<td align="left" width="14%"><a href="/status/SOLDIERS,numerix/">SOLDIERS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADV04J,numerix/">ADV04J</a></td>
+				<td align="left" width="14%"><a href="/status/CFRAC2,numerix/">CFRAC2</a></td>
+				<td align="left" width="14%"><a href="/status/ELIM,numerix/">ELIM</a></td>
+				<td align="left" width="14%"><a href="/status/HITOMISS,numerix/">HITOMISS</a></td>
+				<td align="left" width="14%"><a href="/status/MDIGITS,numerix/">MDIGITS</a></td>
+				<td align="left" width="14%"><a href="/status/PLUSEVI,numerix/">PLUSEVI</a></td>
+				<td align="left" width="14%"><a href="/status/SPEED,numerix/">SPEED</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADV04L,numerix/">ADV04L</a></td>
+				<td align="left" width="14%"><a href="/status/CHAIR,numerix/">CHAIR</a></td>
+				<td align="left" width="14%"><a href="/status/ENCONDIN,numerix/">ENCONDIN</a></td>
+				<td align="left" width="14%"><a href="/status/HLPRSRCH,numerix/">HLPRSRCH</a></td>
+				<td align="left" width="14%"><a href="/status/MECGROUP,numerix/">MECGROUP</a></td>
+				<td align="left" width="14%"><a href="/status/PLYGRND,numerix/">PLYGRND</a></td>
+				<td align="left" width="14%"><a href="/status/SPFIBO,numerix/">SPFIBO</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AE00,numerix/">AE00</a></td>
+				<td align="left" width="14%"><a href="/status/CHEFJUN,numerix/">CHEFJUN</a></td>
+				<td align="left" width="14%"><a href="/status/ENIGMATH,numerix/">ENIGMATH</a></td>
+				<td align="left" width="14%"><a href="/status/HMRO,numerix/">HMRO</a></td>
+				<td align="left" width="14%"><a href="/status/MFLAR10,numerix/">MFLAR10</a></td>
+				<td align="left" width="14%"><a href="/status/POKER,numerix/">POKER</a></td>
+				<td align="left" width="14%"><a href="/status/SQRROOT,numerix/">SQRROOT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AE2A,numerix/">AE2A</a></td>
+				<td align="left" width="14%"><a href="/status/CHICAGO,numerix/">CHICAGO</a></td>
+				<td align="left" width="14%"><a href="/status/EPALIN,numerix/">EPALIN</a></td>
+				<td align="left" width="14%"><a href="/status/HOMEW,numerix/">HOMEW</a></td>
+				<td align="left" width="14%"><a href="/status/MIB,numerix/">MIB</a></td>
+				<td align="left" width="14%"><a href="/status/POLCONST,numerix/">POLCONST</a></td>
+				<td align="left" width="14%"><a href="/status/SQUAREV1,numerix/">SQUAREV1</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AE2B,numerix/">AE2B</a></td>
+				<td align="left" width="14%"><a href="/status/CHOCOLA,numerix/">CHOCOLA</a></td>
+				<td align="left" width="14%"><a href="/status/EQ,numerix/">EQ</a></td>
+				<td align="left" width="14%"><a href="/status/HOMO,numerix/">HOMO</a></td>
+				<td align="left" width="14%"><a href="/status/MIDO,numerix/">MIDO</a></td>
+				<td align="left" width="14%"><a href="/status/POLEVAL,numerix/">POLEVAL</a></td>
+				<td align="left" width="14%"><a href="/status/SQUA_REV,numerix/">SQUA_REV</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AGGRCOW,numerix/">AGGRCOW</a></td>
+				<td align="left" width="14%"><a href="/status/CIPHERJ,numerix/">CIPHERJ</a></td>
+				<td align="left" width="14%"><a href="/status/EQBOX,numerix/">EQBOX</a></td>
+				<td align="left" width="14%"><a href="/status/HOSPITAL,numerix/">HOSPITAL</a></td>
+				<td align="left" width="14%"><a href="/status/MINCOUNT,numerix/">MINCOUNT</a></td>
+				<td align="left" width="14%"><a href="/status/POLYCODE,numerix/">POLYCODE</a></td>
+				<td align="left" width="14%"><a href="/status/STABLEMP,numerix/">STABLEMP</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AGS,numerix/">AGS</a></td>
+				<td align="left" width="14%"><a href="/status/CIRCLE_E,numerix/">CIRCLE_E</a></td>
+				<td align="left" width="14%"><a href="/status/EQU2,numerix/">EQU2</a></td>
+				<td align="left" width="14%"><a href="/status/HOTLINE,numerix/">HOTLINE</a></td>
+				<td align="left" width="14%"><a href="/status/MINIMAX,numerix/">MINIMAX</a></td>
+				<td align="left" width="14%"><a href="/status/POLYNOM,numerix/">POLYNOM</a></td>
+				<td align="left" width="14%"><a href="/status/STAMPS,numerix/">STAMPS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AKVOD05,numerix/">AKVOD05</a></td>
+				<td align="left" width="14%"><a href="/status/CIRCLE_H,numerix/">CIRCLE_H</a></td>
+				<td align="left" width="14%"><a href="/status/ETF,numerix/">ETF</a></td>
+				<td align="left" width="14%"><a href="/status/HPYNOS,numerix/">HPYNOS</a></td>
+				<td align="left" width="14%"><a href="/status/MINNUM,numerix/">MINNUM</a></td>
+				<td align="left" width="14%"><a href="/status/PON,numerix/">PON</a></td>
+				<td align="left" width="14%"><a href="/status/STONE,numerix/">STONE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ALICESIE,numerix/">ALICESIE</a></td>
+				<td align="left" width="14%"><a href="/status/CLASSICO,numerix/">CLASSICO</a></td>
+				<td align="left" width="14%"><a href="/status/EXPRESS,numerix/">EXPRESS</a></td>
+				<td align="left" width="14%"><a href="/status/HPYNOSII,numerix/">HPYNOSII</a></td>
+				<td align="left" width="14%"><a href="/status/MINVEST,numerix/">MINVEST</a></td>
+				<td align="left" width="14%"><a href="/status/POSTERS,numerix/">POSTERS</a></td>
+				<td align="left" width="14%"><a href="/status/STPAR,numerix/">STPAR</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ALIENS1,numerix/">ALIENS1</a></td>
+				<td align="left" width="14%"><a href="/status/CLOCKS,numerix/">CLOCKS</a></td>
+				<td align="left" width="14%"><a href="/status/FACEFRND,numerix/">FACEFRND</a></td>
+				<td align="left" width="14%"><a href="/status/HS08CODE,numerix/">HS08CODE</a></td>
+				<td align="left" width="14%"><a href="/status/MJLAR10,numerix/">MJLAR10</a></td>
+				<td align="left" width="14%"><a href="/status/POUR1,numerix/">POUR1</a></td>
+				<td align="left" width="14%"><a href="/status/STRCOUNT,numerix/">STRCOUNT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMR10C,numerix/">AMR10C</a></td>
+				<td align="left" width="14%"><a href="/status/CLONE,numerix/">CLONE</a></td>
+				<td align="left" width="14%"><a href="/status/FACT0,numerix/">FACT0</a></td>
+				<td align="left" width="14%"><a href="/status/HS08PAUL,numerix/">HS08PAUL</a></td>
+				<td align="left" width="14%"><a href="/status/MKLABELS,numerix/">MKLABELS</a></td>
+				<td align="left" width="14%"><a href="/status/POWERPHI,numerix/">POWERPHI</a></td>
+				<td align="left" width="14%"><a href="/status/STREETR,numerix/">STREETR</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMR10G,numerix/">AMR10G</a></td>
+				<td align="left" width="14%"><a href="/status/CLTZ,numerix/">CLTZ</a></td>
+				<td align="left" width="14%"><a href="/status/FACT1,numerix/">FACT1</a></td>
+				<td align="left" width="14%"><a href="/status/HUBULLU,numerix/">HUBULLU</a></td>
+				<td align="left" width="14%"><a href="/status/MKMONEY,numerix/">MKMONEY</a></td>
+				<td align="left" width="14%"><a href="/status/POWERUP,numerix/">POWERUP</a></td>
+				<td align="left" width="14%"><a href="/status/SUBS,numerix/">SUBS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMR11B,numerix/">AMR11B</a></td>
+				<td align="left" width="14%"><a href="/status/CMPLS,numerix/">CMPLS</a></td>
+				<td align="left" width="14%"><a href="/status/FACTMUL,numerix/">FACTMUL</a></td>
+				<td align="left" width="14%"><a href="/status/ICODER,numerix/">ICODER</a></td>
+				<td align="left" width="14%"><a href="/status/MKWAVES,numerix/">MKWAVES</a></td>
+				<td align="left" width="14%"><a href="/status/POWTOW,numerix/">POWTOW</a></td>
+				<td align="left" width="14%"><a href="/status/SUMITR,numerix/">SUMITR</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMR11E,numerix/">AMR11E</a></td>
+				<td align="left" width="14%"><a href="/status/CNEASY,numerix/">CNEASY</a></td>
+				<td align="left" width="14%"><a href="/status/FACVSPOW,numerix/">FACVSPOW</a></td>
+				<td align="left" width="14%"><a href="/status/IGARB,numerix/">IGARB</a></td>
+				<td align="left" width="14%"><a href="/status/MLK,numerix/">MLK</a></td>
+				<td align="left" width="14%"><a href="/status/PPATH,numerix/">PPATH</a></td>
+				<td align="left" width="14%"><a href="/status/SUMMUL,numerix/">SUMMUL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMSCO1,numerix/">AMSCO1</a></td>
+				<td align="left" width="14%"><a href="/status/CNTINDX,numerix/">CNTINDX</a></td>
+				<td align="left" width="14%"><a href="/status/FAKETSP,numerix/">FAKETSP</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCA,numerix/">IITKWPCA</a></td>
+				<td align="left" width="14%"><a href="/status/MMASS,numerix/">MMASS</a></td>
+				<td align="left" width="14%"><a href="/status/PPBRJB,numerix/">PPBRJB</a></td>
+				<td align="left" width="14%"><a href="/status/SUMPRO,numerix/">SUMPRO</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMSCO2,numerix/">AMSCO2</a></td>
+				<td align="left" width="14%"><a href="/status/CODE1,numerix/">CODE1</a></td>
+				<td align="left" width="14%"><a href="/status/FALTAENV,numerix/">FALTAENV</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCB,numerix/">IITKWPCB</a></td>
+				<td align="left" width="14%"><a href="/status/MMAXPER,numerix/">MMAXPER</a></td>
+				<td align="left" width="14%"><a href="/status/PQUEUE,numerix/">PQUEUE</a></td>
+				<td align="left" width="14%"><a href="/status/SUMSUMS,numerix/">SUMSUMS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMZRCK,numerix/">AMZRCK</a></td>
+				<td align="left" width="14%"><a href="/status/CODEIT03,numerix/">CODEIT03</a></td>
+				<td align="left" width="14%"><a href="/status/FANCY,numerix/">FANCY</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCF,numerix/">IITKWPCF</a></td>
+				<td align="left" width="14%"><a href="/status/MNNITAR,numerix/">MNNITAR</a></td>
+				<td align="left" width="14%"><a href="/status/PR003004,numerix/">PR003004</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2012A,numerix/">TAP2012A</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMZSEQ,numerix/">AMZSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/CODESPTB,numerix/">CODESPTB</a></td>
+				<td align="left" width="14%"><a href="/status/FASHION,numerix/">FASHION</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCH,numerix/">IITKWPCH</a></td>
+				<td align="left" width="14%"><a href="/status/MONONUM,numerix/">MONONUM</a></td>
+				<td align="left" width="14%"><a href="/status/PRIME,numerix/">PRIME</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2012B,numerix/">TAP2012B</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANAGR,numerix/">ANAGR</a></td>
+				<td align="left" width="14%"><a href="/status/COINS,numerix/">COINS</a></td>
+				<td align="left" width="14%"><a href="/status/FAST2,numerix/">FAST2</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCJ,numerix/">IITKWPCJ</a></td>
+				<td align="left" width="14%"><a href="/status/MOULDS,numerix/">MOULDS</a></td>
+				<td align="left" width="14%"><a href="/status/PRIME1,numerix/">PRIME1</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2013G,numerix/">TAP2013G</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC05B,numerix/">ANARC05B</a></td>
+				<td align="left" width="14%"><a href="/status/COINTOSS,numerix/">COINTOSS</a></td>
+				<td align="left" width="14%"><a href="/status/FAVDICE,numerix/">FAVDICE</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCN,numerix/">IITKWPCN</a></td>
+				<td align="left" width="14%"><a href="/status/MOVIE,numerix/">MOVIE</a></td>
+				<td align="left" width="14%"><a href="/status/PRIMEZUK,numerix/">PRIMEZUK</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2013H,numerix/">TAP2013H</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC05H,numerix/">ANARC05H</a></td>
+				<td align="left" width="14%"><a href="/status/COMCB,numerix/">COMCB</a></td>
+				<td align="left" width="14%"><a href="/status/FCTRL,numerix/">FCTRL</a></td>
+				<td align="left" width="14%"><a href="/status/IITKWPCO,numerix/">IITKWPCO</a></td>
+				<td align="left" width="14%"><a href="/status/MRECAMAN,numerix/">MRECAMAN</a></td>
+				<td align="left" width="14%"><a href="/status/PRINT,numerix/">PRINT</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2013J,numerix/">TAP2013J</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC08B,numerix/">ANARC08B</a></td>
+				<td align="left" width="14%"><a href="/status/COMDIV,numerix/">COMDIV</a></td>
+				<td align="left" width="14%"><a href="/status/FCTRL2,numerix/">FCTRL2</a></td>
+				<td align="left" width="14%"><a href="/status/IMPORT,numerix/">IMPORT</a></td>
+				<td align="left" width="14%"><a href="/status/MSE08G,numerix/">MSE08G</a></td>
+				<td align="left" width="14%"><a href="/status/PRISMSA,numerix/">PRISMSA</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2014B,numerix/">TAP2014B</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC08F,numerix/">ANARC08F</a></td>
+				<td align="left" width="14%"><a href="/status/CONGA,numerix/">CONGA</a></td>
+				<td align="left" width="14%"><a href="/status/FCTRL4,numerix/">FCTRL4</a></td>
+				<td align="left" width="14%"><a href="/status/IMPUNITS,numerix/">IMPUNITS</a></td>
+				<td align="left" width="14%"><a href="/status/MSTRMND,numerix/">MSTRMND</a></td>
+				<td align="left" width="14%"><a href="/status/PRJAN15B,numerix/">PRJAN15B</a></td>
+				<td align="left" width="14%"><a href="/status/TCNUMFL,numerix/">TCNUMFL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC08H,numerix/">ANARC08H</a></td>
+				<td align="left" width="14%"><a href="/status/COUNTPAS,numerix/">COUNTPAS</a></td>
+				<td align="left" width="14%"><a href="/status/FENCE1,numerix/">FENCE1</a></td>
+				<td align="left" width="14%"><a href="/status/INCPOWK,numerix/">INCPOWK</a></td>
+				<td align="left" width="14%"><a href="/status/MUL,numerix/">MUL</a></td>
+				<td align="left" width="14%"><a href="/status/PRJAN15F,numerix/">PRJAN15F</a></td>
+				<td align="left" width="14%"><a href="/status/TCOUNT2,numerix/">TCOUNT2</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC08J,numerix/">ANARC08J</a></td>
+				<td align="left" width="14%"><a href="/status/COWCAR,numerix/">COWCAR</a></td>
+				<td align="left" width="14%"><a href="/status/FERT21_0,numerix/">FERT21_0</a></td>
+				<td align="left" width="14%"><a href="/status/INDEXGEN,numerix/">INDEXGEN</a></td>
+				<td align="left" width="14%"><a href="/status/MUL2COM,numerix/">MUL2COM</a></td>
+				<td align="left" width="14%"><a href="/status/PRO,numerix/">PRO</a></td>
+				<td align="left" width="14%"><a href="/status/TCOUNT3,numerix/">TCOUNT3</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC09A,numerix/">ANARC09A</a></td>
+				<td align="left" width="14%"><a href="/status/CPC,numerix/">CPC</a></td>
+				<td align="left" width="14%"><a href="/status/FERT21_1,numerix/">FERT21_1</a></td>
+				<td align="left" width="14%"><a href="/status/INDIPROG,numerix/">INDIPROG</a></td>
+				<td align="left" width="14%"><a href="/status/MYQ1,numerix/">MYQ1</a></td>
+				<td align="left" width="14%"><a href="/status/PROBLEM4,numerix/">PROBLEM4</a></td>
+				<td align="left" width="14%"><a href="/status/TDKPRIME,numerix/">TDKPRIME</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC09B,numerix/">ANARC09B</a></td>
+				<td align="left" width="14%"><a href="/status/CPCRC1C,numerix/">CPCRC1C</a></td>
+				<td align="left" width="14%"><a href="/status/FIBFACT,numerix/">FIBFACT</a></td>
+				<td align="left" width="14%"><a href="/status/INS14B,numerix/">INS14B</a></td>
+				<td align="left" width="14%"><a href="/status/MYQ8,numerix/">MYQ8</a></td>
+				<td align="left" width="14%"><a href="/status/PROOT,numerix/">PROOT</a></td>
+				<td align="left" width="14%"><a href="/status/TDPRIMES,numerix/">TDPRIMES</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC09C,numerix/">ANARC09C</a></td>
+				<td align="left" width="14%"><a href="/status/CPRIME,numerix/">CPRIME</a></td>
+				<td align="left" width="14%"><a href="/status/FIBOSUM,numerix/">FIBOSUM</a></td>
+				<td align="left" width="14%"><a href="/status/INS14C,numerix/">INS14C</a></td>
+				<td align="left" width="14%"><a href="/status/MZVRK,numerix/">MZVRK</a></td>
+				<td align="left" width="14%"><a href="/status/PROSCORE,numerix/">PROSCORE</a></td>
+				<td align="left" width="14%"><a href="/status/TEAM2,numerix/">TEAM2</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AP2,numerix/">AP2</a></td>
+				<td align="left" width="14%"><a href="/status/CPRMT,numerix/">CPRMT</a></td>
+				<td align="left" width="14%"><a href="/status/FIBTWIST,numerix/">FIBTWIST</a></td>
+				<td align="left" width="14%"><a href="/status/INUM,numerix/">INUM</a></td>
+				<td align="left" width="14%"><a href="/status/M_SEQ,numerix/">M_SEQ</a></td>
+				<td align="left" width="14%"><a href="/status/PT07Y,numerix/">PT07Y</a></td>
+				<td align="left" width="14%"><a href="/status/TESSER,numerix/">TESSER</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AP3,numerix/">AP3</a></td>
+				<td align="left" width="14%"><a href="/status/CPU,numerix/">CPU</a></td>
+				<td align="left" width="14%"><a href="/status/FILRTEST,numerix/">FILRTEST</a></td>
+				<td align="left" width="14%"><a href="/status/INVCNT,numerix/">INVCNT</a></td>
+				<td align="left" width="14%"><a href="/status/NAGAY,numerix/">NAGAY</a></td>
+				<td align="left" width="14%"><a href="/status/PTIME,numerix/">PTIME</a></td>
+				<td align="left" width="14%"><a href="/status/TEST,numerix/">TEST</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/APCER,numerix/">APCER</a></td>
+				<td align="left" width="14%"><a href="/status/CRAN01,numerix/">CRAN01</a></td>
+				<td align="left" width="14%"><a href="/status/FINDPRM,numerix/">FINDPRM</a></td>
+				<td align="left" width="14%"><a href="/status/IOPC1203,numerix/">IOPC1203</a></td>
+				<td align="left" width="14%"><a href="/status/NAJGC,numerix/">NAJGC</a></td>
+				<td align="left" width="14%"><a href="/status/PTR2,numerix/">PTR2</a></td>
+				<td align="left" width="14%"><a href="/status/TETRA,numerix/">TETRA</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/APPROB,numerix/">APPROB</a></td>
+				<td align="left" width="14%"><a href="/status/CRAN02,numerix/">CRAN02</a></td>
+				<td align="left" width="14%"><a href="/status/FINDSR,numerix/">FINDSR</a></td>
+				<td align="left" width="14%"><a href="/status/IPAD,numerix/">IPAD</a></td>
+				<td align="left" width="14%"><a href="/status/NAJPF,numerix/">NAJPF</a></td>
+				<td align="left" width="14%"><a href="/status/PTRI,numerix/">PTRI</a></td>
+				<td align="left" width="14%"><a href="/status/TETRAHED,numerix/">TETRAHED</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARCTAN,numerix/">ARCTAN</a></td>
+				<td align="left" width="14%"><a href="/status/CRAN04,numerix/">CRAN04</a></td>
+				<td align="left" width="14%"><a href="/status/FLIB,numerix/">FLIB</a></td>
+				<td align="left" width="14%"><a href="/status/IPCELLS,numerix/">IPCELLS</a></td>
+				<td align="left" width="14%"><a href="/status/NAJPWG,numerix/">NAJPWG</a></td>
+				<td align="left" width="14%"><a href="/status/PUCMM009,numerix/">PUCMM009</a></td>
+				<td align="left" width="14%"><a href="/status/THRPWRS,numerix/">THRPWRS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARDA1,numerix/">ARDA1</a></td>
+				<td align="left" width="14%"><a href="/status/CRAZYSK,numerix/">CRAZYSK</a></td>
+				<td align="left" width="14%"><a href="/status/FOLD,numerix/">FOLD</a></td>
+				<td align="left" width="14%"><a href="/status/ISAB,numerix/">ISAB</a></td>
+				<td align="left" width="14%"><a href="/status/NDIV,numerix/">NDIV</a></td>
+				<td align="left" width="14%"><a href="/status/PUCMM210,numerix/">PUCMM210</a></td>
+				<td align="left" width="14%"><a href="/status/TIPTOP,numerix/">TIPTOP</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARITH,numerix/">ARITH</a></td>
+				<td align="left" width="14%"><a href="/status/CRDS,numerix/">CRDS</a></td>
+				<td align="left" width="14%"><a href="/status/FRACTION,numerix/">FRACTION</a></td>
+				<td align="left" width="14%"><a href="/status/IWGBS,numerix/">IWGBS</a></td>
+				<td align="left" width="14%"><a href="/status/NDIVPHI,numerix/">NDIVPHI</a></td>
+				<td align="left" width="14%"><a href="/status/PUCMM334,numerix/">PUCMM334</a></td>
+				<td align="left" width="14%"><a href="/status/TOANDFRO,numerix/">TOANDFRO</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARITH2,numerix/">ARITH2</a></td>
+				<td align="left" width="14%"><a href="/status/CRNVALEN,numerix/">CRNVALEN</a></td>
+				<td align="left" width="14%"><a href="/status/FRMT,numerix/">FRMT</a></td>
+				<td align="left" width="14%"><a href="/status/JAVAC,numerix/">JAVAC</a></td>
+				<td align="left" width="14%"><a href="/status/NDIVPHI2,numerix/">NDIVPHI2</a></td>
+				<td align="left" width="14%"><a href="/status/QCJ1,numerix/">QCJ1</a></td>
+				<td align="left" width="14%"><a href="/status/TOE1,numerix/">TOE1</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARMY,numerix/">ARMY</a></td>
+				<td align="left" width="14%"><a href="/status/CROBOTS,numerix/">CROBOTS</a></td>
+				<td align="left" width="14%"><a href="/status/FRNDCIRC,numerix/">FRNDCIRC</a></td>
+				<td align="left" width="14%"><a href="/status/JNEXT,numerix/">JNEXT</a></td>
+				<td align="left" width="14%"><a href="/status/NEG2,numerix/">NEG2</a></td>
+				<td align="left" width="14%"><a href="/status/QCJ2,numerix/">QCJ2</a></td>
+				<td align="left" width="14%"><a href="/status/TOE2,numerix/">TOE2</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARRANGE,numerix/">ARRANGE</a></td>
+				<td align="left" width="14%"><a href="/status/CRYPTO1,numerix/">CRYPTO1</a></td>
+				<td align="left" width="14%"><a href="/status/FRQPRIME,numerix/">FRQPRIME</a></td>
+				<td align="left" width="14%"><a href="/status/JOKER1,numerix/">JOKER1</a></td>
+				<td align="left" width="14%"><a href="/status/NFACTOR,numerix/">NFACTOR</a></td>
+				<td align="left" width="14%"><a href="/status/QCJ4,numerix/">QCJ4</a></td>
+				<td align="left" width="14%"><a href="/status/TOHU,numerix/">TOHU</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARTHEVAL,numerix/">ARTHEVAL</a></td>
+				<td align="left" width="14%"><a href="/status/CRYPTO2,numerix/">CRYPTO2</a></td>
+				<td align="left" width="14%"><a href="/status/FTHEELF,numerix/">FTHEELF</a></td>
+				<td align="left" width="14%"><a href="/status/JRIDE,numerix/">JRIDE</a></td>
+				<td align="left" width="14%"><a href="/status/NFURY,numerix/">NFURY</a></td>
+				<td align="left" width="14%"><a href="/status/QUADAREA,numerix/">QUADAREA</a></td>
+				<td align="left" width="14%"><a href="/status/TOHU2,numerix/">TOHU2</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ASCDFIB,numerix/">ASCDFIB</a></td>
+				<td align="left" width="14%"><a href="/status/CRYPTON,numerix/">CRYPTON</a></td>
+				<td align="left" width="14%"><a href="/status/FUNFACT,numerix/">FUNFACT</a></td>
+				<td align="left" width="14%"><a href="/status/JULKA,numerix/">JULKA</a></td>
+				<td align="left" width="14%"><a href="/status/NG0FRCTN,numerix/">NG0FRCTN</a></td>
+				<td align="left" width="14%"><a href="/status/RABBIT1,numerix/">RABBIT1</a></td>
+				<td align="left" width="14%"><a href="/status/TRANSL,numerix/">TRANSL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ASSIST,numerix/">ASSIST</a></td>
+				<td align="left" width="14%"><a href="/status/CSQUARE,numerix/">CSQUARE</a></td>
+				<td align="left" width="14%"><a href="/status/FUNNUMS,numerix/">FUNNUMS</a></td>
+				<td align="left" width="14%"><a href="/status/JUMP1,numerix/">JUMP1</a></td>
+				<td align="left" width="14%"><a href="/status/NG1FRCTN,numerix/">NG1FRCTN</a></td>
+				<td align="left" width="14%"><a href="/status/RAIL,numerix/">RAIL</a></td>
+				<td align="left" width="14%"><a href="/status/TREE,numerix/">TREE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ATMS,numerix/">ATMS</a></td>
+				<td align="left" width="14%"><a href="/status/CUBEFR,numerix/">CUBEFR</a></td>
+				<td align="left" width="14%"><a href="/status/FUNPROB,numerix/">FUNPROB</a></td>
+				<td align="left" width="14%"><a href="/status/KMSL4B,numerix/">KMSL4B</a></td>
+				<td align="left" width="14%"><a href="/status/NGM,numerix/">NGM</a></td>
+				<td align="left" width="14%"><a href="/status/RAIN3,numerix/">RAIN3</a></td>
+				<td align="left" width="14%"><a href="/status/TREE2,numerix/">TREE2</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ATOMS,numerix/">ATOMS</a></td>
+				<td align="left" width="14%"><a href="/status/CUBEND,numerix/">CUBEND</a></td>
+				<td align="left" width="14%"><a href="/status/GAMES,numerix/">GAMES</a></td>
+				<td align="left" width="14%"><a href="/status/KNIGHTSR,numerix/">KNIGHTSR</a></td>
+				<td align="left" width="14%"><a href="/status/NHAY,numerix/">NHAY</a></td>
+				<td align="left" width="14%"><a href="/status/RANGZER2,numerix/">RANGZER2</a></td>
+				<td align="left" width="14%"><a href="/status/TRGRID,numerix/">TRGRID</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AVARY,numerix/">AVARY</a></td>
+				<td align="left" width="14%"><a href="/status/CUBERT,numerix/">CUBERT</a></td>
+				<td align="left" width="14%"><a href="/status/GARDENAR,numerix/">GARDENAR</a></td>
+				<td align="left" width="14%"><a href="/status/KOMPICI,numerix/">KOMPICI</a></td>
+				<td align="left" width="14%"><a href="/status/NITT2,numerix/">NITT2</a></td>
+				<td align="left" width="14%"><a href="/status/RANJAN02,numerix/">RANJAN02</a></td>
+				<td align="left" width="14%"><a href="/status/TRICENTR,numerix/">TRICENTR</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BACKTPOL,numerix/">BACKTPOL</a></td>
+				<td align="left" width="14%"><a href="/status/CUBES,numerix/">CUBES</a></td>
+				<td align="left" width="14%"><a href="/status/GCD2,numerix/">GCD2</a></td>
+				<td align="left" width="14%"><a href="/status/KPEQU,numerix/">KPEQU</a></td>
+				<td align="left" width="14%"><a href="/status/NOCHANGE,numerix/">NOCHANGE</a></td>
+				<td align="left" width="14%"><a href="/status/REBOUND,numerix/">REBOUND</a></td>
+				<td align="left" width="14%"><a href="/status/TRICOUNT,numerix/">TRICOUNT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BAD,numerix/">BAD</a></td>
+				<td align="left" width="14%"><a href="/status/CUCKOO,numerix/">CUCKOO</a></td>
+				<td align="left" width="14%"><a href="/status/GCDSQF,numerix/">GCDSQF</a></td>
+				<td align="left" width="14%"><a href="/status/KPSUM,numerix/">KPSUM</a></td>
+				<td align="left" width="14%"><a href="/status/NOSQ,numerix/">NOSQ</a></td>
+				<td align="left" width="14%"><a href="/status/REC,numerix/">REC</a></td>
+				<td align="left" width="14%"><a href="/status/TRIGALGE,numerix/">TRIGALGE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BAISED,numerix/">BAISED</a></td>
+				<td align="left" width="14%"><a href="/status/CURDPROD,numerix/">CURDPROD</a></td>
+				<td align="left" width="14%"><a href="/status/GCJ101BB,numerix/">GCJ101BB</a></td>
+				<td align="left" width="14%"><a href="/status/KROW,numerix/">KROW</a></td>
+				<td align="left" width="14%"><a href="/status/NOTATRI,numerix/">NOTATRI</a></td>
+				<td align="left" width="14%"><a href="/status/REVFIB,numerix/">REVFIB</a></td>
+				<td align="left" width="14%"><a href="/status/TRIKA,numerix/">TRIKA</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BALIFE,numerix/">BALIFE</a></td>
+				<td align="left" width="14%"><a href="/status/CUTCAKE,numerix/">CUTCAKE</a></td>
+				<td align="left" width="14%"><a href="/status/GCJ101C,numerix/">GCJ101C</a></td>
+				<td align="left" width="14%"><a href="/status/KURUK14,numerix/">KURUK14</a></td>
+				<td align="left" width="14%"><a href="/status/NOVICE43,numerix/">NOVICE43</a></td>
+				<td align="left" width="14%"><a href="/status/REVIEW,numerix/">REVIEW</a></td>
+				<td align="left" width="14%"><a href="/status/TSHOW1,numerix/">TSHOW1</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BANDW,numerix/">BANDW</a></td>
+				<td align="left" width="14%"><a href="/status/CYLINDER,numerix/">CYLINDER</a></td>
+				<td align="left" width="14%"><a href="/status/GCJ1C09A,numerix/">GCJ1C09A</a></td>
+				<td align="left" width="14%"><a href="/status/LABYR2,numerix/">LABYR2</a></td>
+				<td align="left" width="14%"><a href="/status/NOVICE62,numerix/">NOVICE62</a></td>
+				<td align="left" width="14%"><a href="/status/RIVALS,numerix/">RIVALS</a></td>
+				<td align="left" width="14%"><a href="/status/TTTABLE,numerix/">TTTABLE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BASE,numerix/">BASE</a></td>
+				<td align="left" width="14%"><a href="/status/CZ_PROB1,numerix/">CZ_PROB1</a></td>
+				<td align="left" width="14%"><a href="/status/GCJ1C09B,numerix/">GCJ1C09B</a></td>
+				<td align="left" width="14%"><a href="/status/LAGRANGE,numerix/">LAGRANGE</a></td>
+				<td align="left" width="14%"><a href="/status/NOVICE63,numerix/">NOVICE63</a></td>
+				<td align="left" width="14%"><a href="/status/RKS,numerix/">RKS</a></td>
+				<td align="left" width="14%"><a href="/status/TULIPNUM,numerix/">TULIPNUM</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BEADS,numerix/">BEADS</a></td>
+				<td align="left" width="14%"><a href="/status/DANGER,numerix/">DANGER</a></td>
+				<td align="left" width="14%"><a href="/status/GCJPURE,numerix/">GCJPURE</a></td>
+				<td align="left" width="14%"><a href="/status/LASTDIG,numerix/">LASTDIG</a></td>
+				<td align="left" width="14%"><a href="/status/NR2,numerix/">NR2</a></td>
+				<td align="left" width="14%"><a href="/status/RLCIPHER,numerix/">RLCIPHER</a></td>
+				<td align="left" width="14%"><a href="/status/TUTMRBL,numerix/">TUTMRBL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BEENUMS,numerix/">BEENUMS</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC11B,numerix/">DCEPC11B</a></td>
+				<td align="left" width="14%"><a href="/status/GCPC11A,numerix/">GCPC11A</a></td>
+				<td align="left" width="14%"><a href="/status/LASTDIG2,numerix/">LASTDIG2</a></td>
+				<td align="left" width="14%"><a href="/status/NSQUARE,numerix/">NSQUARE</a></td>
+				<td align="left" width="14%"><a href="/status/RLE,numerix/">RLE</a></td>
+				<td align="left" width="14%"><a href="/status/TWINSNOW,numerix/">TWINSNOW</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BHAT007,numerix/">BHAT007</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC207,numerix/">DCEPC207</a></td>
+				<td align="left" width="14%"><a href="/status/GCPC11F,numerix/">GCPC11F</a></td>
+				<td align="left" width="14%"><a href="/status/LATTICE,numerix/">LATTICE</a></td>
+				<td align="left" width="14%"><a href="/status/NSTEPS,numerix/">NSTEPS</a></td>
+				<td align="left" width="14%"><a href="/status/RLM,numerix/">RLM</a></td>
+				<td align="left" width="14%"><a href="/status/TWOSQRS,numerix/">TWOSQRS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BILLIARD,numerix/">BILLIARD</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC505,numerix/">DCEPC505</a></td>
+				<td align="left" width="14%"><a href="/status/GEM,numerix/">GEM</a></td>
+				<td align="left" width="14%"><a href="/status/LCMSUM,numerix/">LCMSUM</a></td>
+				<td align="left" width="14%"><a href="/status/NSYSTEM,numerix/">NSYSTEM</a></td>
+				<td align="left" width="14%"><a href="/status/RNUMBER,numerix/">RNUMBER</a></td>
+				<td align="left" width="14%"><a href="/status/UCI2009B,numerix/">UCI2009B</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BINGO,numerix/">BINGO</a></td>
+				<td align="left" width="14%"><a href="/status/DCRYPT,numerix/">DCRYPT</a></td>
+				<td align="left" width="14%"><a href="/status/GEOPROB,numerix/">GEOPROB</a></td>
+				<td align="left" width="14%"><a href="/status/LCPC12C,numerix/">LCPC12C</a></td>
+				<td align="left" width="14%"><a href="/status/NUMOFPAL,numerix/">NUMOFPAL</a></td>
+				<td align="left" width="14%"><a href="/status/ROBBERY2,numerix/">ROBBERY2</a></td>
+				<td align="left" width="14%"><a href="/status/UCV2013I,numerix/">UCV2013I</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BINSTIRL,numerix/">BINSTIRL</a></td>
+				<td align="left" width="14%"><a href="/status/DEADFR,numerix/">DEADFR</a></td>
+				<td align="left" width="14%"><a href="/status/GERGOVIA,numerix/">GERGOVIA</a></td>
+				<td align="left" width="14%"><a href="/status/LCPC12E,numerix/">LCPC12E</a></td>
+				<td align="left" width="14%"><a href="/status/NUMPLAY,numerix/">NUMPLAY</a></td>
+				<td align="left" width="14%"><a href="/status/ROMAN,numerix/">ROMAN</a></td>
+				<td align="left" width="14%"><a href="/status/UJ,numerix/">UJ</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BIRTHDAY,numerix/">BIRTHDAY</a></td>
+				<td align="left" width="14%"><a href="/status/DEPEND,numerix/">DEPEND</a></td>
+				<td align="left" width="14%"><a href="/status/GF2,numerix/">GF2</a></td>
+				<td align="left" width="14%"><a href="/status/LEGRENDS,numerix/">LEGRENDS</a></td>
+				<td align="left" width="14%"><a href="/status/NWERC11A,numerix/">NWERC11A</a></td>
+				<td align="left" width="14%"><a href="/status/ROMAN008,numerix/">ROMAN008</a></td>
+				<td align="left" width="14%"><a href="/status/ULM02,numerix/">ULM02</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BISHOPS,numerix/">BISHOPS</a></td>
+				<td align="left" width="14%"><a href="/status/DEPOSIT,numerix/">DEPOSIT</a></td>
+				<td align="left" width="14%"><a href="/status/GIRLSNBS,numerix/">GIRLSNBS</a></td>
+				<td align="left" width="14%"><a href="/status/LENGFACT,numerix/">LENGFACT</a></td>
+				<td align="left" width="14%"><a href="/status/NY10A,numerix/">NY10A</a></td>
+				<td align="left" width="14%"><a href="/status/ROOT,numerix/">ROOT</a></td>
+				<td align="left" width="14%"><a href="/status/UOFTAB,numerix/">UOFTAB</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BITMAP,numerix/">BITMAP</a></td>
+				<td align="left" width="14%"><a href="/status/DICT,numerix/">DICT</a></td>
+				<td align="left" width="14%"><a href="/status/GK,numerix/">GK</a></td>
+				<td align="left" width="14%"><a href="/status/LEXSTR,numerix/">LEXSTR</a></td>
+				<td align="left" width="14%"><a href="/status/NY10B,numerix/">NY10B</a></td>
+				<td align="left" width="14%"><a href="/status/ROOTCIPH,numerix/">ROOTCIPH</a></td>
+				<td align="left" width="14%"><a href="/status/UOFTAC,numerix/">UOFTAC</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BLOPER,numerix/">BLOPER</a></td>
+				<td align="left" width="14%"><a href="/status/DIFFDIAG,numerix/">DIFFDIAG</a></td>
+				<td align="left" width="14%"><a href="/status/GNY07C,numerix/">GNY07C</a></td>
+				<td align="left" width="14%"><a href="/status/LINES,numerix/">LINES</a></td>
+				<td align="left" width="14%"><a href="/status/NY10C,numerix/">NY10C</a></td>
+				<td align="left" width="14%"><a href="/status/RPLC,numerix/">RPLC</a></td>
+				<td align="left" width="14%"><a href="/status/UOFTBD,numerix/">UOFTBD</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BMJ,numerix/">BMJ</a></td>
+				<td align="left" width="14%"><a href="/status/DIG,numerix/">DIG</a></td>
+				<td align="left" width="14%"><a href="/status/GNY07D,numerix/">GNY07D</a></td>
+				<td align="left" width="14%"><a href="/status/LISA,numerix/">LISA</a></td>
+				<td align="left" width="14%"><a href="/status/NY10D,numerix/">NY10D</a></td>
+				<td align="left" width="14%"><a href="/status/RPLD,numerix/">RPLD</a></td>
+				<td align="left" width="14%"><a href="/status/VERODOOM,numerix/">VERODOOM</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOBALLS2,numerix/">BOBALLS2</a></td>
+				<td align="left" width="14%"><a href="/status/DIGCNT,numerix/">DIGCNT</a></td>
+				<td align="left" width="14%"><a href="/status/GNY07E,numerix/">GNY07E</a></td>
+				<td align="left" width="14%"><a href="/status/LLCA,numerix/">LLCA</a></td>
+				<td align="left" width="14%"><a href="/status/NY10E,numerix/">NY10E</a></td>
+				<td align="left" width="14%"><a href="/status/RPLE,numerix/">RPLE</a></td>
+				<td align="left" width="14%"><a href="/status/VFMUL,numerix/">VFMUL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOGGLE,numerix/">BOGGLE</a></td>
+				<td align="left" width="14%"><a href="/status/DIGNUM,numerix/">DIGNUM</a></td>
+				<td align="left" width="14%"><a href="/status/GNY07F,numerix/">GNY07F</a></td>
+				<td align="left" width="14%"><a href="/status/LOCKER,numerix/">LOCKER</a></td>
+				<td align="left" width="14%"><a href="/status/OAE,numerix/">OAE</a></td>
+				<td align="left" width="14%"><a href="/status/RPLG,numerix/">RPLG</a></td>
+				<td align="left" width="14%"><a href="/status/VGCD,numerix/">VGCD</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOOKS1,numerix/">BOOKS1</a></td>
+				<td align="left" width="14%"><a href="/status/DINONUM,numerix/">DINONUM</a></td>
+				<td align="left" width="14%"><a href="/status/GNY07G,numerix/">GNY07G</a></td>
+				<td align="left" width="14%"><a href="/status/LOOPEXP,numerix/">LOOPEXP</a></td>
+				<td align="left" width="14%"><a href="/status/ODDDIV,numerix/">ODDDIV</a></td>
+				<td align="left" width="14%"><a href="/status/RPLH,numerix/">RPLH</a></td>
+				<td align="left" width="14%"><a href="/status/VONNY,numerix/">VONNY</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BORING,numerix/">BORING</a></td>
+				<td align="left" width="14%"><a href="/status/DISUBSTR,numerix/">DISUBSTR</a></td>
+				<td align="left" width="14%"><a href="/status/GNY07H,numerix/">GNY07H</a></td>
+				<td align="left" width="14%"><a href="/status/LOVINGPW,numerix/">LOVINGPW</a></td>
+				<td align="left" width="14%"><a href="/status/OFFSIDE,numerix/">OFFSIDE</a></td>
+				<td align="left" width="14%"><a href="/status/RPSSL,numerix/">RPSSL</a></td>
+				<td align="left" width="14%"><a href="/status/VPL2_AA,numerix/">VPL2_AA</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOWLING1,numerix/">BOWLING1</a></td>
+				<td align="left" width="14%"><a href="/status/DIV,numerix/">DIV</a></td>
+				<td align="left" width="14%"><a href="/status/GNYR04C,numerix/">GNYR04C</a></td>
+				<td align="left" width="14%"><a href="/status/LPRISON,numerix/">LPRISON</a></td>
+				<td align="left" width="14%"><a href="/status/OFORTUNE,numerix/">OFORTUNE</a></td>
+				<td align="left" width="14%"><a href="/status/RROOT,numerix/">RROOT</a></td>
+				<td align="left" width="14%"><a href="/status/WAGE,numerix/">WAGE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BRAILLE,numerix/">BRAILLE</a></td>
+				<td align="left" width="14%"><a href="/status/DIV15,numerix/">DIV15</a></td>
+				<td align="left" width="14%"><a href="/status/GNYR09F,numerix/">GNYR09F</a></td>
+				<td align="left" width="14%"><a href="/status/LQDCANDY,numerix/">LQDCANDY</a></td>
+				<td align="left" width="14%"><a href="/status/OHANISER,numerix/">OHANISER</a></td>
+				<td align="left" width="14%"><a href="/status/SALTOS,numerix/">SALTOS</a></td>
+				<td align="left" width="14%"><a href="/status/WILLITST,numerix/">WILLITST</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BRODOVI,numerix/">BRODOVI</a></td>
+				<td align="left" width="14%"><a href="/status/DIV2,numerix/">DIV2</a></td>
+				<td align="left" width="14%"><a href="/status/GOALFR,numerix/">GOALFR</a></td>
+				<td align="left" width="14%"><a href="/status/LUCKYNUM,numerix/">LUCKYNUM</a></td>
+				<td align="left" width="14%"><a href="/status/OLOLO,numerix/">OLOLO</a></td>
+				<td align="left" width="14%"><a href="/status/SAMER08C,numerix/">SAMER08C</a></td>
+				<td align="left" width="14%"><a href="/status/WINDMILL,numerix/">WINDMILL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BROKEN,numerix/">BROKEN</a></td>
+				<td align="left" width="14%"><a href="/status/DIVFACT,numerix/">DIVFACT</a></td>
+				<td align="left" width="14%"><a href="/status/GOODB,numerix/">GOODB</a></td>
+				<td align="left" width="14%"><a href="/status/LWAR,numerix/">LWAR</a></td>
+				<td align="left" width="14%"><a href="/status/ONEZERO,numerix/">ONEZERO</a></td>
+				<td align="left" width="14%"><a href="/status/SAMER08E,numerix/">SAMER08E</a></td>
+				<td align="left" width="14%"><a href="/status/WORD,numerix/">WORD</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BROUL,numerix/">BROUL</a></td>
+				<td align="left" width="14%"><a href="/status/DIVISION,numerix/">DIVISION</a></td>
+				<td align="left" width="14%"><a href="/status/GOSSIPER,numerix/">GOSSIPER</a></td>
+				<td align="left" width="14%"><a href="/status/M00PAIR,numerix/">M00PAIR</a></td>
+				<td align="left" width="14%"><a href="/status/ONP,numerix/">ONP</a></td>
+				<td align="left" width="14%"><a href="/status/SAMER08F,numerix/">SAMER08F</a></td>
+				<td align="left" width="14%"><a href="/status/WORDCNT,numerix/">WORDCNT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BRPAR,numerix/">BRPAR</a></td>
+				<td align="left" width="14%"><a href="/status/DIVSUM2,numerix/">DIVSUM2</a></td>
+				<td align="left" width="14%"><a href="/status/GOSTONES,numerix/">GOSTONES</a></td>
+				<td align="left" width="14%"><a href="/status/M3TILE,numerix/">M3TILE</a></td>
+				<td align="left" width="14%"><a href="/status/OPCPIZZA,numerix/">OPCPIZZA</a></td>
+				<td align="left" width="14%"><a href="/status/SAMER08G,numerix/">SAMER08G</a></td>
+				<td align="left" width="14%"><a href="/status/WORDS1,numerix/">WORDS1</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BSMATH1,numerix/">BSMATH1</a></td>
+				<td align="left" width="14%"><a href="/status/DIXIE001,numerix/">DIXIE001</a></td>
+				<td align="left" width="14%"><a href="/status/GP1,numerix/">GP1</a></td>
+				<td align="left" width="14%"><a href="/status/MADN,numerix/">MADN</a></td>
+				<td align="left" width="14%"><a href="/status/OROSNAKE,numerix/">OROSNAKE</a></td>
+				<td align="left" width="14%"><a href="/status/SAMER08J,numerix/">SAMER08J</a></td>
+				<td align="left" width="14%"><a href="/status/WPC5A,numerix/">WPC5A</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BSMATH2,numerix/">BSMATH2</a></td>
+				<td align="left" width="14%"><a href="/status/DNA,numerix/">DNA</a></td>
+				<td align="left" width="14%"><a href="/status/GPA1,numerix/">GPA1</a></td>
+				<td align="left" width="14%"><a href="/status/MAIN111,numerix/">MAIN111</a></td>
+				<td align="left" width="14%"><a href="/status/PAGAIN,numerix/">PAGAIN</a></td>
+				<td align="left" width="14%"><a href="/status/SBANK,numerix/">SBANK</a></td>
+				<td align="left" width="14%"><a href="/status/WSCIPHER,numerix/">WSCIPHER</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BTCODE_D,numerix/">BTCODE_D</a></td>
+				<td align="left" width="14%"><a href="/status/DNPALIN,numerix/">DNPALIN</a></td>
+				<td align="left" width="14%"><a href="/status/GRIDPNTS,numerix/">GRIDPNTS</a></td>
+				<td align="left" width="14%"><a href="/status/MAIN113,numerix/">MAIN113</a></td>
+				<td align="left" width="14%"><a href="/status/PALACE,numerix/">PALACE</a></td>
+				<td align="left" width="14%"><a href="/status/SBETS,numerix/">SBETS</a></td>
+				<td align="left" width="14%"><a href="/status/WTK,numerix/">WTK</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BUGLIFE,numerix/">BUGLIFE</a></td>
+				<td align="left" width="14%"><a href="/status/DOJO,numerix/">DOJO</a></td>
+				<td align="left" width="14%"><a href="/status/GSHOP,numerix/">GSHOP</a></td>
+				<td align="left" width="14%"><a href="/status/MAIN12A,numerix/">MAIN12A</a></td>
+				<td align="left" width="14%"><a href="/status/PALIN,numerix/">PALIN</a></td>
+				<td align="left" width="14%"><a href="/status/SBSTR1,numerix/">SBSTR1</a></td>
+				<td align="left" width="14%"><a href="/status/XMEN,numerix/">XMEN</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BUILDTOW,numerix/">BUILDTOW</a></td>
+				<td align="left" width="14%"><a href="/status/DOMECIR,numerix/">DOMECIR</a></td>
+				<td align="left" width="14%"><a href="/status/GSWORDS,numerix/">GSWORDS</a></td>
+				<td align="left" width="14%"><a href="/status/MAIN12B,numerix/">MAIN12B</a></td>
+				<td align="left" width="14%"><a href="/status/PANCAKES,numerix/">PANCAKES</a></td>
+				<td align="left" width="14%"><a href="/status/SCALE,numerix/">SCALE</a></td>
+				<td align="left" width="14%"><a href="/status/YELBRICK,numerix/">YELBRICK</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BUREAU,numerix/">BUREAU</a></td>
+				<td align="left" width="14%"><a href="/status/DOMINO1,numerix/">DOMINO1</a></td>
+				<td align="left" width="14%"><a href="/status/GUANGGUN,numerix/">GUANGGUN</a></td>
+				<td align="left" width="14%"><a href="/status/MAIN12C,numerix/">MAIN12C</a></td>
+				<td align="left" width="14%"><a href="/status/PARCARD1,numerix/">PARCARD1</a></td>
+				<td align="left" width="14%"><a href="/status/SCALES,numerix/">SCALES</a></td>
+				<td align="left" width="14%"><a href="/status/YODA,numerix/">YODA</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BUZZOFF,numerix/">BUZZOFF</a></td>
+				<td align="left" width="14%"><a href="/status/DOMINST,numerix/">DOMINST</a></td>
+				<td align="left" width="14%"><a href="/status/GUESSING,numerix/">GUESSING</a></td>
+				<td align="left" width="14%"><a href="/status/MAIN74,numerix/">MAIN74</a></td>
+				<td align="left" width="14%"><a href="/status/PARKET1,numerix/">PARKET1</a></td>
+				<td align="left" width="14%"><a href="/status/SCAVHUNT,numerix/">SCAVHUNT</a></td>
+				<td align="left" width="14%"><a href="/status/YODANESS,numerix/">YODANESS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BWHEELER,numerix/">BWHEELER</a></td>
+				<td align="left" width="14%"><a href="/status/DOTAA,numerix/">DOTAA</a></td>
+				<td align="left" width="14%"><a href="/status/GUESSNM2,numerix/">GUESSNM2</a></td>
+				<td align="left" width="14%"><a href="/status/MAJOR,numerix/">MAJOR</a></td>
+				<td align="left" width="14%"><a href="/status/PARKINGL,numerix/">PARKINGL</a></td>
+				<td align="left" width="14%"><a href="/status/SCPC11A,numerix/">SCPC11A</a></td>
+				<td align="left" width="14%"><a href="/status/YUMMY,numerix/">YUMMY</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BYECAKES,numerix/">BYECAKES</a></td>
+				<td align="left" width="14%"><a href="/status/DOUBLE,numerix/">DOUBLE</a></td>
+				<td align="left" width="14%"><a href="/status/GUESSTHE,numerix/">GUESSTHE</a></td>
+				<td align="left" width="14%"><a href="/status/MAJSTOR,numerix/">MAJSTOR</a></td>
+				<td align="left" width="14%"><a href="/status/PARTY,numerix/">PARTY</a></td>
+				<td align="left" width="14%"><a href="/status/SCPC11B,numerix/">SCPC11B</a></td>
+				<td align="left" width="14%"><a href="/status/ZIGZAG,numerix/">ZIGZAG</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BYTESE1,numerix/">BYTESE1</a></td>
+				<td align="left" width="14%"><a href="/status/DOUTI,numerix/">DOUTI</a></td>
+				<td align="left" width="14%"><a href="/status/HACKRNDM,numerix/">HACKRNDM</a></td>
+				<td align="left" width="14%"><a href="/status/MANGOES,numerix/">MANGOES</a></td>
+				<td align="left" width="14%"><a href="/status/PATHEADS,numerix/">PATHEADS</a></td>
+				<td align="left" width="14%"><a href="/status/SCPC11G,numerix/">SCPC11G</a></td>
+				<td align="left" width="14%"><a href="/status/ZNANSTVE,numerix/">ZNANSTVE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BYTESE2,numerix/">BYTESE2</a></td>
+				<td align="left" width="14%"><a href="/status/DRAWM,numerix/">DRAWM</a></td>
+				<td align="left" width="14%"><a href="/status/HALLOW,numerix/">HALLOW</a></td>
+				<td align="left" width="14%"><a href="/status/MARBLES,numerix/">MARBLES</a></td>
+				<td align="left" width="14%"><a href="/status/PATT,numerix/">PATT</a></td>
+				<td align="left" width="14%"><a href="/status/SCUBADIV,numerix/">SCUBADIV</a></td>
+				<td align="left" width="14%"><a href="/status/ZSUM,numerix/">ZSUM</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BYTESH1,numerix/">BYTESH1</a></td>
+				<td align="left" width="14%"><a href="/status/DRINK,numerix/">DRINK</a></td>
+				<td align="left" width="14%"><a href="/status/HAMSTER1,numerix/">HAMSTER1</a></td>
+				<td align="left" width="14%"><a href="/status/MARKUP,numerix/">MARKUP</a></td>
+				<td align="left" width="14%"><a href="/status/PB,numerix/">PB</a></td>
+				<td align="left" width="14%"><a href="/status/SERIALN,numerix/">SERIALN</a></td>
+				<td align="left" width="14%"><a href="/status/,numerix/"></a></td>
+				</tr>
+								</table>
+				
+				
+								<h4><span title="List of problems to which solutions were submitted but none of them got AC.">TODO list of classical problems:</span></h4>
+				<table class="table">
+								<tr>
+				<td align="left" width="14%"><a href="/status/CRYPTO,numerix/">CRYPTO</a></td>
+				<td align="left" width="14%"><a href="/status/DONALDO,numerix/">DONALDO</a></td>
+				<td align="left" width="14%"><a href="/status/FINFRAC,numerix/">FINFRAC</a></td>
+				<td align="left" width="14%"><a href="/status/THRBL,numerix/">THRBL</a></td>
+				<td align="left" width="14%"><a href="/status/,numerix/"></a></td>
+				<td align="left" width="14%"><a href="/status/,numerix/"></a></td>
+				<td align="left" width="14%"><a href="/status/,numerix/"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/DCEPC204,numerix/">DCEPC204</a></td>
+				<td align="left" width="14%"><a href="/status/EXAMPLE,numerix/">EXAMPLE</a></td>
+				<td align="left" width="14%"><a href="/status/SUMFOUR,numerix/">SUMFOUR</a></td>
+				<td align="left" width="14%"><a href="/status/,numerix/"></a></td>
+				<td align="left" width="14%"><a href="/status/,numerix/"></a></td>
+				<td align="left" width="14%"><a href="/status/,numerix/"></a></td>
+				<td align="left" width="14%"><a href="/status/,numerix/"></a></td>
+				</tr>
+								</table>
+								
+								<h4>Public problems created by user:</h4>
+				<table class="table">
+								<tr>
+				<td align="left" width="14%"><a href="/problems/POCALC1/">POCALC1</a></td>
+				<td align="left" width="14%"><a href="/problems/TEASTER/">TEASTER</a></td>
+				<td align="left" width="14%"><a href="/problems/PTC/">PTC</a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/problems/PHONMESS/">PHONMESS</a></td>
+				<td align="left" width="14%"><a href="/problems/TETRASUM/">TETRASUM</a></td>
+				<td align="left" width="14%"><a href="/problems/PTCLONG/">PTCLONG</a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/problems/POCALC2/">POCALC2</a></td>
+				<td align="left" width="14%"><a href="/problems/TETRAHRD/">TETRAHRD</a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/problems/LINQSOLV/">LINQSOLV</a></td>
+				<td align="left" width="14%"><a href="/problems/CIRCIRC/">CIRCIRC</a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/problems/FOUROW/">FOUROW</a></td>
+				<td align="left" width="14%"><a href="/problems/MAUMAU/">MAUMAU</a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/problems/PRIMPERM/">PRIMPERM</a></td>
+				<td align="left" width="14%"><a href="/problems/POLYTABL/">POLYTABL</a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/problems/TPRIMPER/">TPRIMPER</a></td>
+				<td align="left" width="14%"><a href="/problems/POLYDRAW/">POLYDRAW</a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				<td align="left" width="14%"><a href="/problems//"></a></td>
+				</tr>
+								</table>
+				</h4>
+							</div>
+		</div>
+	
+	
+	
+	</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<table cellspacing="10" align="center">
+
+
+
+
+
+</table>
+
+
+	<br/>
+</div>
+		
+		
+		<div class="container" id="footer">
+			<div class="row">
+				<div class="col-md-2">
+					
+				</div>
+				<div class="col-md-8 text-center">
+					<a href="/info">About</a> | <a href="/tutorials">Tutorial</a> | <a href="/tools">Tools</a> | <a href="/clusters">Clusters</a> | <a href="/credits">Credits</a> | <a href="/jobs">Jobs</a> | <a href="/sphereengine">API</a> | <a href="/gfx/spoj-terms.pdf" target="_blank">Terms</a>
+				</div>
+				<div class="col-md-2 text-right">
+					<a href="/rss/" ><img src="//stx1.spoj.com/gfx/rss10x10.gif" border=0>&nbsp;RSS</a>&nbsp;
+				</div>
+			</div>
+		</div>
+		
+		<div class="text-center" id="footer-srl">
+			
+	&copy; Spoj.com. All Rights Reserved. Spoj uses <a href="http://sphere-engine.com?utm_campaign=permanent&amp;utm_medium=footer&amp;utm_source=spoj" style="color:black">Sphere Engine</a>&trade; &copy; by <a href="http://sphere-research.com?utm_campaign=permanent&amp;utm_medium=footer&amp;utm_source=spoj" style="color:black">Sphere Research Labs</a>.
+
+		</div> 
+	</div>
+
+	<!-- JavaScripts -->
+	
+		
+	
+	<script type="text/javascript">
+	$(function(){
+		setTimeout(function(){
+			$('.no_a_info').css('visibility', 'visible');
+		}, 5000);
+		
+		if(!$('.aProblemTop').length && !$('.aProblemsTop').length && !$('.aSubmitTop').length && !$('.aStatusTop').length && !$('.aMainRight').length){
+			ga('send', 'event', 'ads', 'no-ads', 'main-contest');
+		}
+		if ($('.aProblemTop').height() == 0){
+			$('.aProblemTop').css({'border': '1px solid #ddd', 'background': '#f0f4e3', 'height': 90});
+			$('.aProblemTop').html($('<p class="text-center">using adblock?</p><h4 class="text-center">Online ads help us to maintain site.</h4><p class="text-center"><strong>please whitelist *.spoj.com</strong></p>'));
+			ga('send', 'event', 'ads', 'adblock2', 'aProblemTop');
+		}
+		if ($('.aProblemsTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aProblemsTop');
+		}
+		if ($('.aSubmitTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aSubmitTop');
+		}
+		if ($('.aStatusTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aStatusTop');
+		}
+		if ($('.aMainRight').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aMainRight');
+		}
+	});
+	</script>
+	
+	
+	<script type="text/javascript" src="//stx1.spoj.com/gfx/jquery.timers.js"></script>
+	<script type="text/javascript" src="//stx1.spoj.com/gfx/jquery.cookie.js"></script>
+	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+	<script src="//stx1.spoj.com/gfx/md5.js"></script>
+	<script src="//stx1.spoj.com/gfx/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
+	<script src="//stx1.spoj.com/gfx/scripts/tour.js"></script>
+	
+	
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&appId=321676846207&version=v2.0";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	
+	
+
+
+<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-10507872-1', 'auto');
+	  ga('require', 'linkid', 'linkid.js');
+	  ga('send', 'pageview');
+	</script>
+<!-- Hotjar Tracking Code for http://www.spoj.com -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:334656,hjsv:5};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<script type="text/javascript">
+	$(function(){
+		$(document).on('click', '.track', function(){
+			var event = $(this).attr('data-event');
+			var action = $(this).attr('data-action');
+			var value = $(this).attr('data-value');
+			ga('send', 'event', event, action, value);
+		});
+	});
+	//window.open('http://incoming.hotjar.com/s/7366', '_blank');
+	</script>
+
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=utf-8"><META NAME="viewport" CONTENT="width=768"><META HTTP-EQUIV="X-UA-Compatible" CONTENT="IE=edge"><TITLE>E. Poker @ Ural Championship 2016 @ Timus Online Judge</TITLE><LINK REL="alternate" HREFLANG="x-default" HREF="/problem.aspx?space=387&amp;num=5"><LINK REL="alternate" HREFLANG="en-us" HREF="/problem.aspx?space=387&amp;num=5&amp;locale=en"><LINK REL="alternate" HREFLANG="ru-ru" HREF="/problem.aspx?space=387&amp;num=5&amp;locale=ru"><LINK REL="stylesheet" TYPE="text/css" HREF="/style52.css"><LINK REL="shortcut icon" TYPE="image/x-icon" HREF="/favicon.ico"></HEAD><BODY><TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" CLASS="body"><TR><TD CLASS="caption"><TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"><TR><TD WIDTH="130" CLASS="locale"><A HREF="/problem.aspx?space=387&amp;num=5&amp;locale=en">ENG</A>&nbsp;&nbsp;<A HREF="/problem.aspx?space=387&amp;num=5&amp;locale=ru">RUS</A></TD><TD CLASS="title"><A HREF="/">Timus Online Judge</A></TD><TD WIDTH="130"></TD></TR></TABLE></TD></TR><TR><TD CLASS="panel"><TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0"><TR><TD WIDTH="130" VALIGN="TOP" ALIGN="CENTER" STYLE="padding-bottom:5px;"><A HREF="/"><IMG BORDER="0" SRC="/images/usu-summer.jpg" HEIGHT="134" WIDTH="106" ALT=""></A></TD><TD VALIGN="TOP" ALIGN="LEFT"><TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" CLASS="panel"><TR><TH WIDTH="25%"><DIV>Online Judge</DIV></TH><TH WIDTH="25%"><DIV>Problems</DIV></TH><TH WIDTH="25%"><DIV>Authors</DIV></TH><TH WIDTH="25%"><DIV>Online contests</DIV></TH></TR><TR><TD VALIGN="TOP" ALIGN="LEFT"><A HREF="/">About Online Judge</A><BR><A HREF="/help.aspx?topic=faq">Frequently asked questions</A><BR><A HREF="/news.aspx">Site news</A><BR><A HREF="/forum/">Webboard</A><BR><A HREF="/help.aspx?topic=links">Links</A><BR></TD><TD VALIGN="TOP" ALIGN="LEFT"><A HREF="/problemset.aspx">Problem set</A><BR><A HREF="/submit.aspx">Submit solution</A><BR><A HREF="/status.aspx">Judge status</A><BR><A HREF="/help.aspx?topic=judge">Guide</A><BR></TD><TD VALIGN="TOP"><A HREF="/register.aspx">Register</A><BR><A HREF="/authedit.aspx">Update your info</A><BR><A HREF="/ranklist.aspx">Authors ranklist</A><BR><FORM ACTION="/search.aspx" METHOD="GET" STYLE="margin-top:0.6em;"><INPUT NAME="Str" SIZE="12" VALUE="" PLACEHOLDER="Author’s name"> <INPUT TYPE="SUBMIT" VALUE="Search"></FORM></TD><TD VALIGN="TOP"><A HREF="/contest.aspx">Current contest</A><BR><A HREF="/schedule.aspx">Scheduled contests</A><BR><A HREF="/archive.aspx">Past contests</A><BR><A HREF="/help.aspx?topic=contest">Rules</A><BR></TD></TR></TABLE></TD></TR></TABLE></TD></TR><TR><TD STYLE="padding-top: 32px; padding-bottom: 20px;"><H2 CLASS="title">Ural Championship 2016</H2><DIV STYLE="text-align:center; margin-bottom:1em;"><A HREF="/contest.aspx?id=387">About</A> &nbsp; &nbsp; <A HREF="/problemset.aspx?space=387" CLASS="selectedMenu">Problems</A> &nbsp; &nbsp; <A HREF="/submit.aspx?space=387">Submit solution</A> &nbsp; &nbsp; <A HREF="/status.aspx?space=387">Judge status</A> &nbsp; &nbsp; <A HREF="/monitor.aspx?id=387">Standings</A></DIV><DIV STYLE="margin-bottom:1em;"><DIV STYLE="text-align:center; font-weight:bold;">Contest is over</DIV></DIV><TABLE ALIGN="CENTER" CELLSPACING="0" CELLPADDING="0"><TR><TD WIDTH="800"><DIV CLASS="problem_content"><H2 class="problem_title">E. Poker</H2><DIV class="problem_limits">Time limit: 2.0 second<BR>Memory limit: 256 MB<BR></DIV><DIV ID="problem_text"><DIV CLASS="problem_par"><DIV CLASS="problem_par_normal">Igor is a former ACM competitor. He likes to play all puzzle games and once he
+has implemented a checker bot. But now Igor is a grown-up and he needs to earn money. He is an engineer in a software company, but he still likes game development.
+Igor has an idea how to combine money and game development &mdash; he wants to implement online poker bot using machine learning techniques, optimizations on assembly language and dll-injections. For that idea he has chosen <i>Texas Holdem</i>.</DIV></DIV><DIV CLASS="problem_par"><DIV CLASS="problem_par_normal">In <i>Texas Holdem</i> there are two to nine players. Each of the players has some number of chips &mdash; player’s <i>stack</i>. During the game players make bets &mdash; put part of thier stack to the common bank. In the end of the game winner gets that bank. Players use standard 52 cards deck.</DIV></DIV><DIV CLASS="problem_par"><DIV CLASS="problem_par_normal">First players should bet <i>ante</i>. One of the players is called <i>dealer</i>. After that two players to the left from the dealer need to bet <i>blinds</i>. <i>Small blind</i> should be bet by the player next to the dealer, <i>big blind</i> &mdash; player sitting next to the small blind. These rules change a little when there are only two players in the game: small blind is bet by dealer.</DIV></DIV><DIV CLASS="problem_par"><DIV CLASS="problem_par_normal">Next step is card dealing. Each player gets two cards and it is only this player who knows these cards. Then the players start the round. Each round consists of stages, called <i>streets</i>. The streets are (in order from first to last):</DIV></DIV><DIV CLASS="problem_par"><DIV CLASS="problem_par_normal"><ul>
+<li> <i>preflop</i>
+<li> <i>flop</i>
+<li> <i>turn</i>
+<li> <i>river</i>
+</ul></DIV></DIV><DIV CLASS="problem_par"><DIV CLASS="problem_par_normal">If after the river there are more than one player left in the round, all these players reveal their cards and player with the best hand takes the bank. In this problem we don’t care about the cards at all.</DIV></DIV><DIV CLASS="problem_par"><DIV CLASS="problem_par_normal">Here is more detailed description of the round. First call on the preflop has  the player next to big blind, on other streets &mdash; the player next to the dealer. During the round players make bets in turns. Players bet cannot be lower than the maximum bet on the current street &mdash; called <i>current bet</i>. If player does not have enough money for the current bet, he can go <i>all in</i> &mdash; bet all money he has. Note that the player can call all-in even if he has more maney than current bet. In the beginning of each street current bet is set to zero. But on the preflop current bet is set to big blind.</DIV></DIV><DIV CLASS="problem_par"><DIV CLASS="problem_par_normal">Each player can make one of the following actions:
+<ul>
+<li> <i>fold</i> &mdash; to discard his hand. Player who folds is excluded from the round. Note that if all player except one fold then that player wins the round.
+<li> <i>call</i> &mdash; to make his bet equal to the current bet, if current bet is not zero. Call means to add some money to player’s bet to make it equal to current bet.
+<li> <i>bet</i> &mdash; to make bet if current bet is zero.
+<li> <i>raise</i> &mdash; to add some money to his bet to make it more than current bet. Current bet should be non zero.
+<li> <i>check</i> &mdash; to ship the bet. If current bet is zero player can skip the bet. Also player can skip the bet if he is big blind on the preflop and there were no raises during the preflop. If player can check and stay in the game player will do that instead of folding.
+</ul></DIV></DIV><DIV CLASS="problem_par"><DIV CLASS="problem_par_normal">When player made an action the turn goes to the next player in clockwise diretion. The street is finished when all bets are done &mdash; all players who have not folded bet the same amount of money.</DIV></DIV><DIV CLASS="problem_par"><DIV CLASS="problem_par_normal">Igor’s bot is a complicated set of modules. Now Igor needs to implement the recognision module:</DIV></DIV><DIV CLASS="problem_par"><DIV CLASS="problem_par_normal"><ol>
+<li> Module is called when bot needs to make a turn.
+<li> In that moment the computer vision component starts and gives the module the information about the current stacks of the players. Component can not recognize bets.
+</ol></DIV></DIV><DIV CLASS="problem_par"><DIV CLASS="problem_par_normal">In the moment the module is called it has the information about start of the game and the current stacks of the players. If that is the first time when module takes turn then it should restore all players’ turns with all data it has. Otherwise module also has the information about all players’ turns before the previous bot turn. Bot needs to restore all players’ turns starting from his last turn and also that turn.</DIV></DIV><DIV CLASS="problem_par"><DIV CLASS="problem_par_normal">Help Igor to implement that module.</DIV></DIV><H3 CLASS="problem_subtitle">Input</H3><DIV CLASS="problem_par"><DIV CLASS="problem_par_normal">First line has 3 integer numbers &mdash; small blind <i>sb</i> (10 &le; <i>sb</i> &le; 500), big blind <i>bb</i> (20 &le; <i>bb</i> &le; 1000, <i>sb</i> &lt; <i>bb</i>) and ante <i>a</i> (0 &le; <i>a</i> &le; 100).</DIV></DIV><DIV CLASS="problem_par"><DIV CLASS="problem_par_normal">Second line has 3 integer numbers &mdash; number of players <i>n</i> (2 &le; <i>n</i> &le; 9), position of the dealer <i>d</i> (1 &le; <i>d</i> &le; <i>n</i>) and position of the bot <i>h</i> (1 &le; <i>h</i> &le; <i>n</i>). Players are indexed in the order they make turns in clockwise order.</DIV></DIV><DIV CLASS="problem_par"><DIV CLASS="problem_par_normal">Third line contains the current street name &mdash; <i>preflop</i>, <i>flop</i>, <i>turn</i> or <i>river</i>.</DIV></DIV><DIV CLASS="problem_par"><DIV CLASS="problem_par_normal">Next <i>n</i> lines contain the description of the players in the order of their indices. Each line contains player name (non-empty string which consists of uppercase and lowercase English letters and digits with lengths no more than 20) and his initial stack (integer from 1 to 20000). All names are different and there is no name &laquo;dealing&raquo; in the input.</DIV></DIV><DIV CLASS="problem_par"><DIV CLASS="problem_par_normal">Next line contains a single integer <i>k</i> &mdash; number of actions which bot knows about (0 &le; <i>k</i> &le; 1000).</DIV></DIV><DIV CLASS="problem_par"><DIV CLASS="problem_par_normal">Next <i>k</i> lines contain these actions. Actions could be changing the street or players’ actions. Here is the format of the actions:
+<ul>
+<li> <i>deal</i>: dealing &lt;street&gt;, new street that we are switching to;
+<li> <i>fold</i>: &lt;player&gt; folds;
+<li> <i>check</i>: &lt;player&gt; checks;
+<li> <i>call</i>: &lt;player&gt; calls &lt;amount&gt;, <i>amount</i> &gt; 0 &mdash; amount of money player has added to his bet;
+<li> <i>bet</i>: &lt;player&gt; bets &lt;amount&gt;, <i>amount</i> &gt; 0 &mdash; amount of money player has added to his bet;
+<li> <i>raise</i>: &lt;player&gt; raises &lt;amount&gt; to &lt;total&gt;, <i>amount</i> &gt; 0 &mdash; amount of money player has increased the current bet, <i>total</i> &gt; <i>amount</i> &mdash; new current bet.
+</ul>
+<i>player</i> &mdash; name of the player. If player calls all-in, that action is presented in the input as raise, bet or call.</DIV></DIV><DIV CLASS="problem_par"><DIV CLASS="problem_par_normal">Finally the last line contains <i>n</i> integers &mdash; current stacks of the players in the order of the player indices.</DIV></DIV><DIV CLASS="problem_par"><DIV CLASS="problem_par_normal">It is guaranteed that all actions are correct.</DIV></DIV><H3 CLASS="problem_subtitle">Output</H3><DIV CLASS="problem_par"><DIV CLASS="problem_par_normal">In the first line output the number of the actions &mdash; <i>m</i>. In the next <i>m</i> lines output the actions in the order players make them in the same format as the input.</DIV></DIV><DIV CLASS="problem_par"><DIV CLASS="problem_par_normal">It is guaranteed that there exists a solution and this solution is unique.</DIV></DIV><H3 CLASS="problem_subtitle">Samples</H3><TABLE CLASS="sample"><TR><TH WIDTH="350">input</TH><TH WIDTH="350">output</TH></TR><TR><TD><PRE>10 20 2
+5 3 4
+preflop
+PhilIvey 500
+TomDwan 500
+ViktorBlom 500
+Grobot 500
+Ziigmund 500
+0
+498 478 438 488 478
+</PRE></TD><TD><PRE>3
+PhilIvey folds
+TomDwan calls 20
+ViktorBlom raises 40 to 60</PRE></TD></TR><TR><TD><PRE>10 20 2
+5 3 4
+flop
+PhilIvey 500
+TomDwan 500
+ViktorBlom 500
+Grobot 500
+Ziigmund 500
+3
+PhilIvey folds
+TomDwan calls 20
+ViktorBlom raises 40 to 60
+498 478 438 438 478
+</PRE></TD><TD><PRE>4
+Grobot calls 50
+Ziigmund folds
+TomDwan folds
+dealing flop
+</PRE></TD></TR><TR><TD><PRE>10 20 2
+5 3 4
+flop
+PhilIvey 500
+TomDwan 500
+ViktorBlom 500
+Grobot 500
+Ziigmund 500
+7
+PhilIvey folds
+TomDwan calls 20
+ViktorBlom raises 40 to 60
+Grobot calls 50
+Ziigmund folds
+TomDwan folds
+dealing flop
+498 478 338 438 478
+</PRE></TD><TD><PRE>2
+Grobot checks
+ViktorBlom bets 100
+</PRE></TD></TR><TR><TD><PRE>50 100 10
+2 2 1
+preflop
+Grobot 2500
+ViktorBlom 2000
+0
+2390 1890
+</PRE></TD><TD><PRE>1
+ViktorBlom calls 50
+</PRE></TD></TR></TABLE><DIV CLASS="problem_source"><B>Problem Author: </B>Igor Chevdar<BR></DIV></DIV></DIV><DIV CLASS="problem_links"><A HREF="print.aspx?space=387&amp;num=5" TARGET="_blank">Printable version</A><BR></DIV>To submit the solution for this problem go to the Problem set: <A HREF="problem.aspx?space=1&amp;num=2082"><nobr>2082. Poker</nobr></A></TD></TR></TABLE></TD></TR><TR><TD CLASS="footer"><script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter20918869 = new Ya.Metrika({ id:20918869, clickmap:true, trackLinks:true, accurateTrackBounce:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="https://mc.yandex.ru/watch/20918869" style="position:absolute; left:-9999px;" alt=""></div></noscript>© 2000–2017 <A HREF="/team.aspx">Timus Online Judge Team</A>. All rights reserved.</TD></TR></TABLE></BODY></HTML>

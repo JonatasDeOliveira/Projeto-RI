@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Maximum flow - PEGWiki</title>
+<meta name="generator" content="MediaWiki 1.25.2" />
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/wiki/index.php?title=Maximum_flow&amp;action=edit" />
+<link rel="edit" title="Edit" href="/wiki/index.php?title=Maximum_flow&amp;action=edit" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/wiki/opensearch_desc.php" title="PEGWiki (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wcipeg.com/wiki/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/Maximum_flow" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="PEGWiki Atom feed" href="/wiki/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="canonical" href="/wiki/Maximum_flow" />
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=ext.math.styles%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:b36fd1c042133c9c9b60260f7c29b237 */</style>
+<script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Maximum_flow","wgTitle":"Maximum flow","wgCurRevisionId":1731,"wgRevisionId":1731,"wgArticleId":481,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Maximum_flow","wgRelevantArticleId":481,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"Maximum_flow_problem","wgInternalRedirectTargetUrl":"/wiki/Maximum_flow"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikidb:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.redirect","mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Maximum_flow skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Maximum flow</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From PEGWiki</div>
+								<div id="contentSub"><span class="mw-redirectedfrom">(Redirected from <a href="/wiki/index.php?title=Maximum_flow_problem&amp;redirect=no" title="Maximum flow problem">Maximum flow problem</a>)</span></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>The <b>maximum flow problem</b> is an optimization problem in <a href="/wiki/Graph_theory" title="Graph theory">graph theory</a>. It deals with a special kind of graph, known as a <i>flow network</i>.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#The_flow_network"><span class="tocnumber">1</span> <span class="toctext">The flow network</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Admissible_flows"><span class="tocnumber">2</span> <span class="toctext">Admissible flows</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Analogies"><span class="tocnumber">2.1</span> <span class="toctext">Analogies</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Residual_network"><span class="tocnumber">2.2</span> <span class="toctext">Residual network</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Statement_of_the_problem"><span class="tocnumber">3</span> <span class="toctext">Statement of the problem</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Algorithms"><span class="tocnumber">4</span> <span class="toctext">Algorithms</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#Ford.E2.80.93Fulkerson_method"><span class="tocnumber">4.1</span> <span class="toctext">Ford–Fulkerson method</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Preflow_push_algorithms"><span class="tocnumber">4.2</span> <span class="toctext">Preflow push algorithms</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Other_approaches"><span class="tocnumber">4.3</span> <span class="toctext">Other approaches</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#Minimum_s-t_cut_problem"><span class="tocnumber">5</span> <span class="toctext">Minimum s-t cut problem</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Variations"><span class="tocnumber">6</span> <span class="toctext">Variations</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#Applications"><span class="tocnumber">7</span> <span class="toctext">Applications</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="The_flow_network">The flow network</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Maximum_flow&amp;action=edit&amp;section=1" title="Edit section: The flow network">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>A flow network is a <a href="/wiki/index.php?title=Directed_graph&amp;action=edit&amp;redlink=1" class="new" title="Directed graph (page does not exist)">directed graph</a> with the following properties:
+</p>
+<ol><li> There are two special nodes, the <i>source</i> (usually denoted <i>s</i>), and the <i>sink</i> (usually denoted <i>t</i>).</li>
+<li> No edges enter the source nor leave the sink.</li>
+<li> To each edge we associate a non-negative real number called the <i>capacity</i>. Thus, we can represent a flow network similarly to how we would represent a weighted graph.</li></ol>
+<p>We may describe a flow network mathematically as a tuple <img class="mwe-math-fallback-image-inline tex" alt="(V, s, t, c)" src="/wiki/images/math/7/f/d/7fd9cd693ea0ba768d118f582ecfef11.png" /> where <img class="mwe-math-fallback-image-inline tex" alt="s, t \in V" src="/wiki/images/math/1/5/7/15753780721821850ae30ed7309bbdf5.png" />, <img class="mwe-math-fallback-image-inline tex" alt="c:V \times V \to [0, \infty)" src="/wiki/images/math/c/9/5/c95383176808ae31f9ec96d6f48fee6b.png" />, and <img class="mwe-math-fallback-image-inline tex" alt="\forall v, c(v, s) = c(t, v) = 0" src="/wiki/images/math/4/2/3/423e8a971e923601b0ea3bf940693264.png" />. Here <img class="mwe-math-fallback-image-inline tex" alt="c(u, v)" src="/wiki/images/math/6/3/9/63900c7efa10a56ca2267a5fb4ee201a.png" /> is the capacity of the edge from <img class="mwe-math-fallback-image-inline tex" alt="u" src="/wiki/images/math/7/b/7/7b774effe4a349c6dd82ad4f4f21d34c.png" /> to <img class="mwe-math-fallback-image-inline tex" alt="v" src="/wiki/images/math/9/e/3/9e3669d19b675bd57058fd4664205d2a.png" />. When we talk about an <i>edge</i> in a flow network, we are talking about an ordered pair of vertices <img class="mwe-math-fallback-image-inline tex" alt="(u, v)" src="/wiki/images/math/9/0/9/9093cc72d2d40694b9361424cb0a6803.png" /> for which <img class="mwe-math-fallback-image-inline tex" alt="c(u, v) &gt; 0" src="/wiki/images/math/b/0/0/b002b21581dd7c805092dd1525a0ac78.png" />. That is, we say that an edge exists from <img class="mwe-math-fallback-image-inline tex" alt="u" src="/wiki/images/math/7/b/7/7b774effe4a349c6dd82ad4f4f21d34c.png" /> to <img class="mwe-math-fallback-image-inline tex" alt="v" src="/wiki/images/math/9/e/3/9e3669d19b675bd57058fd4664205d2a.png" /> if and only if <img class="mwe-math-fallback-image-inline tex" alt="c(u, v) &gt; 0" src="/wiki/images/math/b/0/0/b002b21581dd7c805092dd1525a0ac78.png" />.
+</p><p>A flow network may be used to model real-life systems in which some substance flows from one place (the source) to another (the sink), going through any number of intermediate locations (other nodes) along paths of various maximum capacities connecting locations (edges). This is the motivation behind the statement of the maximum flow problem.
+</p>
+<h2><span class="mw-headline" id="Admissible_flows">Admissible flows</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Maximum_flow&amp;action=edit&amp;section=2" title="Edit section: Admissible flows">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In order to state the maximum flow problem, we must first define the concept of an <i>admissible flow</i>. We have a flow network, and this flow network has a capacity function that represents, in some sense, the maximum rate at which flow can occur between a given pair of vertices. An admissible flow is an actual <i>choice</i> of how much flow to send between each pair of vertices. Of course, this cannot exceed the capacity. Furthermore, sending <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png" /> units of flow from vertex <img class="mwe-math-fallback-image-inline tex" alt="u" src="/wiki/images/math/7/b/7/7b774effe4a349c6dd82ad4f4f21d34c.png" /> to vertex <img class="mwe-math-fallback-image-inline tex" alt="v" src="/wiki/images/math/9/e/3/9e3669d19b675bd57058fd4664205d2a.png" /> is equivalent to sending <img class="mwe-math-fallback-image-inline tex" alt="-x" src="/wiki/images/math/d/2/5/d25c186e3f3096a9ff4a918f7b3141d4.png" /> units of flow from vertex <img class="mwe-math-fallback-image-inline tex" alt="v" src="/wiki/images/math/9/e/3/9e3669d19b675bd57058fd4664205d2a.png" /> to vertex <img class="mwe-math-fallback-image-inline tex" alt="u" src="/wiki/images/math/7/b/7/7b774effe4a349c6dd82ad4f4f21d34c.png" />. Finally, flow is not allowed to "accumulate" at a vertex; the amount flowing in must equal the amount flowing out.
+</p><p>Mathematically, an admissible flow is a function <img class="mwe-math-fallback-image-inline tex" alt="f: V \times V \to \mathbb{R}" src="/wiki/images/math/e/4/e/e4eaf1e229314ee3e7e1d40345a813eb.png" /> such that:
+</p>
+<ol><li> <i>Capacity constraint</i>: <img class="mwe-math-fallback-image-inline tex" alt="\forall u, v \in V \times V, f(u, v) \leq c(u, v)" src="/wiki/images/math/2/d/3/2d36570a92987ed7515a7446ce1b3376.png" />.</li>
+<li> <i>Skew symmetry</i>: <img class="mwe-math-fallback-image-inline tex" alt="\forall u, v \in V, f(u, v) = -f(v, u)" src="/wiki/images/math/6/9/0/690d32245f1ced829ddc37d23bd439d8.png" />.</li>
+<li> <i>Conservation of flow</i>: <img class="mwe-math-fallback-image-inline tex" alt="\forall u \in V, \sum_{v \in V} f(u, v) = 0" src="/wiki/images/math/2/5/b/25bc0521f34729e6ee3eb41f42ff5639.png" />.</li></ol>
+<p>Note that the conservation constraint is more naturally translated as <img class="mwe-math-fallback-image-inline tex" alt="\forall u \in V, \sum_{v \in V} f(u, v) = \sum_{v \in V} f(v, u)" src="/wiki/images/math/3/e/6/3e6b14e0e0d347ef993dee44aed27923.png" /> based on our description above ("the amount flowing in must equal the amount flowing out"). However, as a consequence of the skew symmetry constraint, <img class="mwe-math-fallback-image-inline tex" alt="\sum_{v \in V} f(v, u) = \sum_{v \in V} -f(u, v) = -\sum_{v \in V} f(u, v)" src="/wiki/images/math/5/6/1/56113d0f483e0e7d171b7fb403b388e2.png" />. If this is to equal <img class="mwe-math-fallback-image-inline tex" alt="\sum_{v \in V} f(u, v)" src="/wiki/images/math/a/1/1/a113e535d056a053d09694eb4f89e90d.png" />, then this quantity must be identically zero.
+</p><p>An edge <img class="mwe-math-fallback-image-inline tex" alt="(u, v)" src="/wiki/images/math/9/0/9/9093cc72d2d40694b9361424cb0a6803.png" /> and its reverse edge <img class="mwe-math-fallback-image-inline tex" alt="(v, u)" src="/wiki/images/math/4/7/0/470302bcbb844fe5e3a4402cdeaf474d.png" /> may have different capacities. For example, if <img class="mwe-math-fallback-image-inline tex" alt="c(u, v) = 5" src="/wiki/images/math/2/7/b/27bf618632f86c457fd51242654cf1ac.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="c(v, u) = 3" src="/wiki/images/math/a/6/8/a68e2c3cb465d4f89ac6ce94be3bbd7a.png" />, then we can, for example, send 4 units of flow from <img class="mwe-math-fallback-image-inline tex" alt="u" src="/wiki/images/math/7/b/7/7b774effe4a349c6dd82ad4f4f21d34c.png" /> to <img class="mwe-math-fallback-image-inline tex" alt="v" src="/wiki/images/math/9/e/3/9e3669d19b675bd57058fd4664205d2a.png" /> and -4 units from <img class="mwe-math-fallback-image-inline tex" alt="v" src="/wiki/images/math/9/e/3/9e3669d19b675bd57058fd4664205d2a.png" /> to <img class="mwe-math-fallback-image-inline tex" alt="u" src="/wiki/images/math/7/b/7/7b774effe4a349c6dd82ad4f4f21d34c.png" />. (Negative flow always satisfies a capacity constraint.) We cannot send 4 units of flow from <img class="mwe-math-fallback-image-inline tex" alt="v" src="/wiki/images/math/9/e/3/9e3669d19b675bd57058fd4664205d2a.png" /> to <img class="mwe-math-fallback-image-inline tex" alt="u" src="/wiki/images/math/7/b/7/7b774effe4a349c6dd82ad4f4f21d34c.png" /> and -4 units from <img class="mwe-math-fallback-image-inline tex" alt="u" src="/wiki/images/math/7/b/7/7b774effe4a349c6dd82ad4f4f21d34c.png" /> to <img class="mwe-math-fallback-image-inline tex" alt="v" src="/wiki/images/math/9/e/3/9e3669d19b675bd57058fd4664205d2a.png" />, however, because <img class="mwe-math-fallback-image-inline tex" alt="4 &gt; 3 = c(v, u)" src="/wiki/images/math/a/9/7/a9773f8bf44ebdecc665e2ab641847ab.png" />. If positive flow goes from <img class="mwe-math-fallback-image-inline tex" alt="v" src="/wiki/images/math/9/e/3/9e3669d19b675bd57058fd4664205d2a.png" /> to <img class="mwe-math-fallback-image-inline tex" alt="u" src="/wiki/images/math/7/b/7/7b774effe4a349c6dd82ad4f4f21d34c.png" />, we can only send up to 3 units. We also cannot send 5 units from <img class="mwe-math-fallback-image-inline tex" alt="u" src="/wiki/images/math/7/b/7/7b774effe4a349c6dd82ad4f4f21d34c.png" /> to <img class="mwe-math-fallback-image-inline tex" alt="v" src="/wiki/images/math/9/e/3/9e3669d19b675bd57058fd4664205d2a.png" /> and 3 units from <img class="mwe-math-fallback-image-inline tex" alt="v" src="/wiki/images/math/9/e/3/9e3669d19b675bd57058fd4664205d2a.png" /> to <img class="mwe-math-fallback-image-inline tex" alt="u" src="/wiki/images/math/7/b/7/7b774effe4a349c6dd82ad4f4f21d34c.png" />, because this violates skew symmetry.
+</p><p>In the remainder of this article, <i>flow</i> will mean <i>admissible flow</i> when the context is appropriate.
+</p>
+<h3><span class="mw-headline" id="Analogies">Analogies</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Maximum_flow&amp;action=edit&amp;section=3" title="Edit section: Analogies">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<ul><li> In one possible analogy, the edges represent pipes, each of which has some maximum rate at which it can transport water (the capacity). An admissible flow then corresponds to some way of sending water through the pipes from source to sink through a series of intermediate nodes. The rate at which water flows into an intermediate node must equal the rate at which water flows out of the same node, because the nodes can't store excess water, and water can't just come out of nowhere.</li>
+<li> In another possible analogy, the edges represent conducting wires, each of which has some maximum amount of current it can conduct before it overheats and melts; the source represents a generator and the sink represents a device that consumes electrical power. Here, the balance condition is Kirchhoff's current law, stating that the total current flowing into a vertex equals the total current flowing out of it, and corresponds to the fact that any imbalance in current would result in an accumulation of either positive or negative charge at that vertex. In this analogy, the role of skew symmetry is clearer. In circuit analysis, sending a positive current from one node to another is equivalent to sending the same amount of negative current in the other direction.</li></ul>
+<h3><span class="mw-headline" id="Residual_network">Residual network</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Maximum_flow&amp;action=edit&amp;section=4" title="Edit section: Residual network">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Given a flow network <img class="mwe-math-fallback-image-inline tex" alt="(V, s, t, c)" src="/wiki/images/math/7/f/d/7fd9cd693ea0ba768d118f582ecfef11.png" /> and a flow <img class="mwe-math-fallback-image-inline tex" alt="f" src="/wiki/images/math/8/f/a/8fa14cdd754f91cc6554c9e71929cce7.png" />, we may form the <i>residual capacity network</i> or simply <i>residual network</i> <img class="mwe-math-fallback-image-inline tex" alt="(V, s, t, r)" src="/wiki/images/math/1/d/6/1d60b8f666aa07804bde18739146ddd6.png" />. This is a new flow network in which <img class="mwe-math-fallback-image-inline tex" alt="r(u, v) = c(u, v) - f(u, v)" src="/wiki/images/math/f/4/f/f4f98952d35663a8eceff197f8c3b5af.png" />. Because <img class="mwe-math-fallback-image-inline tex" alt="c(u, v) - f(u, v) \geq 0" src="/wiki/images/math/d/0/c/d0cd080b24bc23e177c543a7c641ec65.png" /> for any valid flow, <img class="mwe-math-fallback-image-inline tex" alt="r" src="/wiki/images/math/4/b/4/4b43b0aee35624cd95b910189b3dc231.png" /> is a valid capacity function (takes on nonnegative values only). The residual network may contain edges that the original network does not. In particular, if <img class="mwe-math-fallback-image-inline tex" alt="c(u, v) &gt; 0" src="/wiki/images/math/b/0/0/b002b21581dd7c805092dd1525a0ac78.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="c(v, u) = 0" src="/wiki/images/math/4/3/b/43b8d310c2aa7946d2806a95c12bb207.png" />, and we send flow from <img class="mwe-math-fallback-image-inline tex" alt="u" src="/wiki/images/math/7/b/7/7b774effe4a349c6dd82ad4f4f21d34c.png" /> to <img class="mwe-math-fallback-image-inline tex" alt="v" src="/wiki/images/math/9/e/3/9e3669d19b675bd57058fd4664205d2a.png" /> in <img class="mwe-math-fallback-image-inline tex" alt="f" src="/wiki/images/math/8/f/a/8fa14cdd754f91cc6554c9e71929cce7.png" />, that is, <img class="mwe-math-fallback-image-inline tex" alt="f(u, v) &gt; 0" src="/wiki/images/math/7/2/e/72ed725f1d51fb5dcd05f4687953e3eb.png" />, then <img class="mwe-math-fallback-image-inline tex" alt="r(v, u) = c(v, u) - f(v, u) = 0 + f(u, v) &gt; 0" src="/wiki/images/math/4/e/c/4ec2d08a2158848865b1099a943a0b93.png" />. In other words, sending flow in one direction between two vertices can generate a <i>back edge</i> in the residual network. If a reverse edge already existed, then sending flow along the forward edge causes the capacity of the reverse edge to increase in the residual network.
+</p><p>The residual network tells us how much capacity is <i>left</i> in the original flow network after we've already sent some flow through it. The appearance of back edges corresponds to the fact that we are now allowed to send flow in the other direction to cancel out the existing flow. For example, if <img class="mwe-math-fallback-image-inline tex" alt="c(u, v) = 8" src="/wiki/images/math/a/7/c/a7c173b711976be721a6106445e776f2.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="c(v, u) = 0" src="/wiki/images/math/4/3/b/43b8d310c2aa7946d2806a95c12bb207.png" />, and <img class="mwe-math-fallback-image-inline tex" alt="f(u, v) = 6" src="/wiki/images/math/1/1/8/118de5200c0f4ce1c2fe60755aeb8547.png" />, then <img class="mwe-math-fallback-image-inline tex" alt="r(u, v) = 2" src="/wiki/images/math/d/e/7/de7b7dc780d300130af7713b4a7b0647.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="r(v, u) = 6" src="/wiki/images/math/5/c/a/5ca2c819db5e3678ed2a335a1a5ce915.png" />. We can send further flow of up to 2 units in the <img class="mwe-math-fallback-image-inline tex" alt="u" src="/wiki/images/math/7/b/7/7b774effe4a349c6dd82ad4f4f21d34c.png" /> to <img class="mwe-math-fallback-image-inline tex" alt="v" src="/wiki/images/math/9/e/3/9e3669d19b675bd57058fd4664205d2a.png" /> direction, or we can send flow from <img class="mwe-math-fallback-image-inline tex" alt="v" src="/wiki/images/math/9/e/3/9e3669d19b675bd57058fd4664205d2a.png" /> to  <img class="mwe-math-fallback-image-inline tex" alt="u" src="/wiki/images/math/7/b/7/7b774effe4a349c6dd82ad4f4f21d34c.png" /> of up to 6 units. As long as we do not send more than 6 units in the <img class="mwe-math-fallback-image-inline tex" alt="v" src="/wiki/images/math/9/e/3/9e3669d19b675bd57058fd4664205d2a.png" /> to <img class="mwe-math-fallback-image-inline tex" alt="u" src="/wiki/images/math/7/b/7/7b774effe4a349c6dd82ad4f4f21d34c.png" /> direction, this will just cancel out the existing flow and the total flow from <img class="mwe-math-fallback-image-inline tex" alt="v" src="/wiki/images/math/9/e/3/9e3669d19b675bd57058fd4664205d2a.png" /> to <img class="mwe-math-fallback-image-inline tex" alt="u" src="/wiki/images/math/7/b/7/7b774effe4a349c6dd82ad4f4f21d34c.png" /> will still be less than or equal to zero, which makes the flow valid for the original network.
+</p>
+<h2><span class="mw-headline" id="Statement_of_the_problem">Statement of the problem</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Maximum_flow&amp;action=edit&amp;section=5" title="Edit section: Statement of the problem">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Given an admissible flow, although incoming flow and outgoing flow balance at all vertices other than the source and the sink, the same is not true at the source and sink. Indeed, we can have flow out from the source, but not in, since no edges enter the source; we can have flow into the sink but not out, since no edges leave the sink. The objective of the problem is to find an admissible flow that maximizes the total flow out of the source or into the sink. Such a flow is called a <strong class="selflink">maximum flow</strong>.
+</p><p><b>Proposition</b>: The total outgoing flow at the source equals the total incoming flow at the sink.
+</p><p><b>Proof</b>: Consider the total outgoing flow at all vertices, <img class="mwe-math-fallback-image-inline tex" alt="\sum_{u \in V} \sum_{v \in V} f(u, v)" src="/wiki/images/math/b/0/b/b0b253c001cfb8d43a89a5972295178b.png" />. This is zero by skew symmetry. Explicitly:
+</p>
+<dl><dd><img class="mwe-math-fallback-image-inline tex" alt="\sum_{u \in V} \sum_{v \in V} f(u, v)" src="/wiki/images/math/b/0/b/b0b253c001cfb8d43a89a5972295178b.png" /></dd>
+<dd><img class="mwe-math-fallback-image-inline tex" alt="= \sum_{u \in V} \sum_{v \in V} \frac{1}{2} (f(u, v) + f(u, v))" src="/wiki/images/math/f/4/7/f47162d4836b76c064cbadf8b99faeb0.png" /></dd>
+<dd><img class="mwe-math-fallback-image-inline tex" alt="= \sum_{u \in V} \sum_{v \in V} \frac{1}{2} (f(u, v) - f(v, u))" src="/wiki/images/math/4/6/8/4680f63eab62d509fcb88139d69b3b4c.png" /></dd>
+<dd><img class="mwe-math-fallback-image-inline tex" alt="= \frac{1}{2} \sum_{u \in V} \sum_{v \in V} f(u, v) - \frac{1}{2} \sum_{u \in V} \sum_{v \in V} f(v, u)" src="/wiki/images/math/b/0/4/b04ded9568413b8c7fc5523be2aa991e.png" /></dd>
+<dd><img class="mwe-math-fallback-image-inline tex" alt="= \frac{1}{2} \sum_{u \in V} \sum_{v \in V} f(u, v) - \frac{1}{2} \sum_{u \in V} \sum_{v \in V} f(u, v)" src="/wiki/images/math/2/f/a/2fad3b92a921680059fe0853724dda44.png" /></dd>
+<dd><img class="mwe-math-fallback-image-inline tex" alt="= 0" src="/wiki/images/math/4/e/0/4e0eea1bd7d6e46116f2b7fbbe8d4026.png" /></dd></dl>
+<p>where, between the third-to-last and second-to-last lines, we have relabelled the dummy variables <img class="mwe-math-fallback-image-inline tex" alt="u" src="/wiki/images/math/7/b/7/7b774effe4a349c6dd82ad4f4f21d34c.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="v" src="/wiki/images/math/9/e/3/9e3669d19b675bd57058fd4664205d2a.png" /> in the second term and exchanged the order of summation.
+</p><p>We now rewrite the original sum as <img class="mwe-math-fallback-image-inline tex" alt="\sum_{u \in V-\{s, t\}} \sum_{v \in V} f(u, v) + \sum_{v \in V} f(s, v) + \sum_{v \in V} f(t, v)" src="/wiki/images/math/6/f/a/6fade8514c35a6f98b822bfcd70930bd.png" />. The first term is zero, by the conservation constraint. The entire expression also equals zero. Therefore <img class="mwe-math-fallback-image-inline tex" alt="\sum_{v \in V} f(s, v) = -\sum_{v \in V} f(t, v) = \sum_{v \in V} f(v, t)" src="/wiki/images/math/0/9/9/099c8bd2f48885bfa7f45215d7abb54a.png" />, which is what we wanted. <img class="mwe-math-fallback-image-inline tex" alt="_\blacksquare" src="/wiki/images/math/7/7/3/773d97c085dfd2ddd2d1d170ff65aa2e.png" />
+</p><p>This common value is called the <i>value</i> of the flow. This is what we wish to maximize in the maximum flow problem.
+</p>
+<h2><span class="mw-headline" id="Algorithms">Algorithms</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Maximum_flow&amp;action=edit&amp;section=6" title="Edit section: Algorithms">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>There are a variety of algorithms for finding a maximum flow in a flow network. The simplest are the <i>Ford–Fulkerson method</i> and the <i>preflow push algorithms</i>.
+</p>
+<h3><span class="mw-headline" id="Ford.E2.80.93Fulkerson_method">Ford–Fulkerson method</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Maximum_flow&amp;action=edit&amp;section=7" title="Edit section: Ford–Fulkerson method">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The <a href="/wiki/Ford%E2%80%93Fulkerson_method" title="Ford–Fulkerson method">Ford–Fulkerson method</a> (q.v.) comprises a set of algorithms that each proceed in a series of steps, gradually building up an admissible flow until it has reached its maximum value. Each step of the algorithm takes the previous step's output, an admissible flow, as input, and produces an admissible flow of greater value, until no further refinement is possible. The input for the first step is the empty flow (<img class="mwe-math-fallback-image-inline tex" alt="\forall u, v \in V, f(u, v) = 0" src="/wiki/images/math/b/2/f/b2fc10b2fb9eb87286f4f21c8d2d4f08.png" />), which is always admissible. The refinement is done by finding an <i>s</i>-<i>t</i> path in the flow network that can be "added" to the current admissible flow, called an <i>augmenting path</i>. In subsequent stages, we find an augmenting path in the <i>residual</i> network rather than the original network. Once an augmenting path can no longer be found in the residual network, the network is saturated with flow and the algorithm terminates.
+</p><p>There is flexibility in how to choose the augmenting path at each step. A simple approach is to always pick the path with the fewest edges; this gives the <a href="/wiki/Edmonds%E2%80%93Karp_algorithm" title="Edmonds–Karp algorithm">Edmonds–Karp algorithm</a>. A faster and more sophisticated approach involves partitioning the graph into level sets by distance from the source and only considering paths in which each edge proceeds from a level to the next. This is called <a href="/wiki/index.php?title=Dinic%27s_algorithm&amp;action=edit&amp;redlink=1" class="new" title="Dinic's algorithm (page does not exist)">Dinic's algorithm</a>.
+</p>
+<h3><span class="mw-headline" id="Preflow_push_algorithms">Preflow push algorithms</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Maximum_flow&amp;action=edit&amp;section=8" title="Edit section: Preflow push algorithms">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p><a href="/wiki/index.php?title=Preflow_push_algorithms&amp;action=edit&amp;redlink=1" class="new" title="Preflow push algorithms (page does not exist)">Preflow push algorithms</a> differ from augmenting path algorithms in that they do not maintain an admissible flow in each step, but instead maintain a <i>preflow</i>, in which the total flow entering a vertex is allowed to <i>exceed</i> the total flow exiting the vertex (but not <i>vice versa</i>). The algorithm begins by generating a preflow in which every edge leaving the source is saturated (so that the source's neighbours all have excess incoming flow). Each step of the algorithm then attempts to discharge some vertex's excess by pushing flow from that vertex to an adjacent vertex. Some flow will be discharged into the sink, and whatever flow cannot be discharged into the sink eventually finds its way back to the source. The algorithm terminates when the intermediate vertices have completely discharged all of their excess incoming flow, and thus an admissible flow has been found.
+</p>
+<h3><span class="mw-headline" id="Other_approaches">Other approaches</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Maximum_flow&amp;action=edit&amp;section=9" title="Edit section: Other approaches">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The max flow problem may be expressed as a <a href="/wiki/index.php?title=Linear_program&amp;action=edit&amp;redlink=1" class="new" title="Linear program (page does not exist)">linear program</a> and solved using the techniques of linear programming. Here the vector to be optimized corresponds to the flow <img class="mwe-math-fallback-image-inline tex" alt="f" src="/wiki/images/math/8/f/a/8fa14cdd754f91cc6554c9e71929cce7.png" />, and has one entry for each edge in the graph. Both the capacity constraints and the balance condition are linear, and may be expressed in the form <img class="mwe-math-fallback-image-inline tex" alt="A\mathbf{x} \leq \mathbf{b}" src="/wiki/images/math/5/9/7/5973a058a56cfdd670a698ce56957c85.png" />. The value of the flow is also a linear function of the vector <img class="mwe-math-fallback-image-inline tex" alt="\mathbf{x}" src="/wiki/images/math/3/c/6/3c66d9170d4c3fb75456e1a9fc6ead37.png" />. Details are left as an exercise for the reader.
+</p><p>Even more sophisticated approaches were given by King, Rao, and Tarjan (1994) and Orlin (2012). Combining the two approaches gives a lower bound of <img class="mwe-math-fallback-image-inline tex" alt="O(VE)" src="/wiki/images/math/8/c/0/8c027a5c7a221c5c2f990088f3652616.png" /> on the general max flow problem, the best known to date.
+</p>
+<h2><span class="mw-headline" id="Minimum_s-t_cut_problem">Minimum s-t cut problem</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Maximum_flow&amp;action=edit&amp;section=10" title="Edit section: Minimum s-t cut problem">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Given a directed graph with two special nodes, the source <i>s</i> (with all edges outgoing) and the sink <i>t</i> (with all edges incoming), we can define an <i>s-t cut</i> as a subset of edges that, when removed from the graph, leave the sink unreachable from the source. For example, if there is no path from the source to the sink in the original graph, then the empty set is a valid s-t cut (as are all other subsets of <img class="mwe-math-fallback-image-inline tex" alt="E" src="/wiki/images/math/3/a/3/3a3ea00cfc35332cedf6e5e9a32e94da.png" />).
+</p><p>If the graph is weighted, then we may ask for a <b>minimum s-t cut</b>, that is, an s-t cut whose total weight (sum of the weights of the edges it comprises) is as small as possible. We will refer to such a graph as a <i>weighted s-t graph</i> and represent it as <img class="mwe-math-fallback-image-inline tex" alt="(V, E, s, t, w)" src="/wiki/images/math/4/5/a/45a916e3f3efc0c2f31d6ef06c79dafb.png" /> with <img class="mwe-math-fallback-image-inline tex" alt="w:E \to [0, \infty)" src="/wiki/images/math/a/7/4/a74e4816f1a86432f99aa789cfd94d19.png" /> representing the edge weights. Negative-weight edges are not allowed for simplicity, but it is easy to handle them: it is always better to cut them than not to cut them, so we remove them from the graph immediately.
+</p><p>A common analogy is bombing enemy supply lines. Here, there is a set of one-way roads (edges) and warehouses (vertices) used to transport materials from some factory (the source) to the front lines (the sink). Each road has a certain cost to bomb (its weight), and we want to bomb enough roads to disconnect the factory from the front lines, while minimizing total cost.
+</p><p>For any weighted s-t graph <img class="mwe-math-fallback-image-inline tex" alt="(V, E, s, t, w)" src="/wiki/images/math/4/5/a/45a916e3f3efc0c2f31d6ef06c79dafb.png" />, there is a corresponding flow network <img class="mwe-math-fallback-image-inline tex" alt="(V, s, t, c)" src="/wiki/images/math/7/f/d/7fd9cd693ea0ba768d118f582ecfef11.png" /> with the same structure. Here, <img class="mwe-math-fallback-image-inline tex" alt="c(u, v) = w((u, v))" src="/wiki/images/math/0/0/c/00c92872da9df5a1f3d1b466bf194cc6.png" /> if <img class="mwe-math-fallback-image-inline tex" alt="(u, v) \in E" src="/wiki/images/math/2/0/7/2077a4df35530fa21c75805d81eb3822.png" />, otherwise <img class="mwe-math-fallback-image-inline tex" alt="c(u, v) = 0" src="/wiki/images/math/a/3/c/a3c4fb13c8640fe281ae8a56189a50f1.png" />. In other words, the capacity between two vertices in the flow network is just the weight of the edge between them in the weighted s-t graph, or zero if there is no such edge.
+</p><p>A famous result known as the <a href="/wiki/Max-flow_min-cut_theorem" title="Max-flow min-cut theorem">max-flow min-cut theorem</a> demonstrates the equivalence of the maximum flow and minimum s-t cut problems. The theorem tells us that the value of a max flow in a flow network equals the total weight of a min cut in the corresponding weighted s-t graph. Because of this, there is no need to devise separate algorithms for the max flow and minimum s-t cut problems. Constructing a min cut from a max flow is straightforward and is based on the proof of the theorem. On the other hand, a max flow cannot be straightforwardly constructed from a min cut.
+</p>
+<h2><span class="mw-headline" id="Variations">Variations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Maximum_flow&amp;action=edit&amp;section=11" title="Edit section: Variations">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>One or more edges in a flow network may be <i>uncapacitated</i>. Such an edge has unlimited capacity. We can usually handle such edges by setting their capacity to a very large value, greater than the sum of capacities of all capacitated edges in the graph. An uncapacitated edge in a flow network corresponds to an uncuttable edge in a weighted s-t graph.
+</p><p>Sometimes we may have to deal with a variation of a flow network in which there may be multiple sources or multiple sinks. This can be handled by adding a new "supersource" with an uncapacitated edge to each of the original sources. Likewise, we can add a new "supersink" with an uncapacitated edge from each of the original sinks.
+</p><p>A flow network in which there are multiple edges between a given pair of vertices can be handled by replacing the multiple edges by a single edge whose capacity equals the sum of the capacities of the original edges.
+</p><p>The maximum flow problem is easily solved when there are <i>vertex capacities</i> in addition to edge capacities. A vertex capacity <img class="mwe-math-fallback-image-inline tex" alt="c(v)" src="/wiki/images/math/f/8/e/f8e3f0764c06ab3c3df551ff23a3c45f.png" /> is the constraint that <img class="mwe-math-fallback-image-inline tex" alt="\sum_{u \in V} \max(f(u, v), 0) \leq c(v)" src="/wiki/images/math/a/6/3/a63c5d069c6c90d26591ef5f02715436.png" />; in other words, the total amount of incoming positive flow (or, equivalently, outgoing positive flow) cannot exceed the capacity. We can always reduce a network with vertex capacities to a network with only edge capacities and hence solve the problem using any standard max flow algorithm on the result of the reduction. To do so, we split each vertex <img class="mwe-math-fallback-image-inline tex" alt="v" src="/wiki/images/math/9/e/3/9e3669d19b675bd57058fd4664205d2a.png" /> into an "incoming vertex" <img class="mwe-math-fallback-image-inline tex" alt="v_i" src="/wiki/images/math/f/0/e/f0e66f55342ef85ba8be3415dd92d8e2.png" /> and an "outgoing vertex" <img class="mwe-math-fallback-image-inline tex" alt="v_o" src="/wiki/images/math/7/b/3/7b33ea6531fb1079f440c318bee67ceb.png" />. Every edge <img class="mwe-math-fallback-image-inline tex" alt="(u, v)" src="/wiki/images/math/9/0/9/9093cc72d2d40694b9361424cb0a6803.png" /> in the original network is mapped to the edge <img class="mwe-math-fallback-image-inline tex" alt="(u_o, v_i)" src="/wiki/images/math/4/8/f/48f28a8d9232a69a434c72f3af7482ee.png" /> in the new network (<i>i.e.</i>, an edge leaving the outgoing vertex of <img class="mwe-math-fallback-image-inline tex" alt="u" src="/wiki/images/math/7/b/7/7b774effe4a349c6dd82ad4f4f21d34c.png" /> and entering the incoming vertex of <img class="mwe-math-fallback-image-inline tex" alt="v" src="/wiki/images/math/9/e/3/9e3669d19b675bd57058fd4664205d2a.png" />) of the same capacity. Furthermore, we add an edge from <img class="mwe-math-fallback-image-inline tex" alt="v_i" src="/wiki/images/math/f/0/e/f0e66f55342ef85ba8be3415dd92d8e2.png" /> to <img class="mwe-math-fallback-image-inline tex" alt="v_o" src="/wiki/images/math/7/b/3/7b33ea6531fb1079f440c318bee67ceb.png" /> whose capacity equals the original vertex capacity <img class="mwe-math-fallback-image-inline tex" alt="c(v)" src="/wiki/images/math/f/8/e/f8e3f0764c06ab3c3df551ff23a3c45f.png" />. In such a way, all flow that would have gone through <img class="mwe-math-fallback-image-inline tex" alt="v" src="/wiki/images/math/9/e/3/9e3669d19b675bd57058fd4664205d2a.png" /> in the original graph must now enter through <img class="mwe-math-fallback-image-inline tex" alt="v_i" src="/wiki/images/math/f/0/e/f0e66f55342ef85ba8be3415dd92d8e2.png" /> and exit through <img class="mwe-math-fallback-image-inline tex" alt="v_o" src="/wiki/images/math/7/b/3/7b33ea6531fb1079f440c318bee67ceb.png" />, going through the edge <img class="mwe-math-fallback-image-inline tex" alt="(v_i, v_o)" src="/wiki/images/math/7/3/0/730683f0cbf0df0dd64e5d4a50d8ba29.png" />; a constraint on this edge therefore yields the desired result, effectively a constraint on the original vertex.
+</p><p>We can likewise consider the minimum s-t cut problem in which we are allowed to remove vertices (for a cost) as well as edges. The reduction is analogous: we split each vertex into an incoming vertex and an outgoing vertex, with an edge from the incoming vertex to the outgoing vertex whose weight equals the original vertex cost.
+</p>
+<h2><span class="mw-headline" id="Applications">Applications</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Maximum_flow&amp;action=edit&amp;section=12" title="Edit section: Applications">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>TODO
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.115 seconds
+Real time usage: 0.130 seconds
+Preprocessor visited node count: 1046/1000000
+Preprocessor generated node count: 2272/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:481-0!*!0!!en!*!*!math=0 and timestamp 20180418004159 and revision id 1731
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wcipeg.com/wiki/index.php?title=Maximum_flow&amp;oldid=1731">https://wcipeg.com/wiki/index.php?title=Maximum_flow&amp;oldid=1731</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Maximum+flow&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Maximum+flow" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/Maximum_flow"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/wiki/index.php?title=Talk:Maximum_flow&amp;action=edit&amp;redlink=1"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Maximum_flow" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/wiki/index.php?title=Maximum_flow&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/wiki/index.php?title=Maximum_flow&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search PEGWiki [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+													<li id="n-Index"><a href="/wiki/Special:AllPages">Index</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+													<li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Maximum_flow" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Maximum_flow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/wiki/index.php?title=Maximum_flow&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/wiki/index.php?title=Maximum_flow&amp;oldid=1731" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/wiki/index.php?title=Maximum_flow&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 9 September 2013, at 03:22.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Attribution 3.0 Unported</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/PEGWiki:Privacy_policy" title="PEGWiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/PEGWiki:About" title="PEGWiki:About">About PEGWiki</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/PEGWiki:General_disclaimer" title="PEGWiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by/3.0/"><img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Attribution 3.0 Unported" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wiki/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wcipeg.com/wiki/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":72});
+}</script>
+	</body>
+</html>

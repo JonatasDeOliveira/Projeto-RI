@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="not-ie" lang="en"> <!--<![endif]-->
+<head>
+	<!-- main header -->
+	<meta charset="utf-8">
+	
+				<title>Sphere Online Judge (SPOJ)  - User stilwell</title>
+	  
+	<meta name="keywords" content="language, algorithm, spoj, contest, contester, Java, C#, Pascal, C, C++, python, ruby, caml, ocaml, perl, haskell, lisp, prolog, fortran, assembler, asembler, functional, online, judge, problem, problemset, ACM">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  		<meta property="og:image" content="//stx1.spoj.com/gfx/spoj-fb.jpg"/>
+	<meta property="og:description" content="SPOJ (Sphere Online Judge) is an online judge system with over 315,000 registered users and over 20000 problems. The solution to problems can be submitted in over 60 languages including C, C++, Java, Python, C#, Go, Haskell, Ocaml, and F#. SPOJ has a rapidly growing problem set/tasks available for practice 24 hours/day, including many original tasks prepared by the community of expert problem setters associated with the project."/>
+	<meta name="description" content="SPOJ (Sphere Online Judge) is an online judge system with over 315,000 registered users and over 20000 problems. The solution to problems can be submitted in over 60 languages including C, C++, Java, Python, C#, Go, Haskell, Ocaml, and F#. SPOJ has a rapidly growing problem set/tasks available for practice 24 hours/day, including many original tasks prepared by the community of expert problem setters associated with the project."/>
+		<meta property="og:site_name" content="spoj.com"/>
+
+  <!--[if (gte IE 9)|!(IE)]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" id="metatag">
+  <![endif]--> 
+
+	  <!-- Favicon -->
+	  <link href="//stx1.spoj.com/gfx/favicon_new.png" rel="shortcut icon" type="image/x-icon" />
+	  
+	  <!-- RSS -->
+	  <link href="/rss/" rel="alternate" type="application/rss+xml" title="RSS Feed">
+	
+	  <!-- Web Fonts -->
+	  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet" type="text/css">  
+
+	<!-- Internet Explorer condition - HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]--> 
+	
+	
+	
+	<!-- CSS: Bootstrap, Font-awesome, Bootstrap libs,  -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" />
+  	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  	<link href="//stx1.spoj.com/gfx/bootstrap-tour/build/css/bootstrap-tour.min.css" rel="stylesheet" />
+  	<link href="//stx1.spoj.com/themes/bootstrap-social.css" rel="stylesheet" type="text/css" />
+  	
+	<link href="//stx1.spoj.com/themes/common.css?4" rel="stylesheet" type="text/css" id="theme0" />
+	<link href="//stx1.spoj.com/themes/en_new.css?4" rel="stylesheet" type="text/css" id="theme" />
+	
+	<!-- JS -->
+	<script type="text/javascript" src='//code.jquery.com/jquery-1.11.1.min.js'></script>
+	<script type="text/javascript" src="//code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+	
+		<link href="//stx1.spoj.com/themes/cal-heatmap.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src='//stx1.spoj.com/js/d3.v3.min.js'></script>
+	<script type="text/javascript" src='//stx1.spoj.com/js/cal-heatmap.min.js'></script>
+	<script type="text/javascript" src="//www.google.com/jsapi"></script>
+		
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>	
+	<script type="text/javascript" language="javascript">
+	$(function () { 
+		$("#profile-menu").popover();
+	});
+	function UnCryptMailto(s) {
+		var n=0;
+		var r="";
+		for(var i=0;i<s.length;i++) {		
+			n=s.charCodeAt(i); 
+			if (n>=8364) {n = 128;}
+			r += String.fromCharCode(n+(2));	
+		}
+		return r;
+	}
+	function linkTo_UnCryptMailto(s)	{
+		location.href=UnCryptMailto(s);
+	}
+	</script>
+	
+	<script type="text/javascript">
+	function recordOutboundLink(link, category, action) {
+	  try {
+	    var pageTracker=_gat._getTracker("UA-XXXXX-X");
+	    pageTracker._trackEvent(category, action);
+	    setTimeout('document.location = "' + link.href + '"', 100)
+	  }catch(err){}
+	}
+	</script>
+	
+</head>
+
+<body>
+
+	
+	<!-- <div class="space30"></div> -->
+	
+	<!-- Content -->
+	<div class="content">
+		<div class="container" id="header">
+			<div class="row">
+				<div class="col-md-12 text-right">
+										<form method="post" style="display: none;" action="/login/" id="login-form">
+						<div class="row">
+							<div class="col-md-10 col-md-offset-2">
+								<input type="hidden" name="next_raw" value="/"/>
+								<input type="hidden" name="autologin" value="1"/>
+								<input type="text" name="login_user" placeholder="Username" class="form-control input-sm" style="display: inline-block; width: 25%;"/>
+								<input type="password" name="password" placeholder="Password" class="form-control input-sm" style="display: inline-block; width: 25%;"/>
+																<button type="submit" class="btn btn-default btn-sm" style="display: inline-block; margin-right: 10px;"><span class="fa fa-sign-in fa-lg"></span> <strong>sign in</strong></button>
+																<a href="/register"><i class="fa fa-user-plus"></i> sign up</a> 
+								<a href="/forgot"><i class="fa fa-question-circle"></i> forgot</a>
+				        									</div>
+						</div>
+					</form>
+										
+					
+				</div>
+			</div>
+		
+			<div class="row">
+				<div class="col-md-4">
+					<a href="/" class="navbar-brand">
+						<img src="//stx1.spoj.com/gfx/2015e.png" style="height: 40px;"/>
+					</a>
+					<div class="navbar-header">
+				      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+				        <span class="sr-only">Toggle navigation</span>
+				        <i class="fa fa-bars"></i>
+				      </button>
+				    </div>
+				</div>
+				<div class="col-md-8" id="menu">
+				
+					
+					<div class="row">
+					<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation"  style="border: 0px;">
+				      <ul class="nav navbar-nav" style="  float: right; margin-top: 10px;">
+				      						        <li >
+					          <a href="/problems"><i class="fa fa-puzzle-piece"></i> PROBLEMS</a>
+					        </li>
+					        					        <li >
+					          <a href="/status"><i class="fa fa-circle"></i> STATUS</a>
+					        </li>
+					        <li >
+					          <a href="/ranks"><i class="fa fa-trophy"></i> RANKS</a>
+					        </li>
+					        <li >
+					          <a href="http://spoj.com/forum"><i class="fa fa-comments-o"></i> DISCUSS</a>
+					        </li>
+					        <li >
+					          <a href="/contests">CONTESTS</a>
+					        </li>
+											        					        <li >
+					        	<a href="/login" class="text-success" onclick="$('#login-form').show(); $('input[name=login_user]').focus(); return false;"><i class="fa fa-sign-in"></i> sign in</a>
+					        </li>
+					        						
+				        
+				      </ul>
+				    </nav>
+				    </div>
+				    
+				    
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class="container" id="menu">
+			
+		</div>
+		
+		<div class="container" id="content">
+		<div class="submenu">
+	<ol class="">
+			<li></li>
+		</ol>
+	
+	<ol class="navbar-right">
+			<li><a href="/status/stilwell/">History of submissions</a></li>
+		<li>(<a href="/status/stilwell/signedlist/">plaintext version</a>)</li>
+	</ol>
+	
+</div>
+
+<div>
+<div class="row">
+	<div class="col-md-3" id="user-profile-left">
+		<img  class="img-thumbnail" width="100%" style="max-width: 262px;" src="http://www.gravatar.com/avatar/0d8ffab22b36cd2ad97b081b708d8c03?s=290&20180418" class="avatar small-left-margin">
+		<h3>Zhizhou Ren</h3>		<h4>@stilwell</h4>
+		<p><i class="fa fa-map-marker"></i> China, Shaoxing</p>		<p><i class="fa fa-clock-o"></i> Joined Apr 2013</p>
+		<p><i class="fa fa-trophy"></i> World Rank: #91 (161.6 points)</p>
+		<p><i class="fa fa-building-o "></i> Institution: Shaoxing No.1 High School</p>		<p>Stilwell</p>		
+		
+		
+			</div>
+	<div class="col-md-9">
+	
+		<center>
+		<div class="c728x90"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-4453360425583535"
+     data-ad-slot="4026799034"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+		</center>
+	
+						<div class="row row-centered">
+			<div class="col-md-12">
+				<h3>Activity over the last year</h3>
+				<div class="top-4 col-centered" id="cal-heatmap"></div>
+
+				<h3 class="top-4">Effectiveness</h3>
+				<div class="row">
+					<div class="col-md-6 text-center valign-center">
+						<dl class="dl-horizontal profile-info-data profile-info-data-stats">
+							<dt><span class="fa fa-check fa-fw"></span>&nbsp;Problems solved</dt>
+								<dd>247</dd>
+							<dt><span class="fa fa-send fa-fw"></span>&nbsp;Solutions submitted</dt>
+								<dd>2210</dd>
+						</dl>
+					</div>
+					<div class="col-md-6">
+						<div id="chart_div"></div>
+					</div>
+				</div>
+				
+				<script type="text/javascript">
+					function BackTime(date) {
+						var y = date.getFullYear(),
+							m = date.getMonth();
+						return new Date(y-1, m+1, 15);
+					}
+					
+					function drawChart() {
+
+						var data = new google.visualization.DataTable();
+							data.addColumn('string', '?');
+							data.addColumn('number', 'ACC');
+							data.addColumn('number', 'WA');
+							data.addColumn('number', 'TLE');
+							data.addColumn('number', 'RE');
+							data.addColumn('number', 'CE');
+							data.addRows([
+							
+							['Submissions', 1024, 721, 314, 119, 26]
+							
+						]);
+	
+						var options = {
+							isStacked: 'percent',
+							pieSliceText: 'label',
+							colors: ['#348d34', '#ec971f', '#ec971f', '#c9302c', '#c9302c'],
+							//colors:['#00C030','#F09A24','#F09A24','#F09A24','#F09A24'],
+							'width':400,
+							'height':100,
+							chartArea:{left:10,top:10,width:'90%',height:'90%'},
+							fontName: '@font-family-base',
+							legend: {
+								position: 'top',
+								textStyle: {
+									fontName: '@font-family-base',
+									bold: true
+							}},
+							hAxis: {
+					            minValue: 0,
+					            ticks: [0, .25, .5, .75, 1]
+					          }
+						};
+	
+						var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+						chart.draw(data, options);
+					}
+					
+					$(document).ready(function(){
+					
+						var cal = new CalHeatMap();
+						cal.init({
+							domain: "month",
+							subDomain: "day",
+							domainGutter: 3,
+							tooltip: true,
+							start: BackTime(new Date()),
+							maxDate: new Date(),
+							colLimit: 4,
+							legend: [10, 20, 30, 40],
+							itemName: ["submission", "submissions"],
+							data: '/calendar/?ajax=1&uid=194538&start={{d:start}}&stop={{d:end}}'
+						});
+					});
+					
+					google.load('visualization', '1.0', {'packages':['corechart']});
+					google.setOnLoadCallback(drawChart);
+				</script>
+				
+				
+						
+			</div>
+		</div>
+
+		<h3 class="top-4 text-center">Problems</h3>
+		<div class="row row-centered" id="user-profile-tables">
+			<div class="col-md-12">
+				<h4>List of solved classical problems:</h4>
+				<table class="table table-condensed">
+								<tr>
+				<td align="left" width="14%"><a href="/status/ABSP1,stilwell/">ABSP1</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC11I,stilwell/">DCEPC11I</a></td>
+				<td align="left" width="14%"><a href="/status/FRNDCIRC,stilwell/">FRNDCIRC</a></td>
+				<td align="left" width="14%"><a href="/status/IQUERY,stilwell/">IQUERY</a></td>
+				<td align="left" width="14%"><a href="/status/NPC2014E,stilwell/">NPC2014E</a></td>
+				<td align="left" width="14%"><a href="/status/ROBOT,stilwell/">ROBOT</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2013I,stilwell/">TAP2013I</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACPC13,stilwell/">ACPC13</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC12E,stilwell/">DCEPC12E</a></td>
+				<td align="left" width="14%"><a href="/status/GCDEX,stilwell/">GCDEX</a></td>
+				<td align="left" width="14%"><a href="/status/ISELECT,stilwell/">ISELECT</a></td>
+				<td align="left" width="14%"><a href="/status/NPC2014F,stilwell/">NPC2014F</a></td>
+				<td align="left" width="14%"><a href="/status/RTREE2,stilwell/">RTREE2</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2013J,stilwell/">TAP2013J</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADAHACK,stilwell/">ADAHACK</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC12G,stilwell/">DCEPC12G</a></td>
+				<td align="left" width="14%"><a href="/status/GCDEX2,stilwell/">GCDEX2</a></td>
+				<td align="left" width="14%"><a href="/status/JOKER1,stilwell/">JOKER1</a></td>
+				<td align="left" width="14%"><a href="/status/NPC2014G,stilwell/">NPC2014G</a></td>
+				<td align="left" width="14%"><a href="/status/RTREE3,stilwell/">RTREE3</a></td>
+				<td align="left" width="14%"><a href="/status/TAXI,stilwell/">TAXI</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADAMATCH,stilwell/">ADAMATCH</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC12J,stilwell/">DCEPC12J</a></td>
+				<td align="left" width="14%"><a href="/status/GIWED,stilwell/">GIWED</a></td>
+				<td align="left" width="14%"><a href="/status/JUMPY,stilwell/">JUMPY</a></td>
+				<td align="left" width="14%"><a href="/status/NPC2014H,stilwell/">NPC2014H</a></td>
+				<td align="left" width="14%"><a href="/status/SC1,stilwell/">SC1</a></td>
+				<td align="left" width="14%"><a href="/status/TEMPERAT,stilwell/">TEMPERAT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AFS,stilwell/">AFS</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC14G,stilwell/">DCEPC14G</a></td>
+				<td align="left" width="14%"><a href="/status/GOODB,stilwell/">GOODB</a></td>
+				<td align="left" width="14%"><a href="/status/JZPCIR,stilwell/">JZPCIR</a></td>
+				<td align="left" width="14%"><a href="/status/NSUBSTR,stilwell/">NSUBSTR</a></td>
+				<td align="left" width="14%"><a href="/status/SELTEAM,stilwell/">SELTEAM</a></td>
+				<td align="left" width="14%"><a href="/status/TEST,stilwell/">TEST</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMR11E,stilwell/">AMR11E</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC204,stilwell/">DCEPC204</a></td>
+				<td align="left" width="14%"><a href="/status/GSS1,stilwell/">GSS1</a></td>
+				<td align="left" width="14%"><a href="/status/JZPSTA,stilwell/">JZPSTA</a></td>
+				<td align="left" width="14%"><a href="/status/NWERC11C,stilwell/">NWERC11C</a></td>
+				<td align="left" width="14%"><a href="/status/SENSORNT,stilwell/">SENSORNT</a></td>
+				<td align="left" width="14%"><a href="/status/TIP1,stilwell/">TIP1</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/APS,stilwell/">APS</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC206,stilwell/">DCEPC206</a></td>
+				<td align="left" width="14%"><a href="/status/GSS2,stilwell/">GSS2</a></td>
+				<td align="left" width="14%"><a href="/status/KNJIGE,stilwell/">KNJIGE</a></td>
+				<td align="left" width="14%"><a href="/status/ORDERSET,stilwell/">ORDERSET</a></td>
+				<td align="left" width="14%"><a href="/status/SEQN,stilwell/">SEQN</a></td>
+				<td align="left" width="14%"><a href="/status/TRANSP,stilwell/">TRANSP</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/APS2,stilwell/">APS2</a></td>
+				<td align="left" width="14%"><a href="/status/DCEPC604,stilwell/">DCEPC604</a></td>
+				<td align="left" width="14%"><a href="/status/GSS3,stilwell/">GSS3</a></td>
+				<td align="left" width="14%"><a href="/status/KPGRAPHS,stilwell/">KPGRAPHS</a></td>
+				<td align="left" width="14%"><a href="/status/PAINTBLK,stilwell/">PAINTBLK</a></td>
+				<td align="left" width="14%"><a href="/status/SKYLINE,stilwell/">SKYLINE</a></td>
+				<td align="left" width="14%"><a href="/status/TRANSP2,stilwell/">TRANSP2</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARRAYSUB,stilwell/">ARRAYSUB</a></td>
+				<td align="left" width="14%"><a href="/status/DETER2,stilwell/">DETER2</a></td>
+				<td align="left" width="14%"><a href="/status/GSS4,stilwell/">GSS4</a></td>
+				<td align="left" width="14%"><a href="/status/KSMALL,stilwell/">KSMALL</a></td>
+				<td align="left" width="14%"><a href="/status/PAML,stilwell/">PAML</a></td>
+				<td align="left" width="14%"><a href="/status/SKYLINE2,stilwell/">SKYLINE2</a></td>
+				<td align="left" width="14%"><a href="/status/TREEPAL,stilwell/">TREEPAL</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ASUMHARD,stilwell/">ASUMHARD</a></td>
+				<td align="left" width="14%"><a href="/status/DETER3,stilwell/">DETER3</a></td>
+				<td align="left" width="14%"><a href="/status/GSS5,stilwell/">GSS5</a></td>
+				<td align="left" width="14%"><a href="/status/LCMSUM,stilwell/">LCMSUM</a></td>
+				<td align="left" width="14%"><a href="/status/PAUWS,stilwell/">PAUWS</a></td>
+				<td align="left" width="14%"><a href="/status/SOMESUMS,stilwell/">SOMESUMS</a></td>
+				<td align="left" width="14%"><a href="/status/TSUM,stilwell/">TSUM</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BANNER,stilwell/">BANNER</a></td>
+				<td align="left" width="14%"><a href="/status/DISQUERY,stilwell/">DISQUERY</a></td>
+				<td align="left" width="14%"><a href="/status/GSS6,stilwell/">GSS6</a></td>
+				<td align="left" width="14%"><a href="/status/LCS,stilwell/">LCS</a></td>
+				<td align="left" width="14%"><a href="/status/PEBBMOV,stilwell/">PEBBMOV</a></td>
+				<td align="left" width="14%"><a href="/status/SPEC_SET,stilwell/">SPEC_SET</a></td>
+				<td align="left" width="14%"><a href="/status/TWICE,stilwell/">TWICE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BARB,stilwell/">BARB</a></td>
+				<td align="left" width="14%"><a href="/status/DISUBSTR,stilwell/">DISUBSTR</a></td>
+				<td align="left" width="14%"><a href="/status/HAROWS,stilwell/">HAROWS</a></td>
+				<td align="left" width="14%"><a href="/status/LCS2,stilwell/">LCS2</a></td>
+				<td align="left" width="14%"><a href="/status/PERMTGEN,stilwell/">PERMTGEN</a></td>
+				<td align="left" width="14%"><a href="/status/SPHIWAY,stilwell/">SPHIWAY</a></td>
+				<td align="left" width="14%"><a href="/status/UPDATEIT,stilwell/">UPDATEIT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BORING,stilwell/">BORING</a></td>
+				<td align="left" width="14%"><a href="/status/DIVCNT2,stilwell/">DIVCNT2</a></td>
+				<td align="left" width="14%"><a href="/status/HAYBALE,stilwell/">HAYBALE</a></td>
+				<td align="left" width="14%"><a href="/status/LKS,stilwell/">LKS</a></td>
+				<td align="left" width="14%"><a href="/status/PIR,stilwell/">PIR</a></td>
+				<td align="left" width="14%"><a href="/status/SPWORLD,stilwell/">SPWORLD</a></td>
+				<td align="left" width="14%"><a href="/status/VACATION,stilwell/">VACATION</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOXES,stilwell/">BOXES</a></td>
+				<td align="left" width="14%"><a href="/status/DIVCNT3,stilwell/">DIVCNT3</a></td>
+				<td align="left" width="14%"><a href="/status/HIGH,stilwell/">HIGH</a></td>
+				<td align="left" width="14%"><a href="/status/MAIN12B,stilwell/">MAIN12B</a></td>
+				<td align="left" width="14%"><a href="/status/PKD,stilwell/">PKD</a></td>
+				<td align="left" width="14%"><a href="/status/SQFREE,stilwell/">SQFREE</a></td>
+				<td align="left" width="14%"><a href="/status/VCIRCLES,stilwell/">VCIRCLES</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BTCODE_A,stilwell/">BTCODE_A</a></td>
+				<td align="left" width="14%"><a href="/status/DIVEQL,stilwell/">DIVEQL</a></td>
+				<td align="left" width="14%"><a href="/status/HOLI,stilwell/">HOLI</a></td>
+				<td align="left" width="14%"><a href="/status/MAXOR,stilwell/">MAXOR</a></td>
+				<td align="left" width="14%"><a href="/status/PORTALUN,stilwell/">PORTALUN</a></td>
+				<td align="left" width="14%"><a href="/status/STC00,stilwell/">STC00</a></td>
+				<td align="left" width="14%"><a href="/status/VLATTICE,stilwell/">VLATTICE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BWB,stilwell/">BWB</a></td>
+				<td align="left" width="14%"><a href="/status/DIVIDEKR,stilwell/">DIVIDEKR</a></td>
+				<td align="left" width="14%"><a href="/status/IDC1948,stilwell/">IDC1948</a></td>
+				<td align="left" width="14%"><a href="/status/MAXRAD,stilwell/">MAXRAD</a></td>
+				<td align="left" width="14%"><a href="/status/POTIONS,stilwell/">POTIONS</a></td>
+				<td align="left" width="14%"><a href="/status/STC01,stilwell/">STC01</a></td>
+				<td align="left" width="14%"><a href="/status/WACHOVIA,stilwell/">WACHOVIA</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CATHETEN,stilwell/">CATHETEN</a></td>
+				<td align="left" width="14%"><a href="/status/DIVISION,stilwell/">DIVISION</a></td>
+				<td align="left" width="14%"><a href="/status/IE1,stilwell/">IE1</a></td>
+				<td align="left" width="14%"><a href="/status/MC,stilwell/">MC</a></td>
+				<td align="left" width="14%"><a href="/status/PRIME1,stilwell/">PRIME1</a></td>
+				<td align="left" width="14%"><a href="/status/STC02,stilwell/">STC02</a></td>
+				<td align="left" width="14%"><a href="/status/WATER,stilwell/">WATER</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CIRU,stilwell/">CIRU</a></td>
+				<td align="left" width="14%"><a href="/status/DONUT,stilwell/">DONUT</a></td>
+				<td align="left" width="14%"><a href="/status/IE2,stilwell/">IE2</a></td>
+				<td align="left" width="14%"><a href="/status/MCAMP,stilwell/">MCAMP</a></td>
+				<td align="left" width="14%"><a href="/status/PRMQUER,stilwell/">PRMQUER</a></td>
+				<td align="left" width="14%"><a href="/status/STC04,stilwell/">STC04</a></td>
+				<td align="left" width="14%"><a href="/status/WAYHOME,stilwell/">WAYHOME</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CIRUT,stilwell/">CIRUT</a></td>
+				<td align="left" width="14%"><a href="/status/DQUERY,stilwell/">DQUERY</a></td>
+				<td align="left" width="14%"><a href="/status/IE4,stilwell/">IE4</a></td>
+				<td align="left" width="14%"><a href="/status/MECGROUP,stilwell/">MECGROUP</a></td>
+				<td align="left" width="14%"><a href="/status/PSYCHON,stilwell/">PSYCHON</a></td>
+				<td align="left" width="14%"><a href="/status/STC05,stilwell/">STC05</a></td>
+				<td align="left" width="14%"><a href="/status/WINDVANE,stilwell/">WINDVANE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CLZSTRNG,stilwell/">CLZSTRNG</a></td>
+				<td align="left" width="14%"><a href="/status/DRTREE,stilwell/">DRTREE</a></td>
+				<td align="left" width="14%"><a href="/status/IE5,stilwell/">IE5</a></td>
+				<td align="left" width="14%"><a href="/status/MINSUB,stilwell/">MINSUB</a></td>
+				<td align="left" width="14%"><a href="/status/PSYCHOT,stilwell/">PSYCHOT</a></td>
+				<td align="left" width="14%"><a href="/status/STC07,stilwell/">STC07</a></td>
+				<td align="left" width="14%"><a href="/status/WLOO0707,stilwell/">WLOO0707</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CMPANS,stilwell/">CMPANS</a></td>
+				<td align="left" width="14%"><a href="/status/DYNACON1,stilwell/">DYNACON1</a></td>
+				<td align="left" width="14%"><a href="/status/IGAME,stilwell/">IGAME</a></td>
+				<td align="left" width="14%"><a href="/status/MOBIVINA,stilwell/">MOBIVINA</a></td>
+				<td align="left" width="14%"><a href="/status/PTC,stilwell/">PTC</a></td>
+				<td align="left" width="14%"><a href="/status/STC08,stilwell/">STC08</a></td>
+				<td align="left" width="14%"><a href="/status/WPC4C,stilwell/">WPC4C</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/COCONUTS,stilwell/">COCONUTS</a></td>
+				<td align="left" width="14%"><a href="/status/DYNALCA,stilwell/">DYNALCA</a></td>
+				<td align="left" width="14%"><a href="/status/INS14A,stilwell/">INS14A</a></td>
+				<td align="left" width="14%"><a href="/status/MOD,stilwell/">MOD</a></td>
+				<td align="left" width="14%"><a href="/status/PUCMM210,stilwell/">PUCMM210</a></td>
+				<td align="left" width="14%"><a href="/status/STC09,stilwell/">STC09</a></td>
+				<td align="left" width="14%"><a href="/status/WPC5A,stilwell/">WPC5A</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/COLONY,stilwell/">COLONY</a></td>
+				<td align="left" width="14%"><a href="/status/EALP1,stilwell/">EALP1</a></td>
+				<td align="left" width="14%"><a href="/status/INS14B,stilwell/">INS14B</a></td>
+				<td align="left" width="14%"><a href="/status/MON2012,stilwell/">MON2012</a></td>
+				<td align="left" width="14%"><a href="/status/PWSUM,stilwell/">PWSUM</a></td>
+				<td align="left" width="14%"><a href="/status/STC10,stilwell/">STC10</a></td>
+				<td align="left" width="14%"><a href="/status/WPC5C,stilwell/">WPC5C</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/COLORSEG,stilwell/">COLORSEG</a></td>
+				<td align="left" width="14%"><a href="/status/FACTMUL,stilwell/">FACTMUL</a></td>
+				<td align="left" width="14%"><a href="/status/INS14C,stilwell/">INS14C</a></td>
+				<td align="left" width="14%"><a href="/status/MOON1,stilwell/">MOON1</a></td>
+				<td align="left" width="14%"><a href="/status/QTREE,stilwell/">QTREE</a></td>
+				<td align="left" width="14%"><a href="/status/STRAWB,stilwell/">STRAWB</a></td>
+				<td align="left" width="14%"><a href="/status/WPC5D,stilwell/">WPC5D</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CONGA,stilwell/">CONGA</a></td>
+				<td align="left" width="14%"><a href="/status/FACTMULN,stilwell/">FACTMULN</a></td>
+				<td align="left" width="14%"><a href="/status/INS14D,stilwell/">INS14D</a></td>
+				<td align="left" width="14%"><a href="/status/MOVIE,stilwell/">MOVIE</a></td>
+				<td align="left" width="14%"><a href="/status/QTREE2,stilwell/">QTREE2</a></td>
+				<td align="left" width="14%"><a href="/status/SUBLEX,stilwell/">SUBLEX</a></td>
+				<td align="left" width="14%"><a href="/status/WPC5E,stilwell/">WPC5E</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/COOLPROB,stilwell/">COOLPROB</a></td>
+				<td align="left" width="14%"><a href="/status/FACTMULO,stilwell/">FACTMULO</a></td>
+				<td align="left" width="14%"><a href="/status/INS14E,stilwell/">INS14E</a></td>
+				<td align="left" width="14%"><a href="/status/MSE08H,stilwell/">MSE08H</a></td>
+				<td align="left" width="14%"><a href="/status/QTREE4,stilwell/">QTREE4</a></td>
+				<td align="left" width="14%"><a href="/status/SUBST1,stilwell/">SUBST1</a></td>
+				<td align="left" width="14%"><a href="/status/WPC5F,stilwell/">WPC5F</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/COT,stilwell/">COT</a></td>
+				<td align="left" width="14%"><a href="/status/FACTMULP,stilwell/">FACTMULP</a></td>
+				<td align="left" width="14%"><a href="/status/INS14F,stilwell/">INS14F</a></td>
+				<td align="left" width="14%"><a href="/status/MSET,stilwell/">MSET</a></td>
+				<td align="left" width="14%"><a href="/status/QTREE6,stilwell/">QTREE6</a></td>
+				<td align="left" width="14%"><a href="/status/SUBXOR,stilwell/">SUBXOR</a></td>
+				<td align="left" width="14%"><a href="/status/WPC5G,stilwell/">WPC5G</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/COT2,stilwell/">COT2</a></td>
+				<td align="left" width="14%"><a href="/status/FAILURE,stilwell/">FAILURE</a></td>
+				<td align="left" width="14%"><a href="/status/INS14G,stilwell/">INS14G</a></td>
+				<td align="left" width="14%"><a href="/status/MUL,stilwell/">MUL</a></td>
+				<td align="left" width="14%"><a href="/status/QTREE7,stilwell/">QTREE7</a></td>
+				<td align="left" width="14%"><a href="/status/SWAP_ESY,stilwell/">SWAP_ESY</a></td>
+				<td align="left" width="14%"><a href="/status/WPC5H,stilwell/">WPC5H</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CUBE,stilwell/">CUBE</a></td>
+				<td align="left" width="14%"><a href="/status/FAIRONOT,stilwell/">FAIRONOT</a></td>
+				<td align="left" width="14%"><a href="/status/INS14H,stilwell/">INS14H</a></td>
+				<td align="left" width="14%"><a href="/status/MUSIC,stilwell/">MUSIC</a></td>
+				<td align="left" width="14%"><a href="/status/QUE1,stilwell/">QUE1</a></td>
+				<td align="left" width="14%"><a href="/status/TABLE,stilwell/">TABLE</a></td>
+				<td align="left" width="14%"><a href="/status/WPC5I,stilwell/">WPC5I</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CUBEND,stilwell/">CUBEND</a></td>
+				<td align="left" width="14%"><a href="/status/FASTFLOW,stilwell/">FASTFLOW</a></td>
+				<td align="left" width="14%"><a href="/status/INS14I,stilwell/">INS14I</a></td>
+				<td align="left" width="14%"><a href="/status/MYQ7,stilwell/">MYQ7</a></td>
+				<td align="left" width="14%"><a href="/status/QUE2,stilwell/">QUE2</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2013A,stilwell/">TAP2013A</a></td>
+				<td align="left" width="14%"><a href="/status/XXXXXXXX,stilwell/">XXXXXXXX</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CUSTOMSL,stilwell/">CUSTOMSL</a></td>
+				<td align="left" width="14%"><a href="/status/FIBOSQRT,stilwell/">FIBOSQRT</a></td>
+				<td align="left" width="14%"><a href="/status/INS14J,stilwell/">INS14J</a></td>
+				<td align="left" width="14%"><a href="/status/NBIN,stilwell/">NBIN</a></td>
+				<td align="left" width="14%"><a href="/status/RANGESUM,stilwell/">RANGESUM</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2013C,stilwell/">TAP2013C</a></td>
+				<td align="left" width="14%"><a href="/status/XYI,stilwell/">XYI</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CWB,stilwell/">CWB</a></td>
+				<td align="left" width="14%"><a href="/status/FIBOSUM2,stilwell/">FIBOSUM2</a></td>
+				<td align="left" width="14%"><a href="/status/INS14K,stilwell/">INS14K</a></td>
+				<td align="left" width="14%"><a href="/status/NITK06,stilwell/">NITK06</a></td>
+				<td align="left" width="14%"><a href="/status/RANGZER2,stilwell/">RANGZER2</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2013D,stilwell/">TAP2013D</a></td>
+				<td align="left" width="14%"><a href="/status/,stilwell/"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/CWORLD,stilwell/">CWORLD</a></td>
+				<td align="left" width="14%"><a href="/status/FINFRAC,stilwell/">FINFRAC</a></td>
+				<td align="left" width="14%"><a href="/status/INS14L,stilwell/">INS14L</a></td>
+				<td align="left" width="14%"><a href="/status/NORMA2,stilwell/">NORMA2</a></td>
+				<td align="left" width="14%"><a href="/status/RESIST,stilwell/">RESIST</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2013E,stilwell/">TAP2013E</a></td>
+				<td align="left" width="14%"><a href="/status/,stilwell/"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/DCEPC11B,stilwell/">DCEPC11B</a></td>
+				<td align="left" width="14%"><a href="/status/FISHNET,stilwell/">FISHNET</a></td>
+				<td align="left" width="14%"><a href="/status/INUM,stilwell/">INUM</a></td>
+				<td align="left" width="14%"><a href="/status/NPC2014A,stilwell/">NPC2014A</a></td>
+				<td align="left" width="14%"><a href="/status/RESTACK,stilwell/">RESTACK</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2013F,stilwell/">TAP2013F</a></td>
+				<td align="left" width="14%"><a href="/status/,stilwell/"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/DCEPC11C,stilwell/">DCEPC11C</a></td>
+				<td align="left" width="14%"><a href="/status/FLLM,stilwell/">FLLM</a></td>
+				<td align="left" width="14%"><a href="/status/IOPC1204,stilwell/">IOPC1204</a></td>
+				<td align="left" width="14%"><a href="/status/NPC2014B,stilwell/">NPC2014B</a></td>
+				<td align="left" width="14%"><a href="/status/RKS,stilwell/">RKS</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2013G,stilwell/">TAP2013G</a></td>
+				<td align="left" width="14%"><a href="/status/,stilwell/"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/DCEPC11F,stilwell/">DCEPC11F</a></td>
+				<td align="left" width="14%"><a href="/status/FLOWGROW,stilwell/">FLOWGROW</a></td>
+				<td align="left" width="14%"><a href="/status/IQTEAM,stilwell/">IQTEAM</a></td>
+				<td align="left" width="14%"><a href="/status/NPC2014C,stilwell/">NPC2014C</a></td>
+				<td align="left" width="14%"><a href="/status/RLE,stilwell/">RLE</a></td>
+				<td align="left" width="14%"><a href="/status/TAP2013H,stilwell/">TAP2013H</a></td>
+				<td align="left" width="14%"><a href="/status/,stilwell/"></a></td>
+				</tr>
+								</table>
+				
+				
+								<h4><span title="List of problems to which solutions were submitted but none of them got AC.">TODO list of classical problems:</span></h4>
+				<table class="table">
+								<tr>
+				<td align="left" width="14%"><a href="/status/AFS2,stilwell/">AFS2</a></td>
+				<td align="left" width="14%"><a href="/status/BIA,stilwell/">BIA</a></td>
+				<td align="left" width="14%"><a href="/status/MIDEARTH,stilwell/">MIDEARTH</a></td>
+				<td align="left" width="14%"><a href="/status/NUMTRY,stilwell/">NUMTRY</a></td>
+				<td align="left" width="14%"><a href="/status/PRIMEPOW,stilwell/">PRIMEPOW</a></td>
+				<td align="left" width="14%"><a href="/status/VFMUL,stilwell/">VFMUL</a></td>
+				<td align="left" width="14%"><a href="/status/,stilwell/"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ASSIGN4,stilwell/">ASSIGN4</a></td>
+				<td align="left" width="14%"><a href="/status/FACT1,stilwell/">FACT1</a></td>
+				<td align="left" width="14%"><a href="/status/MTETRA,stilwell/">MTETRA</a></td>
+				<td align="left" width="14%"><a href="/status/PGCD,stilwell/">PGCD</a></td>
+				<td align="left" width="14%"><a href="/status/SEQ2,stilwell/">SEQ2</a></td>
+				<td align="left" width="14%"><a href="/status/VGCD,stilwell/">VGCD</a></td>
+				<td align="left" width="14%"><a href="/status/,stilwell/"></a></td>
+				</tr>
+								</table>
+								
+							</div>
+		</div>
+	
+	
+	
+	</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<table cellspacing="10" align="center">
+
+
+
+
+
+</table>
+
+
+	<br/>
+</div>
+		
+		
+		<div class="container" id="footer">
+			<div class="row">
+				<div class="col-md-2">
+					
+				</div>
+				<div class="col-md-8 text-center">
+					<a href="/info">About</a> | <a href="/tutorials">Tutorial</a> | <a href="/tools">Tools</a> | <a href="/clusters">Clusters</a> | <a href="/credits">Credits</a> | <a href="/jobs">Jobs</a> | <a href="/sphereengine">API</a> | <a href="/gfx/spoj-terms.pdf" target="_blank">Terms</a>
+				</div>
+				<div class="col-md-2 text-right">
+					<a href="/rss/" ><img src="//stx1.spoj.com/gfx/rss10x10.gif" border=0>&nbsp;RSS</a>&nbsp;
+				</div>
+			</div>
+		</div>
+		
+		<div class="text-center" id="footer-srl">
+			
+	&copy; Spoj.com. All Rights Reserved. Spoj uses <a href="http://sphere-engine.com?utm_campaign=permanent&amp;utm_medium=footer&amp;utm_source=spoj" style="color:black">Sphere Engine</a>&trade; &copy; by <a href="http://sphere-research.com?utm_campaign=permanent&amp;utm_medium=footer&amp;utm_source=spoj" style="color:black">Sphere Research Labs</a>.
+
+		</div> 
+	</div>
+
+	<!-- JavaScripts -->
+	
+		
+	
+	<script type="text/javascript">
+	$(function(){
+		setTimeout(function(){
+			$('.no_a_info').css('visibility', 'visible');
+		}, 5000);
+		
+		if(!$('.aProblemTop').length && !$('.aProblemsTop').length && !$('.aSubmitTop').length && !$('.aStatusTop').length && !$('.aMainRight').length){
+			ga('send', 'event', 'ads', 'no-ads', 'main-contest');
+		}
+		if ($('.aProblemTop').height() == 0){
+			$('.aProblemTop').css({'border': '1px solid #ddd', 'background': '#f0f4e3', 'height': 90});
+			$('.aProblemTop').html($('<p class="text-center">using adblock?</p><h4 class="text-center">Online ads help us to maintain site.</h4><p class="text-center"><strong>please whitelist *.spoj.com</strong></p>'));
+			ga('send', 'event', 'ads', 'adblock2', 'aProblemTop');
+		}
+		if ($('.aProblemsTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aProblemsTop');
+		}
+		if ($('.aSubmitTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aSubmitTop');
+		}
+		if ($('.aStatusTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aStatusTop');
+		}
+		if ($('.aMainRight').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aMainRight');
+		}
+	});
+	</script>
+	
+	
+	<script type="text/javascript" src="//stx1.spoj.com/gfx/jquery.timers.js"></script>
+	<script type="text/javascript" src="//stx1.spoj.com/gfx/jquery.cookie.js"></script>
+	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+	<script src="//stx1.spoj.com/gfx/md5.js"></script>
+	<script src="//stx1.spoj.com/gfx/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
+	<script src="//stx1.spoj.com/gfx/scripts/tour.js"></script>
+	
+	
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&appId=321676846207&version=v2.0";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	
+	
+
+
+<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-10507872-1', 'auto');
+	  ga('require', 'linkid', 'linkid.js');
+	  ga('send', 'pageview');
+	</script>
+<!-- Hotjar Tracking Code for http://www.spoj.com -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:334656,hjsv:5};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<script type="text/javascript">
+	$(function(){
+		$(document).on('click', '.track', function(){
+			var event = $(this).attr('data-event');
+			var action = $(this).attr('data-action');
+			var value = $(this).attr('data-value');
+			ga('send', 'event', event, action, value);
+		});
+	});
+	//window.open('http://incoming.hotjar.com/s/7366', '_blank');
+	</script>
+
+
+</body>
+</html>

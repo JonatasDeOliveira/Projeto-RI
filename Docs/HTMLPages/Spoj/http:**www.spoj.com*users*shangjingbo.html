@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="not-ie" lang="en"> <!--<![endif]-->
+<head>
+	<!-- main header -->
+	<meta charset="utf-8">
+	
+				<title>Sphere Online Judge (SPOJ)  - User shangjingbo</title>
+	  
+	<meta name="keywords" content="language, algorithm, spoj, contest, contester, Java, C#, Pascal, C, C++, python, ruby, caml, ocaml, perl, haskell, lisp, prolog, fortran, assembler, asembler, functional, online, judge, problem, problemset, ACM">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  		<meta property="og:image" content="//stx1.spoj.com/gfx/spoj-fb.jpg"/>
+	<meta property="og:description" content="SPOJ (Sphere Online Judge) is an online judge system with over 315,000 registered users and over 20000 problems. The solution to problems can be submitted in over 60 languages including C, C++, Java, Python, C#, Go, Haskell, Ocaml, and F#. SPOJ has a rapidly growing problem set/tasks available for practice 24 hours/day, including many original tasks prepared by the community of expert problem setters associated with the project."/>
+	<meta name="description" content="SPOJ (Sphere Online Judge) is an online judge system with over 315,000 registered users and over 20000 problems. The solution to problems can be submitted in over 60 languages including C, C++, Java, Python, C#, Go, Haskell, Ocaml, and F#. SPOJ has a rapidly growing problem set/tasks available for practice 24 hours/day, including many original tasks prepared by the community of expert problem setters associated with the project."/>
+		<meta property="og:site_name" content="spoj.com"/>
+
+  <!--[if (gte IE 9)|!(IE)]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" id="metatag">
+  <![endif]--> 
+
+	  <!-- Favicon -->
+	  <link href="//stx1.spoj.com/gfx/favicon_new.png" rel="shortcut icon" type="image/x-icon" />
+	  
+	  <!-- RSS -->
+	  <link href="/rss/" rel="alternate" type="application/rss+xml" title="RSS Feed">
+	
+	  <!-- Web Fonts -->
+	  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet" type="text/css">  
+
+	<!-- Internet Explorer condition - HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]--> 
+	
+	
+	
+	<!-- CSS: Bootstrap, Font-awesome, Bootstrap libs,  -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" />
+  	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  	<link href="//stx1.spoj.com/gfx/bootstrap-tour/build/css/bootstrap-tour.min.css" rel="stylesheet" />
+  	<link href="//stx1.spoj.com/themes/bootstrap-social.css" rel="stylesheet" type="text/css" />
+  	
+	<link href="//stx1.spoj.com/themes/common.css?4" rel="stylesheet" type="text/css" id="theme0" />
+	<link href="//stx1.spoj.com/themes/en_new.css?4" rel="stylesheet" type="text/css" id="theme" />
+	
+	<!-- JS -->
+	<script type="text/javascript" src='//code.jquery.com/jquery-1.11.1.min.js'></script>
+	<script type="text/javascript" src="//code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+	
+		<link href="//stx1.spoj.com/themes/cal-heatmap.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src='//stx1.spoj.com/js/d3.v3.min.js'></script>
+	<script type="text/javascript" src='//stx1.spoj.com/js/cal-heatmap.min.js'></script>
+	<script type="text/javascript" src="//www.google.com/jsapi"></script>
+		
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>	
+	<script type="text/javascript" language="javascript">
+	$(function () { 
+		$("#profile-menu").popover();
+	});
+	function UnCryptMailto(s) {
+		var n=0;
+		var r="";
+		for(var i=0;i<s.length;i++) {		
+			n=s.charCodeAt(i); 
+			if (n>=8364) {n = 128;}
+			r += String.fromCharCode(n+(2));	
+		}
+		return r;
+	}
+	function linkTo_UnCryptMailto(s)	{
+		location.href=UnCryptMailto(s);
+	}
+	</script>
+	
+	<script type="text/javascript">
+	function recordOutboundLink(link, category, action) {
+	  try {
+	    var pageTracker=_gat._getTracker("UA-XXXXX-X");
+	    pageTracker._trackEvent(category, action);
+	    setTimeout('document.location = "' + link.href + '"', 100)
+	  }catch(err){}
+	}
+	</script>
+	
+</head>
+
+<body>
+
+	
+	<!-- <div class="space30"></div> -->
+	
+	<!-- Content -->
+	<div class="content">
+		<div class="container" id="header">
+			<div class="row">
+				<div class="col-md-12 text-right">
+										<form method="post" style="display: none;" action="/login/" id="login-form">
+						<div class="row">
+							<div class="col-md-10 col-md-offset-2">
+								<input type="hidden" name="next_raw" value="/"/>
+								<input type="hidden" name="autologin" value="1"/>
+								<input type="text" name="login_user" placeholder="Username" class="form-control input-sm" style="display: inline-block; width: 25%;"/>
+								<input type="password" name="password" placeholder="Password" class="form-control input-sm" style="display: inline-block; width: 25%;"/>
+																<button type="submit" class="btn btn-default btn-sm" style="display: inline-block; margin-right: 10px;"><span class="fa fa-sign-in fa-lg"></span> <strong>sign in</strong></button>
+																<a href="/register"><i class="fa fa-user-plus"></i> sign up</a> 
+								<a href="/forgot"><i class="fa fa-question-circle"></i> forgot</a>
+				        									</div>
+						</div>
+					</form>
+										
+					
+				</div>
+			</div>
+		
+			<div class="row">
+				<div class="col-md-4">
+					<a href="/" class="navbar-brand">
+						<img src="//stx1.spoj.com/gfx/2015e.png" style="height: 40px;"/>
+					</a>
+					<div class="navbar-header">
+				      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+				        <span class="sr-only">Toggle navigation</span>
+				        <i class="fa fa-bars"></i>
+				      </button>
+				    </div>
+				</div>
+				<div class="col-md-8" id="menu">
+				
+					
+					<div class="row">
+					<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation"  style="border: 0px;">
+				      <ul class="nav navbar-nav" style="  float: right; margin-top: 10px;">
+				      						        <li >
+					          <a href="/problems"><i class="fa fa-puzzle-piece"></i> PROBLEMS</a>
+					        </li>
+					        					        <li >
+					          <a href="/status"><i class="fa fa-circle"></i> STATUS</a>
+					        </li>
+					        <li >
+					          <a href="/ranks"><i class="fa fa-trophy"></i> RANKS</a>
+					        </li>
+					        <li >
+					          <a href="http://spoj.com/forum"><i class="fa fa-comments-o"></i> DISCUSS</a>
+					        </li>
+					        <li >
+					          <a href="/contests">CONTESTS</a>
+					        </li>
+											        					        <li >
+					        	<a href="/login" class="text-success" onclick="$('#login-form').show(); $('input[name=login_user]').focus(); return false;"><i class="fa fa-sign-in"></i> sign in</a>
+					        </li>
+					        						
+				        
+				      </ul>
+				    </nav>
+				    </div>
+				    
+				    
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class="container" id="menu">
+			
+		</div>
+		
+		<div class="container" id="content">
+		<div class="submenu">
+	<ol class="">
+			<li></li>
+		</ol>
+	
+	<ol class="navbar-right">
+			<li><a href="/status/shangjingbo/">History of submissions</a></li>
+		<li>(<a href="/status/shangjingbo/signedlist/">plaintext version</a>)</li>
+	</ol>
+	
+</div>
+
+<div>
+<div class="row">
+	<div class="col-md-3" id="user-profile-left">
+		<img  class="img-thumbnail" width="100%" style="max-width: 262px;" src="http://www.gravatar.com/avatar/ae1e2c97a08be39b77a9f1a5c2a718ef?s=290&20180418" class="avatar small-left-margin">
+		<h3>Jingbo Shang</h3>		<h4>@shangjingbo</h4>
+		<p><i class="fa fa-map-marker"></i> United States, Urbana</p>		<p><i class="fa fa-clock-o"></i> Joined Jun 2007</p>
+		<p><i class="fa fa-trophy"></i> World Rank: #85 (167.4 points)</p>
+		<p><i class="fa fa-building-o "></i> Institution: UIUC</p>				
+		
+		
+			</div>
+	<div class="col-md-9">
+	
+		<center>
+		<div class="c728x90"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-4453360425583535"
+     data-ad-slot="4026799034"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+		</center>
+	
+						<div class="row row-centered">
+			<div class="col-md-12">
+				<h3>Activity over the last year</h3>
+				<div class="top-4 col-centered" id="cal-heatmap"></div>
+
+				<h3 class="top-4">Effectiveness</h3>
+				<div class="row">
+					<div class="col-md-6 text-center valign-center">
+						<dl class="dl-horizontal profile-info-data profile-info-data-stats">
+							<dt><span class="fa fa-check fa-fw"></span>&nbsp;Problems solved</dt>
+								<dd>381</dd>
+							<dt><span class="fa fa-send fa-fw"></span>&nbsp;Solutions submitted</dt>
+								<dd>1137</dd>
+						</dl>
+					</div>
+					<div class="col-md-6">
+						<div id="chart_div"></div>
+					</div>
+				</div>
+				
+				<script type="text/javascript">
+					function BackTime(date) {
+						var y = date.getFullYear(),
+							m = date.getMonth();
+						return new Date(y-1, m+1, 15);
+					}
+					
+					function drawChart() {
+
+						var data = new google.visualization.DataTable();
+							data.addColumn('string', '?');
+							data.addColumn('number', 'ACC');
+							data.addColumn('number', 'WA');
+							data.addColumn('number', 'TLE');
+							data.addColumn('number', 'RE');
+							data.addColumn('number', 'CE');
+							data.addRows([
+							
+							['Submissions', 447, 382, 182, 71, 55]
+							
+						]);
+	
+						var options = {
+							isStacked: 'percent',
+							pieSliceText: 'label',
+							colors: ['#348d34', '#ec971f', '#ec971f', '#c9302c', '#c9302c'],
+							//colors:['#00C030','#F09A24','#F09A24','#F09A24','#F09A24'],
+							'width':400,
+							'height':100,
+							chartArea:{left:10,top:10,width:'90%',height:'90%'},
+							fontName: '@font-family-base',
+							legend: {
+								position: 'top',
+								textStyle: {
+									fontName: '@font-family-base',
+									bold: true
+							}},
+							hAxis: {
+					            minValue: 0,
+					            ticks: [0, .25, .5, .75, 1]
+					          }
+						};
+	
+						var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+						chart.draw(data, options);
+					}
+					
+					$(document).ready(function(){
+					
+						var cal = new CalHeatMap();
+						cal.init({
+							domain: "month",
+							subDomain: "day",
+							domainGutter: 3,
+							tooltip: true,
+							start: BackTime(new Date()),
+							maxDate: new Date(),
+							colLimit: 4,
+							legend: [10, 20, 30, 40],
+							itemName: ["submission", "submissions"],
+							data: '/calendar/?ajax=1&uid=17291&start={{d:start}}&stop={{d:end}}'
+						});
+					});
+					
+					google.load('visualization', '1.0', {'packages':['corechart']});
+					google.setOnLoadCallback(drawChart);
+				</script>
+				
+				
+						
+			</div>
+		</div>
+
+		<h3 class="top-4 text-center">Problems</h3>
+		<div class="row row-centered" id="user-profile-tables">
+			<div class="col-md-12">
+				<h4>List of solved classical problems:</h4>
+				<table class="table table-condensed">
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACODE,shangjingbo/">ACODE</a></td>
+				<td align="left" width="14%"><a href="/status/CABLETV,shangjingbo/">CABLETV</a></td>
+				<td align="left" width="14%"><a href="/status/FCTRL4,shangjingbo/">FCTRL4</a></td>
+				<td align="left" width="14%"><a href="/status/ICAMPSEQ,shangjingbo/">ICAMPSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/MATRIOSH,shangjingbo/">MATRIOSH</a></td>
+				<td align="left" width="14%"><a href="/status/OPTM,shangjingbo/">OPTM</a></td>
+				<td align="left" width="14%"><a href="/status/SERVICEH,shangjingbo/">SERVICEH</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ACS,shangjingbo/">ACS</a></td>
+				<td align="left" width="14%"><a href="/status/CAKE2,shangjingbo/">CAKE2</a></td>
+				<td align="left" width="14%"><a href="/status/FENCE3,shangjingbo/">FENCE3</a></td>
+				<td align="left" width="14%"><a href="/status/IEXPOLRE,shangjingbo/">IEXPOLRE</a></td>
+				<td align="left" width="14%"><a href="/status/MATRIX,shangjingbo/">MATRIX</a></td>
+				<td align="left" width="14%"><a href="/status/ORDERSET,shangjingbo/">ORDERSET</a></td>
+				<td align="left" width="14%"><a href="/status/SFLIP,shangjingbo/">SFLIP</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADFRUITS,shangjingbo/">ADFRUITS</a></td>
+				<td align="left" width="14%"><a href="/status/CAKE3,shangjingbo/">CAKE3</a></td>
+				<td align="left" width="14%"><a href="/status/FFROG,shangjingbo/">FFROG</a></td>
+				<td align="left" width="14%"><a href="/status/IM,shangjingbo/">IM</a></td>
+				<td align="left" width="14%"><a href="/status/MATSUM,shangjingbo/">MATSUM</a></td>
+				<td align="left" width="14%"><a href="/status/OROSNAKE,shangjingbo/">OROSNAKE</a></td>
+				<td align="left" width="14%"><a href="/status/SHOP2,shangjingbo/">SHOP2</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADV04D,shangjingbo/">ADV04D</a></td>
+				<td align="left" width="14%"><a href="/status/CALLS,shangjingbo/">CALLS</a></td>
+				<td align="left" width="14%"><a href="/status/FINDMAX,shangjingbo/">FINDMAX</a></td>
+				<td align="left" width="14%"><a href="/status/INCDSEQ,shangjingbo/">INCDSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/MAXMATCH,shangjingbo/">MAXMATCH</a></td>
+				<td align="left" width="14%"><a href="/status/OTOCI,shangjingbo/">OTOCI</a></td>
+				<td align="left" width="14%"><a href="/status/SLIKAR,shangjingbo/">SLIKAR</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADV04E,shangjingbo/">ADV04E</a></td>
+				<td align="left" width="14%"><a href="/status/CANTON,shangjingbo/">CANTON</a></td>
+				<td align="left" width="14%"><a href="/status/FINDPRM,shangjingbo/">FINDPRM</a></td>
+				<td align="left" width="14%"><a href="/status/INCEST,shangjingbo/">INCEST</a></td>
+				<td align="left" width="14%"><a href="/status/MBALL,shangjingbo/">MBALL</a></td>
+				<td align="left" width="14%"><a href="/status/PAIRGRPH,shangjingbo/">PAIRGRPH</a></td>
+				<td align="left" width="14%"><a href="/status/SNOOKER,shangjingbo/">SNOOKER</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADV04F1,shangjingbo/">ADV04F1</a></td>
+				<td align="left" width="14%"><a href="/status/CARNIVAL,shangjingbo/">CARNIVAL</a></td>
+				<td align="left" width="14%"><a href="/status/FIRM,shangjingbo/">FIRM</a></td>
+				<td align="left" width="14%"><a href="/status/INCSEQ,shangjingbo/">INCSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/MBIPALIN,shangjingbo/">MBIPALIN</a></td>
+				<td align="left" width="14%"><a href="/status/PALACE,shangjingbo/">PALACE</a></td>
+				<td align="left" width="14%"><a href="/status/SOPARADE,shangjingbo/">SOPARADE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADV04H,shangjingbo/">ADV04H</a></td>
+				<td align="left" width="14%"><a href="/status/CASHIER,shangjingbo/">CASHIER</a></td>
+				<td align="left" width="14%"><a href="/status/FISHNET,shangjingbo/">FISHNET</a></td>
+				<td align="left" width="14%"><a href="/status/INTERVA2,shangjingbo/">INTERVA2</a></td>
+				<td align="left" width="14%"><a href="/status/MCARDS,shangjingbo/">MCARDS</a></td>
+				<td align="left" width="14%"><a href="/status/PALIN,shangjingbo/">PALIN</a></td>
+				<td align="left" width="14%"><a href="/status/SPAMD,shangjingbo/">SPAMD</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADV04J,shangjingbo/">ADV04J</a></td>
+				<td align="left" width="14%"><a href="/status/CATM,shangjingbo/">CATM</a></td>
+				<td align="left" width="14%"><a href="/status/FLOWGROW,shangjingbo/">FLOWGROW</a></td>
+				<td align="left" width="14%"><a href="/status/INTERVAL,shangjingbo/">INTERVAL</a></td>
+				<td align="left" width="14%"><a href="/status/MCOINS,shangjingbo/">MCOINS</a></td>
+				<td align="left" width="14%"><a href="/status/PARADOX,shangjingbo/">PARADOX</a></td>
+				<td align="left" width="14%"><a href="/status/SPEED,shangjingbo/">SPEED</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADV04K,shangjingbo/">ADV04K</a></td>
+				<td align="left" width="14%"><a href="/status/CATTLEB,shangjingbo/">CATTLEB</a></td>
+				<td align="left" width="14%"><a href="/status/FOOL,shangjingbo/">FOOL</a></td>
+				<td align="left" width="14%"><a href="/status/INUMBER,shangjingbo/">INUMBER</a></td>
+				<td align="left" width="14%"><a href="/status/MDOLLS,shangjingbo/">MDOLLS</a></td>
+				<td align="left" width="14%"><a href="/status/PARITY,shangjingbo/">PARITY</a></td>
+				<td align="left" width="14%"><a href="/status/SPHIWAY,shangjingbo/">SPHIWAY</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADV04L,shangjingbo/">ADV04L</a></td>
+				<td align="left" width="14%"><a href="/status/CAVLI,shangjingbo/">CAVLI</a></td>
+				<td align="left" width="14%"><a href="/status/FP,shangjingbo/">FP</a></td>
+				<td align="left" width="14%"><a href="/status/ISLHOP,shangjingbo/">ISLHOP</a></td>
+				<td align="left" width="14%"><a href="/status/MENU,shangjingbo/">MENU</a></td>
+				<td align="left" width="14%"><a href="/status/PARTPALI,shangjingbo/">PARTPALI</a></td>
+				<td align="left" width="14%"><a href="/status/SQFREE,shangjingbo/">SQFREE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AE3A,shangjingbo/">AE3A</a></td>
+				<td align="left" width="14%"><a href="/status/CCOST,shangjingbo/">CCOST</a></td>
+				<td align="left" width="14%"><a href="/status/FRACTION,shangjingbo/">FRACTION</a></td>
+				<td align="left" width="14%"><a href="/status/IVAN,shangjingbo/">IVAN</a></td>
+				<td align="left" width="14%"><a href="/status/MGCSCLS,shangjingbo/">MGCSCLS</a></td>
+				<td align="left" width="14%"><a href="/status/PATULJCI,shangjingbo/">PATULJCI</a></td>
+				<td align="left" width="14%"><a href="/status/STREDUCE,shangjingbo/">STREDUCE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AEROLITE,shangjingbo/">AEROLITE</a></td>
+				<td align="left" width="14%"><a href="/status/CCROSS,shangjingbo/">CCROSS</a></td>
+				<td align="left" width="14%"><a href="/status/FREQ2,shangjingbo/">FREQ2</a></td>
+				<td align="left" width="14%"><a href="/status/IZBORI,shangjingbo/">IZBORI</a></td>
+				<td align="left" width="14%"><a href="/status/MINSEQ,shangjingbo/">MINSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/PB,shangjingbo/">PB</a></td>
+				<td align="left" width="14%"><a href="/status/STREET,shangjingbo/">STREET</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AIBOHP,shangjingbo/">AIBOHP</a></td>
+				<td align="left" width="14%"><a href="/status/CEPC08B,shangjingbo/">CEPC08B</a></td>
+				<td align="left" width="14%"><a href="/status/FROGS,shangjingbo/">FROGS</a></td>
+				<td align="left" width="14%"><a href="/status/JEDNAKOS,shangjingbo/">JEDNAKOS</a></td>
+				<td align="left" width="14%"><a href="/status/MLE,shangjingbo/">MLE</a></td>
+				<td align="left" width="14%"><a href="/status/PERFECTR,shangjingbo/">PERFECTR</a></td>
+				<td align="left" width="14%"><a href="/status/STSTRING,shangjingbo/">STSTRING</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AIRLINES,shangjingbo/">AIRLINES</a></td>
+				<td align="left" width="14%"><a href="/status/CHAIN,shangjingbo/">CHAIN</a></td>
+				<td align="left" width="14%"><a href="/status/GAME,shangjingbo/">GAME</a></td>
+				<td align="left" width="14%"><a href="/status/JRIDE,shangjingbo/">JRIDE</a></td>
+				<td align="left" width="14%"><a href="/status/MMAHWIRE,shangjingbo/">MMAHWIRE</a></td>
+				<td align="left" width="14%"><a href="/status/PERIODNI,shangjingbo/">PERIODNI</a></td>
+				<td align="left" width="14%"><a href="/status/SUBS,shangjingbo/">SUBS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ALTPERM,shangjingbo/">ALTPERM</a></td>
+				<td align="left" width="14%"><a href="/status/CHRIS,shangjingbo/">CHRIS</a></td>
+				<td align="left" width="14%"><a href="/status/GARDEN,shangjingbo/">GARDEN</a></td>
+				<td align="left" width="14%"><a href="/status/KGSS,shangjingbo/">KGSS</a></td>
+				<td align="left" width="14%"><a href="/status/MMCUT,shangjingbo/">MMCUT</a></td>
+				<td align="left" width="14%"><a href="/status/PERMJUMP,shangjingbo/">PERMJUMP</a></td>
+				<td align="left" width="14%"><a href="/status/SUBST1,shangjingbo/">SUBST1</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AMBIG,shangjingbo/">AMBIG</a></td>
+				<td align="left" width="14%"><a href="/status/CIRCLES,shangjingbo/">CIRCLES</a></td>
+				<td align="left" width="14%"><a href="/status/GASWARS,shangjingbo/">GASWARS</a></td>
+				<td align="left" width="14%"><a href="/status/KNIGHTS,shangjingbo/">KNIGHTS</a></td>
+				<td align="left" width="14%"><a href="/status/MMINPAID,shangjingbo/">MMINPAID</a></td>
+				<td align="left" width="14%"><a href="/status/PERMUT3,shangjingbo/">PERMUT3</a></td>
+				<td align="left" width="14%"><a href="/status/SUBSUMS,shangjingbo/">SUBSUMS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANALYSER,shangjingbo/">ANALYSER</a></td>
+				<td align="left" width="14%"><a href="/status/COCONUTS,shangjingbo/">COCONUTS</a></td>
+				<td align="left" width="14%"><a href="/status/GCD2,shangjingbo/">GCD2</a></td>
+				<td align="left" width="14%"><a href="/status/KPEQU,shangjingbo/">KPEQU</a></td>
+				<td align="left" width="14%"><a href="/status/MMMGAME,shangjingbo/">MMMGAME</a></td>
+				<td align="left" width="14%"><a href="/status/PGCD,shangjingbo/">PGCD</a></td>
+				<td align="left" width="14%"><a href="/status/SWARM,shangjingbo/">SWARM</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANARC07J,shangjingbo/">ANARC07J</a></td>
+				<td align="left" width="14%"><a href="/status/COMPASS,shangjingbo/">COMPASS</a></td>
+				<td align="left" width="14%"><a href="/status/GCD3,shangjingbo/">GCD3</a></td>
+				<td align="left" width="14%"><a href="/status/KPGAME,shangjingbo/">KPGAME</a></td>
+				<td align="left" width="14%"><a href="/status/MOBIVINA,shangjingbo/">MOBIVINA</a></td>
+				<td align="left" width="14%"><a href="/status/PHONY,shangjingbo/">PHONY</a></td>
+				<td align="left" width="14%"><a href="/status/TEST,shangjingbo/">TEST</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANDROUND,shangjingbo/">ANDROUND</a></td>
+				<td align="left" width="14%"><a href="/status/CONDUIT,shangjingbo/">CONDUIT</a></td>
+				<td align="left" width="14%"><a href="/status/GCJ08C,shangjingbo/">GCJ08C</a></td>
+				<td align="left" width="14%"><a href="/status/KPMATRIX,shangjingbo/">KPMATRIX</a></td>
+				<td align="left" width="14%"><a href="/status/MOOPIZZA,shangjingbo/">MOOPIZZA</a></td>
+				<td align="left" width="14%"><a href="/status/PLAHTE,shangjingbo/">PLAHTE</a></td>
+				<td align="left" width="14%"><a href="/status/TETRAHED,shangjingbo/">TETRAHED</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANGELS,shangjingbo/">ANGELS</a></td>
+				<td align="left" width="14%"><a href="/status/CONTPACK,shangjingbo/">CONTPACK</a></td>
+				<td align="left" width="14%"><a href="/status/GCPC11A,shangjingbo/">GCPC11A</a></td>
+				<td align="left" width="14%"><a href="/status/KQUERY,shangjingbo/">KQUERY</a></td>
+				<td align="left" width="14%"><a href="/status/MOVIE,shangjingbo/">MOVIE</a></td>
+				<td align="left" width="14%"><a href="/status/PMATRIX,shangjingbo/">PMATRIX</a></td>
+				<td align="left" width="14%"><a href="/status/TLE,shangjingbo/">TLE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ANTTT,shangjingbo/">ANTTT</a></td>
+				<td align="left" width="14%"><a href="/status/COUNT,shangjingbo/">COUNT</a></td>
+				<td align="left" width="14%"><a href="/status/GCPC11B,shangjingbo/">GCPC11B</a></td>
+				<td align="left" width="14%"><a href="/status/KSEQ,shangjingbo/">KSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/MOWS,shangjingbo/">MOWS</a></td>
+				<td align="left" width="14%"><a href="/status/POLY1,shangjingbo/">POLY1</a></td>
+				<td align="left" width="14%"><a href="/status/TOHU,shangjingbo/">TOHU</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/APRIME,shangjingbo/">APRIME</a></td>
+				<td align="left" width="14%"><a href="/status/COURIER,shangjingbo/">COURIER</a></td>
+				<td align="left" width="14%"><a href="/status/GCPC11C,shangjingbo/">GCPC11C</a></td>
+				<td align="left" width="14%"><a href="/status/KUTH,shangjingbo/">KUTH</a></td>
+				<td align="left" width="14%"><a href="/status/MPART,shangjingbo/">MPART</a></td>
+				<td align="left" width="14%"><a href="/status/POLYGAME,shangjingbo/">POLYGAME</a></td>
+				<td align="left" width="14%"><a href="/status/TOHU2,shangjingbo/">TOHU2</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARBITRAG,shangjingbo/">ARBITRAG</a></td>
+				<td align="left" width="14%"><a href="/status/COVER,shangjingbo/">COVER</a></td>
+				<td align="left" width="14%"><a href="/status/GCPC11D,shangjingbo/">GCPC11D</a></td>
+				<td align="left" width="14%"><a href="/status/KVALTWR,shangjingbo/">KVALTWR</a></td>
+				<td align="left" width="14%"><a href="/status/MPIGS,shangjingbo/">MPIGS</a></td>
+				<td align="left" width="14%"><a href="/status/POLYSSQ,shangjingbo/">POLYSSQ</a></td>
+				<td align="left" width="14%"><a href="/status/TOPCODE,shangjingbo/">TOPCODE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARCTAN,shangjingbo/">ARCTAN</a></td>
+				<td align="left" width="14%"><a href="/status/CPAIR,shangjingbo/">CPAIR</a></td>
+				<td align="left" width="14%"><a href="/status/GCPC11E,shangjingbo/">GCPC11E</a></td>
+				<td align="left" width="14%"><a href="/status/LAND,shangjingbo/">LAND</a></td>
+				<td align="left" width="14%"><a href="/status/MPOINT,shangjingbo/">MPOINT</a></td>
+				<td align="left" width="14%"><a href="/status/POTHOLE,shangjingbo/">POTHOLE</a></td>
+				<td align="left" width="14%"><a href="/status/TORNJEVI,shangjingbo/">TORNJEVI</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARITH,shangjingbo/">ARITH</a></td>
+				<td align="left" width="14%"><a href="/status/CROSSBIT,shangjingbo/">CROSSBIT</a></td>
+				<td align="left" width="14%"><a href="/status/GCPC11F,shangjingbo/">GCPC11F</a></td>
+				<td align="left" width="14%"><a href="/status/LANDFILL,shangjingbo/">LANDFILL</a></td>
+				<td align="left" width="14%"><a href="/status/MRECTCNT,shangjingbo/">MRECTCNT</a></td>
+				<td align="left" width="14%"><a href="/status/PRATA,shangjingbo/">PRATA</a></td>
+				<td align="left" width="14%"><a href="/status/TRAFFICN,shangjingbo/">TRAFFICN</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ARITHSEQ,shangjingbo/">ARITHSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/CRYPTO7,shangjingbo/">CRYPTO7</a></td>
+				<td align="left" width="14%"><a href="/status/GCPC11G,shangjingbo/">GCPC11G</a></td>
+				<td align="left" width="14%"><a href="/status/LARGE,shangjingbo/">LARGE</a></td>
+				<td align="left" width="14%"><a href="/status/MROADS,shangjingbo/">MROADS</a></td>
+				<td align="left" width="14%"><a href="/status/PRETTY,shangjingbo/">PRETTY</a></td>
+				<td align="left" width="14%"><a href="/status/TRANK,shangjingbo/">TRANK</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/AROAD,shangjingbo/">AROAD</a></td>
+				<td align="left" width="14%"><a href="/status/CSTREET,shangjingbo/">CSTREET</a></td>
+				<td align="left" width="14%"><a href="/status/GCPC11H,shangjingbo/">GCPC11H</a></td>
+				<td align="left" width="14%"><a href="/status/LASTDIG2,shangjingbo/">LASTDIG2</a></td>
+				<td align="left" width="14%"><a href="/status/MSAFE,shangjingbo/">MSAFE</a></td>
+				<td align="left" width="14%"><a href="/status/PRIME1,shangjingbo/">PRIME1</a></td>
+				<td align="left" width="14%"><a href="/status/TRANSP,shangjingbo/">TRANSP</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ASSIGN,shangjingbo/">ASSIGN</a></td>
+				<td align="left" width="14%"><a href="/status/CSUBSEQS,shangjingbo/">CSUBSEQS</a></td>
+				<td align="left" width="14%"><a href="/status/GCPC11I,shangjingbo/">GCPC11I</a></td>
+				<td align="left" width="14%"><a href="/status/LAZYPROG,shangjingbo/">LAZYPROG</a></td>
+				<td align="left" width="14%"><a href="/status/MSE08G,shangjingbo/">MSE08G</a></td>
+				<td align="left" width="14%"><a href="/status/PRIMIT,shangjingbo/">PRIMIT</a></td>
+				<td align="left" width="14%"><a href="/status/TRANSP2,shangjingbo/">TRANSP2</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ASSIGN4,shangjingbo/">ASSIGN4</a></td>
+				<td align="left" width="14%"><a href="/status/CT,shangjingbo/">CT</a></td>
+				<td align="left" width="14%"><a href="/status/GCPC11J,shangjingbo/">GCPC11J</a></td>
+				<td align="left" width="14%"><a href="/status/LCS3,shangjingbo/">LCS3</a></td>
+				<td align="left" width="14%"><a href="/status/MSE08H,shangjingbo/">MSE08H</a></td>
+				<td align="left" width="14%"><a href="/status/PROFIT,shangjingbo/">PROFIT</a></td>
+				<td align="left" width="14%"><a href="/status/TRES,shangjingbo/">TRES</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BABY,shangjingbo/">BABY</a></td>
+				<td align="left" width="14%"><a href="/status/CUBEFR,shangjingbo/">CUBEFR</a></td>
+				<td align="left" width="14%"><a href="/status/GEOM,shangjingbo/">GEOM</a></td>
+				<td align="left" width="14%"><a href="/status/LEGO,shangjingbo/">LEGO</a></td>
+				<td align="left" width="14%"><a href="/status/MSKYCODE,shangjingbo/">MSKYCODE</a></td>
+				<td align="left" width="14%"><a href="/status/PROOT,shangjingbo/">PROOT</a></td>
+				<td align="left" width="14%"><a href="/status/TREX,shangjingbo/">TREX</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BALLOON,shangjingbo/">BALLOON</a></td>
+				<td align="left" width="14%"><a href="/status/CUBES,shangjingbo/">CUBES</a></td>
+				<td align="left" width="14%"><a href="/status/GEORGE,shangjingbo/">GEORGE</a></td>
+				<td align="left" width="14%"><a href="/status/LEGRENDS,shangjingbo/">LEGRENDS</a></td>
+				<td align="left" width="14%"><a href="/status/MSTRING,shangjingbo/">MSTRING</a></td>
+				<td align="left" width="14%"><a href="/status/PYRSUM,shangjingbo/">PYRSUM</a></td>
+				<td align="left" width="14%"><a href="/status/TREZOR,shangjingbo/">TREZOR</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BASE,shangjingbo/">BASE</a></td>
+				<td align="left" width="14%"><a href="/status/CVXPOLY,shangjingbo/">CVXPOLY</a></td>
+				<td align="left" width="14%"><a href="/status/GOALFR,shangjingbo/">GOALFR</a></td>
+				<td align="left" width="14%"><a href="/status/LFM,shangjingbo/">LFM</a></td>
+				<td align="left" width="14%"><a href="/status/MTOTALF,shangjingbo/">MTOTALF</a></td>
+				<td align="left" width="14%"><a href="/status/PYRSUM2,shangjingbo/">PYRSUM2</a></td>
+				<td align="left" width="14%"><a href="/status/TRIBE2,shangjingbo/">TRIBE2</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BENEFACT,shangjingbo/">BENEFACT</a></td>
+				<td align="left" width="14%"><a href="/status/DAGCNT2,shangjingbo/">DAGCNT2</a></td>
+				<td align="left" width="14%"><a href="/status/GONDOR,shangjingbo/">GONDOR</a></td>
+				<td align="left" width="14%"><a href="/status/LIAR,shangjingbo/">LIAR</a></td>
+				<td align="left" width="14%"><a href="/status/MTREECOL,shangjingbo/">MTREECOL</a></td>
+				<td align="left" width="14%"><a href="/status/QTREE,shangjingbo/">QTREE</a></td>
+				<td align="left" width="14%"><a href="/status/TROOPS,shangjingbo/">TROOPS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BFALG,shangjingbo/">BFALG</a></td>
+				<td align="left" width="14%"><a href="/status/DANCE,shangjingbo/">DANCE</a></td>
+				<td align="left" width="14%"><a href="/status/GPINTRI,shangjingbo/">GPINTRI</a></td>
+				<td align="left" width="14%"><a href="/status/LIFEGAME,shangjingbo/">LIFEGAME</a></td>
+				<td align="left" width="14%"><a href="/status/MTRGAME,shangjingbo/">MTRGAME</a></td>
+				<td align="left" width="14%"><a href="/status/QUERYSTR,shangjingbo/">QUERYSTR</a></td>
+				<td align="left" width="14%"><a href="/status/TUG,shangjingbo/">TUG</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BHAT007,shangjingbo/">BHAT007</a></td>
+				<td align="left" width="14%"><a href="/status/DCD,shangjingbo/">DCD</a></td>
+				<td align="left" width="14%"><a href="/status/GREED,shangjingbo/">GREED</a></td>
+				<td align="left" width="14%"><a href="/status/LIGHTIN,shangjingbo/">LIGHTIN</a></td>
+				<td align="left" width="14%"><a href="/status/MTRIAREA,shangjingbo/">MTRIAREA</a></td>
+				<td align="left" width="14%"><a href="/status/QUEST4,shangjingbo/">QUEST4</a></td>
+				<td align="left" width="14%"><a href="/status/TWICE,shangjingbo/">TWICE</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BIGSEQ,shangjingbo/">BIGSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/DETER3,shangjingbo/">DETER3</a></td>
+				<td align="left" width="14%"><a href="/status/GS,shangjingbo/">GS</a></td>
+				<td align="left" width="14%"><a href="/status/LIM,shangjingbo/">LIM</a></td>
+				<td align="left" width="14%"><a href="/status/MTWALK,shangjingbo/">MTWALK</a></td>
+				<td align="left" width="14%"><a href="/status/QUEST5,shangjingbo/">QUEST5</a></td>
+				<td align="left" width="14%"><a href="/status/TWOPROF,shangjingbo/">TWOPROF</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BILLIARD,shangjingbo/">BILLIARD</a></td>
+				<td align="left" width="14%"><a href="/status/DISJPATH,shangjingbo/">DISJPATH</a></td>
+				<td align="left" width="14%"><a href="/status/GSS1,shangjingbo/">GSS1</a></td>
+				<td align="left" width="14%"><a href="/status/LINE,shangjingbo/">LINE</a></td>
+				<td align="left" width="14%"><a href="/status/MVECTOR,shangjingbo/">MVECTOR</a></td>
+				<td align="left" width="14%"><a href="/status/RACETIME,shangjingbo/">RACETIME</a></td>
+				<td align="left" width="14%"><a href="/status/UCI2009B,shangjingbo/">UCI2009B</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BISHOP2,shangjingbo/">BISHOP2</a></td>
+				<td align="left" width="14%"><a href="/status/DISTANCE,shangjingbo/">DISTANCE</a></td>
+				<td align="left" width="14%"><a href="/status/GSS2,shangjingbo/">GSS2</a></td>
+				<td align="left" width="14%"><a href="/status/LIS2,shangjingbo/">LIS2</a></td>
+				<td align="left" width="14%"><a href="/status/MWORDS,shangjingbo/">MWORDS</a></td>
+				<td align="left" width="14%"><a href="/status/RAINBOW,shangjingbo/">RAINBOW</a></td>
+				<td align="left" width="14%"><a href="/status/VCIRCLES,shangjingbo/">VCIRCLES</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BISHOPS,shangjingbo/">BISHOPS</a></td>
+				<td align="left" width="14%"><a href="/status/DIV15,shangjingbo/">DIV15</a></td>
+				<td align="left" width="14%"><a href="/status/GSS3,shangjingbo/">GSS3</a></td>
+				<td align="left" width="14%"><a href="/status/LISA,shangjingbo/">LISA</a></td>
+				<td align="left" width="14%"><a href="/status/MYSTIC,shangjingbo/">MYSTIC</a></td>
+				<td align="left" width="14%"><a href="/status/RECTNG1,shangjingbo/">RECTNG1</a></td>
+				<td align="left" width="14%"><a href="/status/VMILI,shangjingbo/">VMILI</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BNWNIM,shangjingbo/">BNWNIM</a></td>
+				<td align="left" width="14%"><a href="/status/DOMINO2,shangjingbo/">DOMINO2</a></td>
+				<td align="left" width="14%"><a href="/status/GSS5,shangjingbo/">GSS5</a></td>
+				<td align="left" width="14%"><a href="/status/LOGIC,shangjingbo/">LOGIC</a></td>
+				<td align="left" width="14%"><a href="/status/MZVRK,shangjingbo/">MZVRK</a></td>
+				<td align="left" width="14%"><a href="/status/RECTNG2,shangjingbo/">RECTNG2</a></td>
+				<td align="left" width="14%"><a href="/status/VPALIN,shangjingbo/">VPALIN</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOBALLS2,shangjingbo/">BOBALLS2</a></td>
+				<td align="left" width="14%"><a href="/status/DQUERY,shangjingbo/">DQUERY</a></td>
+				<td align="left" width="14%"><a href="/status/GSS6,shangjingbo/">GSS6</a></td>
+				<td align="left" width="14%"><a href="/status/LPERMUT,shangjingbo/">LPERMUT</a></td>
+				<td align="left" width="14%"><a href="/status/NECKLACE,shangjingbo/">NECKLACE</a></td>
+				<td align="left" width="14%"><a href="/status/REPEATS,shangjingbo/">REPEATS</a></td>
+				<td align="left" width="14%"><a href="/status/VPARTY,shangjingbo/">VPARTY</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOMB,shangjingbo/">BOMB</a></td>
+				<td align="left" width="14%"><a href="/status/DRAGON,shangjingbo/">DRAGON</a></td>
+				<td align="left" width="14%"><a href="/status/GUESSING,shangjingbo/">GUESSING</a></td>
+				<td align="left" width="14%"><a href="/status/LSORT,shangjingbo/">LSORT</a></td>
+				<td align="left" width="14%"><a href="/status/NEG2,shangjingbo/">NEG2</a></td>
+				<td align="left" width="14%"><a href="/status/RESIST,shangjingbo/">RESIST</a></td>
+				<td align="left" width="14%"><a href="/status/WINSTRAT,shangjingbo/">WINSTRAT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOOKCASE,shangjingbo/">BOOKCASE</a></td>
+				<td align="left" width="14%"><a href="/status/DROOT,shangjingbo/">DROOT</a></td>
+				<td align="left" width="14%"><a href="/status/HABLU,shangjingbo/">HABLU</a></td>
+				<td align="left" width="14%"><a href="/status/LUBEN,shangjingbo/">LUBEN</a></td>
+				<td align="left" width="14%"><a href="/status/NG0FRCTN,shangjingbo/">NG0FRCTN</a></td>
+				<td align="left" width="14%"><a href="/status/RIGHTTRI,shangjingbo/">RIGHTTRI</a></td>
+				<td align="left" width="14%"><a href="/status/WIRELESS,shangjingbo/">WIRELESS</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOXES,shangjingbo/">BOXES</a></td>
+				<td align="left" width="14%"><a href="/status/DSUBSEQ,shangjingbo/">DSUBSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/HANDS,shangjingbo/">HANDS</a></td>
+				<td align="left" width="14%"><a href="/status/LUCKYNUM,shangjingbo/">LUCKYNUM</a></td>
+				<td align="left" width="14%"><a href="/status/NG1FRCTN,shangjingbo/">NG1FRCTN</a></td>
+				<td align="left" width="14%"><a href="/status/RNG,shangjingbo/">RNG</a></td>
+				<td align="left" width="14%"><a href="/status/WMELON,shangjingbo/">WMELON</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BOYSCOUT,shangjingbo/">BOYSCOUT</a></td>
+				<td align="left" width="14%"><a href="/status/EIGHTS,shangjingbo/">EIGHTS</a></td>
+				<td align="left" width="14%"><a href="/status/HANGOVER,shangjingbo/">HANGOVER</a></td>
+				<td align="left" width="14%"><a href="/status/LWAR,shangjingbo/">LWAR</a></td>
+				<td align="left" width="14%"><a href="/status/NGM,shangjingbo/">NGM</a></td>
+				<td align="left" width="14%"><a href="/status/ROMANRDS,shangjingbo/">ROMANRDS</a></td>
+				<td align="left" width="14%"><a href="/status/WORDEQ,shangjingbo/">WORDEQ</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BPRED,shangjingbo/">BPRED</a></td>
+				<td align="left" width="14%"><a href="/status/ELIM,shangjingbo/">ELIM</a></td>
+				<td align="left" width="14%"><a href="/status/HANOI07,shangjingbo/">HANOI07</a></td>
+				<td align="left" width="14%"><a href="/status/M00PAIR,shangjingbo/">M00PAIR</a></td>
+				<td align="left" width="14%"><a href="/status/NGON,shangjingbo/">NGON</a></td>
+				<td align="left" width="14%"><a href="/status/ROUNDT,shangjingbo/">ROUNDT</a></td>
+				<td align="left" width="14%"><a href="/status/WPUZZLES,shangjingbo/">WPUZZLES</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BRCKTS,shangjingbo/">BRCKTS</a></td>
+				<td align="left" width="14%"><a href="/status/EMPTY,shangjingbo/">EMPTY</a></td>
+				<td align="left" width="14%"><a href="/status/HASH,shangjingbo/">HASH</a></td>
+				<td align="left" width="14%"><a href="/status/MAFBOI08,shangjingbo/">MAFBOI08</a></td>
+				<td align="left" width="14%"><a href="/status/NICEDAY,shangjingbo/">NICEDAY</a></td>
+				<td align="left" width="14%"><a href="/status/RPS,shangjingbo/">RPS</a></td>
+				<td align="left" width="14%"><a href="/status/XORROUND,shangjingbo/">XORROUND</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BRCKTS2,shangjingbo/">BRCKTS2</a></td>
+				<td align="left" width="14%"><a href="/status/EOPERA,shangjingbo/">EOPERA</a></td>
+				<td align="left" width="14%"><a href="/status/HEAPULM,shangjingbo/">HEAPULM</a></td>
+				<td align="left" width="14%"><a href="/status/MAIN111,shangjingbo/">MAIN111</a></td>
+				<td align="left" width="14%"><a href="/status/NOVICE62,shangjingbo/">NOVICE62</a></td>
+				<td align="left" width="14%"><a href="/status/SAMER08E,shangjingbo/">SAMER08E</a></td>
+				<td align="left" width="14%"><a href="/status/XXXXXXXX,shangjingbo/">XXXXXXXX</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BRI,shangjingbo/">BRI</a></td>
+				<td align="left" width="14%"><a href="/status/EXPAND,shangjingbo/">EXPAND</a></td>
+				<td align="left" width="14%"><a href="/status/HIDTRI,shangjingbo/">HIDTRI</a></td>
+				<td align="left" width="14%"><a href="/status/MAIN112,shangjingbo/">MAIN112</a></td>
+				<td align="left" width="14%"><a href="/status/NOVICE63,shangjingbo/">NOVICE63</a></td>
+				<td align="left" width="14%"><a href="/status/SAMER08F,shangjingbo/">SAMER08F</a></td>
+				<td align="left" width="14%"><a href="/status/YODA,shangjingbo/">YODA</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BRII,shangjingbo/">BRII</a></td>
+				<td align="left" width="14%"><a href="/status/FAMILY,shangjingbo/">FAMILY</a></td>
+				<td align="left" width="14%"><a href="/status/HIGH,shangjingbo/">HIGH</a></td>
+				<td align="left" width="14%"><a href="/status/MAIN113,shangjingbo/">MAIN113</a></td>
+				<td align="left" width="14%"><a href="/status/NOVICE65,shangjingbo/">NOVICE65</a></td>
+				<td align="left" width="14%"><a href="/status/SAMER08G,shangjingbo/">SAMER08G</a></td>
+				<td align="left" width="14%"><a href="/status/ZSEQ,shangjingbo/">ZSEQ</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BROUL,shangjingbo/">BROUL</a></td>
+				<td align="left" width="14%"><a href="/status/FARMER,shangjingbo/">FARMER</a></td>
+				<td align="left" width="14%"><a href="/status/HIGHWAY,shangjingbo/">HIGHWAY</a></td>
+				<td align="left" width="14%"><a href="/status/MAJMUN,shangjingbo/">MAJMUN</a></td>
+				<td align="left" width="14%"><a href="/status/NQUEEN,shangjingbo/">NQUEEN</a></td>
+				<td align="left" width="14%"><a href="/status/SCUBADIV,shangjingbo/">SCUBADIV</a></td>
+				<td align="left" width="14%"><a href="/status/ZSUM,shangjingbo/">ZSUM</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BROW,shangjingbo/">BROW</a></td>
+				<td align="left" width="14%"><a href="/status/FASHION,shangjingbo/">FASHION</a></td>
+				<td align="left" width="14%"><a href="/status/HIKE,shangjingbo/">HIKE</a></td>
+				<td align="left" width="14%"><a href="/status/MARIOGAM,shangjingbo/">MARIOGAM</a></td>
+				<td align="left" width="14%"><a href="/status/O2JAM,shangjingbo/">O2JAM</a></td>
+				<td align="left" width="14%"><a href="/status/SEGMENTS,shangjingbo/">SEGMENTS</a></td>
+				<td align="left" width="14%"><a href="/status/,shangjingbo/"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BRTREE,shangjingbo/">BRTREE</a></td>
+				<td align="left" width="14%"><a href="/status/FASTFLOW,shangjingbo/">FASTFLOW</a></td>
+				<td align="left" width="14%"><a href="/status/HIST2,shangjingbo/">HIST2</a></td>
+				<td align="left" width="14%"><a href="/status/MATCHING,shangjingbo/">MATCHING</a></td>
+				<td align="left" width="14%"><a href="/status/OILCOMP,shangjingbo/">OILCOMP</a></td>
+				<td align="left" width="14%"><a href="/status/SEQUOIA,shangjingbo/">SEQUOIA</a></td>
+				<td align="left" width="14%"><a href="/status/,shangjingbo/"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BST,shangjingbo/">BST</a></td>
+				<td align="left" width="14%"><a href="/status/FAVDICE,shangjingbo/">FAVDICE</a></td>
+				<td align="left" width="14%"><a href="/status/HSEQ,shangjingbo/">HSEQ</a></td>
+				<td align="left" width="14%"><a href="/status/MATH1,shangjingbo/">MATH1</a></td>
+				<td align="left" width="14%"><a href="/status/ONEZERO,shangjingbo/">ONEZERO</a></td>
+				<td align="left" width="14%"><a href="/status/SERIALN,shangjingbo/">SERIALN</a></td>
+				<td align="left" width="14%"><a href="/status/,shangjingbo/"></a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/BUILD,shangjingbo/">BUILD</a></td>
+				<td align="left" width="14%"><a href="/status/FCTRL,shangjingbo/">FCTRL</a></td>
+				<td align="left" width="14%"><a href="/status/HUBULLU,shangjingbo/">HUBULLU</a></td>
+				<td align="left" width="14%"><a href="/status/MATRICA,shangjingbo/">MATRICA</a></td>
+				<td align="left" width="14%"><a href="/status/ONP,shangjingbo/">ONP</a></td>
+				<td align="left" width="14%"><a href="/status/SERVICE,shangjingbo/">SERVICE</a></td>
+				<td align="left" width="14%"><a href="/status/,shangjingbo/"></a></td>
+				</tr>
+								</table>
+				
+				
+								<h4><span title="List of problems to which solutions were submitted but none of them got AC.">TODO list of classical problems:</span></h4>
+				<table class="table">
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADV04B1,shangjingbo/">ADV04B1</a></td>
+				<td align="left" width="14%"><a href="/status/BAC,shangjingbo/">BAC</a></td>
+				<td align="left" width="14%"><a href="/status/BONFIRE,shangjingbo/">BONFIRE</a></td>
+				<td align="left" width="14%"><a href="/status/EXPR1,shangjingbo/">EXPR1</a></td>
+				<td align="left" width="14%"><a href="/status/LCS2,shangjingbo/">LCS2</a></td>
+				<td align="left" width="14%"><a href="/status/PLHOP,shangjingbo/">PLHOP</a></td>
+				<td align="left" width="14%"><a href="/status/TETRIS2D,shangjingbo/">TETRIS2D</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ADV04G1,shangjingbo/">ADV04G1</a></td>
+				<td align="left" width="14%"><a href="/status/BALIFE,shangjingbo/">BALIFE</a></td>
+				<td align="left" width="14%"><a href="/status/BOX,shangjingbo/">BOX</a></td>
+				<td align="left" width="14%"><a href="/status/FINFRAC,shangjingbo/">FINFRAC</a></td>
+				<td align="left" width="14%"><a href="/status/MAGIC4,shangjingbo/">MAGIC4</a></td>
+				<td align="left" width="14%"><a href="/status/PT07J,shangjingbo/">PT07J</a></td>
+				<td align="left" width="14%"><a href="/status/TOP10,shangjingbo/">TOP10</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ALICEBOB,shangjingbo/">ALICEBOB</a></td>
+				<td align="left" width="14%"><a href="/status/BARB,shangjingbo/">BARB</a></td>
+				<td align="left" width="14%"><a href="/status/BTOUR,shangjingbo/">BTOUR</a></td>
+				<td align="left" width="14%"><a href="/status/FOLD,shangjingbo/">FOLD</a></td>
+				<td align="left" width="14%"><a href="/status/MDST,shangjingbo/">MDST</a></td>
+				<td align="left" width="14%"><a href="/status/SEQ5,shangjingbo/">SEQ5</a></td>
+				<td align="left" width="14%"><a href="/status/TRIOPT,shangjingbo/">TRIOPT</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ALIENS,shangjingbo/">ALIENS</a></td>
+				<td align="left" width="14%"><a href="/status/BEGIN,shangjingbo/">BEGIN</a></td>
+				<td align="left" width="14%"><a href="/status/DNALAB,shangjingbo/">DNALAB</a></td>
+				<td align="left" width="14%"><a href="/status/FRACTAN,shangjingbo/">FRACTAN</a></td>
+				<td align="left" width="14%"><a href="/status/MORPH,shangjingbo/">MORPH</a></td>
+				<td align="left" width="14%"><a href="/status/SKIVALL,shangjingbo/">SKIVALL</a></td>
+				<td align="left" width="14%"><a href="/status/WATER,shangjingbo/">WATER</a></td>
+				</tr>
+								<tr>
+				<td align="left" width="14%"><a href="/status/ATOURISM,shangjingbo/">ATOURISM</a></td>
+				<td align="left" width="14%"><a href="/status/BLUEEQ2,shangjingbo/">BLUEEQ2</a></td>
+				<td align="left" width="14%"><a href="/status/EXCHNG,shangjingbo/">EXCHNG</a></td>
+				<td align="left" width="14%"><a href="/status/ITERBIT,shangjingbo/">ITERBIT</a></td>
+				<td align="left" width="14%"><a href="/status/NUMQDW,shangjingbo/">NUMQDW</a></td>
+				<td align="left" width="14%"><a href="/status/SORTBIT,shangjingbo/">SORTBIT</a></td>
+				<td align="left" width="14%"><a href="/status/,shangjingbo/"></a></td>
+				</tr>
+								</table>
+								
+							</div>
+		</div>
+	
+	
+	
+	</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<table cellspacing="10" align="center">
+
+
+
+
+
+</table>
+
+
+	<br/>
+</div>
+		
+		
+		<div class="container" id="footer">
+			<div class="row">
+				<div class="col-md-2">
+					
+				</div>
+				<div class="col-md-8 text-center">
+					<a href="/info">About</a> | <a href="/tutorials">Tutorial</a> | <a href="/tools">Tools</a> | <a href="/clusters">Clusters</a> | <a href="/credits">Credits</a> | <a href="/jobs">Jobs</a> | <a href="/sphereengine">API</a> | <a href="/gfx/spoj-terms.pdf" target="_blank">Terms</a>
+				</div>
+				<div class="col-md-2 text-right">
+					<a href="/rss/" ><img src="//stx1.spoj.com/gfx/rss10x10.gif" border=0>&nbsp;RSS</a>&nbsp;
+				</div>
+			</div>
+		</div>
+		
+		<div class="text-center" id="footer-srl">
+			
+	&copy; Spoj.com. All Rights Reserved. Spoj uses <a href="http://sphere-engine.com?utm_campaign=permanent&amp;utm_medium=footer&amp;utm_source=spoj" style="color:black">Sphere Engine</a>&trade; &copy; by <a href="http://sphere-research.com?utm_campaign=permanent&amp;utm_medium=footer&amp;utm_source=spoj" style="color:black">Sphere Research Labs</a>.
+
+		</div> 
+	</div>
+
+	<!-- JavaScripts -->
+	
+		
+	
+	<script type="text/javascript">
+	$(function(){
+		setTimeout(function(){
+			$('.no_a_info').css('visibility', 'visible');
+		}, 5000);
+		
+		if(!$('.aProblemTop').length && !$('.aProblemsTop').length && !$('.aSubmitTop').length && !$('.aStatusTop').length && !$('.aMainRight').length){
+			ga('send', 'event', 'ads', 'no-ads', 'main-contest');
+		}
+		if ($('.aProblemTop').height() == 0){
+			$('.aProblemTop').css({'border': '1px solid #ddd', 'background': '#f0f4e3', 'height': 90});
+			$('.aProblemTop').html($('<p class="text-center">using adblock?</p><h4 class="text-center">Online ads help us to maintain site.</h4><p class="text-center"><strong>please whitelist *.spoj.com</strong></p>'));
+			ga('send', 'event', 'ads', 'adblock2', 'aProblemTop');
+		}
+		if ($('.aProblemsTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aProblemsTop');
+		}
+		if ($('.aSubmitTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aSubmitTop');
+		}
+		if ($('.aStatusTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aStatusTop');
+		}
+		if ($('.aMainRight').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aMainRight');
+		}
+	});
+	</script>
+	
+	
+	<script type="text/javascript" src="//stx1.spoj.com/gfx/jquery.timers.js"></script>
+	<script type="text/javascript" src="//stx1.spoj.com/gfx/jquery.cookie.js"></script>
+	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+	<script src="//stx1.spoj.com/gfx/md5.js"></script>
+	<script src="//stx1.spoj.com/gfx/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
+	<script src="//stx1.spoj.com/gfx/scripts/tour.js"></script>
+	
+	
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&appId=321676846207&version=v2.0";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	
+	
+
+
+<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-10507872-1', 'auto');
+	  ga('require', 'linkid', 'linkid.js');
+	  ga('send', 'pageview');
+	</script>
+<!-- Hotjar Tracking Code for http://www.spoj.com -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:334656,hjsv:5};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<script type="text/javascript">
+	$(function(){
+		$(document).on('click', '.track', function(){
+			var event = $(this).attr('data-event');
+			var action = $(this).attr('data-action');
+			var value = $(this).attr('data-value');
+			ga('send', 'event', event, action, value);
+		});
+	});
+	//window.open('http://incoming.hotjar.com/s/7366', '_blank');
+	</script>
+
+
+</body>
+</html>
