@@ -1,43 +1,51 @@
 from bs4 import BeautifulSoup
 from urllib.request import Request, urlopen
-from urllib import robotparser
+from selenium import webdriver
+from reppy.cache import RobotsCache
+from reppy.robots import Robots
 import re
 import requests
 import queue
 import time
-
+import os
+import signal
 
 r = "http://www.codeforces.com"
 i = 0
 
 def robots(domain, path, rp):
-	return rp.can_fetch("*", domain+path)
+    return rp.allowed(domain+path,"*")
 
 def get_all_links(domain, path, maxSize):
-    response = requests.get(domain+path, headers={'User-Agent': 'Mozilla/5.0'})
-    soup = BeautifulSoup(response.content, "html.parser")
+    #response = requests.get(domain+path, headers={'User-Agent': 'Mozilla/5.0'})
+    driver = webdriver.PhantomJS( service_args=['--ignore-ssl-errors=true', '--ssl-protocol=any'])
+    driver.get(domain+path)
+    soup = BeautifulSoup(driver.page_source, "html.parser")
+    driver.service.process.send_signal(signal.SIGTERM)
     links = []
-    rp = robotparser.RobotFileParser()
-    rp.set_url(domain+"/robots.txt")
-    rp.read()
+    rp = Robots.fetch(domain+'/robots.txt',verify=False)
     for link in soup.findAll('a', href=True):
-        if(robots(domain, link.get('href'), rp)):
-            regex = re.compile(
-                r'^(?:http|ftp)s?://' # http:// or https://
-                r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|' #domain...
-                r'localhost|' #localhost...
-                r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})' # ...or ip
-                r'(?::\d+)?' # optional port
-                r'(?:/?|[/?]\S+)$', re.IGNORECASE)
-            if re.match(regex, domain+link.get('href')) is not None:
+        regex = re.compile(
+            r'^(?:http|ftp)s?://' # http:// or https://
+            r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|' #domain...
+            r'localhost|' #localhost...
+            r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})' # ...or ip
+            r'(?::\d+)?' # optional port
+            r'(?:/?|[/?]\S+)$', re.IGNORECASE)
+        if((re.match(regex, domain+link.get('href')) is not None or re.match(regex, domain+'/'+link.get('href')) is not None) and (re.match(regex, link.get('href')) is None) and (link.get('href')!='javascript:void();')):
+            if(len(link.get('href'))>0):
                 if((link.get('href')[0]>='a'and link.get('href')[0]<='z') or (link.get('href')[0]>='1'and link.get('href')[0]<='9')):
-                    links.append('/'+link.get('href'))
+                    if(robots(domain, '/'+link.get('href'), rp)):    
+                        if(robots(domain, '/'+link.get('href'), rp)):
+                            links.append('/'+link.get('href'))
                 else:
-                    links.append(link.get('href'))
+                    if(robots(domain, link.get('href'), rp)):
+                        links.append(link.get('href'))
+        
     return links
 
 
-def crawler(domain, pathseed, maxSize = 1000):
+def crawler(domain, pathseed, maxSize = 100):
     q = queue.Queue()
     visited = []
     links = []
@@ -58,11 +66,16 @@ def crawler(domain, pathseed, maxSize = 1000):
                 q.get()
     while(len(links)<maxSize and not q.empty()):
         links.append(domain+q.get())
+    os.makedirs('Docs/HTMLPages/'+folder(domain)+'/', exist_ok=True)
+    print(len(links))
     for l in links:
         print(l)
-        response = requests.get(l, headers={'User-Agent': 'Mozilla/5.0'})
+        driver = webdriver.PhantomJS( service_args=['--ignore-ssl-errors=true', '--ssl-protocol=any'])
+        driver.get(l)
+        #print(driver.page_source)
         with open('Docs/HTMLPages/'+folder(domain)+'/'+l.replace('/','*')+'.html', 'wb') as f:
-            f.write(response.content)
+            f.write(bytes(driver.page_source,'UTF-8'))
+        driver.service.process.send_signal(signal.SIGTERM) 
     return 0
 
 
@@ -77,12 +90,22 @@ def folder(domain):
         return 'Wcipeg'
     if(domain=='http://acm.timus.ru'):
         return 'Timus'
+    if(domain=='https://www.urionlinejudge.com.br'):
+        return 'Uri'
+    if(domain=='https://leetcode.com'):
+        return 'Leetcode'
+    if(domain=='https://www.codechef.com'):
+        return 'Codechef'
+    if(domain=='https://a2oj.com'):
+        return 'A2oj'
+
     
-#crawler('https://wcipeg.com','')
+crawler('https://www.codechef.com','')
+crawler('https://a2oj.com','')
+crawler('http://www.spoj.com','')
 crawler('https://dmoj.ca','')
-
-
-#rp = robotparser.RobotFileParser()
-#rp.set_url("https://dmoj.ca/robots.txt")
-#rp.read()
-#print(rp.can_fetch("*", 'https://dmoj.ca/problems/'))
+crawler('http://acm.timus.ru','')
+crawler('https://www.urionlinejudge.com.br','')
+crawler('https://leetcode.com','')
+crawler('https://wcipeg.com','')
+crawler('http://www.codeforces.com','')

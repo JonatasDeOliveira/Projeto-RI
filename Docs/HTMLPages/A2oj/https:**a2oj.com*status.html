@@ -1,0 +1,793 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" class=" canvas canvastext no-geolocation rgba hsla multiplebgs borderimage borderradius boxshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions  no-video no-audio localstorage sessionstorage webworkers applicationcache fontface"><head>
+
+<link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>A2 Online Judge</title>
+
+<meta name="description" content="A2 Online Judge (or Virtual Online Contests) is an online judge with hundreds of problems and it helps you to create, run and participate in virtual contests using problems from the following online judges: A2 Online Judge, Live Archive, Codeforces, Timus, SPOJ, TJU, SGU, PKU, ZOJ, URI. It also helps you to manage and track your programming comepetions training for you and your friends. It helps for ICPC ACM and IOI training also.">
+<meta name="keywords" content="ahmed aly,ahmed aly tools,voc,virtual online contests,programming,c++,java,contest,contests,competition,competitions,programming contest,programming contests,programming compitition,programming compititions,cf,codeforces,live archive,uva,spoj,tju,sgu,pku,timus,zoj,uri,programming tools,a2oj,a2 online judge">
+<meta name="author" content="Ahmed Aly">
+<link href="default.css" rel="stylesheet" type="text/css">
+<link href="DroidSansMono.css" rel="stylesheet" type="text/css">
+
+		<link rel="stylesheet" href="css/nav.css">
+		<!--[if IE]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+<!-- START TRACKING CODE -->
+<script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push( [ '_setAccount', 'UA-16947566-3' ]);
+	_gaq.push( [ '_trackPageview' ]);
+
+	( function() {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+				: 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+<!-- END TRACKING CODE -->
+
+<!-- START TABLE SORTER CODE -->
+<link rel="stylesheet" href="style.css" type="text/css" id="" media="print, projection, screen">
+<script type="text/javascript" src="jquery-latest.js"></script>
+<script type="text/javascript" src="jquery.tablesorter.js"></script>
+	
+<script type="text/javascript" id="js">
+$(document).ready(function() {
+	$.tablesorter.defaults.sortList = [[0,0]];
+	$.tablesorter.defaults.textExtraction = ['complex'];
+	$("table").tablesorter();
+});
+</script>
+<!-- END TABLE SORTER CODE -->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+function toggle() {
+	if(document.getElementById("selection") && document.getElementById("selection").checked)
+		window.location = 'status?Username=';
+	else
+		window.location = 'status';
+}
+</script>
+
+<style>@font-face{font-family:testfont;src:url('data:font/ttf;base64,AAEAAAAMAIAAAwBAT1MvMliohmwAAADMAAAAVmNtYXCp5qrBAAABJAAAANhjdnQgACICiAAAAfwAAAAEZ2FzcP//AAMAAAIAAAAACGdseWYv5OZoAAACCAAAANxoZWFk69bnvwAAAuQAAAA2aGhlYQUJAt8AAAMcAAAAJGhtdHgGDgC4AAADQAAAABRsb2NhAIQAwgAAA1QAAAAMbWF4cABVANgAAANgAAAAIG5hbWUgXduAAAADgAAABPVwb3N03NkzmgAACHgAAAA4AAECBAEsAAUAAAKZAswAAACPApkCzAAAAesAMwEJAAACAAMDAAAAAAAAgAACbwAAAAoAAAAAAAAAAFBmRWQAAAAgqS8DM/8zAFwDMwDNAAAABQAAAAAAAAAAAAMAAAADAAAAHAABAAAAAABGAAMAAQAAAK4ABAAqAAAABgAEAAEAAgAuqQD//wAAAC6pAP///9ZXAwAAAAAAAAACAAAABgBoAAAAAAAvAAEAAAAAAAAAAAAAAAAAAAABAAIAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEACoAAAAGAAQAAQACAC6pAP//AAAALqkA////1lcDAAAAAAAAAAIAAAAiAogAAAAB//8AAgACACIAAAEyAqoAAwAHAC6xAQAvPLIHBADtMrEGBdw8sgMCAO0yALEDAC88sgUEAO0ysgcGAfw8sgECAO0yMxEhESczESMiARDuzMwCqv1WIgJmAAACAFUAAAIRAc0ADwAfAAATFRQWOwEyNj0BNCYrASIGARQGKwEiJj0BNDY7ATIWFX8aIvAiGhoi8CIaAZIoN/43KCg3/jcoAWD0JB4eJPQkHh7++EY2NkbVRjY2RgAAAAABAEH/+QCdAEEACQAANjQ2MzIWFAYjIkEeEA8fHw8QDxwWFhwWAAAAAQAAAAIAAIuYbWpfDzz1AAsEAAAAAADFn9IuAAAAAMWf0i797/8zA4gDMwAAAAgAAgAAAAAAAAABAAADM/8zAFwDx/3v/98DiAABAAAAAAAAAAAAAAAAAAAABQF2ACIAAAAAAVUAAAJmAFUA3QBBAAAAKgAqACoAWgBuAAEAAAAFAFAABwBUAAQAAgAAAAEAAQAAAEAALgADAAMAAAAQAMYAAQAAAAAAAACLAAAAAQAAAAAAAQAhAIsAAQAAAAAAAgAFAKwAAQAAAAAAAwBDALEAAQAAAAAABAAnAPQAAQAAAAAABQAKARsAAQAAAAAABgAmASUAAQAAAAAADgAaAUsAAwABBAkAAAEWAWUAAwABBAkAAQBCAnsAAwABBAkAAgAKAr0AAwABBAkAAwCGAscAAwABBAkABABOA00AAwABBAkABQAUA5sAAwABBAkABgBMA68AAwABBAkADgA0A/tDb3B5cmlnaHQgMjAwOSBieSBEYW5pZWwgSm9obnNvbi4gIFJlbGVhc2VkIHVuZGVyIHRoZSB0ZXJtcyBvZiB0aGUgT3BlbiBGb250IExpY2Vuc2UuIEtheWFoIExpIGdseXBocyBhcmUgcmVsZWFzZWQgdW5kZXIgdGhlIEdQTCB2ZXJzaW9uIDMuYmFlYzJhOTJiZmZlNTAzMiAtIHN1YnNldCBvZiBKdXJhTGlnaHRiYWVjMmE5MmJmZmU1MDMyIC0gc3Vic2V0IG9mIEZvbnRGb3JnZSAyLjAgOiBKdXJhIExpZ2h0IDogMjMtMS0yMDA5YmFlYzJhOTJiZmZlNTAzMiAtIHN1YnNldCBvZiBKdXJhIExpZ2h0VmVyc2lvbiAyIGJhZWMyYTkyYmZmZTUwMzIgLSBzdWJzZXQgb2YgSnVyYUxpZ2h0aHR0cDovL3NjcmlwdHMuc2lsLm9yZy9PRkwAQwBvAHAAeQByAGkAZwBoAHQAIAAyADAAMAA5ACAAYgB5ACAARABhAG4AaQBlAGwAIABKAG8AaABuAHMAbwBuAC4AIAAgAFIAZQBsAGUAYQBzAGUAZAAgAHUAbgBkAGUAcgAgAHQAaABlACAAdABlAHIAbQBzACAAbwBmACAAdABoAGUAIABPAHAAZQBuACAARgBvAG4AdAAgAEwAaQBjAGUAbgBzAGUALgAgAEsAYQB5AGEAaAAgAEwAaQAgAGcAbAB5AHAAaABzACAAYQByAGUAIAByAGUAbABlAGEAcwBlAGQAIAB1AG4AZABlAHIAIAB0AGgAZQAgAEcAUABMACAAdgBlAHIAcwBpAG8AbgAgADMALgBiAGEAZQBjADIAYQA5ADIAYgBmAGYAZQA1ADAAMwAyACAALQAgAHMAdQBiAHMAZQB0ACAAbwBmACAASgB1AHIAYQBMAGkAZwBoAHQAYgBhAGUAYwAyAGEAOQAyAGIAZgBmAGUANQAwADMAMgAgAC0AIABzAHUAYgBzAGUAdAAgAG8AZgAgAEYAbwBuAHQARgBvAHIAZwBlACAAMgAuADAAIAA6ACAASgB1AHIAYQAgAEwAaQBnAGgAdAAgADoAIAAyADMALQAxAC0AMgAwADAAOQBiAGEAZQBjADIAYQA5ADIAYgBmAGYAZQA1ADAAMwAyACAALQAgAHMAdQBiAHMAZQB0ACAAbwBmACAASgB1AHIAYQAgAEwAaQBnAGgAdABWAGUAcgBzAGkAbwBuACAAMgAgAGIAYQBlAGMAMgBhADkAMgBiAGYAZgBlADUAMAAzADIAIAAtACAAcwB1AGIAcwBlAHQAIABvAGYAIABKAHUAcgBhAEwAaQBnAGgAdABoAHQAdABwADoALwAvAHMAYwByAGkAcAB0AHMALgBzAGkAbAAuAG8AcgBnAC8ATwBGAEwAAAAAAgAAAAAAAP+BADMAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAAQACAQIAEQt6ZXJva2F5YWhsaQ==')}</style></head>
+<body class="">
+    	<script>
+			var el = document.getElementsByTagName("body")[0];
+			el.className = "";
+		</script>
+        <noscript>
+        	&lt;!--[if IE]&gt;
+            	&lt;link rel="stylesheet" href="css/ie.css"&gt;
+            &lt;![endif]--&gt;
+        </noscript>
+        
+
+<center>
+<table width="100%">
+<tbody><tr>
+<td>
+        
+
+
+<div id="wrapper"><!-- start header -->
+
+<div id="logo">
+<table width="100%">
+<tbody><tr>
+<td style="vertical-align: bottom;"><a href="/"><img src="logo.png"></a></td>
+<td>
+<h1 style="padding-top: 11px;">A<sup>2</sup> Online Judge</h1>
+<h2 class="author">»&nbsp;&nbsp;&nbsp;&nbsp; by <a href="https://www.facebook.com/ahmed.aly.tc" target="_blank" style="text-decoration: none;">Ahmed Aly</a></h2>
+<br>
+<h3>Sponsored by <b><a href="https://www.facebook.com/elcoachacademy/" target="_blank" style="text-decoration: none;">Coach Academy</a></b> &amp; <b><a href="https://www.facebook.com/acmacpc/" target="_blank" style="text-decoration: none;">ACPC</a></b>, <a href="https://www.codechef.com/" target="_blank" style="text-decoration: none;">CodeChef</a> and <a href="http://www.codability.net/" target="_blank" style="text-decoration: none;">Codability</a></h3>
+</td>
+<td style="text-align: right; padding-top: 27px;">
+<iframe src="https://www.facebook.com/plugins/like.php?show_faces=false&amp;href=https://www.facebook.com/A2OnlineJudge" scrolling="no" frameborder="0" style="border:none; height:45px"></iframe>
+</td>
+</tr>
+</tbody></table>
+</div>
+
+<div id="header3"><div align="right"><a href="signin?url=%2Fstatus" style="font-size: 15px;">Sign In</a> - <a href="signup" style="font-size: 15px;">Sign Up</a></div></div>
+
+
+<div id="header2">
+<div id="menu2">
+
+        <nav id="topNav">
+          <ul>
+<li><a href="/">Contests</a></li><li><a href="ladders"><font color="red">Ladders</font></a></li><li><a href="ps">Problems</a></li><li><a href="status">Status</a></li><li><a href="categories">Categories</a></li><li><a href="groups">Groups</a></li><li><a href="javascript:void();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;More&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>^</span></a><ul><li><center><a href="http://goo.gl/Fq5mru" target="_blank">GCJ Tools</a></center></li><li><center><a href="codes">Source Codes</a></center></li><li><center><a href="finder">Problems Finder</a></center></li><li><center><a href="users">Users</a></center></li><li><center><a href="teams">Teams</a></center></li><li><center><a href="cumulative">Cumulative Rank</a></center></li></ul></li><li class="last"><a href="about">About</a></li>
+          </ul>
+        </nav>
+        
+        
+        <script src="js/modernizr.js"></script>
+		<script>
+			(function($){
+				
+				//cache nav
+				var nav = $("#topNav");
+				
+				//add indicator and hovers to submenu parents
+				nav.find("li").each(function() {
+					if ($(this).find("ul").length > 0) {
+						$("<span>").text("^").appendTo($(this).children(":first"));
+
+						//show subnav on hover
+						$(this).mouseenter(function() {
+							$(this).find("ul").stop(true, true).slideDown();
+						});
+						
+						//hide submenus on exit
+						$(this).mouseleave(function() {
+							$(this).find("ul").stop(true, true).slideUp();
+						});
+					}
+				});
+			})(jQuery);
+		</script>
+
+
+</div>
+</div>
+<!-- end header --></div>
+<!-- start page -->
+</td>
+</tr>
+
+
+<tr>
+
+<td style="vertical-align: top;">
+<center>
+<table>
+<tbody><tr style="max-height: 0px; padding: 0px;">
+<td style="max-height: 0px; padding: 0px; min-width: 165px;"></td>
+<td style="max-height: 0px; padding: 0px; min-width: 1060px;"></td>
+<td style="max-height: 0px; padding: 0px; min-width: 165px;"></td>
+</tr>
+<tr>
+<td style="padding: 0px; vertical-align: top;">
+<div id="leftAd">
+
+
+</div>
+</td>
+<td style="padding: 0px; vertical-align: top;">
+<div id="page">
+
+<font size="3">
+<center>
+
+
+
+
+<div style="font-family: 'Droid Sans Mono', sans-serif; font-size: 14px; font-weight: bold;">
+<table>
+<tbody><tr style="background: #E0E0E0;"><td style="padding: 5px;"><center>Judge Status</center></td></tr>
+</tbody></table>
+</div>
+<table cellspacing="1" class="tablesorter" style="text-align: center;">
+<thead>
+<tr>
+<th class="header headerSortDown"></th>
+<th class="header">ID</th>
+<th class="header">Username</th>
+<th class="header">Problem</th>
+<th class="header">Result</th>
+<th class="header">Submission Time</th>
+<th class="header">Language</th>
+<th class="header">Time</th>
+<th class="header">Memory</th>
+</tr>
+</thead>
+<tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr class="wa22">
+<td>1</td>
+<td>230411</td>
+<td><a href="profile?Username=PUSIKURCINU">PUSIKURCINU</a></td>
+<td><a href="p?ID=217">217. RealPhobia</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-19 00:03:35</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2748</td>
+</tr><tr class="wa22">
+<td>2</td>
+<td>230410</td>
+<td><a href="profile?Username=PUSIKURCINU">PUSIKURCINU</a></td>
+<td><a href="p?ID=217">217. RealPhobia</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-19 00:02:30</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2748</td>
+</tr><tr class="wa22">
+<td>3</td>
+<td>230409</td>
+<td><a href="profile?Username=PUSIKURCINU">PUSIKURCINU</a></td>
+<td><a href="p?ID=217">217. RealPhobia</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-19 00:01:07</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2748</td>
+</tr><tr class="wa22">
+<td>4</td>
+<td>230408</td>
+<td><a href="profile?Username=PUSIKURCINU">PUSIKURCINU</a></td>
+<td><a href="p?ID=217">217. RealPhobia</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-18 23:51:11</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2748</td>
+</tr><tr class="acc22">
+<td>5</td>
+<td>230407</td>
+<td><a href="profile?Username=Mohamed+Elgindy">Mohamed Elgindy</a></td>
+<td><a href="p?ID=364">364. Cashier</a></td>
+<td>Accepted</td>
+<td>2018-04-18 23:30:00</td>
+<td>C++</td>
+<td>0.25</td>
+<td>2744</td>
+</tr><tr class="wa22">
+<td>6</td>
+<td>230406</td>
+<td><a href="profile?Username=Mohamed+Elgindy">Mohamed Elgindy</a></td>
+<td><a href="p?ID=364">364. Cashier</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-18 23:22:31</td>
+<td>C++</td>
+<td>0.23</td>
+<td>2744</td>
+</tr><tr class="wa22">
+<td>7</td>
+<td>230405</td>
+<td><a href="profile?Username=Mohamed+Elgindy">Mohamed Elgindy</a></td>
+<td><a href="p?ID=364">364. Cashier</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-18 23:09:40</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2744</td>
+</tr><tr class="wa22">
+<td>8</td>
+<td>230404</td>
+<td><a href="profile?Username=Mohamed+Elgindy">Mohamed Elgindy</a></td>
+<td><a href="p?ID=364">364. Cashier</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-18 23:08:51</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2744</td>
+</tr><tr class="acc22">
+<td>9</td>
+<td>230403</td>
+<td><a href="profile?Username=pixel_13">pixel_13</a></td>
+<td><a href="p?ID=159">159. Nth Smallest Value</a></td>
+<td>Accepted</td>
+<td>2018-04-18 22:17:46</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2744</td>
+</tr><tr class="acc22">
+<td>10</td>
+<td>230402</td>
+<td><a href="profile?Username=pixel_13">pixel_13</a></td>
+<td><a href="p?ID=357">357. Supermarket</a></td>
+<td>Accepted</td>
+<td>2018-04-18 22:08:24</td>
+<td>C++</td>
+<td>0.1</td>
+<td>2744</td>
+</tr><tr class="wa22">
+<td>11</td>
+<td>230401</td>
+<td><a href="profile?Username=PUSIKURCINU">PUSIKURCINU</a></td>
+<td><a href="p?ID=217">217. RealPhobia</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-18 22:07:43</td>
+<td>C++</td>
+<td>0.01</td>
+<td>2748</td>
+</tr><tr class="wa22">
+<td>12</td>
+<td>230400</td>
+<td><a href="profile?Username=pixel_13">pixel_13</a></td>
+<td><a href="p?ID=357">357. Supermarket</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-18 22:06:23</td>
+<td>C++</td>
+<td>0.1</td>
+<td>2744</td>
+</tr><tr class="wa22">
+<td>13</td>
+<td>230399</td>
+<td><a href="profile?Username=pixel_13">pixel_13</a></td>
+<td><a href="p?ID=357">357. Supermarket</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-18 22:05:42</td>
+<td>C++</td>
+<td>0.1</td>
+<td>2744</td>
+</tr><tr class="wa22">
+<td>14</td>
+<td>230398</td>
+<td><a href="profile?Username=pixel_13">pixel_13</a></td>
+<td><a href="p?ID=357">357. Supermarket</a></td>
+<td>Time Limit Exceeded</td>
+<td>2018-04-18 22:02:43</td>
+<td>C++</td>
+<td>1.01</td>
+<td>2740</td>
+</tr><tr class="wa22">
+<td>15</td>
+<td>230397</td>
+<td><a href="profile?Username=pixel_13">pixel_13</a></td>
+<td><a href="p?ID=357">357. Supermarket</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-18 22:01:28</td>
+<td>C++</td>
+<td>0.1</td>
+<td>2744</td>
+</tr><tr class="wa22">
+<td>16</td>
+<td>230396</td>
+<td><a href="profile?Username=Mohamed+Elgindy">Mohamed Elgindy</a></td>
+<td><a href="p?ID=364">364. Cashier</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-18 21:48:23</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2744</td>
+</tr><tr class="acc22">
+<td>17</td>
+<td>230395</td>
+<td><a href="profile?Username=AlyElsmmanKarram">AlyElsmmanKarram</a></td>
+<td><a href="p?ID=364">364. Cashier</a></td>
+<td>Accepted</td>
+<td>2018-04-18 21:37:51</td>
+<td>C++</td>
+<td>0.26</td>
+<td>2744</td>
+</tr><tr class="acc22">
+<td>18</td>
+<td>230394</td>
+<td><a href="profile?Username=abraam.sameh">abraam.sameh</a></td>
+<td><a href="p?ID=1">1. Omar</a></td>
+<td>Accepted</td>
+<td>2018-04-18 21:37:48</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2744</td>
+</tr><tr class="acc22">
+<td>19</td>
+<td>230393</td>
+<td><a href="profile?Username=AlyElsmmanKarram">AlyElsmmanKarram</a></td>
+<td><a href="p?ID=364">364. Cashier</a></td>
+<td>Accepted</td>
+<td>2018-04-18 21:36:22</td>
+<td>C++</td>
+<td>0.26</td>
+<td>2744</td>
+</tr><tr class="wa22">
+<td>20</td>
+<td>230392</td>
+<td><a href="profile?Username=nor_sure">nor_sure</a></td>
+<td><a href="p?ID=217">217. RealPhobia</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-18 21:26:32</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2748</td>
+</tr><tr class="wa22">
+<td>21</td>
+<td>230391</td>
+<td><a href="profile?Username=nor_sure">nor_sure</a></td>
+<td><a href="p?ID=217">217. RealPhobia</a></td>
+<td>Time Limit Exceeded</td>
+<td>2018-04-18 21:23:09</td>
+<td>C++</td>
+<td>3.01</td>
+<td>2744</td>
+</tr><tr class="wa22">
+<td>22</td>
+<td>230390</td>
+<td><a href="profile?Username=nor_sure">nor_sure</a></td>
+<td><a href="p?ID=217">217. RealPhobia</a></td>
+<td>Time Limit Exceeded</td>
+<td>2018-04-18 21:22:02</td>
+<td>C++</td>
+<td>3.01</td>
+<td>2744</td>
+</tr><tr class="wa22">
+<td>23</td>
+<td>230389</td>
+<td><a href="profile?Username=nor_sure">nor_sure</a></td>
+<td><a href="p?ID=217">217. RealPhobia</a></td>
+<td>Time Limit Exceeded</td>
+<td>2018-04-18 21:21:24</td>
+<td>C++</td>
+<td>3.01</td>
+<td>2744</td>
+</tr><tr class="wa22">
+<td>24</td>
+<td>230388</td>
+<td><a href="profile?Username=nor_sure">nor_sure</a></td>
+<td><a href="p?ID=217">217. RealPhobia</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-18 21:20:11</td>
+<td>C++</td>
+<td>0.01</td>
+<td>2744</td>
+</tr><tr class="wa22">
+<td>25</td>
+<td>230387</td>
+<td><a href="profile?Username=nor_sure">nor_sure</a></td>
+<td><a href="p?ID=217">217. RealPhobia</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-18 21:16:07</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2748</td>
+</tr><tr class="wa22">
+<td>26</td>
+<td>230386</td>
+<td><a href="profile?Username=Mohamed+Elgindy">Mohamed Elgindy</a></td>
+<td><a href="p?ID=364">364. Cashier</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-18 21:06:08</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2744</td>
+</tr><tr class="wa22">
+<td>27</td>
+<td>230385</td>
+<td><a href="profile?Username=Mohamed+Elgindy">Mohamed Elgindy</a></td>
+<td><a href="p?ID=364">364. Cashier</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-18 21:06:05</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2744</td>
+</tr><tr class="wa22">
+<td>28</td>
+<td>230384</td>
+<td><a href="profile?Username=Mohamed+Elgindy">Mohamed Elgindy</a></td>
+<td><a href="p?ID=364">364. Cashier</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-18 20:42:21</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2744</td>
+</tr><tr class="wa22">
+<td>29</td>
+<td>230383</td>
+<td><a href="profile?Username=nor_sure">nor_sure</a></td>
+<td><a href="p?ID=217">217. RealPhobia</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-18 20:23:03</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2748</td>
+</tr><tr class="wa22">
+<td>30</td>
+<td>230382</td>
+<td><a href="profile?Username=nor_sure">nor_sure</a></td>
+<td><a href="p?ID=217">217. RealPhobia</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-18 20:16:54</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2748</td>
+</tr><tr class="wa22">
+<td>31</td>
+<td>230381</td>
+<td><a href="profile?Username=nor_sure">nor_sure</a></td>
+<td><a href="p?ID=217">217. RealPhobia</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-18 20:08:49</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2748</td>
+</tr><tr class="wa22">
+<td>32</td>
+<td>230380</td>
+<td><a href="profile?Username=nor_sure">nor_sure</a></td>
+<td><a href="p?ID=217">217. RealPhobia</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-18 20:04:34</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2748</td>
+</tr><tr class="wa22">
+<td>33</td>
+<td>230379</td>
+<td><a href="profile?Username=nor_sure">nor_sure</a></td>
+<td><a href="p?ID=217">217. RealPhobia</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-18 19:41:24</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2748</td>
+</tr><tr class="wa22">
+<td>34</td>
+<td>230378</td>
+<td><a href="profile?Username=nor_sure">nor_sure</a></td>
+<td><a href="p?ID=217">217. RealPhobia</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-18 19:21:57</td>
+<td>C++</td>
+<td>0.66</td>
+<td>2744</td>
+</tr><tr class="wa22">
+<td>35</td>
+<td>230377</td>
+<td><a href="profile?Username=nor_sure">nor_sure</a></td>
+<td><a href="p?ID=217">217. RealPhobia</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-18 19:10:00</td>
+<td>C++</td>
+<td>0.66</td>
+<td>2744</td>
+</tr><tr class="wa22">
+<td>36</td>
+<td>230376</td>
+<td><a href="profile?Username=nor_sure">nor_sure</a></td>
+<td><a href="p?ID=217">217. RealPhobia</a></td>
+<td>Time Limit Exceeded</td>
+<td>2018-04-18 19:07:25</td>
+<td>C++</td>
+<td>3.01</td>
+<td>2740</td>
+</tr><tr class="wa22">
+<td>37</td>
+<td>230375</td>
+<td><a href="profile?Username=nor_sure">nor_sure</a></td>
+<td><a href="p?ID=217">217. RealPhobia</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-18 19:05:52</td>
+<td>C++</td>
+<td>0.14</td>
+<td>2744</td>
+</tr><tr class="wa22">
+<td>38</td>
+<td>230374</td>
+<td><a href="profile?Username=nor_sure">nor_sure</a></td>
+<td><a href="p?ID=217">217. RealPhobia</a></td>
+<td>Compilation Error</td>
+<td>2018-04-18 19:05:06</td>
+<td>C</td>
+<td>0.0</td>
+<td>0</td>
+</tr><tr class="wa22">
+<td>39</td>
+<td>230373</td>
+<td><a href="profile?Username=Mohamed+Elgindy">Mohamed Elgindy</a></td>
+<td><a href="p?ID=364">364. Cashier</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-18 17:53:58</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2744</td>
+</tr><tr class="wa22">
+<td>40</td>
+<td>230372</td>
+<td><a href="profile?Username=Mohamed+Elgindy">Mohamed Elgindy</a></td>
+<td><a href="p?ID=364">364. Cashier</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-18 17:09:37</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2744</td>
+</tr><tr class="acc22">
+<td>41</td>
+<td>230371</td>
+<td><a href="profile?Username=tausif07">tausif07</a></td>
+<td><a href="p?ID=1">1. Omar</a></td>
+<td>Accepted</td>
+<td>2018-04-18 16:35:55</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2744</td>
+</tr><tr class="wa22">
+<td>42</td>
+<td>230370</td>
+<td><a href="profile?Username=tausif07">tausif07</a></td>
+<td><a href="p?ID=1">1. Omar</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-18 16:30:03</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2744</td>
+</tr><tr class="wa22">
+<td>43</td>
+<td>230369</td>
+<td><a href="profile?Username=Yazeed.n">Yazeed.n</a></td>
+<td><a href="p?ID=1">1. Omar</a></td>
+<td>Compilation Error</td>
+<td>2018-04-18 16:17:59</td>
+<td>Java</td>
+<td>0.0</td>
+<td>0</td>
+</tr><tr class="wa22">
+<td>44</td>
+<td>230368</td>
+<td><a href="profile?Username=Yazeed.n">Yazeed.n</a></td>
+<td><a href="p?ID=1">1. Omar</a></td>
+<td>Runtime Error</td>
+<td>2018-04-18 16:17:01</td>
+<td>Java</td>
+<td>0.07</td>
+<td>711680</td>
+</tr><tr class="wa22">
+<td>45</td>
+<td>230367</td>
+<td><a href="profile?Username=nor_sure">nor_sure</a></td>
+<td><a href="p?ID=217">217. RealPhobia</a></td>
+<td>Time Limit Exceeded</td>
+<td>2018-04-18 09:00:02</td>
+<td>C</td>
+<td>3.01</td>
+<td>2172</td>
+</tr><tr class="wa22">
+<td>46</td>
+<td>230366</td>
+<td><a href="profile?Username=vishalsethu">vishalsethu</a></td>
+<td><a href="p?ID=1">1. Omar</a></td>
+<td>Compilation Error</td>
+<td>2018-04-18 07:55:08</td>
+<td>C++</td>
+<td>0.0</td>
+<td>0</td>
+</tr><tr class="acc22">
+<td>47</td>
+<td>230365</td>
+<td><a href="profile?Username=tebrex">tebrex</a></td>
+<td><a href="p?ID=222">222. Oil Skimming</a></td>
+<td>Accepted</td>
+<td>2018-04-18 07:50:22</td>
+<td>C++</td>
+<td>0.18</td>
+<td>18552</td>
+</tr><tr class="wa22">
+<td>48</td>
+<td>230364</td>
+<td><a href="profile?Username=tebrex">tebrex</a></td>
+<td><a href="p?ID=222">222. Oil Skimming</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-18 07:44:37</td>
+<td>C++</td>
+<td>0.18</td>
+<td>18552</td>
+</tr><tr class="wa22">
+<td>49</td>
+<td>230363</td>
+<td><a href="profile?Username=tebrex">tebrex</a></td>
+<td><a href="p?ID=222">222. Oil Skimming</a></td>
+<td>Wrong Answer</td>
+<td>2018-04-18 07:43:21</td>
+<td>C++</td>
+<td>0.18</td>
+<td>18552</td>
+</tr><tr class="wa22">
+<td>50</td>
+<td>230362</td>
+<td><a href="profile?Username=vishalsethu">vishalsethu</a></td>
+<td><a href="p?ID=1">1. Omar</a></td>
+<td>Compilation Error</td>
+<td>2018-04-18 07:01:22</td>
+<td>C++</td>
+<td>0.0</td>
+<td>0</td>
+</tr></tbody>
+</table>
+
+
+
+
+&lt;Previous
+ - 
+<a href="status?From=2">Next&gt;</a>
+
+
+
+
+</center>
+</font>
+
+</div>
+</td>
+<td style="padding: 0px; vertical-align: top;">
+<div id="rightAd">
+
+
+</div>
+</td>
+</tr>
+</tbody></table>
+</center>
+<!-- end page -->
+<!-- start footer -->
+<div id="footer">
+<p id="legal">A2OJ © Copyright 2011-2016 <b><a href="https://www.facebook.com/ahmed.aly.tc" target="_blank" style="text-decoration: none;">Ahmed Aly</a></b> All Rights Reserved. A2OJ uses <a href="http://sphere-engine.com" target="_blank" style="text-decoration: none;">Sphere Engine</a>™ © by <a href="http://sphere-research.com" target="_blank" style="text-decoration: none;">Sphere Research Labs</a>.</p>
+</div>
+</td>
+
+
+</tr>
+</tbody></table>
+</center><span style="font-style: normal; font-variant: normal; font-weight: normal; font-size: 99px; line-height: normal; font-family: testfont, _, serif; position: absolute; visibility: hidden; bottom: 0px;" id="fonttest">........</span>
+<!-- end footer -->
+
+
+
+
+</body></html>
