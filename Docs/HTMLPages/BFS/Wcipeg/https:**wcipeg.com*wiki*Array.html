@@ -1,0 +1,279 @@
+<!DOCTYPE html><html lang="en" dir="ltr" class="client-js"><head>
+<meta charset="UTF-8">
+<title>Array - PEGWiki</title>
+<meta name="generator" content="MediaWiki 1.25.2">
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/wiki/index.php?title=Array&amp;action=edit">
+<link rel="edit" title="Edit" href="/wiki/index.php?title=Array&amp;action=edit">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="/wiki/opensearch_desc.php" title="PEGWiki (en)">
+<link rel="EditURI" type="application/rsd+xml" href="https://wcipeg.com/wiki/api.php?action=rsd">
+<link rel="alternate" hreflang="x-default" href="/wiki/Array">
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/">
+<link rel="alternate" type="application/atom+xml" title="PEGWiki Atom feed" href="/wiki/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=ext.math.styles%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*">
+<style>
+.mw-collapsible-toggle{float:right;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}  .mw-content-ltr .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr .mw-collapsible-toggle{float:right} .mw-content-rtl .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl .mw-collapsible-toggle{float:left}.mw-customtoggle,.mw-collapsible-toggle{cursor:pointer} caption .mw-collapsible-toggle,.mw-content-ltr caption .mw-collapsible-toggle,.mw-content-rtl caption .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr caption .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl caption .mw-collapsible-toggle{float:none} li .mw-collapsible-toggle,.mw-content-ltr li .mw-collapsible-toggle,.mw-content-rtl li .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr li .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:e1ffd603cbaaa5f1a36e0d13fe843535 */
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:none;z-index:1099;padding:0;margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#4C59A6;color:white}.suggestions-special .special-label{color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white}.highlight{font-weight:bold}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:f8d0c6895ce3ae14434c16b8fca59432 */
+.postedit-container{margin:0 auto;position:fixed;top:0;height:0;left:50%;z-index:1000;font-size:13px}.postedit-container:hover{cursor:pointer}.postedit{position:relative;top:0.6em;left:-50%;padding:.6em 3.6em .6em 1.1em;line-height:1.5625em;color:#626465;background-color:#f4f4f4;border:1px solid #dcd9d9;text-shadow:0 0.0625em 0 rgba(255,255,255,0.5);border-radius:5px;box-shadow:0 2px 5px 0 #ccc;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;-ms-transition:all 0.25s ease-in-out;-o-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out}.skin-monobook .postedit{top:6em !important}.postedit-faded{opacity:0}.postedit-icon{padding-left:41px;  line-height:25px;background-repeat:no-repeat;background-position:8px 50%}.postedit-icon-checkmark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABblBMVEUAAAD///////9PfTf///80aRdTgjn///9Feij///////////9Rfzf///////////9PfjZRgDh1o1xOfTb///////+bwYqLtnj///////9PfTa82K////9WhT6YxIL///9QgDdTgzr////////j7uDl7eLq8efi693k7OH///////9UhjuBr2rp9uRUhjr///9YljVKgir///9WiTlYjT3////9/v57vFlbkT5PjC9dlD/5/fhuq09stUTs9uhxuElctCpfnT1huDFloEZloUZmpENmvDZpvDxpvTxqvjxrvT5rvT9rwTxsqktswD5uwkBvuUdxw0NztFBztU9ztVBzwkp0tlJ1xkd2t1R3uVR4w1F4xk54x014yE15uVZ5v1R5xVB6v1R7yFJ8wVh9xVl9yFR9yVd9ylN+xVh+yFd/x1l/yFeAylmEx1+Ny2uY0Hqe04Wj1Ymv3Ze33qLD47TJ5L3O6cPU7Mrq9eb2+/Q4j37OAAAAQHRSTlMAAQIEBAUFBQwPFB4fJCUoKiosQEhJS01RUlZZXmdydXaChYuSlJSWmJmoq6uur8LExcvM19fg5ejt8fX2+Pr7SljgewAAAKpJREFUGBkFwQNCAwAAAMDLtl3LtrG4rWXbtvX77gAgZ6grFwC0bhwNVgKgdPZx8b0dgLi+s7Wn0VoAqpfOI9+BNADZI7fLrz2pSEwGHZuH+78lSK8ZLkLezF3ooyUG3VPXq2USei9WngeyoG195yBYWDF3E/2pAhl1e9Gr8bGT+bfOFCC2fnvh4X7rcqIAQNNu+HT6sxkAjceTL/2ZAIhv+PorBwBJxfkA//dFHSCBy/UTAAAAAElFTkSuQmCC);background-image:url(https://wcipeg.com/wiki/resources/src/mediawiki.action/images/green-checkmark.png?2015-08-10T21:21:40Z)!ie;background-position:left}.postedit-close{position:absolute;padding:0 .8em;right:0;top:0;font-size:1.25em;font-weight:bold;line-height:2.3em;color:black;text-shadow:0 0.0625em 0 white;text-decoration:none;opacity:0.2;filter:alpha(opacity=20)}.postedit-close:hover{color:black;text-decoration:none;opacity:0.4;filter:alpha(opacity=40)}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:86d7c89b7cadf5004340279c398253d8 */</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:black;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:white}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:ae3fa4570b5ac0c6cf7b3776c8ae4d6f */</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*">
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:b36fd1c042133c9c9b60260f7c29b237 */</style>
+<script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script><script src="/wiki/load.php?debug=false&amp;lang=en&amp;modules=jquery%2Cmediawiki&amp;only=scripts&amp;skin=vector&amp;version=20161103T112730Z"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Array","wgTitle":"Array","wgCurRevisionId":1640,"wgRevisionId":1640,"wgArticleId":150,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Data structures"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Array","wgRelevantArticleId":150,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikidb:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script><script src="/wiki/load.php?debug=false&amp;lang=en&amp;modules=jquery.accessKeyLabel%2Cclient%2CmwExtension%2CtabIndex%2Cthrottle-debounce%7Cmediawiki.legacy.ajax%2Cwikibits%7Cmediawiki.notify%2Cutil%7Cmediawiki.page.startup%7Cskins.vector.js&amp;skin=vector&amp;version=20161103T112730Z&amp;*"></script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Array skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Array</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From PEGWiki</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>The <b>array</b> is a data structure considered fundamental in <a href="/wiki/index.php?title=Imperative_programming_language&amp;action=edit&amp;redlink=1" class="new" title="Imperative programming language (page does not exist)">imperative programming languages</a>. We shall take the definition of the term to be <i>a collection of objects, all of the same size and type, regularly spaced in random-access memory (RAM)</i>. Because the objects are regularly spaced in memory, their addresses occur in arithmetic progression. Therefore, when we assign the object at the lowest memory address an <i>index</i> of, for example, zero, the next object after that an index of one, and so on up to the <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png"><sup>th</sup> object, which receives an index of <img class="mwe-math-fallback-image-inline tex" alt="n-1" src="/wiki/images/math/a/4/3/a438673491daae8148eae77373b6a467.png">, we can access any object in the array in constant time just by knowing the index (using the formula for the <img class="mwe-math-fallback-image-inline tex" alt="i" src="/wiki/images/math/8/6/5/865c0c0b4ab0e063e5caa3387c1a8741.png"><sup>th</sup> term of an arithmetic progression). This property makes the array data structure useful and applicable to a wide variety of different algorithms, and many other data structures contain arrays, using them to organize information internally. In particular, an array is often the ideal data structure for a finite <a href="/wiki/Sequence" title="Sequence">sequence</a>.
+</p><p>In <a href="/wiki/index.php?title=Functional_programming_language&amp;action=edit&amp;redlink=1" class="new" title="Functional programming language (page does not exist)">functional programming languages</a> based upon the <a href="/wiki/index.php?title=Lambda_calculus&amp;action=edit&amp;redlink=1" class="new" title="Lambda calculus (page does not exist)">lambda calculus</a>, arrays are not fundamental ingredients, as the lambda calculus is not aware of the organization of computer memory. Nevertheless, they may have language support for the sake of efficiency.
+</p><p>In some programming languages (notably PHP), all arrays are <a href="/wiki/index.php?title=Associative_array&amp;action=edit&amp;redlink=1" class="new" title="Associative array (page does not exist)">associative</a> by default. An associative array is not a type of array, but a more complex data structure named in analogy to the array.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="#" id="togglelink">hide</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Terminology"><span class="tocnumber">1</span> <span class="toctext">Terminology</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Indexing_convention"><span class="tocnumber">1.1</span> <span class="toctext">Indexing convention</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-3"><a href="#Address_computation"><span class="tocnumber">2</span> <span class="toctext">Address computation</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Multidimensional_arrays"><span class="tocnumber">3</span> <span class="toctext">Multidimensional arrays</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#First_solution"><span class="tocnumber">3.1</span> <span class="toctext">First solution</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Second_solution"><span class="tocnumber">3.2</span> <span class="toctext">Second solution</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Note_on_interpretation"><span class="tocnumber">3.3</span> <span class="toctext">Note on interpretation</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#Mutable_and_immutable_arrays"><span class="tocnumber">4</span> <span class="toctext">Mutable and immutable arrays</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Extensible_and_fixed_arrays"><span class="tocnumber">5</span> <span class="toctext">Extensible and fixed arrays</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#Array_operations"><span class="tocnumber">6</span> <span class="toctext">Array operations</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Limitations"><span class="tocnumber">7</span> <span class="toctext">Limitations</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#Derived_data_structures"><span class="tocnumber">8</span> <span class="toctext">Derived data structures</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Terminology">Terminology</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Array&amp;action=edit&amp;section=1" title="Edit section: Terminology">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The <b>size</b> of an array is the number of objects it contains. The stored objects themselves are known as <b>elements</b>, <b>entries</b>, or <b>values</b> of the array. An element of an array is uniquely identified in that array by an <b>index</b>, which is usually a natural number (as in the preceding paragraph), but may be any kind of object taken from a finite well-ordered set. (For example, the Pascal programming language allows the use of characters as array indices, as characters may be well-ordered according to their <a href="/wiki/ASCII" title="ASCII">ASCII</a> values; it allows boolean indices, with false = 0 and true = 1; but it does not allow reals. All programming languages that support arrays support natural numbers as indices, and some do not support any other type of index.) <i>Indices do <b>not</b> appear in the array itself</i>; the choice of index is an arbitrary convention we use to abstract the locations of elements in arrays, without using the addresses themselves, which can be cumbersome to work with and may change every time a program is run and memory for the array allocated. If an element of an array is located at index <img class="mwe-math-fallback-image-inline tex" alt="i" src="/wiki/images/math/8/6/5/865c0c0b4ab0e063e5caa3387c1a8741.png">, the element immediately following it in the array, if there is one, occurs at an index equal to the successor of <img class="mwe-math-fallback-image-inline tex" alt="i" src="/wiki/images/math/8/6/5/865c0c0b4ab0e063e5caa3387c1a8741.png">; if <img class="mwe-math-fallback-image-inline tex" alt="i" src="/wiki/images/math/8/6/5/865c0c0b4ab0e063e5caa3387c1a8741.png"> is an integer then this is <img class="mwe-math-fallback-image-inline tex" alt="i+1" src="/wiki/images/math/1/5/a/15ab2d2b0b92c13f328635e5c4bdbe64.png">.
+</p><p>A <b>segment</b> or <b>slice</b> of an array consists of exactly those values of the array occurring at indices taken from a contiguous range. For example, we may choose the entire array, or we may choose no elements at all, or we may choose the fifth element, or we may choose the ninth, tenth, eleventh, and twelfth elements; all these are considered segments or slices.
+</p>
+<h3><span class="mw-headline" id="Indexing_convention">Indexing convention</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Array&amp;action=edit&amp;section=2" title="Edit section: Indexing convention">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The vast majority of arrays encountered in practice are <b>zero-indexed</b> or <b>zero-based</b>; that is, they are indexed with consecutive natural numbers starting from zero. This is probably due to the influence of C, in which arrays are formalisms constructed over pointers to their initial elements and indices are merely offsets, so that index 0 represents the initial element itself.
+</p><p>In theoretical contexts, arrays are again often zero-indexed, but are also often <b>one-based</b> or <b>one-indexed</b>, that is, indexed with consecutive natural numbers starting from one. The author usually chooses whichever is more convenient.
+</p><p>Also, note that sometimes a zero-indexed array used in practice is treated as a one-indexed array, and the element at index zero is not used, or it is allowed to exist only for the sake of convenience, <i>i.e.</i>, as a sentinel value, or a buffer against out-of-bounds accesses.
+</p>
+<h2><span class="mw-headline" id="Address_computation">Address computation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Array&amp;action=edit&amp;section=3" title="Edit section: Address computation">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>If each element in an array occupies <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> bytes of memory, then the difference in addresses of consecutive elements in the array is some value <img class="mwe-math-fallback-image-inline tex" alt="d \geq x" src="/wiki/images/math/a/c/6/ac687a79d318d8d6a680c4277eae95a4.png">. It may be exactly <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png">, in which case the array takes up exactly the same amount of space as its individual elements combined, but, depending on the programming language, <img class="mwe-math-fallback-image-inline tex" alt="d" src="/wiki/images/math/8/2/7/8277e0910d750195b448797616e091ad.png"> may also be somewhat greater than <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> in order to keep the elements word-aligned. (In practice, most compilers will <i>not</i> choose <img class="mwe-math-fallback-image-inline tex" alt="d &gt; x" src="/wiki/images/math/f/5/e/f5e85a958496543a9c441425dde7a1ab.png">, simply because it wastes space.)
+</p><p>Now, suppose this array is indexed by members of some finite well-ordered set <img class="mwe-math-fallback-image-inline tex" alt="I" src="/wiki/images/math/d/d/7/dd7536794b63bf90eccfd37f9b147d7f.png">. Define a bijection <img class="mwe-math-fallback-image-inline tex" alt="f" src="/wiki/images/math/8/f/a/8fa14cdd754f91cc6554c9e71929cce7.png"> between <img class="mwe-math-fallback-image-inline tex" alt="I" src="/wiki/images/math/d/d/7/dd7536794b63bf90eccfd37f9b147d7f.png"> and <img class="mwe-math-fallback-image-inline tex" alt="\mathbb{N}" src="/wiki/images/math/6/2/4/624e4cf68723f677d53e8cf2272f348a.png"> (starting from zero) as follows: since <img class="mwe-math-fallback-image-inline tex" alt="I" src="/wiki/images/math/d/d/7/dd7536794b63bf90eccfd37f9b147d7f.png"> is well-ordered, it has a least element <img class="mwe-math-fallback-image-inline tex" alt="l" src="/wiki/images/math/2/d/b/2db95e8e1a9267b7a1188556b2013b33.png">; we shall write <img class="mwe-math-fallback-image-inline tex" alt="f(0) = l" src="/wiki/images/math/3/2/2/3226453688a0e3dc67cef714942877d1.png">. Then, either <img class="mwe-math-fallback-image-inline tex" alt="I" src="/wiki/images/math/d/d/7/dd7536794b63bf90eccfd37f9b147d7f.png"> is exhausted, or it contains a next smaller element, <img class="mwe-math-fallback-image-inline tex" alt="l'" src="/wiki/images/math/c/0/7/c07717f29a52139c97273a1897112f8e.png">; then we shall write <img class="mwe-math-fallback-image-inline tex" alt="f(1) = l'" src="/wiki/images/math/f/b/a/fba771afc79078aaea252572e54b50eb.png">, and so on until the elements of <img class="mwe-math-fallback-image-inline tex" alt="I" src="/wiki/images/math/d/d/7/dd7536794b63bf90eccfd37f9b147d7f.png"> have been put into order in one-to-one correspondence with <img class="mwe-math-fallback-image-inline tex" alt="\{0, 1, ..., n-1\}" src="/wiki/images/math/d/9/b/d9b067b46d20a114a7918f0264104eca.png"> (where <img class="mwe-math-fallback-image-inline tex" alt="n = |I|" src="/wiki/images/math/d/0/9/d090a95f51a36096550cb8ecb76e0ada.png">).
+</p><p>Furthermore, suppose that the first element in the array, the element located at the lowest memory address, in fact has address <img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png">. Then the element located at index <img class="mwe-math-fallback-image-inline tex" alt="i" src="/wiki/images/math/8/6/5/865c0c0b4ab0e063e5caa3387c1a8741.png"> will have address <img class="mwe-math-fallback-image-inline tex" alt="a+df^{-1}(i)" src="/wiki/images/math/2/c/c/2ccda858d7f61a6f81b81b5429808a15.png">. Likewise, if we know the address <img class="mwe-math-fallback-image-inline tex" alt="a'" src="/wiki/images/math/c/f/3/cf336c1f2f9df65a47c32173a23d6d64.png"> of an element, then its index is given by <img class="mwe-math-fallback-image-inline tex" alt="f((a'-a)/d)" src="/wiki/images/math/8/8/d/88d328e5196d2876799f86ef2626f24a.png">.
+</p><p>For example, suppose that a program is counting the number of words that start with each letter of the Latin alphabet. Then it will probably have an array indexed by the alphabet in which the values are, say, integers 4 bytes long. So the element at index <b>a</b> holds the number of words that start with <b>a</b>, the element at index <b>b</b> holds the number of words that start with <b>b</b>, and so on up to <b>z</b>. Then, we will have <img class="mwe-math-fallback-image-inline tex" alt="f(x)" src="/wiki/images/math/5/0/b/50bbd36e1fd2333108437a2ca378be62.png"> defined to be the <img class="mwe-math-fallback-image-inline tex" alt="(x+1)" src="/wiki/images/math/6/2/9/629cea1b8b44e17d0626a05e991caff1.png"><sup>th</sup> letter of the alphabet, hence <img class="mwe-math-fallback-image-inline tex" alt="f(0) =" src="/wiki/images/math/c/f/c/cfc577e968230355a0efc755eac1951f.png"> <b>a</b>, ..., <img class="mwe-math-fallback-image-inline tex" alt="f(25) =" src="/wiki/images/math/a/8/6/a8667c79047af149e4528bed66bb4921.png"> <b>z</b>.
+So suppose that the first element of the array (the count of words starting with <b>a</b>) has address 92631507. Then, suppose we wish to look up the number of words starting with the letter <b>s</b>. <b>s</b> is the 19<sup>th</sup> letter of the alphabet, so we will find this entry at address 92631507+4×18 = 92631579. Likewise, suppose we wish to know which element is located at address 92631555. To do this, we let <img class="mwe-math-fallback-image-inline tex" alt="x = 92631555-92631507 = 48" src="/wiki/images/math/2/1/f/21f597c50d0fcbcd4f691636634f095f.png">, whence <img class="mwe-math-fallback-image-inline tex" alt="x/4 = 12" src="/wiki/images/math/6/2/7/627a9c5cc92c777db5603b6666f4d2fa.png"> and the index we seek is <img class="mwe-math-fallback-image-inline tex" alt="f(12)" src="/wiki/images/math/e/3/4/e34f65324b28240b9788b6a492614819.png">, the thirteenth letter of the alphabet, which is <b>m</b>. (This example illustrates that it's really not as complicated as it sounds; the mapping of indices to addresses is very intuitive.)
+</p>
+<h2><span class="mw-headline" id="Multidimensional_arrays">Multidimensional arrays</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Array&amp;action=edit&amp;section=4" title="Edit section: Multidimensional arrays">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The visual interpretation of the array is, perhaps, a line of boxes, each of which is a variable (a space in memory that holds one of the array's elements). So, for example, suppose there were fifty people in a line and we wanted to store their names. Then we could assign each person a number according to his or her position in the line, and use these as indices to an array with 50 elements, each of which holds the name of one person (presumably as a fixed-length <a href="/wiki/String" title="String">string</a> or a <a href="/wiki/Pointer" title="Pointer">pointer</a> to a variable-length string)?
+</p><p>It becomes clear fairly quickly, however, that this mode of thinking is severely limiting. For example, suppose that there are 50 rows of 50 occupied chairs each, and we want to store the names of all 2500 people listening to a speech. What do we do now? One method is to imagine that we asked the first row to stand up and form a line off to the left side, then we asked the second row to stand up and line up behind the people who used to be in the first row, in such a way that if Alice is originally seated to the left of Bob, she will end up in front of Bob in the line; and so on down until all 2500 people have lined up, and we assign the number 0 to the first person in the line, 1 to the second person, and eventually 2499 to the last person. (In a bird's eye view facing the podium, we are assigning IDs in English reading order: left to right then top to bottom.) Then we could use an array indexed by the integers from 0 to 2499 to hold information about the names of all the people attending.
+</p><p>But this is cumbersome. Suppose that the guest sitting in the 12th row and the 34th column is randomly selected to win a prize, and we wish to call him out by name. Then we have to compute that his ID is <img class="mwe-math-fallback-image-inline tex" alt="(34-1) + 50\cdot(12-1) = 583" src="/wiki/images/math/5/7/8/5786da2bbae047829a54a3c757c98978.png">, and look up the array element at index 583. It would be much more convenient if we could simply use the ordered pair <img class="mwe-math-fallback-image-inline tex" alt="(34,12)" src="/wiki/images/math/4/2/1/421818c844272705e856989a12488075.png"> as an index --- not a location along a <i>line</i>, but the coordinates of a point in a <i>plane</i>. The array is being used, after all, to represent a <i>table</i> or <i>matrix</i> or <i>grid</i> of things, not a <i>line</i>.
+</p>
+<h3><span class="mw-headline" id="First_solution">First solution</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Array&amp;action=edit&amp;section=5" title="Edit section: First solution">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>This, in fact, is the principle behind a <b>multidimensional array</b>, an array indexed by <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png">-tuples, where <img class="mwe-math-fallback-image-inline tex" alt="n &gt; 1" src="/wiki/images/math/e/b/3/eb380f3b2439960f7727e82712b46659.png">. (Such an array is said to be <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png">-dimensional.) It is not hard to form a bijection between tuples and <img class="mwe-math-fallback-image-inline tex" alt="\mathbb{N}" src="/wiki/images/math/6/2/4/624e4cf68723f677d53e8cf2272f348a.png">; in this example, we have a two-dimensional array with <img class="mwe-math-fallback-image-inline tex" alt="f(0) = (1,1)" src="/wiki/images/math/a/6/4/a647b202840822b52325f39b667f1b2f.png">, <img class="mwe-math-fallback-image-inline tex" alt="f(1) = (1,2)" src="/wiki/images/math/a/7/9/a790b6881e71f143c4e0018a22289896.png">, ..., <img class="mwe-math-fallback-image-inline tex" alt="f(49) = (1,50)" src="/wiki/images/math/7/1/9/7194593d48f9fc9979e9f51829389f56.png">, <img class="mwe-math-fallback-image-inline tex" alt="f(50) = (2,1)" src="/wiki/images/math/c/f/c/cfc6a104719af462cb06bcf9887c7a8c.png">, ..., <img class="mwe-math-fallback-image-inline tex" alt="f(99) = (2,50)" src="/wiki/images/math/9/1/b/91b8af945930c7028934a9e81223cd6a.png">, ..., <img class="mwe-math-fallback-image-inline tex" alt="f(2450) = (50,1)" src="/wiki/images/math/a/1/5/a159abeb7a0516c1e1cd8a799769e163.png">, ..., <img class="mwe-math-fallback-image-inline tex" alt="f(2499) = (50,50)" src="/wiki/images/math/7/8/a/78ad12f6f83004a5d5b90fa2049b2626.png">. The point is that, in order to ease the cognitive burden on the programmer and aid visualization, the details of the address translation should be taken care of by the compiler and hidden from the programmer. Many programming languages support arrays with several dimensions; these are particularly important in <a href="/wiki/Dynamic_programming" title="Dynamic programming">dynamic programming</a>. The size of a multidimensional array is the product of the sizes of the individual sets whose Cartesian product was taken to form the set of tuples as indices for the array. The elements of the tuple need not be all of the same type.
+</p>
+<h3><span class="mw-headline" id="Second_solution">Second solution</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Array&amp;action=edit&amp;section=6" title="Edit section: Second solution">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Instead of allowing tuples as indices, we could, in fact, simply allow the use of more than one index to an array. A two-dimensional array will be considered as a one-dimensional array of one-dimensional arrays. A three-dimensional array will be considered a one-dimensional array of one-dimensional arrays of one-dimensional arrays. And so on. After all, we did not place any restrictions on the value types of arrays! In the example above, then, each row is viewed as an array of 50 strings, and the whole arrangement is viewed as an array of 50 rows. To access the person in row 12 and column 34, we take the 34th element of the 12th element of the array.
+</p><p>Programming languages that take this approach to multidimensional arrays generally allow extraction of the lower-dimensional components, thus, the entire first row could be extracted and passed as an argument to a function, for example. In the first solution (tuple indices), these are slices.
+</p>
+<h3><span class="mw-headline" id="Note_on_interpretation">Note on interpretation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Array&amp;action=edit&amp;section=7" title="Edit section: Note on interpretation">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>(It is important to remember that a multidimensional array is still, in a sense, a line of values sitting in memory, and that the convention of indexing them by tuples is only for convenience and has no real existence within the machine. Accordingly, the interpretation of the array determines its abstract nature, and not <i>vice versa</i>; whether the first element of an ordered pair as the index represents the row or the column is irrelevant as long as one is consistent, and they may represent, in fact, whatever the programmer wants; the first element may identify a star system and the second one of the stars in the system identified by the first, for example, or the interpretation may be totally abstract, with no physical nature.)
+</p>
+<h2><span class="mw-headline" id="Mutable_and_immutable_arrays">Mutable and immutable arrays</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Array&amp;action=edit&amp;section=8" title="Edit section: Mutable and immutable arrays">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In imperative programming languages, arrays are typically <i>mutable</i> by default, which means that each element of an array can be freely treated as a variable with both read and write access. In contrast, <i>immutable</i> arrays are sometimes encountered, arrays in which all values must be specified as soon as the array is created, and none of the elements may thereafter be modified. Immutable arrays can be used to enforce referential transparency in functional languages, but with the caveat that updating one, which really involves creating a new one that differs in only one element, requires time linear in the size of the array. Nevertheless, functional programming languages usually have support for mutable arrays. In imperative programming languages, there are often ways to create immutable arrays, should the need arise. (Java's strings are immutable by default.)
+</p>
+<h2><span class="mw-headline" id="Extensible_and_fixed_arrays">Extensible and fixed arrays</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Array&amp;action=edit&amp;section=9" title="Edit section: Extensible and fixed arrays">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>A <i>fixed</i> array is an array whose size cannot be changed, but is fixed at creation, whereas an <i>extensible</i> array is an array whose size can be changed after it is created. When the size of an array is changed from <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png"> to <img class="mwe-math-fallback-image-inline tex" alt="m" src="/wiki/images/math/6/f/8/6f8f57715090da2632453988d9a1501b.png">, it is understood that the first <img class="mwe-math-fallback-image-inline tex" alt="\min(n,m)" src="/wiki/images/math/b/6/d/b6d5c8a1b647fbf505a964b8fa44a4ce.png"> elements of the array are left intact.
+</p><p>Fixed arrays are easy to implement. A problem with implementing extensible arrays is that we cannot always keep the array in the same place. This is because when we first allocate the array, we might not know how large it will become. We cannot allocate an unlimited amount of space for it, so instead we allocate enough space for its initial size. If the array needs to grow, then we cannot simply reserve the next memory address that the array should contain if it were larger, because this block of memory may be in use by another variable or another program. Instead, we need to allocate a new block of memory that is large enough for the extended array, and copy over all the elements. Naively, if we repeatedly extend the array one element at a time, we can force each operation to take linear time, giving <img class="mwe-math-fallback-image-inline tex" alt="O(n^2)" src="/wiki/images/math/1/8/9/189317b4b935a745fcfaf95940d2b4f0.png"> time to insert <img class="mwe-math-fallback-image-inline tex" alt="O(n)" src="/wiki/images/math/7/b/a/7ba55e7c64a9405a0b39a1107e90ca94.png"> elements one at a time. This is not an acceptable performance, so another solution is to double the size of allocated memory for the array every time the array grows beyond its current memory allocation; it can be shown that insertions then take place in amortized <img class="mwe-math-fallback-image-inline tex" alt="O(1)" src="/wiki/images/math/5/e/0/5e079a28737d5dd019a3b8f6133ee55e.png"> time, although some space is wasted.
+</p>
+<h2><span class="mw-headline" id="Array_operations">Array operations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Array&amp;action=edit&amp;section=10" title="Edit section: Array operations">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Algorithms that work with arrays tend to loop over the elements of the array, considering them one (or a few) at a time. However, there are some operations that are so frequently encountered that they have library support, such as:
+</p>
+<ul><li> <i>Fill</i>: Set every element in the array, or slice thereof, to the same value.</li>
+<li> <i>Copy</i>: Copies an array, or slice thereof, to another array or slice thereof, overwriting the values that were there previously, for example, setting the first, second, and third elements of an array to the values of the fifth, sixth, and seventh elements of another array, respectively.</li>
+<li> <i>Search</i>: Find the first element in the array that is equal to a given value.</li>
+<li> <i>Reverse</i>: Rearrange the elements of the array so their order is the opposite of their original order.</li>
+<li> <i>Sort</i>: Rearrange the elements of the array so that each element is less than or equal to the one following it (except the last).</li>
+<li> <i>Filter</i>: Create a new array whose elements are exactly those in an original, given array, that satisfy a given unary predicate, without rearranging them.</li>
+<li> <i>Map</i>: Apply the same unary function to every element in the array, either replacing it by the result of the function, or creating a new array that contains all the return values of the function, without rearranging them. (An example would be converting a string to uppercase.)</li>
+<li> <i>Reduce</i>: Consider each element of the array in turn, passing it to a binary function to update an accumulator, until all elements have been considered, and then return the accumulator. (Examples would be summing the array or finding its maximum element.)</li></ul>
+<h2><span class="mw-headline" id="Limitations">Limitations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Array&amp;action=edit&amp;section=11" title="Edit section: Limitations">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Suppose that a person cuts into line. How do we update the array of names? The problem is that everybody behind this person will have to have their IDs reassigned to reflect the new structure. That is, when we force an element into a particular location in an array, we have to shift over all the elements to its right, which requires a potentially linear amount of work copying elements. The same is true if someone in the middle of the line or the beginning leaves; all the people after him/her in the line will have to be shifted forward one position (backward in the array). When insertions and deletions are frequent, and most access is sequential, a <a href="/wiki/Linked_list" title="Linked list">linked list</a> may perform better; when insertion, deletion, and random access are all frequent, the use of a <a href="/wiki/index.php?title=Binary_search_tree&amp;action=edit&amp;redlink=1" class="new" title="Binary search tree (page does not exist)">tree</a> is recommended.
+</p>
+<h2><span class="mw-headline" id="Derived_data_structures">Derived data structures</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Array&amp;action=edit&amp;section=12" title="Edit section: Derived data structures">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The array can easily be used to implement a <a href="/wiki/Stack" title="Stack">stack</a>, <a href="/wiki/Queue" title="Queue">queue</a>, <a href="/wiki/Deque" title="Deque">deque</a>, or <a href="/wiki/Binary_heap" title="Binary heap">binary heap</a>.
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.076 seconds
+Real time usage: 0.086 seconds
+Preprocessor visited node count: 560/1000000
+Preprocessor generated node count: 1192/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:150-0!*!0!!en!*!*!math=0 and timestamp 20180430083905 and revision id 1640
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wcipeg.com/wiki/index.php?title=Array&amp;oldid=1640">https://wcipeg.com/wiki/index.php?title=Array&amp;oldid=1640</a>"					</div>
+													<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:Data_structures" title="Category:Data structures">Data structures</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Array&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Array" title="You are encouraged to log in; however, it is not mandatory [ctrl-alt-o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li id="ca-nstab-main" class="selected"><span><a href="/wiki/Array" title="View the content page [ctrl-alt-c]" accesskey="c">Page</a></span></li>
+															<li id="ca-talk" class="new"><span><a href="/wiki/index.php?title=Talk:Array&amp;action=edit&amp;redlink=1" title="Discussion about the content page [ctrl-alt-t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label" tabindex="0"><span>Variants</span><a href="#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Array">Read</a></span></li>
+															<li id="ca-edit"><span><a href="/wiki/index.php?title=Array&amp;action=edit" title="You can edit this page. Please use the preview button before saving [ctrl-alt-e]" accesskey="e">Edit</a></span></li>
+															<span class="placeholder" style="display: none;"></span>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu" aria-labelledby="p-cactions-label" style="">
+						<h3 id="p-cactions-label" tabindex="0" style="width: 61px;"><span>More</span><a href="#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul><li id="ca-history" class="collapsible" style="display: list-item;"><span><a href="/wiki/index.php?title=Array&amp;action=history" title="Past revisions of this page [ctrl-alt-h]" accesskey="h">View history</a></span></li>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search PEGWiki [ctrl-alt-f]" accesskey="f" id="searchInput" tabindex="1" autocomplete="off"><input type="hidden" value="Special:Search" name="title"><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton">								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page" title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id="p-navigation" aria-labelledby="p-navigation-label">
+			<h3 id="p-navigation-label">Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [ctrl-alt-z]" accesskey="z">Main page</a></li>
+													<li id="n-Index"><a href="/wiki/Special:AllPages">Index</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [ctrl-alt-r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [ctrl-alt-x]" accesskey="x">Random page</a></li>
+													<li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+			<h3 id="p-tb-label">Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Array" title="A list of all wiki pages that link here [ctrl-alt-j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Array" title="Recent changes in pages linked from this page [ctrl-alt-k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [ctrl-alt-q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/wiki/index.php?title=Array&amp;printable=yes" rel="alternate" title="Printable version of this page [ctrl-alt-p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/wiki/index.php?title=Array&amp;oldid=1640" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/wiki/index.php?title=Array&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 17 April 2012, at 03:08.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Attribution 3.0 Unported</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/PEGWiki:Privacy_policy" title="PEGWiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/PEGWiki:About" title="PEGWiki:About">About PEGWiki</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/PEGWiki:General_disclaimer" title="PEGWiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by/3.0/"><img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Attribution 3.0 Unported" width="88" height="31"></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wiki/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wcipeg.com/wiki/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script><script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":78});
+}</script>
+	
+
+<div class="suggestions" style="display: none; font-size: 13px;"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>

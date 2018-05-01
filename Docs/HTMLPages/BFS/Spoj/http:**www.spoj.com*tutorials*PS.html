@@ -1,0 +1,706 @@
+<!DOCTYPE html><!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]--><!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]--><!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]--><!--[if (gte IE 9)|!(IE)]><!--><html class="not-ie" lang="en"><!--<![endif]--><head>
+	<!-- main header -->
+	<meta charset="utf-8">
+	
+				<title>Sphere Online Judge (SPOJ)</title>
+	  
+	<meta name="keywords" content="language, algorithm, spoj, contest, contester, Java, C#, Pascal, C, C++, python, ruby, caml, ocaml, perl, haskell, lisp, prolog, fortran, assembler, asembler, functional, online, judge, problem, problemset, ACM">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  		<meta property="og:image" content="//stx1.spoj.com/gfx/spoj-fb.jpg">
+	<meta property="og:description" content="SPOJ (Sphere Online Judge) is an online judge system with over 315,000 registered users and over 20000 problems. The solution to problems can be submitted in over 60 languages including C, C++, Java, Python, C#, Go, Haskell, Ocaml, and F#. SPOJ has a rapidly growing problem set/tasks available for practice 24 hours/day, including many original tasks prepared by the community of expert problem setters associated with the project.">
+	<meta name="description" content="SPOJ (Sphere Online Judge) is an online judge system with over 315,000 registered users and over 20000 problems. The solution to problems can be submitted in over 60 languages including C, C++, Java, Python, C#, Go, Haskell, Ocaml, and F#. SPOJ has a rapidly growing problem set/tasks available for practice 24 hours/day, including many original tasks prepared by the community of expert problem setters associated with the project.">
+		<meta property="og:site_name" content="spoj.com">
+
+  <!--[if (gte IE 9)|!(IE)]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" id="metatag">
+  <![endif]--> 
+
+	  <!-- Favicon -->
+	  <link href="//stx1.spoj.com/gfx/favicon_new.png" rel="shortcut icon" type="image/x-icon">
+	  
+	  <!-- RSS -->
+	  <link href="/rss/" rel="alternate" type="application/rss+xml" title="RSS Feed">
+	
+	  <!-- Web Fonts -->
+	  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet" type="text/css">  
+
+	<!-- Internet Explorer condition - HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]--> 
+	
+	
+	
+	<!-- CSS: Bootstrap, Font-awesome, Bootstrap libs,  -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+  	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  	<link href="//stx1.spoj.com/gfx/bootstrap-tour/build/css/bootstrap-tour.min.css" rel="stylesheet">
+  	<link href="//stx1.spoj.com/themes/bootstrap-social.css" rel="stylesheet" type="text/css">
+  	
+	<link href="//stx1.spoj.com/themes/common.css?4" rel="stylesheet" type="text/css" id="theme0">
+	<link href="//stx1.spoj.com/themes/en_new.css?4" rel="stylesheet" type="text/css" id="theme">
+	
+	<!-- JS -->
+	<script type="text/javascript" async="" src="http://www.google-analytics.com/plugins/ua/linkid.js"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script id="facebook-jssdk" src="//connect.facebook.net/pl_PL/sdk.js#xfbml=1&amp;appId=321676846207&amp;version=v2.0"></script><script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="//code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+	
+		
+		
+	<script type="text/javascript" language="javascript">
+	$(function () { 
+		$("#profile-menu").popover();
+	});
+	function UnCryptMailto(s) {
+		var n=0;
+		var r="";
+		for(var i=0;i<s.length;i++) {		
+			n=s.charCodeAt(i); 
+			if (n>=8364) {n = 128;}
+			r += String.fromCharCode(n+(2));	
+		}
+		return r;
+	}
+	function linkTo_UnCryptMailto(s)	{
+		location.href=UnCryptMailto(s);
+	}
+	</script>
+	
+	<script type="text/javascript">
+	function recordOutboundLink(link, category, action) {
+	  try {
+	    var pageTracker=_gat._getTracker("UA-XXXXX-X");
+	    pageTracker._trackEvent(category, action);
+	    setTimeout('document.location = "' + link.href + '"', 100)
+	  }catch(err){}
+	}
+	</script>
+	
+<script async="" src="//static.hotjar.com/c/hotjar-334656.js?sv=5"></script><script async="" src="https://script.hotjar.com/modules-7db4e11cd0f1a212e60496331688330e.js"></script><style type="text/css">iframe#_hjRemoteVarsFrame {display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;}</style><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_customer_chat_bounce_in{animation-duration:250ms;animation-name:fb_bounce_in}.fb_customer_chat_bounce_out{animation-duration:250ms;animation-name:fb_fade_out}.fb_invisible_flow{display:inherit;height:0;overflow-x:hidden;width:0}.fb_mobile_overlay_active{background-color:#fff;height:100%;overflow:hidden;position:fixed;visibility:hidden;width:100%}@keyframes fb_fade_out{from{opacity:1}to{opacity:0}}@keyframes fb_bounce_in{0%{opacity:0;transform:scale(.8, .8);transform-origin:100% 100%}10%{opacity:.1}20%{opacity:.2}30%{opacity:.3}40%{opacity:.4}50%{opacity:.5}60%{opacity:.6}70%{opacity:.7}80%{opacity:.8;transform:scale(1.03, 1.03)}90{opacity:.9}100%{opacity:1;transform:scale(1, 1)}}</style></head>
+
+<body>
+
+	
+	<!-- <div class="space30"></div> -->
+	
+	<!-- Content -->
+	<div class="content">
+		<div class="container" id="header">
+			<div class="row">
+				<div class="col-md-12 text-right">
+										<form method="post" style="display: none;" action="/login/" id="login-form">
+						<div class="row">
+							<div class="col-md-10 col-md-offset-2">
+								<input type="hidden" name="next_raw" value="/">
+								<input type="hidden" name="autologin" value="1">
+								<input type="text" name="login_user" placeholder="Username" class="form-control input-sm" style="display: inline-block; width: 25%;">
+								<input type="password" name="password" placeholder="Password" class="form-control input-sm" style="display: inline-block; width: 25%;">
+																<button type="submit" class="btn btn-default btn-sm" style="display: inline-block; margin-right: 10px;"><span class="fa fa-sign-in fa-lg"></span> <strong>sign in</strong></button>
+																<a href="/register"><i class="fa fa-user-plus"></i> sign up</a> 
+								<a href="/forgot"><i class="fa fa-question-circle"></i> forgot</a>
+				        									</div>
+						</div>
+					</form>
+										
+					
+				</div>
+			</div>
+		
+			<div class="row">
+				<div class="col-md-4">
+					<a href="/" class="navbar-brand">
+						<img src="//stx1.spoj.com/gfx/2015e.png" style="height: 40px;">
+					</a>
+					<div class="navbar-header">
+				      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+				        <span class="sr-only">Toggle navigation</span>
+				        <i class="fa fa-bars"></i>
+				      </button>
+				    </div>
+				</div>
+				<div class="col-md-8" id="menu">
+				
+					
+					<div class="row">
+					<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation" style="border: 0px;">
+				      <ul class="nav navbar-nav" style="  float: right; margin-top: 10px;">
+				      						        <li>
+					          <a href="/problems"><i class="fa fa-puzzle-piece"></i> PROBLEMS</a>
+					        </li>
+					        					        <li>
+					          <a href="/status"><i class="fa fa-circle"></i> STATUS</a>
+					        </li>
+					        <li>
+					          <a href="/ranks"><i class="fa fa-trophy"></i> RANKS</a>
+					        </li>
+					        <li>
+					          <a href="http://spoj.com/forum"><i class="fa fa-comments-o"></i> DISCUSS</a>
+					        </li>
+					        <li>
+					          <a href="/contests">CONTESTS</a>
+					        </li>
+											        					        <li>
+					        	<a href="/login" class="text-success" onclick="$('#login-form').show(); $('input[name=login_user]').focus(); return false;"><i class="fa fa-sign-in"></i> sign in</a>
+					        </li>
+					        						
+				        
+				      </ul>
+				    </nav>
+				    </div>
+				    
+				    
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class="container" id="menu">
+			
+		</div>
+		
+		<div class="container" id="content">
+		
+<div align="justify" style="max-width: 800px">
+
+<div>
+<table><tbody><tr><td style="width: 400px; border-left: 1px dotted black; padding: 5px">
+
+<b>Available tutorials:</b> <br><br>
+  <a href="/tutorials/USERS">Tutorial for new (and not only new) users</a>
+<br>
+  <a href="/tutorials/PS">Tutorial for problem-setters</a>
+<br>
+  <a href="/tutorials/PSINT">Tutorial for problem-setters (interactive problems)</a>
+<br>
+  <a href="/tutorials/CS">Tutorial for contest-setters</a>
+
+</td></tr></tbody></table>
+</div>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+<p style="margin-bottom: 0cm;" align="center"><font style="font-size: 30pt;" size="6">Tutorial
+for problem-setters</font></p>
+<p style="margin-bottom: 0cm;">This is tutorial for those
+who want to add new problems to SPOJ problemsets. It will get you
+through a little complex procedure of adding the problems.</p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+
+<p style="margin-bottom: 0cm;"><b>Content:</b></p>
+<div dir="ltr">
+	<p style="margin-left: 0.5cm; margin-bottom: 0cm;"><a href="#who">Who is a
+	problem-setter?</a></p>
+	<p style="margin-left: 0.5cm; margin-bottom: 0cm;"><a href="#become">How to become a
+	problem-setter?</a></p>
+	<p style="margin-left: 0.5cm; margin-bottom: 0cm;"><a href="#begin">How to begin</a></p>
+	<p style="margin-left: 0.5cm; margin-bottom: 0cm;"><a href="#problem">Problem page</a></p>
+	<p style="margin-left: 0.5cm; margin-bottom: 0cm;"><a href="#add">Adding a problem</a></p>
+	<p style="margin-left: 0.5cm; margin-bottom: 0cm;"><a href="#addne">Adding non-english problem</a></p>
+	<p style="margin-left: 0.5cm; margin-bottom: 0cm;"><a href="#edit">Editing an
+	existing problem</a></p>
+	<p style="margin-left: 0.5cm; margin-bottom: 0cm;"><a href="#eb">Why my problem is not visible
+	for other users? (Editorial board issue)</a></p>
+	<p style="margin-left: 0.5cm; margin-bottom: 0cm;"><a href="#comm">Communicating with users solving your problem</a></p>
+	<p style="margin-left: 0.5cm; margin-bottom: 0cm;"><a href="#more">More...</a></p>
+</div>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+
+
+<h2 id="who">Who is a problem-setter?</h2>
+<p style="margin-bottom: 0cm;">It's a person who adds new
+problems.</p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+
+
+
+<h2 id="become">How to become a problem-setter?</h2>
+<p style="margin-bottom: 0cm;"><span>
+If you are interested in helping us build our problem base, or if you would like to organize a contest of your own, please <a href="/info/">fill out the form</a> (if you are a newcomer to the site, or have solved fewer than 20 problems, a little additional information about yourself is welcome but by no means obligatory). You will receive a reply with detailed instructions.
+<br><br>
+Please note that we reserve the right to correct, recategorise, modify or remove problems which are available for solving in one of main problemsets. This does not concern problems added specifically for use in private contests which are not visible in the archives of the online judge.
+</span></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+
+
+
+<h2 id="begin"><span>How to begin</span></h2>
+<p style="margin-bottom: 0cm;"><span>You can start 
+<a href="/problems/my">here</a> (<b>problem list → My own problems</b>)</span>
+<br>
+<span>There you can view
+all problems you have already added. To create a new problem click on
+Add problem link at the top of the page.</span></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+
+
+
+<h2 id="problem"><span>Problem page</span></h2>
+<p style="margin-bottom: 0cm;"><span>As mentioned before,
+to add a new problem click (of course first you should log in) on
+<b>problem list</b> link on the left side of the page and then click the <b>Add
+problem</b> link at the top of the page. To edit existing problem go to
+its page and click on the <b>Edit problem</b> link at the top of the page.</span></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+
+
+
+<h2 id="add"><span>Adding a problem</span></h2>
+<p style="margin-bottom: 0cm;"><span>Here is the screen
+shot with some sample data:</span></p>
+<p style="margin-bottom: 0cm;" align="center"><span><img alt="new problem" src="/gfx/tut003.gif"></span></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+<p style="margin-bottom: 0cm;"><font size="4"><span><b>Meaning
+of the fields</b></span></font><span><br> (when you add or
+edit a problem, move pointer over green question marks to see the
+hints):</span></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+
+<p style="margin-bottom: 0cm;"><b><span>Problem code</span></b></p>
+<p style="margin-bottom: 0cm;"><span>Unique problem code,
+consists of 3 up to 8 capital letters.</span></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+
+<p style="margin-bottom: 0cm;"><b><span>Problem name</span></b></p>
+<p style="margin-bottom: 0cm;"><span>Just a problem name
+that will be displayed in the NAME column in the problem list.</span></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+
+<p style="margin-bottom: 0cm;"><b><span>Co-authors</span></b></p>
+<p style="margin-bottom: 0cm;"><span>Group of people
+related to this problem.</span>
+<br>
+<span>The group must exist
+(you can create new one clicking "add group" menu
+position).</span>
+<br>
+You should use this
+option if you want to grant access to your problems for the other
+co-authors.</p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+
+<p style="margin-bottom: 0cm;"><b><span>Source code limit</span></b></p>
+<p style="margin-bottom: 0cm;"><span>Source code size
+limit of solutions sent by users, measured in bytes.</span></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+
+<p style="margin-bottom: 0cm;"><b><span>Resource</span></b></p>
+<p style="margin-bottom: 0cm;"><span>Origin of the
+problem (for example link).</span></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+
+<p style="margin-bottom: 0cm;"><b><span>Assessment type</span></b></p>
+<p style="margin-bottom: 0cm;"><span>Type of the problem:</span></p>
+<ul>
+	<li><span><b>Binary</b></span><span>
+	- "accepted" or "wrong answer".</span>
+	</li><li><span><b>Maximize
+	score</b></span><span> - higher score means better
+	solution.</span>
+	</li><li><span><b>Minimize
+	score</b></span><span> - lower score means better
+	solution.</span>
+</li></ul>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+
+<p style="margin-bottom: 0cm;"><b><span>Checker</span></b></p>
+<p style="margin-bottom: 0cm;"><span>How the problem is
+judged:</span></p>
+<ul>
+	<li><span><b>Pyramid</b></span><span>
+	(PIII733) - automatically.</span>
+	</li><li><span><b>Manual</b></span><span>
+	- manually by problem setter.</span>
+</li></ul>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+<p style="margin-bottom: 0cm;"><b><span>Placement in main
+problem set</span></b></p>
+<p style="margin-bottom: 0cm;"><span>Choose in which
+section your problem should appear.</span>
+<br>
+<span>If you are going to
+test your problem, it's incomplete or has no English version,</span>
+<br>
+<span>check </span><span><b>none</b></span><span>
+option - problem will be available only for you.</span></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+
+<p style="margin-bottom: 0cm;"><b><span>Testable</span></b></p>
+<p style="margin-bottom: 0cm;"><span>Check this option if
+you want to allow submitting solutions to this problem.</span></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+
+<p style="margin-bottom: 0cm;"><b><span>Available for use
+in 3rd party contests</span></b></p>
+<p style="margin-bottom: 0cm;"><span>Is it possible to
+use your problem in other contests?</span></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+
+<p style="margin-bottom: 0cm;"><b><span>Dynamic content</span></b></p>
+<p style="margin-bottom: 0cm;"><span>This option is
+deprecated.</span></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+
+<p style="margin-bottom: 0cm;"><b><span>Master judge</span></b></p>
+<p style="margin-bottom: 0cm;"><span>Source code of high
+level judge - used for multiple test cases and for single data set as
+well.</span>
+<br>
+<span>You can write your
+own judge, if you need it.</span>
+<br>
+<span>Default judge (</span><span><b>1000</b></span><span>.
+Generic masterjudge) accepts solution only if all test cases are
+accepted.</span>
+<br>
+<span>If you want the
+score to be percentage of accepted test cases, choose judge no. </span><span><b>1001</b></span><span>.</span></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+
+<p style="margin-bottom: 0cm;"><b><span>Available
+languages</span></b></p>
+<p style="margin-bottom: 0cm;"><span>Mark languages in
+which users can upload solutions.</span></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+
+<p style="margin-bottom: 0cm;"><b><span>Include new
+languages</span></b></p>
+<p style="margin-bottom: 0cm;"><span>If this option is
+enabled, all languages added in the future will be automatically
+available for this problem.</span></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+
+<p style="margin-bottom: 0cm;"><b><span>Merge all
+languages in ranklist</span></b></p>
+<p style="margin-bottom: 0cm;"><span>If this option is
+disabled participant will appear in problem's score table as many
+times as he changes programming language. In other case he'll appear
+only once.</span></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+
+<p style="margin-bottom: 0cm;"><b><span>Continue editing
+after saving changes</span></b></p>
+<p style="margin-bottom: 0cm;"><span>If you check this
+option and click </span><span><b>Modify</b></span><span>,
+problem description (modified version) will appear in new window.</span></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+
+<p style="margin-bottom: 0cm;"><b><span>Create</span></b></p>
+<p style="margin-bottom: 0cm;"><span>Create the problem.</span></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+
+<p style="margin-bottom: 0cm;"><b><span>Preview</span></b></p>
+<p style="margin-bottom: 0cm;"><span>Check how the
+problem page will look like.</span></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+
+
+<p style="margin-bottom: 0cm;"><span>After you fill all
+required fields, click </span><span><b>Create </b></span><span><span style="font-weight: normal;">button
+and the problem will be created. Then go back to problem's page,
+click on the </span></span><span><b>Edit problem </b></span><span><span style="font-weight: normal;">link
+and continue setting problem with new options now available.</span></span></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+
+
+<h2 id="addne"><span>Adding non-english problem</span></h2>
+<p style="margin-bottom: 0cm;" align="left">
+First, you have to set <strong>Placement in main problemset</strong> to <strong>none</strong> so that your problem
+won't be visible in the main problemset (i.e. in the main contest that is accessible to everyone and can be viewed
+right after entering <a href="http://www.spoj.com">www.spoj.com</a>). This is enough for you to use your problem in your own private contest
+(how to set up your own contest? - answers can be found in <a href="/tutorials/CS/">this tutorial</a>).
+<br><br>
+If you want to allow other problem setters to use your problem in their contests, check the
+<strong>Available for use in 3rd party contests</strong> option. On the other hand, if you want your problem to appear in
+some contest (either private or public - <a href="http://www.spoj.com">www.spoj.com</a>, <a href="http://br.spoj.com">br.spoj.com</a>,
+<a href="http://pl.spoj.com">pl.spoj.com</a>, <a href="http://vn.spoj.com">vn.spoj.com</a> ...), contact with the contest
+setter.
+</p>
+<p><br></p>
+
+
+<h2 id="edit"><span>Editing an existing problem </span>
+</h2>
+<p style="margin-bottom: 0cm;"><span>Example screen shot:
+(with <a href="/problems/DOUGHNUT">DOUGHNUT</a> problem data).</span></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+<p style="margin-bottom: 0cm;" align="center"><span>
+<img alt="new problem" src="/gfx/tut002.gif"></span></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+<p style="margin-bottom: 0cm;"><font size="4"><span><b>Meaning
+of the fields:</b></span></font></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+<p style="margin-bottom: 0cm;"><b><span>Problem test
+sequence</span></b></p>
+<p style="margin-bottom: 0cm;"><span>Define here which
+test cases use to judge solution (you can upload test cases below in</span></p>
+<p style="margin-bottom: 0cm;"><span><b>Test data upload
+</b></span><span>section).</span></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+<p style="margin-bottom: 0cm;"><b><span>Test data upload</span></b></p>
+<p style="margin-bottom: 0cm;"><span>Here you can add,
+modify or delete test cases and choose judges for them. Usually one</span></p>
+<p style="margin-bottom: 0cm;"><span>data set suffices
+but if you wish you can add more.</span></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+<p style="margin-bottom: 0cm;"><b><span>Add/modify
+testcase</span></b></p>
+<p style="margin-bottom: 0cm;"><span>Choose whether you
+want to add new test case or to modify or delete existing one.
+<br><br>
+<i>Notice:</i><br>
+Input and output text files are uploaded from the specified file on your computer.
+The provided file may be zipped or gzipped; if so, make sure it has the correct extension
+(.gz and .zip respectively). The size of the uploaded file may not exceed 1MB.
+</span></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+<p style="margin-bottom: 0cm;"><b><span>Input file</span></b></p>
+<p style="margin-bottom: 0cm;"><span>Choose input data
+(if the problem has no input data you can leave this field empty).</span></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+<p style="margin-bottom: 0cm;"><b><span>Output file</span></b></p>
+<p style="margin-bottom: 0cm;"><span>Choose output file
+(if  the problem has many correct answers you can leave this field
+empty</span></p>
+<p style="margin-bottom: 0cm;"><span>and use your own
+judge).</span></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+<p style="margin-bottom: 0cm;"><b>Test case judge</b></p>
+<div id="h_testcasejudge" dir="ltr">
+	<p style="margin-bottom: 0.5cm;">Add your own judge or
+	choose between predetermined judges: 
+	</p>
+	<ul>
+		<li><p style="margin-bottom: 0cm;"><b>Ignores extra
+		whitespaces</b> - the standard judge for binary problems, i.e.
+		problems of ACM-type: Accepted or Wrong Answer. Output generated by
+		submitted program should be the same as test case output file
+		(except whitespaces). 
+		</p>
+		</li><li><p style="margin-bottom: 0cm;"><b>Ignores FP
+		rounding UP tp 10</b><sup><b>-2</b></sup> - the standard judge for
+		binary problems, i.e. problems of ACM-type: Accepted or Wrong
+		Answer. Use this judge for numerical problems. Output generated by
+		submitted program should be the same as test case output (with
+		accuracy 0.01). 
+		</p>
+		</li><li><p style="margin-bottom: 0cm;"><b>Ignores FP
+		rounding UP tp 10</b><sup><b>-6</b></sup> - the standard judge for
+		binary problems, i.e. problems of ACM-type: Accepted or Wrong
+		Answer. Use this judge for numerical problems. Output generated by
+		submitted program should be exactly the same as test case output
+		(with accuracy 0.000001). 
+		</p>
+		</li><li><p><b>Score is source length</b> - score for the
+		solution equals to length of source code (only if test case was
+		accepted). 
+		</p>
+	</li></ul>
+</div>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+<p style="margin-bottom: 0cm;"><b><span>Rejudge
+submission range</span></b></p>
+<p style="margin-bottom: 0cm;"><span>All submissions
+within specified range will be rejudged. Use this feature only in
+case of invalid data set, your own invalid judge, etc.</span></p>
+<p style="margin-bottom: 0cm;"><span><b>Remember</b></span><span>:
+</span><span><u>rejudging many solutions may take a lot
+of time</u></span><span><span style="text-decoration: none;">
+</span></span><span>- better check your test cases twice
+and try to avoid rejudging solutions.</span></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+
+
+<h2 id="eb"><span>Why my problem is not visible for other users? (Editorial board issue)</span></h2>
+<p style="margin-bottom: 0cm;" align="left">
+In case of any problems with data sets, wrong problem statements, etc.,
+Editorial Board Members are allowed to hide the problem; after that 
+the problem-setter will see the problem for his own purposes only - 
+ the problem will be invisible for others, and only EB Members can show it again.
+</p>
+<p><br></p>
+
+
+
+<h2 id="comm"><span>Communicating with users solving your problem</span></h2>
+<p style="margin-bottom: 0cm;" align="left">
+To communicate with users post comments under the problem. You can use comments to
+publish information about test cases changes, reason of the re-judgment, etc. Please also
+check for new comments from users from time to time and answer their questions - comments are
+the main way of communication between users and problem-setters.
+</p>
+<p><br></p>
+
+
+
+
+<h2 id="more"><span>More...</span></h2>
+<p style="margin-bottom: 0cm;" align="left">For more information, help, hints,
+ideas and suggestions please visit our <a href="/forum">forum</a>. FAQ is also situated in
+the <a href="/forum">forum</a>.</p>
+<p style="margin-bottom: 0cm;" align="left">For now there
+is no comprehensive tutorial about judges but it will appear soon.
+You can find some useful information about writing judges here:
+<a href="https://www.spoj.com/forum/viewtopic.php?t=3388">https://www.spoj.com/forum/viewtopic.php?t=3388</a></p>
+<p style="margin-bottom: 0cm;" align="left"><br>
+</p>
+
+</div>	<br>
+</div>
+		
+		
+		<div class="container" id="footer">
+			<div class="row">
+				<div class="col-md-2">
+					
+				</div>
+				<div class="col-md-8 text-center">
+					<a href="/info">About</a> | <a href="/tutorials">Tutorial</a> | <a href="/tools">Tools</a> | <a href="/clusters">Clusters</a> | <a href="/credits">Credits</a> | <a href="/jobs">Jobs</a> | <a href="/sphereengine">API</a> | <a href="/gfx/spoj-terms.pdf" target="_blank">Terms</a>
+				</div>
+				<div class="col-md-2 text-right">
+					<a href="/rss/"><img src="//stx1.spoj.com/gfx/rss10x10.gif" border="0">&nbsp;RSS</a>&nbsp;
+				</div>
+			</div>
+		</div>
+		
+		<div class="text-center" id="footer-srl">
+			
+	© Spoj.com. All Rights Reserved. Spoj uses <a href="http://sphere-engine.com?utm_campaign=permanent&amp;utm_medium=footer&amp;utm_source=spoj" style="color:black">Sphere Engine</a>™ © by <a href="http://sphere-research.com?utm_campaign=permanent&amp;utm_medium=footer&amp;utm_source=spoj" style="color:black">Sphere Research Labs</a>.
+
+		</div> 
+	</div>
+
+	<!-- JavaScripts -->
+	
+		
+	
+	<script type="text/javascript">
+	$(function(){
+		setTimeout(function(){
+			$('.no_a_info').css('visibility', 'visible');
+		}, 5000);
+		
+		if(!$('.aProblemTop').length && !$('.aProblemsTop').length && !$('.aSubmitTop').length && !$('.aStatusTop').length && !$('.aMainRight').length){
+			ga('send', 'event', 'ads', 'no-ads', 'main-contest');
+		}
+		if ($('.aProblemTop').height() == 0){
+			$('.aProblemTop').css({'border': '1px solid #ddd', 'background': '#f0f4e3', 'height': 90});
+			$('.aProblemTop').html($('<p class="text-center">using adblock?</p><h4 class="text-center">Online ads help us to maintain site.</h4><p class="text-center"><strong>please whitelist *.spoj.com</strong></p>'));
+			ga('send', 'event', 'ads', 'adblock2', 'aProblemTop');
+		}
+		if ($('.aProblemsTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aProblemsTop');
+		}
+		if ($('.aSubmitTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aSubmitTop');
+		}
+		if ($('.aStatusTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aStatusTop');
+		}
+		if ($('.aMainRight').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aMainRight');
+		}
+	});
+	</script>
+	
+	
+	<script type="text/javascript" src="//stx1.spoj.com/gfx/jquery.timers.js"></script>
+	<script type="text/javascript" src="//stx1.spoj.com/gfx/jquery.cookie.js"></script>
+	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+	<script src="//stx1.spoj.com/gfx/md5.js"></script>
+	<script src="//stx1.spoj.com/gfx/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
+	<script src="//stx1.spoj.com/gfx/scripts/tour.js"></script>
+	
+	
+	<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="http://staticxx.facebook.com/connect/xd_arbiter/r/2VRzCA39w_9.js?version=42#channel=f723a8e38&amp;origin=http%3A%2F%2Fwww.spoj.com" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="https://staticxx.facebook.com/connect/xd_arbiter/r/2VRzCA39w_9.js?version=42#channel=f723a8e38&amp;origin=http%3A%2F%2Fwww.spoj.com" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&appId=321676846207&version=v2.0";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	
+	
+
+
+<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-10507872-1', 'auto');
+	  ga('require', 'linkid', 'linkid.js');
+	  ga('send', 'pageview');
+	</script>
+<!-- Hotjar Tracking Code for http://www.spoj.com -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:334656,hjsv:5};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<script type="text/javascript">
+	$(function(){
+		$(document).on('click', '.track', function(){
+			var event = $(this).attr('data-event');
+			var action = $(this).attr('data-action');
+			var value = $(this).attr('data-value');
+			ga('send', 'event', event, action, value);
+		});
+	});
+	//window.open('http://incoming.hotjar.com/s/7366', '_blank');
+	</script>
+
+
+
+<iframe name="_hjRemoteVarsFrame" title="_hjRemoteVarsFrame" id="_hjRemoteVarsFrame" style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;" src="https://vars.hotjar.com/rcj-99d43ead6bdf30da8ed5ffcb4f17100c.html"></iframe><div id="ads"></div></body></html>

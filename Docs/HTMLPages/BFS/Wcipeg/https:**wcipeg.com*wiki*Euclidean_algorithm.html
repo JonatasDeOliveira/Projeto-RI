@@ -1,0 +1,339 @@
+<!DOCTYPE html><html lang="en" dir="ltr" class="client-js"><head>
+<meta charset="UTF-8">
+<title>Greatest common divisor - PEGWiki</title>
+<meta name="generator" content="MediaWiki 1.25.2">
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/wiki/index.php?title=Greatest_common_divisor&amp;action=edit">
+<link rel="edit" title="Edit" href="/wiki/index.php?title=Greatest_common_divisor&amp;action=edit">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="/wiki/opensearch_desc.php" title="PEGWiki (en)">
+<link rel="EditURI" type="application/rsd+xml" href="https://wcipeg.com/wiki/api.php?action=rsd">
+<link rel="alternate" hreflang="x-default" href="/wiki/Greatest_common_divisor">
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/">
+<link rel="alternate" type="application/atom+xml" title="PEGWiki Atom feed" href="/wiki/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="canonical" href="/wiki/Greatest_common_divisor">
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=ext.geshi.language.c%7Cext.math.styles%7Cext.rtlcite%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*">
+<style>
+.cite-accessibility-label{position:absolute !important; top:-99999px;clip:rect(1px 1px 1px 1px); clip:rect(1px,1px,1px,1px);padding:0 !important;border:0 !important;height:1px !important;width:1px !important;overflow:hidden}.mw-cite-backlink,.cite-accessibility-label{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none} ol.references li:target,sup.reference:target{background-color:#def; background-color:rgba(0,127,255,0.133)}@media print{.mw-cite-backlink{display:none}}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:2970940d33044e6aa6a620ce3c93c662 */
+.mw-collapsible-toggle{float:right;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}  .mw-content-ltr .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr .mw-collapsible-toggle{float:right} .mw-content-rtl .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl .mw-collapsible-toggle{float:left}.mw-customtoggle,.mw-collapsible-toggle{cursor:pointer} caption .mw-collapsible-toggle,.mw-content-ltr caption .mw-collapsible-toggle,.mw-content-rtl caption .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr caption .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl caption .mw-collapsible-toggle{float:none} li .mw-collapsible-toggle,.mw-content-ltr li .mw-collapsible-toggle,.mw-content-rtl li .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr li .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:e1ffd603cbaaa5f1a36e0d13fe843535 */
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:none;z-index:1099;padding:0;margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#4C59A6;color:white}.suggestions-special .special-label{color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white}.highlight{font-weight:bold}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:f8d0c6895ce3ae14434c16b8fca59432 */
+.postedit-container{margin:0 auto;position:fixed;top:0;height:0;left:50%;z-index:1000;font-size:13px}.postedit-container:hover{cursor:pointer}.postedit{position:relative;top:0.6em;left:-50%;padding:.6em 3.6em .6em 1.1em;line-height:1.5625em;color:#626465;background-color:#f4f4f4;border:1px solid #dcd9d9;text-shadow:0 0.0625em 0 rgba(255,255,255,0.5);border-radius:5px;box-shadow:0 2px 5px 0 #ccc;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;-ms-transition:all 0.25s ease-in-out;-o-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out}.skin-monobook .postedit{top:6em !important}.postedit-faded{opacity:0}.postedit-icon{padding-left:41px;  line-height:25px;background-repeat:no-repeat;background-position:8px 50%}.postedit-icon-checkmark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABblBMVEUAAAD///////9PfTf///80aRdTgjn///9Feij///////////9Rfzf///////////9PfjZRgDh1o1xOfTb///////+bwYqLtnj///////9PfTa82K////9WhT6YxIL///9QgDdTgzr////////j7uDl7eLq8efi693k7OH///////9UhjuBr2rp9uRUhjr///9YljVKgir///9WiTlYjT3////9/v57vFlbkT5PjC9dlD/5/fhuq09stUTs9uhxuElctCpfnT1huDFloEZloUZmpENmvDZpvDxpvTxqvjxrvT5rvT9rwTxsqktswD5uwkBvuUdxw0NztFBztU9ztVBzwkp0tlJ1xkd2t1R3uVR4w1F4xk54x014yE15uVZ5v1R5xVB6v1R7yFJ8wVh9xVl9yFR9yVd9ylN+xVh+yFd/x1l/yFeAylmEx1+Ny2uY0Hqe04Wj1Ymv3Ze33qLD47TJ5L3O6cPU7Mrq9eb2+/Q4j37OAAAAQHRSTlMAAQIEBAUFBQwPFB4fJCUoKiosQEhJS01RUlZZXmdydXaChYuSlJSWmJmoq6uur8LExcvM19fg5ejt8fX2+Pr7SljgewAAAKpJREFUGBkFwQNCAwAAAMDLtl3LtrG4rWXbtvX77gAgZ6grFwC0bhwNVgKgdPZx8b0dgLi+s7Wn0VoAqpfOI9+BNADZI7fLrz2pSEwGHZuH+78lSK8ZLkLezF3ooyUG3VPXq2USei9WngeyoG195yBYWDF3E/2pAhl1e9Gr8bGT+bfOFCC2fnvh4X7rcqIAQNNu+HT6sxkAjceTL/2ZAIhv+PorBwBJxfkA//dFHSCBy/UTAAAAAElFTkSuQmCC);background-image:url(https://wcipeg.com/wiki/resources/src/mediawiki.action/images/green-checkmark.png?2015-08-10T21:21:40Z)!ie;background-position:left}.postedit-close{position:absolute;padding:0 .8em;right:0;top:0;font-size:1.25em;font-weight:bold;line-height:2.3em;color:black;text-shadow:0 0.0625em 0 white;text-decoration:none;opacity:0.2;filter:alpha(opacity=20)}.postedit-close:hover{color:black;text-decoration:none;opacity:0.4;filter:alpha(opacity=40)}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:86d7c89b7cadf5004340279c398253d8 */</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:black;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:white}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:ae3fa4570b5ac0c6cf7b3776c8ae4d6f */</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*">
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:b36fd1c042133c9c9b60260f7c29b237 */</style>
+<script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script><script src="/wiki/load.php?debug=false&amp;lang=en&amp;modules=jquery%2Cmediawiki&amp;only=scripts&amp;skin=vector&amp;version=20161103T112730Z"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Greatest_common_divisor","wgTitle":"Greatest common divisor","wgCurRevisionId":1473,"wgRevisionId":1473,"wgArticleId":397,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Greatest_common_divisor","wgRelevantArticleId":397,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"Euclidean_algorithm","wgInternalRedirectTargetUrl":"/wiki/Greatest_common_divisor#Euclidean_algorithm"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikidb:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.redirect","mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script><script src="/wiki/load.php?debug=false&amp;lang=en&amp;modules=jquery.accessKeyLabel%2Cclient%2CmwExtension%2CtabIndex%2Cthrottle-debounce%7Cmediawiki.action.view.redirect%7Cmediawiki.legacy.ajax%2Cwikibits%7Cmediawiki.notify%2Cutil%7Cmediawiki.page.startup%7Cskins.vector.js&amp;skin=vector&amp;version=20161103T112730Z&amp;*"></script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Greatest_common_divisor skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Greatest common divisor</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From PEGWiki</div>
+								<div id="contentSub"><span class="mw-redirectedfrom">(Redirected from <a href="/wiki/index.php?title=Euclidean_algorithm&amp;redirect=no" title="Euclidean algorithm">Euclidean algorithm</a>)</span></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>The <b>greatest common divisor (GCD)</b> of a set of integers is the greatest integer that divides all the integers in the set, unless the set contains only zeroes, in which the GCD is defined to be zero. For example, the GCD of 12 and 20 is 4, because 4 divides both 12 and 20, and no integer larger than 4 divides both 12 and 20. The GCD is also sometimes called the <b>greatest common factor (GCF)</b> (perhaps because it avoids confusing schoolchildren with two different meanings of the word <i>divisor</i>).
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="#" id="togglelink">hide</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Properties"><span class="tocnumber">1</span> <span class="toctext">Properties</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Euclidean_algorithm"><span class="tocnumber">2</span> <span class="toctext">Euclidean algorithm</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Extended_Euclidean_algorithm"><span class="tocnumber">2.1</span> <span class="toctext">Extended Euclidean algorithm</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#Binary_GCD_algorithm"><span class="tocnumber">3</span> <span class="toctext">Binary GCD algorithm</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#References"><span class="tocnumber">4</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Properties">Properties</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Greatest_common_divisor&amp;action=edit&amp;section=1" title="Edit section: Properties">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> <img class="mwe-math-fallback-image-inline tex" alt="\gcd(x,y) = \gcd(y,x)" src="/wiki/images/math/5/5/e/55e79d2722841c761f377d006a1ffabd.png"> (commutativity)</li>
+<li> <img class="mwe-math-fallback-image-inline tex" alt="\gcd(0,x) = |x|" src="/wiki/images/math/b/6/2/b62c8a0d36a64e0fa7fa5189270e2639.png"></li>
+<li> <img class="mwe-math-fallback-image-inline tex" alt="\gcd(1,x) = 1" src="/wiki/images/math/4/4/0/4407c420718ab328e0dc21e4c65f2d26.png"></li>
+<li> <img class="mwe-math-fallback-image-inline tex" alt="\gcd(x,x) = |x|" src="/wiki/images/math/e/7/e/e7e07fbd3e5df7853faa0eff9858f42e.png"></li>
+<li> All common divisors of a set of integers divide the GCD of that set. For example, the common divisors of 24 and 42 are -6, -3, -2, -1, 1, 2, 3, and 6, and the GCD is 6. Notice that all the common divisors are also divisors of 6.</li>
+<li> The GCD is never negative, because if <img class="mwe-math-fallback-image-inline tex" alt="-x" src="/wiki/images/math/d/2/5/d25c186e3f3096a9ff4a918f7b3141d4.png"> is a common divisor, then so is <img class="mwe-math-fallback-image-inline tex" alt="+x" src="/wiki/images/math/3/4/1/34128bbb7914f13de6b658dd4e6a5855.png">. Also, <img class="mwe-math-fallback-image-inline tex" alt="\gcd(x,y) = \gcd(|x|,|y|)" src="/wiki/images/math/6/8/f/68fd46b93117694a81300fedcef870d0.png">.</li>
+<li> If <img class="mwe-math-fallback-image-inline tex" alt="S" src="/wiki/images/math/5/d/b/5dbc98dcc983a70728bd082d1a47546e.png"> and <img class="mwe-math-fallback-image-inline tex" alt="T" src="/wiki/images/math/b/9/e/b9ece18c950afbfa6b0fdbfa4ff731d3.png"> are sets, then <img class="mwe-math-fallback-image-inline tex" alt="\gcd(S \cup T) = \gcd(\gcd(S), \gcd(T))" src="/wiki/images/math/f/d/c/fdcf66a519b657be1e53c87c270d1218.png">. For example, <img class="mwe-math-fallback-image-inline tex" alt="\gcd(x,y,z) = \gcd(x,\gcd(y,z)) = \gcd(\gcd(x,y),z)" src="/wiki/images/math/6/7/f/67faed3f0afad0262d288876389b93a0.png"> (associativity).</li>
+<li> <img class="mwe-math-fallback-image-inline tex" alt="\gcd(x,y)\,\operatorname{lcm}(x,y) = |xy|" src="/wiki/images/math/7/1/5/715ac59ac543a5e81d11fed2636d971b.png">.</li>
+<li> <img class="mwe-math-fallback-image-inline tex" alt="\gcd(x,\operatorname{lcm}(x,y)) = \operatorname{lcm}(x,\gcd(x,y))" src="/wiki/images/math/0/8/3/083c44926215b33ea5c5b7f291ec6cbe.png">. (This property is the absorption law of the lattice over the positive integers with GCD as meet and LCM as join.)</li>
+<li> If <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> has prime factorization <img class="mwe-math-fallback-image-inline tex" alt="(-1)^a p_1^{k_1} p_2^{k_2} ... p_m^{k_m}" src="/wiki/images/math/5/4/e/54e47e8732d87ed150a0b19b8976c602.png"> and <img class="mwe-math-fallback-image-inline tex" alt="y" src="/wiki/images/math/4/1/5/415290769594460e2e485922904f345d.png"> has prime factorization <img class="mwe-math-fallback-image-inline tex" alt="(-1)^b p_1^{l_1} p_2^{l_2} ... p_m^{l_m}" src="/wiki/images/math/5/2/6/5266bf3fb0ca2fbdea4a89a9cfcf4a35.png">, then <img class="mwe-math-fallback-image-inline tex" alt="\gcd(x,y) = p_1^{\min(k_1,l_1)} p_2^{\min(k_2,l_2)} ... p_n^{\min(k_n,l_n)}" src="/wiki/images/math/c/5/b/c5b6583374747f2644f6645ab7c47696.png">. Therefore, it is possible to find the GCD of two integers by factorizing them; but much more efficient methods exist.</li>
+<li> <img class="mwe-math-fallback-image-inline tex" alt="\gcd(cx, cy) = |c|\gcd(x,y)" src="/wiki/images/math/5/2/c/52c7ad4e68bae19a7eef1c3382fbf4ed.png"> whenever <img class="mwe-math-fallback-image-inline tex" alt="c \in \mathbb{Z}" src="/wiki/images/math/a/c/c/acc858787015666e807a02175961a2c4.png">.</li>
+<li> <img class="mwe-math-fallback-image-inline tex" alt="\gcd(x, y) = \gcd(x+ky, y)" src="/wiki/images/math/9/8/5/9854f6c25afb892368cd4c62801e9331.png"> for any <img class="mwe-math-fallback-image-inline tex" alt="k \in \mathbb{Z}" src="/wiki/images/math/4/1/2/412645202febc5a49f26787038626dff.png">.</li>
+<li> There exist integers <img class="mwe-math-fallback-image-inline tex" alt="a, b" src="/wiki/images/math/b/3/4/b345e1dc09f20fdefdea469f09167892.png"> such that <img class="mwe-math-fallback-image-inline tex" alt="ax + by = 1" src="/wiki/images/math/e/9/9/e9994df7545f18ac84dea5b4988605fe.png"> if and only if <img class="mwe-math-fallback-image-inline tex" alt="\gcd(x,y) = 1" src="/wiki/images/math/6/9/2/69281d57b8318b89daaa3bfd97f947d2.png">. (This is called <i>Bézout's identity</i>. We will not prove it directly, but we will exhibit an algorithm for determining <img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png"> and <img class="mwe-math-fallback-image-inline tex" alt="b" src="/wiki/images/math/9/2/e/92eb5ffee6ae2fec3ad71c777531578f.png">.)</li></ul>
+<h2><span class="mw-headline" id="Euclidean_algorithm">Euclidean algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Greatest_common_divisor&amp;action=edit&amp;section=2" title="Edit section: Euclidean algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Means of computing the GCD of two integers efficiently have been known since antiquity. The well-known <i>Euclidean algorithm</i> uses the property that <img class="mwe-math-fallback-image-inline tex" alt="\gcd(x,y) = \gcd(x-y,y)" src="/wiki/images/math/6/5/e/65ed6ad44bd6a8345e5a9daf3acf6f86.png"> for any <img class="mwe-math-fallback-image-inline tex" alt="x, y" src="/wiki/images/math/f/1/0/f10bc3c94b77e1d6b9f98106daf335c1.png">. When given two positive integers, we repeatedly subtract the smaller from the larger, thus reducing the size of the larger integer; and we repeat this until the two integers become identical. For example, <img class="mwe-math-fallback-image-inline tex" alt="\gcd(24, 42) = \gcd(24, 18) = \gcd(6, 18) = \gcd(6, 12) = \gcd(6, 6) = 6" src="/wiki/images/math/8/d/4/8d4836b576466230b8f10ac50678608d.png">. The following is a naive implementation:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="kw4">int</span> gcd<span class="br0">(</span><span class="kw4">int</span> x<span class="sy0">,</span> <span class="kw4">int</span> y<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">if</span> <span class="br0">(</span>x <span class="sy0">&lt;</span> <span class="nu0">0</span><span class="br0">)</span> x <span class="sy0">=</span> <span class="sy0">-</span>x<span class="sy0">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span>y <span class="sy0">&lt;</span> <span class="nu0">0</span><span class="br0">)</span> y <span class="sy0">=</span> <span class="sy0">-</span>y<span class="sy0">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span>x <span class="sy0">==</span> <span class="nu0">0</span><span class="br0">)</span> <span class="kw1">return</span> x<span class="sy0">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span>y <span class="sy0">==</span> <span class="nu0">0</span><span class="br0">)</span> <span class="kw1">return</span> y<span class="sy0">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span>x <span class="sy0">==</span> y<span class="br0">)</span> <span class="kw1">return</span> x<span class="sy0">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span>x <span class="sy0">&gt;</span> y<span class="br0">)</span> <span class="kw1">return</span> gcd<span class="br0">(</span>x <span class="sy0">-</span> y<span class="sy0">,</span> x<span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">else</span> <span class="kw1">return</span> gcd<span class="br0">(</span>x<span class="sy0">,</span> y <span class="sy0">-</span> x<span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span></pre></div></div>
+<p>In practice, negative numbers are rarely encountered. Also, when we obtain two identical integers, if we perform one additional subtraction, we will get zero, which we have to handle in any case, so:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="kw4">int</span> gcd<span class="br0">(</span><span class="kw4">int</span> x<span class="sy0">,</span> <span class="kw4">int</span> y<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">if</span> <span class="br0">(</span>x <span class="sy0">==</span> <span class="nu0">0</span> <span class="sy0">||</span> y <span class="sy0">==</span> <span class="nu0">0</span><span class="br0">)</span> <span class="kw1">return</span> x <span class="sy0">+</span> y<span class="sy0">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span>x <span class="sy0">&gt;=</span> y<span class="br0">)</span> <span class="kw1">return</span> gcd<span class="br0">(</span>x <span class="sy0">-</span> y<span class="sy0">,</span> y<span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">else</span> <span class="kw1">return</span> gcd<span class="br0">(</span>x<span class="sy0">,</span> y <span class="sy0">-</span> x<span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span></pre></div></div>
+<p>To speed this up, we note that if we start out with <img class="mwe-math-fallback-image-inline tex" alt="x \gg y" src="/wiki/images/math/b/1/3/b132b05dff3b82de14c570587b59d381.png">, then the final result of subtracting <img class="mwe-math-fallback-image-inline tex" alt="y" src="/wiki/images/math/4/1/5/415290769594460e2e485922904f345d.png"> from <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> over and over again will be the least non-negative residue of <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> <i>modulo</i> <img class="mwe-math-fallback-image-inline tex" alt="y" src="/wiki/images/math/4/1/5/415290769594460e2e485922904f345d.png">. Hence, instead of performing repeated subtraction, we use the mod operator. Finally, with some cleverness, we obtain this common form:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="kw4">int</span> gcd<span class="br0">(</span><span class="kw4">int</span> x<span class="sy0">,</span> <span class="kw4">int</span> y<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">if</span> <span class="br0">(</span>x <span class="sy0">==</span> <span class="nu0">0</span><span class="br0">)</span> <span class="kw1">return</span> y<span class="sy0">;</span>
+    <span class="kw1">else</span> <span class="kw1">return</span> gcd<span class="br0">(</span>y<span class="sy0">%</span>x<span class="sy0">,</span> x<span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span></pre></div></div>
+<p>Also, although we have written this algorithm <a href="/wiki/Recursive_function" title="Recursive function">recursively</a>, we can also write it iteratively, since it is tail recursive:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="kw1">while</span> <span class="br0">(</span>x <span class="sy0">&gt;</span> <span class="nu0">0</span><span class="br0">)</span>
+<span class="br0">{</span>
+    y <span class="sy0">%=</span> x<span class="sy0">;</span>
+    swap<span class="br0">(</span>x<span class="sy0">,</span> y<span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span>
+<span class="coMULTI">/* y now contains the GCD of original (x, y) */</span></pre></div></div>
+<p>Now, regarding performance:
+</p><p><i>Theorem</i>: The GCD of two positive integers <img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png"> and <img class="mwe-math-fallback-image-inline tex" alt="b" src="/wiki/images/math/9/2/e/92eb5ffee6ae2fec3ad71c777531578f.png"> can be computed using the Euclidean algorithm in <img class="mwe-math-fallback-image-inline tex" alt="O(\log\max(a,b))" src="/wiki/images/math/0/3/4/03421fbad9236a2944fe1a6ad4e74e14.png"> mod operations.
+</p><p><i>Sketch Proof</i>: The idea is to use induction on <img class="mwe-math-fallback-image-inline tex" alt="\max(a,b)" src="/wiki/images/math/e/1/f/e1fe8b9909045b184f3dfffd54876661.png">. Without loss of generality, we assume <img class="mwe-math-fallback-image-inline tex" alt="a \geq b" src="/wiki/images/math/e/d/f/edf54efd8e6c13aa1b6cae8c741185a8.png">. Then, there are two possibilities. If <img class="mwe-math-fallback-image-inline tex" alt="b \leq \frac{a}{2}" src="/wiki/images/math/5/d/5/5d5b96213840d8f6f7f7bdd071a239d5.png">, then <img class="mwe-math-fallback-image-inline tex" alt="\max(a,b)" src="/wiki/images/math/e/1/f/e1fe8b9909045b184f3dfffd54876661.png"> will be cut at least in half after the first mod operation. But if <img class="mwe-math-fallback-image-inline tex" alt="b &gt; \frac{a}{2}" src="/wiki/images/math/e/8/9/e893667a869e4e7e25e2b0f94ac9fd7d.png">, then <img class="mwe-math-fallback-image-inline tex" alt="b" src="/wiki/images/math/9/2/e/92eb5ffee6ae2fec3ad71c777531578f.png"> goes into <img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png"> only once, and we obtain <img class="mwe-math-fallback-image-inline tex" alt="a-b &lt; \frac{a}{2}" src="/wiki/images/math/d/2/2/d22422290a6853dd6c052610c8bcf2fc.png"> and <img class="mwe-math-fallback-image-inline tex" alt="b" src="/wiki/images/math/9/2/e/92eb5ffee6ae2fec3ad71c777531578f.png"> after the first mod operation; a second will then take <img class="mwe-math-fallback-image-inline tex" alt="b" src="/wiki/images/math/9/2/e/92eb5ffee6ae2fec3ad71c777531578f.png"> below <img class="mwe-math-fallback-image-inline tex" alt="\frac{a}{2}" src="/wiki/images/math/e/5/7/e5760072cb972d47710e7472911ca90e.png">. So in either case, after at most two mod operations, <img class="mwe-math-fallback-image-inline tex" alt="\max(a,b)" src="/wiki/images/math/e/1/f/e1fe8b9909045b184f3dfffd54876661.png"> is reduced by at least a factor of 2.
+</p><p><i>Note</i>: A more careful analysis shows that the worst-case number of mod operations required to find <img class="mwe-math-fallback-image-inline tex" alt="\gcd(a,b)" src="/wiki/images/math/4/5/f/45fc945e6f1e26dce8f3aa307e6e9f69.png"> using the Euclidean algorithm goes approximately as <img class="mwe-math-fallback-image-inline tex" alt="\log_{\varphi}(\max(a,b))" src="/wiki/images/math/8/f/e/8feffee6b451cdaaeaa65fc67498890a.png">, where <img class="mwe-math-fallback-image-inline tex" alt="\varphi = \frac{1+\sqrt{5}}{2}" src="/wiki/images/math/5/b/3/5b338aa4be320754bbb52976818e89a8.png">.
+</p><p>The bit complexity of the Euclidean algorithm is <img class="mwe-math-fallback-image-inline tex" alt="O(uv)" src="/wiki/images/math/b/4/4/b44c07b1e6056e1b1e704ddea6424a87.png">, so that finding the GCD of two large numbers with <img class="mwe-math-fallback-image-inline tex" alt="u" src="/wiki/images/math/7/b/7/7b774effe4a349c6dd82ad4f4f21d34c.png"> and <img class="mwe-math-fallback-image-inline tex" alt="v" src="/wiki/images/math/9/e/3/9e3669d19b675bd57058fd4664205d2a.png"> bits, respectively, requires <img class="mwe-math-fallback-image-inline tex" alt="O(uv)" src="/wiki/images/math/b/4/4/b44c07b1e6056e1b1e704ddea6424a87.png"> time.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup> For two numbers of approximately equal length <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png">, this is <img class="mwe-math-fallback-image-inline tex" alt="O(n^2)" src="/wiki/images/math/1/8/9/189317b4b935a745fcfaf95940d2b4f0.png">. By comparison, the straightforward algorithm based on factorizing the input integers does not run in polynomial time, and hence will perform far worse for large <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png">.
+</p>
+<h3><span class="mw-headline" id="Extended_Euclidean_algorithm">Extended Euclidean algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Greatest_common_divisor&amp;action=edit&amp;section=3" title="Edit section: Extended Euclidean algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The <i>extended Euclidean algorithm</i> is the name given to the well-known procedure used to find integer solutions to the equation <img class="mwe-math-fallback-image-inline tex" alt="ax + by = 1" src="/wiki/images/math/e/9/9/e9994df7545f18ac84dea5b4988605fe.png">, where <img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png"> and <img class="mwe-math-fallback-image-inline tex" alt="b" src="/wiki/images/math/9/2/e/92eb5ffee6ae2fec3ad71c777531578f.png"> are given with <img class="mwe-math-fallback-image-inline tex" alt="\gcd(a,b) = 1" src="/wiki/images/math/5/3/c/53cc2c70d81014cdedd41877f3ffe416.png">. For example, we can use it to solve the equation <img class="mwe-math-fallback-image-inline tex" alt="13x + 17y = 1" src="/wiki/images/math/2/2/a/22a4a54dc1afdf6a39749c4695f8b330.png"> for <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> and <img class="mwe-math-fallback-image-inline tex" alt="y" src="/wiki/images/math/4/1/5/415290769594460e2e485922904f345d.png"> (one possible solution is <img class="mwe-math-fallback-image-inline tex" alt="x = 4, y = -3" src="/wiki/images/math/f/1/d/f1d6292b5c2246c91af9b862a3a99c16.png">.
+</p><p>This equation only has solutions when <img class="mwe-math-fallback-image-inline tex" alt="\gcd(a,b) = 1" src="/wiki/images/math/5/3/c/53cc2c70d81014cdedd41877f3ffe416.png">, because if <img class="mwe-math-fallback-image-inline tex" alt="\gcd(a,b) = d &gt; 1" src="/wiki/images/math/0/4/e/04eb4dade47d358196d43d6aa7a73894.png">, then <img class="mwe-math-fallback-image-inline tex" alt="ax + by" src="/wiki/images/math/2/f/6/2f66c1c45fe13708ef5ddecfdb2c0620.png"> will always be divisible by <img class="mwe-math-fallback-image-inline tex" alt="d" src="/wiki/images/math/8/2/7/8277e0910d750195b448797616e091ad.png">, and hence can never be 1. However, in this case <img class="mwe-math-fallback-image-inline tex" alt="\gcd(a/d, b/d) = 1" src="/wiki/images/math/7/6/b/76b8725a2ce3c128e799c795362d8a7a.png">, so we can find solutions to the equation <img class="mwe-math-fallback-image-inline tex" alt="(a/d)x + (b/d)y = 1" src="/wiki/images/math/e/2/d/e2dd3dca74ad24625bb47c0109ba5b81.png">, that is, <img class="mwe-math-fallback-image-inline tex" alt="ax + by = d" src="/wiki/images/math/a/4/6/a46f1c3b0f2b5ca579731dacf9d8b9b1.png">. So in general we can always solve <img class="mwe-math-fallback-image-inline tex" alt="ax + by = \gcd(a,b)" src="/wiki/images/math/1/9/e/19e834b3461ee80394c851fcea5f8252.png"> in integers.
+</p><p>The reason why this is known as the extended Euclidean algorithm is that it is based on reducing <img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png"> and <img class="mwe-math-fallback-image-inline tex" alt="b" src="/wiki/images/math/9/2/e/92eb5ffee6ae2fec3ad71c777531578f.png"> as in the Euclidean algorithm, recursively, until they become small enough so that the equation is easy to solve; then reconstructing the solution to the original equation using the results.
+</p><p>In particular, when we take the remainder of <img class="mwe-math-fallback-image-inline tex" alt="b" src="/wiki/images/math/9/2/e/92eb5ffee6ae2fec3ad71c777531578f.png"> modulo <img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png"> and obtain <img class="mwe-math-fallback-image-inline tex" alt="r" src="/wiki/images/math/4/b/4/4b43b0aee35624cd95b910189b3dc231.png">, this tells us that <img class="mwe-math-fallback-image-inline tex" alt="b = ka + r" src="/wiki/images/math/3/0/8/30879726fa48941cb9fe3468d367d287.png"> for some integer <img class="mwe-math-fallback-image-inline tex" alt="k" src="/wiki/images/math/8/c/e/8ce4b16b22b58894aa86c421e8759df3.png">. So each step of the Euclidean algorithm expresses the fact that <img class="mwe-math-fallback-image-inline tex" alt="\gcd(a, ka+r) = \gcd(a, r) = \gcd(r,a)" src="/wiki/images/math/b/8/e/b8e3849a5caef1adab36ef000d69a0c4.png">.
+</p><p>Now suppose we can find integers <img class="mwe-math-fallback-image-inline tex" alt="x', y'" src="/wiki/images/math/0/d/6/0d65abbe010477c25bc6300b8a81ef91.png"> such that <img class="mwe-math-fallback-image-inline tex" alt="x'r + y'a = d" src="/wiki/images/math/f/d/0/fd05198a0ebfc27147e0e73d541dd7ee.png">. Then, recall that <img class="mwe-math-fallback-image-inline tex" alt="r = b - ka" src="/wiki/images/math/6/f/0/6f0e914e21e3748a9b4e13107c463e10.png">; therefore, <img class="mwe-math-fallback-image-inline tex" alt="x'(b - ka) + y'a = d" src="/wiki/images/math/9/b/d/9bd11f9eeab6afc7e716ec8fcb79e389.png">. Expanding, we obtain <img class="mwe-math-fallback-image-inline tex" alt="(y' - x'k)a + x'b = d" src="/wiki/images/math/1/9/7/197a6bbb3638600a054a3d5afc1f5ef4.png">. So set <img class="mwe-math-fallback-image-inline tex" alt="x = y' - x'k, y = x'" src="/wiki/images/math/4/0/2/4023d8ec6fbf3fc62184c1a84d33a998.png">, and we now have a solution to <img class="mwe-math-fallback-image-inline tex" alt="ax + by = d" src="/wiki/images/math/a/4/6/a46f1c3b0f2b5ca579731dacf9d8b9b1.png">.
+</p><p>This suggests that, in general, to solve <img class="mwe-math-fallback-image-inline tex" alt="ax + by = d" src="/wiki/images/math/a/4/6/a46f1c3b0f2b5ca579731dacf9d8b9b1.png">, we first compute quotient <img class="mwe-math-fallback-image-inline tex" alt="k" src="/wiki/images/math/8/c/e/8ce4b16b22b58894aa86c421e8759df3.png"> and remainder <img class="mwe-math-fallback-image-inline tex" alt="r" src="/wiki/images/math/4/b/4/4b43b0aee35624cd95b910189b3dc231.png"> when <img class="mwe-math-fallback-image-inline tex" alt="b" src="/wiki/images/math/9/2/e/92eb5ffee6ae2fec3ad71c777531578f.png"> is divided by <img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png">; and then (recursively) find some solution to <img class="mwe-math-fallback-image-inline tex" alt="rx' + ay' = d" src="/wiki/images/math/c/b/e/cbe749d052ef0f86a43f0f6f62f01c7a.png">; and finally obtain <img class="mwe-math-fallback-image-inline tex" alt="x = y' - kx', y = x'" src="/wiki/images/math/f/1/4/f14724c1e4dbd67dd0f93e1fa74e82ec.png">.
+</p><p>This gives the following implementation, where we assume that <img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png"> and <img class="mwe-math-fallback-image-inline tex" alt="b" src="/wiki/images/math/9/2/e/92eb5ffee6ae2fec3ad71c777531578f.png"> are positive:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="coMULTI">/* Returns the GCD. */</span>
+<span class="kw4">int</span> gcd_extended<span class="br0">(</span><span class="kw4">int</span> a<span class="sy0">,</span> <span class="kw4">int</span> b<span class="sy0">,</span> <span class="kw4">int</span><span class="sy0">*</span> x<span class="sy0">,</span> <span class="kw4">int</span><span class="sy0">*</span> y<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">if</span> <span class="br0">(</span>a <span class="sy0">==</span> <span class="nu0">0</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="sy0">*</span>x <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="sy0">*</span>y <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">;</span> <span class="coMULTI">/* 0(0) + 1(b) = b = gcd(a,b) */</span>
+        <span class="kw1">return</span> b<span class="sy0">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">else</span>
+    <span class="br0">{</span>
+        <span class="kw4">int</span> k <span class="sy0">=</span> b<span class="sy0">/</span>a<span class="sy0">;</span>
+        <span class="kw4">int</span> r <span class="sy0">=</span> b<span class="sy0">%</span>a<span class="sy0">;</span>
+        <span class="kw4">int</span> _x<span class="sy0">,</span> _y<span class="sy0">;</span>
+        <span class="kw4">int</span> d <span class="sy0">=</span> gcd_extended<span class="br0">(</span>r<span class="sy0">,</span> a<span class="sy0">,</span> <span class="sy0">&amp;</span>_x<span class="sy0">,</span> <span class="sy0">&amp;</span>_y<span class="br0">)</span><span class="sy0">;</span>
+        <span class="sy0">*</span>x <span class="sy0">=</span> _y <span class="sy0">-</span> k<span class="sy0">*</span>_x<span class="sy0">;</span>
+        <span class="sy0">*</span>y <span class="sy0">=</span> _x<span class="sy0">;</span>
+        <span class="kw1">return</span> d<span class="sy0">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div></div>
+<p>One specific application of the extended Euclidean algorithm is that of computing modular inverses. That is, given some integer <img class="mwe-math-fallback-image-inline tex" alt="p" src="/wiki/images/math/8/3/8/83878c91171338902e0fe0fb97a8c47a.png"> and some modulus <img class="mwe-math-fallback-image-inline tex" alt="m" src="/wiki/images/math/6/f/8/6f8f57715090da2632453988d9a1501b.png">, we wish to find another integer <img class="mwe-math-fallback-image-inline tex" alt="q" src="/wiki/images/math/7/6/9/7694f4a66316e53c8cdd9d9954bd611d.png"> such that <img class="mwe-math-fallback-image-inline tex" alt="pq \equiv 1 \pmod{m}" src="/wiki/images/math/7/0/3/7038d951904ec5da9532b7d2608d798c.png">. For example, if <img class="mwe-math-fallback-image-inline tex" alt="p = 4" src="/wiki/images/math/5/c/7/5c7e5bdea511dfc951e392e48b2d27f7.png"> and <img class="mwe-math-fallback-image-inline tex" alt="m = 21" src="/wiki/images/math/9/f/a/9faedc197f93aa950e350e71f9343000.png">, then <img class="mwe-math-fallback-image-inline tex" alt="q = -5" src="/wiki/images/math/b/0/5/b0546a32d7447a231bda418f784e5c50.png"> works, since <img class="mwe-math-fallback-image-inline tex" alt="pq = -20 \equiv 1 \pmod{21}" src="/wiki/images/math/7/2/3/723f67a71f065a2688792af08784a9e0.png">.
+</p><p>All we need to do to solve this is to note that the statement that <img class="mwe-math-fallback-image-inline tex" alt="pq \equiv 1 \pmod{m}" src="/wiki/images/math/7/0/3/7038d951904ec5da9532b7d2608d798c.png"> is equivalent to <img class="mwe-math-fallback-image-inline tex" alt="pq = km + 1" src="/wiki/images/math/7/3/2/7324516d66bf15ae6f0fd6e9d5bbac1b.png"> for some integer <img class="mwe-math-fallback-image-inline tex" alt="k" src="/wiki/images/math/8/c/e/8ce4b16b22b58894aa86c421e8759df3.png">, or <img class="mwe-math-fallback-image-inline tex" alt="pq + (-m)k = 1" src="/wiki/images/math/f/c/c/fcc9cf952ca977c5e8d663681436b72f.png">, to be solved for integers <img class="mwe-math-fallback-image-inline tex" alt="q, k" src="/wiki/images/math/3/a/4/3a48c36b4e0820369998708c189327b4.png"> (even though we might not care what <img class="mwe-math-fallback-image-inline tex" alt="k" src="/wiki/images/math/8/c/e/8ce4b16b22b58894aa86c421e8759df3.png"> is). We then use the extended Euclidean algorithm. Note that this suggests that a solution exists only when <img class="mwe-math-fallback-image-inline tex" alt="\gcd(p,m) = 1" src="/wiki/images/math/c/e/2/ce2c203fa5deeca70f3599347fef6f06.png">, which is indeed the case.
+</p>
+<h2><span class="mw-headline" id="Binary_GCD_algorithm">Binary GCD algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Greatest_common_divisor&amp;action=edit&amp;section=4" title="Edit section: Binary GCD algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>This is another popular GCD algorithm, also recursive. 
+</p>
+<ul><li> If <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> and <img class="mwe-math-fallback-image-inline tex" alt="y" src="/wiki/images/math/4/1/5/415290769594460e2e485922904f345d.png"> are both even, then <img class="mwe-math-fallback-image-inline tex" alt="\gcd(x,y) = 2\gcd\left(\frac{x}{2},\frac{y}{2}\right)" src="/wiki/images/math/3/a/4/3a43aa27d11c6fa2dfea4be079dffb1a.png">.</li>
+<li> If <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> is even, but <img class="mwe-math-fallback-image-inline tex" alt="y" src="/wiki/images/math/4/1/5/415290769594460e2e485922904f345d.png"> is odd, then <img class="mwe-math-fallback-image-inline tex" alt="\gcd(x,y) = \gcd\left(\frac{x}{2},y\right)" src="/wiki/images/math/f/b/5/fb5586e98db64f5af74c84d6e799ca88.png">. This is because every common divisor of <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> and <img class="mwe-math-fallback-image-inline tex" alt="y" src="/wiki/images/math/4/1/5/415290769594460e2e485922904f345d.png"> is odd, and hence will also divide <img class="mwe-math-fallback-image-inline tex" alt="\frac{x}{2}" src="/wiki/images/math/e/3/6/e3614ae305e7c99e80ca0f3ade95d829.png">.</li>
+<li> If <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> and <img class="mwe-math-fallback-image-inline tex" alt="y" src="/wiki/images/math/4/1/5/415290769594460e2e485922904f345d.png"> are both odd, then <img class="mwe-math-fallback-image-inline tex" alt="\gcd(x,y) = \gcd(x-y, y)" src="/wiki/images/math/6/5/e/65ed6ad44bd6a8345e5a9daf3acf6f86.png">, as always.</li></ul>
+<p>This suggests the following naive implementation, assuming that <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> and <img class="mwe-math-fallback-image-inline tex" alt="y" src="/wiki/images/math/4/1/5/415290769594460e2e485922904f345d.png"> are both nonnegative:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="kw4">int</span> gcd<span class="br0">(</span><span class="kw4">int</span> x<span class="sy0">,</span> <span class="kw4">int</span> y<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">if</span> <span class="br0">(</span>x <span class="sy0">==</span> <span class="nu0">0</span><span class="br0">)</span> <span class="kw1">return</span> y<span class="sy0">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span>x <span class="sy0">&lt;</span> y<span class="br0">)</span> <span class="kw1">return</span> gcd<span class="br0">(</span>y<span class="sy0">,</span> x<span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span>x<span class="sy0">%</span><span class="nu19">2</span> <span class="sy0">==</span> <span class="nu0">1</span><span class="br0">)</span>
+        <span class="kw1">if</span> <span class="br0">(</span>y<span class="sy0">%</span><span class="nu19">2</span> <span class="sy0">==</span> <span class="nu0">1</span><span class="br0">)</span>
+            <span class="kw1">return</span> gcd<span class="br0">(</span>x <span class="sy0">-</span> y<span class="sy0">,</span> y<span class="br0">)</span><span class="sy0">;</span>
+        <span class="kw1">else</span>
+            <span class="kw1">return</span> gcd<span class="br0">(</span>x<span class="sy0">,</span> y<span class="sy0">/</span><span class="nu0">2</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">else</span>
+        <span class="kw1">if</span> <span class="br0">(</span>y<span class="sy0">%</span><span class="nu19">2</span> <span class="sy0">==</span> <span class="nu0">1</span><span class="br0">)</span>
+            <span class="kw1">return</span> gcd<span class="br0">(</span>x<span class="sy0">/</span><span class="nu0">2</span><span class="sy0">,</span> y<span class="br0">)</span><span class="sy0">;</span>
+        <span class="kw1">else</span>
+            <span class="kw1">return</span> gcd<span class="br0">(</span>x<span class="sy0">/</span><span class="nu0">2</span><span class="sy0">,</span> y<span class="sy0">/</span><span class="nu0">2</span><span class="br0">)</span><span class="sy0">*</span><span class="nu0">2</span><span class="sy0">;</span>
+<span class="br0">}</span></pre></div></div>
+<p>Computing the GCD of <img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png"> and <img class="mwe-math-fallback-image-inline tex" alt="b" src="/wiki/images/math/9/2/e/92eb5ffee6ae2fec3ad71c777531578f.png"> using this algorithm will take <img class="mwe-math-fallback-image-inline tex" alt="O(\log\max(a,b))" src="/wiki/images/math/0/3/4/03421fbad9236a2944fe1a6ad4e74e14.png"> steps, just as the Euclidean algorithm. This becomes clear when we write out the binary representations of <img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png"> and <img class="mwe-math-fallback-image-inline tex" alt="b" src="/wiki/images/math/9/2/e/92eb5ffee6ae2fec3ad71c777531578f.png">:
+</p>
+<ul><li> If either <img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png"> or <img class="mwe-math-fallback-image-inline tex" alt="b" src="/wiki/images/math/9/2/e/92eb5ffee6ae2fec3ad71c777531578f.png"> is even, then it will be divided by two, which reduces its length by one.</li>
+<li> If both <img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png"> and <img class="mwe-math-fallback-image-inline tex" alt="b" src="/wiki/images/math/9/2/e/92eb5ffee6ae2fec3ad71c777531578f.png"> are odd, then one of them will become even after a subtraction, and then it will be divided by two, which again reduces its length by one. In effect <img class="mwe-math-fallback-image-inline tex" alt="\gcd(a,b) = \gcd((a-b)/2, b)" src="/wiki/images/math/d/9/f/d9f778c9747ac7f0062d9251ce70e087.png"> (for the case <img class="mwe-math-fallback-image-inline tex" alt="a = b" src="/wiki/images/math/7/a/c/7acaac15494e6820b1ed6d8b539af089.png">).</li></ul>
+<p>Therefore, we obtain a bound of <img class="mwe-math-fallback-image-inline tex" alt="2(\log_2 a + \log_2 b) = 2 \log_2 \max(a,b)" src="/wiki/images/math/a/6/2/a62ee90f74a967a3ec435499841164fa.png"> iterations, since after every two iterations it is guaranteed that the binary length of at least one of the two numbers is reduced.
+</p><p>Furthermore, each operation (either halving an even integer, or performing a subtraction) has bit complexity proportional to the length of the integers involved. If we halve <img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png">, then <img class="mwe-math-fallback-image-inline tex" alt="O(\log a)" src="/wiki/images/math/d/c/a/dca1a371a1f29b82bf013eeb6195519c.png"> time is required for this step; if we subtract <img class="mwe-math-fallback-image-inline tex" alt="b" src="/wiki/images/math/9/2/e/92eb5ffee6ae2fec3ad71c777531578f.png"> from <img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png">, then <img class="mwe-math-fallback-image-inline tex" alt="O(\log a)" src="/wiki/images/math/d/c/a/dca1a371a1f29b82bf013eeb6195519c.png"> time is required for this step, and in the next step <img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png"> will be halved, also requiring <img class="mwe-math-fallback-image-inline tex" alt="O(\log a)" src="/wiki/images/math/d/c/a/dca1a371a1f29b82bf013eeb6195519c.png"> time. So at most <img class="mwe-math-fallback-image-inline tex" alt="O(\log a)" src="/wiki/images/math/d/c/a/dca1a371a1f29b82bf013eeb6195519c.png"> operations of <img class="mwe-math-fallback-image-inline tex" alt="O(\log a)" src="/wiki/images/math/d/c/a/dca1a371a1f29b82bf013eeb6195519c.png"> bit complexity each can be performed on <img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png">, and at most <img class="mwe-math-fallback-image-inline tex" alt="O(\log b)" src="/wiki/images/math/6/f/f/6ffa955261287855cb389b9b7f8a55c7.png"> operations of <img class="mwe-math-fallback-image-inline tex" alt="O(\log b)" src="/wiki/images/math/6/f/f/6ffa955261287855cb389b9b7f8a55c7.png"> bit complexity each; so the overall bit complexity is <img class="mwe-math-fallback-image-inline tex" alt="O(u^2 + v^2)" src="/wiki/images/math/1/0/6/106cecdc1e6f76540b7c520d00e7b56a.png">, where <img class="mwe-math-fallback-image-inline tex" alt="u = \log a" src="/wiki/images/math/4/b/c/4bc5a2c0efcc13427e4bcbf61b1b9719.png"> and <img class="mwe-math-fallback-image-inline tex" alt="v = \log b" src="/wiki/images/math/b/a/9/ba911fa55eefd5f6ddaded3afecd4864.png">. This will often be expressed as <img class="mwe-math-fallback-image-inline tex" alt="O((u+v)^2)" src="/wiki/images/math/0/6/4/06443e2cc24cfec91991489fc5f3ee06.png"> (quadratic in total input size) or <img class="mwe-math-fallback-image-inline tex" alt="O(\max(u,v)^2)" src="/wiki/images/math/5/f/f/5ffa095a82a2cd927c5458a7f5599382.png">, matching the bound on the Euclidean algorithm.
+</p><p>The binary GCD algorithm can be considered to be motivated by the fact that reduction modulo 2, division by 2, and subtraction admit simpler bit complexities than the general modulo operation that the Euclidean algorithm uses, which suggests that it should be faster in practice. However, the naive implementation shown above is unlikely to outperform the optimized Euclidean algorithm in the previous section; optimization is required in order for the binary GCD algorithm to be competitive. 
+</p>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Greatest_common_divisor&amp;action=edit&amp;section=5" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1"><span class="cite-accessibility-label">Jump up </span>↑</a></span> <span class="reference-text">Jeffrey Shallit. <i>The Greatest Common Divisor</i>, pp. 22-22. CMI Introductory Workshop, Algorithmic Number Theory. Retrieved from www.cs.uwaterloo.ca/~shallit/Talks/gcd.ps</span>
+</li>
+</ol>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.193 seconds
+Real time usage: 0.216 seconds
+Preprocessor visited node count: 1519/1000000
+Preprocessor generated node count: 3394/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:397-0!*!0!!en!*!*!math=0 and timestamp 20180430172655 and revision id 1473
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wcipeg.com/wiki/index.php?title=Greatest_common_divisor&amp;oldid=1473#Euclidean_algorithm">https://wcipeg.com/wiki/index.php?title=Greatest_common_divisor&amp;oldid=1473#Euclidean_algorithm</a>"					</div>
+													<div id="catlinks" class="catlinks catlinks-allhidden"></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Greatest+common+divisor&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Greatest+common+divisor" title="You are encouraged to log in; however, it is not mandatory [ctrl-alt-o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li id="ca-nstab-main" class="selected"><span><a href="/wiki/Greatest_common_divisor" title="View the content page [ctrl-alt-c]" accesskey="c">Page</a></span></li>
+															<li id="ca-talk" class="new"><span><a href="/wiki/index.php?title=Talk:Greatest_common_divisor&amp;action=edit&amp;redlink=1" title="Discussion about the content page [ctrl-alt-t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label" tabindex="0"><span>Variants</span><a href="#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Greatest_common_divisor">Read</a></span></li>
+															<li id="ca-edit"><span><a href="/wiki/index.php?title=Greatest_common_divisor&amp;action=edit" title="You can edit this page. Please use the preview button before saving [ctrl-alt-e]" accesskey="e">Edit</a></span></li>
+															<span class="placeholder" style="display: none;"></span>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu" aria-labelledby="p-cactions-label" style="">
+						<h3 id="p-cactions-label" tabindex="0" style="width: 61px;"><span>More</span><a href="#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul><li id="ca-history" class="collapsible" style="display: list-item;"><span><a href="/wiki/index.php?title=Greatest_common_divisor&amp;action=history" title="Past revisions of this page [ctrl-alt-h]" accesskey="h">View history</a></span></li>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search PEGWiki [ctrl-alt-f]" accesskey="f" id="searchInput" tabindex="1" autocomplete="off"><input type="hidden" value="Special:Search" name="title"><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton">								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page" title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id="p-navigation" aria-labelledby="p-navigation-label">
+			<h3 id="p-navigation-label">Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [ctrl-alt-z]" accesskey="z">Main page</a></li>
+													<li id="n-Index"><a href="/wiki/Special:AllPages">Index</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [ctrl-alt-r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [ctrl-alt-x]" accesskey="x">Random page</a></li>
+													<li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+			<h3 id="p-tb-label">Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Greatest_common_divisor" title="A list of all wiki pages that link here [ctrl-alt-j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Greatest_common_divisor" title="Recent changes in pages linked from this page [ctrl-alt-k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [ctrl-alt-q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/wiki/index.php?title=Greatest_common_divisor&amp;printable=yes" rel="alternate" title="Printable version of this page [ctrl-alt-p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/wiki/index.php?title=Greatest_common_divisor&amp;oldid=1473" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/wiki/index.php?title=Greatest_common_divisor&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 11 December 2011, at 20:46.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Attribution 3.0 Unported</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/PEGWiki:Privacy_policy" title="PEGWiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/PEGWiki:About" title="PEGWiki:About">About PEGWiki</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/PEGWiki:General_disclaimer" title="PEGWiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by/3.0/"><img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Attribution 3.0 Unported" width="88" height="31"></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wiki/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.cite","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wcipeg.com/wiki/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script><script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":95});
+}</script>
+	
+
+<div class="suggestions" style="display: none; font-size: 13px;"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>

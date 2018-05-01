@@ -1,0 +1,318 @@
+<!DOCTYPE html><html lang="en" dir="ltr" class="client-js"><head>
+<meta charset="UTF-8">
+<title>Rabin–Karp algorithm - PEGWiki</title>
+<meta name="generator" content="MediaWiki 1.25.2">
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/wiki/index.php?title=Rabin%E2%80%93Karp_algorithm&amp;action=edit">
+<link rel="edit" title="Edit" href="/wiki/index.php?title=Rabin%E2%80%93Karp_algorithm&amp;action=edit">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="/wiki/opensearch_desc.php" title="PEGWiki (en)">
+<link rel="EditURI" type="application/rsd+xml" href="https://wcipeg.com/wiki/api.php?action=rsd">
+<link rel="alternate" hreflang="x-default" href="/wiki/Rabin%E2%80%93Karp_algorithm">
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/">
+<link rel="alternate" type="application/atom+xml" title="PEGWiki Atom feed" href="/wiki/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="canonical" href="/wiki/Rabin%E2%80%93Karp_algorithm">
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=ext.math.styles%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*">
+<style>
+.mw-collapsible-toggle{float:right;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}  .mw-content-ltr .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr .mw-collapsible-toggle{float:right} .mw-content-rtl .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl .mw-collapsible-toggle{float:left}.mw-customtoggle,.mw-collapsible-toggle{cursor:pointer} caption .mw-collapsible-toggle,.mw-content-ltr caption .mw-collapsible-toggle,.mw-content-rtl caption .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr caption .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl caption .mw-collapsible-toggle{float:none} li .mw-collapsible-toggle,.mw-content-ltr li .mw-collapsible-toggle,.mw-content-rtl li .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr li .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:e1ffd603cbaaa5f1a36e0d13fe843535 */
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:none;z-index:1099;padding:0;margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#4C59A6;color:white}.suggestions-special .special-label{color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white}.highlight{font-weight:bold}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:f8d0c6895ce3ae14434c16b8fca59432 */
+.postedit-container{margin:0 auto;position:fixed;top:0;height:0;left:50%;z-index:1000;font-size:13px}.postedit-container:hover{cursor:pointer}.postedit{position:relative;top:0.6em;left:-50%;padding:.6em 3.6em .6em 1.1em;line-height:1.5625em;color:#626465;background-color:#f4f4f4;border:1px solid #dcd9d9;text-shadow:0 0.0625em 0 rgba(255,255,255,0.5);border-radius:5px;box-shadow:0 2px 5px 0 #ccc;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;-ms-transition:all 0.25s ease-in-out;-o-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out}.skin-monobook .postedit{top:6em !important}.postedit-faded{opacity:0}.postedit-icon{padding-left:41px;  line-height:25px;background-repeat:no-repeat;background-position:8px 50%}.postedit-icon-checkmark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABblBMVEUAAAD///////9PfTf///80aRdTgjn///9Feij///////////9Rfzf///////////9PfjZRgDh1o1xOfTb///////+bwYqLtnj///////9PfTa82K////9WhT6YxIL///9QgDdTgzr////////j7uDl7eLq8efi693k7OH///////9UhjuBr2rp9uRUhjr///9YljVKgir///9WiTlYjT3////9/v57vFlbkT5PjC9dlD/5/fhuq09stUTs9uhxuElctCpfnT1huDFloEZloUZmpENmvDZpvDxpvTxqvjxrvT5rvT9rwTxsqktswD5uwkBvuUdxw0NztFBztU9ztVBzwkp0tlJ1xkd2t1R3uVR4w1F4xk54x014yE15uVZ5v1R5xVB6v1R7yFJ8wVh9xVl9yFR9yVd9ylN+xVh+yFd/x1l/yFeAylmEx1+Ny2uY0Hqe04Wj1Ymv3Ze33qLD47TJ5L3O6cPU7Mrq9eb2+/Q4j37OAAAAQHRSTlMAAQIEBAUFBQwPFB4fJCUoKiosQEhJS01RUlZZXmdydXaChYuSlJSWmJmoq6uur8LExcvM19fg5ejt8fX2+Pr7SljgewAAAKpJREFUGBkFwQNCAwAAAMDLtl3LtrG4rWXbtvX77gAgZ6grFwC0bhwNVgKgdPZx8b0dgLi+s7Wn0VoAqpfOI9+BNADZI7fLrz2pSEwGHZuH+78lSK8ZLkLezF3ooyUG3VPXq2USei9WngeyoG195yBYWDF3E/2pAhl1e9Gr8bGT+bfOFCC2fnvh4X7rcqIAQNNu+HT6sxkAjceTL/2ZAIhv+PorBwBJxfkA//dFHSCBy/UTAAAAAElFTkSuQmCC);background-image:url(https://wcipeg.com/wiki/resources/src/mediawiki.action/images/green-checkmark.png?2015-08-10T21:21:40Z)!ie;background-position:left}.postedit-close{position:absolute;padding:0 .8em;right:0;top:0;font-size:1.25em;font-weight:bold;line-height:2.3em;color:black;text-shadow:0 0.0625em 0 white;text-decoration:none;opacity:0.2;filter:alpha(opacity=20)}.postedit-close:hover{color:black;text-decoration:none;opacity:0.4;filter:alpha(opacity=40)}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:86d7c89b7cadf5004340279c398253d8 */</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:black;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:white}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:ae3fa4570b5ac0c6cf7b3776c8ae4d6f */</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*">
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:b36fd1c042133c9c9b60260f7c29b237 */</style>
+<script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script><script src="/wiki/load.php?debug=false&amp;lang=en&amp;modules=jquery%2Cmediawiki&amp;only=scripts&amp;skin=vector&amp;version=20161103T112730Z"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Rabin–Karp_algorithm","wgTitle":"Rabin–Karp algorithm","wgCurRevisionId":1334,"wgRevisionId":1334,"wgArticleId":326,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Rabin–Karp_algorithm","wgRelevantArticleId":326,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"Rabin-Karp","wgInternalRedirectTargetUrl":"/wiki/Rabin%E2%80%93Karp_algorithm"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikidb:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.redirect","mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script><script src="/wiki/load.php?debug=false&amp;lang=en&amp;modules=jquery.accessKeyLabel%2Cclient%2CmwExtension%2CtabIndex%2Cthrottle-debounce%7Cmediawiki.action.view.redirect%7Cmediawiki.legacy.ajax%2Cwikibits%7Cmediawiki.notify%2Cutil%7Cmediawiki.page.startup%7Cskins.vector.js&amp;skin=vector&amp;version=20161103T112730Z&amp;*"></script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Rabin–Karp_algorithm skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Rabin–Karp algorithm</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From PEGWiki</div>
+								<div id="contentSub"><span class="mw-redirectedfrom">(Redirected from <a href="/wiki/index.php?title=Rabin-Karp&amp;redirect=no" title="Rabin-Karp">Rabin-Karp</a>)</span></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>The <strong class="selflink">Rabin–Karp algorithm</strong> is a <a href="/wiki/index.php?title=Randomized_algorithm&amp;action=edit&amp;redlink=1" class="new" title="Randomized algorithm (page does not exist)">randomized algorithm</a> for the <a href="/wiki/String_search" title="String search" class="mw-redirect">string search</a> problem that finds all probable matches for the needle in the haystack in linear time. Together with the use of a <a href="/wiki/index.php?title=Hash_table&amp;action=edit&amp;redlink=1" class="new" title="Hash table (page does not exist)">hash table</a>, it can also find all probable matches for multiple needles in one haystack in linear time. Verifying all probable matches using the naive algorithm gives a Las Vegas algorithm, which requires up to <img class="mwe-math-fallback-image-inline tex" alt="O(mn)" src="/wiki/images/math/0/c/a/0ca5e4e27ca8dc4c891d2c8598529ed1.png"> time if the needle matches the haystack in many places or if many of the probable matches found are not true matches. Rabin–Karp can also be formulated as a Monte Carlo algorithm, which simply assumes all probable matches are correct, guaranteeing a linear runtime but with a small probability of false positives.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="#" id="togglelink">hide</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Concept"><span class="tocnumber">1</span> <span class="toctext">Concept</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Using_hashing"><span class="tocnumber">1.1</span> <span class="toctext">Using hashing</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#The_rolling_hash"><span class="tocnumber">1.2</span> <span class="toctext">The rolling hash</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#Implementation"><span class="tocnumber">2</span> <span class="toctext">Implementation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#As_a_Las_Vegas_algorithm"><span class="tocnumber">2.1</span> <span class="toctext">As a Las Vegas algorithm</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#As_a_Monte_Carlo_algorithm"><span class="tocnumber">2.2</span> <span class="toctext">As a Monte Carlo algorithm</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Analysis"><span class="tocnumber">3</span> <span class="toctext">Analysis</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Multiple_needles"><span class="tocnumber">4</span> <span class="toctext">Multiple needles</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#External_links"><span class="tocnumber">5</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Concept">Concept</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Rabin%E2%80%93Karp_algorithm&amp;action=edit&amp;section=1" title="Edit section: Concept">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Denote the needle <img class="mwe-math-fallback-image-inline tex" alt="S" src="/wiki/images/math/5/d/b/5dbc98dcc983a70728bd082d1a47546e.png"> and the haystack <img class="mwe-math-fallback-image-inline tex" alt="T" src="/wiki/images/math/b/9/e/b9ece18c950afbfa6b0fdbfa4ff731d3.png">. In the naive algorithm, we first test whether <img class="mwe-math-fallback-image-inline tex" alt="S_1, \ldots, S_m" src="/wiki/images/math/1/f/3/1f3404d0f3fb5265434f2155bd07ab1e.png"> matches the substring at <img class="mwe-math-fallback-image-inline tex" alt="T_1, \ldots, T_m" src="/wiki/images/math/b/9/1/b914b421a085cd0b8cdc0adb4fd8958b.png">. Then we try <img class="mwe-math-fallback-image-inline tex" alt="T_2, \ldots, T_{m+1}" src="/wiki/images/math/d/b/6/db6a1614f76fd0201f6b6c2ce44c0876.png">, then <img class="mwe-math-fallback-image-inline tex" alt="T_3, \ldots, T_{m+2}" src="/wiki/images/math/0/c/e/0ce5abd7a5cada89c23749991056d5ce.png">, and so on; in other words, we compare the needle with all substrings of the same length in the haystack. Each equality comparison takes time proportional to the length of the needle. (In general, equality comparisons may take time proportional to the amount of data being compared. Hence, a CPU can often compare two machine words in one clock cycle, but will probably take 100 clock cycles to compare two 100-word strings.)
+</p>
+<h3><span class="mw-headline" id="Using_hashing">Using hashing</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Rabin%E2%80%93Karp_algorithm&amp;action=edit&amp;section=2" title="Edit section: Using hashing">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>To circumvent this problem, we can use a <a href="/wiki/index.php?title=Hash_function&amp;action=edit&amp;redlink=1" class="new" title="Hash function (page does not exist)">hash function</a>, which takes a large amount of data as its argument and returns a relatively small amount of data, called the <i>hash</i>, which may be compared more quickly or easily. So we can rewrite the naive algorithm in the basic form:
+</p>
+<pre>s ← hash(S)
+for i ∈ [0..n-m]
+     t ← hash(T[i+1 .. i+m])
+     if s = t
+          print "Probable match found at position " i
+</pre>
+<p>The equality comparison now only takes constant time, because it compares hash values instead of the actual strings. However, whereas inequality indicates a non-match, equality does not necessarily indicate a match, since hash functions cannot be injective; in this case we can only say we have a probable match. Thus, false negatives are impossible, but false positives are possible, and their probability is inversely proportional to the size of the range of the hash function.
+</p>
+<h3><span class="mw-headline" id="The_rolling_hash">The rolling hash</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Rabin%E2%80%93Karp_algorithm&amp;action=edit&amp;section=3" title="Edit section: The rolling hash">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The problem, however, is that a good hash function will always examine its entire input. Therefore, computing the hash function of a substring of the haystack takes time proportional to the length of that substring, so that the algorithm in its current form has best-case performance <img class="mwe-math-fallback-image-inline tex" alt="O(mn)" src="/wiki/images/math/0/c/a/0ca5e4e27ca8dc4c891d2c8598529ed1.png"> (computing the hash function once at each position of the haystack), which is as bad as the worst-case performance of the naive algorithm, <i>and</i> it also has a small probability of being wrong. Hence it is not clear that it is an improvement at all.
+</p><p>This problem is solved using a <i>rolling hash</i>. The key to the rolling hash is realizing that even though a good hash function has to examine all its input, there is significant <i>overlap</i> between the input <img class="mwe-math-fallback-image-inline tex" alt="T_{i+1}, \ldots T_{i+m}" src="/wiki/images/math/e/b/5/eb5cfd0929931c46c069c15586238b2c.png"> and the <i>next</i> input <img class="mwe-math-fallback-image-inline tex" alt="T_{i+2}, \ldots, T_{i+m+1}" src="/wiki/images/math/c/c/a/cca0619be9598aa96691dbff04cf1c1c.png">. In fact, they share <img class="mwe-math-fallback-image-inline tex" alt="m-2" src="/wiki/images/math/4/d/2/4d23807cb23d34ccd4a6f11bc79ddf6b.png"> out of their <img class="mwe-math-fallback-image-inline tex" alt="m" src="/wiki/images/math/6/f/8/6f8f57715090da2632453988d9a1501b.png"> characters! In light of this fact, perhaps we can design a hash function such that computing the hash of <img class="mwe-math-fallback-image-inline tex" alt="T_{i+2}, \ldots, T_{i+m+1}" src="/wiki/images/math/c/c/a/cca0619be9598aa96691dbff04cf1c1c.png"> does not require calling the function again, but can be done by examining the hash for <img class="mwe-math-fallback-image-inline tex" alt="T_{i+1}, \ldots, T_{i+m}" src="/wiki/images/math/9/d/f/9df72ec340083c9bf57f6859813576dd.png"> and somehow accounting for the two-character difference. This is a rolling hash.
+</p><p>One of the simplest rolling hashes is given by <img class="mwe-math-fallback-image-inline tex" alt="H(a_0, a_1, \ldots, a_p) = a_0 + a_1 x + a_2 x^2 + \ldots + a_p x^p" src="/wiki/images/math/a/5/3/a53516f5caefbab63f71822ffbd6953b.png">, where <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> is fixed and the polynomial evaluation is taken modulo a small, fixed base, usually the size of the machine word (which is a power of two), for the sake of efficiency. (To use this, we assign a non-negative integer to each character in the alphabet; often we simply use the ASCII code.) To see why this is useful, consider:
+</p>
+<dl><dd><img class="mwe-math-fallback-image-inline tex" alt="H_i = H(T_{i+1}, \ldots, T_{i+m}) = T_{i+1} + T_{i+2}x + \ldots + T_{i+m-1} x^{m-2} + T_{i+m}x^{m-1}" src="/wiki/images/math/4/4/5/44569a49842a0cfa415686049e732413.png"></dd>
+<dd><img class="mwe-math-fallback-image-inline tex" alt="H_{i+1} = H(T_{i+2}, \ldots, T_{i+m+1}) = T_{i+2} + T_{i+3}x + \ldots + T_{i+m} x^{m-2} + T_{i+m+1}x^{m-1}" src="/wiki/images/math/a/d/4/ad4b1da18edde8f8a21c5fb78676c850.png"></dd></dl>
+<p>How can we compute <img class="mwe-math-fallback-image-inline tex" alt="H_{i+1}" src="/wiki/images/math/8/5/1/8511e96717c0b9c413c560d084f2c069.png"> given <img class="mwe-math-fallback-image-inline tex" alt="H_i" src="/wiki/images/math/4/5/d/45d4bf87d928aada05c4b8df8e5f057e.png"> and the text <img class="mwe-math-fallback-image-inline tex" alt="T" src="/wiki/images/math/b/9/e/b9ece18c950afbfa6b0fdbfa4ff731d3.png">? Looking closely, it becomes clear that <img class="mwe-math-fallback-image-inline tex" alt="H_{i+1} = \frac{H_i-T_{i+1}}{x} + T_{i+m+1} x^{m-1}" src="/wiki/images/math/5/d/0/5d0e7f83ce3da0bd88b362d95780baf2.png">.
+</p>
+<h2><span class="mw-headline" id="Implementation">Implementation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Rabin%E2%80%93Karp_algorithm&amp;action=edit&amp;section=4" title="Edit section: Implementation">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>We can now abstractly write the Rabin–Karp algorithm as follows:
+</p>
+<pre>s ← hash(S)
+t ← hash(T[1..m])
+if s = t
+     print "Probable match found at position 1"
+for i ∈ [0..n-m-1]
+     t ← ((t-T[i+1])/x + T[i+m+1]·x^(m-1)) mod M
+     if s = t
+          print "Probable match found at position " i+2
+</pre>
+<p>To obtain a workable implementation, we use a few simple mathematical and computational tricks.
+The value <img class="mwe-math-fallback-image-inline tex" alt="x^{m-1}" src="/wiki/images/math/9/1/b/91b8ebb8872b4e6b41d37dc68171bc14.png"> (modulo <code>M</code>) can be computed efficiently <i>via</i> the <a href="/wiki/index.php?title=Square-and-multiply&amp;action=edit&amp;redlink=1" class="new" title="Square-and-multiply (page does not exist)">square-and-multiply</a> method. Division by <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> is accomplished by multiplication by its modular inverse <img class="mwe-math-fallback-image-inline tex" alt="x^{-1}" src="/wiki/images/math/b/a/c/bac96adc627422689fd8d66c5c6796a1.png">. This can be computed efficiently using the <a href="/wiki/Extended_Euclidean_algorithm" title="Extended Euclidean algorithm" class="mw-redirect">extended Euclidean algorithm</a>, assuming <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> is relatively prime with <code>M</code> (which is always true when <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> is odd, since <code>M</code> is a power of two.) It often makes sense simply to precompute <img class="mwe-math-fallback-image-inline tex" alt="x^{-1}" src="/wiki/images/math/b/a/c/bac96adc627422689fd8d66c5c6796a1.png"> and insert it as a literal into the code, to avoid having to implement the extended Euclidean algorithm.
+</p>
+<h3><span class="mw-headline" id="As_a_Las_Vegas_algorithm">As a Las Vegas algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Rabin%E2%80%93Karp_algorithm&amp;action=edit&amp;section=5" title="Edit section: As a Las Vegas algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre>s ← hash(S)
+t ← hash(T[1..m])
+if s = t
+     match ← true
+     for j ∈ [1..m]
+          if S[j] ≠ T[j]
+               match ← false
+               break
+     if match = true
+          print "Probable match found at position 1"
+for i ∈ [0..n-m-1]
+     t ← ((t-T[i+1])/x + T[i+m+1]·x^(m-1)) mod M
+     if s = t
+          match ← true
+          for j ∈ [1..m]
+               if S[j] ≠ T[i+j+1]
+                    match ← false
+                    break
+          if match = true
+               print "Probable match found at position " i+2
+</pre>
+<h3><span class="mw-headline" id="As_a_Monte_Carlo_algorithm">As a Monte Carlo algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Rabin%E2%80%93Karp_algorithm&amp;action=edit&amp;section=6" title="Edit section: As a Monte Carlo algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre>s ← hash(S)
+t ← hash(T[1..m])
+if s = t
+     print "Match found at position 1"
+for i ∈ [0..n-m-1]
+     t ← ((t-T[i+1])/x + T[i+m+1]·x^(m-1)) mod M
+     if s = t
+          print "Match found at position " i+2
+</pre>
+<h2><span class="mw-headline" id="Analysis">Analysis</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Rabin%E2%80%93Karp_algorithm&amp;action=edit&amp;section=7" title="Edit section: Analysis">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The precomputation steps (for <img class="mwe-math-fallback-image-inline tex" alt="x^{-1}" src="/wiki/images/math/b/a/c/bac96adc627422689fd8d66c5c6796a1.png"> and <img class="mwe-math-fallback-image-inline tex" alt="x^{m-1}" src="/wiki/images/math/9/1/b/91b8ebb8872b4e6b41d37dc68171bc14.png">) take very little time (constant for the former, and <img class="mwe-math-fallback-image-inline tex" alt="O(\log m)" src="/wiki/images/math/9/b/6/9b6948075e3f7593be5aba1356146311.png"> for the latter). Computing the hash value of the needle takes <img class="mwe-math-fallback-image-inline tex" alt="O(m)" src="/wiki/images/math/0/e/2/0e2ae329177722b1818828e92b441032.png"> time, as does the initial hash computation for the haystack. "Rolling" the rolling hash takes constant time, and so does comparing the hashes. Thus the total time spent doing all these operations is <img class="mwe-math-fallback-image-inline tex" alt="O(m+n)" src="/wiki/images/math/c/f/d/cfda60c744b8119ed03fe07e5c3722c9.png"> (linear).
+</p><p>However, the Las Vegas algorithm <i>may</i> takes <img class="mwe-math-fallback-image-inline tex" alt="O(mn)" src="/wiki/images/math/0/c/a/0ca5e4e27ca8dc4c891d2c8598529ed1.png"> time. This can happen, for example, when searching for <b>AAAAAAA</b> in <b>AAAAAAAAAAAAA</b>, and a match is found at <i>every</i> position; here, all the naive verification makes Rabin–Karp no better than the naive algorithm. However, if the needle is known to match the haystack only a few times, the result is much better; on average, one in every <img class="mwe-math-fallback-image-inline tex" alt="M" src="/wiki/images/math/6/9/6/69691c7bdcc3ce6d5d8a1361f22d04ac.png"> hash computations will result in a hash that matches that of <img class="mwe-math-fallback-image-inline tex" alt="s" src="/wiki/images/math/0/3/c/03c7c0ace395d80182db07ae2c30f034.png"> (where <img class="mwe-math-fallback-image-inline tex" alt="M" src="/wiki/images/math/6/9/6/69691c7bdcc3ce6d5d8a1361f22d04ac.png"> is the modulus), giving, on the worst case, an extra <img class="mwe-math-fallback-image-inline tex" alt="m/M" src="/wiki/images/math/0/9/d/09d9886c8024c2c49f77d5af7de28b1a.png"> operations, which is inconsequential. Note that in the analysis of the naive algorithm it was said that we could not rely on the average case to be random. With Rabin–Karp, however, even if there are many similar-looking substrings, they are unlikely to have matching hash values, and, conversely, those substrings that do have matching hash values are likely to be strikingly different in actual content, so that the inner verification loop will break relatively soon.
+</p><p>The Monte Carlo variation takes <img class="mwe-math-fallback-image-inline tex" alt="O(m+n)" src="/wiki/images/math/c/f/d/cfda60c744b8119ed03fe07e5c3722c9.png"> time, but it has a <img class="mwe-math-fallback-image-inline tex" alt="1/M" src="/wiki/images/math/a/0/a/a0a7a4a52c94579f35f67705b932eef6.png"> probability of reporting a match at each position in <img class="mwe-math-fallback-image-inline tex" alt="T" src="/wiki/images/math/b/9/e/b9ece18c950afbfa6b0fdbfa4ff731d3.png">, regardless of whether or not an actual match occurs there. So the error rate is approximately <img class="mwe-math-fallback-image-inline tex" alt="1/M" src="/wiki/images/math/a/0/a/a0a7a4a52c94579f35f67705b932eef6.png">. If <img class="mwe-math-fallback-image-inline tex" alt="M" src="/wiki/images/math/6/9/6/69691c7bdcc3ce6d5d8a1361f22d04ac.png"> is made large enough (which is easy to accomplish with a library such as GMP) then the error rate can be made vanishingly small.
+</p>
+<h2><span class="mw-headline" id="Multiple_needles">Multiple needles</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Rabin%E2%80%93Karp_algorithm&amp;action=edit&amp;section=8" title="Edit section: Multiple needles">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Suppose we are given <img class="mwe-math-fallback-image-inline tex" alt="k" src="/wiki/images/math/8/c/e/8ce4b16b22b58894aa86c421e8759df3.png"> needles, <code>S[1]</code>, <code>S[2]</code>, ..., <code>S[k]</code>. Then, by hashing all the needles using the same hash function and inserting them into a hash map, we can use the Rabin–Karp algorithm to find probable matches for <i>all</i> of them in the haystack in linear time; each time we compute the hash for a substring of the haystack, we look it up in the hash map to see whether it matches <i>any</i> of the needles' hashes.
+</p>
+<pre>H is a hash multimap
+for i ∈ [1..k]
+    s ← hash(S[i])
+    H.insert(s,i)
+t ← hash(T[1..m])
+if H.find(t) ≠ ∅
+     for j ∈ H.find(t)
+          print "Probable match found at position 1 for needle " j
+for i ∈ [0..n-m-1]
+     t ← ((t-T[i+1])/x + T[i+m+1]·x^(m-1)) mod M
+     if H.find(t) ≠ ∅
+          for j ∈ H.find(t)
+               print "Probable match found at position " i+2 " for needle " j
+</pre>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Rabin%E2%80%93Karp_algorithm&amp;action=edit&amp;section=9" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> <a href="/wiki/index.php?title=Rabin%E2%80%93Karp_algorithm/C%2B%2B_implementation&amp;action=edit&amp;redlink=1" class="new" title="Rabin–Karp algorithm/C++ implementation (page does not exist)">C++ implementation</a></li>
+<li> <a rel="nofollow" class="external text" href="http://www.spoj.pl/problems/NHAY">A Needle in the Haystack</a></li>
+<li> <a rel="nofollow" class="external text" href="http://www.spoj.pl/problems/WPUZZLES">Word Puzzles</a></li></ul>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.060 seconds
+Real time usage: 0.068 seconds
+Preprocessor visited node count: 488/1000000
+Preprocessor generated node count: 1088/1000000
+Post‐expand include size: 110/2097152 bytes
+Template argument size: 48/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    2.833      1 - -total
+ 91.77%    2.600      2 - Template:SPOJ
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:326-0!*!0!!en!*!*!math=0 and timestamp 20180430194004 and revision id 1334
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wcipeg.com/wiki/index.php?title=Rabin–Karp_algorithm&amp;oldid=1334">https://wcipeg.com/wiki/index.php?title=Rabin–Karp_algorithm&amp;oldid=1334</a>"					</div>
+													<div id="catlinks" class="catlinks catlinks-allhidden"></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Rabin%E2%80%93Karp+algorithm&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Rabin%E2%80%93Karp+algorithm" title="You are encouraged to log in; however, it is not mandatory [ctrl-alt-o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li id="ca-nstab-main" class="selected"><span><a href="/wiki/Rabin%E2%80%93Karp_algorithm" title="View the content page [ctrl-alt-c]" accesskey="c">Page</a></span></li>
+															<li id="ca-talk" class="new"><span><a href="/wiki/index.php?title=Talk:Rabin%E2%80%93Karp_algorithm&amp;action=edit&amp;redlink=1" title="Discussion about the content page [ctrl-alt-t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label" tabindex="0"><span>Variants</span><a href="#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Rabin%E2%80%93Karp_algorithm">Read</a></span></li>
+															<li id="ca-edit"><span><a href="/wiki/index.php?title=Rabin%E2%80%93Karp_algorithm&amp;action=edit" title="You can edit this page. Please use the preview button before saving [ctrl-alt-e]" accesskey="e">Edit</a></span></li>
+															<span class="placeholder" style="display: none;"></span>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu" aria-labelledby="p-cactions-label" style="">
+						<h3 id="p-cactions-label" tabindex="0" style="width: 61px;"><span>More</span><a href="#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul><li id="ca-history" class="collapsible" style="display: list-item;"><span><a href="/wiki/index.php?title=Rabin%E2%80%93Karp_algorithm&amp;action=history" title="Past revisions of this page [ctrl-alt-h]" accesskey="h">View history</a></span></li>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search PEGWiki [ctrl-alt-f]" accesskey="f" id="searchInput" tabindex="1" autocomplete="off"><input type="hidden" value="Special:Search" name="title"><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton">								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page" title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id="p-navigation" aria-labelledby="p-navigation-label">
+			<h3 id="p-navigation-label">Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [ctrl-alt-z]" accesskey="z">Main page</a></li>
+													<li id="n-Index"><a href="/wiki/Special:AllPages">Index</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [ctrl-alt-r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [ctrl-alt-x]" accesskey="x">Random page</a></li>
+													<li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+			<h3 id="p-tb-label">Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Rabin%E2%80%93Karp_algorithm" title="A list of all wiki pages that link here [ctrl-alt-j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Rabin%E2%80%93Karp_algorithm" title="Recent changes in pages linked from this page [ctrl-alt-k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [ctrl-alt-q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/wiki/index.php?title=Rabin%E2%80%93Karp_algorithm&amp;printable=yes" rel="alternate" title="Printable version of this page [ctrl-alt-p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/wiki/index.php?title=Rabin%E2%80%93Karp_algorithm&amp;oldid=1334" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/wiki/index.php?title=Rabin%E2%80%93Karp_algorithm&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 29 May 2011, at 16:33.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Attribution 3.0 Unported</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/PEGWiki:Privacy_policy" title="PEGWiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/PEGWiki:About" title="PEGWiki:About">About PEGWiki</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/PEGWiki:General_disclaimer" title="PEGWiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by/3.0/"><img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Attribution 3.0 Unported" width="88" height="31"></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wiki/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wcipeg.com/wiki/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script><script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=scripts&amp;skin=vector&amp;*"></script><div class="suggestions" style="display: none; font-size: 13px;"><div class="suggestions-results"></div><div class="suggestions-special"></div></div>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":77});
+}</script>
+	
+
+</body></html>

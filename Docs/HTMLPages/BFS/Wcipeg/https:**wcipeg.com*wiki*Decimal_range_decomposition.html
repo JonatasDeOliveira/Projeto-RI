@@ -1,0 +1,294 @@
+<!DOCTYPE html><html lang="en" dir="ltr" class="client-js"><head>
+<meta charset="UTF-8">
+<title>Decimal range decomposition - PEGWiki</title>
+<meta name="generator" content="MediaWiki 1.25.2">
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/wiki/index.php?title=Decimal_range_decomposition&amp;action=edit">
+<link rel="edit" title="Edit" href="/wiki/index.php?title=Decimal_range_decomposition&amp;action=edit">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="/wiki/opensearch_desc.php" title="PEGWiki (en)">
+<link rel="EditURI" type="application/rsd+xml" href="https://wcipeg.com/wiki/api.php?action=rsd">
+<link rel="alternate" hreflang="x-default" href="/wiki/Decimal_range_decomposition">
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/">
+<link rel="alternate" type="application/atom+xml" title="PEGWiki Atom feed" href="/wiki/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=ext.geshi.language.cpp%7Cext.math.styles%7Cext.rtlcite%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*">
+<style>
+.cite-accessibility-label{position:absolute !important; top:-99999px;clip:rect(1px 1px 1px 1px); clip:rect(1px,1px,1px,1px);padding:0 !important;border:0 !important;height:1px !important;width:1px !important;overflow:hidden}.mw-cite-backlink,.cite-accessibility-label{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none} ol.references li:target,sup.reference:target{background-color:#def; background-color:rgba(0,127,255,0.133)}@media print{.mw-cite-backlink{display:none}}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:2970940d33044e6aa6a620ce3c93c662 */
+.mw-collapsible-toggle{float:right;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}  .mw-content-ltr .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr .mw-collapsible-toggle{float:right} .mw-content-rtl .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl .mw-collapsible-toggle{float:left}.mw-customtoggle,.mw-collapsible-toggle{cursor:pointer} caption .mw-collapsible-toggle,.mw-content-ltr caption .mw-collapsible-toggle,.mw-content-rtl caption .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr caption .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl caption .mw-collapsible-toggle{float:none} li .mw-collapsible-toggle,.mw-content-ltr li .mw-collapsible-toggle,.mw-content-rtl li .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr li .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:e1ffd603cbaaa5f1a36e0d13fe843535 */
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:none;z-index:1099;padding:0;margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#4C59A6;color:white}.suggestions-special .special-label{color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white}.highlight{font-weight:bold}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:f8d0c6895ce3ae14434c16b8fca59432 */
+.postedit-container{margin:0 auto;position:fixed;top:0;height:0;left:50%;z-index:1000;font-size:13px}.postedit-container:hover{cursor:pointer}.postedit{position:relative;top:0.6em;left:-50%;padding:.6em 3.6em .6em 1.1em;line-height:1.5625em;color:#626465;background-color:#f4f4f4;border:1px solid #dcd9d9;text-shadow:0 0.0625em 0 rgba(255,255,255,0.5);border-radius:5px;box-shadow:0 2px 5px 0 #ccc;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;-ms-transition:all 0.25s ease-in-out;-o-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out}.skin-monobook .postedit{top:6em !important}.postedit-faded{opacity:0}.postedit-icon{padding-left:41px;  line-height:25px;background-repeat:no-repeat;background-position:8px 50%}.postedit-icon-checkmark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABblBMVEUAAAD///////9PfTf///80aRdTgjn///9Feij///////////9Rfzf///////////9PfjZRgDh1o1xOfTb///////+bwYqLtnj///////9PfTa82K////9WhT6YxIL///9QgDdTgzr////////j7uDl7eLq8efi693k7OH///////9UhjuBr2rp9uRUhjr///9YljVKgir///9WiTlYjT3////9/v57vFlbkT5PjC9dlD/5/fhuq09stUTs9uhxuElctCpfnT1huDFloEZloUZmpENmvDZpvDxpvTxqvjxrvT5rvT9rwTxsqktswD5uwkBvuUdxw0NztFBztU9ztVBzwkp0tlJ1xkd2t1R3uVR4w1F4xk54x014yE15uVZ5v1R5xVB6v1R7yFJ8wVh9xVl9yFR9yVd9ylN+xVh+yFd/x1l/yFeAylmEx1+Ny2uY0Hqe04Wj1Ymv3Ze33qLD47TJ5L3O6cPU7Mrq9eb2+/Q4j37OAAAAQHRSTlMAAQIEBAUFBQwPFB4fJCUoKiosQEhJS01RUlZZXmdydXaChYuSlJSWmJmoq6uur8LExcvM19fg5ejt8fX2+Pr7SljgewAAAKpJREFUGBkFwQNCAwAAAMDLtl3LtrG4rWXbtvX77gAgZ6grFwC0bhwNVgKgdPZx8b0dgLi+s7Wn0VoAqpfOI9+BNADZI7fLrz2pSEwGHZuH+78lSK8ZLkLezF3ooyUG3VPXq2USei9WngeyoG195yBYWDF3E/2pAhl1e9Gr8bGT+bfOFCC2fnvh4X7rcqIAQNNu+HT6sxkAjceTL/2ZAIhv+PorBwBJxfkA//dFHSCBy/UTAAAAAElFTkSuQmCC);background-image:url(https://wcipeg.com/wiki/resources/src/mediawiki.action/images/green-checkmark.png?2015-08-10T21:21:40Z)!ie;background-position:left}.postedit-close{position:absolute;padding:0 .8em;right:0;top:0;font-size:1.25em;font-weight:bold;line-height:2.3em;color:black;text-shadow:0 0.0625em 0 white;text-decoration:none;opacity:0.2;filter:alpha(opacity=20)}.postedit-close:hover{color:black;text-decoration:none;opacity:0.4;filter:alpha(opacity=40)}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:86d7c89b7cadf5004340279c398253d8 */</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:black;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:white}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:ae3fa4570b5ac0c6cf7b3776c8ae4d6f */</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*">
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:b36fd1c042133c9c9b60260f7c29b237 */</style>
+<script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script><script src="/wiki/load.php?debug=false&amp;lang=en&amp;modules=jquery%2Cmediawiki&amp;only=scripts&amp;skin=vector&amp;version=20161103T112730Z"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Decimal_range_decomposition","wgTitle":"Decimal range decomposition","wgCurRevisionId":1803,"wgRevisionId":1803,"wgArticleId":501,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Decimal_range_decomposition","wgRelevantArticleId":501,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikidb:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script><script src="/wiki/load.php?debug=false&amp;lang=en&amp;modules=jquery.accessKeyLabel%2Cclient%2CmwExtension%2CtabIndex%2Cthrottle-debounce%7Cmediawiki.legacy.ajax%2Cwikibits%7Cmediawiki.notify%2Cutil%7Cmediawiki.page.startup%7Cskins.vector.js&amp;skin=vector&amp;version=20161103T112730Z&amp;*"></script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Decimal_range_decomposition skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Decimal range decomposition</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From PEGWiki</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p><strong class="selflink">Decimal range decomposition</strong> is a standard technique used to simplify problems that involve the digits of ranges (<i>i.e</i>, intervals) of natural numbers.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup>
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="#" id="togglelink">hide</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Informal_idea"><span class="tocnumber">1</span> <span class="toctext">Informal idea</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Formal_definition"><span class="tocnumber">2</span> <span class="toctext">Formal definition</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Algorithm"><span class="tocnumber">3</span> <span class="toctext">Algorithm</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#First_stage"><span class="tocnumber">3.1</span> <span class="toctext">First stage</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Second_stage"><span class="tocnumber">3.2</span> <span class="toctext">Second stage</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Implementation_.28C.2B.2B.29"><span class="tocnumber">3.3</span> <span class="toctext">Implementation (C++)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Arbitrary_ranges"><span class="tocnumber">4</span> <span class="toctext">Arbitrary ranges</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#External_links"><span class="tocnumber">5</span> <span class="toctext">External links</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Notes"><span class="tocnumber">6</span> <span class="toctext">Notes</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Informal_idea">Informal idea</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Decimal_range_decomposition&amp;action=edit&amp;section=1" title="Edit section: Informal idea">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Consider the following problem: given natural number <img class="mwe-math-fallback-image-inline tex" alt="N" src="/wiki/images/math/8/d/9/8d9c307cb7f3c4a32822a51922d1ceaa.png">, how many of the natural numbers between 1 and <img class="mwe-math-fallback-image-inline tex" alt="N" src="/wiki/images/math/8/d/9/8d9c307cb7f3c4a32822a51922d1ceaa.png">, inclusive, have a non-ascending sequence of digits? That is, each digit is less than or equal to the digit on its left, if any. For example, 100 and 321 qualify, but 101 and 123 do not. Assume that the <a href="/wiki/Naive_algorithm" title="Naive algorithm">naive algorithm</a> is not efficient enough as <img class="mwe-math-fallback-image-inline tex" alt="N" src="/wiki/images/math/8/d/9/8d9c307cb7f3c4a32822a51922d1ceaa.png"> can have up to, say, 15 digits, so performing <img class="mwe-math-fallback-image-inline tex" alt="N" src="/wiki/images/math/8/d/9/8d9c307cb7f3c4a32822a51922d1ceaa.png"> loop iterations is out of the question.
+</p><p>It is hard to find an explicit formula for this quantity, but notice that there are some ranges of natural numbers for which we <i>can</i> write down a closed form. For example, if the range, instead of being from 1 to <img class="mwe-math-fallback-image-inline tex" alt="N" src="/wiki/images/math/8/d/9/8d9c307cb7f3c4a32822a51922d1ceaa.png">, were to be from 35000 to 35999, we know at a glance that the answer is 0, since any number starting with the prefix "35" does not have a descending digit sequence. If instead the range were 53000 to 53999, the question becomes: in how many ways can we fill in the digits <img class="mwe-math-fallback-image-inline tex" alt="xyz" src="/wiki/images/math/d/1/6/d16fb36f0911f878998c136191af705e.png"> so that <img class="mwe-math-fallback-image-inline tex" alt="53xyz" src="/wiki/images/math/a/2/9/a298f265779f5928730cdbb9ba31234a.png"> has a descending digit sequence? Well, clearly, each of the digits <img class="mwe-math-fallback-image-inline tex" alt="xyz" src="/wiki/images/math/d/1/6/d16fb36f0911f878998c136191af705e.png"> can only be 0, 1, 2, or 3. How many ways are there to fill in three slots, each with one of four possible digits, so that the resulting sequence is descending? This can easily be calculated as the binomial coefficient <img class="mwe-math-fallback-image-inline tex" alt="\binom{3 + 4 - 1}{4 - 1} = 20" src="/wiki/images/math/8/d/f/8dfedc8136f67d2550e43ade22ca3a6e.png">.
+</p><p>So it is easy to see that if we are given a range of the form <img class="mwe-math-fallback-image-inline tex" alt="[p \times 10^n, (p+1) \times 10^n)" src="/wiki/images/math/4/b/7/4b7c44a045c383e66ad79d689b2bff55.png"> with <img class="mwe-math-fallback-image-inline tex" alt="p" src="/wiki/images/math/8/3/8/83878c91171338902e0fe0fb97a8c47a.png"> nonzero (which we'll call an <b>elementary range</b>), then the number of integers in this range with descending digits is either zero if the prefix <img class="mwe-math-fallback-image-inline tex" alt="p" src="/wiki/images/math/8/3/8/83878c91171338902e0fe0fb97a8c47a.png"> itself does not have descending digits, or else <img class="mwe-math-fallback-image-inline tex" alt="\binom{n + p_0}{p_0}" src="/wiki/images/math/3/9/5/395e5e01d524d641e6e59b5bb092274e.png"> where <img class="mwe-math-fallback-image-inline tex" alt="p_0" src="/wiki/images/math/4/e/f/4ef9cff2047e04349f6399910a5e1592.png"> is the last digit of the prefix <img class="mwe-math-fallback-image-inline tex" alt="p" src="/wiki/images/math/8/3/8/83878c91171338902e0fe0fb97a8c47a.png">. For example, the range 53000 to 53999 (inclusive) is represented by <img class="mwe-math-fallback-image-inline tex" alt="p = 53, n = 3" src="/wiki/images/math/a/f/6/af63bb6758aa99a2a3a34c9e00932447.png">.
+</p><p>If the actual range given is from 1 to <img class="mwe-math-fallback-image-inline tex" alt="N" src="/wiki/images/math/8/d/9/8d9c307cb7f3c4a32822a51922d1ceaa.png">, then we can try to <b>decompose</b> this range into elementary ranges, compute the number of integers with descending digits in <i>each</i> elementary range as a simple binomial coefficient, and then sum the counts obtained in order to get the final answer. For example, if <img class="mwe-math-fallback-image-inline tex" alt="N = 165" src="/wiki/images/math/c/b/f/cbfcca2de1ce695f078ff267c2a9b041.png">, then we can decompose the range [1, 123] as the <i>disjoint union</i> of the following ranges: [1, 2), [2, 3), [3, 4), [4, 5), [5, 6), [6, 7), [7, 8), [8, 9), [9, 10), [10, 20), [20, 30), [30, 40), [40, 50), [50, 60), [60, 70), [70, 80), [80, 90), [90, 100), [100, 110), [110, 120), [120, 130), [130, 140), [140, 150), [150, 160), [160, 161), [161, 162), [162, 163), [163, 164), [164, 165), [165, 166). Note that each range is elementary: each range corresponds to the entire set of natural numbers corresponding to some fixed prefix with some fixed number of arbitrary digits following.
+</p>
+<h2><span class="mw-headline" id="Formal_definition">Formal definition</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Decimal_range_decomposition&amp;action=edit&amp;section=2" title="Edit section: Formal definition">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The decimal range decomposition of the interval of natural numbers <img class="mwe-math-fallback-image-inline tex" alt="[1, N)" src="/wiki/images/math/8/2/f/82ff29ec0cb60f21d27154c3d4a5b7a9.png"> is the disjoint union
+</p>
+<dl><dd><img class="mwe-math-fallback-image-inline tex" alt="[1, N) = \bigsqcup_i E(p_i, n_i)" src="/wiki/images/math/6/a/d/6adbdfc970e3e451b772cd9a97896db7.png"></dd></dl>
+<p>where <img class="mwe-math-fallback-image-inline tex" alt="E(p_i, n_i)" src="/wiki/images/math/f/5/e/f5e7092f8ebd037689f419d32b3205ee.png"> denotes an elementary interval, with <img class="mwe-math-fallback-image-inline tex" alt="p_i" src="/wiki/images/math/8/a/4/8a4bbd153c74655abb7ca04c0fa901d8.png"> is a positive integer<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[2]</a></sup> and <img class="mwe-math-fallback-image-inline tex" alt="n_i" src="/wiki/images/math/f/7/5/f75ef7544498f247df440d828aee41aa.png"> a nonnegative integer:
+</p>
+<dl><dd><img class="mwe-math-fallback-image-inline tex" alt="E(p_i, n_i) = [p_i \times 10^{n_i}, (p_i+1) \times 10^{n_i})" src="/wiki/images/math/1/9/2/192c7c89bd757676d3cd48d9cc3ae375.png"></dd></dl>
+<p>and the set of elementary intervals used is as small as possible.
+</p>
+<h2><span class="mw-headline" id="Algorithm">Algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Decimal_range_decomposition&amp;action=edit&amp;section=3" title="Edit section: Algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>To obtain the decimal range decomposition of <img class="mwe-math-fallback-image-inline tex" alt="[1, N)" src="/wiki/images/math/8/2/f/82ff29ec0cb60f21d27154c3d4a5b7a9.png">, there are two stages. In the first stage, we count all integers that have fewer digits than <img class="mwe-math-fallback-image-inline tex" alt="N" src="/wiki/images/math/8/d/9/8d9c307cb7f3c4a32822a51922d1ceaa.png">. That is, we decompose the range <img class="mwe-math-fallback-image-inline tex" alt="[1, 10^n)" src="/wiki/images/math/c/4/4/c44c86d6496685b37bf80891f1eb684c.png">, where <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png"> is the largest possible integer such that this range is contained within <img class="mwe-math-fallback-image-inline tex" alt="[1, N)" src="/wiki/images/math/8/2/f/82ff29ec0cb60f21d27154c3d4a5b7a9.png">. That is, <img class="mwe-math-fallback-image-inline tex" alt="n = \lfloor \log_{10} N \rfloor" src="/wiki/images/math/d/a/0/da0609829b076d0fde0210564075e6ed.png">. In the second stage, we count up to <img class="mwe-math-fallback-image-inline tex" alt="N" src="/wiki/images/math/8/d/9/8d9c307cb7f3c4a32822a51922d1ceaa.png"> by advancing the leftmost digit, then the next-to-leftmost, and so on, "honing in" on the digit sequence of <img class="mwe-math-fallback-image-inline tex" alt="N" src="/wiki/images/math/8/d/9/8d9c307cb7f3c4a32822a51922d1ceaa.png">.
+</p>
+<h3><span class="mw-headline" id="First_stage">First stage</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Decimal_range_decomposition&amp;action=edit&amp;section=4" title="Edit section: First stage">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Compute <img class="mwe-math-fallback-image-inline tex" alt="n = \lfloor \log_{10} N \rfloor" src="/wiki/images/math/d/a/0/da0609829b076d0fde0210564075e6ed.png">. Then decompose the range <img class="mwe-math-fallback-image-inline tex" alt="[1, 10^n)" src="/wiki/images/math/c/4/4/c44c86d6496685b37bf80891f1eb684c.png"> as
+</p>
+<dl><dd><img class="mwe-math-fallback-image-inline tex" alt="[1, 10^n) = \bigsqcup_{i=0}^{n-1} \bigsqcup_{j=1}^9 E(j, i)" src="/wiki/images/math/4/b/d/4bd0a11fe19d464c5743ef1965c9fb58.png"></dd></dl>
+<h3><span class="mw-headline" id="Second_stage">Second stage</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Decimal_range_decomposition&amp;action=edit&amp;section=5" title="Edit section: Second stage">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>It remains to decompose the range <img class="mwe-math-fallback-image-inline tex" alt="[10^n, N)" src="/wiki/images/math/4/e/9/4e9ff2231e8c631aa8122207163b4a0e.png">, where <img class="mwe-math-fallback-image-inline tex" alt="N" src="/wiki/images/math/8/d/9/8d9c307cb7f3c4a32822a51922d1ceaa.png"> has the same number of digits as <img class="mwe-math-fallback-image-inline tex" alt="10^n" src="/wiki/images/math/1/2/e/12e03421a5114dc69b8d1f5dc5481d99.png">. Let the digit sequence of <img class="mwe-math-fallback-image-inline tex" alt="N" src="/wiki/images/math/8/d/9/8d9c307cb7f3c4a32822a51922d1ceaa.png"> be denoted <img class="mwe-math-fallback-image-inline tex" alt="\langle d_n d_{n-1} \ldots d_1 d_0 \rangle" src="/wiki/images/math/6/e/c/6ecdd472201601950953b1e547cf91ac.png">. Then
+</p>
+<dl><dd><img class="mwe-math-fallback-image-inline tex" alt="[10^n, N) = \bigsqcup_{i=0}^n \bigsqcup_{j=0}^{d_i-1} E(\langle d_n d_{n-1} \ldots d_{i+1} j\rangle, i)" src="/wiki/images/math/c/7/3/c7381553338e43182be73155481c8045.png"></dd></dl>
+<h3><span class="mw-headline" id="Implementation_.28C.2B.2B.29">Implementation (C++)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Decimal_range_decomposition&amp;action=edit&amp;section=6" title="Edit section: Implementation (C++)">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="cpp source-cpp"><pre class="de1"><span class="co2">#include &lt;vector&gt;</span>
+<span class="co2">#include &lt;utility&gt;</span>
+std<span class="sy4">::</span><span class="me2">vector</span><span class="sy1">&lt;</span>std<span class="sy4">::</span><span class="me2">pair</span><span class="sy1">&lt;</span><span class="kw4">long</span> <span class="kw4">long</span>, <span class="kw4">int</span><span class="sy1">&gt;&gt;</span> drd<span class="br0">(</span><span class="kw4">long</span> <span class="kw4">long</span> N<span class="br0">)</span> <span class="br0">{</span>
+    std<span class="sy4">::</span><span class="me2">vector</span><span class="sy1">&lt;</span>std<span class="sy4">::</span><span class="me2">pair</span><span class="sy1">&lt;</span><span class="kw4">long</span> <span class="kw4">long</span>, <span class="kw4">int</span><span class="sy1">&gt;&gt;</span> res<span class="sy4">;</span>
+    <span class="kw4">int</span> exponent <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span>
+    <span class="kw4">long</span> <span class="kw4">long</span> pwr <span class="sy1">=</span> <span class="nu0">1</span><span class="sy4">;</span>
+    <span class="co1">// stage 1</span>
+    <span class="kw1">while</span> <span class="br0">(</span>N<span class="sy2">/</span>pwr <span class="sy1">&gt;=</span> 10ll<span class="br0">)</span> <span class="br0">{</span>
+        <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> d <span class="sy1">=</span> <span class="nu0">1</span><span class="sy4">;</span> d <span class="sy1">&lt;=</span> <span class="nu0">9</span><span class="sy4">;</span> d<span class="sy2">++</span><span class="br0">)</span> <span class="br0">{</span>
+            res.<span class="me1">push_back</span><span class="br0">(</span><span class="br0">{</span>d, exponent<span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+        <span class="br0">}</span>
+        pwr <span class="sy2">*</span><span class="sy1">=</span> <span class="nu0">10</span><span class="sy4">;</span> exponent<span class="sy2">++</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <span class="co1">// stage 2</span>
+    <span class="kw4">long</span> <span class="kw4">long</span> l <span class="sy1">=</span> pwr<span class="sy4">;</span>
+    <span class="kw4">long</span> <span class="kw4">long</span> p <span class="sy1">=</span> <span class="nu0">1</span><span class="sy4">;</span>
+    <span class="kw1">while</span> <span class="br0">(</span>l <span class="sy1">&lt;</span> N<span class="br0">)</span> <span class="br0">{</span>
+        <span class="kw1">if</span> <span class="br0">(</span>l <span class="sy2">+</span> pwr <span class="sy1">&lt;=</span> N<span class="br0">)</span> <span class="br0">{</span>
+            res.<span class="me1">push_back</span><span class="br0">(</span><span class="br0">{</span>p, exponent<span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+            l <span class="sy2">+</span><span class="sy1">=</span> pwr<span class="sy4">;</span>
+            p<span class="sy2">++</span><span class="sy4">;</span>
+        <span class="br0">}</span> <span class="kw1">else</span> <span class="br0">{</span>
+            pwr <span class="sy2">/</span><span class="sy1">=</span> <span class="nu0">10</span><span class="sy4">;</span> <span class="sy2">--</span>exponent<span class="sy4">;</span>
+            p <span class="sy2">*</span><span class="sy1">=</span> <span class="nu0">10</span><span class="sy4">;</span>
+        <span class="br0">}</span>
+    <span class="br0">}</span>
+    <span class="kw1">return</span> res<span class="sy4">;</span>
+<span class="br0">}</span></pre></div></div>
+<h2><span class="mw-headline" id="Arbitrary_ranges">Arbitrary ranges</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Decimal_range_decomposition&amp;action=edit&amp;section=7" title="Edit section: Arbitrary ranges">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Thus, if we know how to compute <img class="mwe-math-fallback-image-inline tex" alt="\sum_{x \in I} f(x)" src="/wiki/images/math/1/7/d/17db1527e956f39339c746d20c62af27.png"> efficiently for any elementary interval <img class="mwe-math-fallback-image-inline tex" alt="I" src="/wiki/images/math/d/d/7/dd7536794b63bf90eccfd37f9b147d7f.png">, we can compute <img class="mwe-math-fallback-image-inline tex" alt="\sum_{x=1}^{N-1} f(x)" src="/wiki/images/math/4/3/3/433817b08d1d31df0063246c3aa25622.png"> efficiently using the decimal range decomposition. If we are given an arbitrary interval <img class="mwe-math-fallback-image-inline tex" alt="[A, B]" src="/wiki/images/math/6/c/0/6c05dc26810646388d97a955bb009058.png"> instead for <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> to range over, then we just use the fact that
+</p>
+<dl><dd><img class="mwe-math-fallback-image-inline tex" alt="\sum_{x=A}^B f(x) = \sum_{x=1}^{B} f(x) - \sum_{x=1}^{A-1} f(x)" src="/wiki/images/math/4/0/8/4082d001a686955f2c2d748c3b66fd1f.png"></dd></dl>
+<p>and use decimal range decomposition on <img class="mwe-math-fallback-image-inline tex" alt="[1, B+1)" src="/wiki/images/math/9/2/3/92390a46e3e6b69debc6d2f1fd1acd2f.png"> and <img class="mwe-math-fallback-image-inline tex" alt="[1, A)" src="/wiki/images/math/7/c/b/7cb726505905672c70cffa4eed144e56.png"> separately.
+</p>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Decimal_range_decomposition&amp;action=edit&amp;section=8" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> <a rel="nofollow" class="external text" href="https://wcipeg.com/problem/mmm14d">Kuuhaku Numbers</a></li>
+<li> <a rel="nofollow" class="external text" href="http://www.spoj.pl/problems/KPSUM">The Sum @ SPOJ</a></li></ul>
+<h2><span class="mw-headline" id="Notes">Notes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Decimal_range_decomposition&amp;action=edit&amp;section=9" title="Edit section: Notes">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1"><span class="cite-accessibility-label">Jump up </span>↑</a></span> <span class="reference-text">Although this technique is standard, it is unclear whether it has a common name. The name "decimal range decomposition" was coined by an author of this article.</span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2"><span class="cite-accessibility-label">Jump up </span>↑</a></span> <span class="reference-text">Zero is disallowed in order to ensure that all the numbers in each elementary range have the same number of digits, and no number is treated as having leading zeroes.</span>
+</li>
+</ol>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.077 seconds
+Real time usage: 0.088 seconds
+Preprocessor visited node count: 550/1000000
+Preprocessor generated node count: 1302/1000000
+Post‐expand include size: 157/2097152 bytes
+Template argument size: 40/2097152 bytes
+Highest expansion depth: 4/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    7.398      1 - -total
+ 75.85%    5.611      1 - Template:Problem
+ 44.72%    3.308      1 - Template:JudgeRoot
+ 22.60%    1.672      1 - Template:Root
+ 21.52%    1.592      1 - Template:SPOJ
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:501-0!*!0!!en!*!*!math=0 and timestamp 20180501014147 and revision id 1803
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wcipeg.com/wiki/index.php?title=Decimal_range_decomposition&amp;oldid=1803">https://wcipeg.com/wiki/index.php?title=Decimal_range_decomposition&amp;oldid=1803</a>"					</div>
+													<div id="catlinks" class="catlinks catlinks-allhidden"></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Decimal+range+decomposition&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Decimal+range+decomposition" title="You are encouraged to log in; however, it is not mandatory [ctrl-alt-o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li id="ca-nstab-main" class="selected"><span><a href="/wiki/Decimal_range_decomposition" title="View the content page [ctrl-alt-c]" accesskey="c">Page</a></span></li>
+															<li id="ca-talk"><span><a href="/wiki/Talk:Decimal_range_decomposition" title="Discussion about the content page [ctrl-alt-t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label" tabindex="0"><span>Variants</span><a href="#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Decimal_range_decomposition">Read</a></span></li>
+															<li id="ca-edit"><span><a href="/wiki/index.php?title=Decimal_range_decomposition&amp;action=edit" title="You can edit this page. Please use the preview button before saving [ctrl-alt-e]" accesskey="e">Edit</a></span></li>
+															<span class="placeholder" style="display: none;"></span>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu" aria-labelledby="p-cactions-label" style="">
+						<h3 id="p-cactions-label" tabindex="0" style="width: 61px;"><span>More</span><a href="#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul><li id="ca-history" class="collapsible" style="display: list-item;"><span><a href="/wiki/index.php?title=Decimal_range_decomposition&amp;action=history" title="Past revisions of this page [ctrl-alt-h]" accesskey="h">View history</a></span></li>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search PEGWiki [ctrl-alt-f]" accesskey="f" id="searchInput" tabindex="1" autocomplete="off"><input type="hidden" value="Special:Search" name="title"><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton">								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page" title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id="p-navigation" aria-labelledby="p-navigation-label">
+			<h3 id="p-navigation-label">Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [ctrl-alt-z]" accesskey="z">Main page</a></li>
+													<li id="n-Index"><a href="/wiki/Special:AllPages">Index</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [ctrl-alt-r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [ctrl-alt-x]" accesskey="x">Random page</a></li>
+													<li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+			<h3 id="p-tb-label">Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Decimal_range_decomposition" title="A list of all wiki pages that link here [ctrl-alt-j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Decimal_range_decomposition" title="Recent changes in pages linked from this page [ctrl-alt-k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [ctrl-alt-q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/wiki/index.php?title=Decimal_range_decomposition&amp;printable=yes" rel="alternate" title="Printable version of this page [ctrl-alt-p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/wiki/index.php?title=Decimal_range_decomposition&amp;oldid=1803" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/wiki/index.php?title=Decimal_range_decomposition&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 11 August 2014, at 15:42.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Attribution 3.0 Unported</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/PEGWiki:Privacy_policy" title="PEGWiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/PEGWiki:About" title="PEGWiki:About">About PEGWiki</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/PEGWiki:General_disclaimer" title="PEGWiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by/3.0/"><img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Attribution 3.0 Unported" width="88" height="31"></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wiki/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.cite","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wcipeg.com/wiki/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script><script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":67});
+}</script>
+	
+
+<div class="suggestions" style="display: none; font-size: 13px;"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>

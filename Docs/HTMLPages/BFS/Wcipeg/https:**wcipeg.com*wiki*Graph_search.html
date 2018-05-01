@@ -1,0 +1,349 @@
+<!DOCTYPE html><html lang="en" dir="ltr" class="client-js"><head>
+<meta charset="UTF-8">
+<title>Graph search - PEGWiki</title>
+<meta name="generator" content="MediaWiki 1.25.2">
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/wiki/index.php?title=Graph_search&amp;action=edit">
+<link rel="edit" title="Edit" href="/wiki/index.php?title=Graph_search&amp;action=edit">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="/wiki/opensearch_desc.php" title="PEGWiki (en)">
+<link rel="EditURI" type="application/rsd+xml" href="https://wcipeg.com/wiki/api.php?action=rsd">
+<link rel="alternate" hreflang="x-default" href="/wiki/Graph_search">
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/">
+<link rel="alternate" type="application/atom+xml" title="PEGWiki Atom feed" href="/wiki/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*">
+<style>
+.mw-collapsible-toggle{float:right;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}  .mw-content-ltr .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr .mw-collapsible-toggle{float:right} .mw-content-rtl .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl .mw-collapsible-toggle{float:left}.mw-customtoggle,.mw-collapsible-toggle{cursor:pointer} caption .mw-collapsible-toggle,.mw-content-ltr caption .mw-collapsible-toggle,.mw-content-rtl caption .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr caption .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl caption .mw-collapsible-toggle{float:none} li .mw-collapsible-toggle,.mw-content-ltr li .mw-collapsible-toggle,.mw-content-rtl li .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr li .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:e1ffd603cbaaa5f1a36e0d13fe843535 */
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:none;z-index:1099;padding:0;margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#4C59A6;color:white}.suggestions-special .special-label{color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white}.highlight{font-weight:bold}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:f8d0c6895ce3ae14434c16b8fca59432 */
+.postedit-container{margin:0 auto;position:fixed;top:0;height:0;left:50%;z-index:1000;font-size:13px}.postedit-container:hover{cursor:pointer}.postedit{position:relative;top:0.6em;left:-50%;padding:.6em 3.6em .6em 1.1em;line-height:1.5625em;color:#626465;background-color:#f4f4f4;border:1px solid #dcd9d9;text-shadow:0 0.0625em 0 rgba(255,255,255,0.5);border-radius:5px;box-shadow:0 2px 5px 0 #ccc;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;-ms-transition:all 0.25s ease-in-out;-o-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out}.skin-monobook .postedit{top:6em !important}.postedit-faded{opacity:0}.postedit-icon{padding-left:41px;  line-height:25px;background-repeat:no-repeat;background-position:8px 50%}.postedit-icon-checkmark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABblBMVEUAAAD///////9PfTf///80aRdTgjn///9Feij///////////9Rfzf///////////9PfjZRgDh1o1xOfTb///////+bwYqLtnj///////9PfTa82K////9WhT6YxIL///9QgDdTgzr////////j7uDl7eLq8efi693k7OH///////9UhjuBr2rp9uRUhjr///9YljVKgir///9WiTlYjT3////9/v57vFlbkT5PjC9dlD/5/fhuq09stUTs9uhxuElctCpfnT1huDFloEZloUZmpENmvDZpvDxpvTxqvjxrvT5rvT9rwTxsqktswD5uwkBvuUdxw0NztFBztU9ztVBzwkp0tlJ1xkd2t1R3uVR4w1F4xk54x014yE15uVZ5v1R5xVB6v1R7yFJ8wVh9xVl9yFR9yVd9ylN+xVh+yFd/x1l/yFeAylmEx1+Ny2uY0Hqe04Wj1Ymv3Ze33qLD47TJ5L3O6cPU7Mrq9eb2+/Q4j37OAAAAQHRSTlMAAQIEBAUFBQwPFB4fJCUoKiosQEhJS01RUlZZXmdydXaChYuSlJSWmJmoq6uur8LExcvM19fg5ejt8fX2+Pr7SljgewAAAKpJREFUGBkFwQNCAwAAAMDLtl3LtrG4rWXbtvX77gAgZ6grFwC0bhwNVgKgdPZx8b0dgLi+s7Wn0VoAqpfOI9+BNADZI7fLrz2pSEwGHZuH+78lSK8ZLkLezF3ooyUG3VPXq2USei9WngeyoG195yBYWDF3E/2pAhl1e9Gr8bGT+bfOFCC2fnvh4X7rcqIAQNNu+HT6sxkAjceTL/2ZAIhv+PorBwBJxfkA//dFHSCBy/UTAAAAAElFTkSuQmCC);background-image:url(https://wcipeg.com/wiki/resources/src/mediawiki.action/images/green-checkmark.png?2015-08-10T21:21:40Z)!ie;background-position:left}.postedit-close{position:absolute;padding:0 .8em;right:0;top:0;font-size:1.25em;font-weight:bold;line-height:2.3em;color:black;text-shadow:0 0.0625em 0 white;text-decoration:none;opacity:0.2;filter:alpha(opacity=20)}.postedit-close:hover{color:black;text-decoration:none;opacity:0.4;filter:alpha(opacity=40)}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:86d7c89b7cadf5004340279c398253d8 */</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:black;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:white}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:ae3fa4570b5ac0c6cf7b3776c8ae4d6f */</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*">
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:b36fd1c042133c9c9b60260f7c29b237 */</style>
+<script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script><script src="/wiki/load.php?debug=false&amp;lang=en&amp;modules=jquery%2Cmediawiki&amp;only=scripts&amp;skin=vector&amp;version=20161103T112730Z"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Graph_search","wgTitle":"Graph search","wgCurRevisionId":1769,"wgRevisionId":1769,"wgArticleId":18,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Graph_search","wgRelevantArticleId":18,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikidb:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script><script src="/wiki/load.php?debug=false&amp;lang=en&amp;modules=jquery.accessKeyLabel%2Cclient%2CmwExtension%2CtabIndex%2Cthrottle-debounce%7Cmediawiki.legacy.ajax%2Cwikibits%7Cmediawiki.notify%2Cutil%7Cmediawiki.page.startup%7Cskins.vector.js&amp;skin=vector&amp;version=20161103T112730Z&amp;*"></script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Graph_search skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Graph search</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From PEGWiki</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>In <a href="/wiki/Graph_theory" title="Graph theory">graph theory</a>, <b>graph search</b> or <b>graph traversal</b> refers to the technique of "visiting" each vertex of the graph in turn, executing some code whenever a vertex is "visited". By varying the order in which vertices are visited and the nature of the action performed when a vertex is visited, many interesting problems in graph theory can be solved efficiently. Conversely, many graph-theoretic algorithms can be classified as graph search algorithms (see the Applications below).
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="#" id="togglelink">hide</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Basic_principles_of_graph_search"><span class="tocnumber">1</span> <span class="toctext">Basic principles of graph search</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Pseudocode_for_generic_graph_search_algorithm"><span class="tocnumber">2</span> <span class="toctext">Pseudocode for generic graph search algorithm</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Types_of_graph_search_algorithms"><span class="tocnumber">3</span> <span class="toctext">Types of graph search algorithms</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Breadth-first_search"><span class="tocnumber">3.1</span> <span class="toctext">Breadth-first search</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Depth-first_search"><span class="tocnumber">3.2</span> <span class="toctext">Depth-first search</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Priority-first_search"><span class="tocnumber">3.3</span> <span class="toctext">Priority-first search</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Applications_of_graph_search"><span class="tocnumber">4</span> <span class="toctext">Applications of graph search</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="#Components_in_graphs"><span class="tocnumber">4.1</span> <span class="toctext">Components in graphs</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="#Connected_components_in_undirected_graphs"><span class="tocnumber">4.1.1</span> <span class="toctext">Connected components in undirected graphs</span></a>
+<ul>
+<li class="toclevel-4 tocsection-10"><a href="#Flood_fill"><span class="tocnumber">4.1.1.1</span> <span class="toctext">Flood fill</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3 tocsection-11"><a href="#Biconnected_components"><span class="tocnumber">4.1.2</span> <span class="toctext">Biconnected components</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="#Directed_graphs"><span class="tocnumber">4.1.3</span> <span class="toctext">Directed graphs</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-13"><a href="#Paths_and_spanning_trees"><span class="tocnumber">4.2</span> <span class="toctext">Paths and spanning trees</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#Topological_sort"><span class="tocnumber">4.3</span> <span class="toctext">Topological sort</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Basic_principles_of_graph_search">Basic principles of graph search</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Graph_search&amp;action=edit&amp;section=1" title="Edit section: Basic principles of graph search">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Although theoretically one can visit the vertices of a graph in any order, in all useful graph search algorithms the choice of which vertex to visit next is taken from the immediate neighbours of vertices that have already been visited. (Obviously, the first vertex visited does not follow this rule.) This means that usually the algorithm must be invoked separately on each <a href="/wiki/index.php?title=Connected_component&amp;action=edit&amp;redlink=1" class="new" title="Connected component (page does not exist)">connected component</a> of the graph, because it is impossible to visit a vertex if the algorithm starts in a different component. The set of all vertices which have not yet been visited but may be visited next (because they are immediate neighbours of already-visited vertices) is called the <i>fringe</i>.
+</p>
+<h2><span class="mw-headline" id="Pseudocode_for_generic_graph_search_algorithm">Pseudocode for generic graph search algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Graph_search&amp;action=edit&amp;section=2" title="Edit section: Pseudocode for generic graph search algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<pre>input G
+for each connected component C ∈ G
+     for each v ∈ V(C)
+          let visited[v] = false
+     let u = some vertex ∈ V(C)
+     let F = {u}
+     while F ≠ {}
+          u = some vertex ∈ F
+          remove u from F
+          if visited[u] = false
+               visit u
+               visited[u] = true
+               for each v ∈ V(C) such that (u,v) ∈ E(G) and visited[v] = false
+                    add v to F
+</pre>
+<p>Here is a line-by-line analysis of the code:
+</p>
+<ul><li> We run the graph search exactly once for each connected component in the graph (<i>for each connected component C ∈ G</i>).</li>
+<li> Initially, no vertices in <i>C</i> (<i>v ∈ V(C)</i>) have been visited yet, so we set each vertex's entry in the <i>visited</i> array to false (<i>let visited[v] = false</i>).</li>
+<li> The algorithm starts by choosing some vertex in the component (<i>let u = some vertex ∈ V(C)</i>) and placing it in the fringe <i>F</i> (<i>let F = {u}</i>).</li>
+<li> From then on, the next vertex we visit will always be a vertex in the fringe, so we know we can stop when the fringe becomes empty (<i>while F ≠ {}</i>).</li>
+<li> When the fringe is not empty, we select any vertex in <i>F</i> (<i>u = some vertex ∈ F</i>) and remove it from <i>F</i>. If <i>u</i> has already been visited, we have nothing more to do for <i>u</i>. Otherwise (<i>if visited[u] = false</i>), we "visit" <i>u</i>, whatever "visit" happens to mean in the particular algorithm we are using. We record that <i>u</i> has been visited (<i>visited[u] = true</i>).</li>
+<li> After visiting <i>u</i>, we add any neighbours of <i>u</i> (<i>for each v ∈ V(C) such that (u,v) ∈ E(G)</i>) to the fringe <i>F</i> that have not been visited already (<i>and visited[v] = false</i>). Then the loop starts over again, meaning that these newly added vertices are eventually visited.</li></ul>
+<p>As it stands, this code has a serious flaw: how do we know what the connected components of the graph are? As a matter of fact, breadth-first search and depth-first search are usually used to <i>find</i> the connected components, but they are themselves graph search! The solution is as follows: if a connected component has already been examined, then all vertices in that component have been visited, or, contrapositively, if a vertex has not been visited, then its component has not been visited either. This allows us to rewrite the code as
+</p>
+<pre>input G
+for each u ∈ V(G)
+     let visited[u] = false
+for each u ∈ V(G)
+     if visited[u]=false
+          let F = {u}
+          while F ≠ {}
+               v = some vertex ∈ F
+               remove v from F
+               if visited[v] = false
+                    visit v
+                    visited[v] = true
+                    for each w ∈ V(G) such that (v,w) ∈ E(G) and visited[w] = false
+                         add w to F
+</pre>
+<p>Notice that <i>F</i> is not necessarily a real set in the mathematical sense; <i>F</i> might contain multiple copies of a vertex. The nature of <i>F</i> is dependent upon what type of graph search algorithm is being used. Also, an actual implementation of graph search need not actually look like this. For example, depth-first search is often implemented <a href="/wiki/Recursion" title="Recursion" class="mw-redirect">recursively</a>. However, all graph search algorithms can be made to fit this form.<br>
+</p>
+<h2><span class="mw-headline" id="Types_of_graph_search_algorithms">Types of graph search algorithms</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Graph_search&amp;action=edit&amp;section=3" title="Edit section: Types of graph search algorithms">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Many details have been left out of the generic code above. For example, we are free to choose the initial vertex <i>u</i> in any way we want, to iterate over the connected components in any order, and to iterate over the neighbours of <i>u</i> in any order. However, there are two places where variation is most important: the instruction <i>visit u</i> can mean practically anything, leading to endless variety in graph algorithms, and selecting the next vertex from <i>F</i> can be done in various ways. When you learn a new algorithm, try to identify these choices and understand how they are crucial to the correctness of the algorithm. There are three common paradigms for the selection of the next vertex: breadth-first search, depth-first search, and priority-first search.
+</p>
+<h3><span class="mw-headline" id="Breadth-first_search">Breadth-first search</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Graph_search&amp;action=edit&amp;section=4" title="Edit section: Breadth-first search">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>In <a href="/wiki/Breadth-first_search" title="Breadth-first search">breadth-first search</a>, the next vertex selected from <i>F</i> is always the oldest remaining vertex in <i>F</i> (the one that was placed into <i>F</i> first.) That is, <i>F</i> is a FIFO (first in, first out) <a href="/wiki/Queue" title="Queue">queue</a>.
+</p>
+<h3><span class="mw-headline" id="Depth-first_search">Depth-first search</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Graph_search&amp;action=edit&amp;section=5" title="Edit section: Depth-first search">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>In <a href="/wiki/Depth-first_search" title="Depth-first search">depth-first search</a>, the next vertex selected from <i>F</i> is always the newest remaining vertex (the one most recently added to <i>F</i>). That is, <i>F</i> is a LIFO (last-in, first out) <a href="/wiki/Stack" title="Stack">stack</a>.
+</p>
+<h3><span class="mw-headline" id="Priority-first_search">Priority-first search</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Graph_search&amp;action=edit&amp;section=6" title="Edit section: Priority-first search">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>In priority-first search, each vertex is assigned a priority, and whenever a vertex is to be selected from <i>F</i>, the one with the highest priority is selected. This is the basis of Dijkstra's algorithm, A*, and Prim's algorithm (see Applications).
+</p>
+<h2><span class="mw-headline" id="Applications_of_graph_search">Applications of graph search</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Graph_search&amp;action=edit&amp;section=7" title="Edit section: Applications of graph search">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Graph search has the following uses, <i>inter alia</i>:
+</p>
+<h3><span class="mw-headline" id="Components_in_graphs">Components in graphs</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Graph_search&amp;action=edit&amp;section=8" title="Edit section: Components in graphs">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<h4><span class="mw-headline" id="Connected_components_in_undirected_graphs">Connected components in undirected graphs</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Graph_search&amp;action=edit&amp;section=9" title="Edit section: Connected components in undirected graphs">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>The problems of finding connected components in undirected graphs is solved using graph search; we start the search at some vertex, and after running the search, a vertex has its <i>visited</i> entry true if and only if it is in the same connected component as the starting vertex. This can be used to assign <i>all</i> vertices connected component IDs, so that two vertices are in the same component (and reachable from each other). (The proof that one pass of graph search will visit all vertices reachable from the starting vertex can be easily executed by induction on the unweighted distance from the starting vertex.) In fact, we can remove the <i>visited</i> array because we will be able to tell if a vertex has been visited yet by examining its ID number; if it has not been visited yet, then and ID number has not been assigned, and <i>vice versa</i>. Pseudocode:
+</p>
+<pre>input G
+let cnt = 0
+for each u ∈ V(G)
+     let id[u] = -1
+for each u ∈ V(G)
+     if id[u]=-1
+          let F = {u}
+          while F ≠ {}
+               v = some vertex ∈ F
+               remove v from F
+               if id[v] = -1
+                    visit v
+                    id[v] = cnt
+                    for each w ∈ V(G) such that (v,w) ∈ E(G) and id[w] = -1
+                         add w to F
+          cnt = cnt + 1
+</pre>
+<p>We iterate through the vertices one at a time. If, for a given vertex, a component ID has not yet been assigned (it is currently -1), then we assign it the first unused non-negative integer and we do a graph search starting from that vertex, assigning this ID number to all vertices reachable from it. After doing the search, we increment the total number of components found so that the next component will be assigned a higher ID number. But if, when we reach a vertex, a component ID has already been assigned, then we skip that vertex.
+</p>
+<h5><span class="mw-headline" id="Flood_fill">Flood fill</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Graph_search&amp;action=edit&amp;section=10" title="Edit section: Flood fill">edit</a><span class="mw-editsection-bracket">]</span></span></h5>
+<p>The special case known as <b>flood fill</b> is often used as an example application of graph search. The task is to implement an algorithm that will accomplish something like the fill tool in a simple raster graphics editor (such as <i>Paint</i>, which will be familiar to users of Microsoft Windows): given a two-dimensional array of numbers (with each number presumably representing a colour), one location in the array (a pixel), and a new number (a new colour), the objective is to fill the entire contiguous single-valued (monochromatic) area containing the given location with the new number.
+</p><p>In this case, the graph is defined implicitly, and there is no need to explicitly construct it. Each element of the array corresponds to a vertex, which can be identified simply by its row and column indices. Most vertices have degree four (with the exception of those on the boundary); the neighbours' indices can be determined by adding one to or subtracting one from either the row or the column.
+</p><p>The article on <a href="/wiki/Depth-first_search" title="Depth-first search">depth-first search</a> contains code for the typical recursive DFS implementation of flood fill.
+</p><p>The flood fill algorithm can be used to count the number of "blobs" in a grid, too; every time we encounter a nonempty square, we flood fill it to make it empty, and so remove the entire blob. The total number of times we have to do this is the total number of blobs, since each blob will only be removed once.
+</p>
+<h4><span class="mw-headline" id="Biconnected_components">Biconnected components</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Graph_search&amp;action=edit&amp;section=11" title="Edit section: Biconnected components">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>The more complex problem of finding <a href="/wiki/index.php?title=Biconnected_component&amp;action=edit&amp;redlink=1" class="new" title="Biconnected component (page does not exist)">biconnected components</a> (or finding <a href="/wiki/index.php?title=Bridge&amp;action=edit&amp;redlink=1" class="new" title="Bridge (page does not exist)">bridges</a> and <a href="/wiki/index.php?title=Articulation_points&amp;action=edit&amp;redlink=1" class="new" title="Articulation points (page does not exist)">articulation points</a>) in an undirected graph can be solved with a depth-first search algorithm.
+</p>
+<h4><span class="mw-headline" id="Directed_graphs">Directed graphs</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Graph_search&amp;action=edit&amp;section=12" title="Edit section: Directed graphs">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>For directed graphs, the equivalent of connected components are <a href="/wiki/index.php?title=Strongly_connected_component&amp;action=edit&amp;redlink=1" class="new" title="Strongly connected component (page does not exist)">strongly connected components</a>: again, maximal subsets of the vertices such that inside each component any vertex is reachable from any other. The three best-known algorithms for computing these, <a href="/wiki/index.php?title=Tarjan%27s_strongly_connected_components_algorithm&amp;action=edit&amp;redlink=1" class="new" title="Tarjan's strongly connected components algorithm (page does not exist)">Tarjan's algorithm</a>, <a href="/wiki/index.php?title=Gabow%27s_algorithm&amp;action=edit&amp;redlink=1" class="new" title="Gabow's algorithm (page does not exist)">Gabow's algorithm</a>, and <a href="/wiki/index.php?title=Kosaraju%27s_algorithm&amp;action=edit&amp;redlink=1" class="new" title="Kosaraju's algorithm (page does not exist)">Kosaraju's algorithm</a>, all use depth-first searches. The equivalents of articulation points in directed graphs — <a href="/wiki/index.php?title=Dominator_tree&amp;action=edit&amp;redlink=1" class="new" title="Dominator tree (page does not exist)">dominators</a> — are computed using depth-first search too.
+</p>
+<h3><span class="mw-headline" id="Paths_and_spanning_trees">Paths and spanning trees</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Graph_search&amp;action=edit&amp;section=13" title="Edit section: Paths and spanning trees">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>One of the simplest uses of graph search is finding a path from one vertex <i>s</i> to another vertex <i>t</i>. For example, we might want to find a path out of a maze. The code for such an application might look like this:
+</p>
+<pre>input G,s,t
+for each u ∈ V(G)
+     let visited[u] = false
+let F = {(s,s)}
+while F ≠ {}
+     (u,v) = some pair ∈ F
+     remove (u,v) from F
+     if visited[v] = false
+          pred[v] = u
+          visited[v] = true
+          for each w ∈ V(G) such that (v,w) ∈ E(G) and visited[w] = false
+               add (v,w) to F
+</pre>
+<p>Here, instead of simply pushing a vertex's neighbour onto the fringe <i>F</i>, we push a pair containing the original vertex and the neighbour. That way, when this pair is removed from <i>F</i>, we know both which vertex we wish to visit <i>and</i> where we "came from" (the <i>predecessor</i>). We record the predecessor in the array <i>pred[]</i>. After this algorithm has terminated, if <i>t</i> is in the same connected component as <i>s</i>, then at some point <i>t</i> will have been visited, and at that time <i>pred[t]</i> will have been set to some vertex which has <i>t</i> as its neighbour. That vertex, in turn, must have been visited, so its predecessor was recorded also, and we can ultimately trace back the path to <i>s</i>. (In this implementation, <i>s</i> is its own predecessor; this is not necessary however.) In other words, in the general case, <i>s</i>, <i>pred[pred[pred[...t...]]]</i>, ...,  <i>pred[pred[pred[t]]]</i>, <i>pred[pred[t]]</i>, <i>pred[t]</i>, <i>t</i> will be a path from <i>s</i> to <i>t</i> after the algorithm has terminated.
+</p><p>As a matter of fact, this algorithm finds paths from <i>s</i> to <i>all</i> other vertices reachable from <i>s</i>. We can replace <i>t</i> by any other vertex and use the <i>pred[]</i> array to find a path from <i>s</i> to this vertex. Since every vertex except for <i>s</i> has one unique <i>parent</i> (predecessor), the vertices form a <a href="/wiki/Tree" title="Tree">tree</a>, with an edge between two vertices if and only if one is the other's predecessor when this algorithm is run. The root of the tree is the only vertex lacking a parent, or <i>s</i>. The algorithm is said to produce a <i>spanning tree</i> of the connected component containing <i>s</i>: a subgraph of that connected component which is also a tree.
+</p><p>Breadth-first search will find the <i>shortest</i> paths from one vertex to all others reachable from it in an <i>unweighted</i> graph; <a href="/wiki/Dijkstra%27s_algorithm" title="Dijkstra's algorithm">Dijkstra's algorithm</a> and <a href="/wiki/index.php?title=A*&amp;action=edit&amp;redlink=1" class="new" title="A* (page does not exist)">A*</a> will do the same in a <i>weighted</i> graph. <a href="/wiki/Prim%27s_algorithm" title="Prim's algorithm">Prim's algorithm</a> will find a <a href="/wiki/Minimum_spanning_tree" title="Minimum spanning tree">minimum spanning tree</a> in an undirected graph, a spanning tree whose total weight (the sum of the weights of all its edges) is minimal. Finding a path from one vertex to another is also essential to the <i>augmenting path algorithms</i>, including <a href="/wiki/index.php?title=Dini%C4%87%27s_algorithm&amp;action=edit&amp;redlink=1" class="new" title="Dinić's algorithm (page does not exist)">Dinić's algorithm</a> and those using the <a href="/wiki/Ford-Fulkerson_method" title="Ford-Fulkerson method" class="mw-redirect">Ford-Fulkerson method</a>, for computing a <a href="/wiki/Maximum_flow" title="Maximum flow">maximum flow</a>.
+</p>
+<h3><span class="mw-headline" id="Topological_sort">Topological sort</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Graph_search&amp;action=edit&amp;section=14" title="Edit section: Topological sort">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The problem of <a href="/wiki/Topological_sorting" title="Topological sorting" class="mw-redirect">topological sorting</a> can be easily solved using graph search (it does not matter if it is breadth-first, depth-first, or anything else). For reference, the problem is to find, in a <a href="/wiki/Directed_acyclic_graph" title="Directed acyclic graph">directed acyclic graph</a>, an ordering of the vertices such that if an edge (<i>u</i>,<i>v</i>) exists then <i>u</i> precedes <i>v</i> in the ordering. To solve this using graph search, we first add all sources to the fringe, because they can be placed first in the ordering, and subsequently we visit each vertex only after all vertices that must precede it have already been visited, adding it to the end of the ordering as it is visited.
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.030 seconds
+Real time usage: 0.031 seconds
+Preprocessor visited node count: 91/1000000
+Preprocessor generated node count: 140/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:18-0!*!0!!en!*!* and timestamp 20180430164252 and revision id 1769
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wcipeg.com/wiki/index.php?title=Graph_search&amp;oldid=1769">https://wcipeg.com/wiki/index.php?title=Graph_search&amp;oldid=1769</a>"					</div>
+													<div id="catlinks" class="catlinks catlinks-allhidden"></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Graph+search&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Graph+search" title="You are encouraged to log in; however, it is not mandatory [ctrl-alt-o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li id="ca-nstab-main" class="selected"><span><a href="/wiki/Graph_search" title="View the content page [ctrl-alt-c]" accesskey="c">Page</a></span></li>
+															<li id="ca-talk" class="new"><span><a href="/wiki/index.php?title=Talk:Graph_search&amp;action=edit&amp;redlink=1" title="Discussion about the content page [ctrl-alt-t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label" tabindex="0"><span>Variants</span><a href="#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Graph_search">Read</a></span></li>
+															<li id="ca-edit"><span><a href="/wiki/index.php?title=Graph_search&amp;action=edit" title="You can edit this page. Please use the preview button before saving [ctrl-alt-e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible" style="position: relative; right: 0px; overflow: hidden; width: 8.552861377059585px;"><span><a href="/wiki/index.php?title=Graph_search&amp;action=history" title="Past revisions of this page [ctrl-alt-h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu" aria-labelledby="p-cactions-label" style="">
+						<h3 id="p-cactions-label" tabindex="0" style="width: 56.074220841048096px; overflow: hidden;"><span>More</span><a href="#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search PEGWiki [ctrl-alt-f]" accesskey="f" id="searchInput" tabindex="1" autocomplete="off"><input type="hidden" value="Special:Search" name="title"><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton">								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page" title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id="p-navigation" aria-labelledby="p-navigation-label">
+			<h3 id="p-navigation-label">Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [ctrl-alt-z]" accesskey="z">Main page</a></li>
+													<li id="n-Index"><a href="/wiki/Special:AllPages">Index</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [ctrl-alt-r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [ctrl-alt-x]" accesskey="x">Random page</a></li>
+													<li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+			<h3 id="p-tb-label">Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Graph_search" title="A list of all wiki pages that link here [ctrl-alt-j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Graph_search" title="Recent changes in pages linked from this page [ctrl-alt-k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [ctrl-alt-q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/wiki/index.php?title=Graph_search&amp;printable=yes" rel="alternate" title="Printable version of this page [ctrl-alt-p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/wiki/index.php?title=Graph_search&amp;oldid=1769" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/wiki/index.php?title=Graph_search&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 15 January 2014, at 18:00.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Attribution 3.0 Unported</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/PEGWiki:Privacy_policy" title="PEGWiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/PEGWiki:About" title="PEGWiki:About">About PEGWiki</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/PEGWiki:General_disclaimer" title="PEGWiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by/3.0/"><img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Attribution 3.0 Unported" width="88" height="31"></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wiki/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wcipeg.com/wiki/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script><script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":66});
+}</script>
+	
+
+<div class="suggestions" style="display: none; font-size: 13px;"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>

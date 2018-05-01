@@ -1,8 +1,8 @@
 from bs4 import BeautifulSoup
 from urllib.request import Request, urlopen
 from selenium import webdriver
-from reppy.cache import RobotsCache
 from reppy.robots import Robots
+from reppy.cache import RobotsCache
 import re
 import requests
 import queue
@@ -16,14 +16,13 @@ i = 0
 def robots(domain, path, rp):
     return rp.allowed(domain+path,"*")
 
-def get_all_links(domain, path, maxSize):
+def get_all_links(domain, path, maxSize, rp):
     #response = requests.get(domain+path, headers={'User-Agent': 'Mozilla/5.0'})
     driver = webdriver.PhantomJS( service_args=['--ignore-ssl-errors=true', '--ssl-protocol=any'])
     driver.get(domain+path)
     soup = BeautifulSoup(driver.page_source, "html.parser")
     driver.service.process.send_signal(signal.SIGTERM)
     links = []
-    rp = Robots.fetch(domain+'/robots.txt',verify=False)
     for link in soup.findAll('a', href=True):
         regex = re.compile(
             r'^(?:http|ftp)s?://' # http:// or https://
@@ -35,28 +34,40 @@ def get_all_links(domain, path, maxSize):
         if((re.match(regex, domain+link.get('href')) is not None or re.match(regex, domain+'/'+link.get('href')) is not None) and (re.match(regex, link.get('href')) is None) and (link.get('href')!='javascript:void();')):
             if(len(link.get('href'))>0):
                 if((link.get('href')[0]>='a'and link.get('href')[0]<='z') or (link.get('href')[0]>='1'and link.get('href')[0]<='9')):
-                    if(robots(domain, '/'+link.get('href'), rp)):    
-                        if(robots(domain, '/'+link.get('href'), rp)):
-                            links.append('/'+link.get('href'))
+                    if(robots(domain, '/'+link.get('href'), rp)):
+                        #print(domain+'/'+link.get('href'))
+                        try:
+                            r = requests.get(domain+'/'+link.get('href'), verify=False)
+                            if "text/html" in r.headers["content-type"]:    
+                                links.append('/'+link.get('href'))
+                        except:
+                            pass
                 else:
                     if(robots(domain, link.get('href'), rp)):
-                        links.append(link.get('href'))
+                        #print(domain+link.get('href'))
+                        try:
+                            r = requests.get(domain+link.get('href'), verify=False)
+                            if "text/html" in r.headers["content-type"]:  
+                                links.append(link.get('href'))
+                        except:
+                            pass
         
     return links
 
 
-def crawler(domain, pathseed, maxSize = 100):
+def crawler(domain, pathseed, maxSize = 1000):
     q = queue.Queue()
     visited = []
     links = []
     q.put(pathseed)
     visited.append(pathseed)
+    rp = Robots.fetch(domain+'/robots.txt',verify=False)
     while(not q.empty() and q.qsize()<maxSize):
         a = q.get()
         print("! " + str(q.qsize()))
         if(len(links) < maxSize):
             links.append(domain+a)
-            ls = get_all_links(domain, a, maxSize)
+            ls = get_all_links(domain, a, maxSize, rp)
             for l in ls:
                 if(l not in visited):
                     visited.append(l)
@@ -66,14 +77,16 @@ def crawler(domain, pathseed, maxSize = 100):
                 q.get()
     while(len(links)<maxSize and not q.empty()):
         links.append(domain+q.get())
-    os.makedirs('Docs/HTMLPages/'+folder(domain)+'/', exist_ok=True)
+    os.makedirs('Docs/HTMLPages/BFS/'+folder(domain)+'/', exist_ok=True)
     print(len(links))
+    v = 0
     for l in links:
-        print(l)
+        v += 1
+        print(v)
         driver = webdriver.PhantomJS( service_args=['--ignore-ssl-errors=true', '--ssl-protocol=any'])
         driver.get(l)
         #print(driver.page_source)
-        with open('Docs/HTMLPages/'+folder(domain)+'/'+l.replace('/','*')+'.html', 'wb') as f:
+        with open('Docs/HTMLPages/BFS/'+folder(domain)+'/'+l.replace('/','*')+'.html', 'wb') as f:
             f.write(bytes(driver.page_source,'UTF-8'))
         driver.service.process.send_signal(signal.SIGTERM) 
     return 0
@@ -99,9 +112,8 @@ def folder(domain):
     if(domain=='https://a2oj.com'):
         return 'A2oj'
 
-    
-crawler('https://www.codechef.com','')
 crawler('https://a2oj.com','')
+crawler('https://www.codechef.com','')
 crawler('http://www.spoj.com','')
 crawler('https://dmoj.ca','')
 crawler('http://acm.timus.ru','')
@@ -109,3 +121,6 @@ crawler('https://www.urionlinejudge.com.br','')
 crawler('https://leetcode.com','')
 crawler('https://wcipeg.com','')
 crawler('http://www.codeforces.com','')
+
+rp = Robots.fetch('http://www.codeforces.com'+'/robots.txt',verify=False)
+print(rp.allowed('http://www.codeforces.com','*'))

@@ -1,0 +1,270 @@
+<!DOCTYPE html><html lang="en" dir="ltr" class="client-js"><head>
+<meta charset="UTF-8">
+<title>Longest palindromic subsequence - PEGWiki</title>
+<meta name="generator" content="MediaWiki 1.25.2">
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/wiki/index.php?title=Longest_palindromic_subsequence&amp;action=edit">
+<link rel="edit" title="Edit" href="/wiki/index.php?title=Longest_palindromic_subsequence&amp;action=edit">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="/wiki/opensearch_desc.php" title="PEGWiki (en)">
+<link rel="EditURI" type="application/rsd+xml" href="https://wcipeg.com/wiki/api.php?action=rsd">
+<link rel="alternate" hreflang="x-default" href="/wiki/Longest_palindromic_subsequence">
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/">
+<link rel="alternate" type="application/atom+xml" title="PEGWiki Atom feed" href="/wiki/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=ext.math.styles%7Cext.rtlcite%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*">
+<style>
+.cite-accessibility-label{position:absolute !important; top:-99999px;clip:rect(1px 1px 1px 1px); clip:rect(1px,1px,1px,1px);padding:0 !important;border:0 !important;height:1px !important;width:1px !important;overflow:hidden}.mw-cite-backlink,.cite-accessibility-label{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none} ol.references li:target,sup.reference:target{background-color:#def; background-color:rgba(0,127,255,0.133)}@media print{.mw-cite-backlink{display:none}}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:2970940d33044e6aa6a620ce3c93c662 */
+.mw-collapsible-toggle{float:right;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}  .mw-content-ltr .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr .mw-collapsible-toggle{float:right} .mw-content-rtl .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl .mw-collapsible-toggle{float:left}.mw-customtoggle,.mw-collapsible-toggle{cursor:pointer} caption .mw-collapsible-toggle,.mw-content-ltr caption .mw-collapsible-toggle,.mw-content-rtl caption .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr caption .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl caption .mw-collapsible-toggle{float:none} li .mw-collapsible-toggle,.mw-content-ltr li .mw-collapsible-toggle,.mw-content-rtl li .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr li .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:e1ffd603cbaaa5f1a36e0d13fe843535 */
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:none;z-index:1099;padding:0;margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#4C59A6;color:white}.suggestions-special .special-label{color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white}.highlight{font-weight:bold}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:f8d0c6895ce3ae14434c16b8fca59432 */
+.postedit-container{margin:0 auto;position:fixed;top:0;height:0;left:50%;z-index:1000;font-size:13px}.postedit-container:hover{cursor:pointer}.postedit{position:relative;top:0.6em;left:-50%;padding:.6em 3.6em .6em 1.1em;line-height:1.5625em;color:#626465;background-color:#f4f4f4;border:1px solid #dcd9d9;text-shadow:0 0.0625em 0 rgba(255,255,255,0.5);border-radius:5px;box-shadow:0 2px 5px 0 #ccc;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;-ms-transition:all 0.25s ease-in-out;-o-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out}.skin-monobook .postedit{top:6em !important}.postedit-faded{opacity:0}.postedit-icon{padding-left:41px;  line-height:25px;background-repeat:no-repeat;background-position:8px 50%}.postedit-icon-checkmark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABblBMVEUAAAD///////9PfTf///80aRdTgjn///9Feij///////////9Rfzf///////////9PfjZRgDh1o1xOfTb///////+bwYqLtnj///////9PfTa82K////9WhT6YxIL///9QgDdTgzr////////j7uDl7eLq8efi693k7OH///////9UhjuBr2rp9uRUhjr///9YljVKgir///9WiTlYjT3////9/v57vFlbkT5PjC9dlD/5/fhuq09stUTs9uhxuElctCpfnT1huDFloEZloUZmpENmvDZpvDxpvTxqvjxrvT5rvT9rwTxsqktswD5uwkBvuUdxw0NztFBztU9ztVBzwkp0tlJ1xkd2t1R3uVR4w1F4xk54x014yE15uVZ5v1R5xVB6v1R7yFJ8wVh9xVl9yFR9yVd9ylN+xVh+yFd/x1l/yFeAylmEx1+Ny2uY0Hqe04Wj1Ymv3Ze33qLD47TJ5L3O6cPU7Mrq9eb2+/Q4j37OAAAAQHRSTlMAAQIEBAUFBQwPFB4fJCUoKiosQEhJS01RUlZZXmdydXaChYuSlJSWmJmoq6uur8LExcvM19fg5ejt8fX2+Pr7SljgewAAAKpJREFUGBkFwQNCAwAAAMDLtl3LtrG4rWXbtvX77gAgZ6grFwC0bhwNVgKgdPZx8b0dgLi+s7Wn0VoAqpfOI9+BNADZI7fLrz2pSEwGHZuH+78lSK8ZLkLezF3ooyUG3VPXq2USei9WngeyoG195yBYWDF3E/2pAhl1e9Gr8bGT+bfOFCC2fnvh4X7rcqIAQNNu+HT6sxkAjceTL/2ZAIhv+PorBwBJxfkA//dFHSCBy/UTAAAAAElFTkSuQmCC);background-image:url(https://wcipeg.com/wiki/resources/src/mediawiki.action/images/green-checkmark.png?2015-08-10T21:21:40Z)!ie;background-position:left}.postedit-close{position:absolute;padding:0 .8em;right:0;top:0;font-size:1.25em;font-weight:bold;line-height:2.3em;color:black;text-shadow:0 0.0625em 0 white;text-decoration:none;opacity:0.2;filter:alpha(opacity=20)}.postedit-close:hover{color:black;text-decoration:none;opacity:0.4;filter:alpha(opacity=40)}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:86d7c89b7cadf5004340279c398253d8 */</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:black;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:white}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:ae3fa4570b5ac0c6cf7b3776c8ae4d6f */</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*">
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:b36fd1c042133c9c9b60260f7c29b237 */</style>
+<script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script><script src="/wiki/load.php?debug=false&amp;lang=en&amp;modules=jquery%2Cmediawiki&amp;only=scripts&amp;skin=vector&amp;version=20161103T112730Z"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Longest_palindromic_subsequence","wgTitle":"Longest palindromic subsequence","wgCurRevisionId":1823,"wgRevisionId":1823,"wgArticleId":115,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Longest_palindromic_subsequence","wgRelevantArticleId":115,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikidb:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script><script src="/wiki/load.php?debug=false&amp;lang=en&amp;modules=jquery.accessKeyLabel%2Cclient%2CmwExtension%2CtabIndex%2Cthrottle-debounce%7Cmediawiki.legacy.ajax%2Cwikibits%7Cmediawiki.notify%2Cutil%7Cmediawiki.page.startup%7Cskins.vector.js&amp;skin=vector&amp;version=20161103T112730Z&amp;*"></script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Longest_palindromic_subsequence skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Longest palindromic subsequence</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From PEGWiki</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p><i>Not to be confused with <a href="/wiki/Longest_palindromic_substring" title="Longest palindromic substring">Longest palindromic substring</a>.</i>
+</p><p>The <b>longest palindromic subsequence</b> (LPS) problem is the problem of finding the longest <a href="/wiki/Subsequence" title="Subsequence" class="mw-redirect">subsequence</a> of a string (a subsequence is obtained by deleting some of the characters from a string without reordering the remaining characters) which is also a palindrome. In general, the longest palindromic subsequence is not unique. For example, the string <b>alfalfa</b> has four palindromic subsequences of length 5: <b>alala</b>, <b>afafa</b>, <b>alfla</b>, and <b>aflfa</b>. However, it does not have any palindromic subsequences longer than five characters. Therefore all four are considred longest palindromic subsequences of <b>alfalfa</b>.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="#" id="togglelink">hide</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Precise_statement"><span class="tocnumber">1</span> <span class="toctext">Precise statement</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Algorithm"><span class="tocnumber">2</span> <span class="toctext">Algorithm</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#LCS-based_approach"><span class="tocnumber">2.1</span> <span class="toctext">LCS-based approach</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Direct_solution"><span class="tocnumber">2.2</span> <span class="toctext">Direct solution</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#References"><span class="tocnumber">3</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#External_links"><span class="tocnumber">4</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Precise_statement">Precise statement</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Longest_palindromic_subsequence&amp;action=edit&amp;section=1" title="Edit section: Precise statement">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Three variations of this problem may be distinguished:
+</p>
+<ul><li> Find the maximum possible length for a palindromic subsequence.</li>
+<li> Find some palindromic subsequence of maximal length.</li>
+<li> Find all longest palindromic subsequences.</li></ul>
+<p><b>Theorem</b>: Returning all longest palindromic subsequences cannot be accomplished in worst-case polynomial time.
+</p><p><b>Proof</b><sup id="cite_ref-schneider_1-0" class="reference"><a href="#cite_note-schneider-1">[1]</a></sup>: Consider a string made up of <img class="mwe-math-fallback-image-inline tex" alt="N/2" src="/wiki/images/math/0/e/8/0e871a79d98cb1c7563b39b89aaf6153.png"> ones, followed by <img class="mwe-math-fallback-image-inline tex" alt="N/4" src="/wiki/images/math/7/a/9/7a9d409c8241b56490c850739a83f5aa.png"> zeroes, and finally <img class="mwe-math-fallback-image-inline tex" alt="N/4" src="/wiki/images/math/7/a/9/7a9d409c8241b56490c850739a83f5aa.png"> ones. (Assume <img class="mwe-math-fallback-image-inline tex" alt="N" src="/wiki/images/math/8/d/9/8d9c307cb7f3c4a32822a51922d1ceaa.png"> is a multiple of 4, although it does not really matter.) Any palindromic subsequence either does not contain any zeroes, in which case its length is only up to <img class="mwe-math-fallback-image-inline tex" alt="3N/4" src="/wiki/images/math/a/a/a/aaa3efca88367dcee57186a060c0434a.png">, or it contains at least one zero. If it contains at least one zero, it must be of the form <img class="mwe-math-fallback-image-inline tex" alt="1^a0^b1^c" src="/wiki/images/math/2/0/c/20cc52b9b94f52d3d6a6518914bd80de.png">, but <img class="mwe-math-fallback-image-inline tex" alt="a" src="/wiki/images/math/0/c/c/0cc175b9c0f1b6a831c399e269772661.png"> and <img class="mwe-math-fallback-image-inline tex" alt="c" src="/wiki/images/math/4/a/8/4a8a08f09d37b73795649038408b5f33.png"> must be equal. (This is because the middle of the palindrome must lie somewhere within the zeroes, otherwise there would be no zeroes on one side of it and at least one zero on the other side; but as long as the middle lies within the zeroes, there must be an equal number of ones on each side.) But <img class="mwe-math-fallback-image-inline tex" alt="c" src="/wiki/images/math/4/a/8/4a8a08f09d37b73795649038408b5f33.png"> can only be up to <img class="mwe-math-fallback-image-inline tex" alt="N/4" src="/wiki/images/math/7/a/9/7a9d409c8241b56490c850739a83f5aa.png">, and likewise with <img class="mwe-math-fallback-image-inline tex" alt="b" src="/wiki/images/math/9/2/e/92eb5ffee6ae2fec3ad71c777531578f.png">, so again the palindrome cannot be longer than <img class="mwe-math-fallback-image-inline tex" alt="3N/4" src="/wiki/images/math/a/a/a/aaa3efca88367dcee57186a060c0434a.png"> characters. However, there are <img class="mwe-math-fallback-image-inline tex" alt="\binom{N/2}{N/4}+1" src="/wiki/images/math/6/a/0/6a04e11257f937cd482bc0eeaff637f2.png"> palindromic subsequences of length <img class="mwe-math-fallback-image-inline tex" alt="3N/4" src="/wiki/images/math/a/a/a/aaa3efca88367dcee57186a060c0434a.png">; we can either take all the ones, or we can take all <img class="mwe-math-fallback-image-inline tex" alt="N/4" src="/wiki/images/math/7/a/9/7a9d409c8241b56490c850739a83f5aa.png"> zeroes, all <img class="mwe-math-fallback-image-inline tex" alt="N/4" src="/wiki/images/math/7/a/9/7a9d409c8241b56490c850739a83f5aa.png"> terminal ones, and <img class="mwe-math-fallback-image-inline tex" alt="N/4" src="/wiki/images/math/7/a/9/7a9d409c8241b56490c850739a83f5aa.png"> out of the <img class="mwe-math-fallback-image-inline tex" alt="N/2" src="/wiki/images/math/0/e/8/0e871a79d98cb1c7563b39b89aaf6153.png"> initial ones. Thus the output size is not polynomial in <img class="mwe-math-fallback-image-inline tex" alt="N" src="/wiki/images/math/8/d/9/8d9c307cb7f3c4a32822a51922d1ceaa.png">, and then neither can the algorithm be in the worst case. <img class="mwe-math-fallback-image-inline tex" alt="_\blacksquare" src="/wiki/images/math/7/7/3/773d97c085dfd2ddd2d1d170ff65aa2e.png">
+</p><p>However, this does not rule out the existence of a polynomial-time algorithm for the first two variations on the problem. We now present such an algorithm.
+</p>
+<h2><span class="mw-headline" id="Algorithm">Algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Longest_palindromic_subsequence&amp;action=edit&amp;section=2" title="Edit section: Algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="LCS-based_approach">LCS-based approach</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Longest_palindromic_subsequence&amp;action=edit&amp;section=3" title="Edit section: LCS-based approach">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The standard algorithm for computing a longest palindromic subsequence of a given string <var>S</var> involves first computing a <a href="/wiki/Longest_common_subsequence" title="Longest common subsequence">longest common subsequence</a> (LCS) of <var>S</var> and its reverse <var>S'</var>. Often, this gives a correct LPS right away. For example, the reader may verify that <b>alala</b>, <b>afafa</b>, <b>aflfa</b> and <b>alfla</b> are all LCSes of <b>alfalfa</b> and its reverse <b>aflafla</b>. However, this is not <i>always</i> the case; for example, <b>afala</b> and <b>alafa</b> are <i>also</i> LCSes of <b>alfalfa</b> and its reverse, yet neither is palindromic. While it is clear that any LPS of a string is an LCS of the string and its reverse, the converse is false.
+</p><p>However, with a slight modification, this algorithm can be made to work. We will use the example string <b>ABCDEBCA</b>, which has six LPSes: <b>ABCBA</b>, <b>ABDBA</b>, <b>ABEBA</b>, <b>ACDCA</b>, <b>ACECA</b> and <b>ACBCA</b> (and our objective is to find one of them). Suppose that we find an LCS which is not one of these, such as <var>L</var>&nbsp;=&nbsp;<b>ABDCA</b>:
+</p>
+<dl><dd> <b>AB</b>C<b>D</b>EB<b>CA</b></dd>
+<dd> <b>A</b>C<b>B</b>E<b>DC</b>B<b>A</b></dd></dl>
+<p>Now consider the central character <var>C</var>&nbsp;=&nbsp;<b>D</b> of <var>L</var>. It splits <var>S</var> up into two parts, the part before and the part after: <var>S</var><sub>1</sub>&nbsp;=&nbsp;<b>ABC</b> and <var>S</var><sub>2</sub>&nbsp;=&nbsp;<b>EBCA</b>. We know that the first half of <var>L</var> (<var>L</var><sub>1</sub>&nbsp;=&nbsp;<b>AB</b>) is a subsequence of <var>S</var><sub>1</sub>, and that the second half of <var>L</var> (<var>L</var><sub>2</sub>&nbsp;=&nbsp;<b>CA</b>) is a subsequence of <var>S</var><sub>2</sub>. Notice that <var>S'</var> is <i>also</i> split up into two parts: <var>S'</var><sub>1</sub>&nbsp;=&nbsp;<b>ACBE</b>&nbsp;=&nbsp;(<var>S</var><sub>2</sub>)' and <var>S'</var><sub>2</sub>&nbsp;=&nbsp;<b>CBA</b>&nbsp;=&nbsp;(<var>S</var><sub>1</sub>)'. Since <var>L</var> is also a subsequence of <var>S</var>', we see that <var>L</var><sub>1</sub> is a subsequence of <var>S'</var><sub>1</sub>, and <var>L</var><sub>2</sub> is a subsequence of <var>S'</var><sub>2</sub>. But the fact that <var>L</var><sub>1</sub> is a subsequence of <var>S'</var><sub>1</sub> implies (by reversing both strings) that (<var>L</var><sub>1</sub>)'&nbsp;=&nbsp;<b>BA</b> is a subsequence of <var>S</var><sub>2</sub>&nbsp;=&nbsp;<b>EBCA</b>. Since <var>L</var><sub>1</sub> is a subsequence of <var>S</var><sub>1</sub> and (<var>L</var><sub>1</sub>)' is a subsequence of <var>S</var><sub>2</sub>, we conclude that <var>L</var><sub>1</sub><var>C</var>(<var>L</var><sub>1</sub>)'&nbsp;=&nbsp;<b>ABDBA</b> is a subsequence of <var>S</var><sub>1</sub><var>C</var><var>S</var><sub>2</sub>&nbsp;=&nbsp;<var>S</var>. So we have obtained the desired result, a longest palindromic subsequence.
+</p><p>Extrapolating to the general case, we can always obtain a LPS by first taking the LCS of <var>S</var> and <var>S'</var> and then "reflecting" the first half of the result onto the second half; that is, if <var>L</var> has <var>k</var> characters, then we replace the last ⌊<var>k</var>/2⌋ characters of <var>L</var> by the reverse of the first ⌊<var>k</var>/2⌋ characters of <var>L</var> to obtain a palindromic subsequence of <var>S</var>. This is obviously a palindrome by the foregoing analysis; it is guaranteed to be a subsequence by the foregoing analysis; and it is guaranteed to be as long as possible because it is of the same length as any LCS, yet the length of an LCS is also the upper bound on the length of an LPS since every LPS must trivially be an LCS. The odd case is handled as above, and the even case very similarly (lacking only the central character <var>C</var>).
+</p><p>The complexity of this algorithm is the same as the complexity of the LCS algorithm used. The textbook <a href="/wiki/Dynamic_programming" title="Dynamic programming">dynamic programming</a> algorithm for LCS runs in <img class="mwe-math-fallback-image-inline tex" alt="O(mn)" src="/wiki/images/math/0/c/a/0ca5e4e27ca8dc4c891d2c8598529ed1.png"> time, so the time taken to find the LPS is <img class="mwe-math-fallback-image-inline tex" alt="O(n^2)" src="/wiki/images/math/1/8/9/189317b4b935a745fcfaf95940d2b4f0.png">, where <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png"> is the length of <var>S</var>.
+</p>
+<h3><span class="mw-headline" id="Direct_solution">Direct solution</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Longest_palindromic_subsequence&amp;action=edit&amp;section=4" title="Edit section: Direct solution">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>There is also a "direct" <img class="mwe-math-fallback-image-inline tex" alt="O(n^2)" src="/wiki/images/math/1/8/9/189317b4b935a745fcfaf95940d2b4f0.png"> solution, also based on dynamic programming; it is very similar in principle to the approach based on the textbook LCS algorithm. We define <img class="mwe-math-fallback-image-inline tex" alt="f(i,j)" src="/wiki/images/math/b/2/a/b2a4a0f9166881f2eb72bbbc8db92995.png"> to be the length of the longest palindromic subsequence of the substring <var>S</var>[<var>i</var>,<var>j</var>) (see <a href="/wiki/Half-open_interval" title="Half-open interval">half-open interval</a>). Assuming indexing starting from zero, the objective is to compute <img class="mwe-math-fallback-image-inline tex" alt="f(0,n)" src="/wiki/images/math/1/4/2/142df60046562e399007e18fdc65752e.png">.
+</p><p>This is easy when the substring is empty, or when it consists of only a single character; the value of <img class="mwe-math-fallback-image-inline tex" alt="f" src="/wiki/images/math/8/f/a/8fa14cdd754f91cc6554c9e71929cce7.png"> will be 0 or 1, respectively. Otherwise,
+</p>
+<ul><li> when the substring's first and last characters are equal, add <i>both</i> of them to the longest palindromic subsequence of the characters in between to get a palindromic subsequence two characters longer;</li>
+<li> when they are unequal, then it's clearly not possible to use both of them to form a palindromic subsequence of the given substring, so the answer will be the same as if one of them were ignored.</li></ul>
+<p>Thus:
+</p>
+<dl><dd><img class="mwe-math-fallback-image-inline tex" alt="f(i,j) = \begin{cases}
+0 &amp; \text{if } j-i = 0 \\
+1 &amp; \text{if } j-i = 1 \\
+\max(f(i+1,j),f(i,j-1)) &amp; \text{if } j-i &gt; 1 \text{ and } S_i \neq S_{j-1} \\
+2 + f(i+1,j-1) &amp; \text{if } j-i &gt; 1 \text{ and } S_i = S_{j-1}
+\end{cases}" src="/wiki/images/math/0/9/f/09f4de21e4302209eecef9c3136f8d83.png"></dd></dl>
+<p>To see calculate the cost, consider that the worst case occurs when every invocation to <img class="mwe-math-fallback-image-inline tex" alt="f" src="/wiki/images/math/8/f/a/8fa14cdd754f91cc6554c9e71929cce7.png"> requires a call on two different substrings. This can happen for invocations with strings of length <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png"> to <img class="mwe-math-fallback-image-inline tex" alt="2" src="/wiki/images/math/c/8/1/c81e728d9d4c2f636f067f89cc14862c.png">. So the total number of invocations is <img class="mwe-math-fallback-image-inline tex" alt="2^{(n-1)}" src="/wiki/images/math/d/0/b/d0b82d2a12ee06624279899ae615c210.png">. 
+</p><p>However, a lot of these invocations are repeats. If we store previously computed solutions, then the cost goes down. The above worst case happens when no matches are ever made, so this requires us to try out eliminating all strings that start at 0 and those that start at n-1, such that their combined length is <img class="mwe-math-fallback-image-inline tex" alt="\leq n-1" src="/wiki/images/math/5/8/8/588afbd40138bea33f55df182f4eb328.png">. This is just the number of ways to partition a given number into two non-negative integers, summed up over <img class="mwe-math-fallback-image-inline tex" alt="1 ,..., n-1" src="/wiki/images/math/8/e/0/8e0cc492f09966671f41334f4c20cfa0.png">. The number of ways to partition <img class="mwe-math-fallback-image-inline tex" alt="k" src="/wiki/images/math/8/c/e/8ce4b16b22b58894aa86c421e8759df3.png"> into two non-negative integers is <img class="mwe-math-fallback-image-inline tex" alt="k + 1" src="/wiki/images/math/a/3/1/a31a860e7a59c7616c1515ec3ae652a6.png">. Hence the overall cost is <img class="mwe-math-fallback-image-inline tex" alt="O(n^2)" src="/wiki/images/math/1/8/9/189317b4b935a745fcfaf95940d2b4f0.png">.
+</p>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Longest_palindromic_subsequence&amp;action=edit&amp;section=5" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ol class="references">
+<li id="cite_note-schneider-1"><span class="mw-cite-backlink"><a href="#cite_ref-schneider_1-0"><span class="cite-accessibility-label">Jump up </span>↑</a></span> <span class="reference-text">Jonathan T. Schneider (2010). Personal communication.</span>
+</li>
+</ol>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Longest_palindromic_subsequence&amp;action=edit&amp;section=6" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> <a rel="nofollow" class="external text" href="https://wcipeg.com/problem/ioi0011">IOI '00 - Palindrome</a></li>
+<li> SPOJ:
+<ul><li> <a rel="nofollow" class="external text" href="http://www.spoj.pl/problems/IOIPALIN">Palindrome 2000</a> (a duplicate of the problem above)</li>
+<li> <a rel="nofollow" class="external text" href="http://www.spoj.pl/problems/AIBOHP">Aibohphobia</a></li></ul></li></ul>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.065 seconds
+Real time usage: 0.076 seconds
+Preprocessor visited node count: 419/1000000
+Preprocessor generated node count: 1171/1000000
+Post‐expand include size: 279/2097152 bytes
+Template argument size: 96/2097152 bytes
+Highest expansion depth: 4/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   50.581      1 - -total
+ 11.11%    5.617      1 - Template:Problem
+  6.74%    3.411      1 - Template:Distinguish
+  6.62%    3.350      1 - Template:JudgeRoot
+  3.75%    1.895      2 - Template:SPOJ
+  3.33%    1.682      1 - Template:Root
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:115-0!*!0!!en!*!*!math=0 and timestamp 20180501014204 and revision id 1823
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wcipeg.com/wiki/index.php?title=Longest_palindromic_subsequence&amp;oldid=1823">https://wcipeg.com/wiki/index.php?title=Longest_palindromic_subsequence&amp;oldid=1823</a>"					</div>
+													<div id="catlinks" class="catlinks catlinks-allhidden"></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Longest+palindromic+subsequence&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Longest+palindromic+subsequence" title="You are encouraged to log in; however, it is not mandatory [ctrl-alt-o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li id="ca-nstab-main" class="selected"><span><a href="/wiki/Longest_palindromic_subsequence" title="View the content page [ctrl-alt-c]" accesskey="c">Page</a></span></li>
+															<li id="ca-talk"><span><a href="/wiki/Talk:Longest_palindromic_subsequence" title="Discussion about the content page [ctrl-alt-t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label" tabindex="0"><span>Variants</span><a href="#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Longest_palindromic_subsequence">Read</a></span></li>
+															<li id="ca-edit"><span><a href="/wiki/index.php?title=Longest_palindromic_subsequence&amp;action=edit" title="You can edit this page. Please use the preview button before saving [ctrl-alt-e]" accesskey="e">Edit</a></span></li>
+															<span class="placeholder" style="display: none;"></span>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu" aria-labelledby="p-cactions-label" style="">
+						<h3 id="p-cactions-label" tabindex="0" style="width: 61px;"><span>More</span><a href="#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul><li id="ca-history" class="collapsible" style="display: list-item;"><span><a href="/wiki/index.php?title=Longest_palindromic_subsequence&amp;action=history" title="Past revisions of this page [ctrl-alt-h]" accesskey="h">View history</a></span></li>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search PEGWiki [ctrl-alt-f]" accesskey="f" id="searchInput" tabindex="1" autocomplete="off"><input type="hidden" value="Special:Search" name="title"><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton">								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page" title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id="p-navigation" aria-labelledby="p-navigation-label">
+			<h3 id="p-navigation-label">Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [ctrl-alt-z]" accesskey="z">Main page</a></li>
+													<li id="n-Index"><a href="/wiki/Special:AllPages">Index</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [ctrl-alt-r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [ctrl-alt-x]" accesskey="x">Random page</a></li>
+													<li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+			<h3 id="p-tb-label">Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Longest_palindromic_subsequence" title="A list of all wiki pages that link here [ctrl-alt-j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Longest_palindromic_subsequence" title="Recent changes in pages linked from this page [ctrl-alt-k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [ctrl-alt-q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/wiki/index.php?title=Longest_palindromic_subsequence&amp;printable=yes" rel="alternate" title="Printable version of this page [ctrl-alt-p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/wiki/index.php?title=Longest_palindromic_subsequence&amp;oldid=1823" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/wiki/index.php?title=Longest_palindromic_subsequence&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 27 September 2014, at 03:31.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Attribution 3.0 Unported</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/PEGWiki:Privacy_policy" title="PEGWiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/PEGWiki:About" title="PEGWiki:About">About PEGWiki</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/PEGWiki:General_disclaimer" title="PEGWiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by/3.0/"><img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Attribution 3.0 Unported" width="88" height="31"></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wiki/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.cite","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wcipeg.com/wiki/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script><script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":67});
+}</script>
+	
+
+<div class="suggestions" style="display: none; font-size: 13px;"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html><html lang="en" dir="ltr" class="client-js"><head>
+<meta charset="UTF-8">
+<title>Disjoint sets - PEGWiki</title>
+<meta name="generator" content="MediaWiki 1.25.2">
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/wiki/index.php?title=Disjoint_sets&amp;action=edit">
+<link rel="edit" title="Edit" href="/wiki/index.php?title=Disjoint_sets&amp;action=edit">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="/wiki/opensearch_desc.php" title="PEGWiki (en)">
+<link rel="EditURI" type="application/rsd+xml" href="https://wcipeg.com/wiki/api.php?action=rsd">
+<link rel="alternate" hreflang="x-default" href="/wiki/Disjoint_sets">
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/">
+<link rel="alternate" type="application/atom+xml" title="PEGWiki Atom feed" href="/wiki/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="canonical" href="/wiki/Disjoint_sets">
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=ext.math.styles%7Cext.rtlcite%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*">
+<style>
+.cite-accessibility-label{position:absolute !important; top:-99999px;clip:rect(1px 1px 1px 1px); clip:rect(1px,1px,1px,1px);padding:0 !important;border:0 !important;height:1px !important;width:1px !important;overflow:hidden}.mw-cite-backlink,.cite-accessibility-label{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none} ol.references li:target,sup.reference:target{background-color:#def; background-color:rgba(0,127,255,0.133)}@media print{.mw-cite-backlink{display:none}}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:2970940d33044e6aa6a620ce3c93c662 */
+.mw-collapsible-toggle{float:right;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}  .mw-content-ltr .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr .mw-collapsible-toggle{float:right} .mw-content-rtl .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl .mw-collapsible-toggle{float:left}.mw-customtoggle,.mw-collapsible-toggle{cursor:pointer} caption .mw-collapsible-toggle,.mw-content-ltr caption .mw-collapsible-toggle,.mw-content-rtl caption .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr caption .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl caption .mw-collapsible-toggle{float:none} li .mw-collapsible-toggle,.mw-content-ltr li .mw-collapsible-toggle,.mw-content-rtl li .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr li .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:e1ffd603cbaaa5f1a36e0d13fe843535 */
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:none;z-index:1099;padding:0;margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#4C59A6;color:white}.suggestions-special .special-label{color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white}.highlight{font-weight:bold}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:f8d0c6895ce3ae14434c16b8fca59432 */
+.postedit-container{margin:0 auto;position:fixed;top:0;height:0;left:50%;z-index:1000;font-size:13px}.postedit-container:hover{cursor:pointer}.postedit{position:relative;top:0.6em;left:-50%;padding:.6em 3.6em .6em 1.1em;line-height:1.5625em;color:#626465;background-color:#f4f4f4;border:1px solid #dcd9d9;text-shadow:0 0.0625em 0 rgba(255,255,255,0.5);border-radius:5px;box-shadow:0 2px 5px 0 #ccc;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;-ms-transition:all 0.25s ease-in-out;-o-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out}.skin-monobook .postedit{top:6em !important}.postedit-faded{opacity:0}.postedit-icon{padding-left:41px;  line-height:25px;background-repeat:no-repeat;background-position:8px 50%}.postedit-icon-checkmark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABblBMVEUAAAD///////9PfTf///80aRdTgjn///9Feij///////////9Rfzf///////////9PfjZRgDh1o1xOfTb///////+bwYqLtnj///////9PfTa82K////9WhT6YxIL///9QgDdTgzr////////j7uDl7eLq8efi693k7OH///////9UhjuBr2rp9uRUhjr///9YljVKgir///9WiTlYjT3////9/v57vFlbkT5PjC9dlD/5/fhuq09stUTs9uhxuElctCpfnT1huDFloEZloUZmpENmvDZpvDxpvTxqvjxrvT5rvT9rwTxsqktswD5uwkBvuUdxw0NztFBztU9ztVBzwkp0tlJ1xkd2t1R3uVR4w1F4xk54x014yE15uVZ5v1R5xVB6v1R7yFJ8wVh9xVl9yFR9yVd9ylN+xVh+yFd/x1l/yFeAylmEx1+Ny2uY0Hqe04Wj1Ymv3Ze33qLD47TJ5L3O6cPU7Mrq9eb2+/Q4j37OAAAAQHRSTlMAAQIEBAUFBQwPFB4fJCUoKiosQEhJS01RUlZZXmdydXaChYuSlJSWmJmoq6uur8LExcvM19fg5ejt8fX2+Pr7SljgewAAAKpJREFUGBkFwQNCAwAAAMDLtl3LtrG4rWXbtvX77gAgZ6grFwC0bhwNVgKgdPZx8b0dgLi+s7Wn0VoAqpfOI9+BNADZI7fLrz2pSEwGHZuH+78lSK8ZLkLezF3ooyUG3VPXq2USei9WngeyoG195yBYWDF3E/2pAhl1e9Gr8bGT+bfOFCC2fnvh4X7rcqIAQNNu+HT6sxkAjceTL/2ZAIhv+PorBwBJxfkA//dFHSCBy/UTAAAAAElFTkSuQmCC);background-image:url(https://wcipeg.com/wiki/resources/src/mediawiki.action/images/green-checkmark.png?2015-08-10T21:21:40Z)!ie;background-position:left}.postedit-close{position:absolute;padding:0 .8em;right:0;top:0;font-size:1.25em;font-weight:bold;line-height:2.3em;color:black;text-shadow:0 0.0625em 0 white;text-decoration:none;opacity:0.2;filter:alpha(opacity=20)}.postedit-close:hover{color:black;text-decoration:none;opacity:0.4;filter:alpha(opacity=40)}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:86d7c89b7cadf5004340279c398253d8 */</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:black;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:white}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:ae3fa4570b5ac0c6cf7b3776c8ae4d6f */</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*">
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:b36fd1c042133c9c9b60260f7c29b237 */</style>
+<script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script><script src="/wiki/load.php?debug=false&amp;lang=en&amp;modules=jquery%2Cmediawiki&amp;only=scripts&amp;skin=vector&amp;version=20161103T112730Z"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Disjoint_sets","wgTitle":"Disjoint sets","wgCurRevisionId":1459,"wgRevisionId":1459,"wgArticleId":145,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Data structures"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Disjoint_sets","wgRelevantArticleId":145,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"Disjoint_sets_data_structure","wgInternalRedirectTargetUrl":"/wiki/Disjoint_sets"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikidb:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.redirect","mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script><script src="/wiki/load.php?debug=false&amp;lang=en&amp;modules=jquery.accessKeyLabel%2Cclient%2CmwExtension%2CtabIndex%2Cthrottle-debounce%7Cmediawiki.action.view.redirect%7Cmediawiki.legacy.ajax%2Cwikibits%7Cmediawiki.notify%2Cutil%7Cmediawiki.page.startup%7Cskins.vector.js&amp;skin=vector&amp;version=20161103T112730Z&amp;*"></script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Disjoint_sets skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Disjoint sets</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From PEGWiki</div>
+								<div id="contentSub"><span class="mw-redirectedfrom">(Redirected from <a href="/wiki/index.php?title=Disjoint_sets_data_structure&amp;redirect=no" title="Disjoint sets data structure">Disjoint sets data structure</a>)</span></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>The <b>disjoint sets</b> problem is that of efficiently maintaining a collection <img class="mwe-math-fallback-image-inline tex" alt="\mathcal{C}" src="/wiki/images/math/9/8/c/98c20e34c90ebe87fa78ddb2b83977fd.png"> of disjoint subsets of some universe <img class="mwe-math-fallback-image-inline tex" alt="U" src="/wiki/images/math/4/c/6/4c614360da93c0a041b22e537de151eb.png">. Specifically, we assume that initially <img class="mwe-math-fallback-image-inline tex" alt="\mathcal{C} = \{\{x\} \mid x \in U\}" src="/wiki/images/math/7/c/0/7c00ee098352373fbfa333e9d435ac02.png">, that is, each element of the universe is contained in a singleton. Then, we wish to efficiently support an intermixed sequence of two operations:
+</p>
+<ol><li> <i>Find</i> the set that contains a given element <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png">. By this we mean that we imagine we have assigned some unique identifier to each set in our collection, so that if we execute two find operations in succession on two elements that are located in the same set, then the same value is returned, whereas different values are returned if they are in different sets.</li>
+<li> <i>Unite</i> two given sets <img class="mwe-math-fallback-image-inline tex" alt="S, T" src="/wiki/images/math/5/e/7/5e78616461518cbcfde44311713cd04f.png"> in the collection, that is, remove <img class="mwe-math-fallback-image-inline tex" alt="S" src="/wiki/images/math/5/d/b/5dbc98dcc983a70728bd082d1a47546e.png"> and <img class="mwe-math-fallback-image-inline tex" alt="T" src="/wiki/images/math/b/9/e/b9ece18c950afbfa6b0fdbfa4ff731d3.png"> from <img class="mwe-math-fallback-image-inline tex" alt="\mathcal{C}" src="/wiki/images/math/9/8/c/98c20e34c90ebe87fa78ddb2b83977fd.png">, and add <img class="mwe-math-fallback-image-inline tex" alt="S \cup T" src="/wiki/images/math/5/4/5/545729dafa26f1b07450750349afde56.png"> to <img class="mwe-math-fallback-image-inline tex" alt="\mathcal{C}" src="/wiki/images/math/9/8/c/98c20e34c90ebe87fa78ddb2b83977fd.png">.</li></ol>
+<p>For this reason, the disjoint sets problem is often called the <b>union-find</b> problem.
+</p><p>A configuration of disjoint sets is a model of an <a href="/wiki/Equivalence_relation" title="Equivalence relation">equivalence relation</a>, with each set an equivalence class; two elements are equivalent if they are in the same set. Often, when discussing an equivalence relation, we will choose one element in each equivalence class to be the <i>representative</i> of that class (and we say that such an element is in <i>canonical form</i>). Then the <i>find</i> operation can be understood as determining the representative of the set in which the query element is located. When we unite two sets, we either use the representative of one of the two sets as the representative of the new, united set, or we pick a new element altogether to be the representative.
+</p><p>The graph-theoretic application of disjoint sets to connectivity may illustrate the problem more clearly. We let the elements of our universe be nodes in an undirected graph, and we say two nodes belong to the same equivalence class if they are in the same connected component. Then, executing <i>Find</i> on a node allows us to identify which connected component it is in; so that if we have two nodes and we execute <i>Find</i> on each one, and the results are the same, then these two nodes are in the same connected component and are mutually reachable. If we add an edge between these two nodes, and they are not already in the same connected component, then we are uniting their respective connected components into one; this corresponds to the <i>Unite</i> operation.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="#" id="togglelink">hide</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#A_first_idea"><span class="tocnumber">1</span> <span class="toctext">A first idea</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Example"><span class="tocnumber">1.1</span> <span class="toctext">Example</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-3"><a href="#Faster_union"><span class="tocnumber">2</span> <span class="toctext">Faster union</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Union_by_rank"><span class="tocnumber">3</span> <span class="toctext">Union by rank</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Path_compression"><span class="tocnumber">4</span> <span class="toctext">Path compression</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="A_first_idea">A first idea</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Disjoint_sets&amp;action=edit&amp;section=1" title="Edit section: A first idea">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Suppose the elements of the universe are numbered <img class="mwe-math-fallback-image-inline tex" alt="1, 2, 3, ..., n" src="/wiki/images/math/1/c/8/1c811d703e397ecf5138160032b93dca.png">. Then the first idea we might have is to maintain an array of size <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png"> in which the <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png"><sup>th</sup> element is the ID of the representative of the set containing the element numbered <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png">. So initially every element is located in its own set, and since this set contains only the element alone, it must be its own representative. Then the array has 1 at index 1, 2 at index 2, and so on. When we execute the find operation on an element, we just look up its representative in the table, which takes <img class="mwe-math-fallback-image-inline tex" alt="O(1)" src="/wiki/images/math/5/e/0/5e079a28737d5dd019a3b8f6133ee55e.png"> time. When we have to unite two sets, however, we have to pick one of these two sets and change the representative of every element in this set to the representative of the other set. That is, we potentially have to change <img class="mwe-math-fallback-image-inline tex" alt="O(n)" src="/wiki/images/math/7/b/a/7ba55e7c64a9405a0b39a1107e90ca94.png"> elements of the array in order to reflect the union. This solution is satisfactory when there are very few union operations executed, but it leaves a lot to be desired for applications in which there are more unions than finds.
+</p>
+<h3><span class="mw-headline" id="Example">Example</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Disjoint_sets&amp;action=edit&amp;section=2" title="Edit section: Example">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The universe contains five objects: red, yellow, green, blue, and violet balls. Here <img class="mwe-math-fallback-image-inline tex" alt="n=5" src="/wiki/images/math/4/4/d/44d21af66b0874d9b45905ea79807cb3.png"> and we shall arbitrarily assign the number 1 to refer to the red ball, 2 to refer to the yellow ball, and so on. Initially our collection is {{red},{yellow},{green},{blue},{violet}}, and the array holds the values [1,2,3,4,5], as each ball is its own representative. Now suppose we unite the yellow and violet sets, obtaining {{red},{yellow,violet},{green},{blue}}. To indicate that yellow is in the same set as violet now, we will set violet's representative to 2, giving [1,2,3,4,2] as our array. Now suppose we unite green and blue. Then our collection becomes {{red},{yellow,violet},{green,blue}} and we set blue's representative to 3 to indicate that it is now in the same set as blue, giving [1,2,3,3,2]. If we now execute find on green, we see that the representative 3 is the green ball, and the same goes when we execute find on blue because green and blue are in the same set, but if we execute find on yellow, we get 2, the yellow, ball, which is different, because yellow is not in the same set as green and blue. Finally, suppose we join the {yellow,violet} and {green,blue} sets. We may do this by setting the representatives of both green and blue to 2 (which is the ID of the {yellow,violet}) group, giving [1,2,2,2,2], reflecting that now red is in one group, and the other balls are in the other group. Note that when we unite two groups, it doesn't matter which group we choose to "keep" its representative and which one's members are forced to change.
+</p>
+<h2><span class="mw-headline" id="Faster_union">Faster union</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Disjoint_sets&amp;action=edit&amp;section=3" title="Edit section: Faster union">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The implementation described above supports <img class="mwe-math-fallback-image-inline tex" alt="O(1)" src="/wiki/images/math/5/e/0/5e079a28737d5dd019a3b8f6133ee55e.png"> find, but requires <img class="mwe-math-fallback-image-inline tex" alt="O(N)" src="/wiki/images/math/3/3/6/33697ce7dfa48ba80980d298c8089378.png"> time for union'. What if we focus on trying to improving the speed of the union operation, possibly sacrificing efficiency in find in the process?
+</p><p>We shall do this by maintaining each set as a rooted <a href="/wiki/Tree" title="Tree">tree</a>, so that the collection of sets at any given time is a forest (which is sometimes referred to as a <i>disjoint sets forest</i> in discussion of the disjoint sets problem). The representative of any set is at the root of that set's tree. Initially each element is in a tree with only one vertex, and hence is the root.
+</p><p>We maintain an array <code>p</code> such that <code>p[i]</code> gives the ID of the element corresponding to the parent (in the tree) of the node corresponding to the element with ID <code>i</code>, or <code>i</code> itself if this is the root of its tree. Initially, then, <code>p[i]</code> equals <code>i</code> for each <code>i</code>. To carry out the find operation on an element with ID <code>x</code>, we consider the sequence <code>x</code>, <code>p[x]</code>, <code>p[p[x]]</code>, ..., until an element in this sequence is the same as the one preceding it, at which point we know we have reached the root. Since no cycles can occur, this step runs in <img class="mwe-math-fallback-image-inline tex" alt="O(n)" src="/wiki/images/math/7/b/a/7ba55e7c64a9405a0b39a1107e90ca94.png"> time.
+</p><p>The motivation for this representation is that if we want to join together the sets with representatives with IDs <code>x</code> and <code>y</code>, then all we have to do is set <code>p[x] = y</code> (or <i>vice versa</i>); then, executing find from any vertex initially in <code>x</code>'s tree causes the loop to stop not at <code>x</code> but now at <code>y</code>, which is therefore the new root for what was originally two separate trees. So, now, to execute the union operation on the trees rooted at <code>x</code> and <code>y</code> takes only <img class="mwe-math-fallback-image-inline tex" alt="O(1)" src="/wiki/images/math/5/e/0/5e079a28737d5dd019a3b8f6133ee55e.png"> time.
+</p><p>(There is, however, a catch: if we are given elements from the two sets we wish to unite, but they are not the representatives, then we have to execute find on each of the two given elements first, so this implementation will actually give <img class="mwe-math-fallback-image-inline tex" alt="O(N)" src="/wiki/images/math/3/3/6/33697ce7dfa48ba80980d298c8089378.png"> time for both operations.)
+</p><p>Now, notice that the find operation, in this implementation, although <img class="mwe-math-fallback-image-inline tex" alt="O(N)" src="/wiki/images/math/3/3/6/33697ce7dfa48ba80980d298c8089378.png">, is still somewhat of an improvement over the <img class="mwe-math-fallback-image-inline tex" alt="O(N)" src="/wiki/images/math/3/3/6/33697ce7dfa48ba80980d298c8089378.png"> union of the previous implementation. The <img class="mwe-math-fallback-image-inline tex" alt="O(N)" src="/wiki/images/math/3/3/6/33697ce7dfa48ba80980d298c8089378.png"> union uses time linear in the <i>size</i> of one of the sets, because it has to reconfigure every element in the set. But the <img class="mwe-math-fallback-image-inline tex" alt="O(N)" src="/wiki/images/math/3/3/6/33697ce7dfa48ba80980d298c8089378.png"> find takes time linear in the <i>depth</i> of the node queried in its subtree. On the average case, the trees formed by this technique are fairly well-balanced, and it performs much better than the previous one. In the worst case, however, when the trees degenerate into tall paths, the behavior is no better than it was before.
+</p>
+<h2><span class="mw-headline" id="Union_by_rank">Union by rank</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Disjoint_sets&amp;action=edit&amp;section=4" title="Edit section: Union by rank">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>We see that the algorithm the preceding section performs well on the average case because the trees are fairly well-balanced, so that find occurs relatively quickly and so does union (<img class="mwe-math-fallback-image-inline tex" alt="O(1)" src="/wiki/images/math/5/e/0/5e079a28737d5dd019a3b8f6133ee55e.png"> time plus the time taken to find the roots of the two nodes given). Is there a way to ensure that the trees are indeed well-balanced?
+</p><p>There is a simple technique that does exactly this, and is called <i>union by rank</i>. This algorithm works in the same way as the preceding one, except that in each root node we keep a count of the size of its tree (initially 1 for each node), and when we join two root nodes, we always make the root of the larger tree the parent of the root of the smaller tree (updating the count field accordingly), breaking ties arbitrarily.
+</p><p><i>Lemma</i>: With union by rank, at any given time, any tree of height <img class="mwe-math-fallback-image-inline tex" alt="h" src="/wiki/images/math/2/5/1/2510c39011c5be704182423e3a695e91.png"> will contain at least <img class="mwe-math-fallback-image-inline tex" alt="2^h" src="/wiki/images/math/c/d/f/cdff5e8c7c72e167a0ba493190017834.png"> nodes.
+</p><p><i>Proof</i>: By induction on the number of union operations performed so far (finds have no effect on the structure of the forest). When this is zero, we have the initial configuration, in which each tree has height 0 and size 1, so the hypothesis is true. Now, suppose that the current configuration satisfies the inductive hypothesis and that we join together two trees rooted at nodes <img class="mwe-math-fallback-image-inline tex" alt="v_1" src="/wiki/images/math/1/7/5/175fb02dc71571bb97cf42967a26105c.png"> and <img class="mwe-math-fallback-image-inline tex" alt="v_2" src="/wiki/images/math/4/3/0/43078bbe67ed8d55801deec58a70f40b.png">, with heights <img class="mwe-math-fallback-image-inline tex" alt="h_1" src="/wiki/images/math/e/2/f/e2f66b6f97eb982536588a1bfa05ffbf.png"> and <img class="mwe-math-fallback-image-inline tex" alt="h_2" src="/wiki/images/math/b/d/3/bd3e5f3199896dfe9791ade3db413154.png"> and sizes <img class="mwe-math-fallback-image-inline tex" alt="n_1" src="/wiki/images/math/c/a/2/ca28d2957bcfd844805dfd1c339dfc2f.png"> and <img class="mwe-math-fallback-image-inline tex" alt="n_2" src="/wiki/images/math/2/7/e/27e7b1346e011cf2896a04df87832534.png">, respectively. Suppose without loss of generality that <img class="mwe-math-fallback-image-inline tex" alt="n_1 \leq n_2" src="/wiki/images/math/0/1/b/01b15cbabf9d0d85370b20baf637489e.png">, so that we make <img class="mwe-math-fallback-image-inline tex" alt="v_2" src="/wiki/images/math/4/3/0/43078bbe67ed8d55801deec58a70f40b.png"> the parent of <img class="mwe-math-fallback-image-inline tex" alt="v_1" src="/wiki/images/math/1/7/5/175fb02dc71571bb97cf42967a26105c.png">. Then, there are two cases:
+</p>
+<ol><li> <img class="mwe-math-fallback-image-inline tex" alt="h_1 &lt; h_2" src="/wiki/images/math/3/f/8/3f804b30ef3bd584f9d0d630822490e4.png">. In this case the new tree still has height <img class="mwe-math-fallback-image-inline tex" alt="h_2" src="/wiki/images/math/b/d/3/bd3e5f3199896dfe9791ade3db413154.png"> and size <img class="mwe-math-fallback-image-inline tex" alt="n_1 + n_2 \geq 2^{h_1} + 2^{h_2} \geq 2^{h_2}" src="/wiki/images/math/f/7/2/f7259c5c1fc148daeb6d92a4ea5f3e01.png">, and the inductive hypothesis continues to hold.</li>
+<li> <img class="mwe-math-fallback-image-inline tex" alt="h_1 \geq h_2" src="/wiki/images/math/e/d/e/ede1fd2ef269e12f832653711381ca8b.png">. Here the new tree has height <img class="mwe-math-fallback-image-inline tex" alt="h_1 + 1" src="/wiki/images/math/8/0/6/80678c55c36dd8abb3f33827886411cb.png"> and size <img class="mwe-math-fallback-image-inline tex" alt="n_1 + n_2 \geq n_1 + n_1 \geq 2^{h_1} + 2^{h_1} = 2^{h_1+1}" src="/wiki/images/math/c/0/1/c0107e78910149b6bd6d99c5b4699c72.png">, and the inductive hypothesis continues to hold.</li></ol>
+<p><img class="mwe-math-fallback-image-inline tex" alt="_{\blacksquare}" src="/wiki/images/math/7/1/b/71bd29496761f73ac935924fd05288c3.png">
+</p><p>Since no tree can ever have more than <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png"> nodes, it follows that no tree will ever have height greater than <img class="mwe-math-fallback-image-inline tex" alt="\lfloor \lg n \rfloor" src="/wiki/images/math/e/4/c/e4cfa4c0b69f7c02210b6c4179d11d02.png">. And find and union both take time proportional to the height of the trees in which they are executed, so this gives <img class="mwe-math-fallback-image-inline tex" alt="O(\log N)" src="/wiki/images/math/7/0/6/70664169d1bc6295401283e5520056e1.png"> for both operations. This is good enough to give the <img class="mwe-math-fallback-image-inline tex" alt="O(E \log E)" src="/wiki/images/math/4/4/7/44777d840ca162465b73f85b6a6d53b9.png"> upper bound for the running time of <a href="/wiki/Kruskal%27s_algorithm" title="Kruskal's algorithm">Kruskal's algorithm</a>.
+</p>
+<h2><span class="mw-headline" id="Path_compression">Path compression</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Disjoint_sets&amp;action=edit&amp;section=5" title="Edit section: Path compression">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>A technique that further improves the speed is <i>path compression</i>. This technique is based on the observation that the more we flatten the trees in the disjoint-set forest, the better the speed becomes (conversely, when the trees are very tall, which is what we found we could avoid with union by rank, the runtime is very poor). Union by rank already guaranteed that the trees are relatively flat; in a sense, they are "at least binary" (the more children the nodes have, the better).
+</p><p>Notice that we can take any node in a tree and change its parent to any other node in that tree without interfering with the correctness of the algorithm, as long as we do not introduce any cycles. In particular, we can take any non-root node in a tree and set its parent to the root, so that future find operations (and, consequently, union operations) involving that node will be much faster. The modification to our basic algorithm is simple: during any <i>find</i> operation, once we eventually find the root of the tree, we change the parent pointer of every node encountered along the path so that it now points to the root node. Asymptotically, this does not increase the amount of work we have to do during a find operation --- it is still linear in the depth of the query node. But as a consequence of the path compression, when used in conjunction with union by rank, the trees become almost completely flat --- so flat, in fact, that the running time for both the find and union operations becomes <img class="mwe-math-fallback-image-inline tex" alt="O(\alpha(n))" src="/wiki/images/math/5/8/3/583932d69eb3744b3a5e7377983f4252.png">, which is asymptotically optimal.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup><sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[2]</a></sup> (Here <img class="mwe-math-fallback-image-inline tex" alt="\alpha" src="/wiki/images/math/b/c/c/bccfc7022dfb945174d9bcebad2297bb.png"> denotes the inverse of the <a href="/wiki/index.php?title=Ackermann_function&amp;action=edit&amp;redlink=1" class="new" title="Ackermann function (page does not exist)">Ackermann function</a> <img class="mwe-math-fallback-image-inline tex" alt="A" src="/wiki/images/math/7/f/c/7fc56270e7a70fa81a5935b72eacbe29.png">. Because the Ackermann function is extremely fast-growing, the inverse <img class="mwe-math-fallback-image-inline tex" alt="\alpha" src="/wiki/images/math/b/c/c/bccfc7022dfb945174d9bcebad2297bb.png"> is extremely slow-growing.)
+</p>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Disjoint_sets&amp;action=edit&amp;section=6" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1"><span class="cite-accessibility-label">Jump up </span>↑</a></span> <span class="reference-text">Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein. <i>Introduction to Algorithms</i>, Second Edition. MIT Press and McGraw-Hill, 2001. <a href="/wiki/Special:BookSources/0262032937" class="internal mw-magiclink-isbn">ISBN 0-262-03293-7</a>. Chapter 21: Data structures for Disjoint Sets, pp. 498–524.</span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2"><span class="cite-accessibility-label">Jump up </span>↑</a></span> <span class="reference-text">M. Fredman and M. Saks. The cell probe complexity of dynamic data structures. <i>Proceedings of the Twenty-First Annual ACM Symposium on Theory of Computing</i>, pp. 345–354. May 1989. "Theorem 5: Any CPROBE(log <i>n</i>) implementation of the set union problem requires Ω(<i>m</i> α(<i>m</i>, <i>n</i>)) time to execute <i>m</i> Find's and <i>n</i>−1 Union's, beginning with <i>n</i> singleton sets."</span>
+</li>
+</ol>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.090 seconds
+Real time usage: 0.099 seconds
+Preprocessor visited node count: 552/1000000
+Preprocessor generated node count: 1274/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:145-0!*!0!!en!*!*!math=0 and timestamp 20180430172632 and revision id 1459
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wcipeg.com/wiki/index.php?title=Disjoint_sets&amp;oldid=1459">https://wcipeg.com/wiki/index.php?title=Disjoint_sets&amp;oldid=1459</a>"					</div>
+													<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:Data_structures" title="Category:Data structures">Data structures</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Disjoint+sets&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Disjoint+sets" title="You are encouraged to log in; however, it is not mandatory [ctrl-alt-o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li id="ca-nstab-main" class="selected"><span><a href="/wiki/Disjoint_sets" title="View the content page [ctrl-alt-c]" accesskey="c">Page</a></span></li>
+															<li id="ca-talk"><span><a href="/wiki/Talk:Disjoint_sets" title="Discussion about the content page [ctrl-alt-t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label" tabindex="0"><span>Variants</span><a href="#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Disjoint_sets">Read</a></span></li>
+															<li id="ca-edit"><span><a href="/wiki/index.php?title=Disjoint_sets&amp;action=edit" title="You can edit this page. Please use the preview button before saving [ctrl-alt-e]" accesskey="e">Edit</a></span></li>
+															<span class="placeholder" style="display: none;"></span>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu" aria-labelledby="p-cactions-label" style="">
+						<h3 id="p-cactions-label" tabindex="0" style="width: 61px;"><span>More</span><a href="#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul><li id="ca-history" class="collapsible" style="display: list-item;"><span><a href="/wiki/index.php?title=Disjoint_sets&amp;action=history" title="Past revisions of this page [ctrl-alt-h]" accesskey="h">View history</a></span></li>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search PEGWiki [ctrl-alt-f]" accesskey="f" id="searchInput" tabindex="1" autocomplete="off"><input type="hidden" value="Special:Search" name="title"><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton">								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page" title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id="p-navigation" aria-labelledby="p-navigation-label">
+			<h3 id="p-navigation-label">Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [ctrl-alt-z]" accesskey="z">Main page</a></li>
+													<li id="n-Index"><a href="/wiki/Special:AllPages">Index</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [ctrl-alt-r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [ctrl-alt-x]" accesskey="x">Random page</a></li>
+													<li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+			<h3 id="p-tb-label">Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Disjoint_sets" title="A list of all wiki pages that link here [ctrl-alt-j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Disjoint_sets" title="Recent changes in pages linked from this page [ctrl-alt-k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [ctrl-alt-q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/wiki/index.php?title=Disjoint_sets&amp;printable=yes" rel="alternate" title="Printable version of this page [ctrl-alt-p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/wiki/index.php?title=Disjoint_sets&amp;oldid=1459" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/wiki/index.php?title=Disjoint_sets&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 11 December 2011, at 01:29.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Attribution 3.0 Unported</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/PEGWiki:Privacy_policy" title="PEGWiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/PEGWiki:About" title="PEGWiki:About">About PEGWiki</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/PEGWiki:General_disclaimer" title="PEGWiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by/3.0/"><img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Attribution 3.0 Unported" width="88" height="31"></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wiki/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.cite","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wcipeg.com/wiki/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script><script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":70});
+}</script>
+	
+
+<div class="suggestions" style="display: none; font-size: 13px;"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>

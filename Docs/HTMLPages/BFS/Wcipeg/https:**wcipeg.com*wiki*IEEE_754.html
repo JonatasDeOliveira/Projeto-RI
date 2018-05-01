@@ -1,0 +1,314 @@
+<!DOCTYPE html><html lang="en" dir="ltr" class="client-js"><head>
+<meta charset="UTF-8">
+<title>IEEE 754 - PEGWiki</title>
+<meta name="generator" content="MediaWiki 1.25.2">
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/wiki/index.php?title=IEEE_754&amp;action=edit">
+<link rel="edit" title="Edit" href="/wiki/index.php?title=IEEE_754&amp;action=edit">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="/wiki/opensearch_desc.php" title="PEGWiki (en)">
+<link rel="EditURI" type="application/rsd+xml" href="https://wcipeg.com/wiki/api.php?action=rsd">
+<link rel="alternate" hreflang="x-default" href="/wiki/IEEE_754">
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/">
+<link rel="alternate" type="application/atom+xml" title="PEGWiki Atom feed" href="/wiki/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=ext.math.styles%7Cext.rtlcite%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*">
+<style>
+.cite-accessibility-label{position:absolute !important; top:-99999px;clip:rect(1px 1px 1px 1px); clip:rect(1px,1px,1px,1px);padding:0 !important;border:0 !important;height:1px !important;width:1px !important;overflow:hidden}.mw-cite-backlink,.cite-accessibility-label{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none} ol.references li:target,sup.reference:target{background-color:#def; background-color:rgba(0,127,255,0.133)}@media print{.mw-cite-backlink{display:none}}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:2970940d33044e6aa6a620ce3c93c662 */
+.mw-collapsible-toggle{float:right;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}  .mw-content-ltr .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr .mw-collapsible-toggle{float:right} .mw-content-rtl .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl .mw-collapsible-toggle{float:left}.mw-customtoggle,.mw-collapsible-toggle{cursor:pointer} caption .mw-collapsible-toggle,.mw-content-ltr caption .mw-collapsible-toggle,.mw-content-rtl caption .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr caption .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl caption .mw-collapsible-toggle{float:none} li .mw-collapsible-toggle,.mw-content-ltr li .mw-collapsible-toggle,.mw-content-rtl li .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr li .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:e1ffd603cbaaa5f1a36e0d13fe843535 */
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:none;z-index:1099;padding:0;margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#4C59A6;color:white}.suggestions-special .special-label{color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white}.highlight{font-weight:bold}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:f8d0c6895ce3ae14434c16b8fca59432 */
+.postedit-container{margin:0 auto;position:fixed;top:0;height:0;left:50%;z-index:1000;font-size:13px}.postedit-container:hover{cursor:pointer}.postedit{position:relative;top:0.6em;left:-50%;padding:.6em 3.6em .6em 1.1em;line-height:1.5625em;color:#626465;background-color:#f4f4f4;border:1px solid #dcd9d9;text-shadow:0 0.0625em 0 rgba(255,255,255,0.5);border-radius:5px;box-shadow:0 2px 5px 0 #ccc;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;-ms-transition:all 0.25s ease-in-out;-o-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out}.skin-monobook .postedit{top:6em !important}.postedit-faded{opacity:0}.postedit-icon{padding-left:41px;  line-height:25px;background-repeat:no-repeat;background-position:8px 50%}.postedit-icon-checkmark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABblBMVEUAAAD///////9PfTf///80aRdTgjn///9Feij///////////9Rfzf///////////9PfjZRgDh1o1xOfTb///////+bwYqLtnj///////9PfTa82K////9WhT6YxIL///9QgDdTgzr////////j7uDl7eLq8efi693k7OH///////9UhjuBr2rp9uRUhjr///9YljVKgir///9WiTlYjT3////9/v57vFlbkT5PjC9dlD/5/fhuq09stUTs9uhxuElctCpfnT1huDFloEZloUZmpENmvDZpvDxpvTxqvjxrvT5rvT9rwTxsqktswD5uwkBvuUdxw0NztFBztU9ztVBzwkp0tlJ1xkd2t1R3uVR4w1F4xk54x014yE15uVZ5v1R5xVB6v1R7yFJ8wVh9xVl9yFR9yVd9ylN+xVh+yFd/x1l/yFeAylmEx1+Ny2uY0Hqe04Wj1Ymv3Ze33qLD47TJ5L3O6cPU7Mrq9eb2+/Q4j37OAAAAQHRSTlMAAQIEBAUFBQwPFB4fJCUoKiosQEhJS01RUlZZXmdydXaChYuSlJSWmJmoq6uur8LExcvM19fg5ejt8fX2+Pr7SljgewAAAKpJREFUGBkFwQNCAwAAAMDLtl3LtrG4rWXbtvX77gAgZ6grFwC0bhwNVgKgdPZx8b0dgLi+s7Wn0VoAqpfOI9+BNADZI7fLrz2pSEwGHZuH+78lSK8ZLkLezF3ooyUG3VPXq2USei9WngeyoG195yBYWDF3E/2pAhl1e9Gr8bGT+bfOFCC2fnvh4X7rcqIAQNNu+HT6sxkAjceTL/2ZAIhv+PorBwBJxfkA//dFHSCBy/UTAAAAAElFTkSuQmCC);background-image:url(https://wcipeg.com/wiki/resources/src/mediawiki.action/images/green-checkmark.png?2015-08-10T21:21:40Z)!ie;background-position:left}.postedit-close{position:absolute;padding:0 .8em;right:0;top:0;font-size:1.25em;font-weight:bold;line-height:2.3em;color:black;text-shadow:0 0.0625em 0 white;text-decoration:none;opacity:0.2;filter:alpha(opacity=20)}.postedit-close:hover{color:black;text-decoration:none;opacity:0.4;filter:alpha(opacity=40)}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:86d7c89b7cadf5004340279c398253d8 */</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:black;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:white}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:ae3fa4570b5ac0c6cf7b3776c8ae4d6f */</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*">
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:b36fd1c042133c9c9b60260f7c29b237 */</style>
+<script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script><script src="/wiki/load.php?debug=false&amp;lang=en&amp;modules=jquery%2Cmediawiki&amp;only=scripts&amp;skin=vector&amp;version=20161103T112730Z"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"IEEE_754","wgTitle":"IEEE 754","wgCurRevisionId":1650,"wgRevisionId":1650,"wgArticleId":438,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"IEEE_754","wgRelevantArticleId":438,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikidb:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script><script src="/wiki/load.php?debug=false&amp;lang=en&amp;modules=jquery.accessKeyLabel%2Cclient%2CmwExtension%2CtabIndex%2Cthrottle-debounce%7Cmediawiki.legacy.ajax%2Cwikibits%7Cmediawiki.notify%2Cutil%7Cmediawiki.page.startup%7Cskins.vector.js&amp;skin=vector&amp;version=20161103T112730Z&amp;*"></script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-IEEE_754 skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">IEEE 754</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From PEGWiki</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p><b>IEEE</b> (Institute of Electrical and Electronics Engineers) <b>754</b> is a floating-point computation standard. It is universal among personal computers, and also commonplace among other devices.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="#" id="togglelink">hide</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Binary32_and_binary64_data_types"><span class="tocnumber">1</span> <span class="toctext">Binary32 and binary64 data types</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Basic_anatomy"><span class="tocnumber">1.1</span> <span class="toctext">Basic anatomy</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Imprecision_and_limits"><span class="tocnumber">1.2</span> <span class="toctext">Imprecision and limits</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Nonreal_values"><span class="tocnumber">1.3</span> <span class="toctext">Nonreal values</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Zero_and_subnormal_values"><span class="tocnumber">1.4</span> <span class="toctext">Zero and subnormal values</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="#Signed_zero"><span class="tocnumber">1.4.1</span> <span class="toctext">Signed zero</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-7"><a href="#Summary"><span class="tocnumber">1.5</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Programming_language_support"><span class="tocnumber">1.6</span> <span class="toctext">Programming language support</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="#References"><span class="tocnumber">2</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Binary32_and_binary64_data_types">Binary32 and binary64 data types</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=IEEE_754&amp;action=edit&amp;section=1" title="Edit section: Binary32 and binary64 data types">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>IEEE 754 defines, among other things, two formats for the binary encoding of floating-point numbers. <b>Binary32</b>, also known as <b>single precision</b>:<sup id="cite_ref-intel_1-0" class="reference"><a href="#cite_note-intel-1">[1]</a></sup>
+</p>
+<ul><li> is 32 bits wide;</li>
+<li> has a precision of up to 24 bits (about 7 digits);</li>
+<li> can store positive and negative numbers of absolute value as small as about 10<sup>-45</sup> and as large as about 10<sup>38</sup>, as well as zero;</li>
+<li> supports the representation of positive infinity, negative infinity, and "not a number" (NaN) values.</li></ul>
+<p><b>Binary64</b>, also known as <b>double precision</b>, is wider, but otherwise similar, with a total size of 64 bits (up to 53 bits precision, or about 16 digits), and support for absolute values as small as 10<sup>-323</sup> and as large as about 10<sup>308</sup>.
+</p>
+<h3><span class="mw-headline" id="Basic_anatomy">Basic anatomy</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=IEEE_754&amp;action=edit&amp;section=2" title="Edit section: Basic anatomy">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Any nonzero real number can be expressed in scientific notation as <img class="mwe-math-fallback-image-inline tex" alt="\pm m\times 10^e" src="/wiki/images/math/d/9/9/d99d767ef9faa6d308ef4996d76dd8b7.png">, where <img class="mwe-math-fallback-image-inline tex" alt="e" src="/wiki/images/math/e/1/6/e1671797c52e15f763380b45e841ec32.png"> is an integer and <img class="mwe-math-fallback-image-inline tex" alt="m" src="/wiki/images/math/6/f/8/6f8f57715090da2632453988d9a1501b.png">, the mantissa, satisfies <img class="mwe-math-fallback-image-inline tex" alt="1 \leq m &lt; 10" src="/wiki/images/math/c/6/e/c6e219d11a1338a7f161e18e4715aab5.png">. In analogy, the binary32 and binary64 types represent nonzero real numbers as <img class="mwe-math-fallback-image-inline tex" alt="\pm m\times 2^e" src="/wiki/images/math/1/0/3/10317f14b23b7759e055d6208d1f0431.png">, where <img class="mwe-math-fallback-image-inline tex" alt="e" src="/wiki/images/math/e/1/6/e1671797c52e15f763380b45e841ec32.png"> is an integer and <img class="mwe-math-fallback-image-inline tex" alt="m" src="/wiki/images/math/6/f/8/6f8f57715090da2632453988d9a1501b.png">, the <i>significand</i>, satisfies <img class="mwe-math-fallback-image-inline tex" alt="1 \leq m &lt; 2" src="/wiki/images/math/2/e/a/2ea6996f6cf435e54ac847971114c7d8.png">.
+</p><p>To represent the sign, a <i>sign bit</i> is used; this is the leading bit in a binary32 or binary64 word and is 0 if the real number is positive or 1 if it is negative. In a binary32, the next 8 bits are used to store the exponent, whereas in a binary64, it is the next 11 bits that are used for this purpose. Since it is desirable to be able to represent both numbers that are much larger than 1 and numbers that are much smaller than 1 (in absolute value), both positive and negative exponents must be supported. However, negative exponents are not stored according to the <a href="/wiki/index.php?title=Two%27s_complement&amp;action=edit&amp;redlink=1" class="new" title="Two's complement (page does not exist)">two's complement</a> convention that is almost always used for integer data types. Instead, <img class="mwe-math-fallback-image-inline tex" alt="2^7-1 = 127" src="/wiki/images/math/a/b/e/abe2bf500608fa7cbb22f491407fd265.png"> is added to the binary32 exponent and <img class="mwe-math-fallback-image-inline tex" alt="2^{10}-1 = 1023" src="/wiki/images/math/4/0/c/40c10603eabdc8b8bf51634f2ccf8a48.png"> is added to the binary64 exponent, which is then stored as a positive number. For example, the bit sequence <code>01101011</code>, when used as the exponent in a binary32 number, does not represent the exponent 01101011<sub>2</sub> (that is, 107). Instead it represents the exponent 107 - 127 = -20. (The value 107 is known as the <i>biased exponent</i>.) The significand is stored in the last 23 bits (in a binary32) or the last 52 bits (in a binary64). Since the leading bit will <i>always</i> be 1 (as the significand is greater than or equal to 1, but less than 2), it is not stored at all, but rather <i>implied</i>. Thus, for example, the bit string <code>10000000000000000000000</code>, if found in the significand part of a binary32, actually represents 1.10000000000000000000000<sub>2</sub>, that is, the number 1.5.
+</p>
+<h3><span class="mw-headline" id="Imprecision_and_limits">Imprecision and limits</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=IEEE_754&amp;action=edit&amp;section=3" title="Edit section: Imprecision and limits">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>It is clear that the binary32 and binary64 types <i>cannot represent all possible real numbers</i>, as there are uncountably many of these. Indeed, they cannot even represent all possible real numbers <i>within any given interval</i>, because there are still uncountably many (whereas it is perfectly possible to define integer data types that can represent all integers in a given interval, as there are only finitely many of those). This fact is also evident from the foregoing discussion. The binary32 and binary64 (and all other floating-point types) are limited in both <i>range</i> and <i>precision</i>.
+</p><p>They are limited in range because only a finite number of different possible exponents are stored. For example, the exponent 300 is too large to be stored in the 8 bits of a binary32, though it will fit in a binary64; the exponent 3000 is too large for either type. Since there is a limit on how large an exponent we can store, and how small an exponent we can store, it follows that there are some real numbers that are simply too large to represent with binary32 or binary64, and others that are too small (in absolute value).
+</p><p>Of course, perhaps one should <i>expect</i> a limitation in range, because that is exactly what one finds with the signed and unsigned <i>integer</i> types in programming languages. On the other hand, programmers sometimes forget that <i>precision</i> is also limited. That is, when representing a real number as a binary32 or a binary64, any bits of the significand beyond those that will fit into the data type simply have to be truncated or rounded off. It follows, for example, that a number with a non-terminating binary expansion, such as 1/3, cannot be stored exactly; this number has binary expansion 0.010101...<sub>2</sub> but when we store it in a binary32 or binary64 we have to discard all the bits that can't fit into the significand. Note that some numbers, such as 1/5, have terminating <i>decimal</i> expansions, but not terminating <i>binary</i> expansions. The 23 bits allocated to the significand in the binary32 type, plus the implied leading one, add up to 24 bits of precision, or about <img class="mwe-math-fallback-image-inline tex" alt="24 \log_{10} 2 \approx 7.2" src="/wiki/images/math/c/6/b/c6b0253906e3dc325411dc3892b8efd9.png"> digits. The 52+1 bits in the binary64 type correspond to about <img class="mwe-math-fallback-image-inline tex" alt="53 \log_{10} 2 \approx 16.0" src="/wiki/images/math/4/c/e/4ce9925e60a8f8d75c05023f6efaf8e6.png"> digits. For even greater precision, one must usually use arbitrary-precision arithmetic.
+</p>
+<h3><span class="mw-headline" id="Nonreal_values">Nonreal values</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=IEEE_754&amp;action=edit&amp;section=4" title="Edit section: Nonreal values">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Not only do the binary32 and binary64 types fail to represent all possible real numbers, but they also represent some values that are not real numbers at all. These are <i>positive infinity</i>, <i>negative infinity</i>, and <i>NaN</i> (not a number). The sign bit is zero for positive infinity and one for negative infinity; it is irrelevant for a NaN. For both infinities as well as NaNs, the exponent is set to all ones (corresponding to the value 255 for a binary32 or 2047 for a binary64). If the significand consists entirely of zeroes, the binary32 or binary64 represents a positive or negative infinity (depending on the sign bit). If it is nonzero but its leading bit is a zero, then it represents an <i>sNaN (signalling NaN)</i>, which ordinarily means that any attempt to involve it in a calculation will trigger an exception. If the leading bit is one, on the other hand, the value stored is a <i>qNaN (quiet NaN)</i>. These do not trigger exceptions, but they "taint" all calculations that involve them (for example, 1 + qNaN = qNaN).
+</p><p>The following produce infinities, or sometimes raise floating-point exceptions which may crash the program, depending on the circumstances under which they arise:
+</p>
+<ul><li> Any operation that produces a result too large to fit in the largest (or largest negative) representable real. Adding or multiplying two extremely large numbers. Dividing a very large number by a very small number. Taking the exponential of a very large number. Computing the tangent of an angle very close to an odd multiple of <img class="mwe-math-fallback-image-inline tex" alt="\pi/2" src="/wiki/images/math/1/f/8/1f8b57e932cf2d585ed71af904be8638.png">.</li>
+<li> Dividing a positive number by zero, giving positive infinity.</li>
+<li> Dividing a negative number by zero, giving negative infinity.</li>
+<li> Taking the logarithm of zero (negative infinity).</li></ul>
+<p>The following produce NaNs:
+</p>
+<ul><li> Any operation that involves a NaN as an operand.</li>
+<li> Any operation whose result is indeterminate. Dividing zero by zero. Multiplying zero by infinity. Dividing infinity by infinity. Subtracting infinity from infinity.</li>
+<li> Any operation whose result is a nonreal complex number. Taking the logarithm of a negative number. Taking the square root of a negative number. Taking the inverse sine or inverse cosine of a number whose absolute value exceeds one.</li></ul>
+<p>Positive infinity is considered to be greater than any finite value, and all finite values are considered to be greater than negative infinity. Any comparison involving a NaN, on the other hand, evaluates to false. In fact, if <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> is a NaN, even <img class="mwe-math-fallback-image-inline tex" alt="x = x" src="/wiki/images/math/0/3/a/03a87f3d2b231e4aa09ed311b752792f.png"> is false.
+</p>
+<h3><span class="mw-headline" id="Zero_and_subnormal_values">Zero and subnormal values</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=IEEE_754&amp;action=edit&amp;section=5" title="Edit section: Zero and subnormal values">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>We have not yet discussed the representation of zero. Zero cannot be expressed as <img class="mwe-math-fallback-image-inline tex" alt="\pm m \times 2^e" src="/wiki/images/math/1/0/3/10317f14b23b7759e055d6208d1f0431.png"> for any <img class="mwe-math-fallback-image-inline tex" alt="m \neq 0" src="/wiki/images/math/b/f/a/bfaefd58fe21cbd1ef0b7bf049d86ef3.png">, and we also have no way to denote a zero significand. This problem is solved by specifying that whenever a binary32 or binary64's exponent field is actually zero (that is, a bit string of 8 or 11 zeroes, respectively), we stop assuming that the significand carries a leading implied 1. Thus, when the exponent field is zero in a binary32, for example, a significand of <code>10000000000000000000000</code> actually represents 1.0000000000000000000000<sub>2</sub>, and the number represented is 2<sup>-127</sup>.
+</p><p>Under this representation, setting both the exponent and the significand to all zeroes gives the value zero. If the exponent is zero, but the significand is nonzero, then we have a nonzero number that has less than the usual amount of precision; a binary32 number of this kind can only have up to 23 bits of precision rather than the usual 24 (and, the smaller it is, the less precise), and a binary64 can only have up to 52 bits of precision rather than the usual 53. These less-precise-than-usual numbers are called <b>subnormal</b> (or <b>denormal</b>). Zero is not considered subnormal.
+</p>
+<h4><span class="mw-headline" id="Signed_zero">Signed zero</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=IEEE_754&amp;action=edit&amp;section=6" title="Edit section: Signed zero">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>Note that there are two possible representations for zero. The one in which the sign bit is 0 is called <i>positive zero</i>, and the one in which the sign bit is 1 is called <i>negative zero</i>. The following rules apply:
+</p>
+<ul><li> Positive zero and negative zero compare equal. Specifically, positive zero is not considered to be greater than negative zero.</li>
+<li> When multiplying two numbers, at least one of which is zero, the signs are also multiplied; for example, multiplying positive zero by any negative value (except negative infinity) gives negative zero.</li>
+<li> Likewise, when dividing zero by a nonzero number, the signs are also divided. This is true even when the divisor is infinite.</li>
+<li> When dividing a nonzero number by zero, the signs are also divided (and the result will be either positive infinity or negative infinity, accordingly).</li>
+<li> (+0) + (+0) = (+0) - (-0) = +0</li>
+<li> (-0) + (-0) = (-0) - (+0) = -0</li>
+<li> (+0) + (-0) = (-0) + (+0) = (+0) - (+0) = (-0) - (-0). They are all equal to +0, except in <i>round toward negative infinity</i> mode, in which case they all equal -0. In fact, the same is true of <img class="mwe-math-fallback-image-inline tex" alt="x - x" src="/wiki/images/math/7/0/b/70b67c5b7d62fa9b0b2c3c9298554080.png"> or <img class="mwe-math-fallback-image-inline tex" alt="x + (-x)" src="/wiki/images/math/0/4/4/044d35be2188ec8f5adfe821207a3a3d.png">, for any real <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png">.</li>
+<li> The square root of +0 is +0 and the square root of -0 is -0.</li></ul>
+<h3><span class="mw-headline" id="Summary">Summary</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=IEEE_754&amp;action=edit&amp;section=7" title="Edit section: Summary">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>For a binary32 (binary64) value:
+</p>
+<ul><li> The first bit is a sign bit, the next 8 (11) bits are the biased exponent, and the last 23 (52) bits are the significand;</li>
+<li> A biased exponent of zero represents either zero or a subnormal number. A biased exponent of 255 (2047), that is, all ones, represents either an infinite value or a NaN. Any biased exponent between 1 and 254 (2046) represents an actual exponent 127 (1023) less than itself. It follows that the smallest representable normal (not subnormal) number is 2<sup>-126</sup> (2<sup>-1022</sup>), and the largest representable exponent is 127 (1023), so that if we fill the significand with all ones, we get a value that is almost 2<sup>128</sup> (2<sup>1024</sup>) as the largest representable real number.</li></ul>
+<dl><dd><ul><li> Note that when the leading bit of the biased exponent is a 0 (that is, the biased exponent is 127 (1023) or less), the actual exponent is negative, whereas if it is a 1, then the actual exponent is positive.</li></ul></dd></dl>
+<ul><li> When the biased exponent is zero, the a significand consisting entirely of zeroes represents zero, whereas a nonzero significand represents a subnormal number. There exist positive zero and negative zero.</li>
+<li> When the biased exponent is 255 (2047):</li></ul>
+<dl><dd><ul><li> ... and the significand is all zeroes, the value is either positive or negative infinity, depending on sign;</li>
+<li> ... and the significand's leading bit is zero, but some other bit is nonzero, the value is an sNaN;</li>
+<li> ... and the significand's leading bit is one, the value is a qNaN.</li></ul></dd></dl>
+<h3><span class="mw-headline" id="Programming_language_support">Programming language support</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=IEEE_754&amp;action=edit&amp;section=8" title="Edit section: Programming language support">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p><i>Expansion of this section would be welcome.</i>
+</p><p>The binary32 and binary64 types are ubiquitous among microprocessors. Naturally, they also enjoy extensive programming language support:
+</p>
+<ul><li> <b>C</b> and <b>C++</b>: In nearly all implementations, the data type <code>float</code> is a binary32 value, and the data type <code>double</code> is a binary64 value. Although this is not required by the standard, most programmers are unlikely to ever come across a machine that deviates from this, simply by virtue of C tending to be "close to the machine" and the fact that virtually all machines natively support IEEE 754.</li>
+<li> <b>Java</b>: <code>float</code> and <code>double</code> behave exactly like binary32 and binary64, but the standard does not require that their internal representations match those of binary32 and binary64.<sup id="cite_ref-java_2-0" class="reference"><a href="#cite_note-java-2">[2]</a></sup></li>
+<li> <b>JavaScript</b>: ECMA 262 prescribes that a JavaScript number behaves as a binary64.<sup id="cite_ref-ecma262_3-0" class="reference"><a href="#cite_note-ecma262-3">[3]</a></sup></li>
+<li> <b>.NET</b>: The Common Type System provides the <code>System.Single</code> and <code>System.Double</code> types, that correspond to binary32 and binary64, respectively.<sup id="cite_ref-ecma335_4-0" class="reference"><a href="#cite_note-ecma335-4">[4]</a></sup></li>
+<li> <b>O'Caml</b>: Uses binary64<sup id="cite_ref-caml_5-0" class="reference"><a href="#cite_note-caml-5">[5]</a></sup></li>
+<li> <b>Pascal</b>: The ANSI/ISO Pascal standard provides only for a <code>real</code> type. However, for much of history, the only important Pascal implementation was Borland's Turbo Pascal; it had a <code>single</code> type, a binary32; and a <code>double</code> type, a binary64. (Even on older IA-32 processors lacking numeric coprocessors, software emulation was provided to ensure that these data types behaved according to IEEE 754.) The newer Free Pascal compiler guarantees that <code>single</code> and <code>double</code> map to binary32 and binary64, respectively.<sup id="cite_ref-freepascal_6-0" class="reference"><a href="#cite_note-freepascal-6">[6]</a></sup></li>
+<li> <b>Ruby</b>: uses the underlying architecture's native double-precision floating point type.<sup id="cite_ref-ruby_7-0" class="reference"><a href="#cite_note-ruby-7">[7]</a></sup> Note that Ruby (unlike C) has probably never been ported to an architecture on which this is not a binary64.</li></ul>
+<p>The R5RS standard for the Scheme programming language recommends the use of IEEE 754, but does not require it. The Haskell98 report recommends, but does not require, that Haskell's built-in <code>Float</code> type be able to represent at least the range of values of a binary32, and likewise with <code>Double</code> and binary64.
+</p><p>In other programming languages, there is often no guarantee of finding types corresponding to binary32 or binary64, but it is still overwhelmingly more likely than not that the floating-point types on any given implementation of any given programming language correspond to binary32 or binary64. (Some programming languages, however, also provide arbitrary-precision or fixed-point real types; these are not covered by IEEE 754.)
+</p>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=IEEE_754&amp;action=edit&amp;section=9" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ol class="references">
+<li id="cite_note-intel-1"><span class="mw-cite-backlink"><a href="#cite_ref-intel_1-0"><span class="cite-accessibility-label">Jump up </span>↑</a></span> <span class="reference-text">Intel Corporation. <i>Intel® 64 and IA-32 Architectures Developer's Manual: Combined Volumes</i>. Section 4.2.2 Floating-Point Data Types. Retrieved from <a rel="nofollow" class="external free" href="http://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-software-developer-manual-325462.pdf">http://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-software-developer-manual-325462.pdf</a></span>
+</li>
+<li id="cite_note-java-2"><span class="mw-cite-backlink"><a href="#cite_ref-java_2-0"><span class="cite-accessibility-label">Jump up </span>↑</a></span> <span class="reference-text">Sun Microsystems, Inc. (2000). <i>Java Language Specification, Second Edition</i>. Section 4.2.3 Floating-Point Types, Formats, and Values</span>
+</li>
+<li id="cite_note-ecma262-3"><span class="mw-cite-backlink"><a href="#cite_ref-ecma262_3-0"><span class="cite-accessibility-label">Jump up </span>↑</a></span> <span class="reference-text"><i>ECMAScript Language Specification, Edition 5.1.</i> (2011). Section 8.5 The Number Type. Retrieved from <a rel="nofollow" class="external free" href="http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf">http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf</a></span>
+</li>
+<li id="cite_note-ecma335-4"><span class="mw-cite-backlink"><a href="#cite_ref-ecma335_4-0"><span class="cite-accessibility-label">Jump up </span>↑</a></span> <span class="reference-text"><i>Common Language Infrastructure (CLI), Partitions I to V, Second Edition</i>. (2002). Section 8.2.2 Built-in Types. Retrieved from <a rel="nofollow" class="external free" href="http://www.ecma-international.org/publications/files/ECMA-ST-WITHDRAWN/ECMA-335,%202nd%20edition,%20December%202002.pdf">http://www.ecma-international.org/publications/files/ECMA-ST-WITHDRAWN/ECMA-335,%202nd%20edition,%20December%202002.pdf</a></span>
+</li>
+<li id="cite_note-caml-5"><span class="mw-cite-backlink"><a href="#cite_ref-caml_5-0"><span class="cite-accessibility-label">Jump up </span>↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://caml.inria.fr/pub/docs/manual-ocaml/libref/Pervasives.html">http://caml.inria.fr/pub/docs/manual-ocaml/libref/Pervasives.html</a></span>
+</li>
+<li id="cite_note-freepascal-6"><span class="mw-cite-backlink"><a href="#cite_ref-freepascal_6-0"><span class="cite-accessibility-label">Jump up </span>↑</a></span> <span class="reference-text">Michaël Van Canneyt. (2011). Free Pascal Programmer's Guide. Retrieved from <a rel="nofollow" class="external free" href="http://www.freepascal.org/docs-html/prog/progsu144.html">http://www.freepascal.org/docs-html/prog/progsu144.html</a></span>
+</li>
+<li id="cite_note-ruby-7"><span class="mw-cite-backlink"><a href="#cite_ref-ruby_7-0"><span class="cite-accessibility-label">Jump up </span>↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.ruby-doc.org/core-1.9.3/Float.html">http://www.ruby-doc.org/core-1.9.3/Float.html</a></span>
+</li>
+</ol>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.070 seconds
+Real time usage: 0.081 seconds
+Preprocessor visited node count: 407/1000000
+Preprocessor generated node count: 1064/1000000
+Post‐expand include size: 232/2097152 bytes
+Template argument size: 140/2097152 bytes
+Highest expansion depth: 4/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   13.061      1 - -total
+ 50.21%    6.558      4 - Template:Binary
+ 22.53%    2.943      4 - Template:Radix
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:438-0!*!0!!en!*!*!math=0 and timestamp 20180501012307 and revision id 1650
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wcipeg.com/wiki/index.php?title=IEEE_754&amp;oldid=1650">https://wcipeg.com/wiki/index.php?title=IEEE_754&amp;oldid=1650</a>"					</div>
+													<div id="catlinks" class="catlinks catlinks-allhidden"></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=IEEE+754&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=IEEE+754" title="You are encouraged to log in; however, it is not mandatory [ctrl-alt-o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li id="ca-nstab-main" class="selected"><span><a href="/wiki/IEEE_754" title="View the content page [ctrl-alt-c]" accesskey="c">Page</a></span></li>
+															<li id="ca-talk" class="new"><span><a href="/wiki/index.php?title=Talk:IEEE_754&amp;action=edit&amp;redlink=1" title="Discussion about the content page [ctrl-alt-t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label" tabindex="0"><span>Variants</span><a href="#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/IEEE_754">Read</a></span></li>
+															<li id="ca-edit"><span><a href="/wiki/index.php?title=IEEE_754&amp;action=edit" title="You can edit this page. Please use the preview button before saving [ctrl-alt-e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible" style="position: relative; right: 0px; overflow: hidden; width: 11.327195814077228px;"><span><a href="/wiki/index.php?title=IEEE_754&amp;action=history" title="Past revisions of this page [ctrl-alt-h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu" aria-labelledby="p-cactions-label" style="">
+						<h3 id="p-cactions-label" tabindex="0" style="width: 54.264872295167024px; overflow: hidden;"><span>More</span><a href="#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search PEGWiki [ctrl-alt-f]" accesskey="f" id="searchInput" tabindex="1" autocomplete="off"><input type="hidden" value="Special:Search" name="title"><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton">								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page" title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id="p-navigation" aria-labelledby="p-navigation-label">
+			<h3 id="p-navigation-label">Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [ctrl-alt-z]" accesskey="z">Main page</a></li>
+													<li id="n-Index"><a href="/wiki/Special:AllPages">Index</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [ctrl-alt-r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [ctrl-alt-x]" accesskey="x">Random page</a></li>
+													<li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+			<h3 id="p-tb-label">Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/IEEE_754" title="A list of all wiki pages that link here [ctrl-alt-j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/IEEE_754" title="Recent changes in pages linked from this page [ctrl-alt-k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [ctrl-alt-q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/wiki/index.php?title=IEEE_754&amp;printable=yes" rel="alternate" title="Printable version of this page [ctrl-alt-p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/wiki/index.php?title=IEEE_754&amp;oldid=1650" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/wiki/index.php?title=IEEE_754&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 14 May 2012, at 02:45.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Attribution 3.0 Unported</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/PEGWiki:Privacy_policy" title="PEGWiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/PEGWiki:About" title="PEGWiki:About">About PEGWiki</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/PEGWiki:General_disclaimer" title="PEGWiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by/3.0/"><img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Attribution 3.0 Unported" width="88" height="31"></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wiki/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.cite","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wcipeg.com/wiki/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script><script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":73});
+}</script>
+	
+
+<div class="suggestions" style="display: none; font-size: 13px;"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html><html lang="en" dir="ltr" class="client-js"><head>
+<meta charset="UTF-8">
+<title>Trailing zeroes in factorial - PEGWiki</title>
+<meta name="generator" content="MediaWiki 1.25.2">
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/wiki/index.php?title=Trailing_zeroes_in_factorial&amp;action=edit">
+<link rel="edit" title="Edit" href="/wiki/index.php?title=Trailing_zeroes_in_factorial&amp;action=edit">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="/wiki/opensearch_desc.php" title="PEGWiki (en)">
+<link rel="EditURI" type="application/rsd+xml" href="https://wcipeg.com/wiki/api.php?action=rsd">
+<link rel="alternate" hreflang="x-default" href="/wiki/Trailing_zeroes_in_factorial">
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/">
+<link rel="alternate" type="application/atom+xml" title="PEGWiki Atom feed" href="/wiki/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="canonical" href="/wiki/Trailing_zeroes_in_factorial">
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=ext.geshi.language.c%2Chaskell%7Cext.math.styles%7Cext.rtlcite%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*">
+<style>
+.cite-accessibility-label{position:absolute !important; top:-99999px;clip:rect(1px 1px 1px 1px); clip:rect(1px,1px,1px,1px);padding:0 !important;border:0 !important;height:1px !important;width:1px !important;overflow:hidden}.mw-cite-backlink,.cite-accessibility-label{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none} ol.references li:target,sup.reference:target{background-color:#def; background-color:rgba(0,127,255,0.133)}@media print{.mw-cite-backlink{display:none}}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:2970940d33044e6aa6a620ce3c93c662 */
+.mw-collapsible-toggle{float:right;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}  .mw-content-ltr .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr .mw-collapsible-toggle{float:right} .mw-content-rtl .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl .mw-collapsible-toggle{float:left}.mw-customtoggle,.mw-collapsible-toggle{cursor:pointer} caption .mw-collapsible-toggle,.mw-content-ltr caption .mw-collapsible-toggle,.mw-content-rtl caption .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr caption .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl caption .mw-collapsible-toggle{float:none} li .mw-collapsible-toggle,.mw-content-ltr li .mw-collapsible-toggle,.mw-content-rtl li .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr li .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:e1ffd603cbaaa5f1a36e0d13fe843535 */
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:none;z-index:1099;padding:0;margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#4C59A6;color:white}.suggestions-special .special-label{color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white}.highlight{font-weight:bold}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:f8d0c6895ce3ae14434c16b8fca59432 */
+.postedit-container{margin:0 auto;position:fixed;top:0;height:0;left:50%;z-index:1000;font-size:13px}.postedit-container:hover{cursor:pointer}.postedit{position:relative;top:0.6em;left:-50%;padding:.6em 3.6em .6em 1.1em;line-height:1.5625em;color:#626465;background-color:#f4f4f4;border:1px solid #dcd9d9;text-shadow:0 0.0625em 0 rgba(255,255,255,0.5);border-radius:5px;box-shadow:0 2px 5px 0 #ccc;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;-ms-transition:all 0.25s ease-in-out;-o-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out}.skin-monobook .postedit{top:6em !important}.postedit-faded{opacity:0}.postedit-icon{padding-left:41px;  line-height:25px;background-repeat:no-repeat;background-position:8px 50%}.postedit-icon-checkmark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABblBMVEUAAAD///////9PfTf///80aRdTgjn///9Feij///////////9Rfzf///////////9PfjZRgDh1o1xOfTb///////+bwYqLtnj///////9PfTa82K////9WhT6YxIL///9QgDdTgzr////////j7uDl7eLq8efi693k7OH///////9UhjuBr2rp9uRUhjr///9YljVKgir///9WiTlYjT3////9/v57vFlbkT5PjC9dlD/5/fhuq09stUTs9uhxuElctCpfnT1huDFloEZloUZmpENmvDZpvDxpvTxqvjxrvT5rvT9rwTxsqktswD5uwkBvuUdxw0NztFBztU9ztVBzwkp0tlJ1xkd2t1R3uVR4w1F4xk54x014yE15uVZ5v1R5xVB6v1R7yFJ8wVh9xVl9yFR9yVd9ylN+xVh+yFd/x1l/yFeAylmEx1+Ny2uY0Hqe04Wj1Ymv3Ze33qLD47TJ5L3O6cPU7Mrq9eb2+/Q4j37OAAAAQHRSTlMAAQIEBAUFBQwPFB4fJCUoKiosQEhJS01RUlZZXmdydXaChYuSlJSWmJmoq6uur8LExcvM19fg5ejt8fX2+Pr7SljgewAAAKpJREFUGBkFwQNCAwAAAMDLtl3LtrG4rWXbtvX77gAgZ6grFwC0bhwNVgKgdPZx8b0dgLi+s7Wn0VoAqpfOI9+BNADZI7fLrz2pSEwGHZuH+78lSK8ZLkLezF3ooyUG3VPXq2USei9WngeyoG195yBYWDF3E/2pAhl1e9Gr8bGT+bfOFCC2fnvh4X7rcqIAQNNu+HT6sxkAjceTL/2ZAIhv+PorBwBJxfkA//dFHSCBy/UTAAAAAElFTkSuQmCC);background-image:url(https://wcipeg.com/wiki/resources/src/mediawiki.action/images/green-checkmark.png?2015-08-10T21:21:40Z)!ie;background-position:left}.postedit-close{position:absolute;padding:0 .8em;right:0;top:0;font-size:1.25em;font-weight:bold;line-height:2.3em;color:black;text-shadow:0 0.0625em 0 white;text-decoration:none;opacity:0.2;filter:alpha(opacity=20)}.postedit-close:hover{color:black;text-decoration:none;opacity:0.4;filter:alpha(opacity=40)}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:86d7c89b7cadf5004340279c398253d8 */</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:black;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:white}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:ae3fa4570b5ac0c6cf7b3776c8ae4d6f */</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*">
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:b36fd1c042133c9c9b60260f7c29b237 */</style>
+<script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script><script src="/wiki/load.php?debug=false&amp;lang=en&amp;modules=jquery%2Cmediawiki&amp;only=scripts&amp;skin=vector&amp;version=20161103T112730Z"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Trailing_zeroes_in_factorial","wgTitle":"Trailing zeroes in factorial","wgCurRevisionId":1623,"wgRevisionId":1623,"wgArticleId":456,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Trailing_zeroes_in_factorial","wgRelevantArticleId":456,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"Trailing_zeros_in_factorial","wgInternalRedirectTargetUrl":"/wiki/Trailing_zeroes_in_factorial"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikidb:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.redirect","mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script><script src="/wiki/load.php?debug=false&amp;lang=en&amp;modules=jquery.accessKeyLabel%2Cclient%2CmwExtension%2CtabIndex%2Cthrottle-debounce%7Cmediawiki.action.view.redirect%7Cmediawiki.legacy.ajax%2Cwikibits%7Cmediawiki.notify%2Cutil%7Cmediawiki.page.startup%7Cskins.vector.js&amp;skin=vector&amp;version=20161103T112730Z&amp;*"></script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Trailing_zeroes_in_factorial skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Trailing zeroes in factorial</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From PEGWiki</div>
+								<div id="contentSub"><span class="mw-redirectedfrom">(Redirected from <a href="/wiki/index.php?title=Trailing_zeros_in_factorial&amp;redirect=no" title="Trailing zeros in factorial">Trailing zeros in factorial</a>)</span></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>A well-known programming exercise involves finding the number of trailing zeroes at the end of the decimal representation of <img class="mwe-math-fallback-image-inline tex" alt="n!" src="/wiki/images/math/3/8/8/388f554901ba5d77339eec8b26beebea.png">, for some given value of <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png">.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup><sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[2]</a></sup>
+</p><p>One possible approach, of course, is to explicitly calculate the factorial. The only problem with this is that <img class="mwe-math-fallback-image-inline tex" alt="n!" src="/wiki/images/math/3/8/8/388f554901ba5d77339eec8b26beebea.png"> may be very large for reasonably sized values of <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png">. For example, <img class="mwe-math-fallback-image-inline tex" alt="100! &gt; 10^{100}" src="/wiki/images/math/2/c/4/2c4a4d207c7b6aa552f360bf71bd7201.png">, so <a href="/wiki/Bignum" title="Bignum" class="mw-redirect">bignum</a> arithmetic is needed for this kind of approach. This tends to be slow and inexpedient.
+</p><p>A much cleverer solution—one that does not involve calculating the factorial explicitly—can be obtained by noting that what is really desired is the largest <img class="mwe-math-fallback-image-inline tex" alt="k" src="/wiki/images/math/8/c/e/8ce4b16b22b58894aa86c421e8759df3.png"> such that <img class="mwe-math-fallback-image-inline tex" alt="10^k" src="/wiki/images/math/4/f/2/4f2e557822209132a1aad3f7d49d0fda.png"> divides <img class="mwe-math-fallback-image-inline tex" alt="n!" src="/wiki/images/math/3/8/8/388f554901ba5d77339eec8b26beebea.png">. The prime factorization of <img class="mwe-math-fallback-image-inline tex" alt="10^k" src="/wiki/images/math/4/f/2/4f2e557822209132a1aad3f7d49d0fda.png"> is <img class="mwe-math-fallback-image-inline tex" alt="2^k 5^k" src="/wiki/images/math/2/6/e/26e35d5eb6e75e84e25cc75b1b61f9f7.png">, so really all we need to do is find out how many factors of 2 are in <img class="mwe-math-fallback-image-inline tex" alt="n!" src="/wiki/images/math/3/8/8/388f554901ba5d77339eec8b26beebea.png">, and how many factors of 5 are in <img class="mwe-math-fallback-image-inline tex" alt="n!" src="/wiki/images/math/3/8/8/388f554901ba5d77339eec8b26beebea.png">, and the smaller of the two gives the answer. For example, <img class="mwe-math-fallback-image-inline tex" alt="10!" src="/wiki/images/math/c/e/9/ce913497151991e2efaa914cc4118b67.png"> has prime factorization <img class="mwe-math-fallback-image-inline tex" alt="2^8 \cdot 3^4 \cdot 5^2 \cdot 7" src="/wiki/images/math/8/9/6/896a6904f04dbccde06e678ebd3bfc5c.png">, so it contains 8 factors of 2 and 2 factors of 5. Consistent with these figures, there are 2 zeroes at the end of its decimal representation (3628800).
+</p><p>How do we calculate this? A workable approach is to simply determine how many factors of 2 and 5 are in each of the numbers <img class="mwe-math-fallback-image-inline tex" alt="1, 2, ..., n" src="/wiki/images/math/5/a/1/5a1477408cd715428f37b51489d79a8e.png">. When we multiply those numbers to get <img class="mwe-math-fallback-image-inline tex" alt="n!" src="/wiki/images/math/3/8/8/388f554901ba5d77339eec8b26beebea.png">, we of course <i>add</i> the exponents in their prime factorizations; so the sum of the numbers of factors of 2 in each of the integers <img class="mwe-math-fallback-image-inline tex" alt="1, 2, ..., n" src="/wiki/images/math/5/a/1/5a1477408cd715428f37b51489d79a8e.png"> gives us the number of factors of 2 in <img class="mwe-math-fallback-image-inline tex" alt="n!" src="/wiki/images/math/3/8/8/388f554901ba5d77339eec8b26beebea.png">; and we do something similar for factors of 5. Determining how many times 2 or 5 divides a number is as easy as actually performing the division over and over again (until a non-integer result is obtained).
+</p><p>There is a cleverer solution yet, though. When we multiply all the numbers from 1 to <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png">, exactly <img class="mwe-math-fallback-image-inline tex" alt="\lfloor n/2 \rfloor" src="/wiki/images/math/2/4/4/2440d936a029225c3c7a7c9b607feb11.png"> of them will be even, so each one of those contributes a factor of 2. However, the ones that are divisible by 4 actually contribute <i>two</i> factors of 2, so we have to add <img class="mwe-math-fallback-image-inline tex" alt="\lfloor n/4 \rfloor" src="/wiki/images/math/a/2/b/a2b10092b10318fab20ed0db71f8bf16.png"> to the result (we counted those numbers once in <img class="mwe-math-fallback-image-inline tex" alt="\lfloor n/2 \rfloor" src="/wiki/images/math/2/4/4/2440d936a029225c3c7a7c9b607feb11.png">, and now we are counting them again in <img class="mwe-math-fallback-image-inline tex" alt="\lfloor n/4 \rfloor" src="/wiki/images/math/a/2/b/a2b10092b10318fab20ed0db71f8bf16.png">). But then there may be some numbers that are divisible by 8, which contribute at least <i>three</i> factors of 2, so we have to add <img class="mwe-math-fallback-image-inline tex" alt="\lfloor n/8 \rfloor" src="/wiki/images/math/a/f/9/af9f3ee7d19fda3e5f6924aae77ee0f4.png">; and so on until we reach some power of 2 that is greater than <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png"> (so that it obviously divides none of <img class="mwe-math-fallback-image-inline tex" alt="1, 2, ..., n" src="/wiki/images/math/5/a/1/5a1477408cd715428f37b51489d79a8e.png">). We can then do something similar for factors of 5. This gives us a formula:
+</p>
+<dl><dd><img class="mwe-math-fallback-image-inline tex" alt="k = \min\left(\left\lfloor \frac{n}{2} \right\rfloor + \left\lfloor \frac{n}{4} \right\rfloor + \left\lfloor \frac{n}{8} \right\rfloor + ..., \left\lfloor \frac{n}{5} \right\rfloor + \left\lfloor \frac{n}{25} \right\rfloor + \left\lfloor \frac{n}{125} \right\rfloor + ...\right)" src="/wiki/images/math/5/7/e/57e52c3522b10d4f1808709a5b790589.png"></dd></dl>
+<p>It is now fairly obvious by inspection that the second argument—the number of factors of 5—is always the smaller of the two.
+</p><p>This formula can be used as-is, hence:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">int</span> n<span class="sy0">;</span>
+    <span class="kw3">scanf</span><span class="br0">(</span><span class="st0">"%d"</span><span class="sy0">,</span> <span class="sy0">&amp;</span>n<span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw4">int</span> p <span class="sy0">=</span> <span class="nu0">5</span><span class="sy0">;</span>
+    <span class="kw4">int</span> k <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span>
+    <span class="kw1">while</span> <span class="br0">(</span>p <span class="sy0">&lt;=</span> n<span class="br0">)</span>
+    <span class="br0">{</span>
+        k <span class="sy0">+=</span> n<span class="sy0">/</span>p<span class="sy0">;</span>
+        p <span class="sy0">*=</span> <span class="nu0">5</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+    <span class="kw3">printf</span><span class="br0">(</span><span class="st0">"There are&nbsp;%d zeroes at the end of&nbsp;%d!<span class="es1">\n</span>"</span><span class="sy0">,</span> k<span class="sy0">,</span> n<span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">return</span> <span class="nu0">0</span><span class="sy0">;</span>
+<span class="br0">}</span></pre></div></div>
+<p>The formula can also be re-worked into the following form. The mathematical reasoning behind the correctness of this implementation is left as an exercise for the reader.
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">int</span> n<span class="sy0">;</span>
+    <span class="kw3">scanf</span><span class="br0">(</span><span class="st0">"%d"</span><span class="sy0">,</span> <span class="sy0">&amp;</span>n<span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw4">int</span> k <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span>
+    <span class="kw1">while</span> <span class="br0">(</span>n <span class="sy0">&gt;</span> <span class="nu0">0</span><span class="br0">)</span>
+        k <span class="sy0">+=</span> n <span class="sy0">/=</span> <span class="nu0">5</span><span class="sy0">;</span>
+    <span class="kw3">printf</span><span class="br0">(</span><span class="st0">"There are&nbsp;%d zeroes at the end of&nbsp;%d!<span class="es1">\n</span>"</span><span class="sy0">,</span> k<span class="sy0">,</span> n<span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">return</span> <span class="nu0">0</span><span class="sy0">;</span>
+<span class="br0">}</span></pre></div></div>
+<p>Functional style (Haskell):
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="haskell source-haskell"><pre class="de1">zeroes <span class="sy0">=</span> <span class="kw3">sum</span> . <span class="kw3">tail</span> . <span class="kw3">takeWhile</span> <span class="br0">(</span><span class="sy0">&gt;</span><span class="nu0">0</span><span class="br0">)</span> . <span class="kw3">iterate</span> <span class="br0">(</span><span class="kw3">flip</span> <span class="kw3">div</span> <span class="nu0">5</span><span class="br0">)</span> <span class="co1">-- note that 0 is an edge case</span></pre></div></div>
+<p>Bases other than 10 may be trickier to handle. For example, consider the problem of finding the number of zeroes at the end of <img class="mwe-math-fallback-image-inline tex" alt="n!" src="/wiki/images/math/3/8/8/388f554901ba5d77339eec8b26beebea.png"> when expressed in base 12 (with prime factorization <img class="mwe-math-fallback-image-inline tex" alt="2^2 \cdot 3" src="/wiki/images/math/b/a/9/ba911588929c774067a9c0ad8d055bfc.png">). In this case we have to count factors of 2 and factors of 3, but it takes <i>two</i> factors of 2 to make one factor of 12, so we have to divide by two and then compare it with the number of factors of 3 (the smaller of the two results will be the answer). It's not obvious which factor will "run out" first, so it might be necessary to find the number of times <i>each</i> prime factor in the base appears in <img class="mwe-math-fallback-image-inline tex" alt="n!" src="/wiki/images/math/3/8/8/388f554901ba5d77339eec8b26beebea.png">. The algorithm shown above still works for each individual prime factor, though (provided that "5" is replaced with the appropriate number).
+</p>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Trailing_zeroes_in_factorial&amp;action=edit&amp;section=1" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1"><span class="cite-accessibility-label">Jump up </span>↑</a></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://www.spoj.pl/problems/FCTRL">Factorial</a></span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2"><span class="cite-accessibility-label">Jump up </span>↑</a></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://wcipeg.com/problem/acsl1p3">Task 3: Zeros</a></span>
+</li>
+</ol>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.076 seconds
+Real time usage: 0.088 seconds
+Preprocessor visited node count: 360/1000000
+Preprocessor generated node count: 930/1000000
+Post‐expand include size: 147/2097152 bytes
+Template argument size: 34/2097152 bytes
+Highest expansion depth: 4/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    7.968      1 - -total
+ 71.44%    5.692      1 - Template:Problem
+ 45.04%    3.589      1 - Template:JudgeRoot
+ 25.81%    2.057      1 - Template:SPOJ
+ 23.52%    1.874      1 - Template:Root
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:456-0!*!0!*!*!*!*!math=0 and timestamp 20180430234807 and revision id 1623
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wcipeg.com/wiki/index.php?title=Trailing_zeroes_in_factorial&amp;oldid=1623">https://wcipeg.com/wiki/index.php?title=Trailing_zeroes_in_factorial&amp;oldid=1623</a>"					</div>
+													<div id="catlinks" class="catlinks catlinks-allhidden"></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Trailing+zeroes+in+factorial&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Trailing+zeroes+in+factorial" title="You are encouraged to log in; however, it is not mandatory [ctrl-alt-o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li id="ca-nstab-main" class="selected"><span><a href="/wiki/Trailing_zeroes_in_factorial" title="View the content page [ctrl-alt-c]" accesskey="c">Page</a></span></li>
+															<li id="ca-talk" class="new"><span><a href="/wiki/index.php?title=Talk:Trailing_zeroes_in_factorial&amp;action=edit&amp;redlink=1" title="Discussion about the content page [ctrl-alt-t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label" tabindex="0"><span>Variants</span><a href="#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Trailing_zeroes_in_factorial">Read</a></span></li>
+															<li id="ca-edit"><span><a href="/wiki/index.php?title=Trailing_zeroes_in_factorial&amp;action=edit" title="You can edit this page. Please use the preview button before saving [ctrl-alt-e]" accesskey="e">Edit</a></span></li>
+															<span class="placeholder" style="display: none;"></span>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu" aria-labelledby="p-cactions-label" style="">
+						<h3 id="p-cactions-label" tabindex="0" style="width: 61px;"><span>More</span><a href="#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul><li id="ca-history" class="collapsible" style="display: list-item;"><span><a href="/wiki/index.php?title=Trailing_zeroes_in_factorial&amp;action=history" title="Past revisions of this page [ctrl-alt-h]" accesskey="h">View history</a></span></li>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search PEGWiki [ctrl-alt-f]" accesskey="f" id="searchInput" tabindex="1" autocomplete="off"><input type="hidden" value="Special:Search" name="title"><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton">								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page" title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id="p-navigation" aria-labelledby="p-navigation-label">
+			<h3 id="p-navigation-label">Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [ctrl-alt-z]" accesskey="z">Main page</a></li>
+													<li id="n-Index"><a href="/wiki/Special:AllPages">Index</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [ctrl-alt-r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [ctrl-alt-x]" accesskey="x">Random page</a></li>
+													<li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+			<h3 id="p-tb-label">Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Trailing_zeroes_in_factorial" title="A list of all wiki pages that link here [ctrl-alt-j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Trailing_zeroes_in_factorial" title="Recent changes in pages linked from this page [ctrl-alt-k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [ctrl-alt-q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/wiki/index.php?title=Trailing_zeroes_in_factorial&amp;printable=yes" rel="alternate" title="Printable version of this page [ctrl-alt-p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/wiki/index.php?title=Trailing_zeroes_in_factorial&amp;oldid=1623" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/wiki/index.php?title=Trailing_zeroes_in_factorial&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 28 February 2012, at 23:07.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Attribution 3.0 Unported</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/PEGWiki:Privacy_policy" title="PEGWiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/PEGWiki:About" title="PEGWiki:About">About PEGWiki</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/PEGWiki:General_disclaimer" title="PEGWiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by/3.0/"><img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Attribution 3.0 Unported" width="88" height="31"></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wiki/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.cite","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wcipeg.com/wiki/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script><script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":67});
+}</script>
+	
+
+<div class="suggestions" style="display: none; font-size: 13px;"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>

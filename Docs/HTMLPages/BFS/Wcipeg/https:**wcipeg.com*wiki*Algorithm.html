@@ -1,0 +1,239 @@
+<!DOCTYPE html><html lang="en" dir="ltr" class="client-js"><head>
+<meta charset="UTF-8">
+<title>Algorithm - PEGWiki</title>
+<meta name="generator" content="MediaWiki 1.25.2">
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/wiki/index.php?title=Algorithm&amp;action=edit">
+<link rel="edit" title="Edit" href="/wiki/index.php?title=Algorithm&amp;action=edit">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="/wiki/opensearch_desc.php" title="PEGWiki (en)">
+<link rel="EditURI" type="application/rsd+xml" href="https://wcipeg.com/wiki/api.php?action=rsd">
+<link rel="alternate" hreflang="x-default" href="/wiki/Algorithm">
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/">
+<link rel="alternate" type="application/atom+xml" title="PEGWiki Atom feed" href="/wiki/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=ext.math.styles%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*">
+<style>
+.mw-collapsible-toggle{float:right;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}  .mw-content-ltr .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr .mw-collapsible-toggle{float:right} .mw-content-rtl .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl .mw-collapsible-toggle{float:left}.mw-customtoggle,.mw-collapsible-toggle{cursor:pointer} caption .mw-collapsible-toggle,.mw-content-ltr caption .mw-collapsible-toggle,.mw-content-rtl caption .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr caption .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl caption .mw-collapsible-toggle{float:none} li .mw-collapsible-toggle,.mw-content-ltr li .mw-collapsible-toggle,.mw-content-rtl li .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr li .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:e1ffd603cbaaa5f1a36e0d13fe843535 */
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:none;z-index:1099;padding:0;margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#4C59A6;color:white}.suggestions-special .special-label{color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white}.highlight{font-weight:bold}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:f8d0c6895ce3ae14434c16b8fca59432 */
+.postedit-container{margin:0 auto;position:fixed;top:0;height:0;left:50%;z-index:1000;font-size:13px}.postedit-container:hover{cursor:pointer}.postedit{position:relative;top:0.6em;left:-50%;padding:.6em 3.6em .6em 1.1em;line-height:1.5625em;color:#626465;background-color:#f4f4f4;border:1px solid #dcd9d9;text-shadow:0 0.0625em 0 rgba(255,255,255,0.5);border-radius:5px;box-shadow:0 2px 5px 0 #ccc;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;-ms-transition:all 0.25s ease-in-out;-o-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out}.skin-monobook .postedit{top:6em !important}.postedit-faded{opacity:0}.postedit-icon{padding-left:41px;  line-height:25px;background-repeat:no-repeat;background-position:8px 50%}.postedit-icon-checkmark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABblBMVEUAAAD///////9PfTf///80aRdTgjn///9Feij///////////9Rfzf///////////9PfjZRgDh1o1xOfTb///////+bwYqLtnj///////9PfTa82K////9WhT6YxIL///9QgDdTgzr////////j7uDl7eLq8efi693k7OH///////9UhjuBr2rp9uRUhjr///9YljVKgir///9WiTlYjT3////9/v57vFlbkT5PjC9dlD/5/fhuq09stUTs9uhxuElctCpfnT1huDFloEZloUZmpENmvDZpvDxpvTxqvjxrvT5rvT9rwTxsqktswD5uwkBvuUdxw0NztFBztU9ztVBzwkp0tlJ1xkd2t1R3uVR4w1F4xk54x014yE15uVZ5v1R5xVB6v1R7yFJ8wVh9xVl9yFR9yVd9ylN+xVh+yFd/x1l/yFeAylmEx1+Ny2uY0Hqe04Wj1Ymv3Ze33qLD47TJ5L3O6cPU7Mrq9eb2+/Q4j37OAAAAQHRSTlMAAQIEBAUFBQwPFB4fJCUoKiosQEhJS01RUlZZXmdydXaChYuSlJSWmJmoq6uur8LExcvM19fg5ejt8fX2+Pr7SljgewAAAKpJREFUGBkFwQNCAwAAAMDLtl3LtrG4rWXbtvX77gAgZ6grFwC0bhwNVgKgdPZx8b0dgLi+s7Wn0VoAqpfOI9+BNADZI7fLrz2pSEwGHZuH+78lSK8ZLkLezF3ooyUG3VPXq2USei9WngeyoG195yBYWDF3E/2pAhl1e9Gr8bGT+bfOFCC2fnvh4X7rcqIAQNNu+HT6sxkAjceTL/2ZAIhv+PorBwBJxfkA//dFHSCBy/UTAAAAAElFTkSuQmCC);background-image:url(https://wcipeg.com/wiki/resources/src/mediawiki.action/images/green-checkmark.png?2015-08-10T21:21:40Z)!ie;background-position:left}.postedit-close{position:absolute;padding:0 .8em;right:0;top:0;font-size:1.25em;font-weight:bold;line-height:2.3em;color:black;text-shadow:0 0.0625em 0 white;text-decoration:none;opacity:0.2;filter:alpha(opacity=20)}.postedit-close:hover{color:black;text-decoration:none;opacity:0.4;filter:alpha(opacity=40)}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:86d7c89b7cadf5004340279c398253d8 */</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:black;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:white}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:ae3fa4570b5ac0c6cf7b3776c8ae4d6f */</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*">
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:b36fd1c042133c9c9b60260f7c29b237 */</style>
+<script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script><script src="/wiki/load.php?debug=false&amp;lang=en&amp;modules=jquery%2Cmediawiki&amp;only=scripts&amp;skin=vector&amp;version=20161103T112730Z"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Algorithm","wgTitle":"Algorithm","wgCurRevisionId":1369,"wgRevisionId":1369,"wgArticleId":218,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Algorithms"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Algorithm","wgRelevantArticleId":218,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikidb:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script><script src="/wiki/load.php?debug=false&amp;lang=en&amp;modules=jquery.accessKeyLabel%2Cclient%2CmwExtension%2CtabIndex%2Cthrottle-debounce%7Cmediawiki.legacy.ajax%2Cwikibits%7Cmediawiki.notify%2Cutil%7Cmediawiki.page.startup%7Cskins.vector.js&amp;skin=vector&amp;version=20161103T112730Z&amp;*"></script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Algorithm skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Algorithm</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From PEGWiki</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>An <b>algorithm</b> is a (usually deterministic) well-defined procedure for solving a problem in a finite number of steps. The earliest algorithms, such as the <a href="/wiki/Euclidean_algorithm" title="Euclidean algorithm" class="mw-redirect">Euclidean algorithm</a>, were carried out by hand, but since the advent of modern computing technology they have come to be carried out largely by machines. Algorithms are ideally suited to solving problems using computers because, unlike humans, computers can only follow simple, precise, well-defined instructions. Together with <a href="/wiki/index.php?title=Data_structures&amp;action=edit&amp;redlink=1" class="new" title="Data structures (page does not exist)">data structures</a>, algorithms form the foundation of computer science. Many algorithms have specific names, often after their inventors, but <i>any</i> computer program uses one or more algorithms, regardless of whether or not they are named.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="#" id="togglelink">hide</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Process"><span class="tocnumber">1</span> <span class="toctext">Process</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Design"><span class="tocnumber">1.1</span> <span class="toctext">Design</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Implementation"><span class="tocnumber">1.2</span> <span class="toctext">Implementation</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Analysis"><span class="tocnumber">1.3</span> <span class="toctext">Analysis</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Importance"><span class="tocnumber">2</span> <span class="toctext">Importance</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Types_of_algorithms"><span class="tocnumber">3</span> <span class="toctext">Types of algorithms</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Process">Process</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Algorithm&amp;action=edit&amp;section=1" title="Edit section: Process">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Design">Design</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Algorithm&amp;action=edit&amp;section=2" title="Edit section: Design">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Often the most difficult task involving algorithms, and the one requiring the most creativity, <i>design</i> is the synthesis of a new idea about how a problem may be solved. Algorithms, when first designed, generally exist in a highly abstracted form. For example, Euclid may have been thinking to himself when he thought of his algorithm for computing <a href="/wiki/Greatest_common_divisor" title="Greatest common divisor">greatest common divisors</a>, "What if I keep subtracting the smaller number from the larger one until they are the same"? Algorithms in this form cannot yet be directly executed by computers, nor is it immediately possible to determine how <i>efficient</i> they are. Nevertheless, the crux of the algorithm is developed in this stage, and its general structure emerges, including the general sequence of steps to perform (not yet simple enough to be executed by a computer) and the various sub-problems whose solutions will be incorporated into the solution of the problem at hand.
+</p>
+<h3><span class="mw-headline" id="Implementation">Implementation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Algorithm&amp;action=edit&amp;section=3" title="Edit section: Implementation">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p><i>Implementation</i> of an algorithm is the process by which it is translated from its abstract, newly designed form into machine language, which may be directly executed on a computer, and is, more or less, the proper name for what is often called simply <i>programming</i>, although in actual fact a programmer cannot implement without also performing design. This tends to be the longest stage of the design-implementation-analysis process. The abstracted form of the algorithm must first be refined and carefully fleshed out; in particular, the programmer must decide which <a href="/wiki/Data_structure" title="Data structure">data structures</a> to use, and this often determines the efficiency of the resulting implementation. The algorithm must then be converted into a form that is readable by both humans and computers, the <i>syntax</i> of a <i>programming language</i>; the algorithm in this form is generally referred to as <i>code</i>, and writing code is colloquially referred to as <i>coding</i>. Finally, some combination of a <i>compiler</i>, <i>assembler</i>, and <i>linker</i> convert this syntax into a final concrete form, the <i>machine code</i>, which may be directly executed by a computer (often simply called a <i>program</i>). The <i>testing</i> phase follows; the code will be modified until the resulting program appears correct, sometimes using a tool called a <i>debugger</i> to help identify errors. The programmer may discover that the algorithm is incorrect and must be redesigned, or that the implementation does not accurately represent the algorithm and the code must be modified.
+</p>
+<h3><span class="mw-headline" id="Analysis">Analysis</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Algorithm&amp;action=edit&amp;section=4" title="Edit section: Analysis">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p><i>Main article: <a href="/wiki/index.php?title=Analysis_of_algorithms&amp;action=edit&amp;redlink=1" class="new" title="Analysis of algorithms (page does not exist)">Analysis of algorithms</a></i>
+</p><p>The <i>analysis</i> of an algorithm is its characterization in comparison to other algorithms intended to solve the same problem. Analysis may occur before or after implementation. During this stage, the programmer will almost always want to, at least, determine how <i>efficient</i> the program is; a program that use little time and memory to solve a given instance of a problem is more efficient than a program that takes a long time and uses lots of memory. The technique of <i>asymptotic analysis</i> is generally used to determine whether one algorithm is <i>more efficient</i> than another algorithm; this type of analysis corrects for differences in machine architecture. A more rigorous form of testing, known as <i>verification</i>, may also take place; this means proving mathematically that an algorithm is correct. Software engineers generally perform intuitive analyses of the algorithms they have designed and implemented to ensure that they are reasonably efficient. Computer scientists will often perform more detailed and mathematically rigorous analyses, publishing analysis along with the abstracted (and occasionally concrete) form of an algorithm. Analysis may allow the programmer to discover possible <i>optimizations</i> that allow the algorithm to be re-implemented in a more efficient form.
+</p>
+<h2><span class="mw-headline" id="Importance">Importance</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Algorithm&amp;action=edit&amp;section=5" title="Edit section: Importance">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Among factors that determine a program's efficiency, the choice of the underlying algorithm and the data structures used to implement it stand out above all others in importance. In the early days of computing, the increase in speed and power of computing machines, exponential as it was, was vastly outpaced by the growth in knowledge of algorithms, allowing large problems to be solved quickly on modestly powered hardware. This trend continues to this day.
+</p><p>Here is an example. Assume that the human genome numbers approximately 3.3×10<sup>9</sup> base pairs, and that the average gene contains 3×10<sup>4</sup> base pairs. Suppose that we wish to set up a web server that will allow biologists to search for genes in the human genome. Using a naive <img class="mwe-math-fallback-image-inline tex" alt="O(nm)" src="/wiki/images/math/f/1/6/f168ecb8ea82616ea66627b6dcc574fc.png"> time algorithm for <a href="/wiki/String_searching" title="String searching">string searching</a>, approximately 10<sup>14</sup> operations would be required to search for a gene inside the human genome. If our web server can execute 10<sup>9</sup> operations per second, it may take up to 10<sup>5</sup> seconds to answer a single query (that is, more than a day). On the other hand, if we use the <img class="mwe-math-fallback-image-inline tex" alt="O(n+m)" src="/wiki/images/math/5/2/5/525d849c3969e5423145b98445cd7bb5.png"> <a href="/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm" title="Knuth–Morris–Pratt algorithm">Knuth–Morris–Pratt algorithm</a>, only about 3.3×10<sup>9</sup> operations will be required, so the biologist will have her result in about three seconds.
+</p>
+<h2><span class="mw-headline" id="Types_of_algorithms">Types of algorithms</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Algorithm&amp;action=edit&amp;section=6" title="Edit section: Types of algorithms">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>A <b>deterministic</b> algorithm is one that will always execute the same sequence of steps when presented with the same instance of a problem. If executed on the same machine, it will also take approximately the same amount of CPU time. In contrast, a <b>nondeterministic</b> algorithm is one with a <i>random</i> element to its execution: it may proceed through a different sequence of steps each time it is run, and it might not always take the same amount of time to solve the same instance on the same machine. There are two types of nondeterministic algorithms:
+</p>
+<ul><li> A <b>Monte Carlo algorithm</b> always takes approximately the same amount of time to process inputs of the same size, but it may occasionally output a <i>wrong answer</i>.</li>
+<li> A <b>Las Vegas algorithm</b> always outputs the correct answer to any instance of the problem it solves, but may take much longer to process some inputs than others of the same size.</li></ul>
+<p>Most of the algorithms described on this wiki are deterministic, but nondeterministic algorithms are occasionally simpler to code and faster than their deterministic counterparts. An example is <a href="/wiki/index.php?title=Welzl%27s_algorithm&amp;action=edit&amp;redlink=1" class="new" title="Welzl's algorithm (page does not exist)">Welzl's algorithm</a>, a Las Vegas algorithm for computing the <a href="/wiki/index.php?title=Minimum_enclosing_circle&amp;action=edit&amp;redlink=1" class="new" title="Minimum enclosing circle (page does not exist)">minimum enclosing circle</a> that almost always runs in linear time; it is far simpler than <a href="/wiki/index.php?title=Megiddo%27s_algorithm&amp;action=edit&amp;redlink=1" class="new" title="Megiddo's algorithm (page does not exist)">Megiddo's algorithm</a>, which is deterministic and always solves this problem in linear time.
+</p><p>Furthermore, most of the algorithms described on this wiki are <i>exact</i>. This means that, if these algorithms run on theoretical machines capable of performing infinite-precision arithmetic, they will produce numerical output that is exactly correct or completely optimal. On the other hand, sometimes the simplest (or the only practical) method for solving a problem involves the use of an <b>approximation algorithm</b>. This is an algorithm which cannot necessarily produce an exact answer, even if we assume infinite-precision arithmetic is possible. Some approximation algorithms have <i>bounded error</i>, meaning that they will always produce an answer which is, for example, at least half as good the optimal answer. Others can be used to compute answers to within any degree of precision desired, but simply take longer and longer as we demand greater and greater precision. Algorithms based on <a href="/wiki/Binary_search" title="Binary search">binary search</a> often fall into the latter category.
+</p><p>An <b>asymptotically optimal</b> algorithm is an algorithm which, in the limit of <a href="/wiki/index.php?title=Analysis_of_algorithms&amp;action=edit&amp;redlink=1" class="new" title="Analysis of algorithms (page does not exist)">asymptotic analysis</a>, is as efficient as any algorithm for solving the same problem can be. For example, it can be proven that no <a href="/wiki/index.php?title=Sorting_algorithm&amp;action=edit&amp;redlink=1" class="new" title="Sorting algorithm (page does not exist)">sorting algorithm</a> can have better than <img class="mwe-math-fallback-image-inline tex" alt="O(n \log n)" src="/wiki/images/math/f/4/9/f49341ab621f12e8cb93d0146ea51d34.png"> worst-case or average-case time complexity. An algorithm that achieves this time bound, therefore, such as <a href="/wiki/index.php?title=Mergesort&amp;action=edit&amp;redlink=1" class="new" title="Mergesort (page does not exist)">mergesort</a> or <a href="/wiki/index.php?title=Heapsort&amp;action=edit&amp;redlink=1" class="new" title="Heapsort (page does not exist)">heapsort</a>, is asymptotically optimal. On the other hand, <a href="/wiki/index.php?title=Insertion_sort&amp;action=edit&amp;redlink=1" class="new" title="Insertion sort (page does not exist)">insertion sort</a> is <i>not</i> asymptotically optimal, because it takes <img class="mwe-math-fallback-image-inline tex" alt="O(n^2)" src="/wiki/images/math/1/8/9/189317b4b935a745fcfaf95940d2b4f0.png"> time, but the faster <img class="mwe-math-fallback-image-inline tex" alt="O(n \log n)" src="/wiki/images/math/f/4/9/f49341ab621f12e8cb93d0146ea51d34.png"> exists. It is not always known what the time complexity of an asymptotically optimal algorithm is, or whether one even exists. (This is the case for the <a href="/wiki/index.php?title=Matrix_multiplication&amp;action=edit&amp;redlink=1" class="new" title="Matrix multiplication (page does not exist)">matrix multiplication</a> problem.)
+</p><p>Algorithms are also categorized on the basis of the techniques they employ. For example, a <b><a href="/wiki/Recursion" title="Recursion" class="mw-redirect">recursive algorithm</a></b> is one that operates by reducing a large instance of a problem to one or more "smaller" instances, which may be either solved directly or reduced to yet smaller instances. An example is the <a href="/wiki/Euclidean_algorithm" title="Euclidean algorithm" class="mw-redirect">Euclidean algorithm</a>. Recursive algorithms can often be made more efficient with <a href="/wiki/Memoization" title="Memoization">memoization</a> or by converting them into <b><a href="/wiki/Dynamic_programming" title="Dynamic programming">dynamic algorithms</a></b>, such as the classic <a href="/wiki/Longest_increasing_subsequence" title="Longest increasing subsequence">longest increasing subsequence</a> algorithm, which start by solving the smallest instances and using these build up the solutions to larger instances. If a recursive algorithm is tail-recursive, it may be implemented using a simple <i>iterative</i> scheme in an <a href="/wiki/index.php?title=Imperative_programming_language&amp;action=edit&amp;redlink=1" class="new" title="Imperative programming language (page does not exist)">imperative programming language</a>. A recursive or iterative algorithm that solves an <a href="/wiki/index.php?title=Optimization_problem&amp;action=edit&amp;redlink=1" class="new" title="Optimization problem (page does not exist)">optimization problem</a> by making a series of locally optimal ("short-sighted") selections is known as a <b><a href="/wiki/Greedy_algorithm" title="Greedy algorithm">greedy algorithm</a></b> (an example is <a href="/wiki/Dijkstra%27s_algorithm" title="Dijkstra's algorithm">Dijkstra's algorithm</a>).
+</p><p>In addition, algorithms can be categorized on the basis of the problems they are intended to solve. For example, an algorithm that solves the sorting problem is called a <i><a href="/wiki/index.php?title=Sorting_algorithm&amp;action=edit&amp;redlink=1" class="new" title="Sorting algorithm (page does not exist)">sorting algorithm</a></i>, an algorithm that finds <a href="/wiki/Shortest_path" title="Shortest path">shortest paths</a> is called a <i>shortest path(s) algorithm</i>, and so on; a <i>graph-theoretic algorithm</i> is any algorithm that solves any problem in <a href="/wiki/Graph_theory" title="Graph theory">graph theory</a>, and so on.
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.028 seconds
+Real time usage: 0.030 seconds
+Preprocessor visited node count: 50/1000000
+Preprocessor generated node count: 128/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:218-0!*!0!!en!*!*!math=0 and timestamp 20180430144434 and revision id 1369
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wcipeg.com/wiki/index.php?title=Algorithm&amp;oldid=1369">https://wcipeg.com/wiki/index.php?title=Algorithm&amp;oldid=1369</a>"					</div>
+													<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:Algorithms" title="Category:Algorithms">Algorithms</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Algorithm&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Algorithm" title="You are encouraged to log in; however, it is not mandatory [ctrl-alt-o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li id="ca-nstab-main" class="selected"><span><a href="/wiki/Algorithm" title="View the content page [ctrl-alt-c]" accesskey="c">Page</a></span></li>
+															<li id="ca-talk" class="new"><span><a href="/wiki/index.php?title=Talk:Algorithm&amp;action=edit&amp;redlink=1" title="Discussion about the content page [ctrl-alt-t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label" tabindex="0"><span>Variants</span><a href="#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Algorithm">Read</a></span></li>
+															<li id="ca-edit"><span><a href="/wiki/index.php?title=Algorithm&amp;action=edit" title="You can edit this page. Please use the preview button before saving [ctrl-alt-e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible" style="position: relative; right: 0px; overflow: hidden; width: 13.221164565958475px;"><span><a href="/wiki/index.php?title=Algorithm&amp;action=history" title="Past revisions of this page [ctrl-alt-h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu" aria-labelledby="p-cactions-label" style="">
+						<h3 id="p-cactions-label" tabindex="0" style="width: 53.02967528307056px; overflow: hidden;"><span>More</span><a href="#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search PEGWiki [ctrl-alt-f]" accesskey="f" id="searchInput" tabindex="1" autocomplete="off"><input type="hidden" value="Special:Search" name="title"><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton">								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page" title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id="p-navigation" aria-labelledby="p-navigation-label">
+			<h3 id="p-navigation-label">Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [ctrl-alt-z]" accesskey="z">Main page</a></li>
+													<li id="n-Index"><a href="/wiki/Special:AllPages">Index</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [ctrl-alt-r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [ctrl-alt-x]" accesskey="x">Random page</a></li>
+													<li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+			<h3 id="p-tb-label">Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Algorithm" title="A list of all wiki pages that link here [ctrl-alt-j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Algorithm" title="Recent changes in pages linked from this page [ctrl-alt-k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [ctrl-alt-q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/wiki/index.php?title=Algorithm&amp;printable=yes" rel="alternate" title="Printable version of this page [ctrl-alt-p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/wiki/index.php?title=Algorithm&amp;oldid=1369" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/wiki/index.php?title=Algorithm&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 28 June 2011, at 18:12.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Attribution 3.0 Unported</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/PEGWiki:Privacy_policy" title="PEGWiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/PEGWiki:About" title="PEGWiki:About">About PEGWiki</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/PEGWiki:General_disclaimer" title="PEGWiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by/3.0/"><img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Attribution 3.0 Unported" width="88" height="31"></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wiki/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wcipeg.com/wiki/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script><script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":66});
+}</script>
+	
+
+<div class="suggestions" style="display: none; font-size: 13px;"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>
