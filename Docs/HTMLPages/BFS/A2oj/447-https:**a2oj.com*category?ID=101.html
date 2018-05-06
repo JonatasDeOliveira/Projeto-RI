@@ -1,0 +1,2876 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" class=" canvas canvastext no-geolocation rgba hsla multiplebgs borderimage borderradius boxshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions  no-video no-audio localstorage sessionstorage webworkers applicationcache no-fontface"><head>
+
+<script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script type="text/javascript">
+function makeHttpObject() {
+	try {return new XMLHttpRequest();}
+	catch (error) {}
+	try {return new ActiveXObject("Msxml2.XMLHTTP");}
+	catch (error) {}
+	try {return new ActiveXObject("Microsoft.XMLHTTP");}
+	catch (error) {}
+	return null;
+}
+
+function judge_changed() {
+	var judges = document.getElementById("Judge").options;
+	var judge = "";
+	for (var i = 0; i < judges.length; i++)
+		if (judges[i].selected) {
+			judge = judges[i].value;
+			break;
+		}
+	var request = makeHttpObject();
+	if(request == null)
+		return;
+	request.open("GET", "judge?Judge=" + judge, false);
+	request.send(null);
+}
+
+function problem_changed() {
+	var sd = document.getElementById("selectedDiv");
+	sd.innerHTML = "";
+	var problem = document.getElementById("Problem").value;
+	var index = problem.lastIndexOf("[");
+	if (index == -1)
+		return;
+	var ID = problem.substr(index + 1);
+	index = ID.indexOf(" ");
+	if (index == -1)
+		return;
+	ID = ID.substr(0, index);
+	var url = "";
+	if (problem.indexOf(" (A2 Online Judge) [") != -1)
+		url = "https://a2oj.com/p?ID=" + ID + "";
+	else if (problem.indexOf(" (UVA) [") != -1)
+		url = "https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=" + ID + "";
+	else if (problem.indexOf(" (SPOJ) [") != -1)
+		url = "http://www.spoj.com/problems/" + ID + "/";
+	else if (problem.indexOf(" (Live Archive) [") != -1)
+		url = "https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&page=show_problem&problem=" + ID + "";
+	else if (problem.indexOf(" (Codeforces) [") != -1)
+		url = "http://codeforces.com/problemset/problem/" + ID + "";
+	else if (problem.indexOf(" (TJU) [") != -1)
+		url = "http://acm.tju.edu.cn/toj/showp" + ID + ".html";
+	else if (problem.indexOf(" (SGU) [") != -1)
+		url = "http://acm.sgu.ru/problem.php?contest=0&problem=" + ID + "";
+	else if (problem.indexOf(" (PKU) [") != -1)
+		url = "http://poj.org/problem?id=" + ID + "";
+	else if (problem.indexOf(" (Timus) [") != -1)
+		url = "http://acm.timus.ru/problem.aspx?space=1&num=" + ID + "";
+	else if (problem.indexOf(" (ZOJ) [") != -1)
+		url = "http://acm.zju.edu.cn/onlinejudge/showProblem.do?problemCode=" + ID + "";
+	else if (problem.indexOf(" (URI) [") != -1)
+		url = "https://www.urionlinejudge.com.br/judge/en/problems/view/" + ID + "";
+	else if (problem.indexOf(" (SPOJ Brazil) [") != -1)
+		url = "http://br.spoj.com/problems/" + ID + "/";
+	else if (problem.indexOf(" (SPOJ Poland) [") != -1)
+		url = "http://pl.spoj.com/problems/" + ID + "/";
+	else if (problem.indexOf(" (SPOJ Vietnam) [") != -1)
+		url = "http://vn.spoj.com/problems/" + ID + "/";
+
+	if (url == "")
+		return;
+	sd.innerHTML = "<center><a href=\""+url+"\" target=\"_blank\">Selected Problem Link</a></center>";
+}
+</script>
+
+<link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>A2 Online Judge</title>
+
+<meta name="description" content="A2 Online Judge (or Virtual Online Contests) is an online judge with hundreds of problems and it helps you to create, run and participate in virtual contests using problems from the following online judges: A2 Online Judge, Live Archive, Codeforces, Timus, SPOJ, TJU, SGU, PKU, ZOJ, URI. It also helps you to manage and track your programming comepetions training for you and your friends. It helps for ICPC ACM and IOI training also.">
+<meta name="keywords" content="ahmed aly,ahmed aly tools,voc,virtual online contests,programming,c++,java,contest,contests,competition,competitions,programming contest,programming contests,programming compitition,programming compititions,cf,codeforces,live archive,uva,spoj,tju,sgu,pku,timus,zoj,uri,programming tools,a2oj,a2 online judge">
+<meta name="author" content="Ahmed Aly">
+<link href="default.css" rel="stylesheet" type="text/css">
+
+		<link rel="stylesheet" href="css/nav.css">
+		<!--[if IE]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+<!-- START TRACKING CODE -->
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push( [ '_setAccount', 'UA-16947566-3' ]);
+	_gaq.push( [ '_trackPageview' ]);
+
+	( function() {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+				: 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+<!-- END TRACKING CODE -->
+
+<!-- START TABLE SORTER CODE -->
+<link rel="stylesheet" href="style.css" type="text/css" id="" media="print, projection, screen">
+<script type="text/javascript" src="jquery.tablesorter.js"></script>
+	
+<script type="text/javascript" id="js">
+$(document).ready(function() {
+	$.tablesorter.defaults.sortList = [[0,0]];
+	$.tablesorter.defaults.textExtraction = ['complex'];
+	$("table").tablesorter();
+});
+</script>
+<!-- END TABLE SORTER CODE -->
+
+<!-- START AUTO COMPLETE CODE -->
+<script src="jquery-latest.js"></script>
+<link rel="stylesheet" href="jquery.autocomplete.css" type="text/css">
+<script type="text/javascript" src="jquery.bgiframe.min.js"></script>
+<script type="text/javascript" src="jquery.dimensions.js"></script>
+<script type="text/javascript" src="jquery.autocomplete.js"></script>
+
+<script>
+$(document).ready(function(){
+	$("#Problem").autocomplete("problems",{
+    	delay: 200,
+		scrollHeight: 220,
+    	selectFirst: false,
+    	cacheLength: 0,
+    	afterSelect: problem_changed
+	});
+});
+</script>
+<!-- END AUTO COMPLETE CODE -->
+
+
+
+
+
+
+
+
+
+<style>@font-face{font-family:testfont;src:url('data:font/ttf;base64,AAEAAAAMAIAAAwBAT1MvMliohmwAAADMAAAAVmNtYXCp5qrBAAABJAAAANhjdnQgACICiAAAAfwAAAAEZ2FzcP//AAMAAAIAAAAACGdseWYv5OZoAAACCAAAANxoZWFk69bnvwAAAuQAAAA2aGhlYQUJAt8AAAMcAAAAJGhtdHgGDgC4AAADQAAAABRsb2NhAIQAwgAAA1QAAAAMbWF4cABVANgAAANgAAAAIG5hbWUgXduAAAADgAAABPVwb3N03NkzmgAACHgAAAA4AAECBAEsAAUAAAKZAswAAACPApkCzAAAAesAMwEJAAACAAMDAAAAAAAAgAACbwAAAAoAAAAAAAAAAFBmRWQAAAAgqS8DM/8zAFwDMwDNAAAABQAAAAAAAAAAAAMAAAADAAAAHAABAAAAAABGAAMAAQAAAK4ABAAqAAAABgAEAAEAAgAuqQD//wAAAC6pAP///9ZXAwAAAAAAAAACAAAABgBoAAAAAAAvAAEAAAAAAAAAAAAAAAAAAAABAAIAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEACoAAAAGAAQAAQACAC6pAP//AAAALqkA////1lcDAAAAAAAAAAIAAAAiAogAAAAB//8AAgACACIAAAEyAqoAAwAHAC6xAQAvPLIHBADtMrEGBdw8sgMCAO0yALEDAC88sgUEAO0ysgcGAfw8sgECAO0yMxEhESczESMiARDuzMwCqv1WIgJmAAACAFUAAAIRAc0ADwAfAAATFRQWOwEyNj0BNCYrASIGARQGKwEiJj0BNDY7ATIWFX8aIvAiGhoi8CIaAZIoN/43KCg3/jcoAWD0JB4eJPQkHh7++EY2NkbVRjY2RgAAAAABAEH/+QCdAEEACQAANjQ2MzIWFAYjIkEeEA8fHw8QDxwWFhwWAAAAAQAAAAIAAIuYbWpfDzz1AAsEAAAAAADFn9IuAAAAAMWf0i797/8zA4gDMwAAAAgAAgAAAAAAAAABAAADM/8zAFwDx/3v/98DiAABAAAAAAAAAAAAAAAAAAAABQF2ACIAAAAAAVUAAAJmAFUA3QBBAAAAKgAqACoAWgBuAAEAAAAFAFAABwBUAAQAAgAAAAEAAQAAAEAALgADAAMAAAAQAMYAAQAAAAAAAACLAAAAAQAAAAAAAQAhAIsAAQAAAAAAAgAFAKwAAQAAAAAAAwBDALEAAQAAAAAABAAnAPQAAQAAAAAABQAKARsAAQAAAAAABgAmASUAAQAAAAAADgAaAUsAAwABBAkAAAEWAWUAAwABBAkAAQBCAnsAAwABBAkAAgAKAr0AAwABBAkAAwCGAscAAwABBAkABABOA00AAwABBAkABQAUA5sAAwABBAkABgBMA68AAwABBAkADgA0A/tDb3B5cmlnaHQgMjAwOSBieSBEYW5pZWwgSm9obnNvbi4gIFJlbGVhc2VkIHVuZGVyIHRoZSB0ZXJtcyBvZiB0aGUgT3BlbiBGb250IExpY2Vuc2UuIEtheWFoIExpIGdseXBocyBhcmUgcmVsZWFzZWQgdW5kZXIgdGhlIEdQTCB2ZXJzaW9uIDMuYmFlYzJhOTJiZmZlNTAzMiAtIHN1YnNldCBvZiBKdXJhTGlnaHRiYWVjMmE5MmJmZmU1MDMyIC0gc3Vic2V0IG9mIEZvbnRGb3JnZSAyLjAgOiBKdXJhIExpZ2h0IDogMjMtMS0yMDA5YmFlYzJhOTJiZmZlNTAzMiAtIHN1YnNldCBvZiBKdXJhIExpZ2h0VmVyc2lvbiAyIGJhZWMyYTkyYmZmZTUwMzIgLSBzdWJzZXQgb2YgSnVyYUxpZ2h0aHR0cDovL3NjcmlwdHMuc2lsLm9yZy9PRkwAQwBvAHAAeQByAGkAZwBoAHQAIAAyADAAMAA5ACAAYgB5ACAARABhAG4AaQBlAGwAIABKAG8AaABuAHMAbwBuAC4AIAAgAFIAZQBsAGUAYQBzAGUAZAAgAHUAbgBkAGUAcgAgAHQAaABlACAAdABlAHIAbQBzACAAbwBmACAAdABoAGUAIABPAHAAZQBuACAARgBvAG4AdAAgAEwAaQBjAGUAbgBzAGUALgAgAEsAYQB5AGEAaAAgAEwAaQAgAGcAbAB5AHAAaABzACAAYQByAGUAIAByAGUAbABlAGEAcwBlAGQAIAB1AG4AZABlAHIAIAB0AGgAZQAgAEcAUABMACAAdgBlAHIAcwBpAG8AbgAgADMALgBiAGEAZQBjADIAYQA5ADIAYgBmAGYAZQA1ADAAMwAyACAALQAgAHMAdQBiAHMAZQB0ACAAbwBmACAASgB1AHIAYQBMAGkAZwBoAHQAYgBhAGUAYwAyAGEAOQAyAGIAZgBmAGUANQAwADMAMgAgAC0AIABzAHUAYgBzAGUAdAAgAG8AZgAgAEYAbwBuAHQARgBvAHIAZwBlACAAMgAuADAAIAA6ACAASgB1AHIAYQAgAEwAaQBnAGgAdAAgADoAIAAyADMALQAxAC0AMgAwADAAOQBiAGEAZQBjADIAYQA5ADIAYgBmAGYAZQA1ADAAMwAyACAALQAgAHMAdQBiAHMAZQB0ACAAbwBmACAASgB1AHIAYQAgAEwAaQBnAGgAdABWAGUAcgBzAGkAbwBuACAAMgAgAGIAYQBlAGMAMgBhADkAMgBiAGYAZgBlADUAMAAzADIAIAAtACAAcwB1AGIAcwBlAHQAIABvAGYAIABKAHUAcgBhAEwAaQBnAGgAdABoAHQAdABwADoALwAvAHMAYwByAGkAcAB0AHMALgBzAGkAbAAuAG8AcgBnAC8ATwBGAEwAAAAAAgAAAAAAAP+BADMAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAAQACAQIAEQt6ZXJva2F5YWhsaQ==')}</style></head>
+<body class="" onload="judge_changed()">
+    	<script>
+			var el = document.getElementsByTagName("body")[0];
+			el.className = "";
+		</script>
+        <noscript>
+        	&lt;!--[if IE]&gt;
+            	&lt;link rel="stylesheet" href="css/ie.css"&gt;
+            &lt;![endif]--&gt;
+        </noscript>
+        
+
+<center>
+<table width="100%">
+<tbody><tr>
+<td>
+        
+
+
+<div id="wrapper"><!-- start header -->
+
+<div id="logo">
+<table width="100%">
+<tbody><tr>
+<td style="vertical-align: bottom;"><a href="/"><img src="logo.png"></a></td>
+<td>
+<h1 style="padding-top: 11px;">A<sup>2</sup> Online Judge</h1>
+<h2 class="author">»&nbsp;&nbsp;&nbsp;&nbsp; by <a href="https://www.facebook.com/ahmed.aly.tc" target="_blank" style="text-decoration: none;">Ahmed Aly</a></h2>
+<br>
+<h3>Sponsored by <b><a href="https://www.facebook.com/elcoachacademy/" target="_blank" style="text-decoration: none;">Coach Academy</a></b> &amp; <b><a href="https://www.facebook.com/acmacpc/" target="_blank" style="text-decoration: none;">ACPC</a></b>, <a href="https://www.codechef.com/" target="_blank" style="text-decoration: none;">CodeChef</a> and <a href="http://www.codability.net/" target="_blank" style="text-decoration: none;">Codability</a></h3>
+</td>
+<td style="text-align: right; padding-top: 27px;">
+<iframe src="https://www.facebook.com/plugins/like.php?show_faces=false&amp;href=https://www.facebook.com/A2OnlineJudge" scrolling="no" frameborder="0" style="border:none; height:45px"></iframe>
+</td>
+</tr>
+</tbody></table>
+</div>
+
+<div id="header3"><div align="right"><a href="signin?url=%2Fcategory%3FID%3D101" style="font-size: 15px;">Sign In</a> - <a href="signup" style="font-size: 15px;">Sign Up</a></div></div>
+
+
+<div id="header2">
+<div id="menu2">
+
+        <nav id="topNav">
+          <ul>
+<li><a href="/">Contests</a></li><li><a href="ladders"><font color="red">Ladders</font></a></li><li><a href="ps">Problems</a></li><li><a href="status">Status</a></li><li><a href="categories">Categories</a></li><li><a href="groups">Groups</a></li><li><a href="javascript:void();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;More&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>^</span></a><ul><li><center><a href="http://goo.gl/Fq5mru" target="_blank">GCJ Tools</a></center></li><li><center><a href="codes">Source Codes</a></center></li><li><center><a href="finder">Problems Finder</a></center></li><li><center><a href="users">Users</a></center></li><li><center><a href="teams">Teams</a></center></li><li><center><a href="cumulative">Cumulative Rank</a></center></li></ul></li><li class="last"><a href="about">About</a></li>
+          </ul>
+        </nav>
+        
+        
+        <script src="js/modernizr.js"></script>
+		<script>
+			(function($){
+				
+				//cache nav
+				var nav = $("#topNav");
+				
+				//add indicator and hovers to submenu parents
+				nav.find("li").each(function() {
+					if ($(this).find("ul").length > 0) {
+						$("<span>").text("^").appendTo($(this).children(":first"));
+
+						//show subnav on hover
+						$(this).mouseenter(function() {
+							$(this).find("ul").stop(true, true).slideDown();
+						});
+						
+						//hide submenus on exit
+						$(this).mouseleave(function() {
+							$(this).find("ul").stop(true, true).slideUp();
+						});
+					}
+				});
+			})(jQuery);
+		</script>
+
+
+</div>
+</div>
+<!-- end header --></div>
+<!-- start page -->
+</td>
+</tr>
+
+
+<tr>
+
+<td style="vertical-align: top;">
+<center>
+<table>
+<tbody><tr style="max-height: 0px; padding: 0px;">
+<td style="max-height: 0px; padding: 0px; min-width: 165px;"></td>
+<td style="max-height: 0px; padding: 0px; min-width: 1060px;"></td>
+<td style="max-height: 0px; padding: 0px; min-width: 165px;"></td>
+</tr>
+<tr>
+<td style="padding: 0px; vertical-align: top;">
+<div id="leftAd">
+
+
+</div>
+</td>
+<td style="padding: 0px; vertical-align: top;">
+<div id="page">
+
+<font size="3">
+<center>
+
+
+<table border="1" cellpadding="5">
+<tbody><tr><td><b><font color="red"><center>You must be logged in to add problems to this category</center></font></b></td></tr>
+</tbody></table>
+<br>
+
+
+
+
+
+
+<b>
+<font size="4">
+<u>
+graphs problems
+</u>
+</font>
+</b>
+
+<br>
+<table cellspacing="1" class="tablesorter" style="text-align: center;vertical-align:middle;">
+<thead>
+<tr>
+<th></th>
+<th>Problem Name</th>
+<th></th>
+<th>Online Judge</th>
+<th>Year</th>
+<th>Contest</th>
+<th>Difficulty Level</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="vertical-align:middle">1</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/687/A" target="_blank">NP-Hard Problem</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=89638">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #360 (Div. 1) &amp; Codeforces Round #360 (Div. 2)</td>
+<td style="vertical-align:middle">1</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">2</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/217/A" target="_blank">Ice Skating</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=68674">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #134 (Div. 1) &amp; Codeforces Round #134 (Div. 2)</td>
+<td style="vertical-align:middle">1</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">3</td>
+<td style="vertical-align:middle"><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=4206" target="_blank">The Dueling Philosophers Problem</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=71599">Categories</a></td>
+<td style="vertical-align:middle">Live Archive</td>
+<td style="vertical-align:middle">2012</td>
+<td style="vertical-align:middle">North America - Mid-Atlantic USA</td>
+<td style="vertical-align:middle">1</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">4</td>
+<td style="vertical-align:middle"><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=399" target="_blank">The Decoder</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=31205">Categories</a></td>
+<td style="vertical-align:middle">UVA</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">1</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">5</td>
+<td style="vertical-align:middle"><a href="http://www.spoj.com/problems/POUR1/" target="_blank">Pouring water</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=34782">Categories</a></td>
+<td style="vertical-align:middle">SPOJ</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">1</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">6</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/330/B" target="_blank">Road Construction</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=73503">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #192 (Div. 2)</td>
+<td style="vertical-align:middle">1</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">7</td>
+<td style="vertical-align:middle"><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=734" target="_blank">Network Connections</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=31546">Categories</a></td>
+<td style="vertical-align:middle">UVA</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">1</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">8</td>
+<td style="vertical-align:middle"><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=272" target="_blank">A Node Too Far</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=31393">Categories</a></td>
+<td style="vertical-align:middle">UVA</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">1</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">9</td>
+<td style="vertical-align:middle"><a href="http://acm.tju.edu.cn/toj/showp2819.html" target="_blank">Travel</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=37240">Categories</a></td>
+<td style="vertical-align:middle">TJU</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">1</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">10</td>
+<td style="vertical-align:middle"><a href="http://acm.tju.edu.cn/toj/showp1477.html" target="_blank">Binary Numbers</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=37119">Categories</a></td>
+<td style="vertical-align:middle">TJU</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">1</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">11</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/500/A" target="_blank">New Year Transportation</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=81393">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Good Bye 2014</td>
+<td style="vertical-align:middle">1</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">12</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/115/A" target="_blank">Party</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36637">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #87 (Div. 1 Only) &amp; Codeforces Beta Round #87 (Div. 2 Only)</td>
+<td style="vertical-align:middle">1</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">13</td>
+<td style="vertical-align:middle"><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=400" target="_blank">Graph Connectivity</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=31443">Categories</a></td>
+<td style="vertical-align:middle">UVA</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">1</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">14</td>
+<td style="vertical-align:middle"><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3142" target="_blank">Easy Problem from Rujia Liu?</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=32678">Categories</a></td>
+<td style="vertical-align:middle">UVA</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">1</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">15</td>
+<td style="vertical-align:middle"><a href="http://www.spoj.com/problems/TDBFS/" target="_blank">Searching the Graph</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=70457">Categories</a></td>
+<td style="vertical-align:middle">SPOJ</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">1</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">16</td>
+<td style="vertical-align:middle"><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1605" target="_blank">Luggage</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=31600">Categories</a></td>
+<td style="vertical-align:middle">UVA</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">1</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">17</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/707/B" target="_blank">Bakery</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=89851">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #368 (Div. 2)</td>
+<td style="vertical-align:middle">1</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">18</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/69/A" target="_blank">Young Physicist</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36509">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #63 (Div. 2)</td>
+<td style="vertical-align:middle">1</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">19</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/520/B" target="_blank">Two Buttons</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=82017">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #295 (Div. 2)</td>
+<td style="vertical-align:middle">1</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">20</td>
+<td style="vertical-align:middle"><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2145" target="_blank">Greatest K-Palindrome Substring</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=27619">Categories</a></td>
+<td style="vertical-align:middle">Live Archive</td>
+<td style="vertical-align:middle">2008</td>
+<td style="vertical-align:middle">Asia - Jakarta</td>
+<td style="vertical-align:middle">1</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">21</td>
+<td style="vertical-align:middle"><a href="http://www.spoj.com/problems/TFRIENDS/" target="_blank">True Friends</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=76378">Categories</a></td>
+<td style="vertical-align:middle">SPOJ</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">2</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">22</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/506/D" target="_blank">Mr. Kitayuta's Colorful Graph</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=81476">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #286 (Div. 1) &amp; Codeforces Round #286 (Div. 2) &amp; Codeforces Round #286 (Div. 1) &amp; Codeforces Round #286 (Div. 2)</td>
+<td style="vertical-align:middle">2</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">23</td>
+<td style="vertical-align:middle"><a href="http://acm.timus.ru/problem.aspx?space=1&amp;num=1280" target="_blank">Topological Sorting</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=46091">Categories</a></td>
+<td style="vertical-align:middle">Timus</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">2</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">24</td>
+<td style="vertical-align:middle"><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=61" target="_blank">Numbering Paths</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=31588">Categories</a></td>
+<td style="vertical-align:middle">UVA</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">2</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">25</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/522/A" target="_blank">Reposts</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=82066">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">VK Cup 2015 - Qualification Round 1</td>
+<td style="vertical-align:middle">2</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">26</td>
+<td style="vertical-align:middle"><a href="http://poj.org/problem?id=2337" target="_blank">Catenyms</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=41009">Categories</a></td>
+<td style="vertical-align:middle">PKU</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">2</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">27</td>
+<td style="vertical-align:middle"><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1836" target="_blank">Matrix Transpose</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=32133">Categories</a></td>
+<td style="vertical-align:middle">UVA</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">2</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">28</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/639/B" target="_blank">Bear and Forgotten Tree 3</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=89129">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">VK Cup 2016 - Round 1</td>
+<td style="vertical-align:middle">2</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">29</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/601/A" target="_blank">The Two Routes</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=83266">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #333 (Div. 1) &amp; Codeforces Round #333 (Div. 2)</td>
+<td style="vertical-align:middle">2</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">30</td>
+<td style="vertical-align:middle"><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1956" target="_blank">05-2 Rendezvous</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=31775">Categories</a></td>
+<td style="vertical-align:middle">UVA</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">2</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">31</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/437/C" target="_blank">The Child and Toy</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=79340">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #250 (Div. 2) &amp; Codeforces Round #250 (Div. 1)</td>
+<td style="vertical-align:middle">2</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">32</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/574/B" target="_blank">Bear and Three Musketeers</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=82658">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #318 [RussianCodeCup Thanks-Round] (Div. 2)</td>
+<td style="vertical-align:middle">2</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">33</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/20/C" target="_blank">Dijkstra?</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36888">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Alpha Round #20 (Codeforces format)</td>
+<td style="vertical-align:middle">2</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">34</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/475/B" target="_blank">Strongly Connected City</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=80307">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Bayan 2015 Contest Warm Up</td>
+<td style="vertical-align:middle">2</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">35</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/510/C" target="_blank">Fox And Names</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=81801">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #290 (Div. 2) &amp; Codeforces Round #290 (Div. 1)</td>
+<td style="vertical-align:middle">2</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">36</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/500/B" target="_blank">New Year Permutation</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=81395">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Good Bye 2014</td>
+<td style="vertical-align:middle">2</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">37</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/427/C" target="_blank">Checkposts</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=79371">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #244 (Div. 2)</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">38</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/320/B" target="_blank">Ping-Pong (Easy Version)</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=73352">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #189 (Div. 2)</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">39</td>
+<td style="vertical-align:middle"><a href="http://acm.timus.ru/problem.aspx?space=1&amp;num=1156" target="_blank">Two Rounds</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=46188">Categories</a></td>
+<td style="vertical-align:middle">Timus</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">40</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/295/B" target="_blank">Greg and Graph</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=72914">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #179 (Div. 1) &amp; Codeforces Round #179 (Div. 2)</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">41</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/501/C" target="_blank">Misha and Forest</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=81440">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #285 (Div. 2) &amp; Codeforces Round #285 (Div. 1)</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">42</td>
+<td style="vertical-align:middle"><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2031" target="_blank">Going in Cycle!!</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=32727">Categories</a></td>
+<td style="vertical-align:middle">UVA</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">43</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/103/B" target="_blank">Cthulhu</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36685">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #80 (Div. 1 Only) &amp; Codeforces Beta Round #80 (Div. 2 Only)</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">44</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/246/D" target="_blank">Colorful Graph</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=71811">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #151 (Div. 2)</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">45</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/417/C" target="_blank">Football</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=79352">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">RCC 2014 Warmup (Div. 2) &amp; RCC 2014 Warmup (Div. 1)</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">46</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/402/C" target="_blank">Searching for Graph</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=79339">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #236 (Div. 2) &amp; Codeforces Round #236 (Div. 1)</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">47</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/489/D" target="_blank">Unbearable Controversy of Being</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=80946">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #277.5 (Div. 2)</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">48</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/615/B" target="_blank">Longtail Hedgehog</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=88557">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #338 (Div. 2)</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">49</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/129/B" target="_blank">Students and Shoelaces</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=47135">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #94 (Div. 2 Only)</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">50</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6820" target="_blank">AlmostBipartiteMatching</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54415">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">TCCC06 Wildcard - Div1 easy] (10135)</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">51</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/721/C" target="_blank">Journey</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=90078">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #374 (Div. 2)</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">52</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/623/A" target="_blank">Graph and String</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=88562">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">AIM Tech Round (Div. 1) &amp; AIM Tech Round (Div. 2)</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">53</td>
+<td style="vertical-align:middle"><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3798" target="_blank">As Long as I Learn, I Live</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=47164">Categories</a></td>
+<td style="vertical-align:middle">UVA</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">54</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/369/C" target="_blank">Valera and Elections</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=75064">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #216 (Div. 2)</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">55</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/744/A" target="_blank">Hongcow Builds A Nation</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=90698">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #385 (Div. 1) &amp; Codeforces Round #385 (Div. 2)</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">56</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/659/E" target="_blank">New Reform</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=89149">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #346 (Div. 2)</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">57</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/292/B" target="_blank">Network Topology</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=72940">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Croc Champ 2013 - Round 1</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">58</td>
+<td style="vertical-align:middle"><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=4027" target="_blank">Wedding of Sultan</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=71836">Categories</a></td>
+<td style="vertical-align:middle">UVA</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">59</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/847/A" target="_blank">Union of Doubly Linked Lists</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=92074">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">2017-2018 ACM-ICPC, NEERC, Southern Subregional Contest, qualification stage (Online Mirror, ACM-ICPC Rules, Teams Preferred)</td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">60</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/350/B" target="_blank">Resort</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=73949">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #203 (Div. 2)</td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">61</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/500/D" target="_blank">New Year Santa Network</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=81396">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Good Bye 2014</td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">62</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/449/B" target="_blank">Jzzhu and Cities</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=79649">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #257 (Div. 1) &amp; Codeforces Round #257 (Div. 2)</td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">63</td>
+<td style="vertical-align:middle"><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3355" target="_blank">The Forrest for the Trees</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=30574">Categories</a></td>
+<td style="vertical-align:middle">Live Archive</td>
+<td style="vertical-align:middle">1997</td>
+<td style="vertical-align:middle">North America - Greater NY</td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">64</td>
+<td style="vertical-align:middle"><a href="http://www.spoj.com/problems/EXPLOSN/" target="_blank">The Explosion</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=35456">Categories</a></td>
+<td style="vertical-align:middle">SPOJ</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">65</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/550/D" target="_blank">Regular Bridge</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=82368">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #306 (Div. 2)</td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">66</td>
+<td style="vertical-align:middle"><a href="http://acm.timus.ru/problem.aspx?space=1&amp;num=1930" target="_blank">Ivan's Car</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=71432">Categories</a></td>
+<td style="vertical-align:middle">Timus</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">67</td>
+<td style="vertical-align:middle"><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2409" target="_blank">Dream</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=33090">Categories</a></td>
+<td style="vertical-align:middle">UVA</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">68</td>
+<td style="vertical-align:middle"><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1988" target="_blank">The Scrooge Co Problem</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=32814">Categories</a></td>
+<td style="vertical-align:middle">UVA</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">69</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/34/D" target="_blank">Road Map</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36694">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #34 (Div. 2)</td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">70</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/463/D" target="_blank">Gargari and Permutations</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=79931">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #264 (Div. 2)</td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">71</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/24/A" target="_blank">Ring road</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36623">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #24</td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">72</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/107/A" target="_blank">Dorm Water Supply</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36679">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #83 (Div. 1 Only) &amp; Codeforces Beta Round #83 (Div. 2 Only)</td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">73</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/739/B" target="_blank">Alyona and a tree</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=90404">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #381 (Div. 1) &amp; Codeforces Round #381 (Div. 2)</td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">74</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/242/C" target="_blank">King's Path</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=71542">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #149 (Div. 2)</td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">75</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/543/B" target="_blank">Destroying Roads</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=82294">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #302 (Div. 1) &amp; Codeforces Round #302 (Div. 2)</td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">76</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/25/C" target="_blank">Roads in Berland</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36747">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #25 (Div. 2 Only)</td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">77</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/605/B" target="_blank">Lazy Student</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=83413">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #335 (Div. 1) &amp; Codeforces Round #335 (Div. 2)</td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">78</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/700/B" target="_blank">Connecting Universities</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=89799">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #364 (Div. 1) &amp; Codeforces Round #364 (Div. 2)</td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">79</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/283/B" target="_blank">Cow Program</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=72807">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #174 (Div. 1) &amp; Codeforces Round #174 (Div. 2)</td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">80</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/131/D" target="_blank">Subway</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=47203">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #95 (Div. 2)</td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">81</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/545/E" target="_blank">Paths and Trees</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=82308">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #303 (Div. 2)</td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">82</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/25/D" target="_blank">Roads not only in Berland</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36792">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #25 (Div. 2 Only)</td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">83</td>
+<td style="vertical-align:middle"><a href="http://br.spoj.com/problems/GINCAN11/" target="_blank">Gincana</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=68931">Categories</a></td>
+<td style="vertical-align:middle">SPOJ Brazil</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">84</td>
+<td style="vertical-align:middle"><a href="http://www.spoj.com/problems/GRAPHCUT/" target="_blank">Graph Cut</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=55778">Categories</a></td>
+<td style="vertical-align:middle">SPOJ</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">85</td>
+<td style="vertical-align:middle"><a href="http://www.codechef.com/problems/TWOCOMP" target="_blank">Two Companies</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=79475">Categories</a></td>
+<td style="vertical-align:middle">CodeChef</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">86</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/711/D" target="_blank">Directed Roads</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=89924">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #369 (Div. 2)</td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">87</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/61/D" target="_blank">Eternal Victory</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36773">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #57 (Div. 2)</td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">88</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/404/C" target="_blank">Restore Graph</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=79370">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #237 (Div. 2)</td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">89</td>
+<td style="vertical-align:middle"><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2768" target="_blank">Instant View of Big Bang</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=33234">Categories</a></td>
+<td style="vertical-align:middle">UVA</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">90</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/645/D" target="_blank">Robot Rapping Results Report</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=89068">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">CROC 2016 - Elimination Round</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">91</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/557/D" target="_blank">Vitaly and Cycle</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=82483">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #311 (Div. 2)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">92</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/374/C" target="_blank">Inna and Dima</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=75077">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #220 (Div. 2)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">93</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/766/D" target="_blank">Mahmoud and a Dictionary</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=91061">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #396 (Div. 2)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">94</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/840/B" target="_blank">Leha and another game about graph</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=91927">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #429 (Div. 1) &amp; Codeforces Round #429 (Div. 2)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">95</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/327/D" target="_blank">Block Tower</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=73441">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #191 (Div. 2)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">96</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/11/D" target="_blank">A Simple Task</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36883">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #11</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">97</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/715/B" target="_blank">Complete The Graph</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=90019">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #372 (Div. 1) &amp; Codeforces Round #372 (Div. 2)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">98</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/95/C" target="_blank">Volleyball</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36762">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #77 (Div. 1 Only) &amp; Codeforces Beta Round #77 (Div. 2 Only)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">99</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/263/D" target="_blank">Cycle in Graph</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=72488">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #161 (Div. 2)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">100</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/767/C" target="_blank">Garland</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=91248">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #398 (Div. 2)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">101</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/28/B" target="_blank">pSort</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36746">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #28 (Codeforces format)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">102</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/436/C" target="_blank">Dungeons and Candies</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=79383">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Zepto Code Rush 2014</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">103</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/14/D" target="_blank">Two Paths</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36890">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #14 (Div. 2)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">104</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/400/D" target="_blank">Dima and Bacteria</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=79398">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #234 (Div. 2)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">105</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/507/E" target="_blank">Breaking Good</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=81557">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #287 (Div. 2)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">106</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/142/B" target="_blank">Help General</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=68374">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #102 (Div. 1) &amp; Codeforces Round #102 (Div. 2)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">107</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/301/B" target="_blank">Yaroslav and Time</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=73149">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #182 (Div. 1) &amp; Codeforces Round #182 (Div. 2)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">108</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/8/B" target="_blank">Obsession with Robots</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36653">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #8</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">109</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/117/C" target="_blank">Cycle</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36740">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #88</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">110</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/566/F" target="_blank">Clique in the Divisibility Graph</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=82538">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">VK Cup 2015 - Finals, online mirror</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">111</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/29/C" target="_blank">Mail Stamps</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36795">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #29 (Div. 2, Codeforces format)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">112</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/232/A" target="_blank">Cycles</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=71304">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #144 (Div. 1) &amp; Codeforces Round #144 (Div. 2)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">113</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/144/D" target="_blank">Missile Silos</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=68360">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #103 (Div. 2)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">114</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/609/E" target="_blank">Minimum spanning tree for each edge</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=83640">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Educational Codeforces Round 3</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">115</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/590/C" target="_blank">Three States</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=82974">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #327 (Div. 1) &amp; Codeforces Round #327 (Div. 2)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">116</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/388/B" target="_blank">Fox and Minimal path</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=76130">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #228 (Div. 1) &amp; Codeforces Round #228 (Div. 2)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">117</td>
+<td style="vertical-align:middle"><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3604" target="_blank">Graph Coloring</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=30414">Categories</a></td>
+<td style="vertical-align:middle">Live Archive</td>
+<td style="vertical-align:middle">1995</td>
+<td style="vertical-align:middle">Europe - Southwestern</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">118</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/788/B" target="_blank">Weird journey</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=91266">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #407 (Div. 1) &amp; Codeforces Round #407 (Div. 2)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">119</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/269/C" target="_blank">Flawed Flow</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=72582">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #165 (Div. 1) &amp; Codeforces Round #165 (Div. 2)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">120</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/228/E" target="_blank">The Road to Berland is Paved With Good Intentions</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=71188">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #141 (Div. 2)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">121</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/542/C" target="_blank">Idempotent functions</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=82269">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">VK Cup 2015 - Round 3 (unofficial online mirror, Div. 1 only)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">122</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/677/D" target="_blank">Vanya and Treasure</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=89520">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #355 (Div. 2)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">123</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/659/F" target="_blank">Polycarp and Hay</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=89150">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #346 (Div. 2)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">124</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/22/C" target="_blank">System Administrator</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36796">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #22 (Div. 2 Only)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">125</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/650/C" target="_blank">Table Compression</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=89021">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #345 (Div. 1) &amp; Codeforces Round #345 (Div. 2)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">126</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/27/D" target="_blank">Ring Road 2</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36927">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #27 (Codeforces format, Div. 2)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">127</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/229/C" target="_blank">Triangles</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=71222">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #142 (Div. 1) &amp; Codeforces Round #142 (Div. 2)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">128</td>
+<td style="vertical-align:middle"><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=646" target="_blank">In Defence of a Garden</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=29264">Categories</a></td>
+<td style="vertical-align:middle">Live Archive</td>
+<td style="vertical-align:middle">2002</td>
+<td style="vertical-align:middle">North America - Mid-Atlantic USA</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">129</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/23/B" target="_blank">Party</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36682">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #23</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">130</td>
+<td style="vertical-align:middle"><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3450" target="_blank">Non-Stop Travel</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=30435">Categories</a></td>
+<td style="vertical-align:middle">Live Archive</td>
+<td style="vertical-align:middle">1995</td>
+<td style="vertical-align:middle">North America - North Central NA</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">131</td>
+<td style="vertical-align:middle"><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2352" target="_blank">A Pair of Graphs</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=29624">Categories</a></td>
+<td style="vertical-align:middle">Live Archive</td>
+<td style="vertical-align:middle">2008</td>
+<td style="vertical-align:middle">Asia - Hangzhou</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">132</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/295/C" target="_blank">Greg and Friends</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=72915">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #179 (Div. 1) &amp; Codeforces Round #179 (Div. 2)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">133</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8228" target="_blank">CompilingDecksWithJokers</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54002">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">SRM 380 - Div1 medium - Div2 hard] (10802)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">134</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/553/C" target="_blank">Love Triangles</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=82470">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #309 (Div. 1) &amp; Codeforces Round #309 (Div. 2)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">135</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/466/E" target="_blank">Information Graph</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=80090">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #266 (Div. 2)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">136</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/154/C" target="_blank">Double Profiles</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=68414">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #109 (Div. 1) &amp; Codeforces Round #109 (Div. 2)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">137</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/208/C" target="_blank">Police Station</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=68408">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #130 (Div. 2)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">138</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/788/C" target="_blank">The Great Mixing</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=91270">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #407 (Div. 1) &amp; Codeforces Round #407 (Div. 2)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">139</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/467/D" target="_blank">Fedor and Essay</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=80184">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #267 (Div. 2)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">140</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/508/D" target="_blank">Tanya and Password</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=81570">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #288 (Div. 2)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">141</td>
+<td style="vertical-align:middle"><a href="p?ID=294" target="_blank">Shortest Path</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=80411">Categories</a></td>
+<td style="vertical-align:middle">A2 Online Judge</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">142</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/367/C" target="_blank">Sereja and the Arrangement of Numbers</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=75076">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #215 (Div. 1) &amp; Codeforces Round #215 (Div. 2)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">143</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/242/D" target="_blank">Dispute</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=71545">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #149 (Div. 2)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">144</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/402/E" target="_blank">Strictly Positive Matrix</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=79402">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #236 (Div. 2) &amp; Codeforces Round #236 (Div. 1)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">145</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/67/A" target="_blank">Partial Teacher</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36683">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Manthan 2011</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">146</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/505/D" target="_blank">Mr. Kitayuta's Technology</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=81478">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #286 (Div. 2) &amp; Codeforces Round #286 (Div. 1)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">147</td>
+<td style="vertical-align:middle"><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=4415" target="_blank">Join two kingdoms</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=74264">Categories</a></td>
+<td style="vertical-align:middle">UVA</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">148</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/786/B" target="_blank">Legacy</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=91272">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #406 (Div. 1) &amp; Codeforces Round #406 (Div. 2)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">149</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/177/C1" target="_blank">Party</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=68556">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">ABBYY Cup 2.0 - Easy</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">150</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/118/E" target="_blank">Bertown roads</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=46825">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #89 (Div. 2)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">151</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/533/B" target="_blank">Work Group</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=82222">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">VK Cup 2015 - Round 2 (unofficial online mirror, Div. 1 only)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">152</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/243/B" target="_blank">Hydra</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=71548">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #150 (Div. 1) &amp; Codeforces Round #150 (Div. 2)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">153</td>
+<td style="vertical-align:middle"><a href="http://www.spoj.com/problems/MILPATR/" target="_blank">Military patrol</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36287">Categories</a></td>
+<td style="vertical-align:middle">SPOJ</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">154</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/666/B" target="_blank">World Tour</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=89318">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #349 (Div. 1) &amp; Codeforces Round #349 (Div. 2)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">155</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/41/E" target="_blank">3-cycles</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36811">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #40 (Div. 2)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">156</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/811/D" target="_blank">Vladik and Favorite Game</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=91594">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #416 (Div. 2)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">157</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/177/C2" target="_blank">Party</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=71266">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">ABBYY Cup 2.0 - Easy</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">158</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/612/E" target="_blank">Square Root of Permutation</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=83660">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Educational Codeforces Round 4</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">159</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/704/B" target="_blank">Ant Man</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=89831">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #366 (Div. 1) &amp; Codeforces Round #366 (Div. 2)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">160</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/33/D" target="_blank">Knights</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36841">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #33 (Codeforces format)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">161</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/164/A" target="_blank">Variable, or There and Back Again</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=68398">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">VK Cup 2012 Round 3</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">162</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/416/E" target="_blank">President's Path</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=79436">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #241 (Div. 2)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">163</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/260/D" target="_blank">Black and White Tree</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=72370">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #158 (Div. 2)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">164</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/362/D" target="_blank">Fools and Foolproof Roads</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=74341">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #212 (Div. 2)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">165</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/272/E" target="_blank">Dima and Horses</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=72639">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #167 (Div. 2) &amp; Codeforces Round #167 (Div. 1)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">166</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/567/E" target="_blank">President and Roads</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=82552">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #Pi (Div. 2)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">167</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/891/C" target="_blank">Envy</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=92445">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #446 (Div. 1) &amp; Codeforces Round #446 (Div. 2)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">168</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/638/D" target="_blank">Three-dimensional Turtle Super Computer </a></td>
+<td style="vertical-align:middle"><a href="problem?ID=89104">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">VK Cup 2016 - Qualification Round 2</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">169</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/190/E" target="_blank">Counter Attack</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=68461">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #120 (Div. 2)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">170</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/274/D" target="_blank">Lovely Matrix</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=72675">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #168 (Div. 1)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">171</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/652/E" target="_blank">Pursuit For Artifacts</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=89125">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Educational Codeforces Round 10</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">172</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/231/E" target="_blank">Cactus</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=71257">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #143 (Div. 2)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">173</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/382/D" target="_blank">Ksenia and Pawns</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=75379">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #224 (Div. 2)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">174</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/405/E" target="_blank">Graph Cutting</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=79412">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #238 (Div. 2) &amp; Codeforces Round #238 (Div. 1)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">175</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/894/E" target="_blank">Ralph and Mushrooms</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=92452">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #447 (Div. 2)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">176</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/350/E" target="_blank">Wrong Floyd</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=73951">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #203 (Div. 2)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">177</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/237/E" target="_blank">Build String</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=71426">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #147 (Div. 2)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">178</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/74/C" target="_blank">Chessboard Billiard</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36786">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #68</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">179</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/553/D" target="_blank">Nudist Beach</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=82471">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #309 (Div. 1)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">180</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/527/E" target="_blank">Data Center Drama</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=82092">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #296 (Div. 2) &amp; Codeforces Round #296 (Div. 1)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">181</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/329/C" target="_blank">Graph Reconstruction</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=73511">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #192 (Div. 1) &amp; Codeforces Round #192 (Div. 2)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">182</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/653/E" target="_blank">Bear and Forgotten Tree 2</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=89096">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">IndiaHacks 2016 - Online Edition (Div. 1 + Div. 2)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">183</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/59/E" target="_blank">Shortest Path</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36929">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #55 (Div. 2)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">184</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/821/D" target="_blank">Okabe and City</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=91757">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #420 (Div. 2)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">185</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/420/C" target="_blank">Bug in Code</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=79410">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Coder-Strike 2014 - Finals (online edition, Div. 2) &amp; Coder-Strike 2014 - Finals (online edition, Div. 1) &amp; Coder-Strike 2014 - Finals (online edition, Div. 2) &amp; Coder-Strike 2014 - Finals (online edition, Div. 1)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">186</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/225/D" target="_blank">Snake</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=71089">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #139 (Div. 2)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">187</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/555/E" target="_blank">Case of Computer Network</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=82479">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #310 (Div. 1)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">188</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/91/C" target="_blank">Ski Base</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36869">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #75 (Div. 1 Only) &amp; Codeforces Beta Round #75 (Div. 2 Only)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">189</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/441/D" target="_blank">Valera and Swaps</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=79425">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #252 (Div. 2)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">190</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/160/D" target="_blank">Edges in MST</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=68446">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #111 (Div. 2)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">191</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/547/D" target="_blank">Mike and Fish</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=82345">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #305 (Div. 1)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">192</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/147/B" target="_blank">Smile House</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=68489">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Testing Round #4</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">193</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/26/D" target="_blank">Tickets</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36953">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #26 (Codeforces format)</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">194</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/22/E" target="_blank">Scheme</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36977">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #22 (Div. 2 Only)</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">195</td>
+<td style="vertical-align:middle"><a href="http://poj.org/problem?id=2875" target="_blank">In Defence of a Garden</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=42373">Categories</a></td>
+<td style="vertical-align:middle">PKU</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">196</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/9/E" target="_blank">Interestring graph and Apples</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36996">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #9 (Div. 2 Only)</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">197</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/245/G" target="_blank">Suggested Friends</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=71550">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">CROC-MBTU 2012, Elimination Round (ACM-ICPC)</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">198</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/839/E" target="_blank">Mother of Dragons</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=91920">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #428 (Div. 2)</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">199</td>
+<td style="vertical-align:middle"><a href="http://www.spoj.com/problems/GRAPHS12/" target="_blank">Graph basics concepts</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=70802">Categories</a></td>
+<td style="vertical-align:middle">SPOJ</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">200</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/141/D" target="_blank">Take-off Ramps</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=68464">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #101 (Div. 2)</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">201</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/241/E" target="_blank">Flights</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=71450">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Bayan 2012-2013 Elimination Round (ACM ICPC Rules, English statements)</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">202</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/83/C" target="_blank">Track</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36949">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #72 (Div. 1 Only) &amp; Codeforces Beta Round #72 (Div. 2 Only)</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">203</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/613/D" target="_blank">Kingdom and its Cities</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=88590">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #339 (Div. 1)</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">204</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/125/E" target="_blank">MST Company</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=46963">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Testing Round #2</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">205</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/542/E" target="_blank">Playing on Graph</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=82273">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">VK Cup 2015 - Round 3 (unofficial online mirror, Div. 1 only)</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">206</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/380/B" target="_blank">Sereja and Tree</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=75381">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #223 (Div. 1) &amp; Codeforces Round #223 (Div. 2)</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">207</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/196/E" target="_blank">Opening Portals</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=68482">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #124 (Div. 1)</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">208</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/811/E" target="_blank">Vladik and Entertaining Flags</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=91595">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #416 (Div. 2)</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">209</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/141/E" target="_blank">Clearing Up</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=68470">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #101 (Div. 2)</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">210</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/237/D" target="_blank">T-decomposition</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=71427">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #147 (Div. 2)</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">211</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/73/D" target="_blank">FreeDiv</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36933">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #66</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">212</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/362/E" target="_blank">Petya and Pipes</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=74342">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #212 (Div. 2)</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">213</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/85/E" target="_blank">Guard Towers</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=37031">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Yandex.Algorithm 2011 Round 1</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">214</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/571/C" target="_blank">CNF 2</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=82620">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #317 [AimFund Thanks-Round] (Div. 1) &amp; Codeforces Round #317 [AimFund Thanks-Round] (Div. 2)</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">215</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/95/E" target="_blank">Lucky Country</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36900">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #77 (Div. 1 Only)</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">216</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/266/D" target="_blank">BerDonalds</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=72539">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #163 (Div. 2)</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">217</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/156/D" target="_blank">Clues</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=68454">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #110 (Div. 1)</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">218</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/89/B" target="_blank">Widget Library</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36872">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #74 (Div. 1 Only) &amp; Codeforces Beta Round #74 (Div. 2 Only)</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">219</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/209/C" target="_blank">Trails and Glades</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=68514">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">VK Cup 2012 Finals, Practice Session</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">220</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/267/B" target="_blank">Dominoes</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=72478">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Testing Round #5</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">221</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/317/C" target="_blank">Balance</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=73324">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #188 (Div. 1) &amp; Codeforces Round #188 (Div. 2)</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">222</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/76/A" target="_blank">Gift</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=37010">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">All-Ukrainian School Olympiad in Informatics</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">223</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/8/E" target="_blank">Beads</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=37056">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #8</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">224</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/878/C" target="_blank">Tournament</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=92275">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #443 (Div. 1) &amp; Codeforces Round #443 (Div. 2)</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">225</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/29/E" target="_blank">Quarrel</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=37013">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #29 (Div. 2, Codeforces format)</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">226</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/21/D" target="_blank">Traveling Graph</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36992">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Alpha Round #21 (Codeforces format)</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">227</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/134/C" target="_blank">Swaps</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=68445">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Testing Round #3</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">228</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/480/D" target="_blank">Parcels</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=80476">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #274 (Div. 1)</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">229</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/240/E" target="_blank">Road Repairs</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=71378">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #145 (Div. 1, ACM-ICPC Rules)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">230</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/78/E" target="_blank">Evacuation</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=37005">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #70 (Div. 2)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">231</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/123/E" target="_blank">Maze</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=46964">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #92 (Div. 1 Only)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">232</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/48/E" target="_blank">Ivan the Fool VS Gorynych the Dragon</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36988">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">School Personal Contest #3 (Winter Computer School 2010/11) - Codeforces Beta Round #45 (ACM-ICPC Rules)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">233</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/332/D" target="_blank">Theft of Blueprints</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=73525">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #193 (Div. 2)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">234</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/91/D" target="_blank">Grocer's Problem</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=37012">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #75 (Div. 1 Only)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">235</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/596/E" target="_blank">Wilbur and Strings</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=83178">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #331 (Div. 2)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">236</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/632/F" target="_blank">Magic Matrix</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=89005">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Educational Codeforces Round 9</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">237</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/235/D" target="_blank">Graph Game</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=71399">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #146 (Div. 1)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">238</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/62/D" target="_blank">Wormhouse</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36948">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #58</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">239</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/487/E" target="_blank">Tourists</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=81012">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #278 (Div. 1)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">240</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/521/E" target="_blank">Cycling City</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=82022">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #295 (Div. 1)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">241</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/182/A" target="_blank">Battlefield</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=68480">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #117 (Div. 2)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">242</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/464/E" target="_blank">The Classic Problem</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=80027">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #265 (Div. 1)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">243</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/429/E" target="_blank">Points and Segments</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=79448">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #245 (Div. 1)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">244</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/152/E" target="_blank">Garden</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=68472">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #108 (Div. 2)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">245</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/51/E" target="_blank">Pentagon</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=36997">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #48</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">246</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/685/E" target="_blank">Travelling Through the Snow Queen's Kingdom</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=89540">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #359 (Div. 1)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">247</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/173/D" target="_blank">Deputies</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=68476">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Croc Champ 2012 - Round 1</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">248</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/600/F" target="_blank">Edge coloring of bipartite graph</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=83290">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Educational Codeforces Round 2</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">249</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/51/F" target="_blank">Caterpillar</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=37063">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #48</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">250</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/36/E" target="_blank">Two Paths</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=37067">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #36</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">251</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/418/D" target="_blank">Big Problems for Organizers</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=79456">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">RCC 2014 Warmup (Div. 1)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">252</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/191/D" target="_blank">Metro Scheme</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=68531">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #121 (Div. 1)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">253</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/819/E" target="_blank">Mister B and Flight to the Moon</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=91773">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #421 (Div. 1)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">254</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/798/E" target="_blank">Mike and code of a permutation</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=91453">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #410 (Div. 2)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">255</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/386/D" target="_blank">Game with Points</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=75389">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Testing Round #9</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">256</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/97/C" target="_blank">Winning Strategy</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=37027">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Yandex.Algorithm 2011 Finals</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">257</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/37/E" target="_blank">Trial for Chief</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=37064">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #37</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">258</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/358/E" target="_blank">Dima and Kicks</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=74128">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #208 (Div. 2)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">259</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/238/E" target="_blank">Meeting Her</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=71474">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #148 (Div. 1)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">260</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/46/F" target="_blank">Hercule Poirot Problem</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=37029">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">School Personal Contest #2 (Winter Computer School 2010/11) - Codeforces Beta Round #43 (ACM-ICPC Rules)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">261</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/812/D" target="_blank">Sagheer and Kindergarten</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=91649">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #417 (Div. 2)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">262</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/81/E" target="_blank">Pairs</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=37050">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Yandex.Algorithm Open 2011 Qualification 1</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">263</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/360/E" target="_blank">Levko and Game</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=74282">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #210 (Div. 1)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">264</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/871/E" target="_blank">Restore the Tree</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=92216">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #440 (Div. 1, based on Technocup 2018 Elimination Round 2)</td>
+<td style="vertical-align:middle">10</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">265</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/42/E" target="_blank">Baldman and the military</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=37092">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Beta Round #41</td>
+<td style="vertical-align:middle">10</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">266</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/786/E" target="_blank">ALT</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=91295">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #406 (Div. 1)</td>
+<td style="vertical-align:middle">10</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">267</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/345/D" target="_blank">Chain Letter</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=73825">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Friday the 13th, Programmers Day</td>
+<td style="vertical-align:middle">10</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">268</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/223/D" target="_blank">Spider</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=71080">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #138 (Div. 1)</td>
+<td style="vertical-align:middle">10</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">269</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/848/D" target="_blank">Shake It!</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=91967">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #431 (Div. 1)</td>
+<td style="vertical-align:middle">10</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">270</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/869/D" target="_blank">The Overdosing Ubiquity</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=92170">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #439 (Div. 2)</td>
+<td style="vertical-align:middle">10</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">271</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/44/F" target="_blank">BerPaint</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=37116">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">School Team Contest #2 (Winter Computer School 2010/11)</td>
+<td style="vertical-align:middle">10</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">272</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/175/F" target="_blank">Gnomes of Might and Magic</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=68542">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #115</td>
+<td style="vertical-align:middle">10</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">273</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/223/E" target="_blank">Planar Graph</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=71081">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #138 (Div. 1)</td>
+<td style="vertical-align:middle">10</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">274</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/45/H" target="_blank">Road Problem</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=37110">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">School Team Contest #3 (Winter Computer School 2010/11)</td>
+<td style="vertical-align:middle">10</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">275</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/331/D2" target="_blank">Escaping on Beaveractor</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=73516">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">ABBYY Cup 3.0 - Finals (online version)</td>
+<td style="vertical-align:middle">10</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">276</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/639/F" target="_blank">Bear and Chemistry</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=89134">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">VK Cup 2016 - Round 1</td>
+<td style="vertical-align:middle">10</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">277</td>
+<td style="vertical-align:middle"><a href="p?ID=410" target="_blank">Dynamic Programming</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=82394">Categories</a></td>
+<td style="vertical-align:middle">A2 Online Judge</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">10</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">278</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/331/E1" target="_blank">Deja Vu</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=73519">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">ABBYY Cup 3.0 - Finals (online version)</td>
+<td style="vertical-align:middle">10</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">279</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/290/F" target="_blank">Greedy Petya</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=72860">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">April Fools Day Contest 2013</td>
+<td style="vertical-align:middle">10</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">280</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/232/C" target="_blank">Doe Graphs</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=71306">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Codeforces Round #144 (Div. 1) &amp; Codeforces Round #144 (Div. 2)</td>
+<td style="vertical-align:middle">10</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">281</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/627/F" target="_blank">Island Puzzle</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=88987">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">8VC Venture Cup 2016 - Final Round</td>
+<td style="vertical-align:middle">10</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">282</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/212/A" target="_blank">Privatization</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=68540">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">VK Cup 2012 Finals (unofficial online-version)</td>
+<td style="vertical-align:middle">10</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">283</td>
+<td style="vertical-align:middle"><a href="http://codeforces.com/problemset/problem/97/E" target="_blank">Leaders</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=37113">Categories</a></td>
+<td style="vertical-align:middle">Codeforces</td>
+<td style="vertical-align:middle"></td>
+<td style="vertical-align:middle">Yandex.Algorithm 2011 Finals</td>
+<td style="vertical-align:middle">10</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+</center>
+</font>
+
+</div>
+</td>
+<td style="padding: 0px; vertical-align: top;">
+<div id="rightAd">
+
+
+</div>
+</td>
+</tr>
+</tbody></table>
+</center>
+<!-- end page -->
+<!-- start footer -->
+<div id="footer">
+<p id="legal">A2OJ © Copyright 2011-2016 <b><a href="https://www.facebook.com/ahmed.aly.tc" target="_blank" style="text-decoration: none;">Ahmed Aly</a></b> All Rights Reserved. A2OJ uses <a href="http://sphere-engine.com" target="_blank" style="text-decoration: none;">Sphere Engine</a>™ © by <a href="http://sphere-research.com" target="_blank" style="text-decoration: none;">Sphere Research Labs</a>.</p>
+</div>
+</td>
+
+
+</tr>
+</tbody></table>
+</center><span style="font-style: normal; font-variant: normal; font-weight: normal; font-size: 99px; line-height: normal; font-family: testfont, _, serif; position: absolute; visibility: hidden; bottom: 0px;" id="fonttest">........</span>
+<!-- end footer -->
+
+
+
+
+</body></html>
