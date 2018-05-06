@@ -1,12 +1,10 @@
-import bs4 as bs
+from bs4 import BeautifulSoup
 import requests
 import re
 import util
 
 request = requests.get("https://a2oj.com/p?ID=134", verify = False)
-page = bs.BeautifulSoup(request.content, "html.parser")
-
-datas = []
+page = BeautifulSoup(request.content, "html.parser")
 
 problem = page.find("div", {"id":"page"})
 reName = re.findall('[0-9].*?\n', problem.div.text)
@@ -22,10 +20,10 @@ sampleInIndex = util.findIndex(problemBody, "Sample Input:")
 sampleOutIndex = util.findIndex(problemBody, "Sample Output:")
 notesIndex = util.findIndex(problemBody, "Notes:")
 
-problemDescripton = util.getInfo(problemBody, problemIndex, problemIndex + 2)
-problemInput = util.getInfo(problemBody, inputIndex, inputIndex + 2)
-problemOutput = util.getInfo(problemBody, outputIndex, outputIndex + 2)
-problemSampleIn = util.getInfo(problemBody, sampleInIndex, sampleInIndex + 2)
+problemDescripton = util.getInfo(problemBody, problemIndex, inputIndex)
+problemInput = util.getInfo(problemBody, inputIndex, outputIndex)
+problemOutput = util.getInfo(problemBody, outputIndex, sampleInIndex)
+problemSampleIn = util.getInfo(problemBody, sampleInIndex, sampleOutIndex)
 problemSampleOut = util.getInfo(problemBody, sampleOutIndex, sampleOutIndex + 2)
 problemSamples = problemSampleIn + problemSampleOut
 
@@ -33,18 +31,24 @@ problemNotes = ""
 if notesIndex is not None:
     problemNotes = util.getInfo(problemBody, notesIndex, notesIndex + 2)
 
-datas.append(problemName)
-datas.append(problemDescripton)
-datas.append(problemInput)
-datas.append(problemOutput)
-datas.append(problemSamples)
-datas.append(problemNotes)
-
+problemTimeLimit = ""
 table = problemBody[-1].findAll("tr")
 for t in table:
     if "Time Limit:" in t.text:
-        datas.append(t.text)
+        problemTimeLimit = t.text
+        problemTimeLimit = problemTimeLimit.replace("Time Limit:", "")
+        problemTimeLimit = problemTimeLimit.replace("\n", "")
         break
 
-for i in datas:
-    print (i) 
+data = {"Title" : problemName,
+        "Description" : problemDescripton,
+        "Input Description" : problemInput,
+        "Output Description" : problemOutput,
+        "Example" : problemSamples,
+        "Notes" : problemNotes,
+        "Time Limit" : problemTimeLimit}
+
+print (data)
+for d in data:
+    print (d + ": \n" + data[d])
+    print ("----------------")

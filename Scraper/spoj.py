@@ -6,11 +6,10 @@ def getSpojData(url):
     request = requests.get(url)
     page = bs.BeautifulSoup(request.content, "html.parser")
     
-    data = []
+    data = {}
     
 #Container da descricao do problema
     problem = page.find("div", {"class" : "prob"})
-    
     name = problem.find("h2", {"id" : "problem-name"})
     problemName = name.text
     
@@ -33,7 +32,7 @@ def getSpojData(url):
     problemOutputDes = ""
     
     if inputIndex is None:
-        problemDescripton = util.getInfo(elements, 0, exampleIndex)
+        problemDescripton = util.getInfo(elements, 0, exampleIndex-1)
     else:
         problemDescripton = util.getInfo(elements, 0, inputIndex)
         problemInputDes = util.getInfo(elements, inputIndex + 1, outputIndex)
@@ -44,13 +43,12 @@ def getSpojData(url):
     else:
         problemExample = util.getInfo(elements, exampleIndex + 1, infoIndex)
     
-    data.append(problemName)
-    data.append(problemTags)
-    data.append(problemDescripton)
-    data.append(problemInputDes)
-    data.append(problemOutputDes)
-    data.append(problemExample)
-    
+    data = {"Title" : problemName,
+        "Tags" : problemTags,
+        "Description" : problemDescripton,
+        "Input Description" : problemInputDes,
+        "Output Description" : problemOutputDes,
+        "Example" : problemExample}
     #Container informacoes do problema
     problemInfo = page.find("div", {"class" : "col-lg-4 col-md-4"})
     
@@ -60,12 +58,12 @@ def getSpojData(url):
     for row in rows:
         if "Time" in row.text:
             info = (row.text).split("limit:")
-            data.append(info[1])
+            data["Time Limit"] = info[1]
         else:
             if "Memory" in row.text:
                 info = (row.text).split("limit:")
-                data.append(info[1])
-    print (data)
+                data["Memory Limit"] = info[1]
+    print(data)
     return (data)
    
     

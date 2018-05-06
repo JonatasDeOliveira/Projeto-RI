@@ -8,11 +8,11 @@ request = requests.get("http://acm.timus.ru/problem.aspx?space=1&num=1065")
 page = bs.BeautifulSoup(request.content, "html.parser")
 
 problem = page.find("div", {"class": "problem_content"})
+
 problemName = problem.h2.text
 
 problemLimits = problem.find("div", {"class" : "problem_limits"})
 limit = util.treatStr(problemLimits)
-
 limits = limit.split("\n")
 
 problemTime = limits[0]
@@ -55,11 +55,6 @@ else:
 if notesIndex is not None:
     problemNotes = util.getTextInfo(texts, exampleIndex + 1, authorIndex)
 
-print (problemDescripton)
-print (problemInputDes)
-print (problemOutputDes)
-print (problemNotes)
-
 samples = problemBody.find("table", {"class" : "sample"})
 
 tableTitles = samples.findAll("th")
@@ -67,5 +62,15 @@ tableInfos = samples.findAll("pre")
 
 problemSamples = tableTitles[0].text + "\n" + util.getEvenText(tableInfos) + tableTitles[1].text + "\n" + util.getOddText(tableInfos)
 
-print (problemSamples)
 #http://acm.timus.ru/problem.aspx?space=1&num=1082
+
+data = {"Title" : problemName,
+        "Description" : problemDescripton,
+        "Input Description" : problemInputDes,
+        "Output Description" : problemOutputDes,
+        "Example" : problemSamples,
+        "Notes" : problemNotes,
+        "Time Limit" : problemTime,
+        "Memory Limit" : problemMemory}
+
+print (data)

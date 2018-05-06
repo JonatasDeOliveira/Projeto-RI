@@ -36,3 +36,13 @@ problemSamples = ""
 
 for i in range(len(samplesInput)):
     problemSamples += util.treatStr(samplesInput[i]) + "\n" + util.treatStr(samplesOutput[i]) + "\n\n"
+    
+data = {"Title" : problemName,
+        "Description" : problemDescripton,
+        "Input Description" : problemInput,
+        "Output Description" : problemOutput,
+        "Example" : problemSamples,
+        "Time Limit" : problemTime,
+        "Memory Limit" : problemMemory}
+
+print (data)

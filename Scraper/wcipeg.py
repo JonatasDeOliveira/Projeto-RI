@@ -30,3 +30,4 @@ datas.append(problemMemory)
 for i in datas:
     print (i) 
     print ("\n")
+    print ("----------")
