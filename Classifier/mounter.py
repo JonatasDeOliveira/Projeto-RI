@@ -2,21 +2,22 @@ import re
 import urllib.request
 from selenium import webdriver
 from bs4 import BeautifulSoup
+import signal
 import json
 from stop_words import get_stop_words
 import nltk
 import operator
-import signal
 import math
 import os
 from os import listdir
 from os.path import isfile, join
 from sklearn import tree
-from sklearn.naive_bayes import BernoulliNB
+from sklearn.naive_bayes import MultinomialNB
 from sklearn import svm
 from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import StratifiedKFold
 from sklearn.neighbors import KNeighborsClassifier
+from nltk.tokenize import word_tokenize
 
 
 stop_words = get_stop_words('en')
@@ -42,11 +43,14 @@ def getTFFromPage(url):
     data += (page.get_text())
     
     tf = {}
-    regex = r'\b[a-zA-Z]+\b'
-    data=re.sub("[^\w]", " ",  data).split()
+    #regex = r'\b[a-zA-Z]+\b'
+    #data=re.sub("[^\w]", " ",  data).split()
+    
+    data = word_tokenize(data)
     
     for word in data:
-        if word.lower() not in stop_words and len(word)>2:
+        word = ps.stem(word)
+        if word.lower() not in stop_words and len(word)>3:
             tf[word.lower()] = tf.get(word.lower(),0)+1
     
     return tf
@@ -119,28 +123,8 @@ def getIDF():
 def countFiles(path):
     path, dirs, files = next(os.walk(path))
     return len(files)
-
-def classify():
     
-    #generateTF()
-        
-    length_pos_docs = countFiles("positive_docs")
-    length_neg_docs = countFiles("negative_docs")
-    
-    idf = getIDF()
-    
-    
-    #idf só está pegando a frequência de cada palavra nos documentos
-    idf_sorted = sorted(idf.items(), key=operator.itemgetter(1))
-    
-    #pegando as 100 primeiras features que não aparecem em todos os documentos, que tem o idf maior que 0 
-    cont = 0
-    features = []
-    for x in idf_sorted:
-        if x[1] > 0 and cont < 100:
-            features.append(x[0])
-            cont+=1
-    
+def getTrainData(keys):
     pos_path = "positive_docs/"
     neg_path = "negative_docs/"
     positive_files = [f for f in listdir(pos_path) if isfile(join(pos_path, f))]
@@ -152,8 +136,11 @@ def classify():
         with open(pos_path+file) as data_file:    
             data = json.load(data_file)
         aux = []
-        for feature in features:
-            aux.append(data.get(feature, 0))
+        for key in keys:
+            if data.get(key, 0) == 0:
+                aux.append(0)
+            else:
+                aux.append(1)
         
         y.append('positive')
         X.append(aux)
@@ -163,14 +150,56 @@ def classify():
         with open(neg_path+file) as data_file:    
             data = json.load(data_file)
         aux = []
-        for feature in features:
-            aux.append(data.get(feature, 0))
+        for key in keys:
+            if data.get(key, 0) == 0:
+                aux.append(0)
+            else:
+                aux.append(1)
         
         y.append('negative')
         X.append(aux)
+    yield X
+    yield y
+    
+
+def classify():
+    
+    #generateTF()
+        
+    length_pos_docs = countFiles("positive_docs")
+    length_neg_docs = countFiles("negative_docs")
+    
+    idf = getIDF()
+    
+    features_names = []
+    for key in idf.keys():
+        features_names.append(key)
+    
+    X, y = getTrainData(features_names)
+    
+    clf = tree.DecisionTreeClassifier()
+    clf.fit(X, y)
+    
+    features = []
+    for i in range(0, len(clf.feature_importances_)-1):
+        if clf.feature_importances_[i] > 0.000:
+            features.append(features_names[i])
+    
+    #idf só está pegando a frequência de cada palavra nos documentos
+    '''idf_sorted = sorted(idf.items(), key=operator.itemgetter(1))
+    
+    #pegando as 100 primeiras features que não aparecem em todos os documentos, que tem o idf maior que 0 
+    cont = 0
+    features = []
+    for x in idf_sorted:
+        features.append(x[0])
+        cont+=1'''
+    
+    X, y = getTrainData(features)
     
     skf = StratifiedKFold(n_splits=10)
     sets = skf.split(X, y)
+    
     
     accuracy = 0.0
     got_right = 0.0
@@ -189,6 +218,7 @@ def classify():
             if prediction == y[i]:
                 got_right += 1
             else:
+                print(i, X[i], y[i], features)
                 got_wrong += 1
         accuracy += got_right/(got_right+got_wrong)
         count+=1
@@ -203,12 +233,12 @@ def classifyDecisionTree(train_set_inst, train_set_clas, x):
     clf = tree.DecisionTreeClassifier()
     clf.fit(train_set_inst, train_set_clas)
     
-    print(clf.feature_importances_)
+    #print(clf.feature_importances_)
     return clf.predict([x])
         
     
 def classifyNaiveBayes(train_set_inst, train_set_clas, x):
-    gnb = BernoulliNB()
+    gnb = MultinomialNB()
     gnb.fit(train_set_inst, train_set_clas)
     
     return gnb.predict([x])

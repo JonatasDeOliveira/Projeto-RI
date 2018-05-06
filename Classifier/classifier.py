@@ -1,5 +1,6 @@
 import json
 from sklearn import svm
+from sklearn import tree
 from stop_words import get_stop_words
 import operator
 from os.path import isfile, join
@@ -12,6 +13,7 @@ stop_words = get_stop_words('en')
 class Classifier:
     def __init__(self):
         self.features = []
+        self.features_names = []
         self.clf = self.train()
         
     
@@ -22,15 +24,19 @@ class Classifier:
     
     
     def setFeatures(self, idf):
-        idf_sorted = sorted(idf.items(), key=operator.itemgetter(1))
+        for key in idf.keys():
+            self.features_names.append(key)
         
-        cont = 0
-        for x in idf_sorted:
-            if x[1] > 0 and cont < 100:
-                self.features.append(x[0])
-                cont+=1
+        X, y = self.getTrainData(self.features_names)
+    
+        clf = tree.DecisionTreeClassifier()
+        clf.fit(X, y)
         
-    def getTrainData(self):
+        for i in range(0, len(clf.feature_importances_)-1):
+            if clf.feature_importances_[i] > 0.000:
+                self.features.append(self.features_names[i])
+        
+    def getTrainData(self, keys):
         pos_path = "positive_docs/"
         neg_path = "negative_docs/"
         positive_files = [f for f in listdir(pos_path) if isfile(join(pos_path, f))]
@@ -42,10 +48,10 @@ class Classifier:
             with open(pos_path+file) as data_file:    
                 data = json.load(data_file)
             aux = []
-            for feature in self.features:
-                aux.append(data.get(feature, 0))
+            for key in keys:
+                aux.append(data.get(key, 0))
             
-            y.append('positive')
+            y.append(True)
             X.append(aux)
         
         
@@ -53,21 +59,20 @@ class Classifier:
             with open(neg_path+file) as data_file:    
                 data = json.load(data_file)
             aux = []
-            for feature in self.features:
-                aux.append(data.get(feature, 0))
+            for key in keys:
+                aux.append(data.get(key, 0))
             
-            y.append('negative')
+            y.append(False)
             X.append(aux)
-        
         yield X
         yield y
         
     def train(self):
         idf = self.getIDF()
         self.setFeatures(idf)
-        X, y = self.getTrainData()
+        X, y = self.getTrainData(self.features)
         
-        clf = svm.SVC()
+        clf = tree.DecisionTreeClassifier()
         clf.fit(X, y)
         
         return clf
