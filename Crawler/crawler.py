@@ -3,6 +3,7 @@ from urllib.request import Request, urlopen
 from selenium import webdriver
 from reppy.robots import Robots
 from reppy.cache import RobotsCache
+from Classifier.classifier import Classifier
 import re
 import requests
 import queue
@@ -64,7 +65,7 @@ def get_all_links(domain, pathTotal, maxSize, rp):
     return links
 
 
-def crawler(domain, pathseed, maxSize = 1000):
+def crawler(domain, pathseed, maxSize = 10):
     q = queue.Queue()
     visited = []
     links = []
@@ -89,15 +90,19 @@ def crawler(domain, pathseed, maxSize = 1000):
     os.makedirs('Docs/HTMLPages/BFS/'+folder(domain)+'/', exist_ok=True)
     print(len(links))
     v = 0
+    clf = Classifier()
     for l in links:
         v += 1
-        print(str(v)+ " "+l)
         driver = webdriver.PhantomJS( service_args=['--ignore-ssl-errors=true', '--ssl-protocol=any'])
         driver.get(l)
-        #print(driver.page_source)
+        soup = BeautifulSoup(driver.page_source, "html.parser")
+        print(str(v)+ " "+l + " "+ clf.classify(soup))
+        '''
         with open('Docs/HTMLPages/BFS/'+folder(domain)+'/'+str(v) +'-'+l.replace('/','*')+'.html', 'wb') as f:
             f.write(bytes(driver.page_source,'UTF-8'))
+        '''
         driver.service.process.send_signal(signal.SIGTERM) 
+        
     return 0
 
 
