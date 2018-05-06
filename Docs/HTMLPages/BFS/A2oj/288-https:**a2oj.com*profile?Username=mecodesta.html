@@ -1,0 +1,575 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" class=" canvas canvastext no-geolocation rgba hsla multiplebgs borderimage borderradius boxshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions  no-video no-audio localstorage sessionstorage webworkers applicationcache fontface"><head>
+
+
+
+<link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>mecodesta - A2 Online Judge</title>
+
+<meta name="description" content="A2 Online Judge (or Virtual Online Contests) is an online judge with hundreds of problems and it helps you to create, run and participate in virtual contests using problems from the following online judges: A2 Online Judge, Live Archive, Codeforces, Timus, SPOJ, TJU, SGU, PKU, ZOJ, URI. It also helps you to manage and track your programming comepetions training for you and your friends. It helps for ICPC ACM and IOI training also.">
+<meta name="keywords" content="ahmed aly,ahmed aly tools,voc,virtual online contests,programming,c++,java,contest,contests,competition,competitions,programming contest,programming contests,programming compitition,programming compititions,cf,codeforces,live archive,uva,spoj,tju,sgu,pku,timus,zoj,uri,programming tools,a2oj,a2 online judge">
+<meta name="author" content="Ahmed Aly">
+<link href="default.css" rel="stylesheet" type="text/css">
+
+		<link rel="stylesheet" href="css/nav.css">
+		<!--[if IE]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+<!-- START TRACKING CODE -->
+<script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push( [ '_setAccount', 'UA-16947566-3' ]);
+	_gaq.push( [ '_trackPageview' ]);
+
+	( function() {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+				: 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+<!-- END TRACKING CODE -->
+
+
+
+
+
+
+
+<style>@font-face{font-family:testfont;src:url('data:font/ttf;base64,AAEAAAAMAIAAAwBAT1MvMliohmwAAADMAAAAVmNtYXCp5qrBAAABJAAAANhjdnQgACICiAAAAfwAAAAEZ2FzcP//AAMAAAIAAAAACGdseWYv5OZoAAACCAAAANxoZWFk69bnvwAAAuQAAAA2aGhlYQUJAt8AAAMcAAAAJGhtdHgGDgC4AAADQAAAABRsb2NhAIQAwgAAA1QAAAAMbWF4cABVANgAAANgAAAAIG5hbWUgXduAAAADgAAABPVwb3N03NkzmgAACHgAAAA4AAECBAEsAAUAAAKZAswAAACPApkCzAAAAesAMwEJAAACAAMDAAAAAAAAgAACbwAAAAoAAAAAAAAAAFBmRWQAAAAgqS8DM/8zAFwDMwDNAAAABQAAAAAAAAAAAAMAAAADAAAAHAABAAAAAABGAAMAAQAAAK4ABAAqAAAABgAEAAEAAgAuqQD//wAAAC6pAP///9ZXAwAAAAAAAAACAAAABgBoAAAAAAAvAAEAAAAAAAAAAAAAAAAAAAABAAIAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEACoAAAAGAAQAAQACAC6pAP//AAAALqkA////1lcDAAAAAAAAAAIAAAAiAogAAAAB//8AAgACACIAAAEyAqoAAwAHAC6xAQAvPLIHBADtMrEGBdw8sgMCAO0yALEDAC88sgUEAO0ysgcGAfw8sgECAO0yMxEhESczESMiARDuzMwCqv1WIgJmAAACAFUAAAIRAc0ADwAfAAATFRQWOwEyNj0BNCYrASIGARQGKwEiJj0BNDY7ATIWFX8aIvAiGhoi8CIaAZIoN/43KCg3/jcoAWD0JB4eJPQkHh7++EY2NkbVRjY2RgAAAAABAEH/+QCdAEEACQAANjQ2MzIWFAYjIkEeEA8fHw8QDxwWFhwWAAAAAQAAAAIAAIuYbWpfDzz1AAsEAAAAAADFn9IuAAAAAMWf0i797/8zA4gDMwAAAAgAAgAAAAAAAAABAAADM/8zAFwDx/3v/98DiAABAAAAAAAAAAAAAAAAAAAABQF2ACIAAAAAAVUAAAJmAFUA3QBBAAAAKgAqACoAWgBuAAEAAAAFAFAABwBUAAQAAgAAAAEAAQAAAEAALgADAAMAAAAQAMYAAQAAAAAAAACLAAAAAQAAAAAAAQAhAIsAAQAAAAAAAgAFAKwAAQAAAAAAAwBDALEAAQAAAAAABAAnAPQAAQAAAAAABQAKARsAAQAAAAAABgAmASUAAQAAAAAADgAaAUsAAwABBAkAAAEWAWUAAwABBAkAAQBCAnsAAwABBAkAAgAKAr0AAwABBAkAAwCGAscAAwABBAkABABOA00AAwABBAkABQAUA5sAAwABBAkABgBMA68AAwABBAkADgA0A/tDb3B5cmlnaHQgMjAwOSBieSBEYW5pZWwgSm9obnNvbi4gIFJlbGVhc2VkIHVuZGVyIHRoZSB0ZXJtcyBvZiB0aGUgT3BlbiBGb250IExpY2Vuc2UuIEtheWFoIExpIGdseXBocyBhcmUgcmVsZWFzZWQgdW5kZXIgdGhlIEdQTCB2ZXJzaW9uIDMuYmFlYzJhOTJiZmZlNTAzMiAtIHN1YnNldCBvZiBKdXJhTGlnaHRiYWVjMmE5MmJmZmU1MDMyIC0gc3Vic2V0IG9mIEZvbnRGb3JnZSAyLjAgOiBKdXJhIExpZ2h0IDogMjMtMS0yMDA5YmFlYzJhOTJiZmZlNTAzMiAtIHN1YnNldCBvZiBKdXJhIExpZ2h0VmVyc2lvbiAyIGJhZWMyYTkyYmZmZTUwMzIgLSBzdWJzZXQgb2YgSnVyYUxpZ2h0aHR0cDovL3NjcmlwdHMuc2lsLm9yZy9PRkwAQwBvAHAAeQByAGkAZwBoAHQAIAAyADAAMAA5ACAAYgB5ACAARABhAG4AaQBlAGwAIABKAG8AaABuAHMAbwBuAC4AIAAgAFIAZQBsAGUAYQBzAGUAZAAgAHUAbgBkAGUAcgAgAHQAaABlACAAdABlAHIAbQBzACAAbwBmACAAdABoAGUAIABPAHAAZQBuACAARgBvAG4AdAAgAEwAaQBjAGUAbgBzAGUALgAgAEsAYQB5AGEAaAAgAEwAaQAgAGcAbAB5AHAAaABzACAAYQByAGUAIAByAGUAbABlAGEAcwBlAGQAIAB1AG4AZABlAHIAIAB0AGgAZQAgAEcAUABMACAAdgBlAHIAcwBpAG8AbgAgADMALgBiAGEAZQBjADIAYQA5ADIAYgBmAGYAZQA1ADAAMwAyACAALQAgAHMAdQBiAHMAZQB0ACAAbwBmACAASgB1AHIAYQBMAGkAZwBoAHQAYgBhAGUAYwAyAGEAOQAyAGIAZgBmAGUANQAwADMAMgAgAC0AIABzAHUAYgBzAGUAdAAgAG8AZgAgAEYAbwBuAHQARgBvAHIAZwBlACAAMgAuADAAIAA6ACAASgB1AHIAYQAgAEwAaQBnAGgAdAAgADoAIAAyADMALQAxAC0AMgAwADAAOQBiAGEAZQBjADIAYQA5ADIAYgBmAGYAZQA1ADAAMwAyACAALQAgAHMAdQBiAHMAZQB0ACAAbwBmACAASgB1AHIAYQAgAEwAaQBnAGgAdABWAGUAcgBzAGkAbwBuACAAMgAgAGIAYQBlAGMAMgBhADkAMgBiAGYAZgBlADUAMAAzADIAIAAtACAAcwB1AGIAcwBlAHQAIABvAGYAIABKAHUAcgBhAEwAaQBnAGgAdABoAHQAdABwADoALwAvAHMAYwByAGkAcAB0AHMALgBzAGkAbAAuAG8AcgBnAC8ATwBGAEwAAAAAAgAAAAAAAP+BADMAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAAQACAQIAEQt6ZXJva2F5YWhsaQ==')}</style></head>
+<body class="">
+    	<script>
+			var el = document.getElementsByTagName("body")[0];
+			el.className = "";
+		</script>
+        <noscript>
+        	&lt;!--[if IE]&gt;
+            	&lt;link rel="stylesheet" href="css/ie.css"&gt;
+            &lt;![endif]--&gt;
+        </noscript>
+        
+
+<center>
+<table width="100%">
+<tbody><tr>
+<td>
+        
+
+
+<div id="wrapper"><!-- start header -->
+
+<div id="logo">
+<table width="100%">
+<tbody><tr>
+<td style="vertical-align: bottom;"><a href="/"><img src="logo.png"></a></td>
+<td>
+<h1 style="padding-top: 11px;">A<sup>2</sup> Online Judge</h1>
+<h2 class="author">»&nbsp;&nbsp;&nbsp;&nbsp; by <a href="https://www.facebook.com/ahmed.aly.tc" target="_blank" style="text-decoration: none;">Ahmed Aly</a></h2>
+<br>
+<h3>Sponsored by <b><a href="https://www.facebook.com/elcoachacademy/" target="_blank" style="text-decoration: none;">Coach Academy</a></b> &amp; <b><a href="https://www.facebook.com/acmacpc/" target="_blank" style="text-decoration: none;">ACPC</a></b>, <a href="https://www.codechef.com/" target="_blank" style="text-decoration: none;">CodeChef</a> and <a href="http://www.codability.net/" target="_blank" style="text-decoration: none;">Codability</a></h3>
+</td>
+<td style="text-align: right; padding-top: 27px;">
+<iframe src="https://www.facebook.com/plugins/like.php?show_faces=false&amp;href=https://www.facebook.com/A2OnlineJudge" scrolling="no" frameborder="0" style="border:none; height:45px"></iframe>
+</td>
+</tr>
+</tbody></table>
+</div>
+
+<div id="header3"><div align="right"><a href="signin?url=%2Fprofile%3FUsername%3Dmecodesta" style="font-size: 15px;">Sign In</a> - <a href="signup" style="font-size: 15px;">Sign Up</a></div></div>
+
+
+<div id="header2">
+<div id="menu2">
+
+        <nav id="topNav">
+          <ul>
+<li><a href="/">Contests</a></li><li><a href="ladders"><font color="red">Ladders</font></a></li><li><a href="ps">Problems</a></li><li><a href="status">Status</a></li><li><a href="categories">Categories</a></li><li><a href="groups">Groups</a></li><li><a href="javascript:void();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;More&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>^</span></a><ul><li><center><a href="http://goo.gl/Fq5mru" target="_blank">GCJ Tools</a></center></li><li><center><a href="codes">Source Codes</a></center></li><li><center><a href="finder">Problems Finder</a></center></li><li><center><a href="users">Users</a></center></li><li><center><a href="teams">Teams</a></center></li><li><center><a href="cumulative">Cumulative Rank</a></center></li></ul></li><li class="last"><a href="about">About</a></li>
+          </ul>
+        </nav>
+        
+        <script src="js/jquery.js"></script>
+        <script src="js/modernizr.js"></script>
+		<script>
+			(function($){
+				
+				//cache nav
+				var nav = $("#topNav");
+				
+				//add indicator and hovers to submenu parents
+				nav.find("li").each(function() {
+					if ($(this).find("ul").length > 0) {
+						$("<span>").text("^").appendTo($(this).children(":first"));
+
+						//show subnav on hover
+						$(this).mouseenter(function() {
+							$(this).find("ul").stop(true, true).slideDown();
+						});
+						
+						//hide submenus on exit
+						$(this).mouseleave(function() {
+							$(this).find("ul").stop(true, true).slideUp();
+						});
+					}
+				});
+			})(jQuery);
+		</script>
+
+
+</div>
+</div>
+<!-- end header --></div>
+<!-- start page -->
+</td>
+</tr>
+
+
+<tr>
+
+<td style="vertical-align: top;">
+<center>
+<table>
+<tbody><tr style="max-height: 0px; padding: 0px;">
+<td style="max-height: 0px; padding: 0px; min-width: 165px;"></td>
+<td style="max-height: 0px; padding: 0px; min-width: 1060px;"></td>
+<td style="max-height: 0px; padding: 0px; min-width: 165px;"></td>
+</tr>
+<tr>
+<td style="padding: 0px; vertical-align: top;">
+<div id="leftAd">
+
+
+</div>
+</td>
+<td style="padding: 0px; vertical-align: top;">
+<div id="page">
+
+<font size="3">
+<center>
+
+
+
+
+
+
+
+
+
+
+<b>
+<font size="5">
+<u>
+mecodesta's Coder Profile (India)
+
+</u>
+
+</font>
+</b>
+
+<br><br><b><a href="status?Username=mecodesta">mecodesta's A2 Online Judge Submissions</a></b>
+
+<br><br>
+<table border="1" cellpadding="5">
+
+<tbody><tr>
+<td><b>A2 Online Judge Solved Problems Count</b></td>
+<td title="A2 Online Judge Profile"><center>0</center></td>
+</tr>
+
+
+<tr>
+<td><b>All Solved Problems Count</b></td>
+<td><center>230
+</center></td>
+</tr>
+
+<tr>
+<td><b>UVA Solved Problems Count</b></td>
+<td title="UVA Profile"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_authorstats&amp;userid=177459" target="_blank">121</a></center></td>
+</tr>
+<tr>
+<td><b>SPOJ Solved Problems Count</b></td>
+<td title="SPOJ Profile"><center><a href="http://www.spoj.com/users/mecodesta/" target="_blank">93</a>
+</center></td>
+</tr>
+<tr>
+<td><b>Live Archive Solved Problems Count</b></td>
+<td title="Live Archive Profile"><center><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_authorstats&amp;userid=39991" target="_blank">2</a>
+</center></td>
+</tr>
+<tr>
+<td><b>Codeforces Solved Problems Count</b></td>
+<td title="Codeforces Profile"><center><a href="http://codeforces.com/profile/Arun.Karthikeyan" target="_blank">14</a>
+</center></td>
+</tr>
+
+
+</tbody></table>
+
+
+<br><br>
+<b style="font: 22px arial, sans-serif;
+  color: #5C5C5C;">UVA Solved Problems (<a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_authorstats&amp;userid=177459" target="_blank" title="UVA Profile">121 Problems</a>)</b>
+<p style="border-bottom: 1px solid #5C5C5C;
+  padding-bottom: 6px;
+  margin-bottom: 1em;">
+</p>
+
+<table border="1" cellpadding="5">
+<tbody><tr>
+<td title="The 3n + 1 problem"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=36" target="_blank">100</a></center></td>
+<td title="Unidirectional TSP"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=52" target="_blank">116</a></center></td>
+<td title="Greedy Gift Givers"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=55" target="_blank">119</a></center></td>
+<td title="ID Codes"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=82" target="_blank">146</a></center></td>
+<td title="Ananagrams"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=92" target="_blank">156</a></center></td>
+<td title="Traffic Lights"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=97" target="_blank">161</a></center></td>
+<td title="Anagram"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=131" target="_blank">195</a></center></td>
+<td title="TEX Quotes"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=208" target="_blank">272</a></center></td>
+<td title="Chess"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=214" target="_blank">278</a></center></td>
+<td title="Palindromes"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=342" target="_blank">401</a></center></td>
+<td title="Postscript"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=344" target="_blank">403</a></center></td>
+<td title="Anagrams"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=395" target="_blank">454</a></center></td>
+<td title="Bridge Hand Evaluator"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=403" target="_blank">462</a></center></td>
+<td title="Hangman Judge"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=430" target="_blank">489</a></center></td>
+<td title="Rails"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=455" target="_blank">514</a></center></td>
+</tr>
+<tr>
+<td title="Amazing"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=497" target="_blank">556</a></center></td>
+<td title="The Snail"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=514" target="_blank">573</a></center></td>
+<td title="Clock Hands"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=520" target="_blank">579</a></center></td>
+<td title="Bowling"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=525" target="_blank">584</a></center></td>
+<td title="One Little, Two Little, Three Little Endians"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=535" target="_blank">594</a></center></td>
+<td title="Parking Lot"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=544" target="_blank">603</a></center></td>
+<td title="Counterfeit Dollar"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=549" target="_blank">608</a></center></td>
+<td title="Secret Research"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=562" target="_blank">621</a></center></td>
+<td title="Booklet Printing"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=578" target="_blank">637</a></center></td>
+<td title="Blowing Fuses"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=602" target="_blank">661</a></center></td>
+<td title="How Many Knights"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=637" target="_blank">696</a></center></td>
+<td title="Date Bugs"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=641" target="_blank">700</a></center></td>
+<td title="Anagrams by Stack"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=673" target="_blank">732</a></center></td>
+<td title="Y3K Problem"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=834" target="_blank">893</a></center></td>
+<td title="Lemmings Battle!"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=919" target="_blank">978</a></center></td>
+</tr>
+<tr>
+<td title="Consanguine Calculations"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3502" target="_blank">1061</a></center></td>
+<td title="Containers"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3503" target="_blank">1062</a></center></td>
+<td title="Celebrity jeopardy"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3565" target="_blank">1124</a></center></td>
+<td title="Argus"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3644" target="_blank">1203</a></center></td>
+<td title="Jollybee Tournament"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3682" target="_blank">1241</a></center></td>
+<td title="Bicoloring"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=945" target="_blank">10004</a></center></td>
+<td title="Jolly Jumpers"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=979" target="_blank">10038</a></center></td>
+<td title="Erdos Numbers"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=985" target="_blank">10044</a></center></td>
+<td title="Hashmat the Brave Warrior"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=996" target="_blank">10055</a></center></td>
+<td title="Back to High School Physics"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1012" target="_blank">10071</a></center></td>
+<td title="What is the Median?"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1048" target="_blank">10107</a></center></td>
+<td title="Loansome Car Buyer"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1055" target="_blank">10114</a></center></td>
+<td title="Request for Proposal"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1082" target="_blank">10141</a></center></td>
+<td title="Summation of Four Primes"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1109" target="_blank">10168</a></center></td>
+<td title="The Lonesome Cargo Distributor"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1113" target="_blank">10172</a></center></td>
+</tr>
+<tr>
+<td title="Minesweeper"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1130" target="_blank">10189</a></center></td>
+<td title="Hardwood Species"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1167" target="_blank">10226</a></center></td>
+<td title="Contest Scoreboard"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1199" target="_blank">10258</a></center></td>
+<td title="The Most Potent Corner"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1205" target="_blank">10264</a></center></td>
+<td title="Chessboard in FEN"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1225" target="_blank">10284</a></center></td>
+<td title="Ecological Premium"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1241" target="_blank">10300</a></center></td>
+<td title="Zeros and Ones"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1265" target="_blank">10324</a></center></td>
+<td title="Love Calculator"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1365" target="_blank">10424</a></center></td>
+<td title="Rock, Scissors, Paper"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1384" target="_blank">10443</a></center></td>
+<td title="Combination Lock"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1491" target="_blank">10550</a></center></td>
+<td title="What is the Card?"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1587" target="_blank">10646</a></center></td>
+<td title="Beat the Spread!"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1753" target="_blank">10812</a></center></td>
+<td title="Traditional BINGO"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1754" target="_blank">10813</a></center></td>
+<td title="Rotated square"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1796" target="_blank">10855</a></center></td>
+<td title="Ferry Loading III"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1842" target="_blank">10901</a></center></td>
+</tr>
+<tr>
+<td title="Prerequisites?"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1860" target="_blank">10919</a></center></td>
+<td title="Spiral Tap"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1861" target="_blank">10920</a></center></td>
+<td title="Mother bear"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1886" target="_blank">10945</a></center></td>
+<td title="Add All"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1895" target="_blank">10954</a></center></td>
+<td title="The Swallowing Ground"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1904" target="_blank">10963</a></center></td>
+<td title="Another New Function"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1931" target="_blank">10990</a></center></td>
+<td title="Ferry Loading IV"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1975" target="_blank">11034</a></center></td>
+<td title="Searching for Nessy"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1985" target="_blank">11044</a></center></td>
+<td title="Hoax or what"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2077" target="_blank">11136</a></center></td>
+<td title="Relational Operator"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2113" target="_blank">11172</a></center></td>
+<td title="Grey Codes"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2114" target="_blank">11173</a></center></td>
+<td title="Magic square palindromes."><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2162" target="_blank">11221</a></center></td>
+<td title="Consecutive Integers"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2221" target="_blank">11254</a></center></td>
+<td title="Conformity"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2261" target="_blank">11286</a></center></td>
+<td title="Summing Digits"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2307" target="_blank">11332</a></center></td>
+</tr>
+<tr>
+<td title="Newspaper"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2315" target="_blank">11340</a></center></td>
+<td title="Parking"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2349" target="_blank">11364</a></center></td>
+<td title="Da Vinci Code"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2380" target="_blank">11385</a></center></td>
+<td title="Snakes and Ladders"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2454" target="_blank">11459</a></center></td>
+<td title="Division of Nlogonia"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2493" target="_blank">11498</a></center></td>
+<td title="Bender B. Rodríguez Problem"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2502" target="_blank">11507</a></center></td>
+<td title="Automatic Answer"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2542" target="_blank">11547</a></center></td>
+<td title="Event Planning"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2595" target="_blank">11559</a></center></td>
+<td title="Unique Snowflakes"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2619" target="_blank">11572</a></center></td>
+<td title="Grid Successors"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2628" target="_blank">11581</a></center></td>
+<td title="Train Tracks"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2633" target="_blank">11586</a></center></td>
+<td title="Burger Time?"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2708" target="_blank">11661</a></center></td>
+<td title="Sub-prime"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2726" target="_blank">11679</a></center></td>
+<td title="Laser Sculpture"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2730" target="_blank">11683</a></center></td>
+<td title="Digits"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2734" target="_blank">11687</a></center></td>
+</tr>
+<tr>
+<td title="Cost Cutting"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2827" target="_blank">11727</a></center></td>
+<td title="Brother Arif, Please feed us!"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2860" target="_blank">11760</a></center></td>
+<td title="Jumping Mario"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2864" target="_blank">11764</a></center></td>
+<td title="Horror Dash"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2899" target="_blank">11799</a></center></td>
+<td title="CD"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2949" target="_blank">11849</a></center></td>
+<td title="Multitasking"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3077" target="_blank">11926</a></center></td>
+<td title="Splitting Numbers"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3084" target="_blank">11933</a></center></td>
+<td title="Lumberjack Sequencing"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3093" target="_blank">11942</a></center></td>
+<td title="Cancer or Scorpio"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3098" target="_blank">11947</a></center></td>
+<td title="Brainfuck"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3107" target="_blank">11956</a></center></td>
+<td title="Broken Keyboard (a.k.a. Beiju Text)"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3139" target="_blank">11988</a></center></td>
+<td title="I Can Guess the Data Structure!"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3146" target="_blank">11995</a></center></td>
+<td title="Google is Feeling Lucky"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3166" target="_blank">12015</a></center></td>
+<td title="All Integer Average"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3212" target="_blank">12060</a></center></td>
+<td title="Mobile Casanova"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3237" target="_blank">12085</a></center></td>
+</tr>
+<tr>
+<td title="Tariff Plan"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3309" target="_blank">12157</a></center></td>
+<td title="Jollo"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3399" target="_blank">12247</a></center></td>
+<td title="Language Detection"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3402" target="_blank">12250</a></center></td>
+<td title="Emoogle Balance"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3431" target="_blank">12279</a></center></td>
+<td title="One-Two-Three"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3710" target="_blank">12289</a></center></td>
+<td title="Box Game"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3714" target="_blank">12293</a></center></td>
+<td title="Army Buddies"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3778" target="_blank">12356</a></center></td>
+<td title="Packing for Holiday"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3794" target="_blank">12372</a></center></td>
+<td title="Save Setu"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3834" target="_blank">12403</a></center></td>
+<td title="February 29"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3870" target="_blank">12439</a></center></td>
+<td title="Zapping"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3912" target="_blank">12468</a></center></td>
+<td title="Hardest Problem Ever (Easy)"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3922" target="_blank">12478</a></center></td>
+<td title="Robot Instructions"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3947" target="_blank">12503</a></center></td>
+<td title="Prime Substring"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3987" target="_blank">12542</a></center></td>
+<td title="A Special &quot;Happy Birthday&quot; Song!!!"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3999" target="_blank">12554</a></center></td>
+</tr>
+<tr>
+<td title="Hajj-e-Akbar"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=4022" target="_blank">12577</a></center></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr></tbody></table>
+<br><br>
+<b style="font: 22px arial, sans-serif;
+  color: #5C5C5C;">SPOJ Solved Problems (<a href="http://www.spoj.com/users/mecodesta/" target="_blank" title="SPOJ Profile">93 Problems</a>)</b>
+<p style="border-bottom: 1px solid #5C5C5C;
+  padding-bottom: 6px;
+  margin-bottom: 1em;">
+</p>
+
+<table border="1" cellpadding="5">
+<tbody><tr>
+<td title="ABCDEF"><center><a href="http://www.spoj.com/problems/ABCDEF/" target="_blank">ABCDEF</a></center></td>
+<td title="Anti-Blot System"><center><a href="http://www.spoj.com/problems/ABSYS/" target="_blank">ABSYS</a></center></td>
+<td title="Alphacode"><center><a href="http://www.spoj.com/problems/ACODE/" target="_blank">ACODE</a></center></td>
+<td title="What&amp;#8217;s Next"><center><a href="http://www.spoj.com/problems/ACPC10A/" target="_blank">ACPC10A</a></center></td>
+<td title="Tri graphs"><center><a href="http://www.spoj.com/problems/ACPC10D/" target="_blank">ACPC10D</a></center></td>
+<td title="Between the Mountains"><center><a href="http://www.spoj.com/problems/ACPC11B/" target="_blank">ACPC11B</a></center></td>
+<td title="Adding Reversed Numbers"><center><a href="http://www.spoj.com/problems/ADDREV/" target="_blank">ADDREV</a></center></td>
+<td title="Rectangles"><center><a href="http://www.spoj.com/problems/AE00/" target="_blank">AE00</a></center></td>
+<td title="Aggressive cows"><center><a href="http://www.spoj.com/problems/AGGRCOW/" target="_blank">AGGRCOW</a></center></td>
+</tr>
+<tr>
+<td title="Aibohphobia"><center><a href="http://www.spoj.com/problems/AIBOHP/" target="_blank">AIBOHP</a></center></td>
+<td title="Christmas Play"><center><a href="http://www.spoj.com/problems/AMR10G/" target="_blank">AMR10G</a></center></td>
+<td title="The Double HeLiX"><center><a href="http://www.spoj.com/problems/ANARC05B/" target="_blank">ANARC05B</a></center></td>
+<td title="Seinfeld"><center><a href="http://www.spoj.com/problems/ANARC09A/" target="_blank">ANARC09A</a></center></td>
+<td title="AP - Complete The Series (Easy)"><center><a href="http://www.spoj.com/problems/AP2/" target="_blank">AP2</a></center></td>
+<td title="Simple Arithmetics"><center><a href="http://www.spoj.com/problems/ARITH/" target="_blank">ARITH</a></center></td>
+<td title="Simple Arithmetics II"><center><a href="http://www.spoj.com/problems/ARITH2/" target="_blank">ARITH2</a></center></td>
+<td title="Army Strength"><center><a href="http://www.spoj.com/problems/ARMY/" target="_blank">ARMY</a></center></td>
+<td title="subarrays"><center><a href="http://www.spoj.com/problems/ARRAYSUB/" target="_blank">ARRAYSUB</a></center></td>
+</tr>
+<tr>
+<td title="Beehive Numbers"><center><a href="http://www.spoj.com/problems/BEENUMS/" target="_blank">BEENUMS</a></center></td>
+<td title="Bishops"><center><a href="http://www.spoj.com/problems/BISHOPS/" target="_blank">BISHOPS</a></center></td>
+<td title="Bitmap"><center><a href="http://www.spoj.com/problems/BITMAP/" target="_blank">BITMAP</a></center></td>
+<td title="A Bug&amp;#8217;s Life"><center><a href="http://www.spoj.com/problems/BUGLIFE/" target="_blank">BUGLIFE</a></center></td>
+<td title="Bye Bye Cakes"><center><a href="http://www.spoj.com/problems/BYECAKES/" target="_blank">BYECAKES</a></center></td>
+<td title="Philosophers Stone"><center><a href="http://www.spoj.com/problems/BYTESM2/" target="_blank">BYTESM2</a></center></td>
+<td title="Candy I"><center><a href="http://www.spoj.com/problems/CANDY/" target="_blank">CANDY</a></center></td>
+<td title="Candy III"><center><a href="http://www.spoj.com/problems/CANDY3/" target="_blank">CANDY3</a></center></td>
+<td title="Count on Cantor"><center><a href="http://www.spoj.com/problems/CANTON/" target="_blank">CANTON</a></center></td>
+</tr>
+<tr>
+<td title="Bytelandian gold coins"><center><a href="http://www.spoj.com/problems/COINS/" target="_blank">COINS</a></center></td>
+<td title="Cards"><center><a href="http://www.spoj.com/problems/CRDS/" target="_blank">CRDS</a></center></td>
+<td title="In Danger"><center><a href="http://www.spoj.com/problems/DANGER/" target="_blank">DANGER</a></center></td>
+<td title="DOTA HEROES"><center><a href="http://www.spoj.com/problems/DOTAA/" target="_blank">DOTAA</a></center></td>
+<td title="A Very Easy Problem!"><center><a href="http://www.spoj.com/problems/EASYPROB/" target="_blank">EASYPROB</a></center></td>
+<td title="Edit distance"><center><a href="http://www.spoj.com/problems/EDIST/" target="_blank">EDIST</a></center></td>
+<td title="Pizza"><center><a href="http://www.spoj.com/problems/EGYPIZZA/" target="_blank">EGYPIZZA</a></center></td>
+<td title="Triple Fat Ladies"><center><a href="http://www.spoj.com/problems/EIGHTS/" target="_blank">EIGHTS</a></center></td>
+<td title="Euler Totient Function"><center><a href="http://www.spoj.com/problems/ETF/" target="_blank">ETF</a></center></td>
+</tr>
+<tr>
+<td title="Friends of Friends"><center><a href="http://www.spoj.com/problems/FACEFRND/" target="_blank">FACEFRND</a></center></td>
+<td title="Fashion Shows"><center><a href="http://www.spoj.com/problems/FASHION/" target="_blank">FASHION</a></center></td>
+<td title="Factorial"><center><a href="http://www.spoj.com/problems/FCTRL/" target="_blank">FCTRL</a></center></td>
+<td title="Small factorials"><center><a href="http://www.spoj.com/problems/FCTRL2/" target="_blank">FCTRL2</a></center></td>
+<td title="Build a Fence"><center><a href="http://www.spoj.com/problems/FENCE1/" target="_blank">FENCE1</a></center></td>
+<td title="Fibonacci Sum"><center><a href="http://www.spoj.com/problems/FIBOSUM/" target="_blank">FIBOSUM</a></center></td>
+<td title="Fibonacci With a Twist"><center><a href="http://www.spoj.com/problems/FIBTWIST/" target="_blank">FIBTWIST</a></center></td>
+<td title="Girls and Boys"><center><a href="http://www.spoj.com/problems/GIRLSNBS/" target="_blank">GIRLSNBS</a></center></td>
+<td title="GLJIVE"><center><a href="http://www.spoj.com/problems/GLJIVE/" target="_blank">GLJIVE</a></center></td>
+</tr>
+<tr>
+<td title="Can you answer these queries I"><center><a href="http://www.spoj.com/problems/GSS1/" target="_blank">GSS1</a></center></td>
+<td title="Number Guessing Game"><center><a href="http://www.spoj.com/problems/GUESSING/" target="_blank">GUESSING</a></center></td>
+<td title="Hangover"><center><a href="http://www.spoj.com/problems/HANGOVER/" target="_blank">HANGOVER</a></center></td>
+<td title="Hotels Along the Croatian Coast"><center><a href="http://www.spoj.com/problems/HOTELS/" target="_blank">HOTELS</a></center></td>
+<td title="Happy Numbers I"><center><a href="http://www.spoj.com/problems/HPYNOS/" target="_blank">HPYNOS</a></center></td>
+<td title="Hubulullu"><center><a href="http://www.spoj.com/problems/HUBULLU/" target="_blank">HUBULLU</a></center></td>
+<td title="Inversion Count"><center><a href="http://www.spoj.com/problems/INVCNT/" target="_blank">INVCNT</a></center></td>
+<td title="Java vs C &amp;#43&amp;#43"><center><a href="http://www.spoj.com/problems/JAVAC/" target="_blank">JAVAC</a></center></td>
+<td title="Julka"><center><a href="http://www.spoj.com/problems/JULKA/" target="_blank">JULKA</a></center></td>
+</tr>
+<tr>
+<td title="The last digit"><center><a href="http://www.spoj.com/problems/LASTDIG/" target="_blank">LASTDIG</a></center></td>
+<td title="The last digit re-visited"><center><a href="http://www.spoj.com/problems/LASTDIG2/" target="_blank">LASTDIG2</a></center></td>
+<td title="Majority"><center><a href="http://www.spoj.com/problems/MAJOR/" target="_blank">MAJOR</a></center></td>
+<td title="Marbles"><center><a href="http://www.spoj.com/problems/MARBLES/" target="_blank">MARBLES</a></center></td>
+<td title="THE MAX LINES"><center><a href="http://www.spoj.com/problems/MAXLN/" target="_blank">MAXLN</a></center></td>
+<td title="Numeral System of the Maya"><center><a href="http://www.spoj.com/problems/MAYA/" target="_blank">MAYA</a></center></td>
+<td title="Flowers Flourish from France"><center><a href="http://www.spoj.com/problems/MFLAR10/" target="_blank">MFLAR10</a></center></td>
+<td title="Wise And Miser"><center><a href="http://www.spoj.com/problems/MISERMAN/" target="_blank">MISERMAN</a></center></td>
+<td title="Mixtures"><center><a href="http://www.spoj.com/problems/MIXTURES/" target="_blank">MIXTURES</a></center></td>
+</tr>
+<tr>
+<td title="Recaman&amp;#8217;s Sequence"><center><a href="http://www.spoj.com/problems/MRECAMAN/" target="_blank">MRECAMAN</a></center></td>
+<td title="The Moronic Cowmpouter"><center><a href="http://www.spoj.com/problems/NEG2/" target="_blank">NEG2</a></center></td>
+<td title="A Game with Numbers"><center><a href="http://www.spoj.com/problems/NGM/" target="_blank">NGM</a></center></td>
+<td title="Number Steps"><center><a href="http://www.spoj.com/problems/NSTEPS/" target="_blank">NSTEPS</a></center></td>
+<td title="Penney Game"><center><a href="http://www.spoj.com/problems/NY10A/" target="_blank">NY10A</a></center></td>
+<td title="He is offside!"><center><a href="http://www.spoj.com/problems/OFFSIDE/" target="_blank">OFFSIDE</a></center></td>
+<td title="Onotole needs your help"><center><a href="http://www.spoj.com/problems/OLOLO/" target="_blank">OLOLO</a></center></td>
+<td title="Transform the Expression"><center><a href="http://www.spoj.com/problems/ONP/" target="_blank">ONP</a></center></td>
+<td title="The Next Palindrome"><center><a href="http://www.spoj.com/problems/PALIN/" target="_blank">PALIN</a></center></td>
+</tr>
+<tr>
+<td title="Party Schedule"><center><a href="http://www.spoj.com/problems/PARTY/" target="_blank">PARTY</a></center></td>
+<td title="Ambiguous Permutations"><center><a href="http://www.spoj.com/problems/PERMUT2/" target="_blank">PERMUT2</a></center></td>
+<td title="Piggy-Bank"><center><a href="http://www.spoj.com/problems/PIGBANK/" target="_blank">PIGBANK</a></center></td>
+<td title="Pyramids"><center><a href="http://www.spoj.com/problems/PIR/" target="_blank">PIR</a></center></td>
+<td title="Prime Path"><center><a href="http://www.spoj.com/problems/PPATH/" target="_blank">PPATH</a></center></td>
+<td title="Prime Generator"><center><a href="http://www.spoj.com/problems/PRIME1/" target="_blank">PRIME1</a></center></td>
+<td title="Is it a tree"><center><a href="http://www.spoj.com/problems/PT07Y/" target="_blank">PT07Y</a></center></td>
+<td title="Longest path in a tree"><center><a href="http://www.spoj.com/problems/PT07Z/" target="_blank">PT07Z</a></center></td>
+<td title="Road net"><center><a href="http://www.spoj.com/problems/ROADNET/" target="_blank">ROADNET</a></center></td>
+</tr>
+<tr>
+<td title="Feynman"><center><a href="http://www.spoj.com/problems/SAMER08F/" target="_blank">SAMER08F</a></center></td>
+<td title="Cut the Silver Bar"><center><a href="http://www.spoj.com/problems/SILVER/" target="_blank">SILVER</a></center></td>
+<td title="Stamps"><center><a href="http://www.spoj.com/problems/STAMPS/" target="_blank">STAMPS</a></center></td>
+<td title="Street Parade"><center><a href="http://www.spoj.com/problems/STPAR/" target="_blank">STPAR</a></center></td>
+<td title="Sums in a Triangle"><center><a href="http://www.spoj.com/problems/SUMITR/" target="_blank">SUMITR</a></center></td>
+<td title="Life, the Universe, and Everything"><center><a href="http://www.spoj.com/problems/TEST/" target="_blank">TEST</a></center></td>
+<td title="To and Fro"><center><a href="http://www.spoj.com/problems/TOANDFRO/" target="_blank">TOANDFRO</a></center></td>
+<td title="Traversing Grid"><center><a href="http://www.spoj.com/problems/TRGRID/" target="_blank">TRGRID</a></center></td>
+<td title="Counting Triangles"><center><a href="http://www.spoj.com/problems/TRICOUNT/" target="_blank">TRICOUNT</a></center></td>
+</tr>
+<tr>
+<td title="Treats for the Cows"><center><a href="http://www.spoj.com/problems/TRT/" target="_blank">TRT</a></center></td>
+<td title="Two squares or not two squares"><center><a href="http://www.spoj.com/problems/TWOSQRS/" target="_blank">TWOSQRS</a></center></td>
+<td title="Will it ever stop"><center><a href="http://www.spoj.com/problems/WILLITST/" target="_blank">WILLITST</a></center></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr></tbody></table>
+<br><br>
+<b style="font: 22px arial, sans-serif;
+  color: #5C5C5C;">Live Archive Solved Problems (<a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_authorstats&amp;userid=39991" target="_blank" title="Live Archive Profile">2 Problems</a>)</b>
+<p style="border-bottom: 1px solid #5C5C5C;
+  padding-bottom: 6px;
+  margin-bottom: 1em;">
+</p>
+
+<table border="1" cellpadding="5">
+<tbody><tr>
+<td title="Confusion in the Problem Set"><center><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3974" target="_blank">5963</a></center></td>
+<td title="Here Be Dragons!"><center><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=4000" target="_blank">5989</a></center></td>
+</tr></tbody></table>
+<br><br>
+<b style="font: 22px arial, sans-serif;
+  color: #5C5C5C;">Codeforces Solved Problems (<a href="http://codeforces.com/profile/Arun.Karthikeyan" target="_blank" title="Codeforces Profile">14 Problems</a>)</b>
+<p style="border-bottom: 1px solid #5C5C5C;
+  padding-bottom: 6px;
+  margin-bottom: 1em;">
+</p>
+
+<table border="1" cellpadding="5">
+<tbody><tr>
+<td title="Win or Freeze"><center><a href="http://codeforces.com/problemset/problem/150/A" target="_blank">150A</a></center></td>
+<td title="Soft Drinking"><center><a href="http://codeforces.com/problemset/problem/151/A" target="_blank">151A</a></center></td>
+<td title="Phone Numbers"><center><a href="http://codeforces.com/problemset/problem/151/B" target="_blank">151B</a></center></td>
+<td title="I_love_\%username\%"><center><a href="http://codeforces.com/problemset/problem/155/A" target="_blank">155A</a></center></td>
+<td title="Combination"><center><a href="http://codeforces.com/problemset/problem/155/B" target="_blank">155B</a></center></td>
+<td title="Wizards and Demonstration"><center><a href="http://codeforces.com/problemset/problem/168/A" target="_blank">168A</a></center></td>
+<td title="Lexicographically Maximum Subsequence"><center><a href="http://codeforces.com/problemset/problem/196/A" target="_blank">196A</a></center></td>
+<td title="Plate Game"><center><a href="http://codeforces.com/problemset/problem/197/A" target="_blank">197A</a></center></td>
+<td title="Hexadecimal's theorem"><center><a href="http://codeforces.com/problemset/problem/199/A" target="_blank">199A</a></center></td>
+<td title="Queue on Bus Stop"><center><a href="http://codeforces.com/problemset/problem/435/A" target="_blank">435A</a></center></td>
+<td title="Pasha Maximizes"><center><a href="http://codeforces.com/problemset/problem/435/B" target="_blank">435B</a></center></td>
+<td title="Jzzhu and Chocolate"><center><a href="http://codeforces.com/problemset/problem/449/A" target="_blank">449A</a></center></td>
+<td title="Jzzhu and Children"><center><a href="http://codeforces.com/problemset/problem/450/A" target="_blank">450A</a></center></td>
+<td title="Jzzhu and Sequences"><center><a href="http://codeforces.com/problemset/problem/450/B" target="_blank">450B</a></center></td>
+</tr></tbody></table>
+
+
+</center>
+</font>
+
+</div>
+</td>
+<td style="padding: 0px; vertical-align: top;">
+<div id="rightAd">
+
+
+</div>
+</td>
+</tr>
+</tbody></table>
+</center>
+<!-- end page -->
+<!-- start footer -->
+<div id="footer">
+<p id="legal">A2OJ © Copyright 2011-2016 <b><a href="https://www.facebook.com/ahmed.aly.tc" target="_blank" style="text-decoration: none;">Ahmed Aly</a></b> All Rights Reserved. A2OJ uses <a href="http://sphere-engine.com" target="_blank" style="text-decoration: none;">Sphere Engine</a>™ © by <a href="http://sphere-research.com" target="_blank" style="text-decoration: none;">Sphere Research Labs</a>.</p>
+</div>
+</td>
+
+
+</tr>
+</tbody></table>
+</center><span style="font-style: normal; font-variant: normal; font-weight: normal; font-size: 99px; line-height: normal; font-family: testfont, _, serif; position: absolute; visibility: hidden; bottom: 0px;" id="fonttest">........</span>
+<!-- end footer -->
+
+
+
+
+</body></html>

@@ -1,0 +1,1000 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" class=" canvas canvastext no-geolocation rgba hsla multiplebgs borderimage borderradius boxshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions  no-video no-audio localstorage sessionstorage webworkers applicationcache fontface"><head>
+
+<script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script type="text/javascript">
+function makeHttpObject() {
+	try {return new XMLHttpRequest();}
+	catch (error) {}
+	try {return new ActiveXObject("Msxml2.XMLHTTP");}
+	catch (error) {}
+	try {return new ActiveXObject("Microsoft.XMLHTTP");}
+	catch (error) {}
+	return null;
+}
+
+function judge_changed() {
+	var judges = document.getElementById("Judge").options;
+	var judge = "";
+	for (var i = 0; i < judges.length; i++)
+		if (judges[i].selected) {
+			judge = judges[i].value;
+			break;
+		}
+	var request = makeHttpObject();
+	if(request == null)
+		return;
+	request.open("GET", "judge?Judge=" + judge, false);
+	request.send(null);
+}
+
+function problem_changed() {
+	var sd = document.getElementById("selectedDiv");
+	sd.innerHTML = "";
+	var problem = document.getElementById("Problem").value;
+	var index = problem.lastIndexOf("[");
+	if (index == -1)
+		return;
+	var ID = problem.substr(index + 1);
+	index = ID.indexOf(" ");
+	if (index == -1)
+		return;
+	ID = ID.substr(0, index);
+	var url = "";
+	if (problem.indexOf(" (A2 Online Judge) [") != -1)
+		url = "https://a2oj.com/p?ID=" + ID + "";
+	else if (problem.indexOf(" (UVA) [") != -1)
+		url = "https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=" + ID + "";
+	else if (problem.indexOf(" (SPOJ) [") != -1)
+		url = "http://www.spoj.com/problems/" + ID + "/";
+	else if (problem.indexOf(" (Live Archive) [") != -1)
+		url = "https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&page=show_problem&problem=" + ID + "";
+	else if (problem.indexOf(" (Codeforces) [") != -1)
+		url = "http://codeforces.com/problemset/problem/" + ID + "";
+	else if (problem.indexOf(" (TJU) [") != -1)
+		url = "http://acm.tju.edu.cn/toj/showp" + ID + ".html";
+	else if (problem.indexOf(" (SGU) [") != -1)
+		url = "http://acm.sgu.ru/problem.php?contest=0&problem=" + ID + "";
+	else if (problem.indexOf(" (PKU) [") != -1)
+		url = "http://poj.org/problem?id=" + ID + "";
+	else if (problem.indexOf(" (Timus) [") != -1)
+		url = "http://acm.timus.ru/problem.aspx?space=1&num=" + ID + "";
+	else if (problem.indexOf(" (ZOJ) [") != -1)
+		url = "http://acm.zju.edu.cn/onlinejudge/showProblem.do?problemCode=" + ID + "";
+	else if (problem.indexOf(" (URI) [") != -1)
+		url = "https://www.urionlinejudge.com.br/judge/en/problems/view/" + ID + "";
+	else if (problem.indexOf(" (SPOJ Brazil) [") != -1)
+		url = "http://br.spoj.com/problems/" + ID + "/";
+	else if (problem.indexOf(" (SPOJ Poland) [") != -1)
+		url = "http://pl.spoj.com/problems/" + ID + "/";
+	else if (problem.indexOf(" (SPOJ Vietnam) [") != -1)
+		url = "http://vn.spoj.com/problems/" + ID + "/";
+
+	if (url == "")
+		return;
+	sd.innerHTML = "<center><a href=\""+url+"\" target=\"_blank\">Selected Problem Link</a></center>";
+}
+</script>
+
+<link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>A2 Online Judge</title>
+
+<meta name="description" content="A2 Online Judge (or Virtual Online Contests) is an online judge with hundreds of problems and it helps you to create, run and participate in virtual contests using problems from the following online judges: A2 Online Judge, Live Archive, Codeforces, Timus, SPOJ, TJU, SGU, PKU, ZOJ, URI. It also helps you to manage and track your programming comepetions training for you and your friends. It helps for ICPC ACM and IOI training also.">
+<meta name="keywords" content="ahmed aly,ahmed aly tools,voc,virtual online contests,programming,c++,java,contest,contests,competition,competitions,programming contest,programming contests,programming compitition,programming compititions,cf,codeforces,live archive,uva,spoj,tju,sgu,pku,timus,zoj,uri,programming tools,a2oj,a2 online judge">
+<meta name="author" content="Ahmed Aly">
+<link href="default.css" rel="stylesheet" type="text/css">
+
+		<link rel="stylesheet" href="css/nav.css">
+		<!--[if IE]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+<!-- START TRACKING CODE -->
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push( [ '_setAccount', 'UA-16947566-3' ]);
+	_gaq.push( [ '_trackPageview' ]);
+
+	( function() {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+				: 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+<!-- END TRACKING CODE -->
+
+<!-- START TABLE SORTER CODE -->
+<link rel="stylesheet" href="style.css" type="text/css" id="" media="print, projection, screen">
+<script type="text/javascript" src="jquery.tablesorter.js"></script>
+	
+<script type="text/javascript" id="js">
+$(document).ready(function() {
+	$.tablesorter.defaults.sortList = [[0,0]];
+	$.tablesorter.defaults.textExtraction = ['complex'];
+	$("table").tablesorter();
+});
+</script>
+<!-- END TABLE SORTER CODE -->
+
+<!-- START AUTO COMPLETE CODE -->
+<script src="jquery-latest.js"></script>
+<link rel="stylesheet" href="jquery.autocomplete.css" type="text/css">
+<script type="text/javascript" src="jquery.bgiframe.min.js"></script>
+<script type="text/javascript" src="jquery.dimensions.js"></script>
+<script type="text/javascript" src="jquery.autocomplete.js"></script>
+
+<script>
+$(document).ready(function(){
+	$("#Problem").autocomplete("problems",{
+    	delay: 200,
+		scrollHeight: 220,
+    	selectFirst: false,
+    	cacheLength: 0,
+    	afterSelect: problem_changed
+	});
+});
+</script>
+<!-- END AUTO COMPLETE CODE -->
+
+
+
+
+
+
+
+
+
+<style>@font-face{font-family:testfont;src:url('data:font/ttf;base64,AAEAAAAMAIAAAwBAT1MvMliohmwAAADMAAAAVmNtYXCp5qrBAAABJAAAANhjdnQgACICiAAAAfwAAAAEZ2FzcP//AAMAAAIAAAAACGdseWYv5OZoAAACCAAAANxoZWFk69bnvwAAAuQAAAA2aGhlYQUJAt8AAAMcAAAAJGhtdHgGDgC4AAADQAAAABRsb2NhAIQAwgAAA1QAAAAMbWF4cABVANgAAANgAAAAIG5hbWUgXduAAAADgAAABPVwb3N03NkzmgAACHgAAAA4AAECBAEsAAUAAAKZAswAAACPApkCzAAAAesAMwEJAAACAAMDAAAAAAAAgAACbwAAAAoAAAAAAAAAAFBmRWQAAAAgqS8DM/8zAFwDMwDNAAAABQAAAAAAAAAAAAMAAAADAAAAHAABAAAAAABGAAMAAQAAAK4ABAAqAAAABgAEAAEAAgAuqQD//wAAAC6pAP///9ZXAwAAAAAAAAACAAAABgBoAAAAAAAvAAEAAAAAAAAAAAAAAAAAAAABAAIAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEACoAAAAGAAQAAQACAC6pAP//AAAALqkA////1lcDAAAAAAAAAAIAAAAiAogAAAAB//8AAgACACIAAAEyAqoAAwAHAC6xAQAvPLIHBADtMrEGBdw8sgMCAO0yALEDAC88sgUEAO0ysgcGAfw8sgECAO0yMxEhESczESMiARDuzMwCqv1WIgJmAAACAFUAAAIRAc0ADwAfAAATFRQWOwEyNj0BNCYrASIGARQGKwEiJj0BNDY7ATIWFX8aIvAiGhoi8CIaAZIoN/43KCg3/jcoAWD0JB4eJPQkHh7++EY2NkbVRjY2RgAAAAABAEH/+QCdAEEACQAANjQ2MzIWFAYjIkEeEA8fHw8QDxwWFhwWAAAAAQAAAAIAAIuYbWpfDzz1AAsEAAAAAADFn9IuAAAAAMWf0i797/8zA4gDMwAAAAgAAgAAAAAAAAABAAADM/8zAFwDx/3v/98DiAABAAAAAAAAAAAAAAAAAAAABQF2ACIAAAAAAVUAAAJmAFUA3QBBAAAAKgAqACoAWgBuAAEAAAAFAFAABwBUAAQAAgAAAAEAAQAAAEAALgADAAMAAAAQAMYAAQAAAAAAAACLAAAAAQAAAAAAAQAhAIsAAQAAAAAAAgAFAKwAAQAAAAAAAwBDALEAAQAAAAAABAAnAPQAAQAAAAAABQAKARsAAQAAAAAABgAmASUAAQAAAAAADgAaAUsAAwABBAkAAAEWAWUAAwABBAkAAQBCAnsAAwABBAkAAgAKAr0AAwABBAkAAwCGAscAAwABBAkABABOA00AAwABBAkABQAUA5sAAwABBAkABgBMA68AAwABBAkADgA0A/tDb3B5cmlnaHQgMjAwOSBieSBEYW5pZWwgSm9obnNvbi4gIFJlbGVhc2VkIHVuZGVyIHRoZSB0ZXJtcyBvZiB0aGUgT3BlbiBGb250IExpY2Vuc2UuIEtheWFoIExpIGdseXBocyBhcmUgcmVsZWFzZWQgdW5kZXIgdGhlIEdQTCB2ZXJzaW9uIDMuYmFlYzJhOTJiZmZlNTAzMiAtIHN1YnNldCBvZiBKdXJhTGlnaHRiYWVjMmE5MmJmZmU1MDMyIC0gc3Vic2V0IG9mIEZvbnRGb3JnZSAyLjAgOiBKdXJhIExpZ2h0IDogMjMtMS0yMDA5YmFlYzJhOTJiZmZlNTAzMiAtIHN1YnNldCBvZiBKdXJhIExpZ2h0VmVyc2lvbiAyIGJhZWMyYTkyYmZmZTUwMzIgLSBzdWJzZXQgb2YgSnVyYUxpZ2h0aHR0cDovL3NjcmlwdHMuc2lsLm9yZy9PRkwAQwBvAHAAeQByAGkAZwBoAHQAIAAyADAAMAA5ACAAYgB5ACAARABhAG4AaQBlAGwAIABKAG8AaABuAHMAbwBuAC4AIAAgAFIAZQBsAGUAYQBzAGUAZAAgAHUAbgBkAGUAcgAgAHQAaABlACAAdABlAHIAbQBzACAAbwBmACAAdABoAGUAIABPAHAAZQBuACAARgBvAG4AdAAgAEwAaQBjAGUAbgBzAGUALgAgAEsAYQB5AGEAaAAgAEwAaQAgAGcAbAB5AHAAaABzACAAYQByAGUAIAByAGUAbABlAGEAcwBlAGQAIAB1AG4AZABlAHIAIAB0AGgAZQAgAEcAUABMACAAdgBlAHIAcwBpAG8AbgAgADMALgBiAGEAZQBjADIAYQA5ADIAYgBmAGYAZQA1ADAAMwAyACAALQAgAHMAdQBiAHMAZQB0ACAAbwBmACAASgB1AHIAYQBMAGkAZwBoAHQAYgBhAGUAYwAyAGEAOQAyAGIAZgBmAGUANQAwADMAMgAgAC0AIABzAHUAYgBzAGUAdAAgAG8AZgAgAEYAbwBuAHQARgBvAHIAZwBlACAAMgAuADAAIAA6ACAASgB1AHIAYQAgAEwAaQBnAGgAdAAgADoAIAAyADMALQAxAC0AMgAwADAAOQBiAGEAZQBjADIAYQA5ADIAYgBmAGYAZQA1ADAAMwAyACAALQAgAHMAdQBiAHMAZQB0ACAAbwBmACAASgB1AHIAYQAgAEwAaQBnAGgAdABWAGUAcgBzAGkAbwBuACAAMgAgAGIAYQBlAGMAMgBhADkAMgBiAGYAZgBlADUAMAAzADIAIAAtACAAcwB1AGIAcwBlAHQAIABvAGYAIABKAHUAcgBhAEwAaQBnAGgAdABoAHQAdABwADoALwAvAHMAYwByAGkAcAB0AHMALgBzAGkAbAAuAG8AcgBnAC8ATwBGAEwAAAAAAgAAAAAAAP+BADMAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAAQACAQIAEQt6ZXJva2F5YWhsaQ==')}</style></head>
+<body class="" onload="judge_changed()">
+    	<script>
+			var el = document.getElementsByTagName("body")[0];
+			el.className = "";
+		</script>
+        <noscript>
+        	&lt;!--[if IE]&gt;
+            	&lt;link rel="stylesheet" href="css/ie.css"&gt;
+            &lt;![endif]--&gt;
+        </noscript>
+        
+
+<center>
+<table width="100%">
+<tbody><tr>
+<td>
+        
+
+
+<div id="wrapper"><!-- start header -->
+
+<div id="logo">
+<table width="100%">
+<tbody><tr>
+<td style="vertical-align: bottom;"><a href="/"><img src="logo.png"></a></td>
+<td>
+<h1 style="padding-top: 11px;">A<sup>2</sup> Online Judge</h1>
+<h2 class="author">»&nbsp;&nbsp;&nbsp;&nbsp; by <a href="https://www.facebook.com/ahmed.aly.tc" target="_blank" style="text-decoration: none;">Ahmed Aly</a></h2>
+<br>
+<h3>Sponsored by <b><a href="https://www.facebook.com/elcoachacademy/" target="_blank" style="text-decoration: none;">Coach Academy</a></b> &amp; <b><a href="https://www.facebook.com/acmacpc/" target="_blank" style="text-decoration: none;">ACPC</a></b>, <a href="https://www.codechef.com/" target="_blank" style="text-decoration: none;">CodeChef</a> and <a href="http://www.codability.net/" target="_blank" style="text-decoration: none;">Codability</a></h3>
+</td>
+<td style="text-align: right; padding-top: 27px;">
+<iframe src="https://www.facebook.com/plugins/like.php?show_faces=false&amp;href=https://www.facebook.com/A2OnlineJudge" scrolling="no" frameborder="0" style="border:none; height:45px"></iframe>
+</td>
+</tr>
+</tbody></table>
+</div>
+
+<div id="header3"><div align="right"><a href="signin?url=%2Fcategory%3FID%3D676" style="font-size: 15px;">Sign In</a> - <a href="signup" style="font-size: 15px;">Sign Up</a></div></div>
+
+
+<div id="header2">
+<div id="menu2">
+
+        <nav id="topNav">
+          <ul>
+<li><a href="/">Contests</a></li><li><a href="ladders"><font color="red">Ladders</font></a></li><li><a href="ps">Problems</a></li><li><a href="status">Status</a></li><li><a href="categories">Categories</a></li><li><a href="groups">Groups</a></li><li><a href="javascript:void();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;More&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>^</span></a><ul><li><center><a href="http://goo.gl/Fq5mru" target="_blank">GCJ Tools</a></center></li><li><center><a href="codes">Source Codes</a></center></li><li><center><a href="finder">Problems Finder</a></center></li><li><center><a href="users">Users</a></center></li><li><center><a href="teams">Teams</a></center></li><li><center><a href="cumulative">Cumulative Rank</a></center></li></ul></li><li class="last"><a href="about">About</a></li>
+          </ul>
+        </nav>
+        
+        
+        <script src="js/modernizr.js"></script>
+		<script>
+			(function($){
+				
+				//cache nav
+				var nav = $("#topNav");
+				
+				//add indicator and hovers to submenu parents
+				nav.find("li").each(function() {
+					if ($(this).find("ul").length > 0) {
+						$("<span>").text("^").appendTo($(this).children(":first"));
+
+						//show subnav on hover
+						$(this).mouseenter(function() {
+							$(this).find("ul").stop(true, true).slideDown();
+						});
+						
+						//hide submenus on exit
+						$(this).mouseleave(function() {
+							$(this).find("ul").stop(true, true).slideUp();
+						});
+					}
+				});
+			})(jQuery);
+		</script>
+
+
+</div>
+</div>
+<!-- end header --></div>
+<!-- start page -->
+</td>
+</tr>
+
+
+<tr>
+
+<td style="vertical-align: top;">
+<center>
+<table>
+<tbody><tr style="max-height: 0px; padding: 0px;">
+<td style="max-height: 0px; padding: 0px; min-width: 165px;"></td>
+<td style="max-height: 0px; padding: 0px; min-width: 1060px;"></td>
+<td style="max-height: 0px; padding: 0px; min-width: 165px;"></td>
+</tr>
+<tr>
+<td style="padding: 0px; vertical-align: top;">
+<div id="leftAd">
+
+
+</div>
+</td>
+<td style="padding: 0px; vertical-align: top;">
+<div id="page">
+
+<font size="3">
+<center>
+
+
+<table border="1" cellpadding="5">
+<tbody><tr><td><b><font color="red"><center>You must be logged in to add problems to this category</center></font></b></td></tr>
+</tbody></table>
+<br>
+
+
+
+
+
+
+<b>
+<font size="4">
+<u>
+Top Coder problems
+</u>
+</font>
+</b>
+
+<br>
+<table cellspacing="1" class="tablesorter" style="text-align: center;vertical-align:middle;">
+<thead>
+<tr>
+<th></th>
+<th>Problem Name</th>
+<th></th>
+<th>Online Judge</th>
+<th>Contest</th>
+<th>Difficulty Level</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="vertical-align:middle">1</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7894" target="_blank">ValueAddedTax</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54239">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 355 - Div2 easy] (10712)</td>
+<td style="vertical-align:middle">1</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">2</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8483" target="_blank">RussianSpeedLimits</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=53963">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 385 - Div2 easy] (10810)</td>
+<td style="vertical-align:middle">1</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">3</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=10461" target="_blank">ToolsBox</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=53497">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 453.5 - Div2 easy] (14174)</td>
+<td style="vertical-align:middle">1</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">4</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6872" target="_blank">FunnyFence</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54407">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 327 - Div2 easy] (10007)</td>
+<td style="vertical-align:middle">1</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">5</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8761" target="_blank">CircularLine</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=53870">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 399 - Div2 easy] (12171)</td>
+<td style="vertical-align:middle">1</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">6</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=10078" target="_blank">ColumnDiagramPerimeter</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=53733">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 419 - Div2 easy] (13510)</td>
+<td style="vertical-align:middle">1</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">7</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=9761" target="_blank">FallingFactorialPower</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=53803">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 405 - Div2 easy] (12177)</td>
+<td style="vertical-align:middle">1</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">8</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=13125" target="_blank">WakingUpEasy</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=76461">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">Unknown ()</td>
+<td style="vertical-align:middle">1</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">9</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7576" target="_blank">Chessboard</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54325">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 344 - Div2 easy] (10668)</td>
+<td style="vertical-align:middle">2</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">10</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7277" target="_blank">TextStatistics</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54386">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 332 - Div2 easy] (10012)</td>
+<td style="vertical-align:middle">2</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">11</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6584" target="_blank">EsperantoNumbers</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54534">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 312 - Div2 easy] (9992)</td>
+<td style="vertical-align:middle">2</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">12</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6498" target="_blank">ParallelepipedUnion</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54535">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 312 - Div1 easy - Div2 medium] (9992)</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">13</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=13110" target="_blank">SwitchingGame</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=79511">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">Unknown ()</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">14</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8760" target="_blank">MaximalProduct</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=53872">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 399 - Div2 medium] (12171)</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">15</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7252" target="_blank">VolleyballTournament</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54329">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 344 - Div1 easy] (10668)</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">16</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=10054" target="_blank">Undo</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=53735">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 419 - Div1 easy - Div2 medium] (13510)</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">17</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7557" target="_blank">AlmostPerfectNumber</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54175">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">TCCC07 Qual 2 - Div1 easy] (10881)</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">18</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8554" target="_blank">QueryFilter</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=75801">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">Unknown ()</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">19</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=9760" target="_blank">RelativePath</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=53806">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 405 - Div1 easy - Div2 medium] (12177)</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">20</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7558" target="_blank">AdvertisingAgency</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=75864">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">Unknown ()</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">21</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8253" target="_blank">Police</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54054">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">TCCC07 Semi 3 - Div1 easy] (10958)</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">22</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8110" target="_blank">LetterInterchange</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54170">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">TCCC07 Round 1A - Div1 easy] (10898)</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">23</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=13094" target="_blank">ColorfulCoinsEasy</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=76457">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">Unknown ()</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">24</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7523" target="_blank">TriangleConstruction</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=75898">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">Unknown ()</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">25</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7625" target="_blank">SimpleRotationDecoder</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54328">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 344 - Div2 medium] (10668)</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">26</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7555" target="_blank">BrokenKeyboardRepair</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=75870">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">Unknown ()</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">27</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8723" target="_blank">LangfordSequence</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=75795">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">Unknown ()</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">28</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8482" target="_blank">UnderscoreJustification</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=53968">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 385 - Div1 easy - Div2 medium] (10810)</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">29</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8256" target="_blank">CardsAndSlots</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54058">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">TCCC07 Semi 1 - Div1 easy] (10956)</td>
+<td style="vertical-align:middle">3</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">30</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=13124" target="_blank">WakingUp</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=76460">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">Unknown ()</td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">31</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7554" target="_blank">PowerOfInteger</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54152">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">TCCC07 Sponsor 2 - Div1 easy] (10917)</td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">32</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6600" target="_blank">IQTest</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54408">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 327 - Div2 medium] (10007)</td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">33</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7759" target="_blank">NoEights</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54237">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 355 - Div2 medium] (10712)</td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">34</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7309" target="_blank">CreatePairs</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54382">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 332 - Div1 easy - Div2 medium] (10012)</td>
+<td style="vertical-align:middle">4</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">35</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8580" target="_blank">TriangularSubsequence</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=75802">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">Unknown ()</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">36</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7500" target="_blank">SortingPhotos</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=75897">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">Unknown ()</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">37</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=13069" target="_blank">TwoLLogo</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=76459">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">Unknown ()</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">38</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6493" target="_blank">PizzaDivision</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54536">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 312 - Div2 hard] (9992)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">39</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7886" target="_blank">MixingLiquids</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54236">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 355 - Div1 easy - Div2 hard] (10712)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">40</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7501" target="_blank">LongestSubanagramChain</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54171">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">TCCC07 Round 1A - Div1 medium] (10898)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">41</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8474" target="_blank">SummingArithmeticProgressions</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=53965">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 385 - Div2 hard] (10810)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">42</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7323" target="_blank">Squares</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54385">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 332 - Div2 hard] (10012)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">43</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7556" target="_blank">ColorfulDisks</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=75871">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">Unknown ()</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">44</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8471" target="_blank">TurningMaze</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=53967">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 385 - Div1 medium] (10810)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">45</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8246" target="_blank">UnfriendlyMultiPermutation</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54062">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">TCCC07 Semi 1 - Div1 medium] (10956)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">46</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7552" target="_blank">EntertainingSegment</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54177">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">TCCC07 Qual 2 - Div1 medium] (10881)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">47</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=9757" target="_blank">IdealString</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=53804">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 405 - Div2 hard] (12177)</td>
+<td style="vertical-align:middle">5</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">48</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8758" target="_blank">AvoidingProduct</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=53868">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 399 - Div1 easy - Div2 hard] (12171)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">49</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7553" target="_blank">DigramAnalysis</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=75866">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">Unknown ()</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">50</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8713" target="_blank">ReversingPrefixes</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=75797">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">Unknown ()</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">51</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7540" target="_blank">QuantumAlchemy</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54327">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 344 - Div1 medium - Div2 hard] (10668)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">52</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8711" target="_blank">BinarySum</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=53869">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 399 - Div1 medium] (12171)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">53</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6871" target="_blank">NiceOrUgly</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54409">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 327 - Div1 easy - Div2 hard] (10007)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">54</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7539" target="_blank">Tetrahedron</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54238">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 355 - Div1 medium] (10712)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">55</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=13061" target="_blank">ColorfulCoins</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=76456">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">Unknown ()</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">56</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=10077" target="_blank">CactusCount</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=53732">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 419 - Div2 hard] (13510)</td>
+<td style="vertical-align:middle">6</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">57</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6832" target="_blank">QuadraticEquations</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54411">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 327 - Div1 medium] (10007)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">58</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=10085" target="_blank">NimForK</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=53734">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 419 - Div1 medium] (13510)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">59</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6501" target="_blank">AntarcticaPolice</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54532">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 312 - Div1 medium] (9992)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">60</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=9764" target="_blank">AllCycleLengths</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=53802">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 405 - Div1 medium] (12177)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">61</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8238" target="_blank">PointsOnACircle</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=53993">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 382 - Div1 medium] (10805)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">62</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6402" target="_blank">RestoringPolygon</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54384">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 332 - Div1 medium] (10012)</td>
+<td style="vertical-align:middle">7</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">63</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8111" target="_blank">RLESum</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54154">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">TCCC07 Sponsor 2 - Div1 medium] (10917)</td>
+<td style="vertical-align:middle">8</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">64</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6381" target="_blank">BlockCounter</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54176">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">TCCC07 Qual 2 - Div1 hard] (10881)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">65</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=10055" target="_blank">CactusAutomorphisms</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=53731">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 419 - Div1 hard] (13510)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">66</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7308" target="_blank">MoreBlack</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=75867">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">Unknown ()</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">67</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7761" target="_blank">BeautifulHexagonalTilings</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54235">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 355 - Div1 hard] (10712)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">68</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6175" target="_blank">LadderPermutation</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54383">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 332 - Div1 hard] (10012)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">69</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8248" target="_blank">AncientLanguage</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54057">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">TCCC07 Semi 1 - Div1 hard] (10956)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">70</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7502" target="_blank">MultiprocessorProgramming</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=75895">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">Unknown ()</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">71</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=13060" target="_blank">AlwaysDefined</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=79509">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">Unknown ()</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">72</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8754" target="_blank">DancingParty</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=53871">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 399 - Div1 hard] (12171)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">73</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8254" target="_blank">Polygon</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54055">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">TCCC07 Wildcard - Div1 hard] (10979)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">74</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=13059" target="_blank">ThreeLLogo</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=76458">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">Unknown ()</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">75</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7332" target="_blank">FairTournament</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54326">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 344 - Div1 hard] (10668)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">76</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7496" target="_blank">Provinces</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=75875">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">Unknown ()</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">77</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8712" target="_blank">PredictionCardGame</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=75796">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">Unknown ()</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">78</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8553" target="_blank">UnfixedArrangements</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=75803">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">Unknown ()</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">79</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8162" target="_blank">KSlopePermutation</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54169">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">TCCC07 Round 1A - Div1 hard] (10898)</td>
+<td style="vertical-align:middle">9</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">80</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6834" target="_blank">PostfixRLE</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54410">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 327 - Div1 hard] (10007)</td>
+<td style="vertical-align:middle">10</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">81</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=9744" target="_blank">ReasonableOdds</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=53805">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 405 - Div1 hard] (12177)</td>
+<td style="vertical-align:middle">10</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">82</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6177" target="_blank">JobPlanner</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54150">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">TCCC07 Sponsor 2 - Div1 hard] (10917)</td>
+<td style="vertical-align:middle">10</td>
+</tr>
+<tr class="odd">
+<td style="vertical-align:middle">83</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8458" target="_blank">InfiniteAddition</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=53962">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 385 - Div1 hard] (10810)</td>
+<td style="vertical-align:middle">10</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">84</td>
+<td style="vertical-align:middle"><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6482" target="_blank">CheapestIsland</a></td>
+<td style="vertical-align:middle"><a href="problem?ID=54533">Categories</a></td>
+<td style="vertical-align:middle">TopCoder</td>
+<td style="vertical-align:middle">SRM 312 - Div1 hard] (9992)</td>
+<td style="vertical-align:middle">10</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+</center>
+</font>
+
+</div>
+</td>
+<td style="padding: 0px; vertical-align: top;">
+<div id="rightAd">
+
+
+</div>
+</td>
+</tr>
+</tbody></table>
+</center>
+<!-- end page -->
+<!-- start footer -->
+<div id="footer">
+<p id="legal">A2OJ © Copyright 2011-2016 <b><a href="https://www.facebook.com/ahmed.aly.tc" target="_blank" style="text-decoration: none;">Ahmed Aly</a></b> All Rights Reserved. A2OJ uses <a href="http://sphere-engine.com" target="_blank" style="text-decoration: none;">Sphere Engine</a>™ © by <a href="http://sphere-research.com" target="_blank" style="text-decoration: none;">Sphere Research Labs</a>.</p>
+</div>
+</td>
+
+
+</tr>
+</tbody></table>
+</center><span style="font-style: normal; font-variant: normal; font-weight: normal; font-size: 99px; line-height: normal; font-family: testfont, _, serif; position: absolute; visibility: hidden; bottom: 0px;" id="fonttest">........</span>
+<!-- end footer -->
+
+
+
+
+</body></html>

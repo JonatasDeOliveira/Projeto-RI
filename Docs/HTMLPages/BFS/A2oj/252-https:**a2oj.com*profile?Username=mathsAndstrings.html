@@ -1,0 +1,393 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" class=" canvas canvastext no-geolocation rgba hsla multiplebgs borderimage borderradius boxshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions  no-video no-audio localstorage sessionstorage webworkers applicationcache fontface"><head>
+
+
+
+<link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>mathsAndstrings - A2 Online Judge</title>
+
+<meta name="description" content="A2 Online Judge (or Virtual Online Contests) is an online judge with hundreds of problems and it helps you to create, run and participate in virtual contests using problems from the following online judges: A2 Online Judge, Live Archive, Codeforces, Timus, SPOJ, TJU, SGU, PKU, ZOJ, URI. It also helps you to manage and track your programming comepetions training for you and your friends. It helps for ICPC ACM and IOI training also.">
+<meta name="keywords" content="ahmed aly,ahmed aly tools,voc,virtual online contests,programming,c++,java,contest,contests,competition,competitions,programming contest,programming contests,programming compitition,programming compititions,cf,codeforces,live archive,uva,spoj,tju,sgu,pku,timus,zoj,uri,programming tools,a2oj,a2 online judge">
+<meta name="author" content="Ahmed Aly">
+<link href="default.css" rel="stylesheet" type="text/css">
+
+		<link rel="stylesheet" href="css/nav.css">
+		<!--[if IE]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+<!-- START TRACKING CODE -->
+<script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push( [ '_setAccount', 'UA-16947566-3' ]);
+	_gaq.push( [ '_trackPageview' ]);
+
+	( function() {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+				: 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+<!-- END TRACKING CODE -->
+
+
+
+
+
+
+
+<style>@font-face{font-family:testfont;src:url('data:font/ttf;base64,AAEAAAAMAIAAAwBAT1MvMliohmwAAADMAAAAVmNtYXCp5qrBAAABJAAAANhjdnQgACICiAAAAfwAAAAEZ2FzcP//AAMAAAIAAAAACGdseWYv5OZoAAACCAAAANxoZWFk69bnvwAAAuQAAAA2aGhlYQUJAt8AAAMcAAAAJGhtdHgGDgC4AAADQAAAABRsb2NhAIQAwgAAA1QAAAAMbWF4cABVANgAAANgAAAAIG5hbWUgXduAAAADgAAABPVwb3N03NkzmgAACHgAAAA4AAECBAEsAAUAAAKZAswAAACPApkCzAAAAesAMwEJAAACAAMDAAAAAAAAgAACbwAAAAoAAAAAAAAAAFBmRWQAAAAgqS8DM/8zAFwDMwDNAAAABQAAAAAAAAAAAAMAAAADAAAAHAABAAAAAABGAAMAAQAAAK4ABAAqAAAABgAEAAEAAgAuqQD//wAAAC6pAP///9ZXAwAAAAAAAAACAAAABgBoAAAAAAAvAAEAAAAAAAAAAAAAAAAAAAABAAIAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEACoAAAAGAAQAAQACAC6pAP//AAAALqkA////1lcDAAAAAAAAAAIAAAAiAogAAAAB//8AAgACACIAAAEyAqoAAwAHAC6xAQAvPLIHBADtMrEGBdw8sgMCAO0yALEDAC88sgUEAO0ysgcGAfw8sgECAO0yMxEhESczESMiARDuzMwCqv1WIgJmAAACAFUAAAIRAc0ADwAfAAATFRQWOwEyNj0BNCYrASIGARQGKwEiJj0BNDY7ATIWFX8aIvAiGhoi8CIaAZIoN/43KCg3/jcoAWD0JB4eJPQkHh7++EY2NkbVRjY2RgAAAAABAEH/+QCdAEEACQAANjQ2MzIWFAYjIkEeEA8fHw8QDxwWFhwWAAAAAQAAAAIAAIuYbWpfDzz1AAsEAAAAAADFn9IuAAAAAMWf0i797/8zA4gDMwAAAAgAAgAAAAAAAAABAAADM/8zAFwDx/3v/98DiAABAAAAAAAAAAAAAAAAAAAABQF2ACIAAAAAAVUAAAJmAFUA3QBBAAAAKgAqACoAWgBuAAEAAAAFAFAABwBUAAQAAgAAAAEAAQAAAEAALgADAAMAAAAQAMYAAQAAAAAAAACLAAAAAQAAAAAAAQAhAIsAAQAAAAAAAgAFAKwAAQAAAAAAAwBDALEAAQAAAAAABAAnAPQAAQAAAAAABQAKARsAAQAAAAAABgAmASUAAQAAAAAADgAaAUsAAwABBAkAAAEWAWUAAwABBAkAAQBCAnsAAwABBAkAAgAKAr0AAwABBAkAAwCGAscAAwABBAkABABOA00AAwABBAkABQAUA5sAAwABBAkABgBMA68AAwABBAkADgA0A/tDb3B5cmlnaHQgMjAwOSBieSBEYW5pZWwgSm9obnNvbi4gIFJlbGVhc2VkIHVuZGVyIHRoZSB0ZXJtcyBvZiB0aGUgT3BlbiBGb250IExpY2Vuc2UuIEtheWFoIExpIGdseXBocyBhcmUgcmVsZWFzZWQgdW5kZXIgdGhlIEdQTCB2ZXJzaW9uIDMuYmFlYzJhOTJiZmZlNTAzMiAtIHN1YnNldCBvZiBKdXJhTGlnaHRiYWVjMmE5MmJmZmU1MDMyIC0gc3Vic2V0IG9mIEZvbnRGb3JnZSAyLjAgOiBKdXJhIExpZ2h0IDogMjMtMS0yMDA5YmFlYzJhOTJiZmZlNTAzMiAtIHN1YnNldCBvZiBKdXJhIExpZ2h0VmVyc2lvbiAyIGJhZWMyYTkyYmZmZTUwMzIgLSBzdWJzZXQgb2YgSnVyYUxpZ2h0aHR0cDovL3NjcmlwdHMuc2lsLm9yZy9PRkwAQwBvAHAAeQByAGkAZwBoAHQAIAAyADAAMAA5ACAAYgB5ACAARABhAG4AaQBlAGwAIABKAG8AaABuAHMAbwBuAC4AIAAgAFIAZQBsAGUAYQBzAGUAZAAgAHUAbgBkAGUAcgAgAHQAaABlACAAdABlAHIAbQBzACAAbwBmACAAdABoAGUAIABPAHAAZQBuACAARgBvAG4AdAAgAEwAaQBjAGUAbgBzAGUALgAgAEsAYQB5AGEAaAAgAEwAaQAgAGcAbAB5AHAAaABzACAAYQByAGUAIAByAGUAbABlAGEAcwBlAGQAIAB1AG4AZABlAHIAIAB0AGgAZQAgAEcAUABMACAAdgBlAHIAcwBpAG8AbgAgADMALgBiAGEAZQBjADIAYQA5ADIAYgBmAGYAZQA1ADAAMwAyACAALQAgAHMAdQBiAHMAZQB0ACAAbwBmACAASgB1AHIAYQBMAGkAZwBoAHQAYgBhAGUAYwAyAGEAOQAyAGIAZgBmAGUANQAwADMAMgAgAC0AIABzAHUAYgBzAGUAdAAgAG8AZgAgAEYAbwBuAHQARgBvAHIAZwBlACAAMgAuADAAIAA6ACAASgB1AHIAYQAgAEwAaQBnAGgAdAAgADoAIAAyADMALQAxAC0AMgAwADAAOQBiAGEAZQBjADIAYQA5ADIAYgBmAGYAZQA1ADAAMwAyACAALQAgAHMAdQBiAHMAZQB0ACAAbwBmACAASgB1AHIAYQAgAEwAaQBnAGgAdABWAGUAcgBzAGkAbwBuACAAMgAgAGIAYQBlAGMAMgBhADkAMgBiAGYAZgBlADUAMAAzADIAIAAtACAAcwB1AGIAcwBlAHQAIABvAGYAIABKAHUAcgBhAEwAaQBnAGgAdABoAHQAdABwADoALwAvAHMAYwByAGkAcAB0AHMALgBzAGkAbAAuAG8AcgBnAC8ATwBGAEwAAAAAAgAAAAAAAP+BADMAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAAQACAQIAEQt6ZXJva2F5YWhsaQ==')}</style></head>
+<body class="">
+    	<script>
+			var el = document.getElementsByTagName("body")[0];
+			el.className = "";
+		</script>
+        <noscript>
+        	&lt;!--[if IE]&gt;
+            	&lt;link rel="stylesheet" href="css/ie.css"&gt;
+            &lt;![endif]--&gt;
+        </noscript>
+        
+
+<center>
+<table width="100%">
+<tbody><tr>
+<td>
+        
+
+
+<div id="wrapper"><!-- start header -->
+
+<div id="logo">
+<table width="100%">
+<tbody><tr>
+<td style="vertical-align: bottom;"><a href="/"><img src="logo.png"></a></td>
+<td>
+<h1 style="padding-top: 11px;">A<sup>2</sup> Online Judge</h1>
+<h2 class="author">»&nbsp;&nbsp;&nbsp;&nbsp; by <a href="https://www.facebook.com/ahmed.aly.tc" target="_blank" style="text-decoration: none;">Ahmed Aly</a></h2>
+<br>
+<h3>Sponsored by <b><a href="https://www.facebook.com/elcoachacademy/" target="_blank" style="text-decoration: none;">Coach Academy</a></b> &amp; <b><a href="https://www.facebook.com/acmacpc/" target="_blank" style="text-decoration: none;">ACPC</a></b>, <a href="https://www.codechef.com/" target="_blank" style="text-decoration: none;">CodeChef</a> and <a href="http://www.codability.net/" target="_blank" style="text-decoration: none;">Codability</a></h3>
+</td>
+<td style="text-align: right; padding-top: 27px;">
+<iframe src="https://www.facebook.com/plugins/like.php?show_faces=false&amp;href=https://www.facebook.com/A2OnlineJudge" scrolling="no" frameborder="0" style="border:none; height:45px"></iframe>
+</td>
+</tr>
+</tbody></table>
+</div>
+
+<div id="header3"><div align="right"><a href="signin?url=%2Fprofile%3FUsername%3DmathsAndstrings" style="font-size: 15px;">Sign In</a> - <a href="signup" style="font-size: 15px;">Sign Up</a></div></div>
+
+
+<div id="header2">
+<div id="menu2">
+
+        <nav id="topNav">
+          <ul>
+<li><a href="/">Contests</a></li><li><a href="ladders"><font color="red">Ladders</font></a></li><li><a href="ps">Problems</a></li><li><a href="status">Status</a></li><li><a href="categories">Categories</a></li><li><a href="groups">Groups</a></li><li><a href="javascript:void();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;More&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>^</span></a><ul><li><center><a href="http://goo.gl/Fq5mru" target="_blank">GCJ Tools</a></center></li><li><center><a href="codes">Source Codes</a></center></li><li><center><a href="finder">Problems Finder</a></center></li><li><center><a href="users">Users</a></center></li><li><center><a href="teams">Teams</a></center></li><li><center><a href="cumulative">Cumulative Rank</a></center></li></ul></li><li class="last"><a href="about">About</a></li>
+          </ul>
+        </nav>
+        
+        <script src="js/jquery.js"></script>
+        <script src="js/modernizr.js"></script>
+		<script>
+			(function($){
+				
+				//cache nav
+				var nav = $("#topNav");
+				
+				//add indicator and hovers to submenu parents
+				nav.find("li").each(function() {
+					if ($(this).find("ul").length > 0) {
+						$("<span>").text("^").appendTo($(this).children(":first"));
+
+						//show subnav on hover
+						$(this).mouseenter(function() {
+							$(this).find("ul").stop(true, true).slideDown();
+						});
+						
+						//hide submenus on exit
+						$(this).mouseleave(function() {
+							$(this).find("ul").stop(true, true).slideUp();
+						});
+					}
+				});
+			})(jQuery);
+		</script>
+
+
+</div>
+</div>
+<!-- end header --></div>
+<!-- start page -->
+</td>
+</tr>
+
+
+<tr>
+
+<td style="vertical-align: top;">
+<center>
+<table>
+<tbody><tr style="max-height: 0px; padding: 0px;">
+<td style="max-height: 0px; padding: 0px; min-width: 165px;"></td>
+<td style="max-height: 0px; padding: 0px; min-width: 1060px;"></td>
+<td style="max-height: 0px; padding: 0px; min-width: 165px;"></td>
+</tr>
+<tr>
+<td style="padding: 0px; vertical-align: top;">
+<div id="leftAd">
+
+
+</div>
+</td>
+<td style="padding: 0px; vertical-align: top;">
+<div id="page">
+
+<font size="3">
+<center>
+
+
+
+
+
+
+
+
+
+
+<b>
+<font size="5">
+<u>
+mathsAndstrings's Coder Profile (Bangladesh)
+
+</u>
+
+</font>
+</b>
+
+<br><br><b><a href="status?Username=mathsAndstrings">mathsAndstrings's A2 Online Judge Submissions</a></b>
+
+<br><br>
+<table border="1" cellpadding="5">
+
+<tbody><tr>
+<td><b>A2 Online Judge Solved Problems Count</b></td>
+<td title="A2 Online Judge Profile"><center>0</center></td>
+</tr>
+
+
+<tr>
+<td><b>All Solved Problems Count</b></td>
+<td><center>106
+</center></td>
+</tr>
+
+<tr>
+<td><b>SPOJ Solved Problems Count</b></td>
+<td title="SPOJ Profile"><center><a href="http://www.spoj.com/users/tmt02/" target="_blank">1</a>
+</center></td>
+</tr>
+<tr>
+<td><b>Codeforces Solved Problems Count</b></td>
+<td title="Codeforces Profile"><center><a href="http://codeforces.com/profile/tmt1122018" target="_blank">105</a>
+</center></td>
+</tr>
+
+
+</tbody></table>
+
+
+<br><br>
+<b style="font: 22px arial, sans-serif;
+  color: #5C5C5C;">SPOJ Solved Problems (<a href="http://www.spoj.com/users/tmt02/" target="_blank" title="SPOJ Profile">1 Problem</a>)</b>
+<p style="border-bottom: 1px solid #5C5C5C;
+  padding-bottom: 6px;
+  margin-bottom: 1em;">
+</p>
+
+<table border="1" cellpadding="5">
+<tbody><tr>
+<td title="Factorial"><center><a href="http://www.spoj.com/problems/FCTRL/" target="_blank">FCTRL</a></center></td>
+</tr></tbody></table>
+<br><br>
+<b style="font: 22px arial, sans-serif;
+  color: #5C5C5C;">Codeforces Solved Problems (<a href="http://codeforces.com/profile/tmt1122018" target="_blank" title="Codeforces Profile">105 Problems</a>)</b>
+<p style="border-bottom: 1px solid #5C5C5C;
+  padding-bottom: 6px;
+  margin-bottom: 1em;">
+</p>
+
+<table border="1" cellpadding="5">
+<tbody><tr>
+<td title="Nearly Lucky Number"><center><a href="http://codeforces.com/problemset/problem/110/A" target="_blank">110A</a></center></td>
+<td title="Petya and Strings"><center><a href="http://codeforces.com/problemset/problem/112/A" target="_blank">112A</a></center></td>
+<td title="Tram"><center><a href="http://codeforces.com/problemset/problem/116/A" target="_blank">116A</a></center></td>
+<td title="String Task"><center><a href="http://codeforces.com/problemset/problem/118/A" target="_blank">118A</a></center></td>
+<td title="Epic Game"><center><a href="http://codeforces.com/problemset/problem/119/A" target="_blank">119A</a></center></td>
+<td title="Lucky Division"><center><a href="http://codeforces.com/problemset/problem/122/A" target="_blank">122A</a></center></td>
+<td title="cAPS lOCK"><center><a href="http://codeforces.com/problemset/problem/131/A" target="_blank">131A</a></center></td>
+<td title="HQ9+"><center><a href="http://codeforces.com/problemset/problem/133/A" target="_blank">133A</a></center></td>
+<td title="Presents"><center><a href="http://codeforces.com/problemset/problem/136/A" target="_blank">136A</a></center></td>
+<td title="Amusing Joke"><center><a href="http://codeforces.com/problemset/problem/141/A" target="_blank">141A</a></center></td>
+<td title="Arrival of the General"><center><a href="http://codeforces.com/problemset/problem/144/A" target="_blank">144A</a></center></td>
+<td title="Insomnia cure"><center><a href="http://codeforces.com/problemset/problem/148/A" target="_blank">148A</a></center></td>
+<td title="I_love_\%username\%"><center><a href="http://codeforces.com/problemset/problem/155/A" target="_blank">155A</a></center></td>
+<td title="Next Round"><center><a href="http://codeforces.com/problemset/problem/158/A" target="_blank">158A</a></center></td>
+<td title="Taxi"><center><a href="http://codeforces.com/problemset/problem/158/B" target="_blank">158B</a></center></td>
+</tr>
+<tr>
+<td title="Twins"><center><a href="http://codeforces.com/problemset/problem/160/A" target="_blank">160A</a></center></td>
+<td title="Theatre Square"><center><a href="http://codeforces.com/problemset/problem/1/A" target="_blank">1A</a></center></td>
+<td title="Drinks"><center><a href="http://codeforces.com/problemset/problem/200/B" target="_blank">200B</a></center></td>
+<td title="Dubstep"><center><a href="http://codeforces.com/problemset/problem/208/A" target="_blank">208A</a></center></td>
+<td title="Is your horseshoe on the other hoof?"><center><a href="http://codeforces.com/problemset/problem/228/A" target="_blank">228A</a></center></td>
+<td title="Dragons"><center><a href="http://codeforces.com/problemset/problem/230/A" target="_blank">230A</a></center></td>
+<td title="Team"><center><a href="http://codeforces.com/problemset/problem/231/A" target="_blank">231A</a></center></td>
+<td title="Boy or Girl"><center><a href="http://codeforces.com/problemset/problem/236/A" target="_blank">236A</a></center></td>
+<td title="IQ test"><center><a href="http://codeforces.com/problemset/problem/25/A" target="_blank">25A</a></center></td>
+<td title="Beautiful Matrix"><center><a href="http://codeforces.com/problemset/problem/263/A" target="_blank">263A</a></center></td>
+<td title="Stones on the Table"><center><a href="http://codeforces.com/problemset/problem/266/A" target="_blank">266A</a></center></td>
+<td title="Queue at the School"><center><a href="http://codeforces.com/problemset/problem/266/B" target="_blank">266B</a></center></td>
+<td title="Games"><center><a href="http://codeforces.com/problemset/problem/268/A" target="_blank">268A</a></center></td>
+<td title="Fancy Fence"><center><a href="http://codeforces.com/problemset/problem/270/A" target="_blank">270A</a></center></td>
+<td title="Beautiful Year"><center><a href="http://codeforces.com/problemset/problem/271/A" target="_blank">271A</a></center></td>
+</tr>
+<tr>
+<td title="Word Capitalization"><center><a href="http://codeforces.com/problemset/problem/281/A" target="_blank">281A</a></center></td>
+<td title="Bit++"><center><a href="http://codeforces.com/problemset/problem/282/A" target="_blank">282A</a></center></td>
+<td title="Ilya and Bank Account"><center><a href="http://codeforces.com/problemset/problem/313/A" target="_blank">313A</a></center></td>
+<td title="Even Odds"><center><a href="http://codeforces.com/problemset/problem/318/A" target="_blank">318A</a></center></td>
+<td title="Puzzles"><center><a href="http://codeforces.com/problemset/problem/337/A" target="_blank">337A</a></center></td>
+<td title="Helpful Maths"><center><a href="http://codeforces.com/problemset/problem/339/A" target="_blank">339A</a></center></td>
+<td title="Xenia and Ringroad"><center><a href="http://codeforces.com/problemset/problem/339/B" target="_blank">339B</a></center></td>
+<td title="Magnets"><center><a href="http://codeforces.com/problemset/problem/344/A" target="_blank">344A</a></center></td>
+<td title="New Year Candles"><center><a href="http://codeforces.com/problemset/problem/379/A" target="_blank">379A</a></center></td>
+<td title="Gravity Flip"><center><a href="http://codeforces.com/problemset/problem/405/A" target="_blank">405A</a></center></td>
+<td title="Translation"><center><a href="http://codeforces.com/problemset/problem/41/A" target="_blank">41A</a></center></td>
+<td title="Police Recruits"><center><a href="http://codeforces.com/problemset/problem/427/A" target="_blank">427A</a></center></td>
+<td title="Choosing Teams"><center><a href="http://codeforces.com/problemset/problem/432/A" target="_blank">432A</a></center></td>
+<td title="Anton and Letters"><center><a href="http://codeforces.com/problemset/problem/443/A" target="_blank">443A</a></center></td>
+<td title="Game With Sticks"><center><a href="http://codeforces.com/problemset/problem/451/A" target="_blank">451A</a></center></td>
+</tr>
+<tr>
+<td title="Vasya and Socks"><center><a href="http://codeforces.com/problemset/problem/460/A" target="_blank">460A</a></center></td>
+<td title="Cheap Travel"><center><a href="http://codeforces.com/problemset/problem/466/A" target="_blank">466A</a></center></td>
+<td title="George and Accommodation"><center><a href="http://codeforces.com/problemset/problem/467/A" target="_blank">467A</a></center></td>
+<td title="I Wanna Be the Guy"><center><a href="http://codeforces.com/problemset/problem/469/A" target="_blank">469A</a></center></td>
+<td title="Design Tutorial: Learn from Math"><center><a href="http://codeforces.com/problemset/problem/472/A" target="_blank">472A</a></center></td>
+<td title="Keyboard"><center><a href="http://codeforces.com/problemset/problem/474/A" target="_blank">474A</a></center></td>
+<td title="Dreamoon and Stairs"><center><a href="http://codeforces.com/problemset/problem/476/A" target="_blank">476A</a></center></td>
+<td title="Expression"><center><a href="http://codeforces.com/problemset/problem/479/A" target="_blank">479A</a></center></td>
+<td title="Calculating Function"><center><a href="http://codeforces.com/problemset/problem/486/A" target="_blank">486A</a></center></td>
+<td title="Vanya and Cubes"><center><a href="http://codeforces.com/problemset/problem/492/A" target="_blank">492A</a></center></td>
+<td title="Watermelon"><center><a href="http://codeforces.com/problemset/problem/4/A" target="_blank">4A</a></center></td>
+<td title="New Year Transportation"><center><a href="http://codeforces.com/problemset/problem/500/A" target="_blank">500A</a></center></td>
+<td title="Maximum in Table"><center><a href="http://codeforces.com/problemset/problem/509/A" target="_blank">509A</a></center></td>
+<td title="Domino piling"><center><a href="http://codeforces.com/problemset/problem/50/A" target="_blank">50A</a></center></td>
+<td title="Fox And Snake"><center><a href="http://codeforces.com/problemset/problem/510/A" target="_blank">510A</a></center></td>
+</tr>
+<tr>
+<td title="Pangram"><center><a href="http://codeforces.com/problemset/problem/520/A" target="_blank">520A</a></center></td>
+<td title="Soldier and Bananas"><center><a href="http://codeforces.com/problemset/problem/546/A" target="_blank">546A</a></center></td>
+<td title="Case of the Zeros and Ones"><center><a href="http://codeforces.com/problemset/problem/556/A" target="_blank">556A</a></center></td>
+<td title="Bear and Elections"><center><a href="http://codeforces.com/problemset/problem/574/A" target="_blank">574A</a></center></td>
+<td title="Multiplication Table"><center><a href="http://codeforces.com/problemset/problem/577/A" target="_blank">577A</a></center></td>
+<td title="Kefa and First Steps"><center><a href="http://codeforces.com/problemset/problem/580/A" target="_blank">580A</a></center></td>
+<td title="Vasya the Hipster"><center><a href="http://codeforces.com/problemset/problem/581/A" target="_blank">581A</a></center></td>
+<td title="Chat room"><center><a href="http://codeforces.com/problemset/problem/58/A" target="_blank">58A</a></center></td>
+<td title="Patrick and Shopping"><center><a href="http://codeforces.com/problemset/problem/599/A" target="_blank">599A</a></center></td>
+<td title="Word"><center><a href="http://codeforces.com/problemset/problem/59/A" target="_blank">59A</a></center></td>
+<td title="Elephant"><center><a href="http://codeforces.com/problemset/problem/617/A" target="_blank">617A</a></center></td>
+<td title="Ultra-Fast Mathematician"><center><a href="http://codeforces.com/problemset/problem/61/A" target="_blank">61A</a></center></td>
+<td title="Vanya and Fence"><center><a href="http://codeforces.com/problemset/problem/677/A" target="_blank">677A</a></center></td>
+<td title="Young Physicist"><center><a href="http://codeforces.com/problemset/problem/69/A" target="_blank">69A</a></center></td>
+<td title="Mishka and Game"><center><a href="http://codeforces.com/problemset/problem/703/A" target="_blank">703A</a></center></td>
+</tr>
+<tr>
+<td title="Hulk"><center><a href="http://codeforces.com/problemset/problem/705/A" target="_blank">705A</a></center></td>
+<td title="Brain's Photos"><center><a href="http://codeforces.com/problemset/problem/707/A" target="_blank">707A</a></center></td>
+<td title="Bus to Udayland"><center><a href="http://codeforces.com/problemset/problem/711/A" target="_blank">711A</a></center></td>
+<td title="Way Too Long Words"><center><a href="http://codeforces.com/problemset/problem/71/A" target="_blank">71A</a></center></td>
+<td title="The New Year: Meeting Friends"><center><a href="http://codeforces.com/problemset/problem/723/A" target="_blank">723A</a></center></td>
+<td title="Buy a Shovel"><center><a href="http://codeforces.com/problemset/problem/732/A" target="_blank">732A</a></center></td>
+<td title="Grasshopper And the String"><center><a href="http://codeforces.com/problemset/problem/733/A" target="_blank">733A</a></center></td>
+<td title="Anton and Danik"><center><a href="http://codeforces.com/problemset/problem/734/A" target="_blank">734A</a></center></td>
+<td title="New Year and Hurry"><center><a href="http://codeforces.com/problemset/problem/750/A" target="_blank">750A</a></center></td>
+<td title="Holiday Of Equality"><center><a href="http://codeforces.com/problemset/problem/758/A" target="_blank">758A</a></center></td>
+<td title="Life Without Zeros"><center><a href="http://codeforces.com/problemset/problem/75/A" target="_blank">75A</a></center></td>
+<td title="Bear and Big Brother"><center><a href="http://codeforces.com/problemset/problem/791/A" target="_blank">791A</a></center></td>
+<td title="New Year and Counting Cards"><center><a href="http://codeforces.com/problemset/problem/908/A" target="_blank">908A</a></center></td>
+<td title="Perfect Squares"><center><a href="http://codeforces.com/problemset/problem/914/A" target="_blank">914A</a></center></td>
+<td title="Garden"><center><a href="http://codeforces.com/problemset/problem/915/A" target="_blank">915A</a></center></td>
+</tr>
+<tr>
+<td title="Jamie and Alarm Snooze"><center><a href="http://codeforces.com/problemset/problem/916/A" target="_blank">916A</a></center></td>
+<td title="Eleven"><center><a href="http://codeforces.com/problemset/problem/918/A" target="_blank">918A</a></center></td>
+<td title="Fafa and his Company"><center><a href="http://codeforces.com/problemset/problem/935/A" target="_blank">935A</a></center></td>
+<td title="Fafa and the Gates"><center><a href="http://codeforces.com/problemset/problem/935/B" target="_blank">935B</a></center></td>
+<td title="Word Correction"><center><a href="http://codeforces.com/problemset/problem/938/A" target="_blank">938A</a></center></td>
+<td title="Love Triangle"><center><a href="http://codeforces.com/problemset/problem/939/A" target="_blank">939A</a></center></td>
+<td title="Partition"><center><a href="http://codeforces.com/problemset/problem/946/A" target="_blank">946A</a></center></td>
+<td title="Left-handers, Right-handers and Ambidexters"><center><a href="http://codeforces.com/problemset/problem/950/A" target="_blank">950A</a></center></td>
+<td title="Quirky Quantifiers"><center><a href="http://codeforces.com/problemset/problem/952/A" target="_blank">952A</a></center></td>
+<td title="Diagonal Walking"><center><a href="http://codeforces.com/problemset/problem/954/A" target="_blank">954A</a></center></td>
+<td title="Feed the cat"><center><a href="http://codeforces.com/problemset/problem/955/A" target="_blank">955A</a></center></td>
+<td title="Mahmoud and Ehab and the even-odd game"><center><a href="http://codeforces.com/problemset/problem/959/A" target="_blank">959A</a></center></td>
+<td title="Tetris"><center><a href="http://codeforces.com/problemset/problem/961/A" target="_blank">961A</a></center></td>
+<td title="Paper Airplanes"><center><a href="http://codeforces.com/problemset/problem/965/A" target="_blank">965A</a></center></td>
+<td title="Watering System"><center><a href="http://codeforces.com/problemset/problem/967/B" target="_blank">967B</a></center></td>
+</tr>
+<tr>
+<td title="Football"><center><a href="http://codeforces.com/problemset/problem/96/A" target="_blank">96A</a></center></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr></tbody></table>
+
+
+</center>
+</font>
+
+</div>
+</td>
+<td style="padding: 0px; vertical-align: top;">
+<div id="rightAd">
+
+
+</div>
+</td>
+</tr>
+</tbody></table>
+</center>
+<!-- end page -->
+<!-- start footer -->
+<div id="footer">
+<p id="legal">A2OJ © Copyright 2011-2016 <b><a href="https://www.facebook.com/ahmed.aly.tc" target="_blank" style="text-decoration: none;">Ahmed Aly</a></b> All Rights Reserved. A2OJ uses <a href="http://sphere-engine.com" target="_blank" style="text-decoration: none;">Sphere Engine</a>™ © by <a href="http://sphere-research.com" target="_blank" style="text-decoration: none;">Sphere Research Labs</a>.</p>
+</div>
+</td>
+
+
+</tr>
+</tbody></table>
+</center><span style="font-style: normal; font-variant: normal; font-weight: normal; font-size: 99px; line-height: normal; font-family: testfont, _, serif; position: absolute; visibility: hidden; bottom: 0px;" id="fonttest">........</span>
+<!-- end footer -->
+
+
+
+
+</body></html>

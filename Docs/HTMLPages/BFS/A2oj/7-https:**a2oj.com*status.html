@@ -1,0 +1,793 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" class=" canvas canvastext no-geolocation rgba hsla multiplebgs borderimage borderradius boxshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions  no-video no-audio localstorage sessionstorage webworkers applicationcache fontface"><head>
+
+<link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>A2 Online Judge</title>
+
+<meta name="description" content="A2 Online Judge (or Virtual Online Contests) is an online judge with hundreds of problems and it helps you to create, run and participate in virtual contests using problems from the following online judges: A2 Online Judge, Live Archive, Codeforces, Timus, SPOJ, TJU, SGU, PKU, ZOJ, URI. It also helps you to manage and track your programming comepetions training for you and your friends. It helps for ICPC ACM and IOI training also.">
+<meta name="keywords" content="ahmed aly,ahmed aly tools,voc,virtual online contests,programming,c++,java,contest,contests,competition,competitions,programming contest,programming contests,programming compitition,programming compititions,cf,codeforces,live archive,uva,spoj,tju,sgu,pku,timus,zoj,uri,programming tools,a2oj,a2 online judge">
+<meta name="author" content="Ahmed Aly">
+<link href="default.css" rel="stylesheet" type="text/css">
+<link href="DroidSansMono.css" rel="stylesheet" type="text/css">
+
+		<link rel="stylesheet" href="css/nav.css">
+		<!--[if IE]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+<!-- START TRACKING CODE -->
+<script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push( [ '_setAccount', 'UA-16947566-3' ]);
+	_gaq.push( [ '_trackPageview' ]);
+
+	( function() {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+				: 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+<!-- END TRACKING CODE -->
+
+<!-- START TABLE SORTER CODE -->
+<link rel="stylesheet" href="style.css" type="text/css" id="" media="print, projection, screen">
+<script type="text/javascript" src="jquery-latest.js"></script>
+<script type="text/javascript" src="jquery.tablesorter.js"></script>
+	
+<script type="text/javascript" id="js">
+$(document).ready(function() {
+	$.tablesorter.defaults.sortList = [[0,0]];
+	$.tablesorter.defaults.textExtraction = ['complex'];
+	$("table").tablesorter();
+});
+</script>
+<!-- END TABLE SORTER CODE -->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+function toggle() {
+	if(document.getElementById("selection") && document.getElementById("selection").checked)
+		window.location = 'status?Username=';
+	else
+		window.location = 'status';
+}
+</script>
+
+<style>@font-face{font-family:testfont;src:url('data:font/ttf;base64,AAEAAAAMAIAAAwBAT1MvMliohmwAAADMAAAAVmNtYXCp5qrBAAABJAAAANhjdnQgACICiAAAAfwAAAAEZ2FzcP//AAMAAAIAAAAACGdseWYv5OZoAAACCAAAANxoZWFk69bnvwAAAuQAAAA2aGhlYQUJAt8AAAMcAAAAJGhtdHgGDgC4AAADQAAAABRsb2NhAIQAwgAAA1QAAAAMbWF4cABVANgAAANgAAAAIG5hbWUgXduAAAADgAAABPVwb3N03NkzmgAACHgAAAA4AAECBAEsAAUAAAKZAswAAACPApkCzAAAAesAMwEJAAACAAMDAAAAAAAAgAACbwAAAAoAAAAAAAAAAFBmRWQAAAAgqS8DM/8zAFwDMwDNAAAABQAAAAAAAAAAAAMAAAADAAAAHAABAAAAAABGAAMAAQAAAK4ABAAqAAAABgAEAAEAAgAuqQD//wAAAC6pAP///9ZXAwAAAAAAAAACAAAABgBoAAAAAAAvAAEAAAAAAAAAAAAAAAAAAAABAAIAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEACoAAAAGAAQAAQACAC6pAP//AAAALqkA////1lcDAAAAAAAAAAIAAAAiAogAAAAB//8AAgACACIAAAEyAqoAAwAHAC6xAQAvPLIHBADtMrEGBdw8sgMCAO0yALEDAC88sgUEAO0ysgcGAfw8sgECAO0yMxEhESczESMiARDuzMwCqv1WIgJmAAACAFUAAAIRAc0ADwAfAAATFRQWOwEyNj0BNCYrASIGARQGKwEiJj0BNDY7ATIWFX8aIvAiGhoi8CIaAZIoN/43KCg3/jcoAWD0JB4eJPQkHh7++EY2NkbVRjY2RgAAAAABAEH/+QCdAEEACQAANjQ2MzIWFAYjIkEeEA8fHw8QDxwWFhwWAAAAAQAAAAIAAIuYbWpfDzz1AAsEAAAAAADFn9IuAAAAAMWf0i797/8zA4gDMwAAAAgAAgAAAAAAAAABAAADM/8zAFwDx/3v/98DiAABAAAAAAAAAAAAAAAAAAAABQF2ACIAAAAAAVUAAAJmAFUA3QBBAAAAKgAqACoAWgBuAAEAAAAFAFAABwBUAAQAAgAAAAEAAQAAAEAALgADAAMAAAAQAMYAAQAAAAAAAACLAAAAAQAAAAAAAQAhAIsAAQAAAAAAAgAFAKwAAQAAAAAAAwBDALEAAQAAAAAABAAnAPQAAQAAAAAABQAKARsAAQAAAAAABgAmASUAAQAAAAAADgAaAUsAAwABBAkAAAEWAWUAAwABBAkAAQBCAnsAAwABBAkAAgAKAr0AAwABBAkAAwCGAscAAwABBAkABABOA00AAwABBAkABQAUA5sAAwABBAkABgBMA68AAwABBAkADgA0A/tDb3B5cmlnaHQgMjAwOSBieSBEYW5pZWwgSm9obnNvbi4gIFJlbGVhc2VkIHVuZGVyIHRoZSB0ZXJtcyBvZiB0aGUgT3BlbiBGb250IExpY2Vuc2UuIEtheWFoIExpIGdseXBocyBhcmUgcmVsZWFzZWQgdW5kZXIgdGhlIEdQTCB2ZXJzaW9uIDMuYmFlYzJhOTJiZmZlNTAzMiAtIHN1YnNldCBvZiBKdXJhTGlnaHRiYWVjMmE5MmJmZmU1MDMyIC0gc3Vic2V0IG9mIEZvbnRGb3JnZSAyLjAgOiBKdXJhIExpZ2h0IDogMjMtMS0yMDA5YmFlYzJhOTJiZmZlNTAzMiAtIHN1YnNldCBvZiBKdXJhIExpZ2h0VmVyc2lvbiAyIGJhZWMyYTkyYmZmZTUwMzIgLSBzdWJzZXQgb2YgSnVyYUxpZ2h0aHR0cDovL3NjcmlwdHMuc2lsLm9yZy9PRkwAQwBvAHAAeQByAGkAZwBoAHQAIAAyADAAMAA5ACAAYgB5ACAARABhAG4AaQBlAGwAIABKAG8AaABuAHMAbwBuAC4AIAAgAFIAZQBsAGUAYQBzAGUAZAAgAHUAbgBkAGUAcgAgAHQAaABlACAAdABlAHIAbQBzACAAbwBmACAAdABoAGUAIABPAHAAZQBuACAARgBvAG4AdAAgAEwAaQBjAGUAbgBzAGUALgAgAEsAYQB5AGEAaAAgAEwAaQAgAGcAbAB5AHAAaABzACAAYQByAGUAIAByAGUAbABlAGEAcwBlAGQAIAB1AG4AZABlAHIAIAB0AGgAZQAgAEcAUABMACAAdgBlAHIAcwBpAG8AbgAgADMALgBiAGEAZQBjADIAYQA5ADIAYgBmAGYAZQA1ADAAMwAyACAALQAgAHMAdQBiAHMAZQB0ACAAbwBmACAASgB1AHIAYQBMAGkAZwBoAHQAYgBhAGUAYwAyAGEAOQAyAGIAZgBmAGUANQAwADMAMgAgAC0AIABzAHUAYgBzAGUAdAAgAG8AZgAgAEYAbwBuAHQARgBvAHIAZwBlACAAMgAuADAAIAA6ACAASgB1AHIAYQAgAEwAaQBnAGgAdAAgADoAIAAyADMALQAxAC0AMgAwADAAOQBiAGEAZQBjADIAYQA5ADIAYgBmAGYAZQA1ADAAMwAyACAALQAgAHMAdQBiAHMAZQB0ACAAbwBmACAASgB1AHIAYQAgAEwAaQBnAGgAdABWAGUAcgBzAGkAbwBuACAAMgAgAGIAYQBlAGMAMgBhADkAMgBiAGYAZgBlADUAMAAzADIAIAAtACAAcwB1AGIAcwBlAHQAIABvAGYAIABKAHUAcgBhAEwAaQBnAGgAdABoAHQAdABwADoALwAvAHMAYwByAGkAcAB0AHMALgBzAGkAbAAuAG8AcgBnAC8ATwBGAEwAAAAAAgAAAAAAAP+BADMAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAAQACAQIAEQt6ZXJva2F5YWhsaQ==')}</style></head>
+<body class="">
+    	<script>
+			var el = document.getElementsByTagName("body")[0];
+			el.className = "";
+		</script>
+        <noscript>
+        	&lt;!--[if IE]&gt;
+            	&lt;link rel="stylesheet" href="css/ie.css"&gt;
+            &lt;![endif]--&gt;
+        </noscript>
+        
+
+<center>
+<table width="100%">
+<tbody><tr>
+<td>
+        
+
+
+<div id="wrapper"><!-- start header -->
+
+<div id="logo">
+<table width="100%">
+<tbody><tr>
+<td style="vertical-align: bottom;"><a href="/"><img src="logo.png"></a></td>
+<td>
+<h1 style="padding-top: 11px;">A<sup>2</sup> Online Judge</h1>
+<h2 class="author">»&nbsp;&nbsp;&nbsp;&nbsp; by <a href="https://www.facebook.com/ahmed.aly.tc" target="_blank" style="text-decoration: none;">Ahmed Aly</a></h2>
+<br>
+<h3>Sponsored by <b><a href="https://www.facebook.com/elcoachacademy/" target="_blank" style="text-decoration: none;">Coach Academy</a></b> &amp; <b><a href="https://www.facebook.com/acmacpc/" target="_blank" style="text-decoration: none;">ACPC</a></b>, <a href="https://www.codechef.com/" target="_blank" style="text-decoration: none;">CodeChef</a> and <a href="http://www.codability.net/" target="_blank" style="text-decoration: none;">Codability</a></h3>
+</td>
+<td style="text-align: right; padding-top: 27px;">
+<iframe src="https://www.facebook.com/plugins/like.php?show_faces=false&amp;href=https://www.facebook.com/A2OnlineJudge" scrolling="no" frameborder="0" style="border:none; height:45px"></iframe>
+</td>
+</tr>
+</tbody></table>
+</div>
+
+<div id="header3"><div align="right"><a href="signin?url=%2Fstatus" style="font-size: 15px;">Sign In</a> - <a href="signup" style="font-size: 15px;">Sign Up</a></div></div>
+
+
+<div id="header2">
+<div id="menu2">
+
+        <nav id="topNav">
+          <ul>
+<li><a href="/">Contests</a></li><li><a href="ladders"><font color="red">Ladders</font></a></li><li><a href="ps">Problems</a></li><li><a href="status">Status</a></li><li><a href="categories">Categories</a></li><li><a href="groups">Groups</a></li><li><a href="javascript:void();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;More&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>^</span></a><ul><li><center><a href="http://goo.gl/Fq5mru" target="_blank">GCJ Tools</a></center></li><li><center><a href="codes">Source Codes</a></center></li><li><center><a href="finder">Problems Finder</a></center></li><li><center><a href="users">Users</a></center></li><li><center><a href="teams">Teams</a></center></li><li><center><a href="cumulative">Cumulative Rank</a></center></li></ul></li><li class="last"><a href="about">About</a></li>
+          </ul>
+        </nav>
+        
+        
+        <script src="js/modernizr.js"></script>
+		<script>
+			(function($){
+				
+				//cache nav
+				var nav = $("#topNav");
+				
+				//add indicator and hovers to submenu parents
+				nav.find("li").each(function() {
+					if ($(this).find("ul").length > 0) {
+						$("<span>").text("^").appendTo($(this).children(":first"));
+
+						//show subnav on hover
+						$(this).mouseenter(function() {
+							$(this).find("ul").stop(true, true).slideDown();
+						});
+						
+						//hide submenus on exit
+						$(this).mouseleave(function() {
+							$(this).find("ul").stop(true, true).slideUp();
+						});
+					}
+				});
+			})(jQuery);
+		</script>
+
+
+</div>
+</div>
+<!-- end header --></div>
+<!-- start page -->
+</td>
+</tr>
+
+
+<tr>
+
+<td style="vertical-align: top;">
+<center>
+<table>
+<tbody><tr style="max-height: 0px; padding: 0px;">
+<td style="max-height: 0px; padding: 0px; min-width: 165px;"></td>
+<td style="max-height: 0px; padding: 0px; min-width: 1060px;"></td>
+<td style="max-height: 0px; padding: 0px; min-width: 165px;"></td>
+</tr>
+<tr>
+<td style="padding: 0px; vertical-align: top;">
+<div id="leftAd">
+
+
+</div>
+</td>
+<td style="padding: 0px; vertical-align: top;">
+<div id="page">
+
+<font size="3">
+<center>
+
+
+
+
+<div style="font-family: 'Droid Sans Mono', sans-serif; font-size: 14px; font-weight: bold;">
+<table>
+<tbody><tr style="background: #E0E0E0;"><td style="padding: 5px;"><center>Judge Status</center></td></tr>
+</tbody></table>
+</div>
+<table cellspacing="1" class="tablesorter" style="text-align: center;">
+<thead>
+<tr>
+<th class="header headerSortDown"></th>
+<th class="header">ID</th>
+<th class="header">Username</th>
+<th class="header">Problem</th>
+<th class="header">Result</th>
+<th class="header">Submission Time</th>
+<th class="header">Language</th>
+<th class="header">Time</th>
+<th class="header">Memory</th>
+</tr>
+</thead>
+<tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr class="acc22">
+<td>1</td>
+<td>231183</td>
+<td><a href="profile?Username=hagergamal394">hagergamal394</a></td>
+<td><a href="p?ID=1">1. Omar</a></td>
+<td>Accepted</td>
+<td>2018-05-05 21:22:24</td>
+<td>C#</td>
+<td>0.01</td>
+<td>29664</td>
+</tr><tr class="wa22">
+<td>2</td>
+<td>231182</td>
+<td><a href="profile?Username=hagergamal394">hagergamal394</a></td>
+<td><a href="p?ID=1">1. Omar</a></td>
+<td>Runtime Error</td>
+<td>2018-05-05 21:13:57</td>
+<td>Java</td>
+<td>0.05</td>
+<td>974336</td>
+</tr><tr class="wa22">
+<td>3</td>
+<td>231181</td>
+<td><a href="profile?Username=hagergamal394">hagergamal394</a></td>
+<td><a href="p?ID=1">1. Omar</a></td>
+<td>Runtime Error</td>
+<td>2018-05-05 21:08:34</td>
+<td>C#</td>
+<td>0.01</td>
+<td>32744</td>
+</tr><tr class="wa22">
+<td>4</td>
+<td>231180</td>
+<td><a href="profile?Username=hagergamal394">hagergamal394</a></td>
+<td><a href="p?ID=1">1. Omar</a></td>
+<td>Runtime Error</td>
+<td>2018-05-05 20:54:48</td>
+<td>Java</td>
+<td>0.06</td>
+<td>974336</td>
+</tr><tr class="wa22">
+<td>5</td>
+<td>231179</td>
+<td><a href="profile?Username=prasadgujar16">prasadgujar16</a></td>
+<td><a href="p?ID=344">344. Add Two numbers</a></td>
+<td>Wrong Answer</td>
+<td>2018-05-05 20:46:46</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2744</td>
+</tr><tr class="wa22">
+<td>6</td>
+<td>231178</td>
+<td><a href="profile?Username=hagergamal394">hagergamal394</a></td>
+<td><a href="p?ID=1">1. Omar</a></td>
+<td>Runtime Error</td>
+<td>2018-05-05 20:15:10</td>
+<td>C#</td>
+<td>0.01</td>
+<td>32744</td>
+</tr><tr class="acc22">
+<td>7</td>
+<td>231177</td>
+<td><a href="profile?Username=alaa98">alaa98</a></td>
+<td><a href="p?ID=381">381. Buying in Bulk</a></td>
+<td>Accepted</td>
+<td>2018-05-05 18:43:07</td>
+<td>C++</td>
+<td>0.01</td>
+<td>2744</td>
+</tr><tr class="acc22">
+<td>8</td>
+<td>231176</td>
+<td><a href="profile?Username=Hisokasy">Hisokasy</a></td>
+<td><a href="p?ID=381">381. Buying in Bulk</a></td>
+<td>Accepted</td>
+<td>2018-05-05 18:41:44</td>
+<td>C++</td>
+<td>0.01</td>
+<td>2876</td>
+</tr><tr class="acc22">
+<td>9</td>
+<td>231175</td>
+<td><a href="profile?Username=Noora.Sweis">Noora.Sweis</a></td>
+<td><a href="p?ID=17">17. Kids Love Candies</a></td>
+<td>Accepted</td>
+<td>2018-05-05 17:35:23</td>
+<td>Java</td>
+<td>0.09</td>
+<td>711680</td>
+</tr><tr class="acc22">
+<td>10</td>
+<td>231174</td>
+<td><a href="profile?Username=vivekcrux">vivekcrux</a></td>
+<td><a href="p?ID=24">24. Arabic and English</a></td>
+<td>Accepted</td>
+<td>2018-05-05 05:58:40</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2876</td>
+</tr><tr class="acc22">
+<td>11</td>
+<td>231173</td>
+<td><a href="profile?Username=vivekcrux">vivekcrux</a></td>
+<td><a href="p?ID=193">193. Omar Loves Candies, Again</a></td>
+<td>Accepted</td>
+<td>2018-05-05 05:35:49</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2876</td>
+</tr><tr class="acc22">
+<td>12</td>
+<td>231172</td>
+<td><a href="profile?Username=vivekcrux">vivekcrux</a></td>
+<td><a href="p?ID=6">6. Balloons Colors</a></td>
+<td>Accepted</td>
+<td>2018-05-05 05:28:34</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2744</td>
+</tr><tr class="wa22">
+<td>13</td>
+<td>231171</td>
+<td><a href="profile?Username=xtr3md4ryl96">xtr3md4ryl96</a></td>
+<td><a href="p?ID=7">7. NASSA's Robot</a></td>
+<td>Wrong Answer</td>
+<td>2018-05-04 20:48:58</td>
+<td>C++</td>
+<td>0.01</td>
+<td>2876</td>
+</tr><tr class="wa22">
+<td>14</td>
+<td>231170</td>
+<td><a href="profile?Username=xtr3md4ryl96">xtr3md4ryl96</a></td>
+<td><a href="p?ID=7">7. NASSA's Robot</a></td>
+<td>Wrong Answer</td>
+<td>2018-05-04 20:46:36</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2876</td>
+</tr><tr class="wa22">
+<td>15</td>
+<td>231169</td>
+<td><a href="profile?Username=xtr3md4ryl96">xtr3md4ryl96</a></td>
+<td><a href="p?ID=7">7. NASSA's Robot</a></td>
+<td>Wrong Answer</td>
+<td>2018-05-04 20:42:42</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2876</td>
+</tr><tr class="acc22">
+<td>16</td>
+<td>231168</td>
+<td><a href="profile?Username=MarcoEsteban">MarcoEsteban</a></td>
+<td><a href="p?ID=1">1. Omar</a></td>
+<td>Accepted</td>
+<td>2018-05-04 19:38:55</td>
+<td>Java</td>
+<td>0.06</td>
+<td>711680</td>
+</tr><tr class="acc22">
+<td>17</td>
+<td>231167</td>
+<td><a href="profile?Username=majd.alshalash">majd.alshalash</a></td>
+<td><a href="p?ID=7">7. NASSA's Robot</a></td>
+<td>Accepted</td>
+<td>2018-05-04 19:05:29</td>
+<td>Java</td>
+<td>0.11</td>
+<td>711680</td>
+</tr><tr class="wa22">
+<td>18</td>
+<td>231166</td>
+<td><a href="profile?Username=majd.alshalash">majd.alshalash</a></td>
+<td><a href="p?ID=7">7. NASSA's Robot</a></td>
+<td>Wrong Answer</td>
+<td>2018-05-04 18:59:18</td>
+<td>Java</td>
+<td>0.11</td>
+<td>711680</td>
+</tr><tr class="wa22">
+<td>19</td>
+<td>231165</td>
+<td><a href="profile?Username=majd.alshalash">majd.alshalash</a></td>
+<td><a href="p?ID=7">7. NASSA's Robot</a></td>
+<td>Wrong Answer</td>
+<td>2018-05-04 18:56:53</td>
+<td>Java</td>
+<td>0.12</td>
+<td>711680</td>
+</tr><tr class="acc22">
+<td>20</td>
+<td>231164</td>
+<td><a href="profile?Username=majd.alshalash">majd.alshalash</a></td>
+<td><a href="p?ID=1">1. Omar</a></td>
+<td>Accepted</td>
+<td>2018-05-04 18:18:09</td>
+<td>Java</td>
+<td>0.07</td>
+<td>711680</td>
+</tr><tr class="acc22">
+<td>21</td>
+<td>231163</td>
+<td><a href="profile?Username=vivekcrux">vivekcrux</a></td>
+<td><a href="p?ID=17">17. Kids Love Candies</a></td>
+<td>Accepted</td>
+<td>2018-05-04 17:17:21</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2744</td>
+</tr><tr class="acc22">
+<td>22</td>
+<td>231162</td>
+<td><a href="profile?Username=vivekcrux">vivekcrux</a></td>
+<td><a href="p?ID=1">1. Omar</a></td>
+<td>Accepted</td>
+<td>2018-05-04 16:48:14</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2744</td>
+</tr><tr class="wa22">
+<td>23</td>
+<td>231161</td>
+<td><a href="profile?Username=newbienietzche">newbienietzche</a></td>
+<td><a href="p?ID=357">357. Supermarket</a></td>
+<td>Wrong Answer</td>
+<td>2018-05-04 16:14:45</td>
+<td>Python</td>
+<td>0.01</td>
+<td>9032</td>
+</tr><tr class="wa22">
+<td>24</td>
+<td>231160</td>
+<td><a href="profile?Username=newbienietzche">newbienietzche</a></td>
+<td><a href="p?ID=357">357. Supermarket</a></td>
+<td>Wrong Answer</td>
+<td>2018-05-04 16:11:45</td>
+<td>C++</td>
+<td>0.4</td>
+<td>2876</td>
+</tr><tr class="wa22">
+<td>25</td>
+<td>231159</td>
+<td><a href="profile?Username=newbienietzche">newbienietzche</a></td>
+<td><a href="p?ID=357">357. Supermarket</a></td>
+<td>Wrong Answer</td>
+<td>2018-05-04 16:10:04</td>
+<td>C++</td>
+<td>0.4</td>
+<td>2744</td>
+</tr><tr class="wa22">
+<td>26</td>
+<td>231158</td>
+<td><a href="profile?Username=newbienietzche">newbienietzche</a></td>
+<td><a href="p?ID=357">357. Supermarket</a></td>
+<td>Wrong Answer</td>
+<td>2018-05-04 15:58:06</td>
+<td>Python</td>
+<td>0.02</td>
+<td>9032</td>
+</tr><tr class="wa22">
+<td>27</td>
+<td>231157</td>
+<td><a href="profile?Username=newbienietzche">newbienietzche</a></td>
+<td><a href="p?ID=357">357. Supermarket</a></td>
+<td>Compilation Error</td>
+<td>2018-05-04 15:53:59</td>
+<td>C++</td>
+<td>0.0</td>
+<td>0</td>
+</tr><tr class="wa22">
+<td>28</td>
+<td>231156</td>
+<td><a href="profile?Username=newbienietzche">newbienietzche</a></td>
+<td><a href="p?ID=357">357. Supermarket</a></td>
+<td>Wrong Answer</td>
+<td>2018-05-04 15:43:30</td>
+<td>Python</td>
+<td>0.0</td>
+<td>9032</td>
+</tr><tr class="wa22">
+<td>29</td>
+<td>231155</td>
+<td><a href="profile?Username=newbienietzche">newbienietzche</a></td>
+<td><a href="p?ID=357">357. Supermarket</a></td>
+<td>Wrong Answer</td>
+<td>2018-05-04 15:36:03</td>
+<td>Python</td>
+<td>0.0</td>
+<td>9032</td>
+</tr><tr class="wa22">
+<td>30</td>
+<td>231154</td>
+<td><a href="profile?Username=newbienietzche">newbienietzche</a></td>
+<td><a href="p?ID=357">357. Supermarket</a></td>
+<td>Wrong Answer</td>
+<td>2018-05-04 15:20:56</td>
+<td>Python</td>
+<td>0.01</td>
+<td>9032</td>
+</tr><tr class="acc22">
+<td>31</td>
+<td>231153</td>
+<td><a href="profile?Username=newbienietzche">newbienietzche</a></td>
+<td><a href="p?ID=356">356. Counting Extra Stars</a></td>
+<td>Accepted</td>
+<td>2018-05-04 15:14:12</td>
+<td>Python</td>
+<td>0.01</td>
+<td>9032</td>
+</tr><tr class="wa22">
+<td>32</td>
+<td>231152</td>
+<td><a href="profile?Username=newbienietzche">newbienietzche</a></td>
+<td><a href="p?ID=356">356. Counting Extra Stars</a></td>
+<td>Runtime Error</td>
+<td>2018-05-04 15:03:00</td>
+<td>Python 3</td>
+<td>0.01</td>
+<td>9992</td>
+</tr><tr class="acc22">
+<td>33</td>
+<td>231151</td>
+<td><a href="profile?Username=Muhammed+samir">Muhammed samir</a></td>
+<td><a href="p?ID=1">1. Omar</a></td>
+<td>Accepted</td>
+<td>2018-05-04 12:21:28</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2744</td>
+</tr><tr class="wa22">
+<td>34</td>
+<td>231150</td>
+<td><a href="profile?Username=cracker17">cracker17</a></td>
+<td><a href="p?ID=1">1. Omar</a></td>
+<td>Compilation Error</td>
+<td>2018-05-04 09:34:36</td>
+<td>C</td>
+<td>0.0</td>
+<td>0</td>
+</tr><tr class="acc22">
+<td>35</td>
+<td>231149</td>
+<td><a href="profile?Username=newbienietzche">newbienietzche</a></td>
+<td><a href="p?ID=355">355. Counting More Stars</a></td>
+<td>Accepted</td>
+<td>2018-05-04 09:09:22</td>
+<td>Python</td>
+<td>0.03</td>
+<td>9032</td>
+</tr><tr class="acc22">
+<td>36</td>
+<td>231148</td>
+<td><a href="profile?Username=Mohammad+jourieh">Mohammad jourieh</a></td>
+<td><a href="p?ID=163">163. Dancing With Numbers</a></td>
+<td>Accepted</td>
+<td>2018-05-04 08:44:24</td>
+<td>C++</td>
+<td>0.32</td>
+<td>3044</td>
+</tr><tr class="acc22">
+<td>37</td>
+<td>231147</td>
+<td><a href="profile?Username=Mohammad+jourieh">Mohammad jourieh</a></td>
+<td><a href="p?ID=80">80. Mohammed Refaat</a></td>
+<td>Accepted</td>
+<td>2018-05-04 08:14:48</td>
+<td>C++</td>
+<td>1.06</td>
+<td>7092</td>
+</tr><tr class="acc22">
+<td>38</td>
+<td>231146</td>
+<td><a href="profile?Username=newbienietzche">newbienietzche</a></td>
+<td><a href="p?ID=354">354. Counting Stars</a></td>
+<td>Accepted</td>
+<td>2018-05-04 08:13:17</td>
+<td>Python</td>
+<td>0.02</td>
+<td>9032</td>
+</tr><tr class="wa22">
+<td>39</td>
+<td>231145</td>
+<td><a href="profile?Username=newbienietzche">newbienietzche</a></td>
+<td><a href="p?ID=354">354. Counting Stars</a></td>
+<td>Wrong Answer</td>
+<td>2018-05-04 08:10:04</td>
+<td>Python</td>
+<td>0.0</td>
+<td>9032</td>
+</tr><tr class="acc22">
+<td>40</td>
+<td>231144</td>
+<td><a href="profile?Username=prvn123">prvn123</a></td>
+<td><a href="p?ID=192">192. The Missing Date</a></td>
+<td>Accepted</td>
+<td>2018-05-04 06:58:39</td>
+<td>C++</td>
+<td>0.0</td>
+<td>3472</td>
+</tr><tr class="acc22">
+<td>41</td>
+<td>231143</td>
+<td><a href="profile?Username=prvn123">prvn123</a></td>
+<td><a href="p?ID=14">14. The New President</a></td>
+<td>Accepted</td>
+<td>2018-05-04 06:38:49</td>
+<td>C++</td>
+<td>0.02</td>
+<td>3476</td>
+</tr><tr class="wa22">
+<td>42</td>
+<td>231142</td>
+<td><a href="profile?Username=prvn123">prvn123</a></td>
+<td><a href="p?ID=14">14. The New President</a></td>
+<td>Wrong Answer</td>
+<td>2018-05-04 06:24:31</td>
+<td>C++</td>
+<td>0.02</td>
+<td>3476</td>
+</tr><tr class="acc22">
+<td>43</td>
+<td>231141</td>
+<td><a href="profile?Username=xtr3md4ryl96">xtr3md4ryl96</a></td>
+<td><a href="p?ID=1">1. Omar</a></td>
+<td>Accepted</td>
+<td>2018-05-04 03:54:24</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2876</td>
+</tr><tr class="wa22">
+<td>44</td>
+<td>231140</td>
+<td><a href="profile?Username=xtr3md4ryl96">xtr3md4ryl96</a></td>
+<td><a href="p?ID=1">1. Omar</a></td>
+<td>Compilation Error</td>
+<td>2018-05-04 03:50:44</td>
+<td>C++</td>
+<td>0.0</td>
+<td>0</td>
+</tr><tr class="acc22">
+<td>45</td>
+<td>231139</td>
+<td><a href="profile?Username=xtr3md4ryl96">xtr3md4ryl96</a></td>
+<td><a href="p?ID=1">1. Omar</a></td>
+<td>Accepted</td>
+<td>2018-05-04 03:48:28</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2876</td>
+</tr><tr class="acc22">
+<td>46</td>
+<td>231138</td>
+<td><a href="profile?Username=xtr3md4ryl96">xtr3md4ryl96</a></td>
+<td><a href="p?ID=1">1. Omar</a></td>
+<td>Accepted</td>
+<td>2018-05-04 03:46:42</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2744</td>
+</tr><tr class="acc22">
+<td>47</td>
+<td>231137</td>
+<td><a href="profile?Username=xtr3md4ryl96">xtr3md4ryl96</a></td>
+<td><a href="p?ID=1">1. Omar</a></td>
+<td>Accepted</td>
+<td>2018-05-04 03:45:07</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2876</td>
+</tr><tr class="acc22">
+<td>48</td>
+<td>231136</td>
+<td><a href="profile?Username=xtr3md4ryl96">xtr3md4ryl96</a></td>
+<td><a href="p?ID=1">1. Omar</a></td>
+<td>Accepted</td>
+<td>2018-05-04 03:43:22</td>
+<td>C++</td>
+<td>0.0</td>
+<td>3472</td>
+</tr><tr class="acc22">
+<td>49</td>
+<td>231135</td>
+<td><a href="profile?Username=xtr3md4ryl96">xtr3md4ryl96</a></td>
+<td><a href="p?ID=1">1. Omar</a></td>
+<td>Accepted</td>
+<td>2018-05-04 03:42:02</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2876</td>
+</tr><tr class="acc22">
+<td>50</td>
+<td>231134</td>
+<td><a href="profile?Username=xtr3md4ryl96">xtr3md4ryl96</a></td>
+<td><a href="p?ID=1">1. Omar</a></td>
+<td>Accepted</td>
+<td>2018-05-04 03:39:56</td>
+<td>C++</td>
+<td>0.0</td>
+<td>2876</td>
+</tr></tbody>
+</table>
+
+
+
+
+&lt;Previous
+ - 
+<a href="status?From=2">Next&gt;</a>
+
+
+
+
+</center>
+</font>
+
+</div>
+</td>
+<td style="padding: 0px; vertical-align: top;">
+<div id="rightAd">
+
+
+</div>
+</td>
+</tr>
+</tbody></table>
+</center>
+<!-- end page -->
+<!-- start footer -->
+<div id="footer">
+<p id="legal">A2OJ © Copyright 2011-2016 <b><a href="https://www.facebook.com/ahmed.aly.tc" target="_blank" style="text-decoration: none;">Ahmed Aly</a></b> All Rights Reserved. A2OJ uses <a href="http://sphere-engine.com" target="_blank" style="text-decoration: none;">Sphere Engine</a>™ © by <a href="http://sphere-research.com" target="_blank" style="text-decoration: none;">Sphere Research Labs</a>.</p>
+</div>
+</td>
+
+
+</tr>
+</tbody></table>
+</center><span style="font-style: normal; font-variant: normal; font-weight: normal; font-size: 99px; line-height: normal; font-family: testfont, _, serif; position: absolute; visibility: hidden; bottom: 0px;" id="fonttest">........</span>
+<!-- end footer -->
+
+
+
+
+</body></html>

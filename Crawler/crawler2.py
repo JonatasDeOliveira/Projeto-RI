@@ -1,0 +1,209 @@
+from bs4 import BeautifulSoup
+from urllib.request import Request, urlopen
+from selenium import webdriver
+from reppy.robots import Robots
+from reppy.cache import RobotsCache
+import re
+import requests
+import queue
+import time
+import os
+import signal
+
+r = "http://www.codeforces.com"
+i = 0
+
+def robots(pathTotal, rp):
+    return rp.allowed(pathTotal,"*")
+
+def get_all_links(domain, pathTotal, maxSize, rp):
+    #response = requests.get(domain+path, headers={'User-Agent': 'Mozilla/5.0'})
+    driver = webdriver.PhantomJS( service_args=['--ignore-ssl-errors=true', '--ssl-protocol=any'])
+    driver.get(pathTotal)
+    print(1)
+    soup = BeautifulSoup(driver.page_source, "html.parser")
+    driver.service.process.send_signal(signal.SIGTERM)
+    links = []
+    for link in soup.findAll('a', href=True):
+        print(link)
+        regex = re.compile(
+            r'^(?:http|ftp)s?://' # http:// or https://
+            r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|' #domain...
+            r'localhost|' #localhost...
+            r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})' # ...or ip
+            r'(?::\d+)?' # optional port
+            r'(?:/?|[/?]\S+)$', re.IGNORECASE)
+        if(((re.match(regex, domain+link.get('href')) is not None or re.match(regex, domain+'/'+link.get('href')) is not None) and (re.match(regex, link.get('href')) is None) and (link.get('href')!='javascript:void();')) or (domain in link.get('href'))):
+            if(len(link.get('href'))>0):
+                if(domain in link.get('href')):
+                    if(robots(link.get('href'), rp)):
+                        #print(link.get('href'))
+                        try:
+                            r = requests.get(link.get('href'), verify=False)
+                            if "text/html" in r.headers["content-type"]:    
+                                links.append(link.get('href'))
+                        except:
+                            pass
+                elif((link.get('href')[0]>='a'and link.get('href')[0]<='z') or (link.get('href')[0]>='1'and link.get('href')[0]<='9')):
+                    if(robots(domain+'/'+link.get('href'), rp)):
+                        #print(domain+'/'+link.get('href'))
+                        try:
+                            r = requests.get(domain+'/'+link.get('href'), verify=False)
+                            if "text/html" in r.headers["content-type"]:    
+                                links.append(domain+'/'+link.get('href'))
+                        except:
+                            pass
+                else:
+                    if(robots(domain+link.get('href'), rp)):
+                        #print(domain+link.get('href'))
+                        try:
+                            r = requests.get(domain+link.get('href'), verify=False)
+                            if "text/html" in r.headers["content-type"]:  
+                                links.append(domain+link.get('href'))
+                        except:
+                            pass
+        
+    return links
+
+
+def crawler(domain, pathseed, maxSize = 1000):
+    pq = queue.PriorityQueue()
+    visited = []
+    links = []
+    pq.put((value(domain+pathseed),domain+pathseed))
+    visited.append(domain+pathseed)
+    rp = Robots.fetch(domain+'/robots.txt',verify=False)
+    while(not pq.empty() and pq.qsize()<maxSize):
+        a = pq.get()[1]
+        print("! " + str(len(links)) + " " + a)
+        if(len(links) < maxSize):
+            links.append(a)
+            ls = get_all_links(domain, a, maxSize, rp)
+            for l in ls:
+                if(l not in visited):
+                    visited.append(l)
+                    pq.put((value(l),l))
+        else:
+            while(not pq.empty()):
+                pq.get()
+    while(len(links)<maxSize and not pq.empty()):
+        links.append(pq.get()[1])
+    os.makedirs('Docs/HTMLPages/Heuristic/'+folder(domain)+'/', exist_ok=True)
+    print(len(links))
+    v = 0
+    '''
+    for l in links:
+        v += 1
+        print(str(v)+ " "+l)
+        driver = webdriver.PhantomJS( service_args=['--ignore-ssl-errors=true', '--ssl-protocol=any'])
+        driver.get(l)
+        #print(driver.page_source)
+        with open('Docs/HTMLPages/Heuristic/'+folder(domain)+'/'+str(v) +'-'+l.replace('/','*')+'.html', 'wb') as f:
+            f.write(bytes(driver.page_source,'UTF-8'))
+        driver.service.process.send_signal(signal.SIGTERM) 
+    '''
+    return 0
+
+
+def folder(domain):
+    if(domain=="http://www.codeforces.com"):
+        return 'Codeforces'
+    if(domain=='http://www.spoj.com'):
+        return 'Spoj'
+    if(domain=='https://dmoj.ca'):
+        return 'Dmoj'
+    if(domain=='https://wcipeg.com'):
+        return 'Wcipeg'
+    if(domain=='http://acm.timus.ru'):
+        return 'Timus'
+    if(domain=='https://www.urionlinejudge.com.br'):
+        return 'Uri'
+    if(domain=='https://leetcode.com'):
+        return 'Leetcode'
+    if(domain=='https://www.codechef.com'):
+        return 'Codechef'
+    if(domain=='https://a2oj.com'):
+        return 'A2oj'
+
+def value(link):
+    if("http://www.codeforces.com" in link):
+        if('problem/' in link and 'problemset' in link):
+            return 1
+        elif('problemset' in link and ('tag' in link or 'page' in link)):
+            return 2
+        elif('problemset' in link):
+            return 3
+        else:
+            return 4
+    if('http://www.spoj.com' in link):
+        if('problems' in link and ('tag' in link or 'classical' in link)):
+            return 2
+        elif('problems' in link):
+            return 1
+        else:
+            return 3
+    if('https://dmoj.ca' in link):
+        if('problems' in link):
+            return 2
+        elif('problem' in link):
+            return 1
+        else:
+            return 3
+    if('https://wcipeg.com' in link):
+        if('login' in link):
+            return 4
+        elif('problems' in link):
+            return 2
+        elif('problem' in link):
+            return 1
+        else:
+            return 3
+    if('http://acm.timus.ru' in link):
+        if('problemset' in link):
+            return 2
+        elif('problem' in link):
+            return 1
+        else:
+            return 3
+    if('https://www.urionlinejudge.com.br' in link):
+        if('categories' in link):
+            return 3
+        elif('problems' in link and 'view' in link):
+            return 1
+        elif('problems' in link):
+            return 2
+        else:
+            return 4
+    if('https://leetcode.com' in link):
+        if('problemset' in link):
+            return 2
+        elif('problems' in link and 'description' in link):
+            return 1
+        else:
+            return 3
+    if('https://www.codechef.com' in link):
+        if('problems' in link and ('school' in link or 'easy' in link or 'medium' in link or 'hard' in link or 'challenge' in link or 'extcontest' in link)):
+            return 2
+        elif('problems' in link):
+            return 1
+        else:
+            return 3
+    if('https://a2oj.com' in link):
+        if('/ps' in link):
+            return 2
+        elif('/p' in link and '?ID' in link):
+            return 1
+        else:
+            return 3
+    return 5
+
+
+#crawler('https://wcipeg.com','')
+#crawler('http://www.codeforces.com','')
+#crawler('https://a2oj.com','')
+##crawler('https://www.codechef.com','')
+#crawler('http://www.spoj.com','')
+crawler('https://dmoj.ca','')
+#crawler('http://acm.timus.ru','')
+##crawler('https://www.urionlinejudge.com.br','')
+#crawler('https://leetcode.com','')
