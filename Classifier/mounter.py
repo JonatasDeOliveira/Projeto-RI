@@ -12,7 +12,7 @@ import os
 from os import listdir
 from os.path import isfile, join
 from sklearn import tree
-from sklearn.naive_bayes import MultinomialNB
+from sklearn.naive_bayes import BernoulliNB
 from sklearn import svm
 from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import StratifiedKFold
@@ -24,14 +24,17 @@ ps = nltk.stem.PorterStemmer()
 idf = {}
 
 def getTFFromPage(url):
-    '''
+    
+    print(url)
+    
     driver = webdriver.PhantomJS( service_args=['--ignore-ssl-errors=true', '--ssl-protocol=any'])
     driver.get(url)
     page = BeautifulSoup(driver.page_source, "html.parser")
     driver.service.process.send_signal(signal.SIGTERM)
-    '''
-    html = urllib.request.urlopen(url)
-    page = BeautifulSoup(html, "html.parser")
+    
+    
+    '''html = urllib.request.urlopen(url)
+    page = BeautifulSoup(html, "html.parser")'''
     
     
     [s.extract() for s in page('script')]
@@ -51,7 +54,7 @@ def getTFFromPage(url):
 
 def positiveTF(id_doc):
     global idf
-    file = open("positives/links_spoj.txt", "r") 
+    file = open("links/pos_links.txt", "r") 
     links = file.readlines()
     
     num_pos_docs = 0
@@ -70,7 +73,7 @@ def positiveTF(id_doc):
 
 def negativeTF(id_doc):
     global idf
-    file = open("negatives/links_spoj.txt", "r") 
+    file = open("links/neg_links.txt", "r") 
     links = file.readlines()
     
     num_pos_docs = 0
@@ -125,6 +128,7 @@ def classify():
     length_neg_docs = countFiles("negative_docs")
     
     idf = getIDF()
+    
     
     #idf só está pegando a frequência de cada palavra nos documentos
     idf_sorted = sorted(idf.items(), key=operator.itemgetter(1))
@@ -181,7 +185,7 @@ def classify():
             train_set_clas.append(y[i])
         
         for i in test_indexes:
-            prediction = classifyKNN(train_set_inst, train_set_clas, X[i])
+            prediction = classifyDecisionTree(train_set_inst, train_set_clas, X[i])
             if prediction == y[i]:
                 got_right += 1
             else:
@@ -204,7 +208,7 @@ def classifyDecisionTree(train_set_inst, train_set_clas, x):
         
     
 def classifyNaiveBayes(train_set_inst, train_set_clas, x):
-    gnb = MultinomialNB()
+    gnb = BernoulliNB()
     gnb.fit(train_set_inst, train_set_clas)
     
     return gnb.predict([x])

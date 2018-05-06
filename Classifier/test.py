@@ -1,9 +1,10 @@
+import urllib.request
+from bs4 import BeautifulSoup
+from classifier import Classifier
 
-import nltk
-nltk.download('punkt')
-from nltk import sent_tokenize
-from nltk.tokenize import word_tokenize
+url = "http://www.spoj.com/status/"
+html = urllib.request.urlopen(url)
+page = BeautifulSoup(html, "html.parser")
 
-text1 = "It's true that the chicken was the best bamboozler in the known multiverse."
-tokens = word_tokenize(text1)
-print(tokens)
+clf = Classifier()
+print(clf.classify(page))
