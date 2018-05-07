@@ -2,6 +2,7 @@ import bs4 as bs
 import re
 import math
 import json
+import os.path
 
 def treatStr(sample):
     samples = re.findall('\>.*?\<',str(sample))
@@ -52,17 +53,6 @@ def findBetween(s, firstS, lastS ):
     start = s.index(firstS) + len(firstS)
     end = s.index(lastS, start)
     return str(s[start:end])
-
-def getDatas(datas, arrayInfo, tag):
-    text = ""
-    for info in arrayInfo[1:]:
-        if info.name == tag:
-            datas.append(text[:-1])
-            text = info.text + "\n"
-        else:
-            text += info.text + "\n"
-    datas.append(text[:-1])
-    return datas
     
 def checkMap(mapList, keyT):
     for key in mapList:
@@ -78,10 +68,23 @@ def getMaxKey(mapList):
             maxValue = mapList[key]
             maxKey = key
     return maxKey
+    
+def writeToJSON(crawlerType, extractorType, domain, fileName, data):
+    file = './Docs/Jsons' + '/' + crawlerType + '/'+ extractorType + '/' + domain + '/' + fileName + '.json'
+    #file = './Scraper' + '/' + fileName + '.json'
+    
+    exist = os.path.isfile(file) 
+    if exist:
+        with open(file) as f:
+            updateJson = json.load(f)
+
+        updateJson.update(data)
+
+        with open(file, 'w') as f:
+            f.write(json.dumps(data, indent=2))
+    else:
+        with open(file, 'w') as f:
+            f.write(json.dumps(data, indent=2))
 
 
-def writeToJSON(fileName, data):
-    path = "Scraper"
-    file = './' + path + '/' + fileName + '.json'
-    with open(file,'w') as f:
-        json.dump(data, f)
+    
