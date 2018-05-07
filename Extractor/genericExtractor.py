@@ -92,7 +92,9 @@ for i in range(len(indexes)):
     elif "Sample Input" in bodyArray[indexes[i]]:
         data["Example"] = util.getTextInfo(bodyArray, indexes[i], indexes[i+1])
     else:
-        data[bodyArray[indexes[i]]] = util.getTextInfo(bodyArray, indexes[i], indexes[i+1])
+        title = bodyArray[indexes[i]].replace(":", "")
+        data[title] = util.getTextInfo(bodyArray, indexes[i], indexes[i+1])
 
 for d in data:
-    print (d + ": " + data[d] + "\n")
+    print (d + ":\n" + data[d])
+    print ("---------------------")
