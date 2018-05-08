@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
 from selenium import webdriver
 import signal
-import time
 import util
 
 def leetcode(page, crawlerType, extractorType, domain, fileName):
@@ -15,8 +14,6 @@ def leetcode(page, crawlerType, extractorType, domain, fileName):
     problemHead = page.find("div", {"class" : "col-lg-8 col-md-7 col-sm-6 col-sm-pull-6 col-md-pull-5 col-lg-pull-4"})
     problemBody = page.find("div", {"class" : "question-description"})
     
-    #Precisa adicionar um delay aqui
-    time.sleep(1)
     problemName = problemHead.h3.text
     
     bodyText = problemBody.text

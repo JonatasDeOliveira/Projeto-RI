@@ -25,5 +25,5 @@ def extractor(page, domain, crawlerType, fileName):
     elif domain == "Wcipeg":
         wcipeg.wcipeg(page, crawlerType, "Specific",domain,  fileName)
     
-    #g1.genericExtractor(page, crawlerType, "General", domain, fileName)
-    #g2.genericExtractor2(page, crawlerType, "General", domain, fileName)
+    g1.genericExtractor(page, crawlerType, "General", domain, fileName)
+    g2.genericExtractor2(page, crawlerType, "General", domain, fileName)

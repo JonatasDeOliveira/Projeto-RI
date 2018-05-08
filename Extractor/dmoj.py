@@ -48,9 +48,6 @@ def dmoj(page, crawlerType, extractorType, domain, fileName):
         #Constraints
         if "Constraints" in bodyArray[i]:
             constraintsIndex = i
-        #Time Limit
-        if "time limit" in bodyArray[i].lower():
-            timeLimitIndex = i
     
     indexes = [startIndex, inputIndex, outputIndex, sampleIndex, notesIndex, constraintsIndex, endIndex, timeLimitIndex]
     indexes.sort()
