@@ -14,6 +14,7 @@ from os.path import isfile, join
 from sklearn import tree
 from sklearn.naive_bayes import MultinomialNB
 from sklearn import svm
+from sklearn.linear_model import LogisticRegression
 from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import StratifiedKFold
 from sklearn.neighbors import KNeighborsClassifier
@@ -49,7 +50,7 @@ def getTFFromPage(url):
     data = word_tokenize(data)
     
     for word in data:
-        word = ps.stem(word)
+        #word = ps.stem(word)
         if word.lower() not in stop_words and len(word)>3:
             tf[word.lower()] = tf.get(word.lower(),0)+1
     
@@ -233,7 +234,6 @@ def classifyDecisionTree(train_set_inst, train_set_clas, x):
     clf = tree.DecisionTreeClassifier()
     clf.fit(train_set_inst, train_set_clas)
     
-    #print(clf.feature_importances_)
     return clf.predict([x])
         
     
@@ -257,6 +257,12 @@ def classifyMLP(train_set_inst, train_set_clas, x):
 
 def classifyKNN(train_set_inst, train_set_clas, x):
     knn = KNeighborsClassifier(n_neighbors=1, weights='distance')
+    knn.fit(train_set_inst, train_set_clas)
+    
+    return knn.predict([x])
+
+def classifyLogisticRegression(train_set_inst, train_set_clas, x):
+    knn = LogisticRegression()
     knn.fit(train_set_inst, train_set_clas)
     
     return knn.predict([x])
