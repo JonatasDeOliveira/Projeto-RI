@@ -3,6 +3,7 @@ from urllib.request import Request, urlopen
 from selenium import webdriver
 from reppy.robots import Robots
 from reppy.cache import RobotsCache
+from Classifier.classifier import Classifier
 import re
 import requests
 import queue
@@ -20,12 +21,10 @@ def get_all_links(domain, pathTotal, maxSize, rp):
     #response = requests.get(domain+path, headers={'User-Agent': 'Mozilla/5.0'})
     driver = webdriver.PhantomJS( service_args=['--ignore-ssl-errors=true', '--ssl-protocol=any'])
     driver.get(pathTotal)
-    print(1)
     soup = BeautifulSoup(driver.page_source, "html.parser")
     driver.service.process.send_signal(signal.SIGTERM)
     links = []
     for link in soup.findAll('a', href=True):
-        print(link)
         regex = re.compile(
             r'^(?:http|ftp)s?://' # http:// or https://
             r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|' #domain...
@@ -73,7 +72,7 @@ def crawler(domain, pathseed, maxSize = 1000):
     pq.put((value(domain+pathseed),domain+pathseed))
     visited.append(domain+pathseed)
     rp = Robots.fetch(domain+'/robots.txt',verify=False)
-    while(not pq.empty() and pq.qsize()<maxSize):
+    while(not pq.empty() and pq.qsize()<maxSize*2):
         a = pq.get()[1]
         print("! " + str(len(links)) + " " + a)
         if(len(links) < maxSize):
@@ -88,20 +87,29 @@ def crawler(domain, pathseed, maxSize = 1000):
                 pq.get()
     while(len(links)<maxSize and not pq.empty()):
         links.append(pq.get()[1])
-    os.makedirs('Docs/HTMLPages/Heuristic/'+folder(domain)+'/', exist_ok=True)
+    os.makedirs('Docs/HTMLPages/Heuristic/'+folder(domain)+'/True/', exist_ok=True)
+    os.makedirs('Docs/HTMLPages/Heuristic/'+folder(domain)+'/False/', exist_ok=True)
     print(len(links))
     v = 0
-    '''
+    clf = Classifier()
+    pos = 0
+    res = ""
     for l in links:
         v += 1
-        print(str(v)+ " "+l)
         driver = webdriver.PhantomJS( service_args=['--ignore-ssl-errors=true', '--ssl-protocol=any'])
         driver.get(l)
+        soup = BeautifulSoup(driver.page_source, "html.parser")
+        res =  str(clf.classify(soup))
+        print(str(v)+ " "+l + " "+ res)
         #print(driver.page_source)
-        with open('Docs/HTMLPages/Heuristic/'+folder(domain)+'/'+str(v) +'-'+l.replace('/','*')+'.html', 'wb') as f:
+        if(res == 'True'):
+            pos += 1
+        with open('Docs/HTMLPages/Heuristic/'+folder(domain)+'/'+res+'/'+str(v) +'-'+l.replace('/','*')+'.html', 'wb') as f:
             f.write(bytes(driver.page_source,'UTF-8'))
         driver.service.process.send_signal(signal.SIGTERM) 
-    '''
+    hr = pos/maxSize
+    with open('Docs/HTMLPages/Heuristic/'+folder(domain)+'/'+'hr.txt', 'wb') as f:
+        f.write(bytes(str(hr),'UTF-8'))
     return 0
 
 
@@ -132,9 +140,9 @@ def value(link):
         elif('problemset' in link and ('tag' in link or 'page' in link)):
             return 2
         elif('problemset' in link):
-            return 3
+            return 2
         else:
-            return 4
+            return 3
     if('http://www.spoj.com' in link):
         if('problems' in link and ('tag' in link or 'classical' in link)):
             return 2
@@ -143,14 +151,16 @@ def value(link):
         else:
             return 3
     if('https://dmoj.ca' in link):
-        if('problems' in link):
+        if('rank' in link or 'submissions' in link or 'submit' in link or 'comment' in link or 'login' in link or 'register' in link or 'user' in link or 'contest' in link):
+            return 4
+        elif('problems' in link):
             return 2
         elif('problem' in link):
             return 1
         else:
             return 3
     if('https://wcipeg.com' in link):
-        if('login' in link):
+        if('login' in link or 'announcement' in link or 'comment' in link or 'auth' in link or 'main' in link or 'organizations' in link or 'user' in link or 'submissions' in link or 'submit' in link or 'comment' in link or 'search' in link):
             return 4
         elif('problems' in link):
             return 2
@@ -159,7 +169,9 @@ def value(link):
         else:
             return 3
     if('http://acm.timus.ru' in link):
-        if('problemset' in link):
+        if('locale' in link or 'sort' in link):
+            return 4
+        elif('problemset' in link):
             return 2
         elif('problem' in link):
             return 1
@@ -177,7 +189,7 @@ def value(link):
     if('https://leetcode.com' in link):
         if('problemset' in link):
             return 2
-        elif('problems' in link and 'description' in link):
+        elif('problems' in link and 'description' not in link and 'hints' not in link and 'submissions' not in link and 'discuss' not in link and 'solution' not in link):
             return 1
         else:
             return 3
@@ -203,7 +215,7 @@ def value(link):
 #crawler('https://a2oj.com','')
 ##crawler('https://www.codechef.com','')
 #crawler('http://www.spoj.com','')
-crawler('https://dmoj.ca','')
-#crawler('http://acm.timus.ru','')
-##crawler('https://www.urionlinejudge.com.br','')
-#crawler('https://leetcode.com','')
+#crawler('https://dmoj.ca','')
+crawler('http://acm.timus.ru','')
+#crawler('https://www.urionlinejudge.com.br','')
+crawler('https://leetcode.com','')

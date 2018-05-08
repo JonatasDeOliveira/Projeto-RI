@@ -74,7 +74,7 @@ def crawler(domain, pathseed, maxSize = 10):
     rp = Robots.fetch(domain+'/robots.txt',verify=False)
     while(not q.empty() and q.qsize()<maxSize):
         a = q.get()
-        print("! " + str(len(links)))
+        print("! " + str(len(links)) + " " + a)
         if(len(links) < maxSize):
             links.append(a)
             ls = get_all_links(domain, a, maxSize, rp)
@@ -87,22 +87,30 @@ def crawler(domain, pathseed, maxSize = 10):
                 q.get()
     while(len(links)<maxSize and not q.empty()):
         links.append(q.get())
-    os.makedirs('Docs/HTMLPages/BFS/'+folder(domain)+'/', exist_ok=True)
+    os.makedirs('Docs/HTMLPages/BFS/'+folder(domain)+'/True/', exist_ok=True)
+    os.makedirs('Docs/HTMLPages/BFS/'+folder(domain)+'/False/', exist_ok=True)
     print(len(links))
     v = 0
     clf = Classifier()
+    pos = 0
+    res = ""
     for l in links:
         v += 1
         driver = webdriver.PhantomJS( service_args=['--ignore-ssl-errors=true', '--ssl-protocol=any'])
         driver.get(l)
         soup = BeautifulSoup(driver.page_source, "html.parser")
-        print(str(v)+ " "+l + " "+ clf.classify(soup))
-        '''
-        with open('Docs/HTMLPages/BFS/'+folder(domain)+'/'+str(v) +'-'+l.replace('/','*')+'.html', 'wb') as f:
+        res =  str(clf.classify(soup))
+        print(str(v)+ " "+l + " "+ res)
+        #print(driver.page_source)
+        if(res == 'True'):
+            pos += 1
+        with open('Docs/HTMLPages/BFS/'+folder(domain)+'/'+res+'/'+str(v) +'-'+l.replace('/','*')+'.html', 'wb') as f:
             f.write(bytes(driver.page_source,'UTF-8'))
-        '''
         driver.service.process.send_signal(signal.SIGTERM) 
-        
+        driver.service.process.send_signal(signal.SIGTERM) 
+    hr = pos/maxSize
+    with open('Docs/HTMLPages/BFS/'+folder(domain)+'/'+'hr.txt', 'wb') as f:
+        f.write(bytes(str(hr),'UTF-8'))
     return 0
 
 
