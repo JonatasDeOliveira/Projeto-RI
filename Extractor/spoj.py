@@ -28,7 +28,7 @@ def spoj(page, crawlerType, extractorType, domain, fileName):
     elementTitle = "Description"
     elementContent = ""
     for element in problemArray:
-        if (element == "Input") or (element == "Output") or (element == "Example") or (element == "Information"):
+        if (element == "Input") or (element == "Output") or (element == "Example"):
             data[elementTitle] = elementContent[:-1]
             elementTitle = element
             elementContent = ""
