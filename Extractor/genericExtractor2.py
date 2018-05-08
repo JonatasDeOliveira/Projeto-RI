@@ -113,6 +113,11 @@ def genericExtractor2(page, crawlerType, extractorType, domain, fileName):
     indexes.sort()
     data = {}
     
+    title = page.title
+    problemName = title.text
+    
+    data["Title"] = problemName
+    
     for i in range(len(indexes)):
         if indexes[i] == -1:
             continue

@@ -11,7 +11,10 @@ def wcipeg(page, crawlerType, extractorType, domain, fileName):
     
     data = {}
     
-    problemName = problem.h2.text
+    title = page.title
+    title = title.text
+    titleArray = title.split("- ")
+    problemName = titleArray[1]
     
     #contents
     elements = problem.findAll(["h3", "p", "pre", "li"])

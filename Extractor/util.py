@@ -75,16 +75,8 @@ def writeToJSON(crawlerType, extractorType, domain, fileName, data):
     
     exist = os.path.isfile(file) 
     if exist:
-        with open(file) as f:
-            updateJson = json.load(f)
-            
-        updateJson.update(data)
-        
-        with open(file, 'w') as f:
-            f.write(json.dumps(updateJson, indent=2))
+        with open(file, 'a') as f:
+            f.write(json.dumps(data, indent=2))
     else:
         with open(file, 'w') as f:
             f.write(json.dumps(data, indent=2))
-
-
-    
