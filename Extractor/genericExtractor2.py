@@ -13,8 +13,6 @@ def genericExtractor2(page, crawlerType, extractorType, domain, fileName):
     #page = BeautifulSoup(driver.page_source, "html.parser")
     #driver.service.process.send_signal(signal.SIGTERM)
     
-    fileName = fileName+"-g2"
-    
     mapList = {}
     
     def walker(soup):
