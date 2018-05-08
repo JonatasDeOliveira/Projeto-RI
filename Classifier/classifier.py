@@ -18,7 +18,7 @@ class Classifier:
         
     
     def getIDF(self):
-        with open('idf.json') as data_file:    
+        with open('Classifier/idf.json') as data_file:    
             data = json.load(data_file)
         return data
     
@@ -37,8 +37,8 @@ class Classifier:
                 self.features.append(self.features_names[i])
         
     def getTrainData(self, keys):
-        pos_path = "positive_docs/"
-        neg_path = "negative_docs/"
+        pos_path = "Classifier/positive_docs/"
+        neg_path = "Classifier/negative_docs/"
         positive_files = [f for f in listdir(pos_path) if isfile(join(pos_path, f))]
         negative_files = [f for f in listdir(neg_path) if isfile(join(neg_path, f))]
         
