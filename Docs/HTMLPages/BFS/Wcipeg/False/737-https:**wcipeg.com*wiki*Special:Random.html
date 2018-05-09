@@ -1,0 +1,343 @@
+<!DOCTYPE html><html lang="en" dir="ltr" class="client-js"><head>
+<meta charset="UTF-8">
+<title>Binary search - PEGWiki</title>
+<meta name="generator" content="MediaWiki 1.25.2">
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/wiki/index.php?title=Binary_search&amp;action=edit">
+<link rel="edit" title="Edit" href="/wiki/index.php?title=Binary_search&amp;action=edit">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="/wiki/opensearch_desc.php" title="PEGWiki (en)">
+<link rel="EditURI" type="application/rsd+xml" href="https://wcipeg.com/wiki/api.php?action=rsd">
+<link rel="alternate" hreflang="x-default" href="/wiki/Binary_search">
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/">
+<link rel="alternate" type="application/atom+xml" title="PEGWiki Atom feed" href="/wiki/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=ext.geshi.language.c%7Cext.math.styles%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*">
+<style>
+.mw-collapsible-toggle{float:right;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}  .mw-content-ltr .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr .mw-collapsible-toggle{float:right} .mw-content-rtl .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl .mw-collapsible-toggle{float:left}.mw-customtoggle,.mw-collapsible-toggle{cursor:pointer} caption .mw-collapsible-toggle,.mw-content-ltr caption .mw-collapsible-toggle,.mw-content-rtl caption .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr caption .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl caption .mw-collapsible-toggle{float:none} li .mw-collapsible-toggle,.mw-content-ltr li .mw-collapsible-toggle,.mw-content-rtl li .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr li .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:e1ffd603cbaaa5f1a36e0d13fe843535 */
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:none;z-index:1099;padding:0;margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#4C59A6;color:white}.suggestions-special .special-label{color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white}.highlight{font-weight:bold}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:f8d0c6895ce3ae14434c16b8fca59432 */
+.postedit-container{margin:0 auto;position:fixed;top:0;height:0;left:50%;z-index:1000;font-size:13px}.postedit-container:hover{cursor:pointer}.postedit{position:relative;top:0.6em;left:-50%;padding:.6em 3.6em .6em 1.1em;line-height:1.5625em;color:#626465;background-color:#f4f4f4;border:1px solid #dcd9d9;text-shadow:0 0.0625em 0 rgba(255,255,255,0.5);border-radius:5px;box-shadow:0 2px 5px 0 #ccc;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;-ms-transition:all 0.25s ease-in-out;-o-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out}.skin-monobook .postedit{top:6em !important}.postedit-faded{opacity:0}.postedit-icon{padding-left:41px;  line-height:25px;background-repeat:no-repeat;background-position:8px 50%}.postedit-icon-checkmark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABblBMVEUAAAD///////9PfTf///80aRdTgjn///9Feij///////////9Rfzf///////////9PfjZRgDh1o1xOfTb///////+bwYqLtnj///////9PfTa82K////9WhT6YxIL///9QgDdTgzr////////j7uDl7eLq8efi693k7OH///////9UhjuBr2rp9uRUhjr///9YljVKgir///9WiTlYjT3////9/v57vFlbkT5PjC9dlD/5/fhuq09stUTs9uhxuElctCpfnT1huDFloEZloUZmpENmvDZpvDxpvTxqvjxrvT5rvT9rwTxsqktswD5uwkBvuUdxw0NztFBztU9ztVBzwkp0tlJ1xkd2t1R3uVR4w1F4xk54x014yE15uVZ5v1R5xVB6v1R7yFJ8wVh9xVl9yFR9yVd9ylN+xVh+yFd/x1l/yFeAylmEx1+Ny2uY0Hqe04Wj1Ymv3Ze33qLD47TJ5L3O6cPU7Mrq9eb2+/Q4j37OAAAAQHRSTlMAAQIEBAUFBQwPFB4fJCUoKiosQEhJS01RUlZZXmdydXaChYuSlJSWmJmoq6uur8LExcvM19fg5ejt8fX2+Pr7SljgewAAAKpJREFUGBkFwQNCAwAAAMDLtl3LtrG4rWXbtvX77gAgZ6grFwC0bhwNVgKgdPZx8b0dgLi+s7Wn0VoAqpfOI9+BNADZI7fLrz2pSEwGHZuH+78lSK8ZLkLezF3ooyUG3VPXq2USei9WngeyoG195yBYWDF3E/2pAhl1e9Gr8bGT+bfOFCC2fnvh4X7rcqIAQNNu+HT6sxkAjceTL/2ZAIhv+PorBwBJxfkA//dFHSCBy/UTAAAAAElFTkSuQmCC);background-image:url(https://wcipeg.com/wiki/resources/src/mediawiki.action/images/green-checkmark.png?2015-08-10T21:21:40Z)!ie;background-position:left}.postedit-close{position:absolute;padding:0 .8em;right:0;top:0;font-size:1.25em;font-weight:bold;line-height:2.3em;color:black;text-shadow:0 0.0625em 0 white;text-decoration:none;opacity:0.2;filter:alpha(opacity=20)}.postedit-close:hover{color:black;text-decoration:none;opacity:0.4;filter:alpha(opacity=40)}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:86d7c89b7cadf5004340279c398253d8 */</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:black;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:white}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:ae3fa4570b5ac0c6cf7b3776c8ae4d6f */</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*">
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:b36fd1c042133c9c9b60260f7c29b237 */</style>
+<script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script><script src="/wiki/load.php?debug=false&amp;lang=en&amp;modules=jquery%2Cmediawiki&amp;only=scripts&amp;skin=vector&amp;version=20161103T112730Z"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Binary_search","wgTitle":"Binary search","wgCurRevisionId":2034,"wgRevisionId":2034,"wgArticleId":430,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Binary_search","wgRelevantArticleId":430,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikidb:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script><script src="/wiki/load.php?debug=false&amp;lang=en&amp;modules=jquery.accessKeyLabel%2Cclient%2CmwExtension%2CtabIndex%2Cthrottle-debounce%7Cmediawiki.legacy.ajax%2Cwikibits%7Cmediawiki.notify%2Cutil%7Cmediawiki.page.startup%7Cskins.vector.js&amp;skin=vector&amp;version=20161103T112730Z&amp;*"></script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Binary_search skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Binary search</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From PEGWiki</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p><b>Binary search</b> is the term used in computer science for the discrete version of the <i>bisection method</i>, in which given a monotone function <img class="mwe-math-fallback-image-inline tex" alt="f" src="/wiki/images/math/8/f/a/8fa14cdd754f91cc6554c9e71929cce7.png"> over a discrete interval <img class="mwe-math-fallback-image-inline tex" alt="I" src="/wiki/images/math/d/d/7/dd7536794b63bf90eccfd37f9b147d7f.png"> and a target value <img class="mwe-math-fallback-image-inline tex" alt="c" src="/wiki/images/math/4/a/8/4a8a08f09d37b73795649038408b5f33.png"> one wishes to find <img class="mwe-math-fallback-image-inline tex" alt="x \in I" src="/wiki/images/math/4/c/9/4c9c87596617d4ae7469d6cb8ff133ea.png"> for which <img class="mwe-math-fallback-image-inline tex" alt="f(x) \approx c" src="/wiki/images/math/9/8/f/98f92df72e640da775cc9d9f6b7df899.png">. It is most often used to locate a value in a sorted <a href="/wiki/Array" title="Array">array</a>. The term may also be used for the continuous version.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="#" id="togglelink">hide</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Informal_introduction:_the_guessing_game"><span class="tocnumber">1</span> <span class="toctext">Informal introduction: the guessing game</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Finding_an_element_in_an_array"><span class="tocnumber">2</span> <span class="toctext">Finding an element in an array</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Implementation"><span class="tocnumber">2.1</span> <span class="toctext">Implementation</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Proof_of_correctness"><span class="tocnumber">2.2</span> <span class="toctext">Proof of correctness</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Possible_bugs"><span class="tocnumber">2.3</span> <span class="toctext">Possible bugs</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Inverse_function_computation"><span class="tocnumber">3</span> <span class="toctext">Inverse function computation</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Continuous"><span class="tocnumber">4</span> <span class="toctext">Continuous</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Problems"><span class="tocnumber">5</span> <span class="toctext">Problems</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Informal_introduction:_the_guessing_game">Informal introduction: the guessing game</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binary_search&amp;action=edit&amp;section=1" title="Edit section: Informal introduction: the guessing game">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In the <i>number guessing game</i>, there are two players, Alice and Bob. Alice announces that she has thought of an integer between 1 and 100 (inclusive), and challenges Bob to guess it. Bob may guess any number from 1 to 100, and Alice will tell him whether his guess is correct; if it is not correct, she will tell him (truthfully) either that her number is higher than his guess, or that it is lower.
+</p><p>One possible strategy that Bob can employ that guarantees he will eventually win is simply guessing every integer from 1 to 100 in turn. First Bob says "1" and (for example) Alice replies "Higher". Then Bob says "2" and again Alice replies "Higher", and so on. Eventually Bob says "40" and Alice says "Correct", and the game is over. While this strategy is simple and correct, it may require up to 100 guesses to finish the game.
+</p><p>However, there is a much cleverer strategy. Initially, Bob knows the number lies somewhere between 1 and 100. He guesses a number close to the <i>middle</i> of this range; say, 50. Alice replies, "Lower". Now Bob knows the number lies in the range 1 to 49, so again he picks a number close to the middle of the range, say, 25. Alice replies, "Higher", and the range has now been narrowed to 26 to 49. In this way, in every step, Bob will narrow the range to half its previous size. Eventually, either Bob will guess the number correctly, or there will only be one number left in the range, which must be Alice's number. Furthermore, this strategy will take at most 7 steps, because 100 halved 7 times is less than one. In general, the number of steps it takes Bob to find an integer between 1 and <img class="mwe-math-fallback-image-inline tex" alt="N" src="/wiki/images/math/8/d/9/8d9c307cb7f3c4a32822a51922d1ceaa.png"> is at most about <img class="mwe-math-fallback-image-inline tex" alt="\log_2 N" src="/wiki/images/math/f/e/3/fe36608d3d8dfe2525f5b9b13b3f8d4a.png">, whereas the naive "linear search" strategy introduced earlier may require up to <img class="mwe-math-fallback-image-inline tex" alt="N" src="/wiki/images/math/8/d/9/8d9c307cb7f3c4a32822a51922d1ceaa.png"> steps. We see that the <i>bisection strategy</i>, or <i>binary search</i>, is a vast improvement over the linear search.
+</p><p>Furthermore, binary search is the <i>best possible strategy</i> at Bob's disposal. This is because Bob asks a series of questions and gets a reply of "Higher" or "Lower" to each one except the last (which is always "Correct"), and based on this information alone must determine the number; so the total number of possible answers that Bob can determine is at most the number of such sequences, which is approximately <img class="mwe-math-fallback-image-inline tex" alt="2^N" src="/wiki/images/math/5/1/a/51a00a634fd5e0ad8b398a5d65c9cd6d.png"> if the length is limited to <img class="mwe-math-fallback-image-inline tex" alt="N" src="/wiki/images/math/8/d/9/8d9c307cb7f3c4a32822a51922d1ceaa.png"> questions; so no strategy that asks less than <img class="mwe-math-fallback-image-inline tex" alt="\log_2 N" src="/wiki/images/math/f/e/3/fe36608d3d8dfe2525f5b9b13b3f8d4a.png"> questions can guarantee being able to guess all possible <img class="mwe-math-fallback-image-inline tex" alt="N" src="/wiki/images/math/8/d/9/8d9c307cb7f3c4a32822a51922d1ceaa.png"> answers.
+</p>
+<h2><span class="mw-headline" id="Finding_an_element_in_an_array">Finding an element in an array</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binary_search&amp;action=edit&amp;section=2" title="Edit section: Finding an element in an array">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In the most commonly encountered variation of binary search, we are given a zero-indexed <a href="/wiki/Array" title="Array">array</a> <img class="mwe-math-fallback-image-inline tex" alt="A" src="/wiki/images/math/7/f/c/7fc56270e7a70fa81a5935b72eacbe29.png"> of size <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png"> that is sorted in ascending order, along with some value <img class="mwe-math-fallback-image-inline tex" alt="c" src="/wiki/images/math/4/a/8/4a8a08f09d37b73795649038408b5f33.png">. There are two slightly different variations on what we wish to do:
+</p>
+<ul><li> <i>Lower bound</i>: Here are two equivalent formulations:</li></ul>
+<dl><dd><ol><li> Find the <i>first</i> index into <img class="mwe-math-fallback-image-inline tex" alt="A" src="/wiki/images/math/7/f/c/7fc56270e7a70fa81a5935b72eacbe29.png"> where we could insert a new element of value <img class="mwe-math-fallback-image-inline tex" alt="c" src="/wiki/images/math/4/a/8/4a8a08f09d37b73795649038408b5f33.png"> without violating the ascending order.</li>
+<li> If there is an element in <img class="mwe-math-fallback-image-inline tex" alt="A" src="/wiki/images/math/7/f/c/7fc56270e7a70fa81a5935b72eacbe29.png"> with value greater than <i>or equal to</i> <img class="mwe-math-fallback-image-inline tex" alt="c" src="/wiki/images/math/4/a/8/4a8a08f09d37b73795649038408b5f33.png">, return the index of the first such element; otherwise, return <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png">. In other words, return <img class="mwe-math-fallback-image-inline tex" alt="\min\{i\,|\,A_i \geq c\}" src="/wiki/images/math/8/6/0/86079baa7c4827c2fd401b47120886a9.png">, or <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png"> if that set is empty.</li></ol></dd></dl>
+<ul><li> <i>Upper bound</i>:</li></ul>
+<dl><dd><ol><li> Find the <i>last</i> index into <img class="mwe-math-fallback-image-inline tex" alt="A" src="/wiki/images/math/7/f/c/7fc56270e7a70fa81a5935b72eacbe29.png"> where we could insert a new element of value <img class="mwe-math-fallback-image-inline tex" alt="c" src="/wiki/images/math/4/a/8/4a8a08f09d37b73795649038408b5f33.png"> without violating the ascending order.</li>
+<li> If there is an element in <img class="mwe-math-fallback-image-inline tex" alt="A" src="/wiki/images/math/7/f/c/7fc56270e7a70fa81a5935b72eacbe29.png"> with value <i>strictly</i> greater than to <img class="mwe-math-fallback-image-inline tex" alt="c" src="/wiki/images/math/4/a/8/4a8a08f09d37b73795649038408b5f33.png">, return the index of the first such element; otherwise, return <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png">. In other words, return <img class="mwe-math-fallback-image-inline tex" alt="\min\{i\,|\,A_i &gt; c\}" src="/wiki/images/math/6/8/d/68d1f1133b651e6034b8fb0ac0824c80.png">, or <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png"> if that set is empty.</li></ol></dd></dl>
+<p>The following properties then hold:
+</p>
+<ul><li> If there is no <img class="mwe-math-fallback-image-inline tex" alt="i" src="/wiki/images/math/8/6/5/865c0c0b4ab0e063e5caa3387c1a8741.png"> such that <img class="mwe-math-fallback-image-inline tex" alt="A_i = c" src="/wiki/images/math/e/b/1/eb147e611929ba893eaa288e310f19db.png">, then the lower bound and upper bound will be the same; they will both point to the first element in <img class="mwe-math-fallback-image-inline tex" alt="A" src="/wiki/images/math/7/f/c/7fc56270e7a70fa81a5935b72eacbe29.png"> that is greater than <img class="mwe-math-fallback-image-inline tex" alt="c" src="/wiki/images/math/4/a/8/4a8a08f09d37b73795649038408b5f33.png">.</li></ul>
+<dl><dd><ul><li> If <img class="mwe-math-fallback-image-inline tex" alt="c" src="/wiki/images/math/4/a/8/4a8a08f09d37b73795649038408b5f33.png"> is larger than all elements in <img class="mwe-math-fallback-image-inline tex" alt="A" src="/wiki/images/math/7/f/c/7fc56270e7a70fa81a5935b72eacbe29.png">, then the lower and upper bounds will both be <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png">.</li></ul></dd></dl>
+<ul><li> If there is at least one element <img class="mwe-math-fallback-image-inline tex" alt="A" src="/wiki/images/math/7/f/c/7fc56270e7a70fa81a5935b72eacbe29.png"> with value <img class="mwe-math-fallback-image-inline tex" alt="c" src="/wiki/images/math/4/a/8/4a8a08f09d37b73795649038408b5f33.png">, then the lower bound will be the index of the <i>first</i> such element, and the upper bound will be the index of the element <i>just after the last</i> such element. Hence [lower bound, upper bound) is a <a href="/wiki/Half-open_interval" title="Half-open interval">half-open interval</a> that represents the range of indices into <img class="mwe-math-fallback-image-inline tex" alt="A" src="/wiki/images/math/7/f/c/7fc56270e7a70fa81a5935b72eacbe29.png"> that refer to elements with value <img class="mwe-math-fallback-image-inline tex" alt="c" src="/wiki/images/math/4/a/8/4a8a08f09d37b73795649038408b5f33.png">.</li>
+<li> The element immediately preceding the lower bound is the last element with value less than <img class="mwe-math-fallback-image-inline tex" alt="c" src="/wiki/images/math/4/a/8/4a8a08f09d37b73795649038408b5f33.png">, if this exists, or the hypothetical element at index -1, otherwise.</li>
+<li> The element immediately preceding the upper bound is the last element with value less than or equal to <img class="mwe-math-fallback-image-inline tex" alt="c" src="/wiki/images/math/4/a/8/4a8a08f09d37b73795649038408b5f33.png">, if this exists, or the hypothetical element at index -1, otherwise.</li></ul>
+<p>Of course, sometimes you only care whether the <i>exact</i> value <img class="mwe-math-fallback-image-inline tex" alt="c" src="/wiki/images/math/4/a/8/4a8a08f09d37b73795649038408b5f33.png"> you are seeking can be found in the array at all; but this is just a special case of lower bound.
+</p><p>Both lower bound and upper bound can easily be found by iterating through the array from beginning to end, which takes <img class="mwe-math-fallback-image-inline tex" alt="O(n)" src="/wiki/images/math/7/b/a/7ba55e7c64a9405a0b39a1107e90ca94.png"> comparisons and hence <img class="mwe-math-fallback-image-inline tex" alt="O(n)" src="/wiki/images/math/7/b/a/7ba55e7c64a9405a0b39a1107e90ca94.png"> time if the elements of the array are simple scalar variables that take <img class="mwe-math-fallback-image-inline tex" alt="O(1)" src="/wiki/images/math/5/e/0/5e079a28737d5dd019a3b8f6133ee55e.png"> time to compare. However, because the array is sorted, we can do better than this. We begin with the knowledge that the element we seek might be anywhere in the array, or it could be "just past the end". Now, examine an element near the centre of the array. If this is less than the element we seek, we know the element we seek must be in the second half of the array. If it is greater, we know the element we seek must be in the first half. Thus, by making one comparison, we cut the range under consideration into half. It follows that after <img class="mwe-math-fallback-image-inline tex" alt="O(\log n)" src="/wiki/images/math/0/c/a/0ca47d9a481af371d1210a620c1945db.png"> comparisons, we will be able to locate either the upper bound or the lower bound as we desire.
+</p>
+<h3><span class="mw-headline" id="Implementation">Implementation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binary_search&amp;action=edit&amp;section=3" title="Edit section: Implementation">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>However, implementation tends to be tricky, and even experienced programmers can introduce bugs when writing binary search. Correct reference implementations are given below in C:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="coMULTI">/* n is the size of the int[] array A. */</span>
+<span class="kw4">int</span> lower_bound<span class="br0">(</span><span class="kw4">int</span> A<span class="br0">[</span><span class="br0">]</span><span class="sy0">,</span> <span class="kw4">int</span> n<span class="sy0">,</span> <span class="kw4">int</span> c<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">int</span> l <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span>
+    <span class="kw4">int</span> r <span class="sy0">=</span> n<span class="sy0">;</span>
+    <span class="kw1">while</span> <span class="br0">(</span>l <span class="sy0">&lt;</span> r<span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw4">int</span> m <span class="sy0">=</span> <span class="br0">(</span>l<span class="sy0">+</span>r<span class="br0">)</span><span class="sy0">/</span><span class="nu0">2</span><span class="sy0">;</span>     <span class="coMULTI">/* Rounds toward zero. */</span>
+        <span class="kw1">if</span> <span class="br0">(</span>A<span class="br0">[</span>m<span class="br0">]</span> <span class="sy0">&lt;</span> c<span class="br0">)</span>
+            l <span class="sy0">=</span> m<span class="sy0">+</span><span class="nu0">1</span><span class="sy0">;</span>
+        <span class="kw1">else</span>
+            r <span class="sy0">=</span> m<span class="sy0">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">return</span> l<span class="sy0">;</span>
+<span class="br0">}</span>
+&nbsp;
+<span class="kw4">int</span> upper_bound<span class="br0">(</span><span class="kw4">int</span> A<span class="br0">[</span><span class="br0">]</span><span class="sy0">,</span> <span class="kw4">int</span> n<span class="sy0">,</span> <span class="kw4">int</span> c<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">int</span> l <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span>
+    <span class="kw4">int</span> r <span class="sy0">=</span> n<span class="sy0">;</span>
+    <span class="kw1">while</span> <span class="br0">(</span>l <span class="sy0">&lt;</span> r<span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw4">int</span> m <span class="sy0">=</span> <span class="br0">(</span>l<span class="sy0">+</span>r<span class="br0">)</span><span class="sy0">/</span><span class="nu0">2</span><span class="sy0">;</span>
+        <span class="kw1">if</span> <span class="br0">(</span>A<span class="br0">[</span>m<span class="br0">]</span> <span class="sy0">&lt;=</span> c<span class="br0">)</span>       <span class="coMULTI">/* Note use of &lt;= instead of &lt;. */</span>
+            l <span class="sy0">=</span> m<span class="sy0">+</span><span class="nu0">1</span><span class="sy0">;</span>
+        <span class="kw1">else</span>
+            r <span class="sy0">=</span> m<span class="sy0">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">return</span> l<span class="sy0">;</span>
+<span class="br0">}</span></pre></div></div>
+<h3><span class="mw-headline" id="Proof_of_correctness">Proof of correctness</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binary_search&amp;action=edit&amp;section=4" title="Edit section: Proof of correctness">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>We prove that <code>lower_bound</code> above is correct. The proof for <code>upper_bound</code> is very similar.
+</p><p>We claim the invariant that, immediately before and after each iteration of the <code>while</code> loop:
+</p>
+<ol><li> The index we are seeking is at least <code>l</code>.</li>
+<li> The index we are seeking is at most <code>r</code>.</li></ol>
+<p>This is certainly true immediately before the first iteration of the loop, where <code>l = 0</code> and <code>r = n</code>. Now we claim that if it is true before a given iteration of the loop, it will be true after that iteration, which, by induction, implies our claim. First, the value <code>m</code> will be exactly the arithmetic mean of <code>l</code> and <code>r</code>, if their sum is even, or it will be 0.5 less than the mean, if their sum is odd, since <code>m</code> is computed as the arithmetic mean rounded down. This implies that, in any given iteration of the loop, <code>m</code>'s initial value will be at least <code>l</code>, and strictly less than <code>r</code>. Now:
+</p>
+<ul><li> <i>Case 1</i>: <code>A[m] &lt; c</code>. This means that no element with index between <code>l</code> and <code>m</code>, inclusive, can be greater than <code>c</code>, because the array is sorted. But because we know that such an element exists (or that it is the hypothetical element just past the end of the array) in the current range delineated by indices <code>l</code> and <code>r</code>, we conclude that it must be in the second half of the range with indices from <code>m+1</code> to <code>r</code>, inclusive. In this case we set <code>l = m+1</code> and at the end of the loop the invariant is again satisfied. This is guaranteed to increase the value of <code>l</code>, since <code>m</code> starts out with value at least <code>l</code>. It also does not increase <code>l</code> beyond <code>r</code>, since <code>m</code> is initially strictly less than <code>r</code>.</li>
+<li> <i>Case 2</i>: <code>A[m] &gt;= c</code>. This means that there exists an element with index between <code>l</code> and <code>m</code>, inclusive, which is at least <code>c</code>. This implies that the first such element is somewhere in this half of the range, because the array is sorted. Therefore, after setting <code>r = m</code>, the range of indices between <code>l</code> and <code>r</code>, inclusive, will still contain the index we are seeking, and hence the invariant is again satisfied. This is guaranteed to decrease the value of <code>r</code>, since <code>m</code> starts out strictly less than <code>r</code>; it also will not decrease it beyond <code>l</code>, since <code>m</code> starts out at least as large as <code>l</code>.</li></ul>
+<p>Since each iteration of the loop either increases <code>l</code> or decreases <code>r</code>, the loop will eventually terminate with <code>l = r</code>. Since the invariant still holds, this unique common value must be the solution. <img class="mwe-math-fallback-image-inline tex" alt="_{\blacksquare}" src="/wiki/images/math/7/1/b/71bd29496761f73ac935924fd05288c3.png">
+</p><p>Carefully proving the <img class="mwe-math-fallback-image-inline tex" alt="O(\log n)" src="/wiki/images/math/0/c/a/0ca47d9a481af371d1210a620c1945db.png"> time bound and showing the correctness of <code>upper_bound</code> are left as exercises to the reader.
+</p>
+<h3><span class="mw-headline" id="Possible_bugs">Possible bugs</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binary_search&amp;action=edit&amp;section=5" title="Edit section: Possible bugs">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>As suggested below, the programmer has at least six opportunities to err.
+</p>
+<ol><li> Setting <code>r = n-1</code> initially. Doing this will prevent the value <code>n</code> from ever being returned, which renders the implementation correct whenever the answer is less than <code>n</code>, but incorrect whenever it is <code>n</code>. (It will simply return <code>n-1</code> in this case.)</li>
+<li> Using <code>while (l &lt;= r)</code> instead of <code>while (l &lt; r)</code>. This will always cause an infinite loop in which the <code>else</code> branch is taken in every subsequent iteration.</li>
+<li> Comparing <code>A[m]</code> with <code>c</code> in the wrong direction, that is, writing <code>A[m] &gt; c</code>, <code>A[m] &gt;= c</code>, <code>c &lt; A[m]</code>, or <code>c &lt;= A[m]</code>, or reversing the order of the two branches. This would not correspond to the theory, and would almost always given an incorrect result. Note that simultaneously logically negating the comparison and reversing the order of the branches, however, will not give an error, but will instead give logically equivalent code.</li>
+<li> Computing <code>m</code> as the ceiling of the arithmetic mean, instead of the floor. The obvious error condition here is that when <code>l == n-1</code> and <code>r == n</code>, the value of <code>m</code> computed will be <code>n</code>, and we will then attempt to examine a nonexistent element in the array, which could cause the program to crash.</li>
+<li> Setting <code>l = m</code> or <code>l = m-1</code> instead of <code>l = m+1</code>. Either variation lends itself to an error condition in which <code>m</code> comes out to be equal to either <code>l</code> or <code>l+1</code>, respectively, and the first branch is taken, which causes an infinite loop in which the first branch is <i>always</i> taken.</li>
+<li> Setting <code>r = m+1</code> or <code>r = m-1</code> instead of <code>r = m</code>. In the former case, we could have an infinite loop in which the second branch is always taken, if the difference between <code>l</code> and <code>r</code> is 1 or 2. In the latter case, it is possible for <code>r</code> to become less than <code>l</code>.</li></ol>
+<p>And, of course, one can easily mix up the <code>upper_bound</code> and <code>lower_bound</code> implementations, giving a seventh opportunity to err.
+</p><p>Additionally, if the array can be very large, then <code>m</code> should be computed as <code>l + (r-l)/2</code>, instead of <code>(l+r)/2</code>, in order to avoid possible arithmetic overflow.
+</p>
+<h2><span class="mw-headline" id="Inverse_function_computation">Inverse function computation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binary_search&amp;action=edit&amp;section=6" title="Edit section: Inverse function computation">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Both the number guessing game and the array search can be expressed as specific cases of the more general problem of <i>discrete inverse function computation</i>, hinted at in the lead section of this article.
+</p><p>We suppose:
+</p>
+<ol><li> We are given some (straightforward to compute) function <img class="mwe-math-fallback-image-inline tex" alt="f" src="/wiki/images/math/8/f/a/8fa14cdd754f91cc6554c9e71929cce7.png"> from a discrete <a href="/wiki/Totally_ordered" title="Totally ordered" class="mw-redirect">totally ordered</a> domain (such as the integers from the interval<img class="mwe-math-fallback-image-inline tex" alt="[0, n)" src="/wiki/images/math/4/3/f/43ffacbef977616d7cf6ef9473a6cdd3.png">) to any totally ordered codomain (such as the real numbers);</li>
+<li> <img class="mwe-math-fallback-image-inline tex" alt="f" src="/wiki/images/math/8/f/a/8fa14cdd754f91cc6554c9e71929cce7.png"> is a monotonically increasing function, so that <img class="mwe-math-fallback-image-inline tex" alt="a &gt; b" src="/wiki/images/math/4/6/f/46fa7900cc397f3a4b3fa2e72d6885e7.png"> implies <img class="mwe-math-fallback-image-inline tex" alt="f(a) \geq f(b)" src="/wiki/images/math/b/2/5/b25f1f61dd38fa82b1d1b245ec5615b6.png">;</li>
+<li> We are given some value <img class="mwe-math-fallback-image-inline tex" alt="c" src="/wiki/images/math/4/a/8/4a8a08f09d37b73795649038408b5f33.png"> in <img class="mwe-math-fallback-image-inline tex" alt="f" src="/wiki/images/math/8/f/a/8fa14cdd754f91cc6554c9e71929cce7.png">'s codomain. (On the other hand, <img class="mwe-math-fallback-image-inline tex" alt="c" src="/wiki/images/math/4/a/8/4a8a08f09d37b73795649038408b5f33.png"> may or may not be in <img class="mwe-math-fallback-image-inline tex" alt="f" src="/wiki/images/math/8/f/a/8fa14cdd754f91cc6554c9e71929cce7.png">'s <i>range</i>.)</li></ol>
+<p>Here,
+</p>
+<ul><li> The <i>lower bound</i> is the smallest argument <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> such that <img class="mwe-math-fallback-image-inline tex" alt="f(x) \geq c" src="/wiki/images/math/a/f/8/af891863116b63addc170a2b37de1f14.png">, if any exists.</li>
+<li> The <i>upper bound</i> is the smallest argument <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> such that <img class="mwe-math-fallback-image-inline tex" alt="f(x) &gt; c" src="/wiki/images/math/1/8/7/187ac027641731e14950e8e14c6c5b60.png">, if any exists.</li></ul>
+<p>Sometimes there is exactly one <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> such that <img class="mwe-math-fallback-image-inline tex" alt="f(x) = c" src="/wiki/images/math/6/d/8/6d8c318c91c61e04c68cb7aa0a5d671b.png">. This value can properly be denoted <img class="mwe-math-fallback-image-inline tex" alt="x = f^{-1}(c)" src="/wiki/images/math/8/a/b/8abbd1e50bb5169a55f3021acc8cc16e.png">; finding the value <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> is <i>computing the inverse</i> of <img class="mwe-math-fallback-image-inline tex" alt="f" src="/wiki/images/math/8/f/a/8fa14cdd754f91cc6554c9e71929cce7.png"> at <img class="mwe-math-fallback-image-inline tex" alt="c" src="/wiki/images/math/4/a/8/4a8a08f09d37b73795649038408b5f33.png">. Other times, there will be multiple such values, or there will only be <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> such that <img class="mwe-math-fallback-image-inline tex" alt="f(x) \approx c" src="/wiki/images/math/9/8/f/98f92df72e640da775cc9d9f6b7df899.png">; in any case, binary search will find these values for us.
+</p><p>The approach mirrors that of the previous two sections. Initially we only know that <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> lies somewhere in the domain of <img class="mwe-math-fallback-image-inline tex" alt="f" src="/wiki/images/math/8/f/a/8fa14cdd754f91cc6554c9e71929cce7.png">, so we guess a value that roughly splits this range in half; by evaluating <img class="mwe-math-fallback-image-inline tex" alt="f" src="/wiki/images/math/8/f/a/8fa14cdd754f91cc6554c9e71929cce7.png"> at this point and comparing the result with <img class="mwe-math-fallback-image-inline tex" alt="c" src="/wiki/images/math/4/a/8/4a8a08f09d37b73795649038408b5f33.png">, we can discard half the range and repeat as many times as necessary (about <img class="mwe-math-fallback-image-inline tex" alt="O(\log |D|)" src="/wiki/images/math/e/e/5/ee5d589a8e2aabff38a760558a4cb50e.png"> times, where <img class="mwe-math-fallback-image-inline tex" alt="D" src="/wiki/images/math/f/6/2/f623e75af30e62bbd73d6df5b50bb7b5.png"> is the domain).
+</p><p>The number guessing game is a special case of this version of the problem. One possible way to formulate it is that <img class="mwe-math-fallback-image-inline tex" alt="f:[0, n) \to \mathbb{Z}" src="/wiki/images/math/2/7/0/270fd9918fc275aaf3803a15ff7621f5.png"> is defined as <img class="mwe-math-fallback-image-inline tex" alt="f(x) = 0" src="/wiki/images/math/f/d/0/fd05d8d90456c441c8f10641bd8576bc.png"> for some <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> (the secret number), <img class="mwe-math-fallback-image-inline tex" alt="f(x) = -1" src="/wiki/images/math/d/6/f/d6ff6c28741bf13f661e44e6e107c871.png"> for all smaller numbers, and <img class="mwe-math-fallback-image-inline tex" alt="f(x) = 1" src="/wiki/images/math/5/4/6/546e912f7f43b2233ac97a4ecf33883e.png"> for all larger numbers; finding the secret number is just a matter of doing a binary search on <img class="mwe-math-fallback-image-inline tex" alt="c = 0" src="/wiki/images/math/6/3/3/633bff1fa0b2fabb9e12f0f4285e42cb.png">.
+</p><p>The array search problem is also a special case. Here we simply define <img class="mwe-math-fallback-image-inline tex" alt="f(x) = A_x" src="/wiki/images/math/1/b/e/1bec16d58069f675003b1b2f95b352d2.png">. In fact, the two problems are in some sense equivalent, in that a function with a discrete totally ordered domain is isomorphic to an array; the distinction will be lost in any programming language that implements both lazy evaluation and <a href="/wiki/Memoization" title="Memoization">memoization</a>.
+</p><p>More generally, binary search is often very useful for problems that read something like "find the maximum <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> such that <img class="mwe-math-fallback-image-inline tex" alt="P(x)" src="/wiki/images/math/c/1/9/c19f6b6a7bae1fd5b14f578c6edc3454.png">". For example, in <a rel="nofollow" class="external text" href="http://www.wcipeg.com/problem/ccc03s5">Trucking Troubles</a>, the problem essentially down to finding the maximum <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> such that the edges of the given graph of weight at least <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> span the graph. This problem can be solved using <a href="/wiki/Prim%27s_algorithm" title="Prim's algorithm">Prim's algorithm</a> to construct the "maximum spanning tree" (really, the minimum spanning tree using negated edge weights), but binary search provides a simpler approach. We know that <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> is somewhere in between the smallest edge weight in the graph and the largest edge weight in the graph, so we start by guessing a value roughly halfway in-between. Then we use <a href="/wiki/Depth-first_search" title="Depth-first search">depth-first search</a> to test whether the graph is connected using only the edges of weight greater than or equal to our guess value. If it is, then the true value of <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> is greater than or equal to our guess; if not, then it is less. This is then repeated as many times as necessary to determine the correct value of <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png">.
+</p><p>Binary search can also be used to find approximate solutions to equations. For example, suppose we have <img class="mwe-math-fallback-image-inline tex" alt="c" src="/wiki/images/math/4/a/8/4a8a08f09d37b73795649038408b5f33.png"> blocks, and we wish to use as many of them as possible to construct a square-based pyramid. A square-based pyramid has an apex consisting of a single block. The next layer under it is a 2 block by 2 block square (so 4 blocks in all), then there is a layer with 9 blocks, and so on down. How many layers can we construct using the blocks given?
+</p><p>It can be shown that there a square-based pyramid with <img class="mwe-math-fallback-image-inline tex" alt="n" src="/wiki/images/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png"> levels requires <img class="mwe-math-fallback-image-inline tex" alt="f(n) = \frac{1}{6}(2n^3 + 3n^2 + n)" src="/wiki/images/math/3/2/0/32044df36e4b5eb6da6bd336de5c18cc.png"> blocks. This polynomial is increasing on <img class="mwe-math-fallback-image-inline tex" alt="[0, \infty)" src="/wiki/images/math/b/1/4/b14ef532a91b6a826c93e81adefa66cd.png">. But of course as a trivial upper bound we cannot construct more that <img class="mwe-math-fallback-image-inline tex" alt="c" src="/wiki/images/math/4/a/8/4a8a08f09d37b73795649038408b5f33.png"> levels using <img class="mwe-math-fallback-image-inline tex" alt="c" src="/wiki/images/math/4/a/8/4a8a08f09d37b73795649038408b5f33.png"> blocks. So, by using binary search, we can find the maximum <img class="mwe-math-fallback-image-inline tex" alt="x \in [0, c)" src="/wiki/images/math/b/f/9/bf94e1ae8dbd5680b117d728abcfce59.png"> such that <img class="mwe-math-fallback-image-inline tex" alt="\frac{1}{6}(2x^3 + 3x^2 + x) \leq c" src="/wiki/images/math/8/5/c/85cb7c101e0e00014ba8e6bb68571ac7.png">. (More efficient solutions are accessible with higher mathematics.)
+</p>
+<h2><span class="mw-headline" id="Continuous">Continuous</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binary_search&amp;action=edit&amp;section=7" title="Edit section: Continuous">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The continuous version of the problem is like the number guessing game applied to real numbers: Alice thinks of a real number between 0 and 1, and Bob has to guess it. Bob begins by guessing 0.5, and so on. Clearly, in this case, no matter how many questions Bob asks, there will still be an infinite number of possibilities, though he can get greater and greater accuracy by asking more and more questions. (For example, after 10 questions, he might have narrowed down the range to (0.1015625, 0.1025390625)). However, in computer science, we are often satisfied if we can approximate the correct answer to arbitrary precision, rather than determine it exactly outright. (After all, the native real types of most microprocessors (see <a href="/wiki/IEEE_754" title="IEEE 754">IEEE 754</a>) can only store a fixed number of bits of precision, anyway.) Here, if, for example, Bob wants to determine Alice's number to an accuracy of one part in 10<sup>9</sup>, then he has to ask about 30 questions, because the length of the original interval is 1, and this must be reduced by a factor of 10<sup>9</sup>, which is about 2<sup>30</sup>. In general, the time taken will be approximately <img class="mwe-math-fallback-image-inline tex" alt="\log_2\frac{\ell}{\epsilon_a}" src="/wiki/images/math/3/2/2/322c3c6c15f5c31095c077abf0d7771e.png">, where <img class="mwe-math-fallback-image-inline tex" alt="\ell" src="/wiki/images/math/3/3/4/334ce9eb79df1178b0380461c9eaa09e.png"> is the length of the original interval and <img class="mwe-math-fallback-image-inline tex" alt="\epsilon_a" src="/wiki/images/math/5/b/8/5b87d6c3da0b52495a96235b2b73f921.png"> is the desired precision (expressed as absolute error).
+</p><p>More formally, we have a monotonically increasing function <img class="mwe-math-fallback-image-inline tex" alt="f:A \to B" src="/wiki/images/math/e/0/f/e0fcfcf1bc30612af09825187fbbad7d.png"> where <img class="mwe-math-fallback-image-inline tex" alt="A" src="/wiki/images/math/7/f/c/7fc56270e7a70fa81a5935b72eacbe29.png"> is usually an interval of the real line and <img class="mwe-math-fallback-image-inline tex" alt="B" src="/wiki/images/math/9/d/5/9d5ed678fe57bcca610140957afab571.png"> is some totally ordered set, and we know that there is some <img class="mwe-math-fallback-image-inline tex" alt="x_0 \in A" src="/wiki/images/math/7/f/c/7fcf11a89f2d4abe7ca429268c93d4ba.png"> such that <img class="mwe-math-fallback-image-inline tex" alt="f(x_0) = c \in B" src="/wiki/images/math/a/7/7/a77fa0511e07e729da964a4079b3c989.png">. (Such a guarantee can be provided by the intermediate value theorem, if <img class="mwe-math-fallback-image-inline tex" alt="f" src="/wiki/images/math/8/f/a/8fa14cdd754f91cc6554c9e71929cce7.png"> is a continuous function.) Our objective is to find <img class="mwe-math-fallback-image-inline tex" alt="x" src="/wiki/images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png"> such that <img class="mwe-math-fallback-image-inline tex" alt="|x - x_0| &lt; \epsilon" src="/wiki/images/math/1/d/4/1d46a060e7691b652875c9c625668c4e.png">, that is, to approximate <img class="mwe-math-fallback-image-inline tex" alt="f^{-1}(c)" src="/wiki/images/math/1/4/c/14cc268b7645264263201d52611abd9a.png"> to some desired precision.
+</p><p>This is a very general method for computing inverses of monotone functions. More specific (and faster) methods exist for specific classes of functions (such as Newton's method, the Lagrange inversion formula, or integral representations that can be computed using Gaussian quadrature); however, binary search is expedient and efficient when the precision required is not too large, and can be used for nearly all functions, because chances are they will be monotone on <i>some</i> interval around <img class="mwe-math-fallback-image-inline tex" alt="f^{-1}(c)" src="/wiki/images/math/1/4/c/14cc268b7645264263201d52611abd9a.png">. The exceptions occur when the function oscillates wildly around that point (such functions are usually "pathological", and occur only in discussion of mathematical theory and not in practice), or the function has a local extremum at <img class="mwe-math-fallback-image-inline tex" alt="c" src="/wiki/images/math/4/a/8/4a8a08f09d37b73795649038408b5f33.png"> (here, <a href="/wiki/Ternary_search" title="Ternary search">ternary search</a> may be used instead).
+</p><p>An example problem of a different type is <a rel="nofollow" class="external text" href="http://www.wcipeg.com/problem/secret">Secret Room</a>. This can be solved by repeatedly guessing some radius <img class="mwe-math-fallback-image-inline tex" alt="r" src="/wiki/images/math/4/b/4/4b43b0aee35624cd95b910189b3dc231.png"> and trying to figure out whether a circle of radius <img class="mwe-math-fallback-image-inline tex" alt="r" src="/wiki/images/math/4/b/4/4b43b0aee35624cd95b910189b3dc231.png"> can be placed somewhere on the grid without crossing any lasers; if so, then the maximum radius is at least <img class="mwe-math-fallback-image-inline tex" alt="r" src="/wiki/images/math/4/b/4/4b43b0aee35624cd95b910189b3dc231.png">, and otherwise, it is less. (However, determining whether placing the circle is possible is a nontrivial problem in <a href="/wiki/Computational_geometry" title="Computational geometry">computational geometry</a>.)
+</p>
+<h2><span class="mw-headline" id="Problems">Problems</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/index.php?title=Binary_search&amp;action=edit&amp;section=8" title="Edit section: Problems">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>For some of these problems, binary search might not yield an optimal solution, or even get all the points; but the solution it gives far outperforms the <a href="/wiki/Naive_algorithm" title="Naive algorithm">naive algorithm</a>.
+</p>
+<ul><li> <a rel="nofollow" class="external text" href="http://www.wcipeg.com/problem/ccc10s3">Firehose</a></li>
+<li> <a rel="nofollow" class="external text" href="http://www.wcipeg.com/problem/guess">Guess the Number</a></li>
+<li> <a rel="nofollow" class="external text" href="http://www.wcipeg.com/problem/ccc08s2p6">Landing</a></li>
+<li> <a rel="nofollow" class="external text" href="http://www.wcipeg.com/problem/ccc96s5">Max Distance</a></li>
+<li> <a rel="nofollow" class="external text" href="http://www.wcipeg.com/problem/secret">Secret Room</a></li>
+<li> <a rel="nofollow" class="external text" href="http://www.wcipeg.com/problem/ccc03s5">Trucking Troubles</a></li>
+<li> <a rel="nofollow" class="external text" href="http://www.spoj.pl/problems/AGGRCOW">Aggressive Cows @ SPOJ</a></li>
+<li> <a rel="nofollow" class="external text" href="http://www.spoj.pl/problems/BRI">Bridge @ SPOJ</a></li>
+<li> <a rel="nofollow" class="external text" href="http://www.spoj.pl/problems/BRII">Bridges! More Bridges! @ SPOJ</a></li>
+<li> <a rel="nofollow" class="external text" href="http://www.spoj.pl/problems/BOOKS1">Copying Books @ SPOJ</a></li>
+<li> <a rel="nofollow" class="external text" href="http://www.spoj.pl/problems/GLASNICI">Glasnici @ SPOJ</a></li>
+<li> <a rel="nofollow" class="external text" href="http://www.spoj.pl/problems/PIE">Pie @ SPOJ</a></li></ul>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.152 seconds
+Real time usage: 0.172 seconds
+Preprocessor visited node count: 1203/1000000
+Preprocessor generated node count: 2792/1000000
+Post‐expand include size: 1263/2097152 bytes
+Template argument size: 293/2097152 bytes
+Highest expansion depth: 4/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   42.407      1 - -total
+ 30.65%   12.996      8 - Template:Problem
+ 16.96%    7.193      8 - Template:JudgeRoot
+  8.23%    3.490      6 - Template:SPOJ
+  8.09%    3.430      8 - Template:Root
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:430-0!*!0!!en!*!*!math=0 and timestamp 20180508023016 and revision id 2034
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wcipeg.com/wiki/index.php?title=Binary_search&amp;oldid=2034">https://wcipeg.com/wiki/index.php?title=Binary_search&amp;oldid=2034</a>"					</div>
+													<div id="catlinks" class="catlinks catlinks-allhidden"></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Binary+search&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Binary+search" title="You are encouraged to log in; however, it is not mandatory [ctrl-alt-o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li id="ca-nstab-main" class="selected"><span><a href="/wiki/Binary_search" title="View the content page [ctrl-alt-c]" accesskey="c">Page</a></span></li>
+															<li id="ca-talk" class="new"><span><a href="/wiki/index.php?title=Talk:Binary_search&amp;action=edit&amp;redlink=1" title="Discussion about the content page [ctrl-alt-t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label" tabindex="0"><span>Variants</span><a href="#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Binary_search">Read</a></span></li>
+															<li id="ca-edit"><span><a href="/wiki/index.php?title=Binary_search&amp;action=edit" title="You can edit this page. Please use the preview button before saving [ctrl-alt-e]" accesskey="e">Edit</a></span></li>
+															<span class="placeholder" style="display: none;"></span>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu" aria-labelledby="p-cactions-label" style="">
+						<h3 id="p-cactions-label" tabindex="0" style="width: 61px;"><span>More</span><a href="#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul><li id="ca-history" class="collapsible" style="display: list-item;"><span><a href="/wiki/index.php?title=Binary_search&amp;action=history" title="Past revisions of this page [ctrl-alt-h]" accesskey="h">View history</a></span></li>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search PEGWiki [ctrl-alt-f]" accesskey="f" id="searchInput" tabindex="1" autocomplete="off"><input type="hidden" value="Special:Search" name="title"><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton">								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page" title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id="p-navigation" aria-labelledby="p-navigation-label">
+			<h3 id="p-navigation-label">Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [ctrl-alt-z]" accesskey="z">Main page</a></li>
+													<li id="n-Index"><a href="/wiki/Special:AllPages">Index</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [ctrl-alt-r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [ctrl-alt-x]" accesskey="x">Random page</a></li>
+													<li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+			<h3 id="p-tb-label">Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Binary_search" title="A list of all wiki pages that link here [ctrl-alt-j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Binary_search" title="Recent changes in pages linked from this page [ctrl-alt-k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [ctrl-alt-q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/wiki/index.php?title=Binary_search&amp;printable=yes" rel="alternate" title="Printable version of this page [ctrl-alt-p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/wiki/index.php?title=Binary_search&amp;oldid=2034" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/wiki/index.php?title=Binary_search&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 19 March 2017, at 05:17.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Attribution 3.0 Unported</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/PEGWiki:Privacy_policy" title="PEGWiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/PEGWiki:About" title="PEGWiki:About">About PEGWiki</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/PEGWiki:General_disclaimer" title="PEGWiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by/3.0/"><img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Attribution 3.0 Unported" width="88" height="31"></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wiki/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wcipeg.com/wiki/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script><script src="https://wcipeg.com/wiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=scripts&amp;skin=vector&amp;*"></script><div class="suggestions" style="display: none; font-size: 13px;"><div class="suggestions-results"></div><div class="suggestions-special"></div></div>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":70});
+}</script>
+	
+
+</body></html>

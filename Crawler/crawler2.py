@@ -25,6 +25,7 @@ def get_all_links(domain, pathTotal, maxSize, rp):
     driver.service.process.send_signal(signal.SIGTERM)
     links = []
     for link in soup.findAll('a', href=True):
+        time.sleep(1)
         regex = re.compile(
             r'^(?:http|ftp)s?://' # http:// or https://
             r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|' #domain...
@@ -96,6 +97,7 @@ def crawler(domain, pathseed, maxSize = 1000):
     res = ""
     for l in links:
         v += 1
+        time.sleep(1)
         driver = webdriver.PhantomJS( service_args=['--ignore-ssl-errors=true', '--ssl-protocol=any'])
         driver.get(l)
         soup = BeautifulSoup(driver.page_source, "html.parser")
@@ -215,7 +217,7 @@ def value(link):
 #crawler('https://a2oj.com','')
 ##crawler('https://www.codechef.com','')
 #crawler('http://www.spoj.com','')
-#crawler('https://dmoj.ca','')
-crawler('http://acm.timus.ru','')
+crawler('https://dmoj.ca','')
+#crawler('http://acm.timus.ru','')
 #crawler('https://www.urionlinejudge.com.br','')
-crawler('https://leetcode.com','')
+#crawler('https://leetcode.com','')
