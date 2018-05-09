@@ -11,7 +11,6 @@ def leetcode(page, crawlerType, extractorType, domain, fileName):
     
     data = {}
     
-    problemHead = page.find("div", {"class" : "col-lg-8 col-md-7 col-sm-6 col-sm-pull-6 col-md-pull-5 col-lg-pull-4"})
     problemBody = page.find("div", {"class" : "question-description"})
     
     title = page.title

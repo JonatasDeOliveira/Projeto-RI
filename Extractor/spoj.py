@@ -13,6 +13,7 @@ def spoj(page, crawlerType, extractorType, domain, fileName):
     
     name = problem.find("h2", {"id" : "problem-name"})
     problemName = name.text
+    data["Title"] = problemName
         
     tags = page.find("div", {"id" : "problem-tags"})
         
