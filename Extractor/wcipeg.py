@@ -13,8 +13,7 @@ def wcipeg(page, crawlerType, extractorType, domain, fileName):
     
     title = page.title
     title = title.text
-    titleArray = title.split("- ")
-    problemName = titleArray[1]
+    problemName = title.replace("PEG Judge - ", "")
     
     #contents
     elements = problem.findAll(["h3", "p", "pre", "li"])

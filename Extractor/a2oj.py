@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup
 import requests
-import re
 import util
 
 def a2oj(page, crawlerType, extractorType, domain, fileName):
@@ -8,9 +7,9 @@ def a2oj(page, crawlerType, extractorType, domain, fileName):
     #page = BeautifulSoup(request.content, "html.parser")
     
     problem = page.find("div", {"id":"page"})
-    reName = re.findall('[0-9].*?\n', problem.div.text)
-    problemName = reName[0]
-    problemName = problemName[:-1]
+    title = page.title
+    title = title.text
+    problemName = title.replace(" - A2 Online Judge", "")
     
     problemBody = problem.findAll("div")
     

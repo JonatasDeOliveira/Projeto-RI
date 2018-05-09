@@ -94,9 +94,19 @@ def genericExtractor(page, crawlerType, extractorType, domain, fileName):
     data = {}
     
     title = page.title
-    problemName = title.text
-    
-    data["Title"] = problemName
+    title = title.text
+
+    if "@" in title:
+        divTitle = title.split(" @ ")
+    else:
+        divTitle = title.split(" - ")
+
+    problemName = ""
+    for div in divTitle:
+        if (domain.lower() not in div.lower()) and ("Judge" not in div):
+            problemName += div + " - "
+
+    data["Title"] = problemName[:-3]
     
     for i in range(len(indexes)):
         if indexes[i] == -1:

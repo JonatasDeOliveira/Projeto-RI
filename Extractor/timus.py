@@ -10,7 +10,9 @@ def timus(page, crawlerType, extractorType, domain, fileName):
     
     problem = page.find("div", {"class": "problem_content"})
     
-    problemName = problem.h2.text
+    title = page.title
+    title = title.text
+    problemName = title.replace(" @ Timus Online Judge", "")
     
     problemLimits = problem.find("div", {"class" : "problem_limits"})
     limit = util.treatStr(problemLimits)

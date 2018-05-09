@@ -14,7 +14,9 @@ def leetcode(page, crawlerType, extractorType, domain, fileName):
     problemHead = page.find("div", {"class" : "col-lg-8 col-md-7 col-sm-6 col-sm-pull-6 col-md-pull-5 col-lg-pull-4"})
     problemBody = page.find("div", {"class" : "question-description"})
     
-    problemName = problemHead.h3.text
+    title = page.title
+    title = title.text
+    problemName = title.replace(" - LeetCode", "")
     
     bodyText = problemBody.text
     bodyArray = bodyText.split("\n")

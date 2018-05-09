@@ -6,8 +6,9 @@ def dmoj(page, crawlerType, extractorType, domain, fileName):
     #request = requests.get("https://dmoj.ca/problem/ccc13j3")
     #page = bs.BeautifulSoup(request.content, "html.parser")
     
-    problemHead = page.find("div", {"class": "problem-title"})
-    problemName = problemHead.h2.text
+    title = page.title
+    title = title.text
+    problemName = title.replace(" - DMOJ: Modern Online Judge", "")
     
     problem = page.find("div", {"class": "content-description screen"})
     problemBody = problem.div
