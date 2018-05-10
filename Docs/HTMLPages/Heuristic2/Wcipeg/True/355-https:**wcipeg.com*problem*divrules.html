@@ -1,0 +1,253 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - Divisibility Rules</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "8c45b434a3b7582378f7341582f131fd";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fdivrules"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h2>Divisibility Rules</h2>
+<p>It is often useful in mathematics to decide whether one integer is divisible
+by another. For example, if you multiply an integer by 7 (without using a
+calculator!) you may want to check quickly that you have performed the
+multiplication correctly by ensuring that the product is divisible by 7 (this
+does not guarantee that you were correct, but if it fails, you can be certain
+that your answer was incorrect.)</p>
+
+<p>Most probably, you learned the rules for divisibility by 2, 3, 4, 5, 6, 9,
+and 10 in elementary school, and possibly 8 — but not 7! Most elementary
+school teachers will admit to not knowing the divisibility rule for 7, which is
+as follows:</p><p>
+</p><ol>
+<li>If the number has 1 or 2 digits, stop.</li>
+<li>Remove the last digit from the number and double it.</li>
+<li>Subtract the result from the rest of the number.</li>
+<li>Go back to step 1.</li>
+</ol>
+<p>For example, let's say we want to check whether or not 13076 is divisible by
+7. We remove the 6, double it to get 12, and then subtract 12 from 1307 to
+obtain 1295. We then remove the 5, double it to get 10, and subtract 10 from
+129 to get 119. We then remove the 9, double it to give 18, and subtract 18
+from 11 to obtain -7. Since this is divisible by 7, we can conclude that 13076
+is divisible by 7.</p>
+
+<p>Enter the proverbial PEG member who is brilliant at programming but lousy at
+short questions. He (she?) is doing some Computer Number Systems homework.
+However, using the computer to answer the question of whether or not x is
+divisible by y, is akin to using a calculator, and is therefore not allowed.
+Instead, he decides to write a program that will find a divisibility rule,
+given a divisor and a base, so that he can carry out the check by hand. After
+he finishes this unbelievably easy task, he bets you points in Ms. Plachta's
+computer science class that you can't solve this problem... but can you?</p>
+
+<b>Task</b><br>
+Given a base and a divisor, find a rule of the form "repeatedly remove the last digit, multiply it by X, and then add it to (or subtract it from) the rest of the number" that can be used to check the divisibility of a number written in the given base by a given divisor. Yes, we know that there are often much better divisibility rules. (For example, to test for divisibility by 37 in base 10, you break the number into chunks of three digits each, starting from the right, and add up all of the chunks.) However, our proverbial PEG member is the "brilliant but lazy" type and he didn't go as far as to check for such rules.<br>
+<br>
+<b>Input</b><br>
+The first line of the input contains an integer T (1 ≤ T ≤ 100).
+The next T lines contain two integers B (1 &lt; B ≤ 100) and K (1 &lt; K ≤ 100). B and K have no common divisor other than 1, and are expressed in base 10.<br>
+<br>
+<b>Output</b><br>
+For each test case, output a line containing either <q><code>+</code></q> or <q><code>-</code></q> followed by an integer X (with no space separating the two). The output "+X" signifies that one is to remove the last digit, multiply it by X, and add it to the rest of the number, whereas "-X" signifies that one is to remove the last digit, multiply it by X, and subtract it from the rest of the number. If there are multiple solutions, output the one with the smallest value of X. If there is still a tie, output +X in preference to -X. X should be expressed in base 10.<br>
+<br>
+<b>Sample Input</b><br>
+2<br>
+10 7<br>
+6 5<br>
+<br>
+<b>Sample Output</b><br>
+-2<br>
++1<br>
+<br>
+<b>Explanation</b><br>
+In the first test case, we are asked to find a base 10 divisibility rule by 7. The answer, as already stated, is to remove the last digit, double it, and subtract this from the rest of the number. In the second test case, we are asked to find a base 6 divisibility rule by 5. The solution is to remove the last digit and add it to the rest of the number, hence 123456 is divisible by 5: 1234 + 5 = 1243; 124 + 3 = 131; 13+1 = 14; 1+4 = 5.<br>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,divrules">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/divrules">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 10 (partial)<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Oct 19, 2008<br>
+        <b>Author:</b> <a href="https://wcipeg.com/user/bbi5291">bbi5291</a>  </p>
+
+    <b>Problem Types:</b>
+  <noscript>
+    &lt;style type="text/css"&gt;
+      #show_types, #hide_types { display: none !important; }
+      #spoiler_id { display: inline !important; }
+    &lt;/style&gt;
+  </noscript>
+  <a href="javascript:void(null);" id="show_types" onclick="document.getElementById('spoiler_id').style.display=''; document.getElementById('show_types').style.display='none';">[Show]</a>
+  <span id="spoiler_id" style="display: none">
+    <a href="javascript:void(null);" id="hide_types" onclick="document.getElementById('spoiler_id').style.display='none'; document.getElementById('show_types').style.display='';">[Hide]</a><br>
+    <ul style="list-style-type: none; margin: 0; padding: 0;">
+      <li>Math</li>    </ul>
+  </span>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=divrules">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment525">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/525">Nov 29, 2008 - 5:35:28 pm UTC</a>      </span>
+      <a class="comment_title" id="title525" onclick="toggle(&quot;body525&quot;)">Hint</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating525">
+    (<span class="upvotes"><span id="upvotes525">1</span></span>/<span class="downvotes"><span id="downvotes525">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body525" class="comment_body">
+    <pre id="msg525" style="display: none">The mathematical justification of the solution is long and complicated, but... first solve the problem in base 10. Notice that 20+1 is a multiple of 7. Here's another rule: to check for divisibility by 13 in base 10, you quadruple the last digit and add it to the rest of the number. Notice here that 40-1 is a multiple of 13.</pre>
+    <div style="opacity: 1">
+      The mathematical justification of the solution is long and complicated, but... first solve the problem in base 10. Notice that 20+1 is a multiple of 7. Here's another rule: to check for divisibility by 13 in base 10, you quadruple the last digit and add it to the rest of the number. Notice here that 40-1 is a multiple of 13.    </div>
+      </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0144s.<br>
+    Server time on page load:
+    May 9, 2018 15:28:52 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fdivrules">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

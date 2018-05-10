@@ -1,0 +1,611 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" class=" canvas canvastext no-geolocation rgba hsla multiplebgs borderimage borderradius boxshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions  no-video no-audio localstorage sessionstorage webworkers applicationcache fontface"><head>
+
+
+
+<link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>filipemorandi - A2 Online Judge</title>
+
+<meta name="description" content="A2 Online Judge (or Virtual Online Contests) is an online judge with hundreds of problems and it helps you to create, run and participate in virtual contests using problems from the following online judges: A2 Online Judge, Live Archive, Codeforces, Timus, SPOJ, TJU, SGU, PKU, ZOJ, URI. It also helps you to manage and track your programming comepetions training for you and your friends. It helps for ICPC ACM and IOI training also.">
+<meta name="keywords" content="ahmed aly,ahmed aly tools,voc,virtual online contests,programming,c++,java,contest,contests,competition,competitions,programming contest,programming contests,programming compitition,programming compititions,cf,codeforces,live archive,uva,spoj,tju,sgu,pku,timus,zoj,uri,programming tools,a2oj,a2 online judge">
+<meta name="author" content="Ahmed Aly">
+<link href="default.css" rel="stylesheet" type="text/css">
+
+		<link rel="stylesheet" href="css/nav.css">
+		<!--[if IE]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+<!-- START TRACKING CODE -->
+<script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push( [ '_setAccount', 'UA-16947566-3' ]);
+	_gaq.push( [ '_trackPageview' ]);
+
+	( function() {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+				: 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+<!-- END TRACKING CODE -->
+
+
+
+
+
+
+
+<style>@font-face{font-family:testfont;src:url('data:font/ttf;base64,AAEAAAAMAIAAAwBAT1MvMliohmwAAADMAAAAVmNtYXCp5qrBAAABJAAAANhjdnQgACICiAAAAfwAAAAEZ2FzcP//AAMAAAIAAAAACGdseWYv5OZoAAACCAAAANxoZWFk69bnvwAAAuQAAAA2aGhlYQUJAt8AAAMcAAAAJGhtdHgGDgC4AAADQAAAABRsb2NhAIQAwgAAA1QAAAAMbWF4cABVANgAAANgAAAAIG5hbWUgXduAAAADgAAABPVwb3N03NkzmgAACHgAAAA4AAECBAEsAAUAAAKZAswAAACPApkCzAAAAesAMwEJAAACAAMDAAAAAAAAgAACbwAAAAoAAAAAAAAAAFBmRWQAAAAgqS8DM/8zAFwDMwDNAAAABQAAAAAAAAAAAAMAAAADAAAAHAABAAAAAABGAAMAAQAAAK4ABAAqAAAABgAEAAEAAgAuqQD//wAAAC6pAP///9ZXAwAAAAAAAAACAAAABgBoAAAAAAAvAAEAAAAAAAAAAAAAAAAAAAABAAIAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEACoAAAAGAAQAAQACAC6pAP//AAAALqkA////1lcDAAAAAAAAAAIAAAAiAogAAAAB//8AAgACACIAAAEyAqoAAwAHAC6xAQAvPLIHBADtMrEGBdw8sgMCAO0yALEDAC88sgUEAO0ysgcGAfw8sgECAO0yMxEhESczESMiARDuzMwCqv1WIgJmAAACAFUAAAIRAc0ADwAfAAATFRQWOwEyNj0BNCYrASIGARQGKwEiJj0BNDY7ATIWFX8aIvAiGhoi8CIaAZIoN/43KCg3/jcoAWD0JB4eJPQkHh7++EY2NkbVRjY2RgAAAAABAEH/+QCdAEEACQAANjQ2MzIWFAYjIkEeEA8fHw8QDxwWFhwWAAAAAQAAAAIAAIuYbWpfDzz1AAsEAAAAAADFn9IuAAAAAMWf0i797/8zA4gDMwAAAAgAAgAAAAAAAAABAAADM/8zAFwDx/3v/98DiAABAAAAAAAAAAAAAAAAAAAABQF2ACIAAAAAAVUAAAJmAFUA3QBBAAAAKgAqACoAWgBuAAEAAAAFAFAABwBUAAQAAgAAAAEAAQAAAEAALgADAAMAAAAQAMYAAQAAAAAAAACLAAAAAQAAAAAAAQAhAIsAAQAAAAAAAgAFAKwAAQAAAAAAAwBDALEAAQAAAAAABAAnAPQAAQAAAAAABQAKARsAAQAAAAAABgAmASUAAQAAAAAADgAaAUsAAwABBAkAAAEWAWUAAwABBAkAAQBCAnsAAwABBAkAAgAKAr0AAwABBAkAAwCGAscAAwABBAkABABOA00AAwABBAkABQAUA5sAAwABBAkABgBMA68AAwABBAkADgA0A/tDb3B5cmlnaHQgMjAwOSBieSBEYW5pZWwgSm9obnNvbi4gIFJlbGVhc2VkIHVuZGVyIHRoZSB0ZXJtcyBvZiB0aGUgT3BlbiBGb250IExpY2Vuc2UuIEtheWFoIExpIGdseXBocyBhcmUgcmVsZWFzZWQgdW5kZXIgdGhlIEdQTCB2ZXJzaW9uIDMuYmFlYzJhOTJiZmZlNTAzMiAtIHN1YnNldCBvZiBKdXJhTGlnaHRiYWVjMmE5MmJmZmU1MDMyIC0gc3Vic2V0IG9mIEZvbnRGb3JnZSAyLjAgOiBKdXJhIExpZ2h0IDogMjMtMS0yMDA5YmFlYzJhOTJiZmZlNTAzMiAtIHN1YnNldCBvZiBKdXJhIExpZ2h0VmVyc2lvbiAyIGJhZWMyYTkyYmZmZTUwMzIgLSBzdWJzZXQgb2YgSnVyYUxpZ2h0aHR0cDovL3NjcmlwdHMuc2lsLm9yZy9PRkwAQwBvAHAAeQByAGkAZwBoAHQAIAAyADAAMAA5ACAAYgB5ACAARABhAG4AaQBlAGwAIABKAG8AaABuAHMAbwBuAC4AIAAgAFIAZQBsAGUAYQBzAGUAZAAgAHUAbgBkAGUAcgAgAHQAaABlACAAdABlAHIAbQBzACAAbwBmACAAdABoAGUAIABPAHAAZQBuACAARgBvAG4AdAAgAEwAaQBjAGUAbgBzAGUALgAgAEsAYQB5AGEAaAAgAEwAaQAgAGcAbAB5AHAAaABzACAAYQByAGUAIAByAGUAbABlAGEAcwBlAGQAIAB1AG4AZABlAHIAIAB0AGgAZQAgAEcAUABMACAAdgBlAHIAcwBpAG8AbgAgADMALgBiAGEAZQBjADIAYQA5ADIAYgBmAGYAZQA1ADAAMwAyACAALQAgAHMAdQBiAHMAZQB0ACAAbwBmACAASgB1AHIAYQBMAGkAZwBoAHQAYgBhAGUAYwAyAGEAOQAyAGIAZgBmAGUANQAwADMAMgAgAC0AIABzAHUAYgBzAGUAdAAgAG8AZgAgAEYAbwBuAHQARgBvAHIAZwBlACAAMgAuADAAIAA6ACAASgB1AHIAYQAgAEwAaQBnAGgAdAAgADoAIAAyADMALQAxAC0AMgAwADAAOQBiAGEAZQBjADIAYQA5ADIAYgBmAGYAZQA1ADAAMwAyACAALQAgAHMAdQBiAHMAZQB0ACAAbwBmACAASgB1AHIAYQAgAEwAaQBnAGgAdABWAGUAcgBzAGkAbwBuACAAMgAgAGIAYQBlAGMAMgBhADkAMgBiAGYAZgBlADUAMAAzADIAIAAtACAAcwB1AGIAcwBlAHQAIABvAGYAIABKAHUAcgBhAEwAaQBnAGgAdABoAHQAdABwADoALwAvAHMAYwByAGkAcAB0AHMALgBzAGkAbAAuAG8AcgBnAC8ATwBGAEwAAAAAAgAAAAAAAP+BADMAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAAQACAQIAEQt6ZXJva2F5YWhsaQ==')}</style></head>
+<body class="">
+    	<script>
+			var el = document.getElementsByTagName("body")[0];
+			el.className = "";
+		</script>
+        <noscript>
+        	&lt;!--[if IE]&gt;
+            	&lt;link rel="stylesheet" href="css/ie.css"&gt;
+            &lt;![endif]--&gt;
+        </noscript>
+        
+
+<center>
+<table width="100%">
+<tbody><tr>
+<td>
+        
+
+
+<div id="wrapper"><!-- start header -->
+
+<div id="logo">
+<table width="100%">
+<tbody><tr>
+<td style="vertical-align: bottom;"><a href="/"><img src="logo.png"></a></td>
+<td>
+<h1 style="padding-top: 11px;">A<sup>2</sup> Online Judge</h1>
+<h2 class="author">»&nbsp;&nbsp;&nbsp;&nbsp; by <a href="https://www.facebook.com/ahmed.aly.tc" target="_blank" style="text-decoration: none;">Ahmed Aly</a></h2>
+<br>
+<h3>Sponsored by <b><a href="https://www.facebook.com/elcoachacademy/" target="_blank" style="text-decoration: none;">Coach Academy</a></b> &amp; <b><a href="https://www.facebook.com/acmacpc/" target="_blank" style="text-decoration: none;">ACPC</a></b>, <a href="https://www.codechef.com/" target="_blank" style="text-decoration: none;">CodeChef</a> and <a href="http://www.codability.net/" target="_blank" style="text-decoration: none;">Codability</a></h3>
+</td>
+<td style="text-align: right; padding-top: 27px;">
+<iframe src="https://www.facebook.com/plugins/like.php?show_faces=false&amp;href=https://www.facebook.com/A2OnlineJudge" scrolling="no" frameborder="0" style="border:none; height:45px"></iframe>
+</td>
+</tr>
+</tbody></table>
+</div>
+
+<div id="header3"><div align="right"><a href="signin?url=%2Fprofile%3FUsername%3Dfilipemorandi" style="font-size: 15px;">Sign In</a> - <a href="signup" style="font-size: 15px;">Sign Up</a></div></div>
+
+
+<div id="header2">
+<div id="menu2">
+
+        <nav id="topNav">
+          <ul>
+<li><a href="/">Contests</a></li><li><a href="ladders"><font color="red">Ladders</font></a></li><li><a href="ps">Problems</a></li><li><a href="status">Status</a></li><li><a href="categories">Categories</a></li><li><a href="groups">Groups</a></li><li><a href="javascript:void();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;More&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>^</span></a><ul><li><center><a href="http://goo.gl/Fq5mru" target="_blank">GCJ Tools</a></center></li><li><center><a href="codes">Source Codes</a></center></li><li><center><a href="finder">Problems Finder</a></center></li><li><center><a href="users">Users</a></center></li><li><center><a href="teams">Teams</a></center></li><li><center><a href="cumulative">Cumulative Rank</a></center></li></ul></li><li class="last"><a href="about">About</a></li>
+          </ul>
+        </nav>
+        
+        <script src="js/jquery.js"></script>
+        <script src="js/modernizr.js"></script>
+		<script>
+			(function($){
+				
+				//cache nav
+				var nav = $("#topNav");
+				
+				//add indicator and hovers to submenu parents
+				nav.find("li").each(function() {
+					if ($(this).find("ul").length > 0) {
+						$("<span>").text("^").appendTo($(this).children(":first"));
+
+						//show subnav on hover
+						$(this).mouseenter(function() {
+							$(this).find("ul").stop(true, true).slideDown();
+						});
+						
+						//hide submenus on exit
+						$(this).mouseleave(function() {
+							$(this).find("ul").stop(true, true).slideUp();
+						});
+					}
+				});
+			})(jQuery);
+		</script>
+
+
+</div>
+</div>
+<!-- end header --></div>
+<!-- start page -->
+</td>
+</tr>
+
+
+<tr>
+
+<td style="vertical-align: top;">
+<center>
+<table>
+<tbody><tr style="max-height: 0px; padding: 0px;">
+<td style="max-height: 0px; padding: 0px; min-width: 165px;"></td>
+<td style="max-height: 0px; padding: 0px; min-width: 1060px;"></td>
+<td style="max-height: 0px; padding: 0px; min-width: 165px;"></td>
+</tr>
+<tr>
+<td style="padding: 0px; vertical-align: top;">
+<div id="leftAd">
+
+
+</div>
+</td>
+<td style="padding: 0px; vertical-align: top;">
+<div id="page">
+
+<font size="3">
+<center>
+
+
+
+
+
+
+
+
+
+
+<b>
+<font size="5">
+<u>
+filipemorandi's Coder Profile (Brazil)
+
+</u>
+
+</font>
+</b>
+
+<br><br><b><a href="status?Username=filipemorandi">filipemorandi's A2 Online Judge Submissions</a></b>
+
+<br><br>
+<table border="1" cellpadding="5">
+
+<tbody><tr>
+<td><b>A2 Online Judge Solved Problems Count</b></td>
+<td title="A2 Online Judge Profile"><center>0</center></td>
+</tr>
+
+
+<tr>
+<td><b>All Solved Problems Count</b></td>
+<td><center>234
+</center></td>
+</tr>
+
+<tr>
+<td><b>UVA Solved Problems Count</b></td>
+<td title="UVA Profile"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_authorstats&amp;userid=958564" target="_blank">3</a></center></td>
+</tr>
+<tr>
+<td><b>SPOJ Solved Problems Count</b></td>
+<td title="SPOJ Profile"><center><a href="http://www.spoj.com/users/tockie2/" target="_blank">3</a>
+</center></td>
+</tr>
+<tr>
+<td><b>SPOJ Brazil Solved Problems Count</b></td>
+<td title="SPOJ Brazil Profile"><center><a href="http://br.spoj.com/users/tockie2/" target="_blank">2</a>
+</center></td>
+</tr>
+<tr>
+<td><b>Live Archive Solved Problems Count</b></td>
+<td title="Live Archive Profile"><center><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_authorstats&amp;userid=171605" target="_blank">13</a>
+</center></td>
+</tr>
+<tr>
+<td><b>Codeforces Solved Problems Count</b></td>
+<td title="Codeforces Profile"><center><a href="http://codeforces.com/profile/Filipe_M_Soares" target="_blank">50</a>
+</center></td>
+</tr>
+<tr>
+<td><b>PKU Solved Problems Count</b></td>
+<td title="PKU Profile"><center><a href="http://poj.org/userstatus?user_id=tockie2" target="_blank">2</a>
+</center></td>
+</tr>
+<tr>
+<td><b>URI Solved Problems Count</b></td>
+<td title="URI Profile"><center><center><a href="https://www.urionlinejudge.com.br/judge/en/profile/56960" target="_blank">161</a>
+</center></center></td>
+</tr>
+
+
+</tbody></table>
+
+
+<br><br>
+<b style="font: 22px arial, sans-serif;
+  color: #5C5C5C;">UVA Solved Problems (<a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_authorstats&amp;userid=958564" target="_blank" title="UVA Profile">3 Problems</a>)</b>
+<p style="border-bottom: 1px solid #5C5C5C;
+  padding-bottom: 6px;
+  margin-bottom: 1em;">
+</p>
+
+<table border="1" cellpadding="5">
+<tbody><tr>
+<td title="Linear Cellular Automata"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=398" target="_blank">457</a></center></td>
+<td title="Just the Facts"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=509" target="_blank">568</a></center></td>
+<td title="23 out of 5"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1285" target="_blank">10344</a></center></td>
+</tr></tbody></table>
+<br><br>
+<b style="font: 22px arial, sans-serif;
+  color: #5C5C5C;">SPOJ Solved Problems (<a href="http://www.spoj.com/users/tockie2/" target="_blank" title="SPOJ Profile">3 Problems</a>)</b>
+<p style="border-bottom: 1px solid #5C5C5C;
+  padding-bottom: 6px;
+  margin-bottom: 1em;">
+</p>
+
+<table border="1" cellpadding="5">
+<tbody><tr>
+<td title="Princess Farida"><center><a href="http://www.spoj.com/problems/FARIDA/" target="_blank">FARIDA</a></center></td>
+<td title="Prime Generator"><center><a href="http://www.spoj.com/problems/PRIME1/" target="_blank">PRIME1</a></center></td>
+<td title="Life, the Universe, and Everything"><center><a href="http://www.spoj.com/problems/TEST/" target="_blank">TEST</a></center></td>
+</tr></tbody></table>
+<br><br>
+<b style="font: 22px arial, sans-serif;
+  color: #5C5C5C;">SPOJ Brazil Solved Problems (<a href="http://br.spoj.com/users/tockie2/" target="_blank" title="SPOJ Brazil Profile">2 Problems</a>)</b>
+<p style="border-bottom: 1px solid #5C5C5C;
+  padding-bottom: 6px;
+  margin-bottom: 1em;">
+</p>
+
+<table border="1" cellpadding="5">
+<tbody><tr>
+<td title="Desempilhando Caixas"><center><a href="http://br.spoj.com/problems/CAIXAS/" target="_blank">CAIXAS</a></center></td>
+<td title="Pedágio"><center><a href="http://br.spoj.com/problems/PEDAGIO/" target="_blank">PEDAGIO</a></center></td>
+</tr></tbody></table>
+<br><br>
+<b style="font: 22px arial, sans-serif;
+  color: #5C5C5C;">Live Archive Solved Problems (<a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_authorstats&amp;userid=171605" target="_blank" title="Live Archive Profile">13 Problems</a>)</b>
+<p style="border-bottom: 1px solid #5C5C5C;
+  padding-bottom: 6px;
+  margin-bottom: 1em;">
+</p>
+
+<table border="1" cellpadding="5">
+<tbody><tr>
+<td title="Nested Shrubbery Boxes"><center><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1777" target="_blank">3776</a></center></td>
+<td title="Car Plates Competition"><center><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1930" target="_blank">3929</a></center></td>
+<td title="Finding Seats"><center><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1933" target="_blank">3932</a></center></td>
+<td title="Galou is Back!"><center><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1934" target="_blank">3933</a></center></td>
+<td title="He is Offside!"><center><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1935" target="_blank">3934</a></center></td>
+<td title="Game of Life"><center><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2035" target="_blank">4034</a></center></td>
+<td title="RACING"><center><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2111" target="_blank">4110</a></center></td>
+<td title="Brothers"><center><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2474" target="_blank">4473</a></center></td>
+<td title="Electric Bill"><center><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2477" target="_blank">4476</a></center></td>
+<td title="Everyone out of the Pool"><center><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3794" target="_blank">5783</a></center></td>
+<td title="Automated Checking Machine"><center><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=4833" target="_blank">6821</a></center></td>
+<td title="Dice Cup"><center><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=5327" target="_blank">7275</a></center></td>
+<td title="A Rational Sequence"><center><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=5385" target="_blank">7363</a></center></td>
+</tr></tbody></table>
+<br><br>
+<b style="font: 22px arial, sans-serif;
+  color: #5C5C5C;">Codeforces Solved Problems (<a href="http://codeforces.com/profile/Filipe_M_Soares" target="_blank" title="Codeforces Profile">50 Problems</a>)</b>
+<p style="border-bottom: 1px solid #5C5C5C;
+  padding-bottom: 6px;
+  margin-bottom: 1em;">
+</p>
+
+<table border="1" cellpadding="5">
+<tbody><tr>
+<td title="Nearly Lucky Number"><center><a href="http://codeforces.com/problemset/problem/110/A" target="_blank">110A</a></center></td>
+<td title="Arrival of the General"><center><a href="http://codeforces.com/problemset/problem/144/A" target="_blank">144A</a></center></td>
+<td title="Insomnia cure"><center><a href="http://codeforces.com/problemset/problem/148/A" target="_blank">148A</a></center></td>
+<td title="Drinks"><center><a href="http://codeforces.com/problemset/problem/200/B" target="_blank">200B</a></center></td>
+<td title="Perfect Permutation"><center><a href="http://codeforces.com/problemset/problem/233/A" target="_blank">233A</a></center></td>
+<td title="LCM Challenge"><center><a href="http://codeforces.com/problemset/problem/235/A" target="_blank">235A</a></center></td>
+<td title="Beautiful Matrix"><center><a href="http://codeforces.com/problemset/problem/263/A" target="_blank">263A</a></center></td>
+<td title="Stones on the Table"><center><a href="http://codeforces.com/problemset/problem/266/A" target="_blank">266A</a></center></td>
+<td title="Queue at the School"><center><a href="http://codeforces.com/problemset/problem/266/B" target="_blank">266B</a></center></td>
+<td title="Beautiful Year"><center><a href="http://codeforces.com/problemset/problem/271/A" target="_blank">271A</a></center></td>
+<td title="Lights Out"><center><a href="http://codeforces.com/problemset/problem/275/A" target="_blank">275A</a></center></td>
+<td title="Word Capitalization"><center><a href="http://codeforces.com/problemset/problem/281/A" target="_blank">281A</a></center></td>
+<td title="Borze"><center><a href="http://codeforces.com/problemset/problem/32/B" target="_blank">32B</a></center></td>
+<td title="Playing with Paper"><center><a href="http://codeforces.com/problemset/problem/527/A" target="_blank">527A</a></center></td>
+<td title="Kefa and First Steps"><center><a href="http://codeforces.com/problemset/problem/580/A" target="_blank">580A</a></center></td>
+</tr>
+<tr>
+<td title="Kefa and Park"><center><a href="http://codeforces.com/problemset/problem/580/C" target="_blank">580C</a></center></td>
+<td title="Patrick and Shopping"><center><a href="http://codeforces.com/problemset/problem/599/A" target="_blank">599A</a></center></td>
+<td title="Word"><center><a href="http://codeforces.com/problemset/problem/59/A" target="_blank">59A</a></center></td>
+<td title="The Two Routes"><center><a href="http://codeforces.com/problemset/problem/601/A" target="_blank">601A</a></center></td>
+<td title="Two Bases"><center><a href="http://codeforces.com/problemset/problem/602/A" target="_blank">602A</a></center></td>
+<td title="Approximating a Constant Range"><center><a href="http://codeforces.com/problemset/problem/602/B" target="_blank">602B</a></center></td>
+<td title="Hamming Distance Sum"><center><a href="http://codeforces.com/problemset/problem/608/B" target="_blank">608B</a></center></td>
+<td title="Pasha and Stick"><center><a href="http://codeforces.com/problemset/problem/610/A" target="_blank">610A</a></center></td>
+<td title="Slime Combining"><center><a href="http://codeforces.com/problemset/problem/618/A" target="_blank">618A</a></center></td>
+<td title="Guess the Permutation"><center><a href="http://codeforces.com/problemset/problem/618/B" target="_blank">618B</a></center></td>
+<td title="Ultra-Fast Mathematician"><center><a href="http://codeforces.com/problemset/problem/61/A" target="_blank">61A</a></center></td>
+<td title="Save Luke"><center><a href="http://codeforces.com/problemset/problem/624/A" target="_blank">624A</a></center></td>
+<td title="Making a String"><center><a href="http://codeforces.com/problemset/problem/624/B" target="_blank">624B</a></center></td>
+<td title="New Skateboard"><center><a href="http://codeforces.com/problemset/problem/628/B" target="_blank">628B</a></center></td>
+<td title="Far Relative’s Birthday Cake"><center><a href="http://codeforces.com/problemset/problem/629/A" target="_blank">629A</a></center></td>
+</tr>
+<tr>
+<td title="Far Relative’s Problem"><center><a href="http://codeforces.com/problemset/problem/629/B" target="_blank">629B</a></center></td>
+<td title="Moore's Law"><center><a href="http://codeforces.com/problemset/problem/630/B" target="_blank">630B</a></center></td>
+<td title="Interview"><center><a href="http://codeforces.com/problemset/problem/631/A" target="_blank">631A</a></center></td>
+<td title="Print Check"><center><a href="http://codeforces.com/problemset/problem/631/B" target="_blank">631B</a></center></td>
+<td title="Report"><center><a href="http://codeforces.com/problemset/problem/631/C" target="_blank">631C</a></center></td>
+<td title="Complicated GCD"><center><a href="http://codeforces.com/problemset/problem/664/A" target="_blank">664A</a></center></td>
+<td title="Pouring Rain"><center><a href="http://codeforces.com/problemset/problem/667/A" target="_blank">667A</a></center></td>
+<td title="Little Artem and Presents"><center><a href="http://codeforces.com/problemset/problem/669/A" target="_blank">669A</a></center></td>
+<td title="Different is Good"><center><a href="http://codeforces.com/problemset/problem/672/B" target="_blank">672B</a></center></td>
+<td title="Nicholas and Permutation"><center><a href="http://codeforces.com/problemset/problem/676/A" target="_blank">676A</a></center></td>
+<td title="Vasya and String"><center><a href="http://codeforces.com/problemset/problem/676/C" target="_blank">676C</a></center></td>
+<td title="Vanya and Fence"><center><a href="http://codeforces.com/problemset/problem/677/A" target="_blank">677A</a></center></td>
+<td title="Vanya and Food Processor"><center><a href="http://codeforces.com/problemset/problem/677/B" target="_blank">677B</a></center></td>
+<td title="Vanya and Label"><center><a href="http://codeforces.com/problemset/problem/677/C" target="_blank">677C</a></center></td>
+<td title="Young Physicist"><center><a href="http://codeforces.com/problemset/problem/69/A" target="_blank">69A</a></center></td>
+</tr>
+<tr>
+<td title="President's Office"><center><a href="http://codeforces.com/problemset/problem/6/B" target="_blank">6B</a></center></td>
+<td title="Alice, Bob and Chocolate"><center><a href="http://codeforces.com/problemset/problem/6/C" target="_blank">6C</a></center></td>
+<td title="Complete the Word"><center><a href="http://codeforces.com/problemset/problem/716/B" target="_blank">716B</a></center></td>
+<td title="Transformation: from A to B"><center><a href="http://codeforces.com/problemset/problem/727/A" target="_blank">727A</a></center></td>
+<td title="Panoramix's Prediction"><center><a href="http://codeforces.com/problemset/problem/80/A" target="_blank">80A</a></center></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr></tbody></table>
+<br><br>
+<b style="font: 22px arial, sans-serif;
+  color: #5C5C5C;">PKU Solved Problems (<a href="http://poj.org/userstatus?user_id=tockie2" target="_blank" title="PKU Profile">2 Problems</a>)</b>
+<p style="border-bottom: 1px solid #5C5C5C;
+  padding-bottom: 6px;
+  margin-bottom: 1em;">
+</p>
+
+<table border="1" cellpadding="5">
+<tbody><tr>
+<td title="Avoid The Lakes"><center><a href="http://poj.org/problem?id=3620" target="_blank">3620</a></center></td>
+<td title="Mud Puddles"><center><a href="http://poj.org/problem?id=3626" target="_blank">3626</a></center></td>
+</tr></tbody></table>
+<br><br>
+<b style="font: 22px arial, sans-serif;
+  color: #5C5C5C;">URI Solved Problems (<a href="https://www.urionlinejudge.com.br/judge/en/profile/56960" target="_blank" title="URI Profile">161 Problems</a>)</b>
+<p style="border-bottom: 1px solid #5C5C5C;
+  padding-bottom: 6px;
+  margin-bottom: 1em;">
+</p>
+
+<table border="1" cellpadding="5">
+<tbody><tr>
+<td title="Extremely Basic"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1001" target="_blank">1001</a></center></td>
+<td title="Area of a Circle"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1002" target="_blank">1002</a></center></td>
+<td title="Simple Sum"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1003" target="_blank">1003</a></center></td>
+<td title="Simple Product"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1004" target="_blank">1004</a></center></td>
+<td title="Average 1"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1005" target="_blank">1005</a></center></td>
+<td title="Average 2"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1006" target="_blank">1006</a></center></td>
+<td title="Difference"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1007" target="_blank">1007</a></center></td>
+<td title="Salary"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1008" target="_blank">1008</a></center></td>
+<td title="Salary with Bonus"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1009" target="_blank">1009</a></center></td>
+<td title="Simple Calculate"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1010" target="_blank">1010</a></center></td>
+<td title="The Greatest"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1013" target="_blank">1013</a></center></td>
+<td title="Age in Days"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1020" target="_blank">1020</a></center></td>
+<td title="TDA Rational"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1022" target="_blank">1022</a></center></td>
+<td title="Drought"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1023" target="_blank">1023</a></center></td>
+<td title="Encryption"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1024" target="_blank">1024</a></center></td>
+</tr>
+<tr>
+<td title="Where is the Marble?"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1025" target="_blank">1025</a></center></td>
+<td title="To Carry or not to Carry"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1026" target="_blank">1026</a></center></td>
+<td title="Collectable Cards"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1028" target="_blank">1028</a></center></td>
+<td title="Fibonacci, How Many Calls?"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1029" target="_blank">1029</a></center></td>
+<td title="Average 3"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1040" target="_blank">1040</a></center></td>
+<td title="Coordinates of a Point"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1041" target="_blank">1041</a></center></td>
+<td title="Simple Sort"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1042" target="_blank">1042</a></center></td>
+<td title="Multiples"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1044" target="_blank">1044</a></center></td>
+<td title="Salary Increase"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1048" target="_blank">1048</a></center></td>
+<td title="Animal"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1049" target="_blank">1049</a></center></td>
+<td title="Taxes"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1051" target="_blank">1051</a></center></td>
+<td title="Month"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1052" target="_blank">1052</a></center></td>
+<td title="Even Numbers"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1059" target="_blank">1059</a></center></td>
+<td title="Positive Numbers"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1060" target="_blank">1060</a></center></td>
+<td title="Even Between five Numbers"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1065" target="_blank">1065</a></center></td>
+</tr>
+<tr>
+<td title="Even, Odd, Positive and Negative"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1066" target="_blank">1066</a></center></td>
+<td title="Diamonds and Sand"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1069" target="_blank">1069</a></center></td>
+<td title="Even Square"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1073" target="_blank">1073</a></center></td>
+<td title="Musical Loop"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1089" target="_blank">1089</a></center></td>
+<td title="Knight Moves"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1100" target="_blank">1100</a></center></td>
+<td title="Alarm Clock"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1103" target="_blank">1103</a></center></td>
+<td title="Laser Sculpture"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1107" target="_blank">1107</a></center></td>
+<td title="Ascending and Descending"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1113" target="_blank">1113</a></center></td>
+<td title="Contract Revision"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1120" target="_blank">1120</a></center></td>
+<td title="Sticker Collector Robot"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1121" target="_blank">1121</a></center></td>
+<td title="Optical Reader"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1129" target="_blank">1129</a></center></td>
+<td title="Multiples of 13"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1132" target="_blank">1132</a></center></td>
+<td title="Type of Fuel"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1134" target="_blank">1134</a></center></td>
+<td title="Growing Sequences"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1146" target="_blank">1146</a></center></td>
+<td title="Countries at War"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1148" target="_blank">1148</a></center></td>
+</tr>
+<tr>
+<td title="Exceeding Z"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1150" target="_blank">1150</a></center></td>
+<td title="Easy Fibonacci"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1151" target="_blank">1151</a></center></td>
+<td title="Dark Roads"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1152" target="_blank">1152</a></center></td>
+<td title="Simple Factorial"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1153" target="_blank">1153</a></center></td>
+<td title="Ages"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1154" target="_blank">1154</a></center></td>
+<td title="S Sequence II"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1156" target="_blank">1156</a></center></td>
+<td title="Population Increase"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1160" target="_blank">1160</a></center></td>
+<td title="Train Swapping"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1162" target="_blank">1162</a></center></td>
+<td title="Prime Number"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1165" target="_blank">1165</a></center></td>
+<td title="Hanoi Tower Troubles Again!"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1166" target="_blank">1166</a></center></td>
+<td title="LED"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1168" target="_blank">1168</a></center></td>
+<td title="Blobs"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1170" target="_blank">1170</a></center></td>
+<td title="Array Replacement I"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1172" target="_blank">1172</a></center></td>
+<td title="Fibonacci Array"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1176" target="_blank">1176</a></center></td>
+<td title="Array Fill III"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1178" target="_blank">1178</a></center></td>
+</tr>
+<tr>
+<td title="Array Fill IV"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1179" target="_blank">1179</a></center></td>
+<td title="Lowest Number and Position"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1180" target="_blank">1180</a></center></td>
+<td title="Below the Main Diagonal"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1184" target="_blank">1184</a></center></td>
+<td title="Above the Secundary Diagonal"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1185" target="_blank">1185</a></center></td>
+<td title="Ones"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1213" target="_blank">1213</a></center></td>
+<td title="Fast Prime Number"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1221" target="_blank">1221</a></center></td>
+<td title="Dancing Sentence"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1234" target="_blank">1234</a></center></td>
+<td title="Inside Out"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1235" target="_blank">1235</a></center></td>
+<td title="Compare Substring"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1237" target="_blank">1237</a></center></td>
+<td title="Combiner"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1238" target="_blank">1238</a></center></td>
+<td title="Bloggo Shortcuts"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1239" target="_blank">1239</a></center></td>
+<td title="Fit or Dont Fit II"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1241" target="_blank">1241</a></center></td>
+<td title="Diet Plan"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1248" target="_blank">1248</a></center></td>
+<td title="Rot13"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1249" target="_blank">1249</a></center></td>
+<td title="Caesar Cipher"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1253" target="_blank">1253</a></center></td>
+</tr>
+<tr>
+<td title="Letter Frequency"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1255" target="_blank">1255</a></center></td>
+<td title="Leap Year or Not Leap Year and …"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1279" target="_blank">1279</a></center></td>
+<td title="Hours and Minutes"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1300" target="_blank">1300</a></center></td>
+<td title="All You Need Is Love"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1307" target="_blank">1307</a></center></td>
+<td title="Profit"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1310" target="_blank">1310</a></center></td>
+<td title="Head or Tail"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1329" target="_blank">1329</a></center></td>
+<td title="One-Two-Three"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1332" target="_blank">1332</a></center></td>
+<td title="Close the Doors!"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1371" target="_blank">1371</a></center></td>
+<td title="Brothers"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1376" target="_blank">1376</a></center></td>
+<td title="Electric Bill"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1392" target="_blank">1392</a></center></td>
+<td title="There's an Exam from Cris Today!"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1396" target="_blank">1396</a></center></td>
+<td title="Ocean Deep! Make it Shallow!!"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1398" target="_blank">1398</a></center></td>
+<td title="Triangles"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1472" target="_blank">1472</a></center></td>
+<td title="Subsequences"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1507" target="_blank">1507</a></center></td>
+<td title="Screws and Nuts"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1520" target="_blank">1520</a></center></td>
+</tr>
+<tr>
+<td title="Reading Books"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1542" target="_blank">1542</a></center></td>
+<td title="Canteen Queue"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1548" target="_blank">1548</a></center></td>
+<td title="Complete Sentence"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1551" target="_blank">1551</a></center></td>
+<td title="Square Matrix III"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1557" target="_blank">1557</a></center></td>
+<td title="Sum of Two Squares"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1558" target="_blank">1558</a></center></td>
+<td title="International Chat"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1581" target="_blank">1581</a></center></td>
+<td title="The Pythagorean Theorem"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1582" target="_blank">1582</a></center></td>
+<td title="Tug of War"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1586" target="_blank">1586</a></center></td>
+<td title="Advancing Letters"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1607" target="_blank">1607</a></center></td>
+<td title="Maria's Cakes"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1608" target="_blank">1608</a></center></td>
+<td title="Dudu Service Maker"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1610" target="_blank">1610</a></center></td>
+<td title="Convert Kilometers to Miles"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1643" target="_blank">1643</a></center></td>
+<td title="Genetic Code"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1682" target="_blank">1682</a></center></td>
+<td title="Lap"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1708" target="_blank">1708</a></center></td>
+<td title="Shuffled Deck"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1709" target="_blank">1709</a></center></td>
+</tr>
+<tr>
+<td title="Handball"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1715" target="_blank">1715</a></center></td>
+<td title="Threebonacci Sequence"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1739" target="_blank">1739</a></center></td>
+<td title="Automated Checking Machine"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1743" target="_blank">1743</a></center></td>
+<td title="SSN 1"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1769" target="_blank">1769</a></center></td>
+<td title="The Race of Slugs"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1789" target="_blank">1789</a></center></td>
+<td title="Detecting Bridges"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1790" target="_blank">1790</a></center></td>
+<td title="Trinomial Triangle"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1795" target="_blank">1795</a></center></td>
+<td title="Pipe Cutting"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1798" target="_blank">1798</a></center></td>
+<td title="Mathematicians Needed in Mars"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1804" target="_blank">1804</a></center></td>
+<td title="Square Array IV"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1827" target="_blank">1827</a></center></td>
+<td title="Bazinga!"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1828" target="_blank">1828</a></center></td>
+<td title="Efilogue"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1845" target="_blank">1845</a></center></td>
+<td title="Theon's Answer"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1858" target="_blank">1858</a></center></td>
+<td title="Our Days Are Never Coming Back"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1864" target="_blank">1864</a></center></td>
+<td title="Mjölnir"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1865" target="_blank">1865</a></center></td>
+</tr>
+<tr>
+<td title="Bill"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1866" target="_blank">1866</a></center></td>
+<td title="Square Spiral"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1868" target="_blank">1868</a></center></td>
+<td title="Zero means Zero"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1871" target="_blank">1871</a></center></td>
+<td title="Rock-paper-scissors-lizard-Spock"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1873" target="_blank">1873</a></center></td>
+<td title="Putting Plates on the Tuk-tuks"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1890" target="_blank">1890</a></center></td>
+<td title="Moon Phases"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1893" target="_blank">1893</a></center></td>
+<td title="Game of Limit"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1895" target="_blank">1895</a></center></td>
+<td title="It's Time to Duel!"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1896" target="_blank">1896</a></center></td>
+<td title="Kickback Sum"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1898" target="_blank">1898</a></center></td>
+<td title="Butterflies"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1901" target="_blank">1901</a></center></td>
+<td title="Association for Consistent Marriages"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1902" target="_blank">1902</a></center></td>
+<td title="Cops and Robbers"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1905" target="_blank">1905</a></center></td>
+<td title="Colouring Game Scenarios"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1907" target="_blank">1907</a></center></td>
+<td title="Help Girafales"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1911" target="_blank">1911</a></center></td>
+<td title="Help Seu Madruga"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1912" target="_blank">1912</a></center></td>
+</tr>
+<tr>
+<td title="Whose Turn Is It?"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1914" target="_blank">1914</a></center></td>
+<td title="Fountain of Desires"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1920" target="_blank">1920</a></center></td>
+<td title="Rerisson and The Barbecue"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1923" target="_blank">1923</a></center></td>
+<td title="Tri-du"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1933" target="_blank">1933</a></center></td>
+<td title="Puzzle"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1934" target="_blank">1934</a></center></td>
+<td title="Spiral"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1935" target="_blank">1935</a></center></td>
+<td title="Factorial"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1936" target="_blank">1936</a></center></td>
+<td title="Rectangle Park"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1938" target="_blank">1938</a></center></td>
+<td title="Strategy Game"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1940" target="_blank">1940</a></center></td>
+<td title="Robert and Rampant Room"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1953" target="_blank">1953</a></center></td>
+<td title="See World"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1955" target="_blank">1955</a></center></td>
+<td title="Converting to Hexadecimal"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1957" target="_blank">1957</a></center></td>
+<td title="Scientific Notation"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1958" target="_blank">1958</a></center></td>
+<td title="Regular Simple Polygons"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1959" target="_blank">1959</a></center></td>
+<td title="Roman Numerals for Page Numbers"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1960" target="_blank">1960</a></center></td>
+</tr>
+<tr>
+<td title="Jumping Frog"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1961" target="_blank">1961</a></center></td>
+<td title="A Long, Long Time Ago"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1962" target="_blank">1962</a></center></td>
+<td title="Nemesis"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/1972" target="_blank">1972</a></center></td>
+<td title="Walking in Time"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/2235" target="_blank">2235</a></center></td>
+<td title="Containers"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/2237" target="_blank">2237</a></center></td>
+<td title="Dividers"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/2238" target="_blank">2238</a></center></td>
+<td title="Merging Trees"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/2240" target="_blank">2240</a></center></td>
+<td title="Go--"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/2241" target="_blank">2241</a></center></td>
+<td title="Huaauhahhuahau"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/2242" target="_blank">2242</a></center></td>
+<td title="Isosceles"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/2243" target="_blank">2243</a></center></td>
+<td title="Tiles"><center><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/2246" target="_blank">2246</a></center></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr></tbody></table>
+
+
+</center>
+</font>
+
+</div>
+</td>
+<td style="padding: 0px; vertical-align: top;">
+<div id="rightAd">
+
+
+</div>
+</td>
+</tr>
+</tbody></table>
+</center>
+<!-- end page -->
+<!-- start footer -->
+<div id="footer">
+<p id="legal">A2OJ © Copyright 2011-2016 <b><a href="https://www.facebook.com/ahmed.aly.tc" target="_blank" style="text-decoration: none;">Ahmed Aly</a></b> All Rights Reserved. A2OJ uses <a href="http://sphere-engine.com" target="_blank" style="text-decoration: none;">Sphere Engine</a>™ © by <a href="http://sphere-research.com" target="_blank" style="text-decoration: none;">Sphere Research Labs</a>.</p>
+</div>
+</td>
+
+
+</tr>
+</tbody></table>
+</center><span style="font-style: normal; font-variant: normal; font-weight: normal; font-size: 99px; line-height: normal; font-family: testfont, _, serif; position: absolute; visibility: hidden; bottom: 0px;" id="fonttest">........</span>
+<!-- end footer -->
+
+
+
+
+</body></html>

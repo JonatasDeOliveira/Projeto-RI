@@ -1,0 +1,468 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - CCC00J5S3 - Surfing</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "8c45b434a3b7582378f7341582f131fd";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fccc00s3"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>2000 Canadian Computing Competition, Stage 1</h3>
+<h2>Problem J5/S3: Surfin'</h2>
+
+<p>
+Every Web Page is identified by a string of
+characters known as a URL (Uniform Resource Locator). Web Pages are formatted
+using HTML (Hypertext Markup Language). HTML has many codes, collectively known
+as markup, that allow the author to specify the format of the pages as well as
+to specify links to other pages. For this problem, we are concerned only with
+the markup that identifies links to other pages within a given page.
+</p>
+
+<p>
+A link within the page is denoted <code>&lt;A HREF="URL"&gt;</code> where URL is
+the URL of some other page. A user viewing a page containing a link may click on
+the link to view the other page.
+</p>
+
+<p>
+You are to write a program that reads a number of web pages and their associated
+URLs. For each link in each page, you must print the URL of the page containing the
+link, and the URL of the page referred to by the link.
+</p>
+
+<p>
+Following the last page, you are then given several pairs of URLs. For each pair
+you are to assume that you are viewing the page identified by the first URL, and
+determine whether it is possible to click a sequence of links so as to view the page
+identified by the second URL. If so, you should print "Can surf from <i>here</i>
+to <i>there</i>." where <i>here</i> and <i>there</i> are the two URLs. If not you
+should print "Can't surf from <i>here</i> to <i>there</i>.
+</p>
+
+<p>
+The first line of input contains an integer n ≤ 100, the number of Web Pages. For
+each Web Page, there will be a line containing its URL, followed by several lines
+containing the page. The URL will consist of up to 80 non-blank printable characters
+and will not contain any quotation marks. The first line of the page will be &lt;HTML&gt;
+and the last line will be &lt;/HTML&gt;. Each page will contain up to 100 links in the
+format described above. Each link will be contained within a single line of input. URLs
+in the link will be those of pages given in the input. The markup keywords A, HREF, and
+HTML will appear only in upper case.
+</p>
+
+<p>
+Following the n pages will be several pairs of lines giving URLs required by the problem
+as specified above. The last line of input will be "The End". For each pair,
+print the appropriate message given above.
+</p>
+
+<h3>Sample Input</h3>
+<pre>3 
+http://ccc.uwaterloo.ca 
+&lt;HTML&gt; &lt;TITLE&gt;<span class="GramE">This</span> is the CCC page&lt;/TITLE&gt; 
+Hello there boys 
+<span class="GramE">and</span> girls. &lt;B&gt;<span class="GramE">Let's</span>&lt;/B&gt; try &lt;A HREF="http://<span class="SpellE">abc.def/ghi</span>"&gt; a little <span class="GramE">problem</span> &lt;/A&gt; 
+&lt;/HTML&gt; 
+http://abc.def/ghi 
+&lt;HTML&gt; <span class="GramE">Now</span> is the &lt;TITLE&gt;time&lt;/TITLE&gt; for all good people to program. 
+&lt;A HREF="http://www.www.www.com"&gt;hello&lt;/A&gt;&lt;A HREF="http://xxx"&gt;bye&lt;/A&gt; 
+&lt;/HTML&gt; 
+http://www.www.www.com 
+&lt;HTML&gt; 
+&lt;TITLE&gt;Weird and Wonderful World&lt;/TITLE&gt; 
+&lt;/HTML&gt; 
+http://ccc.uwaterloo.ca 
+http://www.www.www.com 
+http://www.www.www.com 
+http://ccc.uwaterloo.ca 
+The End
+</pre>
+
+<h3>Sample Output</h3>
+<pre>Link from http://ccc.uwaterloo.ca to http://abc.def/ghi 
+Link from http://abc.def/ghi to http://www.www.www.com 
+Link from http://abc.def/ghi to http://xxx
+
+Can surf from http://ccc.uwaterloo.ca to http://www.www.www.com
+Can't surf from http://www.www.www.com to http://ccc.uwaterloo.ca
+</pre>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,ccc00s3">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/ccc00s3">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 10<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Oct 01, 2008<br>
+      </p>
+
+    <b>Problem Types:</b>
+  <noscript>
+    &lt;style type="text/css"&gt;
+      #show_types, #hide_types { display: none !important; }
+      #spoiler_id { display: inline !important; }
+    &lt;/style&gt;
+  </noscript>
+  <a href="javascript:void(null);" id="show_types" onclick="document.getElementById('spoiler_id').style.display=''; document.getElementById('show_types').style.display='none';">[Show]</a>
+  <span id="spoiler_id" style="display: none">
+    <a href="javascript:void(null);" id="hide_types" onclick="document.getElementById('spoiler_id').style.display='none'; document.getElementById('show_types').style.display='';">[Hide]</a><br>
+    <ul style="list-style-type: none; margin: 0; padding: 0;">
+      <li>Graph Theory</li><li>String Manipulation</li>    </ul>
+  </span>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=ccc00s3">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment6251">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/EasierPlanet3">EasierPlanet3</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6251">Nov 03, 2014 - 5:24:59 pm UTC</a>      </span>
+      <a class="comment_title" id="title6251" onclick="toggle(&quot;body6251&quot;)">Error in Explanation or Example?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6251">
+    (<span class="upvotes"><span id="upvotes6251">0</span></span>/<span class="downvotes"><span id="downvotes6251">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6251" class="comment_body">
+    <pre id="msg6251" style="display: none">"URLs in the link will be those of pages given in the input."
+
+This is contradicted in the example; there is a link for xxx, but that is not one of the pages in the input.
+
+Which is correct?</pre>
+    <div style="opacity: 1">
+      "URLs in the link will be those of pages given in the input." <br> <br>This is contradicted in the example; there is a link for xxx, but that is not one of the pages in the input. <br> <br>Which is correct?    </div>
+    <br><div class="comment_block" id="comment6252">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Alex">Alex</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6252">Nov 03, 2014 - 9:18:11 pm UTC</a>      </span>
+      <a class="comment_title" id="title6252" onclick="toggle(&quot;body6252&quot;)">Re: Error in Explanation or Example?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6252">
+    (<span class="upvotes"><span id="upvotes6252">0</span></span>/<span class="downvotes"><span id="downvotes6252">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6252" class="comment_body">
+    <pre id="msg6252" style="display: none">Read the input more carefully.</pre>
+    <div style="opacity: 1">
+      Read the input more carefully.    </div>
+    <br><div class="comment_block" id="comment6253">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/EasierPlanet3">EasierPlanet3</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6253">Nov 03, 2014 - 9:54:02 pm UTC</a>      </span>
+      <a class="comment_title" id="title6253" onclick="toggle(&quot;body6253&quot;)">Re: Error in Explanation or Example?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6253">
+    (<span class="upvotes"><span id="upvotes6253">0</span></span>/<span class="downvotes"><span id="downvotes6253">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6253" class="comment_body">
+    <pre id="msg6253" style="display: none">I can see that the link is there; but there is no page with that URL in the input.
+The definition of the problem also says "The first line of the page will be &lt;HTML&gt;", but in the example, the first lines of some of the pages contain other text. </pre>
+    <div style="opacity: 1">
+      I can see that the link is there; but there is no page with that URL in the input. <br>The definition of the problem also says "The first line of the page will be &lt;HTML&gt;", but in the example, the first lines of some of the pages contain other text.    </div>
+    <br><div class="comment_block" id="comment6254">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Alex">Alex</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6254">Nov 04, 2014 - 1:58:19 am UTC</a>      </span>
+      <a class="comment_title" id="title6254" onclick="toggle(&quot;body6254&quot;)">Re: Error in Explanation or Example?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6254">
+    (<span class="upvotes"><span id="upvotes6254">0</span></span>/<span class="downvotes"><span id="downvotes6254">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6254" class="comment_body">
+    <pre id="msg6254" style="display: none">Hmm, I think you are right about the statement being wrong. Just pretend that sentence doesn't exist I guess.
+Also, I guess you'll also have to assume that the first line of each page merely [i]starts[/i] with &lt;HTML&gt;.</pre>
+    <div style="opacity: 1">
+      Hmm, I think you are right about the statement being wrong. Just pretend that sentence doesn't exist I guess. <br>Also, I guess you'll also have to assume that the first line of each page merely <span class="italics">starts</span> with &lt;HTML&gt;.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment6132">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jeffreyxiao">jeffreyxiao</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6132">Sep 17, 2014 - 10:58:25 pm UTC</a>      </span>
+      <a class="comment_title" id="title6132" onclick="toggle(&quot;body6132&quot;)">Nullptr</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6132">
+    (<span class="upvotes"><span id="upvotes6132">1</span></span>/<span class="downvotes"><span id="downvotes6132">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6132" class="comment_body">
+    <pre id="msg6132" style="display: none">Why do I get a nullptr exception? I verified with official CCC data and nothing came up
+
+Edit: Thanks fixed!</pre>
+    <div style="opacity: 0.90547134519913">
+      Why do I get a nullptr exception? I verified with official CCC data and nothing came up <br> <br>Edit: Thanks fixed!    </div>
+    <br><div class="comment_block" id="comment6133">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Alex">Alex</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6133">Sep 18, 2014 - 1:21:38 am UTC</a>      </span>
+      <a class="comment_title" id="title6133" onclick="toggle(&quot;body6133&quot;)">Re: Nullptr</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6133">
+    (<span class="upvotes"><span id="upvotes6133">0</span></span>/<span class="downvotes"><span id="downvotes6133">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6133" class="comment_body">
+    <pre id="msg6133" style="display: none">I think you're reading lines when no more exists in the input file. On your computer, this is only obvious when you're testing with files rather than inputting by console.</pre>
+    <div style="opacity: 1">
+      I think you're reading lines when no more exists in the input file. On your computer, this is only obvious when you're testing with files rather than inputting by console.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment3826">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/fail">fail</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3826">Dec 02, 2011 - 6:53:20 pm UTC</a>      </span>
+      <a class="comment_title" id="title3826" onclick="toggle(&quot;body3826&quot;)">Note(reminds me of uva judge)</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3826">
+    (<span class="upvotes"><span id="upvotes3826">0</span></span>/<span class="downvotes"><span id="downvotes3826">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3826" class="comment_body">
+    <pre id="msg3826" style="display: none">There is no dot in "Can surf from http://ccc.uwaterloo.ca to http://www.www.www.com."
+should be "Can surf from http://ccc.uwaterloo.ca to http://www.www.www.com"</pre>
+    <div style="opacity: 1">
+      There is no dot in "Can surf from http://ccc.uwaterloo.ca to http://www.www.www.com." <br>should be "Can surf from http://ccc.uwaterloo.ca to http://www.www.www.com"    </div>
+    <br><div class="comment_block" id="comment3827">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3827">Dec 02, 2011 - 7:17:48 pm UTC</a>      </span>
+      <a class="comment_title" id="title3827" onclick="toggle(&quot;body3827&quot;)">Re: Note(reminds me of uva judge)</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3827">
+    (<span class="upvotes"><span id="upvotes3827">0</span></span>/<span class="downvotes"><span id="downvotes3827">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3827" class="comment_body">
+    <pre id="msg3827" style="display: none">Thanks, fixed.
+
+And yeah, this annoying type of problem is perfectly characteristic of ACM.</pre>
+    <div style="opacity: 1">
+      Thanks, fixed. <br> <br>And yeah, this annoying type of problem is perfectly characteristic of ACM.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment538">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/StealthAdept">StealthAdept</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/538">Nov 30, 2008 - 4:17:37 am UTC</a>      </span>
+      <a class="comment_title" id="title538" onclick="toggle(&quot;body538&quot;)">that was ridiculous</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating538">
+    (<span class="upvotes"><span id="upvotes538">0</span></span>/<span class="downvotes"><span id="downvotes538">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body538" class="comment_body">
+    <pre id="msg538" style="display: none">i spent like an hour finding the error in that. apparently if i have a string s and i call s.length()-8, and the length of the string is less than 8, then it returns some randomly huge number rather than something like -8, or -4. Why does it do that? Is it because it returns an unsigned int?</pre>
+    <div style="opacity: 1">
+      i spent like an hour finding the error in that. apparently if i have a string s and i call s.length()-8, and the length of the string is less than 8, then it returns some randomly huge number rather than something like -8, or -4. Why does it do that? Is it because it returns an unsigned int?    </div>
+    <br><div class="comment_block" id="comment539">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/DrSane">DrSane</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/539">Nov 30, 2008 - 4:22:10 am UTC</a>      </span>
+      <a class="comment_title" id="title539" onclick="toggle(&quot;body539&quot;)">Re: that was ridiculous</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating539">
+    (<span class="upvotes"><span id="upvotes539">1</span></span>/<span class="downvotes"><span id="downvotes539">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body539" class="comment_body">
+    <pre id="msg539" style="display: none">As defined by the C++ STL, the length() method in the string class will return the type "size_type" which is basically an unsigned integer. 
+
+Therefore, if a type is not specified for "8", it will be implicitly typecasted to the value that precedes it (size_type), so you've got s.length()-(size_type)8, which gives you a negative overflow.
+
+To fix this, you would typecast s.length() to an integer: (int)s.length()-8.
+</pre>
+    <div style="opacity: 1">
+      As defined by the C++ STL, the length() method in the string class will return the type "size_type" which is basically an unsigned integer.  <br> <br>Therefore, if a type is not specified for "8", it will be implicitly typecasted to the value that precedes it (size_type), so you've got s.length()-(size_type)8, which gives you a negative overflow. <br> <br>To fix this, you would typecast s.length() to an integer: (int)s.length()-8.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0356s.<br>
+    Server time on page load:
+    May 9, 2018 15:29:01 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fccc00s3">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

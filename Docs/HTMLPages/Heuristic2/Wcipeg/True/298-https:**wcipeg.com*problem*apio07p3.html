@@ -1,0 +1,270 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - APIO07 #3 - Zoo</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "8c45b434a3b7582378f7341582f131fd";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fapio07p3"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>Asia-Pacific Informatics Olympiad 2007</h3>
+<h2>Problem 3: Zoo</h2>
+<p>The pride of the Asia-Pacific region is the newly constructed Great Circular Zoo. Situated on
+a small Pacific island, it consists of a large circle of different enclosures, each containing its own
+exotic animal as illustrated below.</p>
+<p style="text-align: center"><img src="images/apio07p3/zoo1.png" alt=""></p>
+<p>You are in charge of public relations for the zoo, which means it is your job to keep people as
+happy as possible. A busload of schoolchildren has just arrived, and you are eager to please them.
+However, this is no easy task—there are animals that some children love, and there are animals
+that some children fear. For example, little Alex loves monkeys and koalas because they are cute,
+but fears lions because of their sharp teeth. On the other hand, Polly loves lions because of their
+beautiful manes, but fears koalas because they are extremely smelly.</p>
+<p>You have the option of removing some animals from their enclosures, so that children are not
+afraid. However, you are worried that if you remove too many animals then this will leave the
+children with nothing to look at. Your task is to decide which animals to remove so that as many
+children can be made happy as possible.</p>
+<p>Each child is standing outside the circle, where they can see five consecutive enclosures. You
+have obtained a list of which animals each child fears, and which animals each child loves. A child
+will be made happy if either:</p>
+<ul>
+<li>At least one animal they fear is removed from their field of vision, <b>or</b>:</li>
+<li>At least one animal they love is <i>not</i> removed from their field of vision.</li>
+</ul>
+<p>For example, consider the list of children and animals illustrated below:</p>
+<p style="text-align: center"><img src="images/apio07p3/zoo2.png" alt=""></p>
+<table class="coci">
+<tbody><tr><td><b>Child</b></td><td><b>Enclosures Visible</b></td><td><b>Fears</b></td><td><b>Loves</b></td></tr>
+<tr><td>Alex</td><td>2, 3, 4, 5, 6</td><td>Enclosure 4</td><td>Enclosures 2,6</td></tr>
+<tr><td>Polly</td><td>3, 4, 5, 6, 7</td><td>Enclosure 6</td><td>Enclosure 4</td></tr>
+<tr><td>Chaitanya</td><td>6, 7, 8, 9, 10</td><td>Enclosure 9</td><td>Enclosures 6,8</td></tr>
+<tr><td>Hwan</td><td>8, 9, 10, 11, 12</td><td>Enclosure 9</td><td>Enclosure 12</td></tr>
+<tr><td>Ka-Shu</td><td>12, 13, 14, 1, 2</td><td>Enclosures 12, 13, 2</td><td>—</td></tr></tbody></table>
+<p>Suppose you remove the animals from enclosures 4 and 12. This will make Alex and Ka-Shu
+happy, because at least one animal that they fear has gone. This will also keep Chaitanya happy,
+since both enclosures 6 and 8 still contain animals that he loves. However, both Polly and Hwan
+will be unhappy, since they cannot see any animals that they love but they can still see all the
+animals that they fear. This arrangement therefore gives a total of three happy children.</p>
+<p>Now suppose you put these animals back into their enclosures, and remove the animals from
+enclosures 4 and 6 instead. Alex and Polly will be happy because the animals that they fear in
+enclosures 4 and 6 have gone. Chaitanya will be happy because, even though animal 6 has gone,
+he can still see the animal in enclosure 8 which he loves. Likewise, Hwan will be happy because
+she can now see the animal in enclosure 12, which she loves. The only person unhappy will be
+Ka-Shu.</p>
+<p>Finally, suppose you put the animals back once more and then remove only the animal from
+enclosure 13. Ka-Shu will now be happy since one animal that he fears has been removed, and
+Alex, Polly, Chaitanya and Hwan will all be happy since they can all see at least one animal that
+they love. Thus this arrangement gives five happy children, the largest number possible.</p>
+<h3>Input</h3>
+<p>The first line of input will be of the form <var>N</var> <var>C</var>, where <var>N</var> is
+the number of animal enclosures (10 ≤ <var>N</var> ≤ 10000) and <var>C</var> is the number
+of children (1 ≤ <var>C</var> ≤ 50000). The enclosures are numbered 1, 2, ..., <var>N</var>
+clockwise around the circle.</p>
+<p>Following this will be <var>C</var> additional lines of input, where each line describes a
+single child. Each of these lines will be of the form</p>
+<p style="text-align: center"><var>E F L X</var><sub>1</sub> <var>X</var><sub>2</sub> ... <var>X<sub>F</sub></var>
+<var>Y</var><sub>1</sub> <var>Y</var><sub>2</sub> ... <var>Y<sub>L</sub></var></p>
+<p>where:</p>
+<ul>
+<li><var>E</var> is the first enclosure that the child can see (1 ≤ <var>E</var> ≤
+<var>N</var>). In other words, the child can see enclosures <var>E</var>, <var>E</var>+1,
+<var>E</var>+2, <var>E</var>+3 and <var>E</var>+4. Note that numbers larger than <var>N</var>
+wrap back around the circle, so if <var>N</var>=14 and <var>E</var>=13, the child can see
+enclosures 13, 14, 1, 2 and 3.</li>
+<li><var>F</var> is the number of animals that the child fears, and <var>L</var> is the number
+of animals that the child loves.</li>
+<li>Enclosures <var>X</var><sub>1</sub>, ..., <var>X<sub>F</sub></var> contain the animals that
+the child fears (1 ≤ <var>X</var><sub>1</sub>, ..., <var>X<sub>F</sub></var> ≤ <var>N</var>).</li>
+<li>Enclosures <var>Y</var><sub>1</sub>, ..., <var>Y<sub>L</sub></var> contain the animals that
+the child loves (1 ≤ <var>Y</var><sub>1</sub>, ..., <var>Y<sub>L</sub></var> ≤ <var>N</var>).</li>
+<li>No two of the integers <var>X</var><sub>1</sub>, ..., <var>X<sub>F</sub></var>,
+<var>Y</var><sub>1</sub>, ..., <var>Y<sub>L</sub></var> are equal, and all of these integers
+describe enclosures that the child can see.</li></ul>
+<p>Children will be listed in sorted order according to the first enclosure <var>E</var> (so the child with
+lowest <var>E</var> will appear first and the child with largest <var>E</var> will appear last). Note that more than one
+child may have the same first enclosure <var>E</var>.</p>
+<h3>Output</h3>
+<p>Output must consist of a single integer, giving the largest number of children that can be made
+happy.</p>
+<table>
+<tbody><tr><td style="padding-right: 20px"><h3>Sample Input 1</h3>
+<pre>14 5
+2 1 2 4 2 6
+3 1 1 6 4
+6 1 2 9 6 8
+8 1 1 9 12
+12 3 0 12 13 2</pre></td>
+<td style="vertical-align: top"><h3>Sample Output 1</h3>
+<pre>5</pre></td></tr>
+<tr><td style="padding-right: 20px"><h3>Sample Input 2</h3>
+<pre>12 7
+1 1 1 1 5
+5 1 1 5 7
+5 0 3 5 7 9
+7 1 1 7 9
+9 1 1 9 11
+9 3 0 9 11 1
+11 1 1 11 1</pre></td>
+<td style="vertical-align: top"><h3>Sample Output 2</h3>
+<pre>6</pre></td></tr>
+</tbody></table>
+
+<h3>Explanation</h3>
+<p>The first sample case is the example discussed earlier, in which all <var>C</var> = 5 children can be made
+happy. The second sample case is an example in which it is impossible to make all <var>C</var> = 7 children
+happy.</p>
+
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,apio07p3">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/apio07p3">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 20 (partial)<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> May 05, 2009<br>
+      </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=apio07p3">Search</a>)</h2><p style="text-align: center"></p>It's quiet in here...</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0183s.<br>
+    Server time on page load:
+    May 9, 2018 15:28:41 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fapio07p3">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

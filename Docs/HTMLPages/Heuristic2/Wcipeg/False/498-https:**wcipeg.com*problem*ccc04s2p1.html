@@ -1,0 +1,515 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - CCC04 Stage 2 - Scribble</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "8c45b434a3b7582378f7341582f131fd";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fccc04s2p1"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>2004 Canadian Computing Competition, Stage 2</h3>
+<h2>Day 1, Problem 1: Scribble</h2>
+
+<p><em>Nixed, he placed the flong into the calathi halfway through the yuga.</em>
+  
+</p>
+<p>Huh?</p>
+<p>Believe it or not, the above sentence is actually a valid English sentence. It also has two other features: it looks like spam, and the words are very valuable.</p>
+<p>Valuable, you say? (For some reason, you are doing lots of talking to yourself today).</p>
+<p>Yes, valuable, if you are playing Scribble. In the standard game of Scribble, calathi (which means "a vase-shaped basket represented in Greek painting and sculpture") is worth 72 points, nixed (meaning "refused") is worth 26 points, flong (which is "a compressed mass of paper sheets, forming a matrix or mold for stereotype plates") is worth 18 points, and yuga which is "any one of the four ages, Krita, or Satya, Treta, Dwapara, and Kali, into which the Hindus divide the duration or existence of the world" is worth 33 points.</p>
+<p>Specifically, as you may know, each letter in Scribble is worth a given number of points. The goal is get the most points with a given set of letters.</p>
+<p>For this question, we will modify the game slightly. Suppose you have 7 tiles/letters and you have scores for each letter (where the score s<sub>α</sub> for each letter α satistisfies 0 &lt; <var>s</var><sub>α</sub> &lt; 26), and also you have a dictionary of valid words that you can consult before you play (this is different than the "normal" Scribble play). Your task is the find the highest scoring word.</p>
+
+<h3>Input</h3>
+
+<p>You are given a number <var>k</var> (1 ≤ <var>k</var> ≤ 7) on the first line of input. On the next k lines, you will be given triples α <var>s</var><sub>α</sub> <var>r</var><sub>α</sub>, where α is a letter, <var>s</var><sub>α</sub> is the score for that letter, and r<sub>α</sub> is the number of times that letter occurs as a tile. You can assume that</p>
+<p style="text-align: center;"><img src="https://wcipeg.com/problems/latex/56b279ccd27d7e97e126aef8300ee472" alt="$\displaystyle \sum_{\alpha}r_{\alpha} = 7$" class="latex"></p>
+
+<p>For example, the triple "<var>a</var> 7 2" means you have two tiles marked <var>a</var> and each is worth 7 points. On the next (the <var>k</var> + 2nd) line, there is the number <var>N</var> (0 &lt; <var>N</var> &lt; 100000). On each of the next <var>N</var> lines, there is a word (you can assume the length of each word is at least one).
+</p>
+
+<h3>Output</h3>
+<p>The output one line long, containing one integer, which is the maximum score. That is, the maximum number of points that can be attained by using the tiles to form one complete word. If no word can be formed, the maximum number of points is zero.</p>
+<p>&nbsp;</p>
+
+<h3>Sample Input</h3>
+<pre>4
+a 1 1
+b 4 1
+c 2 1
+d 10 4
+3
+ab
+bc
+c</pre>
+
+<h3>Sample Output</h3>
+<pre>6</pre>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,ccc04s2p1">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/ccc04s2p1">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 10<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Dec 27, 2008<br>
+      </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=ccc04s2p1">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment5377">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/ImbaCalvin">ImbaCalvin</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5377">Jul 07, 2013 - 9:32:42 pm UTC</a>      </span>
+      <a class="comment_title" id="title5377" onclick="toggle(&quot;body5377&quot;)">Data error?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5377">
+    (<span class="upvotes"><span id="upvotes5377">1</span></span>/<span class="downvotes"><span id="downvotes5377">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5377" class="comment_body">
+    <pre id="msg5377" style="display: none">In the 9th test case, N is 10, but there are only 9 following words...
+Also, there is a similar situation in the 3rd test case.
+It may not affect C++ submissions, but it had certainly screwed my Python program...</pre>
+    <div style="opacity: 1">
+      In the 9th test case, N is 10, but there are only 9 following words... <br>Also, there is a similar situation in the 3rd test case. <br>It may not affect C++ submissions, but it had certainly screwed my Python program...    </div>
+    <br><div class="comment_block" id="comment5378">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5378">Jul 07, 2013 - 11:04:27 pm UTC</a>      </span>
+      <a class="comment_title" id="title5378" onclick="toggle(&quot;body5378&quot;)">Re: Data error?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5378">
+    (<span class="upvotes"><span id="upvotes5378">0</span></span>/<span class="downvotes"><span id="downvotes5378">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5378" class="comment_body">
+    <pre id="msg5378" style="display: none">Roger that. I'll check with Troy, but this was so long ago that the original test file probably doesn't exist anywhere anymore. So I'll probably just remove this test file entirely.</pre>
+    <div style="opacity: 1">
+      Roger that. I'll check with Troy, but this was so long ago that the original test file probably doesn't exist anywhere anymore. So I'll probably just remove this test file entirely.    </div>
+      </div>
+</div>
+<br><div class="comment_block" id="comment5893">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/xiaowuc1">xiaowuc1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5893">Jun 05, 2014 - 10:55:13 pm UTC</a>      </span>
+      <a class="comment_title" id="title5893" onclick="toggle(&quot;body5893&quot;)">Re: Data error?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5893">
+    (<span class="upvotes"><span id="upvotes5893">0</span></span>/<span class="downvotes"><span id="downvotes5893">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5893" class="comment_body">
+    <pre id="msg5893" style="display: none">I confirm that test cases 3 and 9 have something weird about them.
+
+In submission 180781, I terminate early if there are no more lines to read, resulting in no output for cases 3 and 9.
+
+In submission 180782, I immediately print out my best result if there is no input to read, which gives AC.</pre>
+    <div style="opacity: 1">
+      I confirm that test cases 3 and 9 have something weird about them. <br> <br>In submission 180781, I terminate early if there are no more lines to read, resulting in no output for cases 3 and 9. <br> <br>In submission 180782, I immediately print out my best result if there is no input to read, which gives AC.    </div>
+    <br><div class="comment_block" id="comment6091">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jeffreyxiao">jeffreyxiao</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6091">Aug 19, 2014 - 3:37:11 pm UTC</a>      </span>
+      <a class="comment_title" id="title6091" onclick="toggle(&quot;body6091&quot;)">Re: Data error?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6091">
+    (<span class="upvotes"><span id="upvotes6091">0</span></span>/<span class="downvotes"><span id="downvotes6091">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6091" class="comment_body">
+    <pre id="msg6091" style="display: none">Test cases 3 and 9 are missing some words. btw how do you check if there are no more lines to read?
+
+Edit: nvm I got it</pre>
+    <div style="opacity: 1">
+      Test cases 3 and 9 are missing some words. btw how do you check if there are no more lines to read? <br> <br>Edit: nvm I got it    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br><div class="comment_block" id="comment6092">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Alex">Alex</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6092">Aug 20, 2014 - 1:10:31 am UTC</a>      </span>
+      <a class="comment_title" id="title6092" onclick="toggle(&quot;body6092&quot;)">Re: Data error?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6092">
+    (<span class="upvotes"><span id="upvotes6092">0</span></span>/<span class="downvotes"><span id="downvotes6092">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6092" class="comment_body">
+    <pre id="msg6092" style="display: none">I fixed those cases and rejudged.</pre>
+    <div style="opacity: 1">
+      I fixed those cases and rejudged.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment2083">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/zhxl0903">zhxl0903</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2083">Apr 13, 2009 - 1:44:51 am UTC</a>      </span>
+      <a class="comment_title" id="title2083" onclick="toggle(&quot;body2083&quot;)">Could someone explain to me what the sigma does?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2083">
+    (<span class="upvotes"><span id="upvotes2083">0</span></span>/<span class="downvotes"><span id="downvotes2083">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2083" class="comment_body">
+    <pre id="msg2083" style="display: none">Thanks! :)</pre>
+    <div style="opacity: 1">
+      Thanks! :)    </div>
+    <br><div class="comment_block" id="comment2085">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2085">Apr 13, 2009 - 1:57:45 pm UTC</a>      </span>
+      <a class="comment_title" id="title2085" onclick="toggle(&quot;body2085&quot;)">Re: Could someone explain to me what the sigma doe</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2085">
+    (<span class="upvotes"><span id="upvotes2085">1</span></span>/<span class="downvotes"><span id="downvotes2085">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2085" class="comment_body">
+    <pre id="msg2085" style="display: none">Ignore the sigma. I did.
+Basically, you're given a list of letters, their point value, and the number of them in the game. i.e.
+[code]a 1 1
+b 4 1
+c 2 1
+d 10 4[/code]means that there is one occurrence of letter [i]a[/i], each worth one point; there is one occurrence of letter [i]b[/i], each worth four points; there is one occurrence of letter [i]c[/i], each worth two points; and there are four occurrences of letter [i]d[/i], each worth ten points.
+
+You're then given a list of words. Your job is to find the highest scoring word, given the letter scores. i.e.,
+[code]ab // worth 5 points (a + b = 1 + 4 = 5)
+bc // worth 6 points (b + c = 4 + 2 = 6)
+c  // worth 2 points (c = 2)[/code]
+You would output 6, as this is the maximum score attainable.</pre>
+    <div style="opacity: 1">
+      Ignore the sigma. I did. <br>Basically, you're given a list of letters, their point value, and the number of them in the game. i.e. <br><pre><code>a 1 1 <br>b 4 1 <br>c 2 1 <br>d 10 4</code></pre>means that there is one occurrence of letter <span class="italics">a</span>, each worth one point; there is one occurrence of letter <span class="italics">b</span>, each worth four points; there is one occurrence of letter <span class="italics">c</span>, each worth two points; and there are four occurrences of letter <span class="italics">d</span>, each worth ten points. <br> <br>You're then given a list of words. Your job is to find the highest scoring word, given the letter scores. i.e., <br><pre><code>ab // worth 5 points (a + b = 1 + 4 = 5) <br>bc // worth 6 points (b + c = 4 + 2 = 6) <br>c  // worth 2 points (c = 2)</code></pre> <br>You would output 6, as this is the maximum score attainable.    </div>
+      </div>
+</div>
+<br><div class="comment_block" id="comment2086">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hansonw1">hansonw1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2086">Apr 13, 2009 - 2:05:14 pm UTC</a>      </span>
+      <a class="comment_title" id="title2086" onclick="toggle(&quot;body2086&quot;)">Re: Could someone explain to me what the sigma doe</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2086">
+    (<span class="upvotes"><span id="upvotes2086">1</span></span>/<span class="downvotes"><span id="downvotes2086">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2086" class="comment_body">
+    <pre id="msg2086" style="display: none">It says that the sum of all the "r"s will be equal to 7.
+(Or, there will always be exactly 7 tiles in your hand)</pre>
+    <div style="opacity: 1">
+      It says that the sum of all the "r"s will be equal to 7. <br>(Or, there will always be exactly 7 tiles in your hand)    </div>
+    <br><div class="comment_block" id="comment2088">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hansonw1">hansonw1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2088">Apr 13, 2009 - 3:02:11 pm UTC</a>      </span>
+      <a class="comment_title" id="title2088" onclick="toggle(&quot;body2088&quot;)">Re: Re: Could someone explain to me what the sigma</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2088">
+    (<span class="upvotes"><span id="upvotes2088">1</span></span>/<span class="downvotes"><span id="downvotes2088">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2088" class="comment_body">
+    <pre id="msg2088" style="display: none">Naturally, yes.</pre>
+    <div style="opacity: 1">
+      Naturally, yes.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment1224">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/zerglingrush">zerglingrush</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1224">Jan 10, 2009 - 11:56:16 pm UTC</a>      </span>
+      <a class="comment_title" id="title1224" onclick="toggle(&quot;body1224&quot;)">The length actually matters</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1224">
+    (<span class="upvotes"><span id="upvotes1224">0</span></span>/<span class="downvotes"><span id="downvotes1224">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1224" class="comment_body">
+    <pre id="msg1224" style="display: none">It's what totally screwed me up....</pre>
+    <div style="opacity: 0.79345670852611">
+      It's what totally screwed me up....    </div>
+    <br><div class="comment_block" id="comment1230">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/taimla101">taimla101</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1230">Jan 11, 2009 - 1:50:08 am UTC</a>      </span>
+      <a class="comment_title" id="title1230" onclick="toggle(&quot;body1230&quot;)">Re: The length actually matters</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1230">
+    (<span class="upvotes"><span id="upvotes1230">0</span></span>/<span class="downvotes"><span id="downvotes1230">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1230" class="comment_body">
+    <pre id="msg1230" style="display: none">not really
+I was just asking to possibly make my program better/faster
+of course, yours is accepted and mine isn't so...</pre>
+    <div style="opacity: 1">
+      not really <br>I was just asking to possibly make my program better/faster <br>of course, yours is accepted and mine isn't so...    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment1221">
+  <div class="comment_header" style="opacity: 0.79234504487351">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/taimla101">taimla101</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1221">Jan 10, 2009 - 11:21:04 pm UTC</a>      </span>
+      <a class="comment_title" id="title1221" onclick="toggle(&quot;body1221&quot;)">What is the maximum length of the word</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1221">
+    (<span class="upvotes"><span id="upvotes1221">1</span></span>/<span class="downvotes"><span id="downvotes1221">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1221" class="comment_body">
+    <pre id="msg1221" style="display: none"></pre>
+    <div style="opacity: 0.79234504487351">
+          </div>
+    <br><div class="comment_block" id="comment1222">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/dAedaL">dAedaL</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1222">Jan 10, 2009 - 11:39:16 pm UTC</a>      </span>
+      <a class="comment_title" id="title1222" onclick="toggle(&quot;body1222&quot;)">Re: What is the maximum length of the word</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1222">
+    (<span class="upvotes"><span id="upvotes1222">0</span></span>/<span class="downvotes"><span id="downvotes1222">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1222" class="comment_body">
+    <pre id="msg1222" style="display: none">I'm pretty sure it doesn't matter...</pre>
+    <div style="opacity: 1">
+      I'm pretty sure it doesn't matter...    </div>
+      </div>
+</div>
+<br><div class="comment_block" id="comment1229">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hansonw1">hansonw1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1229">Jan 11, 2009 - 12:29:28 am UTC</a>      </span>
+      <a class="comment_title" id="title1229" onclick="toggle(&quot;body1229&quot;)">Re: What is the maximum length of the word</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1229">
+    (<span class="upvotes"><span id="upvotes1229">2</span></span>/<span class="downvotes"><span id="downvotes1229">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1229" class="comment_body">
+    <pre id="msg1229" style="display: none">Just use a string - it won't be that slow.
+And yes the letters are all lowercase.</pre>
+    <div style="opacity: 1">
+      Just use a string - it won't be that slow. <br>And yes the letters are all lowercase.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment1223">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/taimla101">taimla101</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1223">Jan 10, 2009 - 11:44:50 pm UTC</a>      </span>
+      <a class="comment_title" id="title1223" onclick="toggle(&quot;body1223&quot;)">will the letters be lowercase?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1223">
+    (<span class="upvotes"><span id="upvotes1223">0</span></span>/<span class="downvotes"><span id="downvotes1223">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1223" class="comment_body">
+    <pre id="msg1223" style="display: none"></pre>
+    <div style="opacity: 0.79345670852611">
+          </div>
+      </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0451s.<br>
+    Server time on page load:
+    May 9, 2018 15:29:20 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fccc04s2p1">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

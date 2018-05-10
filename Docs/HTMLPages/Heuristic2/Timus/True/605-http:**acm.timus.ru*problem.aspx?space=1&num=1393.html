@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=768"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>1393. Average Common Prefix @ Timus Online Judge</title><link rel="alternate" hreflang="x-default" href="/problem.aspx?space=1&amp;num=1393"><link rel="alternate" hreflang="en-us" href="/problem.aspx?space=1&amp;num=1393&amp;locale=en"><link rel="alternate" hreflang="ru-ru" href="/problem.aspx?space=1&amp;num=1393&amp;locale=ru"><link rel="stylesheet" type="text/css" href="/style52.css"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"></head><body><table width="100%" cellspacing="0" cellpadding="0" class="body"><tbody><tr><td class="caption"><table width="100%" cellspacing="0" cellpadding="0"><tbody><tr><td width="130" class="locale"><a href="/problem.aspx?space=1&amp;num=1393&amp;locale=en">ENG</a>&nbsp;&nbsp;<a href="/problem.aspx?space=1&amp;num=1393&amp;locale=ru">RUS</a></td><td class="title"><a href="/">Timus Online Judge</a></td><td width="130"></td></tr></tbody></table></td></tr><tr><td class="panel"><table width="100%" cellspacing="0" cellpadding="0"><tbody><tr><td width="130" valign="TOP" align="CENTER" style="padding-bottom:5px;"><a href="/"><img border="0" src="/images/usu-summer.jpg" height="134" width="106" alt=""></a></td><td valign="TOP" align="LEFT"><table width="100%" cellspacing="0" cellpadding="0" class="panel"><tbody><tr><th width="25%"><div>Online Judge</div></th><th width="25%"><div>Problems</div></th><th width="25%"><div>Authors</div></th><th width="25%"><div>Online contests</div></th></tr><tr><td valign="TOP" align="LEFT"><a href="/">About Online Judge</a><br><a href="/help.aspx?topic=faq">Frequently asked questions</a><br><a href="/news.aspx">Site news</a><br><a href="/forum/">Webboard</a><br><a href="/help.aspx?topic=links">Links</a><br></td><td valign="TOP" align="LEFT"><a href="/problemset.aspx">Problem set</a><br><a href="/submit.aspx">Submit solution</a><br><a href="/status.aspx">Judge status</a><br><a href="/help.aspx?topic=judge">Guide</a><br></td><td valign="TOP"><a href="/register.aspx">Register</a><br><a href="/authedit.aspx">Update your info</a><br><a href="/ranklist.aspx">Authors ranklist</a><br><form action="/search.aspx" method="GET" style="margin-top:0.6em;"><input name="Str" size="12" value="" placeholder="Author’s name"> <input type="SUBMIT" value="Search"></form></td><td valign="TOP"><a href="/contest.aspx">Current contest</a><br><a href="/schedule.aspx">Scheduled contests</a><br><a href="/archive.aspx">Past contests</a><br><a href="/help.aspx?topic=contest">Rules</a><br></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr><td style="padding-top: 32px; padding-bottom: 20px;"><table align="CENTER" cellspacing="0" cellpadding="0"><tbody><tr><td width="800"><div class="problem_content"><h2 class="problem_title">1393. Average Common Prefix</h2><div class="problem_limits">Time limit: 1.5 second<br>Memory limit: 16 MB<br></div><div id="problem_text"><div class="problem_par"><div class="problem_par_normal">Let <b>T</b> denote some string of length <b>n</b> consisting of capital 
+Latin letters. Let <b>Shift(T, k)</b> denote the left cyclic shift of 
+<b>T</b> by <b>k-1</b> positions. The permutation array for <b>T</b> is an 
+array <b>P[1..n]</b> such that <b>Shift(T, P[1])</b>, <b>Shift(T, P[2])</b>, 
+..., <b>Shift(T, P[n])</b> is a list of cyclic shifts of <b>T</b> sorted in 
+lexicographical order.
+</div></div><div class="problem_par"><div class="problem_par_normal">For given two strings <b>v</b> and <b>w</b> we define <b>LCP(v, w)</b> as 
+the length of their longest common prefix. The <b>Average LCP</b> of the 
+string <b>T</b> is the average length of longest common prefix between two 
+consecutive shifts:
+</div></div><div class="problem_centered_picture"><img src="/image/get.aspx/d48185b4-59fa-4727-8e10-b00189900893" border="0" alt="Problem illustration"></div><div class="problem_par"><div class="problem_par_normal">Example. <b>T</b> = 'MISSISSIPPI', <b>n</b> = 11:
+</div></div><div class="problem_par"><div class="problem_par_normal"><table border="1" cellspacing="0" cellpadding="0">
+ <tbody><tr align="center">
+  <td width="55"><b>i</b></td>
+  <td width="96"><b>P[i]</b></td>
+  <td width="228"><b>Shift(T, P[i])</b></td>
+  <td width="72"><b>LCP</b></td>
+ </tr>
+ <tr align="center">
+  <td>1</td>
+  <td>11</td>
+  <td>'IMISSISSIPP'</td>
+  <td>1</td>
+ </tr>
+ <tr align="center">
+  <td>2</td>
+  <td>8</td>
+  <td>'IPPIMISSISS'</td>
+  <td>1</td>
+ </tr>
+ <tr align="center">
+  <td>3</td>
+  <td>5</td>
+  <td>'ISSIPPIMISS'</td>
+  <td>4</td>
+ </tr>
+ <tr align="center">
+  <td>4</td>
+  <td>2</td>
+  <td>'ISSISSIPPIM'</td>
+  <td>0</td>
+ </tr>
+ <tr align="center">
+  <td>5</td>
+  <td>1</td>
+  <td>'MISSISSIPPI'</td>
+  <td>0</td>
+ </tr>
+ <tr align="center">
+  <td>6</td>
+  <td>10</td>
+  <td>'PIMISSISSIP'</td>
+  <td>1</td>
+ </tr>
+ <tr align="center">
+  <td>7</td>
+  <td>9</td>
+  <td>'PPIMISSISSI'</td>
+  <td>0</td>
+ </tr>
+ <tr align="center">
+  <td>8</td>
+  <td>7</td>
+  <td>'SIPPIMISSIS'</td>
+  <td>2</td>
+ </tr>
+ <tr align="center">
+  <td>9</td>
+  <td>4</td>
+  <td>'SISSIPPIMIS'</td>
+  <td>1</td>
+ </tr>
+ <tr align="center">
+  <td>10</td>
+  <td>6</td>
+  <td>'SSIPPIMISSI'</td>
+  <td>3</td>
+ </tr>
+ <tr align="center">
+  <td>11</td>
+  <td>3</td>
+  <td>'SSISSIPPIMI'</td>
+  <td>&nbsp;</td>
+ </tr>
+</tbody></table>
+</div></div><div class="problem_par"><div class="problem_par_normal"><b>Average LCP</b> of 'MISSISSIPPI' is 1.3
+</div></div><h3 class="problem_subtitle">Input</h3><div class="problem_par"><div class="problem_par_normal">The first line of the input contains integer <b>n </b>(1 &lt; <b>n</b> &lt; 
+250001). The second line contains string <b>T</b>.
+</div></div><h3 class="problem_subtitle">Output</h3><div class="problem_par"><div class="problem_par_normal">The only line of the output should contain the <b>Average LCP</b> of 
+<b>T</b> with at least 3 digits after the decimal point.
+</div></div><h3 class="problem_subtitle">Sample</h3><table class="sample"><tbody><tr><th width="350">input</th><th width="350">output</th></tr><tr><td><pre>11
+MISSISSIPPI
+</pre></td><td><pre>1.300
+</pre></td></tr></tbody></table><div class="problem_source"><b>Problem Author: </b>Ilya Grebnov<br></div></div></div><div><b>Tags: </b><a href="problemset.aspx?space=1&amp;tag=string">string algorithms</a> &nbsp;<span class="problem_tags_toggle">(<form method="POST" action="problem.aspx?space=1&amp;num=1393" style="display:inline;" id="ToggleTagsForm"><a href="problem.aspx?space=1&amp;num=1393" onclick="document.getElementById('ToggleTagsForm').submit();return false;"><input type="hidden" name="Action" value="HideTags">hide tags for unsolved problems</a></form>)</span></div><div class="problem_links"><span>Difficulty: 1191</span> &nbsp;&nbsp;&nbsp;<a href="print.aspx?space=1&amp;num=1393" target="_blank">Printable version</a> &nbsp;&nbsp;&nbsp;<a href="submit.aspx?space=1&amp;num=1393">Submit solution</a> &nbsp;&nbsp;&nbsp;<a href="forum/?space=1&amp;num=1393">Discussion (16)</a><br><a href="status.aspx?space=1&amp;num=1393">All submissions (8713)</a> &nbsp;&nbsp;&nbsp;<a href="status.aspx?space=1&amp;num=1393&amp;status=accepted">All accepted submissions (1260)</a> &nbsp;&nbsp;&nbsp;<a href="rating.aspx?space=1&amp;num=1393">Solutions rating (359)</a></div></td></tr></tbody></table></td></tr><tr><td class="footer"><script type="text/javascript" async="" src="https://mc.yandex.ru/metrika/watch.js"></script><script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter20918869 = new Ya.Metrika({ id:20918869, clickmap:true, trackLinks:true, accurateTrackBounce:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript>&lt;div&gt;&lt;img src="https://mc.yandex.ru/watch/20918869" style="position:absolute; left:-9999px;" alt=""&gt;&lt;/div&gt;</noscript>© 2000–2017 <a href="/team.aspx">Timus Online Judge Team</a>. All rights reserved.</td></tr></tbody></table></body></html>
