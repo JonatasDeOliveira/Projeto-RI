@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=768"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>2106. Deserialization @ Timus Online Judge</title><link rel="alternate" hreflang="x-default" href="/problem.aspx?space=1&amp;num=2106"><link rel="alternate" hreflang="en-us" href="/problem.aspx?space=1&amp;num=2106&amp;locale=en"><link rel="alternate" hreflang="ru-ru" href="/problem.aspx?space=1&amp;num=2106&amp;locale=ru"><link rel="stylesheet" type="text/css" href="/style52.css"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"></head><body><table width="100%" cellspacing="0" cellpadding="0" class="body"><tbody><tr><td class="caption"><table width="100%" cellspacing="0" cellpadding="0"><tbody><tr><td width="130" class="locale"><a href="/problem.aspx?space=1&amp;num=2106&amp;locale=en">ENG</a>&nbsp;&nbsp;<a href="/problem.aspx?space=1&amp;num=2106&amp;locale=ru">RUS</a></td><td class="title"><a href="/">Timus Online Judge</a></td><td width="130"></td></tr></tbody></table></td></tr><tr><td class="panel"><table width="100%" cellspacing="0" cellpadding="0"><tbody><tr><td width="130" valign="TOP" align="CENTER" style="padding-bottom:5px;"><a href="/"><img border="0" src="/images/usu-summer.jpg" height="134" width="106" alt=""></a></td><td valign="TOP" align="LEFT"><table width="100%" cellspacing="0" cellpadding="0" class="panel"><tbody><tr><th width="25%"><div>Online Judge</div></th><th width="25%"><div>Problems</div></th><th width="25%"><div>Authors</div></th><th width="25%"><div>Online contests</div></th></tr><tr><td valign="TOP" align="LEFT"><a href="/">About Online Judge</a><br><a href="/help.aspx?topic=faq">Frequently asked questions</a><br><a href="/news.aspx">Site news</a><br><a href="/forum/">Webboard</a><br><a href="/help.aspx?topic=links">Links</a><br></td><td valign="TOP" align="LEFT"><a href="/problemset.aspx">Problem set</a><br><a href="/submit.aspx">Submit solution</a><br><a href="/status.aspx">Judge status</a><br><a href="/help.aspx?topic=judge">Guide</a><br></td><td valign="TOP"><a href="/register.aspx">Register</a><br><a href="/authedit.aspx">Update your info</a><br><a href="/ranklist.aspx">Authors ranklist</a><br><form action="/search.aspx" method="GET" style="margin-top:0.6em;"><input name="Str" size="12" value="" placeholder="Author’s name"> <input type="SUBMIT" value="Search"></form></td><td valign="TOP"><a href="/contest.aspx">Current contest</a><br><a href="/schedule.aspx">Scheduled contests</a><br><a href="/archive.aspx">Past contests</a><br><a href="/help.aspx?topic=contest">Rules</a><br></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr><td style="padding-top: 32px; padding-bottom: 20px;"><table align="CENTER" cellspacing="0" cellpadding="0"><tbody><tr><td width="800"><div class="problem_content"><h2 class="problem_title">2106. Deserialization</h2><div class="problem_limits">Time limit: 2.0 second<br>Memory limit: 64 MB<br></div><div id="problem_text"><div class="problem_par"><div class="problem_par_normal">In our days of modern technologies it is not common to use text 
+communication protocols, all computer programs communicate with each other 
+only via binary protocols when any data are represented as a sequence 
+of bytes. </div></div><div class="problem_par"><div class="problem_par_normal">So in the company “Perimeter” it was decided that all programs should use 
+a binary protocol. Programmer Vasya was working hard for a week and, when 
+finished, proudly went on vacation to restore his nerves. However, Friday 
+night Baba Zina was wiping the floor at Vasya’s workplace and accidentally 
+dropped a computer on the floor, after that it stopped working. The 
+company’s management was in a panic, because there was neither the 
+programmer nor the program. You have been asked urgently to save the 
+situation by implementing the missing part, especially the deserialization 
+of the binary protocol (converting the encoded data into a meaningful 
+format). </div></div><div class="problem_par"><div class="problem_par_normal">Remember, that during the process of serialization the structured data are 
+transformed into the set of bytes (numbers from 0 to 255), that is most 
+convenient to write as a sequence of hexadecimal numbers, consisting of 
+two digits. Then the sequence is transmitted via a network to another 
+program that deserializes it, receiving the output of the original data 
+set.</div></div><div class="problem_par"><div class="problem_par_normal">The transmitted data is the sequence of structures. Each structure has a 
+name and consists of the ordered set of fields. Each field may be a 
+non-negative integer, a string or some other structure. During 
+serialization, the fields are processed sequentially in order of 
+description, and one after another fall into the final byte stream. </div></div><div class="problem_par"><div class="problem_par_normal">Integers are serialized in 4 bytes, which can be represented as a 
+hexadecimal number of 8 characters. The sign bit is missing, the order of 
+bits is from higher to lower. For example,</div></div><div class="problem_centered_picture"><img src="/image/get.aspx/bd4fc268-7e1b-4a98-9989-a029509d3817" border="0" alt="Problem illustration"></div><div class="problem_par"><div class="problem_par_normal">A string is serialized as an integer, the length of the string, and then 
+the character codes in the ASCII table (each is one byte). It is known 
+that all strings include only small Latin letters. For example, </div></div><div class="problem_centered_picture"><img src="/image/get.aspx/4a73e03d-4d64-40bc-9cdb-91b31f48adcd" border="0" alt="Problem illustration"></div><div class="problem_par"><div class="problem_par_normal">Structures are described by name and enumeration of field types. Each 
+field type is either “number” or “string” or type of the other 
+previously described structure. During the serialization of structure, 
+firstly its first field in the order of description is serialized, then 
+the second one and so on until its field list does not end. </div></div><h3 class="problem_subtitle">Input</h3><div class="problem_par"><div class="problem_par_normal">The first line contains integers <i>n</i> and <i>l</i> that are the number of known 
+structures and the number of lines with their description (1 ≤ <i>n</i> ≤ 
+240; 2<i>n</i> ≤ <i>l</i> ≤ 10<sup>3</sup>).    
+The following <i>l</i> lines contain the description of structures. 
+It is guaranteed that the names of the structures are different and no 
+name equals “int”, “string” and “struct”. </div></div><div class="problem_par"><div class="problem_par_normal">The first line in the description of the structure consists of the keyword 
+“struct” and its name\,—\,nonempty string of small Latin letters no 
+longer than 10 characters. The following lines contain an ordered list of 
+field types. A type can be either the word “int” or “string” or the 
+name of the structure that has been already described above. All types are 
+separated from the beginning of the line with a space. It is guaranteed 
+that each structure contains at least one field. </div></div><div class="problem_par"><div class="problem_par_normal">The last line contains a byte array, in which was serialized a particular 
+instance of a structure (or several structures), that is a sequence of 
+hexadecimal numbers of even length (the digits from 10 to 15 match the 
+capital letters A-F). It is guaranteed that the sequence is correct and 
+its length does not exceed 10<sup>4</sup>. </div></div><div class="problem_par"><div class="problem_par_normal">The byte array can be a serialization of several structures. Before 
+serialization of each structure, the number of this structure in the order 
+of description in the initial data is serialized (structures are 
+enumerated from 1 to <i>n</i>). </div></div><h3 class="problem_subtitle">Output</h3><div class="problem_par"><div class="problem_par_normal">Output the deserialized instance of structures separated by a line break 
+in the order in which they appear in the serialized data, in the following 
+format: </div></div><div class="problem_par"><div class="problem_par_normal"><ul>
+<li> the first line should be the name of the deserialized structure;
+</li><li> all following lines in the representation of this instance should 
+contain a non-zero amount of spaces at the beginning;
+</li><li> if you remove one space from the beginning of these lines, you will 
+get a list of field values separated by a line break; 
+</li><li> the number of field values should be equal to the number of types in 
+the description of the structure; 
+</li><li> if the type of description with the corresponding index is integer, 
+then output “int” (without the quotation marks) and its value (without 
+leading zeros) separated by a space.
+</li><li> if the type of description with the corresponding index is string, 
+output “string” (without the quotation marks) and a string of small 
+Latin letters, separated by a space.
+</li><li> if the type of description with the corresponding index is a 
+structure, then output a set of strings with the deserialized value of the 
+structure in this format;  
+</li><li> if you serialize an instance into a sequence of bytes according to 
+the algorithm described above, it will be byte-by-byte identical to the 
+corresponding sequence of input data.
+</li></ul></div></div><div class="problem_par"><div class="problem_par_normal">It is guaranteed that the output size does not exceed 30 kilobytes.</div></div><h3 class="problem_subtitle">Sample</h3><table class="sample"><tbody><tr><th width="350">input</th><th width="350">output</th></tr><tr><td><pre>2 5
+struct a
+·string
+struct b
+·a
+·int
+000000020000000361626300000004000000010000000568656C6C6F
+</pre></td><td><pre>b
+·a
+··string abc
+·int 4
+a
+·string hello</pre></td></tr></tbody></table><h3 class="problem_subtitle">Notes</h3><div class="problem_par"><div class="problem_par_normal">For clarity, in the example, the leading spaces are replaced by dots. In 
+all the tests, including the example, there is the format described above 
+(i.e. spaces instead of dots).  </div></div><div class="problem_source"><b>Problem Author: </b>Mikhail Vyatskov<br><b>Problem Source: </b>Ural FU Junior Championship 2016<br></div></div></div><div><b>Tags: </b>none &nbsp;<span class="problem_tags_toggle">(<form method="POST" action="problem.aspx?space=1&amp;num=2106" style="display:inline;" id="ToggleTagsForm"><a href="problem.aspx?space=1&amp;num=2106" onclick="document.getElementById('ToggleTagsForm').submit();return false;"><input type="hidden" name="Action" value="HideTags">hide tags for unsolved problems</a></form>)</span></div><div class="problem_links"><span>Difficulty: 637</span> &nbsp;&nbsp;&nbsp;<a href="print.aspx?space=1&amp;num=2106" target="_blank">Printable version</a> &nbsp;&nbsp;&nbsp;<a href="submit.aspx?space=1&amp;num=2106">Submit solution</a> &nbsp;&nbsp;&nbsp;<a href="forum/?space=1&amp;num=2106">Discussion (3)</a><br><a href="status.aspx?space=1&amp;num=2106">All submissions (332)</a> &nbsp;&nbsp;&nbsp;<a href="status.aspx?space=1&amp;num=2106&amp;status=accepted">All accepted submissions (128)</a> &nbsp;&nbsp;&nbsp;<a href="rating.aspx?space=1&amp;num=2106">Solutions rating (109)</a></div></td></tr></tbody></table></td></tr><tr><td class="footer"><script type="text/javascript" async="" src="https://mc.yandex.ru/metrika/watch.js"></script><script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter20918869 = new Ya.Metrika({ id:20918869, clickmap:true, trackLinks:true, accurateTrackBounce:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript>&lt;div&gt;&lt;img src="https://mc.yandex.ru/watch/20918869" style="position:absolute; left:-9999px;" alt=""&gt;&lt;/div&gt;</noscript>© 2000–2017 <a href="/team.aspx">Timus Online Judge Team</a>. All rights reserved.</td></tr></tbody></table></body></html>

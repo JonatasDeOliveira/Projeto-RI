@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=768"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>G. Language Ocean @ NEERC 2011, Eastern subregional contest @ Timus Online Judge</title><link rel="alternate" hreflang="x-default" href="/problem.aspx?space=101&amp;num=7"><link rel="alternate" hreflang="en-us" href="/problem.aspx?space=101&amp;num=7&amp;locale=en"><link rel="alternate" hreflang="ru-ru" href="/problem.aspx?space=101&amp;num=7&amp;locale=ru"><link rel="stylesheet" type="text/css" href="/style52.css"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"></head><body><table width="100%" cellspacing="0" cellpadding="0" class="body"><tbody><tr><td class="caption"><table width="100%" cellspacing="0" cellpadding="0"><tbody><tr><td width="130" class="locale"><a href="/problem.aspx?space=101&amp;num=7&amp;locale=en">ENG</a>&nbsp;&nbsp;<a href="/problem.aspx?space=101&amp;num=7&amp;locale=ru">RUS</a></td><td class="title"><a href="/">Timus Online Judge</a></td><td width="130"></td></tr></tbody></table></td></tr><tr><td class="panel"><table width="100%" cellspacing="0" cellpadding="0"><tbody><tr><td width="130" valign="TOP" align="CENTER" style="padding-bottom:5px;"><a href="/"><img border="0" src="/images/usu-summer.jpg" height="134" width="106" alt=""></a></td><td valign="TOP" align="LEFT"><table width="100%" cellspacing="0" cellpadding="0" class="panel"><tbody><tr><th width="25%"><div>Online Judge</div></th><th width="25%"><div>Problems</div></th><th width="25%"><div>Authors</div></th><th width="25%"><div>Online contests</div></th></tr><tr><td valign="TOP" align="LEFT"><a href="/">About Online Judge</a><br><a href="/help.aspx?topic=faq">Frequently asked questions</a><br><a href="/news.aspx">Site news</a><br><a href="/forum/">Webboard</a><br><a href="/help.aspx?topic=links">Links</a><br></td><td valign="TOP" align="LEFT"><a href="/problemset.aspx">Problem set</a><br><a href="/submit.aspx">Submit solution</a><br><a href="/status.aspx">Judge status</a><br><a href="/help.aspx?topic=judge">Guide</a><br></td><td valign="TOP"><a href="/register.aspx">Register</a><br><a href="/authedit.aspx">Update your info</a><br><a href="/ranklist.aspx">Authors ranklist</a><br><form action="/search.aspx" method="GET" style="margin-top:0.6em;"><input name="Str" size="12" value="" placeholder="Author’s name"> <input type="SUBMIT" value="Search"></form></td><td valign="TOP"><a href="/contest.aspx">Current contest</a><br><a href="/schedule.aspx">Scheduled contests</a><br><a href="/archive.aspx">Past contests</a><br><a href="/help.aspx?topic=contest">Rules</a><br></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr><td style="padding-top: 32px; padding-bottom: 20px;"><h2 class="title">NEERC 2011, Eastern subregional contest</h2><div style="text-align:center; margin-bottom:1em;"><a href="/contest.aspx?id=101">About</a> &nbsp; &nbsp; <a href="/problemset.aspx?space=101" class="selectedMenu">Problems</a> &nbsp; &nbsp; <a href="/submit.aspx?space=101">Submit solution</a> &nbsp; &nbsp; <a href="/status.aspx?space=101">Judge status</a> &nbsp; &nbsp; <a href="/monitor.aspx?id=101">Standings</a></div><div style="margin-bottom:1em;"><div style="text-align:center; font-weight:bold;">Contest is over</div></div><table align="CENTER" cellspacing="0" cellpadding="0"><tbody><tr><td width="800"><div class="problem_content"><h2 class="problem_title">G. Language Ocean</h2><div class="problem_limits">Time limit: 1.0 second<br>Memory limit: 64 MB<br></div><div id="problem_text"><div class="problem_par"><div class="problem_par_normal">Engineers from the Oceanic Airlines company have proposed to write 
+software for airplane equipment using the new, very simple, and efficient 
+programming language Ocean. </div></div><div class="problem_par"><div class="problem_par_normal">This language has only three data types: int, real, and 
+string. Each program starts with a list of function headers in which 
+all the functions used in the program must be mentioned. A function header 
+has the form 
+<ul>
+<li>
+&lt;function name&gt;(&lt;type of arg 1&gt;, ..., &lt;type of arg k&gt;) : &lt;type of the result&gt;
+</li></ul>
+A function may have no arguments. The names of different functions may coincide.</div></div><div class="problem_par"><div class="problem_par_normal">The text of the main program is a list of variable declarations together 
+with their initializations. Each line of the program has the form 
+<ul>
+<li>
+&lt;variable type&gt; &lt;variable name&gt; = &lt;function name&gt;(&lt;arg 1&gt;, ..., &lt;arg k&gt;)
+</li></ul>
+For a programmer's convenience, the variable type can be replaced with the 
+keyword auto, which means that the variable type is defined by the 
+type of the value returned by the function. When a function is called, the 
+names of previously declared variables are specified as its arguments. If there 
+are several functions with the specified name, then a function will be 
+called in which the number of arguments and their types correspond to the 
+function call. The name of a variable may coincide with the name of some 
+function. </div></div><div class="problem_par"><div class="problem_par_normal">Employees of Oceanic Airlines ask you to write an interpreter of the Ocean 
+language. The interpreter must check each line of the main program 
+searching for the following errors (in the following order): 
+<ol>
+<li> “Double declaration” — a variable with this name has already 
+been declared; 
+</li><li> “Unknown variable” — the name of one of the arguments hasn't been declared in previous lines;
+</li><li> “No such function” — there is no function with this name and a 
+suitable list of arguments; 
+</li><li> “Invalid initialization”&nbsp;— the type of the returned value does 
+not correspond to the type of the variable. 
+</li></ol></div></div><h3 class="problem_subtitle">Input</h3><div class="problem_par"><div class="problem_par_normal">The first line contains the number <i>f</i> of function headers (1 ≤ <i>f</i> ≤ 
+100). The headers are given in the following <i>f</i> lines. Any two functions 
+differ either by their names or by the lists of their arguments. In the 
+following line you are given the number <i>n</i> of lines in the main program 
+(1 ≤ <i>n</i> ≤ 100). Each of the following <i>n</i> lines contains a variable 
+declaration and its initialization. Each function header and each function 
+call contains at most 10 arguments. The names of variables and functions 
+have lengths from&nbsp;1 to&nbsp;20 symbols. Names of the variables consist of 
+lowercase English letters, whereas names of the functions may also contain 
+uppercase English letters. The names of functions differing by letter 
+cases only are considered to be different. The strings “int”, “real”, 
+“string”, and “auto” cannot be names of variables or functions. 
+Spacing is as in the input data samples. </div></div><h3 class="problem_subtitle">Output</h3><div class="problem_par"><div class="problem_par_normal">If there are no errors in the program, output the list of all variables 
+declared as “auto” and their types. The variables should be given in the 
+order in which they are declared in the program. If there are errors in 
+the program, output the number of the line containing the first error and 
+the type of the error. The format of the output should correspond to the 
+samples. </div></div><h3 class="problem_subtitle">Samples</h3><table class="sample"><tbody><tr><th width="350">input</th><th width="350">output</th></tr><tr><td><pre>2
+ReadInt() : int
+IntToReal(int) : real
+3
+auto a = ReadInt()
+auto b = IntToReal(a)
+int c = ReadInt()
+</pre></td><td><pre>a : int
+b : real
+</pre></td></tr><tr><td><pre>1
+ReadInt() : int
+2
+int x = ReadInt()
+int x = ReadInt()
+</pre></td><td><pre>Error on line 2: Double declaration
+</pre></td></tr><tr><td><pre>3
+ReadInt() : int
+ReadReal() : real
+SumRealInt(real, int) : real
+4
+auto x = ReadInt()
+auto y = ReadReal()
+real z = SumRealInt(y, x)
+real q = SumRealInt(x, y)
+</pre></td><td><pre>Error on line 4: No such function
+</pre></td></tr></tbody></table><div class="problem_source"><b>Problem Author: </b>Alex Samsonov<br><b>Problem Source: </b>NEERC 2011, Eastern subregional contest<br></div></div></div><div class="problem_links"><a href="print.aspx?space=101&amp;num=7" target="_blank">Printable version</a><br></div>To submit the solution for this problem go to the Problem set: <a href="problem.aspx?space=1&amp;num=1891"><nobr>1891. Language Ocean</nobr></a></td></tr></tbody></table></td></tr><tr><td class="footer"><script type="text/javascript" async="" src="https://mc.yandex.ru/metrika/watch.js"></script><script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter20918869 = new Ya.Metrika({ id:20918869, clickmap:true, trackLinks:true, accurateTrackBounce:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript>&lt;div&gt;&lt;img src="https://mc.yandex.ru/watch/20918869" style="position:absolute; left:-9999px;" alt=""&gt;&lt;/div&gt;</noscript>© 2000–2017 <a href="/team.aspx">Timus Online Judge Team</a>. All rights reserved.</td></tr></tbody></table><img src="https://mc.yandex.ru/metrika/advert.gif" style="position: absolute; visibility: hidden; width: 0px; height: 0px;"></body></html>
