@@ -1,20 +1,29 @@
 import json
 from sklearn import svm
 from sklearn import tree
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.linear_model import LogisticRegression
+from sklearn.neural_network import MLPClassifier
+from sklearn.model_selection import StratifiedKFold
+from sklearn.neighbors import KNeighborsClassifier
 from stop_words import get_stop_words
 import operator
 from os.path import isfile, join
 import os
 from os import listdir
 import re
+import time
 
 stop_words = get_stop_words('en')
 
 class Classifier:
-    def __init__(self):
+    def __init__(self, classifier_type):
         self.features = []
         self.features_names = []
-        self.clf = self.train()
+        init = time.time()
+        self.clf = self.train(classifier_type)
+        end = time.time()
+        print(end-init)
         
     
     def getIDF(self):
@@ -67,12 +76,30 @@ class Classifier:
         yield X
         yield y
         
-    def train(self):
+    def train(self, classifier_type):
         idf = self.getIDF()
         self.setFeatures(idf)
         X, y = self.getTrainData(self.features)
         
-        clf = tree.DecisionTreeClassifier()
+        if classifier_type == 0:
+            print("DecisionTreeClassifier")
+            clf = tree.DecisionTreeClassifier()
+        elif classifier_type == 1:
+            print("NaiveBayes")
+            clf = MultinomialNB()
+        elif classifier_type == 2:
+            print("SVM")
+            clf = svm.SVC()
+        elif classifier_type == 3:
+            print("MLP")
+            clf = MLPClassifier()
+        elif classifier_type == 4:
+            print("KNN")
+            clf = KNeighborsClassifier()
+        else:
+            print("LogisticRegression")
+            clf = LogisticRegression()
+        
         clf.fit(X, y)
         
         return clf
