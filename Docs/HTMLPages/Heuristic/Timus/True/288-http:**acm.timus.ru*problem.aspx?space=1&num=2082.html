@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=768"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>2082. Poker @ Timus Online Judge</title><link rel="alternate" hreflang="x-default" href="/problem.aspx?space=1&amp;num=2082"><link rel="alternate" hreflang="en-us" href="/problem.aspx?space=1&amp;num=2082&amp;locale=en"><link rel="alternate" hreflang="ru-ru" href="/problem.aspx?space=1&amp;num=2082&amp;locale=ru"><link rel="stylesheet" type="text/css" href="/style52.css"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"></head><body><table width="100%" cellspacing="0" cellpadding="0" class="body"><tbody><tr><td class="caption"><table width="100%" cellspacing="0" cellpadding="0"><tbody><tr><td width="130" class="locale"><a href="/problem.aspx?space=1&amp;num=2082&amp;locale=en">ENG</a>&nbsp;&nbsp;<a href="/problem.aspx?space=1&amp;num=2082&amp;locale=ru">RUS</a></td><td class="title"><a href="/">Timus Online Judge</a></td><td width="130"></td></tr></tbody></table></td></tr><tr><td class="panel"><table width="100%" cellspacing="0" cellpadding="0"><tbody><tr><td width="130" valign="TOP" align="CENTER" style="padding-bottom:5px;"><a href="/"><img border="0" src="/images/usu-summer.jpg" height="134" width="106" alt=""></a></td><td valign="TOP" align="LEFT"><table width="100%" cellspacing="0" cellpadding="0" class="panel"><tbody><tr><th width="25%"><div>Online Judge</div></th><th width="25%"><div>Problems</div></th><th width="25%"><div>Authors</div></th><th width="25%"><div>Online contests</div></th></tr><tr><td valign="TOP" align="LEFT"><a href="/">About Online Judge</a><br><a href="/help.aspx?topic=faq">Frequently asked questions</a><br><a href="/news.aspx">Site news</a><br><a href="/forum/">Webboard</a><br><a href="/help.aspx?topic=links">Links</a><br></td><td valign="TOP" align="LEFT"><a href="/problemset.aspx">Problem set</a><br><a href="/submit.aspx">Submit solution</a><br><a href="/status.aspx">Judge status</a><br><a href="/help.aspx?topic=judge">Guide</a><br></td><td valign="TOP"><a href="/register.aspx">Register</a><br><a href="/authedit.aspx">Update your info</a><br><a href="/ranklist.aspx">Authors ranklist</a><br><form action="/search.aspx" method="GET" style="margin-top:0.6em;"><input name="Str" size="12" value="" placeholder="Author’s name"> <input type="SUBMIT" value="Search"></form></td><td valign="TOP"><a href="/contest.aspx">Current contest</a><br><a href="/schedule.aspx">Scheduled contests</a><br><a href="/archive.aspx">Past contests</a><br><a href="/help.aspx?topic=contest">Rules</a><br></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr><td style="padding-top: 32px; padding-bottom: 20px;"><table align="CENTER" cellspacing="0" cellpadding="0"><tbody><tr><td width="800"><div class="problem_content"><h2 class="problem_title">2082. Poker</h2><div class="problem_limits">Time limit: 2.0 second<br>Memory limit: 256 MB<br></div><div id="problem_text"><div class="problem_par"><div class="problem_par_normal">Igor is a former ACM competitor. He likes to play all puzzle games and once he
+has implemented a checker bot. But now Igor is a grown-up and he needs to earn money. He is an engineer in a software company, but he still likes game development.
+Igor has an idea how to combine money and game development — he wants to implement online poker bot using machine learning techniques, optimizations on assembly language and dll-injections. For that idea he has chosen <i>Texas Holdem</i>.</div></div><div class="problem_par"><div class="problem_par_normal">In <i>Texas Holdem</i> there are two to nine players. Each of the players has some number of chips — player’s <i>stack</i>. During the game players make bets — put part of thier stack to the common bank. In the end of the game winner gets that bank. Players use standard 52 cards deck.</div></div><div class="problem_par"><div class="problem_par_normal">First players should bet <i>ante</i>. One of the players is called <i>dealer</i>. After that two players to the left from the dealer need to bet <i>blinds</i>. <i>Small blind</i> should be bet by the player next to the dealer, <i>big blind</i> — player sitting next to the small blind. These rules change a little when there are only two players in the game: small blind is bet by dealer.</div></div><div class="problem_par"><div class="problem_par_normal">Next step is card dealing. Each player gets two cards and it is only this player who knows these cards. Then the players start the round. Each round consists of stages, called <i>streets</i>. The streets are (in order from first to last):</div></div><div class="problem_par"><div class="problem_par_normal"><ul>
+<li> <i>preflop</i>
+</li><li> <i>flop</i>
+</li><li> <i>turn</i>
+</li><li> <i>river</i>
+</li></ul></div></div><div class="problem_par"><div class="problem_par_normal">If after the river there are more than one player left in the round, all these players reveal their cards and player with the best hand takes the bank. In this problem we don’t care about the cards at all.</div></div><div class="problem_par"><div class="problem_par_normal">Here is more detailed description of the round. First call on the preflop has  the player next to big blind, on other streets — the player next to the dealer. During the round players make bets in turns. Players bet cannot be lower than the maximum bet on the current street — called <i>current bet</i>. If player does not have enough money for the current bet, he can go <i>all in</i> — bet all money he has. Note that the player can call all-in even if he has more maney than current bet. In the beginning of each street current bet is set to zero. But on the preflop current bet is set to big blind.</div></div><div class="problem_par"><div class="problem_par_normal">Each player can make one of the following actions:
+<ul>
+<li> <i>fold</i> — to discard his hand. Player who folds is excluded from the round. Note that if all player except one fold then that player wins the round.
+</li><li> <i>call</i> — to make his bet equal to the current bet, if current bet is not zero. Call means to add some money to player’s bet to make it equal to current bet.
+</li><li> <i>bet</i> — to make bet if current bet is zero.
+</li><li> <i>raise</i> — to add some money to his bet to make it more than current bet. Current bet should be non zero.
+</li><li> <i>check</i> — to ship the bet. If current bet is zero player can skip the bet. Also player can skip the bet if he is big blind on the preflop and there were no raises during the preflop. If player can check and stay in the game player will do that instead of folding.
+</li></ul></div></div><div class="problem_par"><div class="problem_par_normal">When player made an action the turn goes to the next player in clockwise diretion. The street is finished when all bets are done — all players who have not folded bet the same amount of money.</div></div><div class="problem_par"><div class="problem_par_normal">Igor’s bot is a complicated set of modules. Now Igor needs to implement the recognision module:</div></div><div class="problem_par"><div class="problem_par_normal"><ol>
+<li> Module is called when bot needs to make a turn.
+</li><li> In that moment the computer vision component starts and gives the module the information about the current stacks of the players. Component can not recognize bets.
+</li></ol></div></div><div class="problem_par"><div class="problem_par_normal">In the moment the module is called it has the information about start of the game and the current stacks of the players. If that is the first time when module takes turn then it should restore all players’ turns with all data it has. Otherwise module also has the information about all players’ turns before the previous bot turn. Bot needs to restore all players’ turns starting from his last turn and also that turn.</div></div><div class="problem_par"><div class="problem_par_normal">Help Igor to implement that module.</div></div><h3 class="problem_subtitle">Input</h3><div class="problem_par"><div class="problem_par_normal">First line has 3 integer numbers — small blind <i>sb</i> (10 ≤ <i>sb</i> ≤ 500), big blind <i>bb</i> (20 ≤ <i>bb</i> ≤ 1000, <i>sb</i> &lt; <i>bb</i>) and ante <i>a</i> (0 ≤ <i>a</i> ≤ 100).</div></div><div class="problem_par"><div class="problem_par_normal">Second line has 3 integer numbers — number of players <i>n</i> (2 ≤ <i>n</i> ≤ 9), position of the dealer <i>d</i> (1 ≤ <i>d</i> ≤ <i>n</i>) and position of the bot <i>h</i> (1 ≤ <i>h</i> ≤ <i>n</i>). Players are indexed in the order they make turns in clockwise order.</div></div><div class="problem_par"><div class="problem_par_normal">Third line contains the current street name — <i>preflop</i>, <i>flop</i>, <i>turn</i> or <i>river</i>.</div></div><div class="problem_par"><div class="problem_par_normal">Next <i>n</i> lines contain the description of the players in the order of their indices. Each line contains player name (non-empty string which consists of uppercase and lowercase English letters and digits with lengths no more than 20) and his initial stack (integer from 1 to 20000). All names are different and there is no name «dealing» in the input.</div></div><div class="problem_par"><div class="problem_par_normal">Next line contains a single integer <i>k</i> — number of actions which bot knows about (0 ≤ <i>k</i> ≤ 1000).</div></div><div class="problem_par"><div class="problem_par_normal">Next <i>k</i> lines contain these actions. Actions could be changing the street or players’ actions. Here is the format of the actions:
+<ul>
+<li> <i>deal</i>: dealing &lt;street&gt;, new street that we are switching to;
+</li><li> <i>fold</i>: &lt;player&gt; folds;
+</li><li> <i>check</i>: &lt;player&gt; checks;
+</li><li> <i>call</i>: &lt;player&gt; calls &lt;amount&gt;, <i>amount</i> &gt; 0 — amount of money player has added to his bet;
+</li><li> <i>bet</i>: &lt;player&gt; bets &lt;amount&gt;, <i>amount</i> &gt; 0 — amount of money player has added to his bet;
+</li><li> <i>raise</i>: &lt;player&gt; raises &lt;amount&gt; to &lt;total&gt;, <i>amount</i> &gt; 0 — amount of money player has increased the current bet, <i>total</i> &gt; <i>amount</i> — new current bet.
+</li></ul>
+<i>player</i> — name of the player. If player calls all-in, that action is presented in the input as raise, bet or call.</div></div><div class="problem_par"><div class="problem_par_normal">Finally the last line contains <i>n</i> integers — current stacks of the players in the order of the player indices.</div></div><div class="problem_par"><div class="problem_par_normal">It is guaranteed that all actions are correct.</div></div><h3 class="problem_subtitle">Output</h3><div class="problem_par"><div class="problem_par_normal">In the first line output the number of the actions — <i>m</i>. In the next <i>m</i> lines output the actions in the order players make them in the same format as the input.</div></div><div class="problem_par"><div class="problem_par_normal">It is guaranteed that there exists a solution and this solution is unique.</div></div><h3 class="problem_subtitle">Samples</h3><table class="sample"><tbody><tr><th width="350">input</th><th width="350">output</th></tr><tr><td><pre>10 20 2
+5 3 4
+preflop
+PhilIvey 500
+TomDwan 500
+ViktorBlom 500
+Grobot 500
+Ziigmund 500
+0
+498 478 438 488 478
+</pre></td><td><pre>3
+PhilIvey folds
+TomDwan calls 20
+ViktorBlom raises 40 to 60</pre></td></tr><tr><td><pre>10 20 2
+5 3 4
+flop
+PhilIvey 500
+TomDwan 500
+ViktorBlom 500
+Grobot 500
+Ziigmund 500
+3
+PhilIvey folds
+TomDwan calls 20
+ViktorBlom raises 40 to 60
+498 478 438 438 478
+</pre></td><td><pre>4
+Grobot calls 50
+Ziigmund folds
+TomDwan folds
+dealing flop
+</pre></td></tr><tr><td><pre>10 20 2
+5 3 4
+flop
+PhilIvey 500
+TomDwan 500
+ViktorBlom 500
+Grobot 500
+Ziigmund 500
+7
+PhilIvey folds
+TomDwan calls 20
+ViktorBlom raises 40 to 60
+Grobot calls 50
+Ziigmund folds
+TomDwan folds
+dealing flop
+498 478 338 438 478
+</pre></td><td><pre>2
+Grobot checks
+ViktorBlom bets 100
+</pre></td></tr><tr><td><pre>50 100 10
+2 2 1
+preflop
+Grobot 2500
+ViktorBlom 2000
+0
+2390 1890
+</pre></td><td><pre>1
+ViktorBlom calls 50
+</pre></td></tr></tbody></table><div class="problem_source"><b>Problem Author: </b>Igor Chevdar<br></div></div></div><div><b>Tags: </b><a href="problemset.aspx?space=1&amp;tag=hardest">hardest problem</a> &nbsp;<span class="problem_tags_toggle">(<form method="POST" action="problem.aspx?space=1&amp;num=2082" style="display:inline;" id="ToggleTagsForm"><a href="problem.aspx?space=1&amp;num=2082" onclick="document.getElementById('ToggleTagsForm').submit();return false;"><input type="hidden" name="Action" value="HideTags">hide tags for unsolved problems</a></form>)</span></div><div class="problem_links"><span>Difficulty: 5837</span> &nbsp;&nbsp;&nbsp;<a href="print.aspx?space=1&amp;num=2082" target="_blank">Printable version</a> &nbsp;&nbsp;&nbsp;<a href="submit.aspx?space=1&amp;num=2082">Submit solution</a> &nbsp;&nbsp;&nbsp;<a href="forum/?space=1&amp;num=2082">Discussion (2)</a><br><a href="status.aspx?space=1&amp;num=2082">All submissions (531)</a> &nbsp;&nbsp;&nbsp;<a href="status.aspx?space=1&amp;num=2082&amp;status=accepted">All accepted submissions (13)</a> &nbsp;&nbsp;&nbsp;<a href="rating.aspx?space=1&amp;num=2082">Solutions rating (5)</a></div></td></tr></tbody></table></td></tr><tr><td class="footer"><script type="text/javascript" async="" src="https://mc.yandex.ru/metrika/watch.js"></script><script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter20918869 = new Ya.Metrika({ id:20918869, clickmap:true, trackLinks:true, accurateTrackBounce:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript>&lt;div&gt;&lt;img src="https://mc.yandex.ru/watch/20918869" style="position:absolute; left:-9999px;" alt=""&gt;&lt;/div&gt;</noscript>© 2000–2017 <a href="/team.aspx">Timus Online Judge Team</a>. All rights reserved.</td></tr></tbody></table><img src="https://mc.yandex.ru/metrika/advert.gif" style="position: absolute; visibility: hidden; width: 0px; height: 0px;"></body></html>

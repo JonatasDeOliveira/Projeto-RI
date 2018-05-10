@@ -1,0 +1,515 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - CCC08 Stage 2 - Landing</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "8c45b434a3b7582378f7341582f131fd";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fccc08s2p6"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>2008 Canadian Computing Competition, Day 2</h3>
+<h2>Day 2, Problem 3: Landing</h2>
+
+<p>Keep watching the skies! Alien spacecraft are due to land any day now to share all of their advanced programming secrets with us.</p>
+
+<p>In preparation for this day, you've been asked with preparing a landing pad for our visitors in a given field. Unfortunately, due to environmental considerations, you will not be permitted to remove any of the trees which currently exist on the field. These trees are of immense scientific research, since they have zero radius and only grow at points with integer co-ordinates. However, this could be a blessing in disguise. For security reasons, the landing pad must be in contact with at least three trees. Security cameras will be placed at the tops of these trees.</p>
+
+<p>Alien spacecraft are perfectly circular craft of various sizes, so the landing pad will also be circular. Since it would be polite to warn potential visitors ahead of time if their spacecraft is too large for our landing pad, you must now determine the size of largest circular region that we can place on the field which contacts at least three trees, but does not contain any trees within.</p>
+
+<h3>Input</h3>
+<p>The first line of input consists of the number n of trees (3 ≤ n ≤ 100 000). the next n lines will each consist of a pair of integers x and y (-10000 ≤ x, y ≤ 10000), separated by a space, giving the co-ordinates of a tree. You may assume that no two trees are at the same co-ordinates.</p>
+
+<h3>Output</h3>
+<p>Output the radius of the largest possible landing pad. If the correct answer is R, you should output number a such that</p>
+<p style="text-align: center"><img src="images/ccc08s2p6/ccc08s2p6.1.png" alt="\frac{R}{1+10^{-4}} &lt; a &lt; R(1+10^{-4})"></p>
+<p>The above calculation is used to define an acceptable range or tolerance for the answer you find. You may also assume that r &lt; 10<sup>9</sup>. You may assume there exists at least one landing pad.</p>
+
+<h3>Sample Input</h3>
+<pre>4</pre>
+
+<pre>1 1</pre>
+<pre>1 -1</pre>
+<pre>-1 -1</pre>
+<pre>-1 1</pre>
+
+<h3>Sample Output</h3>
+<pre>1.41421356</pre>
+
+<img src="images/ccc08s2p6/ccc08s2p6.2.png" alt="A circle centered at the origin with radius sqrt(2).">
+
+<h3>Grading</h3>
+<p>You may assume that 25% of the test cases will have at most 50 trees. You may assume that 95% of the test cases will have at most 1000 trees. All test cases will have at most 100 000 trees. Your solution must use at most 512MB of memory and run in at most 5 seconds.</p>
+
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,ccc08s2p6">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/ccc08s2p6">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 50 (partial)<br>
+    <b>Time Limit:</b> 1.00s<br>
+    <b>Memory Limit:</b> 512M<br>
+    <b>Added:</b> Apr 25, 2009<br>
+      </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=ccc08s2p6">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment8857">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/magicalsoup3">magicalsoup3</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8857">May 05, 2018 - 4:10:42 pm UTC</a>      </span>
+      <a class="comment_title" id="title8857" onclick="toggle(&quot;body8857&quot;)">the time limit needs to be extended</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8857">
+    (<span class="upvotes"><span id="upvotes8857">0</span></span>/<span class="downvotes"><span id="downvotes8857">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8857" class="comment_body">
+    <pre id="msg8857" style="display: none">i have checked on dmoj, and it's time limit was 5 secs. can extend it to 2-3 seconds, because i believe the time limit is too harsh</pre>
+    <div style="opacity: 1">
+      i have checked on dmoj, and it's time limit was 5 secs. can extend it to 2-3 seconds, because i believe the time limit is too harsh    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment8541">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/erkebulan01">erkebulan01</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8541">Jan 09, 2018 - 12:43:29 pm UTC</a>      </span>
+      <a class="comment_title" id="title8541" onclick="toggle(&quot;body8541&quot;)">Statment</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8541">
+    (<span class="upvotes"><span id="upvotes8541">0</span></span>/<span class="downvotes"><span id="downvotes8541">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8541" class="comment_body">
+    <pre id="msg8541" style="display: none">How I can find the statements in russian?</pre>
+    <div style="opacity: 1">
+      How I can find the statements in russian?    </div>
+    <br><div class="comment_block" id="comment8542">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8542">Jan 09, 2018 - 6:11:17 pm UTC</a>      </span>
+      <a class="comment_title" id="title8542" onclick="toggle(&quot;body8542&quot;)">Re: Statment</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8542">
+    (<span class="upvotes"><span id="upvotes8542">0</span></span>/<span class="downvotes"><span id="downvotes8542">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8542" class="comment_body">
+    <pre id="msg8542" style="display: none">To my knowledge, the CCC and CCO are only available in English.</pre>
+    <div style="opacity: 1">
+      To my knowledge, the CCC and CCO are only available in English.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment6371">
+  <div class="comment_header" style="opacity: 0.2832926836803">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hacker">hacker</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6371">Dec 11, 2014 - 10:03:29 pm UTC</a>      </span>
+      <a class="comment_title" id="title6371" onclick="toggle(&quot;body6371&quot;)">Stupid Site, KMN</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6371">
+    (<span class="upvotes"><span id="upvotes6371">1</span></span>/<span class="downvotes"><span id="downvotes6371">15</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6371" class="comment_body">
+    <pre id="msg6371" style="display: none">Can't anyone here find an actual hard problem. I'm getting bored. This site is stupid someone kick me out.</pre>
+    <div style="opacity: 0.2832926836803">
+      Can't anyone here find an actual hard problem. I'm getting bored. This site is stupid someone kick me out.    </div>
+    <br><div class="comment_block" id="comment6372">
+  <div class="comment_header" style="opacity: 0.56150608044902">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Hzhang">Hzhang</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6372">Dec 11, 2014 - 11:35:32 pm UTC</a>      </span>
+      <a class="comment_title" id="title6372" onclick="toggle(&quot;body6372&quot;)">Re: Stupid Site, KMN</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6372">
+    (<span class="upvotes"><span id="upvotes6372">0</span></span>/<span class="downvotes"><span id="downvotes6372">3</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6372" class="comment_body">
+    <pre id="msg6372" style="display: none">Who are you? Do you go to Woburn?</pre>
+    <div style="opacity: 0.56150608044902">
+      Who are you? Do you go to Woburn?    </div>
+    <br><div class="comment_block" id="comment6374">
+  <div class="comment_header" style="opacity: 0.29915275355096">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hacker">hacker</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6374">Dec 12, 2014 - 5:48:04 pm UTC</a>      </span>
+      <a class="comment_title" id="title6374" onclick="toggle(&quot;body6374&quot;)">Re: Stupid Site, KMN</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6374">
+    (<span class="upvotes"><span id="upvotes6374">0</span></span>/<span class="downvotes"><span id="downvotes6374">9</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6374" class="comment_body">
+    <pre id="msg6374" style="display: none">/*
+Who am I? A &lt;HACKER&gt;! Don't worry about me. It's all good as long as I know about you!
+*/
+getRecked = true;
+while (getRecked):
+    self.Hack();</pre>
+    <div style="opacity: 0.29915275355096">
+      /* <br>Who am I? A &lt;HACKER&gt;! Don't worry about me. It's all good as long as I know about you! <br>*/ <br>getRecked = true; <br>while (getRecked): <br>    self.Hack();    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br><div class="comment_block" id="comment6373">
+  <div class="comment_header" style="opacity: 0.88238176884075">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6373">Dec 12, 2014 - 9:22:31 am UTC</a>      </span>
+      <a class="comment_title" id="title6373" onclick="toggle(&quot;body6373&quot;)">Re: Stupid Site, KMN</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6373">
+    (<span class="upvotes"><span id="upvotes6373">3</span></span>/<span class="downvotes"><span id="downvotes6373">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6373" class="comment_body">
+    <pre id="msg6373" style="display: none">Says the one who submitted third-party library code to "Landing"...</pre>
+    <div style="opacity: 0.88238176884075">
+      Says the one who submitted third-party library code to "Landing"...    </div>
+    <br><div class="comment_block" id="comment6375">
+  <div class="comment_header" style="opacity: 0.35433884297521">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hacker">hacker</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6375">Dec 12, 2014 - 5:49:26 pm UTC</a>      </span>
+      <a class="comment_title" id="title6375" onclick="toggle(&quot;body6375&quot;)">Re: Stupid Site, KMN</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6375">
+    (<span class="upvotes"><span id="upvotes6375">0</span></span>/<span class="downvotes"><span id="downvotes6375">7</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6375" class="comment_body">
+    <pre id="msg6375" style="display: none">Says the guy that copied my answer. That's right, I know, I checked!</pre>
+    <div style="opacity: 0.35433884297521">
+      Says the guy that copied my answer. That's right, I know, I checked!    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br><div class="comment_block" id="comment6377">
+  <div class="comment_header" style="opacity: 0.95674273681726">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6377">Dec 13, 2014 - 4:29:37 pm UTC</a>      </span>
+      <a class="comment_title" id="title6377" onclick="toggle(&quot;body6377&quot;)">Re: Stupid Site, KMN</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6377">
+    (<span class="upvotes"><span id="upvotes6377">11</span></span>/<span class="downvotes"><span id="downvotes6377">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6377" class="comment_body">
+    <pre id="msg6377" style="display: none">Seems like you're getting humoured by the others, but I'll gladly help kick you out.</pre>
+    <div style="opacity: 0.95674273681726">
+      Seems like you're getting humoured by the others, but I'll gladly help kick you out.    </div>
+    <br><div class="comment_block" id="comment6378">
+  <div class="comment_header" style="opacity: 0.29915275355096">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hacker">hacker</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6378">Dec 14, 2014 - 1:30:20 am UTC</a>      </span>
+      <a class="comment_title" id="title6378" onclick="toggle(&quot;body6378&quot;)">Re: Stupid Site, KMN</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6378">
+    (<span class="upvotes"><span id="upvotes6378">0</span></span>/<span class="downvotes"><span id="downvotes6378">9</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6378" class="comment_body">
+    <pre id="msg6378" style="display: none">kill = true;
+while (kill):
+self.kill_jargon();
+self.hack_wcipeg();
+</pre>
+    <div style="opacity: 0.29915275355096">
+      kill = true; <br>while (kill): <br>self.kill_jargon(); <br>self.hack_wcipeg();    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br><div class="comment_block" id="comment7402">
+  <div class="comment_header" style="opacity: 0.74954576959097">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Jlsajfj">Jlsajfj</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7402">Jan 23, 2016 - 4:46:03 pm UTC</a>      </span>
+      <a class="comment_title" id="title7402" onclick="toggle(&quot;body7402&quot;)">Re: Stupid Site, KMN</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7402">
+    (<span class="upvotes"><span id="upvotes7402">3</span></span>/<span class="downvotes"><span id="downvotes7402">4</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7402" class="comment_body">
+    <pre id="msg7402" style="display: none">this guy is the dumbest kid... just using a bit a coding idea to make themself look cool... a real coder never needs to force anything to look cool. We are who we are.</pre>
+    <div style="opacity: 0.74954576959097">
+      this guy is the dumbest kid... just using a bit a coding idea to make themself look cool... a real coder never needs to force anything to look cool. We are who we are.    </div>
+    <br><div class="comment_block" id="comment8365">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Panicatol648989">Panicatol648989</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8365">Nov 26, 2017 - 6:43:19 pm UTC</a>      </span>
+      <a class="comment_title" id="title8365" onclick="toggle(&quot;body8365&quot;)">Re: Stupid Site, KMN</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8365">
+    (<span class="upvotes"><span id="upvotes8365">0</span></span>/<span class="downvotes"><span id="downvotes8365">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8365" class="comment_body">
+    <pre id="msg8365" style="display: none">I agree. is he being rude or something?</pre>
+    <div style="opacity: 1">
+      I agree. is he being rude or something?    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment1290">
+  <div class="comment_header" style="opacity: 0.81122457052809">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/DrSane">DrSane</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1290">Jan 15, 2009 - 4:30:33 am UTC</a>      </span>
+      <a class="comment_title" id="title1290" onclick="toggle(&quot;body1290&quot;)">...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1290">
+    (<span class="upvotes"><span id="upvotes1290">5</span></span>/<span class="downvotes"><span id="downvotes1290">4</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1290" class="comment_body">
+    <pre id="msg1290" style="display: none">Why the f*ck is this only 50? This question is impractical to fully solve. I've still yet to find a couple days to try it out.</pre>
+    <div style="opacity: 0.81122457052809">
+      Why the f*ck is this only 50? This question is impractical to fully solve. I've still yet to find a couple days to try it out.    </div>
+    <br><div class="comment_block" id="comment6376">
+  <div class="comment_header" style="opacity: 0.24250075749924">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hacker">hacker</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6376">Dec 12, 2014 - 5:50:28 pm UTC</a>      </span>
+      <a class="comment_title" id="title6376" onclick="toggle(&quot;body6376&quot;)">Re: ...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6376">
+    (<span class="upvotes"><span id="upvotes6376">0</span></span>/<span class="downvotes"><span id="downvotes6376">12</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6376" class="comment_body">
+    <pre id="msg6376" style="display: none">It's not impractical, just that you can't code. I have seen your submissions.</pre>
+    <div style="opacity: 0.24250075749924">
+      It's not impractical, just that you can't code. I have seen your submissions.    </div>
+      </div>
+</div>
+<br><div class="comment_block" id="comment7910">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/gpfault">gpfault</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7910">Jan 20, 2017 - 6:34:40 am UTC</a>      </span>
+      <a class="comment_title" id="title7910" onclick="toggle(&quot;body7910&quot;)">Re: ...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7910">
+    (<span class="upvotes"><span id="upvotes7910">1</span></span>/<span class="downvotes"><span id="downvotes7910">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7910" class="comment_body">
+    <pre id="msg7910" style="display: none">Very difficult, yes, but not impossible, and what do you mean by "only" 50</pre>
+    <div style="opacity: 1">
+      Very difficult, yes, but not impossible, and what do you mean by "only" 50    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment7790">
+  <div class="comment_header" style="opacity: 0.489900020404">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/IMAGenius">IMAGenius</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7790">Nov 17, 2016 - 5:25:09 pm UTC</a>      </span>
+      <a class="comment_title" id="title7790" onclick="toggle(&quot;body7790&quot;)"></a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7790">
+    (<span class="upvotes"><span id="upvotes7790">0</span></span>/<span class="downvotes"><span id="downvotes7790">4</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7790" class="comment_body">
+    <pre id="msg7790" style="display: none">This question is soooooo easy</pre>
+    <div style="opacity: 0.489900020404">
+      This question is soooooo easy    </div>
+      </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0473s.<br>
+    Server time on page load:
+    May 9, 2018 15:27:21 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fccc08s2p6">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

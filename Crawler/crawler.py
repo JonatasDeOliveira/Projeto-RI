@@ -17,12 +17,10 @@ i = 0
 def robots(pathTotal, rp):
     return rp.allowed(pathTotal,"*")
 
-def get_all_links(domain, pathTotal, maxSize, rp):
+def get_all_links(domain, pathTotal, maxSize, rp, driver):
     #response = requests.get(domain+path, headers={'User-Agent': 'Mozilla/5.0'})
-    driver = webdriver.PhantomJS( service_args=['--ignore-ssl-errors=true', '--ssl-protocol=any'])
     driver.get(pathTotal)
     soup = BeautifulSoup(driver.page_source, "html.parser")
-    driver.service.process.send_signal(signal.SIGTERM)
     links = []
     for link in soup.findAll('a', href=True):
         regex = re.compile(
@@ -72,12 +70,13 @@ def crawler(domain, pathseed, maxSize = 10):
     q.put(domain+pathseed)
     visited.append(domain+pathseed)
     rp = Robots.fetch(domain+'/robots.txt',verify=False)
+    driver = webdriver.PhantomJS( service_args=['--ignore-ssl-errors=true', '--ssl-protocol=any'])
     while(not q.empty() and q.qsize()<maxSize):
         a = q.get()
         print("! " + str(len(links)) + " " + a)
         if(len(links) < maxSize):
             links.append(a)
-            ls = get_all_links(domain, a, maxSize, rp)
+            ls = get_all_links(domain, a, maxSize, rp, driver)
             for l in ls:
                 if(l not in visited):
                     visited.append(l)
@@ -96,7 +95,6 @@ def crawler(domain, pathseed, maxSize = 10):
     res = ""
     for l in links:
         v += 1
-        driver = webdriver.PhantomJS( service_args=['--ignore-ssl-errors=true', '--ssl-protocol=any'])
         driver.get(l)
         soup = BeautifulSoup(driver.page_source, "html.parser")
         res =  str(clf.classify(soup))
@@ -106,8 +104,6 @@ def crawler(domain, pathseed, maxSize = 10):
             pos += 1
         with open('Docs/HTMLPages/BFS/'+folder(domain)+'/'+res+'/'+str(v) +'-'+l.replace('/','*')+'.html', 'wb') as f:
             f.write(bytes(driver.page_source,'UTF-8'))
-        driver.service.process.send_signal(signal.SIGTERM) 
-        driver.service.process.send_signal(signal.SIGTERM) 
     hr = pos/maxSize
     with open('Docs/HTMLPages/BFS/'+folder(domain)+'/'+'hr.txt', 'wb') as f:
         f.write(bytes(str(hr),'UTF-8'))

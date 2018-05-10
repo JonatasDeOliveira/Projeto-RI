@@ -1,0 +1,339 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - WC02 - Deploying Troops</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "a846b326ae579368c4a4e84e51d36946";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fwc02p8"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>Woburn Challenge 2002</h3>
+
+<h2>Problem 8: Deploying Troops</h2>
+
+<p>The battle is drawing to an end.  Bo Vine has gathered his warriors in front
+of The Sacred Barn, for some words of inspiration before the final battle.  The
+N, 1 ≤ N ≤ 10000, cows line up in a single line, face Bo, and listen
+attentively.  "My loyal servants, we are gathered here to prepare for an epic
+battle. Today, we go forth and win back SCARBERIA, the most coveted of all
+lands. Once in our control, we shall live as the lions, the true kings of our
+land. I have here an APE. (Panic and chaos…) HEY! Get back here! It is
+not a real ape, just our weapon, with which we shall destroy the monkeys, and
+reclaim Scarberia for ourselves."</p>
+
+<p>While Bo is continuing with this nonsensical rant, he notices that he can assign a value to each cow that is lined up before him, indicating the overall rating of the cow as a warrior. 
+Note that he only assigns positive numbers to the cows. 
+As he continues to indoctrinate the cows, he wonders how many consecutive subsequences of cows 
+have a total rating equal to some number X, 1 ≤ X ≤ 214783647, that he is thinking of. 
+If he can determine this, then he can assign these groups of cows to particular locations on the battlefield, just according to his brilliant plan!</p>
+
+<h3>Input</h3>
+The first line of input contains a single integer N that is the total number of cows.<br>
+The next line contains N integers separated by a single space, indicating the values of the cows.<br>
+The next line contains a single integer, T, indicating the number of test cases.<br>
+The next line contains T integers, indicating the values of X, the target sum.
+
+<h3>Output</h3>
+For each test case, output the number of distinct consecutive subsequences of cows that add to the given value of the target sum, all on a single line, separated by a single space.
+
+<h3>Sample Input</h3>
+<pre>12
+2 5 4 3 11 1 2 7 2 3 41 1
+3
+2 11 1000</pre>
+
+<h3>Sample Output</h3>
+<pre>3 3 0</pre>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,wc02p8">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/wc02p8">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 10<br>
+    <b>Time Limit:</b> 0.50s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Sep 30, 2008<br>
+      </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=wc02p8">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment3024">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/HelloMelloC">HelloMelloC</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3024">Jan 27, 2011 - 1:17:30 am UTC</a>      </span>
+      <a class="comment_title" id="title3024" onclick="toggle(&quot;body3024&quot;)">VPS much faster than old servers?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3024">
+    (<span class="upvotes"><span id="upvotes3024">0</span></span>/<span class="downvotes"><span id="downvotes3024">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3024" class="comment_body">
+    <pre id="msg3024" style="display: none">Is it just me, or is the new VPS server significantly faster than the old Judge servers? I have practically the same code as everyone else, but mine is the fastest.
+Maybe to be fair, we should have rejudging of very old submissions whenever the Judge has no load?
+(My idea above sounds a bit absurd even to myself, but currently, the 'time' aspect of ranking submissions really isn't very accurate...)</pre>
+    <div style="opacity: 1">
+      Is it just me, or is the new VPS server significantly faster than the old Judge servers? I have practically the same code as everyone else, but mine is the fastest. <br>Maybe to be fair, we should have rejudging of very old submissions whenever the Judge has no load? <br>(My idea above sounds a bit absurd even to myself, but currently, the 'time' aspect of ranking submissions really isn't very accurate...)    </div>
+    <br><div class="comment_block" id="comment3026">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3026">Jan 27, 2011 - 2:30:14 am UTC</a>      </span>
+      <a class="comment_title" id="title3026" onclick="toggle(&quot;body3026&quot;)">Re: VPS much faster than old servers?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3026">
+    (<span class="upvotes"><span id="upvotes3026">0</span></span>/<span class="downvotes"><span id="downvotes3026">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3026" class="comment_body">
+    <pre id="msg3026" style="display: none">It is significantly faster in "CPU time" (although in "real time" it is slower, because our host is actually pretty bad and does some wacky things with the CPU, which is why programs take so damn long to compile). I think it would take waaay too long to rejudge everything, but I could rejudge some problems where it seems to make a difference.</pre>
+    <div style="opacity: 1">
+      It is significantly faster in "CPU time" (although in "real time" it is slower, because our host is actually pretty bad and does some wacky things with the CPU, which is why programs take so damn long to compile). I think it would take waaay too long to rejudge everything, but I could rejudge some problems where it seems to make a difference.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment1417">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/ragulan5">ragulan5</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1417">Jan 22, 2009 - 6:43:42 pm UTC</a>      </span>
+      <a class="comment_title" id="title1417" onclick="toggle(&quot;body1417&quot;)">Test cases</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1417">
+    (<span class="upvotes"><span id="upvotes1417">0</span></span>/<span class="downvotes"><span id="downvotes1417">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1417" class="comment_body">
+    <pre id="msg1417" style="display: none">How many test cases are there? Value of T?</pre>
+    <div style="opacity: 1">
+      How many test cases are there? Value of T?    </div>
+    <br><div class="comment_block" id="comment1420">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1420">Jan 22, 2009 - 10:18:04 pm UTC</a>      </span>
+      <a class="comment_title" id="title1420" onclick="toggle(&quot;body1420&quot;)">Re: Test cases</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1420">
+    (<span class="upvotes"><span id="upvotes1420">0</span></span>/<span class="downvotes"><span id="downvotes1420">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1420" class="comment_body">
+    <pre id="msg1420" style="display: none">T is 24 in our test data. Why does it matter? You're not supposed to read all the test data at once and then print all the answers; you're supposed to read one case, print one answer, read the next case, print the next answer, and so on.</pre>
+    <div style="opacity: 1">
+      T is 24 in our test data. Why does it matter? You're not supposed to read all the test data at once and then print all the answers; you're supposed to read one case, print one answer, read the next case, print the next answer, and so on.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment967">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/frenzybenzy">frenzybenzy</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/967">Dec 25, 2008 - 4:56:51 pm UTC</a>      </span>
+      <a class="comment_title" id="title967" onclick="toggle(&quot;body967&quot;)">WCs are so confusing</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating967">
+    (<span class="upvotes"><span id="upvotes967">1</span></span>/<span class="downvotes"><span id="downvotes967">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body967" class="comment_body">
+    <pre id="msg967" style="display: none">i really hate these cause they always tell a wierd story before the actual problem to mess up our minds.</pre>
+    <div style="opacity: 0.90547134519913">
+      i really hate these cause they always tell a wierd story before the actual problem to mess up our minds.    </div>
+    <br><div class="comment_block" id="comment968">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/968">Dec 25, 2008 - 5:01:50 pm UTC</a>      </span>
+      <a class="comment_title" id="title968" onclick="toggle(&quot;body968&quot;)">Re: WCs are so confusing</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating968">
+    (<span class="upvotes"><span id="upvotes968">1</span></span>/<span class="downvotes"><span id="downvotes968">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body968" class="comment_body">
+    <pre id="msg968" style="display: none">Almost all contests are like this, so I guess you can say this is useful preparation. And by the way, "weird" is an exception to that i-before-e-except-after-c-or-when-sounded-as-a rule...</pre>
+    <div style="opacity: 1">
+      Almost all contests are like this, so I guess you can say this is useful preparation. And by the way, "weird" is an exception to that i-before-e-except-after-c-or-when-sounded-as-a rule...    </div>
+    <br><div class="comment_block" id="comment970">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bleung91">bleung91</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/970">Dec 25, 2008 - 8:03:05 pm UTC</a>      </span>
+      <a class="comment_title" id="title970" onclick="toggle(&quot;body970&quot;)">Re: Re: WCs are so confusing</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating970">
+    (<span class="upvotes"><span id="upvotes970">0</span></span>/<span class="downvotes"><span id="downvotes970">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body970" class="comment_body">
+    <pre id="msg970" style="display: none">well CCC ones are nowhere near as long-winded as WC's.</pre>
+    <div style="opacity: 1">
+      well CCC ones are nowhere near as long-winded as WC's.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0335s.<br>
+    Server time on page load:
+    May 9, 2018 16:20:08 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fwc02p8">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

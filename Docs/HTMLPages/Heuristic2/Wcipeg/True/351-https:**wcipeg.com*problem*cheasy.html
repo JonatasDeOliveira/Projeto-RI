@@ -1,0 +1,373 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - Checkerboard Summation (Easy)</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "8c45b434a3b7582378f7341582f131fd";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fcheasy"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h2>Checkerboard Summation (Easy)</h2><br>
+<p>You are given a checkerboard with M rows and N columns (1 ≤ M,N
+≤ 3000). Up to 100000 of these cells have specified values written in
+them, and the rest are zeroes. For top-secret strategic reasons which are given
+out on a need-to-know basis only (and you do not, at the present moment, need
+to know) you must write a program that will answer up to 100000 queries of the
+form:</p>
+
+<p><em>Given the coordinates of two squares on the checkerboard, find the
+alternating sum of all of the numbers within the rectangle delimited by those
+two squares. By alternating sum what is meant is that we add all numbers in
+squares with the same colour as the first square given, and subtract all
+numbers with the opposite colour.</em></p>
+
+<b>Input</b><br>
+The first line of the input file contains the integers M and N.<br>
+A number of input lines then follow. Each line contains three space-separated integers R, C, and X (1 ≤ R ≤ M, 1 ≤ C ≤ N, -1000 ≤ X ≤ 1000), indicating that the value X is written in row R and column C. No cell will be given twice in the input. The last line is followed by a line containing three zeroes, signifying the end of this section of input.<br>
+Following this are a number of lines containing queries. Each line contains four space-separated integers: R1, C1, R2, and C2  (1 ≤ R1 ≤ R2 ≤ M, 1 ≤ C1 ≤ C2 ≤ N). Output the alternating sum of all squares contained within the box [R1,R2] × [C1,C2], as described.<br>
+<br>
+<b>Output</b><br>
+Print the answer to each query on its own line, in order.<br>
+<br>
+<b>Sample Input</b><br>
+3 3<br>
+1 2 5<br>
+3 1 -2<br>
+2 3 11<br>
+0 0 0<br>
+2 1 3 3<br>
+0 0 0 0<br>
+<br>
+<b>Sample Output</b><br>
+13<br>
+<br>
+<b>Explanation</b><br>
+The checkerboard is three cells by three cells. Here's what it looks like:
+<br>
+<pre> 0  5  0
+ 0  0 11
+-2  0  0</pre><br>
+<br>
+We are asked to find the alternating sum of the second and third rows. The 11 is in a square of the same colour as (2,1), so it is added; -2 is on a square of opposite colour, so it is subtracted. 11-(-2) = 13.<br>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,cheasy">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/cheasy">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 12 (partial)<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 256M<br>
+    <b>Added:</b> Dec 01, 2008<br>
+        <b>Author:</b> <a href="https://wcipeg.com/user/bbi5291">bbi5291</a>  </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=cheasy">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment7504">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Davo36">Davo36</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7504">Mar 06, 2016 - 8:59:52 pm UTC</a>      </span>
+      <a class="comment_title" id="title7504" onclick="toggle(&quot;body7504&quot;)">Can this be done in Python?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7504">
+    (<span class="upvotes"><span id="upvotes7504">0</span></span>/<span class="downvotes"><span id="downvotes7504">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7504" class="comment_body">
+    <pre id="msg7504" style="display: none">Hi, I realise this problem is quite old but I'm just working on it now.
+
+I have got it going, and get the correct result when submitting for the first 4 set of tests.  But then run out of time after that.
+
+I am using Python 3 and have a DP approach (can't be sure it's the optimal one, but it seems fairly sensible to me).  
+
+I have looked through the accepted solutions and they are all in C, C++ or Java.  I don't see any Python solutions.
+
+So my question is, can Python be used? Or is it just too slow?</pre>
+    <div style="opacity: 1">
+      Hi, I realise this problem is quite old but I'm just working on it now. <br> <br>I have got it going, and get the correct result when submitting for the first 4 set of tests.  But then run out of time after that. <br> <br>I am using Python 3 and have a DP approach (can't be sure it's the optimal one, but it seems fairly sensible to me).   <br> <br>I have looked through the accepted solutions and they are all in C, C++ or Java.  I don't see any Python solutions. <br> <br>So my question is, can Python be used? Or is it just too slow?    </div>
+    <br><div class="comment_block" id="comment7505">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Davo36">Davo36</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7505">Mar 07, 2016 - 2:31:15 am UTC</a>      </span>
+      <a class="comment_title" id="title7505" onclick="toggle(&quot;body7505&quot;)">Re: Can this be done in Python?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7505">
+    (<span class="upvotes"><span id="upvotes7505">0</span></span>/<span class="downvotes"><span id="downvotes7505">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7505" class="comment_body">
+    <pre id="msg7505" style="display: none">I recoded this in C++ and it solved no problem.
+
+Same strategy as Python, but of course it runs so much faster.</pre>
+    <div style="opacity: 1">
+      I recoded this in C++ and it solved no problem. <br> <br>Same strategy as Python, but of course it runs so much faster.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment844">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/844">Dec 17, 2008 - 3:03:27 am UTC</a>      </span>
+      <a class="comment_title" id="title844" onclick="toggle(&quot;body844&quot;)">Hint</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating844">
+    (<span class="upvotes"><span id="upvotes844">0</span></span>/<span class="downvotes"><span id="downvotes844">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body844" class="comment_body">
+    <pre id="msg844" style="display: none">You can divide the squares into two types: those for which x+y is even, and those for which x+y is odd. Also, this is a DP problem - see if you can figure out how to compute, for a given (x,y) the sum of the rectangle with its upper left corner at the upper left corner of the board and its lower right corner at (x,y).</pre>
+    <div style="opacity: 1">
+      You can divide the squares into two types: those for which x+y is even, and those for which x+y is odd. Also, this is a DP problem - see if you can figure out how to compute, for a given (x,y) the sum of the rectangle with its upper left corner at the upper left corner of the board and its lower right corner at (x,y).    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment596">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/dAedaL">dAedaL</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/596">Dec 02, 2008 - 3:48:40 am UTC</a>      </span>
+      <a class="comment_title" id="title596" onclick="toggle(&quot;body596&quot;)"></a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating596">
+    (<span class="upvotes"><span id="upvotes596">0</span></span>/<span class="downvotes"><span id="downvotes596">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body596" class="comment_body">
+    <pre id="msg596" style="display: none">"The last line is followed by a line containing three zeroes, signifying the end of this section of input."
+
+Four?</pre>
+    <div style="opacity: 1">
+      "The last line is followed by a line containing three zeroes, signifying the end of this section of input." <br> <br>Four?    </div>
+    <br><div class="comment_block" id="comment597">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bleung91">bleung91</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/597">Dec 02, 2008 - 4:59:01 am UTC</a>      </span>
+      <a class="comment_title" id="title597" onclick="toggle(&quot;body597&quot;)">Re: </a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating597">
+    (<span class="upvotes"><span id="upvotes597">1</span></span>/<span class="downvotes"><span id="downvotes597">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body597" class="comment_body">
+    <pre id="msg597" style="display: none">3 3
+1 2 5
+3 1 -2
+2 3 11
+
+This is the checkerboard values.
+
+0 0 0
+
+This tells you the checkerboard values are finished inputting.
+
+
+2 1 3 3
+0 0 0 0
+
+The first line is input for which you have to output an answer, and the 0 0 0 0 tells you it is done inputting.
+
+</pre>
+    <div style="opacity: 1">
+      3 3 <br>1 2 5 <br>3 1 -2 <br>2 3 11 <br> <br>This is the checkerboard values. <br> <br>0 0 0 <br> <br>This tells you the checkerboard values are finished inputting. <br> <br> <br>2 1 3 3 <br>0 0 0 0 <br> <br>The first line is input for which you have to output an answer, and the 0 0 0 0 tells you it is done inputting.    </div>
+    <br><div class="comment_block" id="comment598">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/dAedaL">dAedaL</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/598">Dec 02, 2008 - 12:17:54 pm UTC</a>      </span>
+      <a class="comment_title" id="title598" onclick="toggle(&quot;body598&quot;)">Re: Re: </a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating598">
+    (<span class="upvotes"><span id="upvotes598">0</span></span>/<span class="downvotes"><span id="downvotes598">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body598" class="comment_body">
+    <pre id="msg598" style="display: none">oh okay ty</pre>
+    <div style="opacity: 1">
+      oh okay ty    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment588">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/588">Dec 01, 2008 - 3:22:06 pm UTC</a>      </span>
+      <a class="comment_title" id="title588" onclick="toggle(&quot;body588&quot;)">This is an easier problem.</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating588">
+    (<span class="upvotes"><span id="upvotes588">2</span></span>/<span class="downvotes"><span id="downvotes588">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body588" class="comment_body">
+    <pre id="msg588" style="display: none">There are no update operations in this problem - you know the entire grid and it will not be modified.
+How does this make the problem easier?</pre>
+    <div style="opacity: 1">
+      There are no update operations in this problem - you know the entire grid and it will not be modified. <br>How does this make the problem easier?    </div>
+      </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0277s.<br>
+    Server time on page load:
+    May 9, 2018 15:28:51 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fcheasy">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

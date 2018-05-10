@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=768"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>1187. Statistical Trouble @ Timus Online Judge</title><link rel="alternate" hreflang="x-default" href="/problem.aspx?space=1&amp;num=1187"><link rel="alternate" hreflang="en-us" href="/problem.aspx?space=1&amp;num=1187&amp;locale=en"><link rel="alternate" hreflang="ru-ru" href="/problem.aspx?space=1&amp;num=1187&amp;locale=ru"><link rel="stylesheet" type="text/css" href="/style52.css"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"></head><body><table width="100%" cellspacing="0" cellpadding="0" class="body"><tbody><tr><td class="caption"><table width="100%" cellspacing="0" cellpadding="0"><tbody><tr><td width="130" class="locale"><a href="/problem.aspx?space=1&amp;num=1187&amp;locale=en">ENG</a>&nbsp;&nbsp;<a href="/problem.aspx?space=1&amp;num=1187&amp;locale=ru">RUS</a></td><td class="title"><a href="/">Timus Online Judge</a></td><td width="130"></td></tr></tbody></table></td></tr><tr><td class="panel"><table width="100%" cellspacing="0" cellpadding="0"><tbody><tr><td width="130" valign="TOP" align="CENTER" style="padding-bottom:5px;"><a href="/"><img border="0" src="/images/usu-summer.jpg" height="134" width="106" alt=""></a></td><td valign="TOP" align="LEFT"><table width="100%" cellspacing="0" cellpadding="0" class="panel"><tbody><tr><th width="25%"><div>Online Judge</div></th><th width="25%"><div>Problems</div></th><th width="25%"><div>Authors</div></th><th width="25%"><div>Online contests</div></th></tr><tr><td valign="TOP" align="LEFT"><a href="/">About Online Judge</a><br><a href="/help.aspx?topic=faq">Frequently asked questions</a><br><a href="/news.aspx">Site news</a><br><a href="/forum/">Webboard</a><br><a href="/help.aspx?topic=links">Links</a><br></td><td valign="TOP" align="LEFT"><a href="/problemset.aspx">Problem set</a><br><a href="/submit.aspx">Submit solution</a><br><a href="/status.aspx">Judge status</a><br><a href="/help.aspx?topic=judge">Guide</a><br></td><td valign="TOP"><a href="/register.aspx">Register</a><br><a href="/authedit.aspx">Update your info</a><br><a href="/ranklist.aspx">Authors ranklist</a><br><form action="/search.aspx" method="GET" style="margin-top:0.6em;"><input name="Str" size="12" value="" placeholder="Author’s name"> <input type="SUBMIT" value="Search"></form></td><td valign="TOP"><a href="/contest.aspx">Current contest</a><br><a href="/schedule.aspx">Scheduled contests</a><br><a href="/archive.aspx">Past contests</a><br><a href="/help.aspx?topic=contest">Rules</a><br></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr><td style="padding-top: 32px; padding-bottom: 20px;"><table align="CENTER" cellspacing="0" cellpadding="0"><tbody><tr><td width="800"><div class="problem_content"><h2 class="problem_title">1187. Statistical Trouble</h2><div class="problem_limits">Time limit: 1.0 second<br>Memory limit: 64 MB<br></div><div id="problem_text"><div class="problem_par"><div class="problem_par_normal">Your team was hired by the international corporation ACM
+(Analytical Calculation Maxims). Every year ACM creates and
+conducts various surveys. Surveys themselves are simple forms
+with a list of questions and a list of possible answers for
+every question. Surveys are distributed around the globe,
+where field agents question the target group of people.
+All the answers are gathered in the ICPC
+(International Computation and Processing Center), where
+teams of well-paid analysts mine raw data in
+search for relevant correlations. The raw data for each
+individual survey consists of lots of lines of answers.
+Each line corresponds to every questioned person and
+for every question lists answers that the person has
+made on that particular survey.</div></div><div class="problem_par"><div class="problem_par_normal">The first step of analysis that your team was 
+hired to automate is to create cross tables that 
+correlate answers on interesting pairs of questions.
+In its most simple way, given a pair of questions,
+cross table has a row for every possible answer
+on the first question, and has a column for every possible
+answer on the second question. Each cell of the cross
+table contains a number of lines in the raw data that
+has both answers for the corresponding questions at
+the same time.</div></div><div class="problem_par"><div class="problem_par_normal">However, your task is complicated by the fact that
+you are to compute and output not only simple cross
+table values, but also total values for every row and
+column in the cross table (that is the sum of values in the
+corresponding row and column) that are placed in an
+additional last column and last row, as well as
+a percentage distributions for every row and column.
+Percentage distribution for a row is an additional number
+in every cell in that row that shows percent ratio
+of the value in that cell to the total value for that
+row, unless the total value is zero (in that case
+percentage distribution for this row is not defined).
+The same applies to the percentage distributions of
+columns. Thus, the cross table in your output will have 
+at most three values in every cell (the value itself,
+row-wise percent, and column-wise percent). 
+Please note, that percentage distributions also apply
+to totals. For example, in the total column for every 
+row the row-wise percent will be always 100%, unless
+the total value for the row is zero (in that case 
+row-wise percents are not defined), and column-wise
+percent shows percents ratio of the total value for this
+row to the total number of lines in the raw data (which
+is the value that can be found in the last column
+of the last row).</div></div><div class="problem_par"><div class="problem_par_normal">Percents are rounded to integers on output. 
+Percent that has a non-zero fractional part
+is rounded to either the smallest integer number greater 
+than the resulting percent, or the largest integer number 
+smaller than the resulting percent, in such a way, that 
+the sums of all corresponding row-wise percents by row 
+(without row totals) or column-wise percents by column
+(without column totals) are equal to 100% unless they
+are undefined. There are various rounding algorithms 
+that produce results satisfying the above constraints. 
+You are free to use any rounding algorithm as long as
+the above constraints are satisfied.</div></div><h3 class="problem_subtitle">Input</h3><div class="problem_par"><div class="problem_par_normal">The input consists of 3 sections: survey description,
+survey results, and cross table descriptions.</div></div><div class="problem_par"><div class="problem_par_normal">The first line of the input contains the name of the
+survey, which is at most 100 characters long. Subsequent lines describe all the questions in the survey. On the first
+line of every question there is a 3-character question code
+(capital letters and digits only) followed by a space, and followed by the question name, which is at most 80 characters long. Each subsequent line for a question describes one possible answer on the question and starts with a space, followed by a single-character code for the
+answer (capital letter, digit, or character '.', '*', or '@'), followed by a space and followed by an answer description, which is at most 40 characters long. The list of questions is terminated by the line with a single character '#'. All answer codes are unique within the question, and all question codes are unique within the input. There are at least 2 and at most 10 possible answers per question and at least 2 and at most 100 questions.</div></div><div class="problem_par"><div class="problem_par_normal">Next lines in the input describe survey results. Every line contains a character per question (in the order they appear in the input) that gives the answer code for the corresponding question. The characters follow one another without any delimiters. This section is terminated by the line with a single character '#'. There is at least one line with answers in the section and at most 10000 answers in total (the number of lines times the number of questions).</div></div><div class="problem_par"><div class="problem_par_normal">Next lines in the input describe cross tables that are to be created. Each cross table description occupies one line. That line contains the code for the first question, followed by a space, followed by the different code for the second question, followed by a space, and followed by the cross table name, which is at most 100 characters
+long. This section is terminated by the line with a single character '#'. There are at most 100 cross table descriptions in the input.</div></div><div class="problem_par"><div class="problem_par_normal">The input has no trailing spaces on any line. All names do not start or end with a space, but may contain spaces.</div></div><h3 class="problem_subtitle">Output</h3><div class="problem_par"><div class="problem_par_normal">Write to the output a cross table for every cross table description in the input in the order they appear in the input. On the first line of the cross table write the survey name, followed by a space, followed by a '-' (dash) character, followed by a space, followed by the cross table name. Then write the description of the first question,
+and the description of the second question exactly as they appear in the input and in the same format. Then write an empty line, followed by the table itself. The table contains exactly <tt>1+3*(N1+1)</tt> lines and exactly <tt>6*(N2+2)</tt> characters on every line, where <tt>N1</tt> is the number of possible answers for the first question, and <tt>N2</tt> is the number of possible answers for the second question.</div></div><div class="problem_par"><div class="problem_par_normal">The table has one line for column headings, and <tt>N1+1</tt> rows (3 lines per row). The first <tt>N1</tt> of these rows correspond to the answers on the first question in the order they appear in the input, and the last row is for column totals. The table also has <tt>N2+2</tt> columns, where each column is 6 characters wide. The first column is for row headings; the subsequent <tt>N2</tt> columns correspond to the answers on the second question in the order they appear in the input, and the last column is for row totals. All information in the cells (including headings) is aligned to the right and is padded on the left with spaces to become 6 characters wide.</div></div><div class="problem_par"><div class="problem_par_normal">The heading for the first column is empty. The headings for the subsequent <tt>N2</tt> columns are composed from the second question code, followed by a ':' (colon) character, and followed by the corresponding answer code. The
+heading for the last column is the string "TOTAL" (without quotes). The headings for the first <tt>N1</tt> 3-line rows of the cross table are composed from the first question code, followed by a ':' (colon) character, and followed by the corresponding answer code. The heading for the last row is the string "TOTAL" (without quotes). Row headings are situated on the first line of the corresponding row. The subsequent 2 lines in the heading column of every row must be blank.</div></div><div class="problem_par"><div class="problem_par_normal">All non-heading cells in the table contain computed values and percents. On the first line of every cell the corresponding cross table integer value is situated. The second line contains properly rounded to integers row-wise percent, with a mandatory trailing '%' (percent) character, or a single '-' (dash) character if the corresponding row-wise percent is not defined. The third line contains column-wise percent in the same format. All cross tables in the output must be separated by a single empty line.
+</div></div><h3 class="problem_subtitle">Sample</h3><table class="sample"><tbody><tr><th width="350">input</th><th width="350">output</th></tr><tr><td><pre>New Year Phone Survey for ACM ICPC
+Q01 Hello!
+ H Hello!
+ Y Yes!
+ * Uhm...
+ . (silence)
+ @ (other)
+Q02 How are you?
+ H Hello!
+ Y Yes!
+ F Fine!
+ Q Who are you?
+ @ (other)
+BYE Happy New Year!
+ Y You too.
+ * (censored)
+ @ (other)
+ . (hang up)
+#
+.@.
+HH@
+.@.
+YFY
+HQ*
+H@.
+YYY
+.H@
+HFY
+HH@
+#
+Q01 Q02 Health vs greeting style
+Q02 BYE Politeness matrix
+#</pre></td><td><pre>New Year Phone Survey for ACM ICPC - Health vs greeting style
+Q01 Hello!
+ H Hello!
+ Y Yes!
+ * Uhm...
+ . (silence)
+ @ (other)
+Q02 How are you?
+ H Hello!
+ Y Yes!
+ F Fine!
+ Q Who are you?
+ @ (other)
+
+       Q02:H Q02:Y Q02:F Q02:Q Q02:@ TOTAL
+ Q01:H     2     0     1     1     1     5
+         40%    0%   20%   20%   20%  100%
+         66%    0%   50%  100%   33%   50%
+ Q01:Y     0     1     1     0     0     2
+          0%   50%   50%    0%    0%  100%
+          0%  100%   50%    0%    0%   20%
+ Q01:*     0     0     0     0     0     0
+           -     -     -     -     -     -
+          0%    0%    0%    0%    0%    0%
+ Q01:.     1     0     0     0     2     3
+         33%    0%    0%    0%   67%  100%
+         34%    0%    0%    0%   67%   30%
+ Q01:@     0     0     0     0     0     0
+           -     -     -     -     -     -
+          0%    0%    0%    0%    0%    0%
+ TOTAL     3     1     2     1     3    10
+         30%   10%   20%   10%   30%  100%
+        100%  100%  100%  100%  100%  100%
+
+New Year Phone Survey for ACM ICPC - Politeness matrix
+Q02 How are you?
+ H Hello!
+ Y Yes!
+ F Fine!
+ Q Who are you?
+ @ (other)
+BYE Happy New Year!
+ Y You too.
+ * (censored)
+ @ (other)
+ . (hang up)
+
+       BYE:Y BYE:* BYE:@ BYE:. TOTAL
+ Q02:H     0     0     3     0     3
+          0%    0%  100%    0%  100%
+          0%    0%  100%    0%   30%
+ Q02:Y     1     0     0     0     1
+        100%    0%    0%    0%  100%
+         33%    0%    0%    0%   10%
+ Q02:F     2     0     0     0     2
+        100%    0%    0%    0%  100%
+         67%    0%    0%    0%   20%
+ Q02:Q     0     1     0     0     1
+          0%  100%    0%    0%  100%
+          0%  100%    0%    0%   10%
+ Q02:@     0     0     0     3     3
+          0%    0%    0%  100%  100%
+          0%    0%    0%  100%   30%
+ TOTAL     3     1     3     3    10
+         30%   10%   30%   30%  100%
+        100%  100%  100%  100%  100%
+</pre></td></tr></tbody></table><div class="problem_source"><b>Problem Author: </b>Roman Elizarov
+<br><b>Problem Source: </b>2001-2002 ACM Northeastern European Regional Programming Contest<br></div></div></div><div><b>Tags: </b>none &nbsp;<span class="problem_tags_toggle">(<form method="POST" action="problem.aspx?space=1&amp;num=1187" style="display:inline;" id="ToggleTagsForm"><a href="problem.aspx?space=1&amp;num=1187" onclick="document.getElementById('ToggleTagsForm').submit();return false;"><input type="hidden" name="Action" value="HideTags">hide tags for unsolved problems</a></form>)</span></div><div class="problem_links"><span>Difficulty: 1998</span> &nbsp;&nbsp;&nbsp;<a href="print.aspx?space=1&amp;num=1187" target="_blank">Printable version</a> &nbsp;&nbsp;&nbsp;<a href="submit.aspx?space=1&amp;num=1187">Submit solution</a> &nbsp;&nbsp;&nbsp;<a href="forum/?space=1&amp;num=1187">Discussion (30)</a><br><a href="status.aspx?space=1&amp;num=1187">All submissions (1150)</a> &nbsp;&nbsp;&nbsp;<a href="status.aspx?space=1&amp;num=1187&amp;status=accepted">All accepted submissions (251)</a> &nbsp;&nbsp;&nbsp;<a href="rating.aspx?space=1&amp;num=1187">Solutions rating (201)</a></div></td></tr></tbody></table></td></tr><tr><td class="footer"><script type="text/javascript" async="" src="https://mc.yandex.ru/metrika/watch.js"></script><script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter20918869 = new Ya.Metrika({ id:20918869, clickmap:true, trackLinks:true, accurateTrackBounce:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript>&lt;div&gt;&lt;img src="https://mc.yandex.ru/watch/20918869" style="position:absolute; left:-9999px;" alt=""&gt;&lt;/div&gt;</noscript>© 2000–2017 <a href="/team.aspx">Timus Online Judge Team</a>. All rights reserved.</td></tr></tbody></table></body></html>

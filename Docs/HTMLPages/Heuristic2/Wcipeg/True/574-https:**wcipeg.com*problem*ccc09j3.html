@@ -1,0 +1,395 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - CCC09J3 - Good Times</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "8c45b434a3b7582378f7341582f131fd";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fccc09j3"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>2009 Canadian Computing Competition, Stage 1</h3>
+<h2>Problem J3: Good Times</h2>
+
+<p>A mobile cell service provider in Ottawa broadcasts an automated time standard to its mobile users that reflects the local time at the user's actual location in Canada. This ensures that text messages have a valid local time attached to them.</p>
+<p>For example, when it is 1420 in Ottawa on Tuesday February 24, 2009 (specified using military, 24 hour format), the times across the country are shown in the table below:</p>
+<table class="temp">
+  <tbody><tr>
+    <td>Pacific Time</td>
+    <td>Mountain Time</td>
+    <td>Central Time</td>
+    <td>Eastern Time</td>
+    <td>Atlantic Time</td>
+    <td>Newfoundland Time</td>
+  </tr>
+  <tr>
+    <td>Victoria, BC<br>
+      Tuesday<br>
+      2/24/2009<br>
+    1120 PST</td>
+    <td>Edmonton, AB<br>
+      Tuesday<br>
+      2/24/2009<br>
+    1220 MST</td>
+    <td>Winnipeg, MB<br>
+      Tuesday<br>
+      2/24/2009<br>
+    1320 CST</td>
+    <td>Toronto, ON<br>
+      Tuesday<br>
+      2/24/2009<br>
+    1420 EST</td>
+    <td>Halifax, NS<br>
+      Tuesday<br>
+      2/24/2009<br>
+    1520 AST</td>
+    <td>St. John's, NL<br>
+      Tuesday<br>
+      2/24/2009<br>
+    1550 Newfoundland ST</td>
+  </tr>
+</tbody></table>
+<p>Write a program that accepts the time in Ottawa in 24 hour format and outputs the local time in each of the cities listed above including Ottawa. You should assume that the input time will be valid (i.e., an integer between 0 and 2359 with the last two digits being between 00 and 59).</p>
+<p>You should note that 2359 is one minute to midnight, midnight is 0, and 13 minutes after midnight is 13. You do not need to print leading zeros, and input will not contain any extra leading zeros.</p>
+<h3>Sample Input</h3>
+<pre>1300</pre>
+<h4>Sample Output</h4>
+<pre>1300 in Ottawa
+1000 in Victoria
+1100 in Edmonton
+1200 in Winnipeg
+1300 in Toronto
+1400 in Halifax
+1430 in St. John's</pre>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,ccc09j3">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/ccc09j3">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 5<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> May 14, 2009<br>
+      </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=ccc09j3">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment7631">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Jenny_Wujavaw16">Jenny_Wujavaw16</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7631">Jul 04, 2016 - 6:57:32 pm UTC</a>      </span>
+      <a class="comment_title" id="title7631" onclick="toggle(&quot;body7631&quot;)">My code doesn't work</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7631">
+    (<span class="upvotes"><span id="upvotes7631">0</span></span>/<span class="downvotes"><span id="downvotes7631">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7631" class="comment_body">
+    <pre id="msg7631" style="display: none">It works perfectly when I test it on my compiler. Is there some formatting issue I'm doing wrong?</pre>
+    <div style="opacity: 1">
+      It works perfectly when I test it on my compiler. Is there some formatting issue I'm doing wrong?    </div>
+    <br><div class="comment_block" id="comment7632">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Alex">Alex</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7632">Jul 05, 2016 - 1:48:11 am UTC</a>      </span>
+      <a class="comment_title" id="title7632" onclick="toggle(&quot;body7632&quot;)">Re: My code doesn't work</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7632">
+    (<span class="upvotes"><span id="upvotes7632">0</span></span>/<span class="downvotes"><span id="downvotes7632">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7632" class="comment_body">
+    <pre id="msg7632" style="display: none">Hint: ' != ’</pre>
+    <div style="opacity: 1">
+      Hint: ' != ’    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment3639">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bobbyg212009">bobbyg212009</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3639">Nov 03, 2011 - 1:14:10 am UTC</a>      </span>
+      <a class="comment_title" id="title3639" onclick="toggle(&quot;body3639&quot;)"></a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3639">
+    (<span class="upvotes"><span id="upvotes3639">1</span></span>/<span class="downvotes"><span id="downvotes3639">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3639" class="comment_body">
+    <pre id="msg3639" style="display: none">why do i get test case number 5
+</pre>
+    <div style="opacity: 1">
+      why do i get test case number 5    </div>
+    <br><div class="comment_block" id="comment3640">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3640">Nov 03, 2011 - 3:56:03 am UTC</a>      </span>
+      <a class="comment_title" id="title3640" onclick="toggle(&quot;body3640&quot;)">Re: ...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3640">
+    (<span class="upvotes"><span id="upvotes3640">1</span></span>/<span class="downvotes"><span id="downvotes3640">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3640" class="comment_body">
+    <pre id="msg3640" style="display: none">You're outputting a nonexistent time, such as 1695 or 360.</pre>
+    <div style="opacity: 1">
+      You're outputting a nonexistent time, such as 1695 or 360.    </div>
+    <br><div class="comment_block" id="comment3642">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bobbyg212009">bobbyg212009</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3642">Nov 04, 2011 - 2:10:10 am UTC</a>      </span>
+      <a class="comment_title" id="title3642" onclick="toggle(&quot;body3642&quot;)">not when i do it on my computer</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3642">
+    (<span class="upvotes"><span id="upvotes3642">1</span></span>/<span class="downvotes"><span id="downvotes3642">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3642" class="comment_body">
+    <pre id="msg3642" style="display: none"></pre>
+    <div style="opacity: 1">
+          </div>
+    <br><div class="comment_block" id="comment3643">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3643">Nov 04, 2011 - 2:18:54 am UTC</a>      </span>
+      <a class="comment_title" id="title3643" onclick="toggle(&quot;body3643&quot;)">Re: not when i do it on my computer</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3643">
+    (<span class="upvotes"><span id="upvotes3643">2</span></span>/<span class="downvotes"><span id="downvotes3643">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3643" class="comment_body">
+    <pre id="msg3643" style="display: none">please learn to use the reply feature</pre>
+    <div style="opacity: 1">
+      please learn to use the reply feature    </div>
+    <br><div class="comment_block" id="comment3645">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bobbyg212009">bobbyg212009</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3645">Nov 04, 2011 - 3:49:04 am UTC</a>      </span>
+      <a class="comment_title" id="title3645" onclick="toggle(&quot;body3645&quot;)">Re: Re: not when i do it on my computer</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3645">
+    (<span class="upvotes"><span id="upvotes3645">1</span></span>/<span class="downvotes"><span id="downvotes3645">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3645" class="comment_body">
+    <pre id="msg3645" style="display: none">sorry?
+</pre>
+    <div style="opacity: 1">
+      sorry?    </div>
+    <br><div class="comment_block" id="comment3646">
+  <div class="comment_header" style="opacity: 0.95441393735536">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3646">Nov 04, 2011 - 5:28:53 am UTC</a>      </span>
+      <a class="comment_title" id="title3646" onclick="toggle(&quot;body3646&quot;)">Re: Re: not when i do it on my computer</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3646">
+    (<span class="upvotes"><span id="upvotes3646">3</span></span>/<span class="downvotes"><span id="downvotes3646">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3646" class="comment_body">
+    <pre id="msg3646" style="display: none">When you post a comment as a reply to another comment, make sure you click the plus sign at the right of the box of the comment to which you intend to reply, instead of clicking "Post New" above. I edited your comment in order to make it a reply, as it should be.
+
+Also, please do not use the subject line of a comment to contain your entire message. Instead, leave the subject blank, and put your message in the body. Of course, if you would just use the Reply feature properly, the subject field would be taken care for you automatically.</pre>
+    <div style="opacity: 0.95441393735536">
+      When you post a comment as a reply to another comment, make sure you click the plus sign at the right of the box of the comment to which you intend to reply, instead of clicking "Post New" above. I edited your comment in order to make it a reply, as it should be. <br> <br>Also, please do not use the subject line of a comment to contain your entire message. Instead, leave the subject blank, and put your message in the body. Of course, if you would just use the Reply feature properly, the subject field would be taken care for you automatically.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br><div class="comment_block" id="comment3647">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3647">Nov 04, 2011 - 8:28:18 pm UTC</a>      </span>
+      <a class="comment_title" id="title3647" onclick="toggle(&quot;body3647&quot;)">Re: not when i do it on my computer</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3647">
+    (<span class="upvotes"><span id="upvotes3647">1</span></span>/<span class="downvotes"><span id="downvotes3647">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3647" class="comment_body">
+    <pre id="msg3647" style="display: none">Ah, but you might not be testing the relevant value.
+Try inputting 59.</pre>
+    <div style="opacity: 0.90547134519913">
+      Ah, but you might not be testing the relevant value. <br>Try inputting 59.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0313s.<br>
+    Server time on page load:
+    May 9, 2018 15:29:37 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fccc09j3">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - IOI '95 - Letter Game</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "8c45b434a3b7582378f7341582f131fd";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fioi9521"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>IOI '95 - Eindhoven, Netherlands</h3>
+<h2>Letter Game</h2>
+
+<p align="center" style="margin-bottom:25px;"><img src="images/ioi9521/lgame.gif"><br>
+<i>Figure 1: Each of the 26 lowercase letters and its value</i></p>
+
+<p>Letter games are popular at home and on television. In one version of the game, every letter has a value, and you collect letters to form one or more words giving the highest possible score. Unless you have 'a way with words', you will try all the words you know, sometimes looking up the spelling, and then compute the scores. Obviously, this can be done more accurately by computer.</p>
+
+<p>Given the values in Figure 1, a list of words, and the letters collected: find the highest scoring words or pairs of words that can be formed.</p>
+
+<h3>Input Format</h3>
+<p>The first section of the input will consist of the dictionary. There will be at most 40,000 lines in the dictionary, each containing a string of at least 3 and at most 7 lowercase letters. The end of the dictionary will be denoted by a line with a single period ('<code>.</code>'). The dictionary is sorted alphabetically and contains no duplicates.</p>
+<p>One line with a string of lowercase letters (from '<code>a</code>' to '<code>z</code>'). The string consists of at least 3 and at most 7 letters in arbitrary order.</p>
+
+<h3>Output Format</h3>
+
+<p>On the first line, your program should write the highest possible score, and on each of the following lines, all the words and/or word pairs the dictionary with this score. Sort the output alphabetically by first word, and if tied, by second word. A letter must not occur more often in an output line than in the input line. Use the letter values given in Figure 1.</p>
+
+<p>When a combination of two words can be formed with the given letters, the words should be printed on the same line separated by a space. The two words should be in alphabetical order; for example, do not write '<code>rag prom</code>', only write '<code>prom rag</code>'. A pair in an output line may consist of two identical words.</p>
+
+<h3>Sample Input</h3>
+<pre>profile
+program
+prom
+rag
+ram
+rom
+.
+prmgroa</pre>
+
+<h3>Sample Output</h3>
+<pre>24
+program
+prom rag
+</pre>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,ioi9521">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/ioi9521">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 15 (partial)<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Dec 25, 2013<br>
+      </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=ioi9521">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment7475">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/silo">silo</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7475">Feb 12, 2016 - 11:56:19 pm UTC</a>      </span>
+      <a class="comment_title" id="title7475" onclick="toggle(&quot;body7475&quot;)">Am I missing something?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7475">
+    (<span class="upvotes"><span id="upvotes7475">0</span></span>/<span class="downvotes"><span id="downvotes7475">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7475" class="comment_body">
+    <pre id="msg7475" style="display: none">I solved it with a brute force O(n^2) solution, which doesn't happen a lot for 15pt problems... Is there something I'm missing?</pre>
+    <div style="opacity: 1">
+      I solved it with a brute force O(n^2) solution, which doesn't happen a lot for 15pt problems... Is there something I'm missing?    </div>
+    <br><div class="comment_block" id="comment7478">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/spencereir">spencereir</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7478">Feb 13, 2016 - 12:05:19 am UTC</a>      </span>
+      <a class="comment_title" id="title7478" onclick="toggle(&quot;body7478&quot;)">Re: Am I missing something?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7478">
+    (<span class="upvotes"><span id="upvotes7478">0</span></span>/<span class="downvotes"><span id="downvotes7478">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7478" class="comment_body">
+    <pre id="msg7478" style="display: none">Yeah, my solution of O(N (length of string)!) solution somehow passed too. I guess this problem just has weak data.</pre>
+    <div style="opacity: 1">
+      Yeah, my solution of O(N (length of string)!) solution somehow passed too. I guess this problem just has weak data.    </div>
+    <br><div class="comment_block" id="comment7479">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/silo">silo</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7479">Feb 14, 2016 - 3:52:00 pm UTC</a>      </span>
+      <a class="comment_title" id="title7479" onclick="toggle(&quot;body7479&quot;)">Re: Am I missing something?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7479">
+    (<span class="upvotes"><span id="upvotes7479">0</span></span>/<span class="downvotes"><span id="downvotes7479">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7479" class="comment_body">
+    <pre id="msg7479" style="display: none">I just realised this is a twenty year old question, that's probably why.</pre>
+    <div style="opacity: 1">
+      I just realised this is a twenty year old question, that's probably why.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment6883">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jeffreyxiao">jeffreyxiao</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6883">Aug 24, 2015 - 5:42:18 pm UTC</a>      </span>
+      <a class="comment_title" id="title6883" onclick="toggle(&quot;body6883&quot;)">Output for last case matches, but giving me WA</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6883">
+    (<span class="upvotes"><span id="upvotes6883">0</span></span>/<span class="downvotes"><span id="downvotes6883">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6883" class="comment_body">
+    <pre id="msg6883" style="display: none">I tried it offline and the output matched the test case, but it's still giving me WA.</pre>
+    <div style="opacity: 1">
+      I tried it offline and the output matched the test case, but it's still giving me WA.    </div>
+    <br><div class="comment_block" id="comment6890">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6890">Aug 28, 2015 - 2:19:28 am UTC</a>      </span>
+      <a class="comment_title" id="title6890" onclick="toggle(&quot;body6890&quot;)">Re: Output for last case matches, but giving me WA</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6890">
+    (<span class="upvotes"><span id="upvotes6890">1</span></span>/<span class="downvotes"><span id="downvotes6890">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6890" class="comment_body">
+    <pre id="msg6890" style="display: none">Sigh, Jeffrey...
+
+[quote]Sort the output alphabetically by first word, and if tied, by second word. A letter must not occur more often in an output line than in the input line. Use the letter values given in Figure 1.
+
+When a combination of two words can be formed with the given letters, the words should be printed on the same line separated by a space. The two words should be in alphabetical order; for example, do not write 'rag prom', only write 'prom rag'. A pair in an output line may consist of two identical words.[/quote]</pre>
+    <div style="opacity: 1">
+      Sigh, Jeffrey... <br> <br><table style="width: 90%; margin: 0 auto">
+            <tbody><tr>
+            <td><span class="quotecodeheader"></span></td>
+            </tr>
+            <tr>
+            <td class="quotebody">Sort the output alphabetically by first word, and if tied, by second word. A letter must not occur more often in an output line than in the input line. Use the letter values given in Figure 1. <br> <br>When a combination of two words can be formed with the given letters, the words should be printed on the same line separated by a space. The two words should be in alphabetical order; for example, do not write 'rag prom', only write 'prom rag'. A pair in an output line may consist of two identical words.</td>
+            </tr>
+            </tbody></table>    </div>
+    <br><div class="comment_block" id="comment6892">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jeffreyxiao">jeffreyxiao</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6892">Aug 28, 2015 - 9:17:16 pm UTC</a>      </span>
+      <a class="comment_title" id="title6892" onclick="toggle(&quot;body6892&quot;)">Re: Output for last case matches, but giving me WA</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6892">
+    (<span class="upvotes"><span id="upvotes6892">0</span></span>/<span class="downvotes"><span id="downvotes6892">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6892" class="comment_body">
+    <pre id="msg6892" style="display: none">Okay the output in the IOI test data confused me</pre>
+    <div style="opacity: 1">
+      Okay the output in the IOI test data confused me    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0264s.<br>
+    Server time on page load:
+    May 9, 2018 15:31:01 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fioi9521">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

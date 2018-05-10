@@ -1,0 +1,287 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - Rank</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "a846b326ae579368c4a4e84e51d36946";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Facsl1p4"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>ACSL Practice 2009</h3>
+
+<h2>Task 4: Rank</h2>
+
+<p> In a tournament of&nbsp;<em>N</em>&nbsp;players and&nbsp;<em>K</em>&nbsp;games, each game involves 2 players. A player may play any number of games, but in each game his opponent must be a different person. A player needs not play with everybody (it is even possible, though strange, that a player does not play any game at all!). In a game, there is no draw - a player either wins or loses.&nbsp;<br>
+  <br>
+  After all the games have been played, the players are ranked. There are a few situations where ranking is not possible, but here we are interested only in one particular situation where more than 2 players are involved in a "cyclic" order. One example is as follows: player&nbsp;<em>A</em>&nbsp;beats player&nbsp;<em>B</em>, player&nbsp;<em>B</em>&nbsp;beats player&nbsp;<em>C</em>, and player&nbsp;<em>C</em>&nbsp;in turns beats player&nbsp;<em>A</em>. In this case, the relative ranking of these 3 players cannot be determined.&nbsp;<br>
+  <br>
+  Note that a player may be involved in more than one cyclic ordering; when this happens, the player should be counted only once.&nbsp;<br>
+  <br>
+  (Since we are only interested in players involved in cyclic ordering, those players whose ranking cannot be determined due to other reasons - for instance, a player who did not play any game at all should not be considered here. See the examples.)&nbsp;<br>
+  <br>
+You are given a list of games and their results, and you are to find the <em>total number of players</em>&nbsp;whose ranking cannot be determined due to cyclic ordering.&nbsp;</p>
+<h3>Input</h3>
+<p> The first line contains 2 integers&nbsp;<em>N</em>&nbsp;(2 ≤&nbsp;<em>N</em>&nbsp;≤ 20) and&nbsp;<em>K</em>&nbsp;(1 ≤&nbsp;<em>K</em>&nbsp;≤ 30) in this order, where&nbsp;<em>N</em>&nbsp;is the number of players, and&nbsp;<em>K</em>&nbsp;the number of games played. The players are identified by the integers 1, 2, 3, ...,<em>N</em>.&nbsp;<br>
+  <br>
+There are&nbsp;<em>K</em>&nbsp;lines after the first line. Each of the&nbsp;<em>K</em>&nbsp;lines contains 4 integers&nbsp;<em>a b sa sb</em>&nbsp;representing the result of a game:&nbsp;<em>a</em>&nbsp;and&nbsp;<em>b</em>&nbsp;are the identifiers of the players, and&nbsp;<em>sa</em>&nbsp;and&nbsp;<em>sb</em>&nbsp;are the scores of players&nbsp;<em>a</em>&nbsp;and <em>b</em>&nbsp;respectively. All scores are non-negative integers less than 10, and the player with the larger score wins.&nbsp; </p>
+<h3>Output</h3>
+<p> The output contains an integer which is the number of players whose ranking cannot be determined due to cyclic ordering.&nbsp; </p>
+
+<h3>Examples</h3>
+
+<table class="coci">
+  <tbody><tr>
+    <td><h3>Input</h3>
+<pre>10 12
+1 8 2 1
+1 2 5 0
+10 7 1 2
+6 9 6 9
+3 4 3 1
+9 5 3 1
+8 2 6 8
+4 9 3 0
+4 1 5 2
+6 10 3 5
+3 5 1 9
+6 7 9 8</pre>
+    <br>
+    <h3>Output</h3>
+    <pre>7</pre>
+	</td>
+    <td><h3>Input</h3>
+<pre>5 3 
+1 3 9 7
+5 1 9 2
+3 5 2 0</pre>
+    <br>
+    <h3>Output</h3>
+    <pre>3</pre>
+	</td>
+    <td><h3>Input</h3>
+<pre>5 6 
+1 2 2 1
+1 5 2 1
+1 3 2 1
+5 2 0 5
+5 3 1 8
+2 4 4 2</pre>
+    <br>
+    <h3>Output</h3>
+    <pre>0</pre>
+	</td>
+    <td>
+    <h3>Input</h3>
+<pre>10 5
+2 4 0 2
+2 6 5 3
+8 2 8 2
+6 4 6 2
+8 6 0 2</pre>
+	<h3>Output</h3>
+    <pre>4</pre>
+    </td>
+  </tr>
+</tbody></table>
+
+<h3>Explanation</h3>
+
+<ol>
+	<li>Players 3, 4, 5, 9 are in one cycle, and players 6, 7, 10 in another. (Total = 7)</li>
+	<li>Players 1, 3 and 5 are involved in a cyclic ordering, whereas players 2 and 4 did not play. (3)</li>
+	<li>There is no cycle in this case. (0)</li>
+	<li>There are 2 cycles: players 2, 4, 6 are involved in one cycle, while players 2, 6, 8 are in another. So players 2, 4, 6, 8 are involved in a cyclic ordering. (4)</li>
+</ol>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,acsl1p4">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/acsl1p4">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 10<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> May 19, 2009<br>
+      </p>
+
+    <b>Problem Types:</b>
+  <noscript>
+    &lt;style type="text/css"&gt;
+      #show_types, #hide_types { display: none !important; }
+      #spoiler_id { display: inline !important; }
+    &lt;/style&gt;
+  </noscript>
+  <a href="javascript:void(null);" id="show_types" onclick="document.getElementById('spoiler_id').style.display=''; document.getElementById('show_types').style.display='none';">[Show]</a>
+  <span id="spoiler_id" style="display: none">
+    <a href="javascript:void(null);" id="hide_types" onclick="document.getElementById('spoiler_id').style.display='none'; document.getElementById('show_types').style.display='';">[Hide]</a><br>
+    <ul style="list-style-type: none; margin: 0; padding: 0;">
+      <li>Graph Theory</li>    </ul>
+  </span>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=acsl1p4">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment5887">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/sigkill">sigkill</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5887">Jun 01, 2014 - 2:18:17 am UTC</a>      </span>
+      <a class="comment_title" id="title5887" onclick="toggle(&quot;body5887&quot;)">Erroneously Accepted Answer</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5887">
+    (<span class="upvotes"><span id="upvotes5887">0</span></span>/<span class="downvotes"><span id="downvotes5887">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5887" class="comment_body">
+    <pre id="msg5887" style="display: none">Hi,
+
+My last submission was accepted even though I'm 100% sure it isn't correct. It fails the first example test case. It performs a DFS on the different components of the graph. The code works under the assumption that, if node x is the "parent" of node y, and node y is part of a cycle, then node x is part of a cycle also. This is not correct.
+
+Excuse me if this is an inappropriate place to post this.</pre>
+    <div style="opacity: 1">
+      Hi, <br> <br>My last submission was accepted even though I'm 100% sure it isn't correct. It fails the first example test case. It performs a DFS on the different components of the graph. The code works under the assumption that, if node x is the "parent" of node y, and node y is part of a cycle, then node x is part of a cycle also. This is not correct. <br> <br>Excuse me if this is an inappropriate place to post this.    </div>
+      </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0199s.<br>
+    Server time on page load:
+    May 9, 2018 16:16:41 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Facsl1p4">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

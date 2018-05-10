@@ -1,0 +1,589 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" class=" canvas canvastext no-geolocation rgba hsla multiplebgs borderimage borderradius boxshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions  no-video no-audio localstorage sessionstorage webworkers applicationcache fontface"><head>
+
+
+
+<link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>samiemad - A2 Online Judge</title>
+
+<meta name="description" content="A2 Online Judge (or Virtual Online Contests) is an online judge with hundreds of problems and it helps you to create, run and participate in virtual contests using problems from the following online judges: A2 Online Judge, Live Archive, Codeforces, Timus, SPOJ, TJU, SGU, PKU, ZOJ, URI. It also helps you to manage and track your programming comepetions training for you and your friends. It helps for ICPC ACM and IOI training also.">
+<meta name="keywords" content="ahmed aly,ahmed aly tools,voc,virtual online contests,programming,c++,java,contest,contests,competition,competitions,programming contest,programming contests,programming compitition,programming compititions,cf,codeforces,live archive,uva,spoj,tju,sgu,pku,timus,zoj,uri,programming tools,a2oj,a2 online judge">
+<meta name="author" content="Ahmed Aly">
+<link href="default.css" rel="stylesheet" type="text/css">
+
+		<link rel="stylesheet" href="css/nav.css">
+		<!--[if IE]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+<!-- START TRACKING CODE -->
+<script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push( [ '_setAccount', 'UA-16947566-3' ]);
+	_gaq.push( [ '_trackPageview' ]);
+
+	( function() {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+				: 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+<!-- END TRACKING CODE -->
+
+
+
+
+
+
+
+<style>@font-face{font-family:testfont;src:url('data:font/ttf;base64,AAEAAAAMAIAAAwBAT1MvMliohmwAAADMAAAAVmNtYXCp5qrBAAABJAAAANhjdnQgACICiAAAAfwAAAAEZ2FzcP//AAMAAAIAAAAACGdseWYv5OZoAAACCAAAANxoZWFk69bnvwAAAuQAAAA2aGhlYQUJAt8AAAMcAAAAJGhtdHgGDgC4AAADQAAAABRsb2NhAIQAwgAAA1QAAAAMbWF4cABVANgAAANgAAAAIG5hbWUgXduAAAADgAAABPVwb3N03NkzmgAACHgAAAA4AAECBAEsAAUAAAKZAswAAACPApkCzAAAAesAMwEJAAACAAMDAAAAAAAAgAACbwAAAAoAAAAAAAAAAFBmRWQAAAAgqS8DM/8zAFwDMwDNAAAABQAAAAAAAAAAAAMAAAADAAAAHAABAAAAAABGAAMAAQAAAK4ABAAqAAAABgAEAAEAAgAuqQD//wAAAC6pAP///9ZXAwAAAAAAAAACAAAABgBoAAAAAAAvAAEAAAAAAAAAAAAAAAAAAAABAAIAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEACoAAAAGAAQAAQACAC6pAP//AAAALqkA////1lcDAAAAAAAAAAIAAAAiAogAAAAB//8AAgACACIAAAEyAqoAAwAHAC6xAQAvPLIHBADtMrEGBdw8sgMCAO0yALEDAC88sgUEAO0ysgcGAfw8sgECAO0yMxEhESczESMiARDuzMwCqv1WIgJmAAACAFUAAAIRAc0ADwAfAAATFRQWOwEyNj0BNCYrASIGARQGKwEiJj0BNDY7ATIWFX8aIvAiGhoi8CIaAZIoN/43KCg3/jcoAWD0JB4eJPQkHh7++EY2NkbVRjY2RgAAAAABAEH/+QCdAEEACQAANjQ2MzIWFAYjIkEeEA8fHw8QDxwWFhwWAAAAAQAAAAIAAIuYbWpfDzz1AAsEAAAAAADFn9IuAAAAAMWf0i797/8zA4gDMwAAAAgAAgAAAAAAAAABAAADM/8zAFwDx/3v/98DiAABAAAAAAAAAAAAAAAAAAAABQF2ACIAAAAAAVUAAAJmAFUA3QBBAAAAKgAqACoAWgBuAAEAAAAFAFAABwBUAAQAAgAAAAEAAQAAAEAALgADAAMAAAAQAMYAAQAAAAAAAACLAAAAAQAAAAAAAQAhAIsAAQAAAAAAAgAFAKwAAQAAAAAAAwBDALEAAQAAAAAABAAnAPQAAQAAAAAABQAKARsAAQAAAAAABgAmASUAAQAAAAAADgAaAUsAAwABBAkAAAEWAWUAAwABBAkAAQBCAnsAAwABBAkAAgAKAr0AAwABBAkAAwCGAscAAwABBAkABABOA00AAwABBAkABQAUA5sAAwABBAkABgBMA68AAwABBAkADgA0A/tDb3B5cmlnaHQgMjAwOSBieSBEYW5pZWwgSm9obnNvbi4gIFJlbGVhc2VkIHVuZGVyIHRoZSB0ZXJtcyBvZiB0aGUgT3BlbiBGb250IExpY2Vuc2UuIEtheWFoIExpIGdseXBocyBhcmUgcmVsZWFzZWQgdW5kZXIgdGhlIEdQTCB2ZXJzaW9uIDMuYmFlYzJhOTJiZmZlNTAzMiAtIHN1YnNldCBvZiBKdXJhTGlnaHRiYWVjMmE5MmJmZmU1MDMyIC0gc3Vic2V0IG9mIEZvbnRGb3JnZSAyLjAgOiBKdXJhIExpZ2h0IDogMjMtMS0yMDA5YmFlYzJhOTJiZmZlNTAzMiAtIHN1YnNldCBvZiBKdXJhIExpZ2h0VmVyc2lvbiAyIGJhZWMyYTkyYmZmZTUwMzIgLSBzdWJzZXQgb2YgSnVyYUxpZ2h0aHR0cDovL3NjcmlwdHMuc2lsLm9yZy9PRkwAQwBvAHAAeQByAGkAZwBoAHQAIAAyADAAMAA5ACAAYgB5ACAARABhAG4AaQBlAGwAIABKAG8AaABuAHMAbwBuAC4AIAAgAFIAZQBsAGUAYQBzAGUAZAAgAHUAbgBkAGUAcgAgAHQAaABlACAAdABlAHIAbQBzACAAbwBmACAAdABoAGUAIABPAHAAZQBuACAARgBvAG4AdAAgAEwAaQBjAGUAbgBzAGUALgAgAEsAYQB5AGEAaAAgAEwAaQAgAGcAbAB5AHAAaABzACAAYQByAGUAIAByAGUAbABlAGEAcwBlAGQAIAB1AG4AZABlAHIAIAB0AGgAZQAgAEcAUABMACAAdgBlAHIAcwBpAG8AbgAgADMALgBiAGEAZQBjADIAYQA5ADIAYgBmAGYAZQA1ADAAMwAyACAALQAgAHMAdQBiAHMAZQB0ACAAbwBmACAASgB1AHIAYQBMAGkAZwBoAHQAYgBhAGUAYwAyAGEAOQAyAGIAZgBmAGUANQAwADMAMgAgAC0AIABzAHUAYgBzAGUAdAAgAG8AZgAgAEYAbwBuAHQARgBvAHIAZwBlACAAMgAuADAAIAA6ACAASgB1AHIAYQAgAEwAaQBnAGgAdAAgADoAIAAyADMALQAxAC0AMgAwADAAOQBiAGEAZQBjADIAYQA5ADIAYgBmAGYAZQA1ADAAMwAyACAALQAgAHMAdQBiAHMAZQB0ACAAbwBmACAASgB1AHIAYQAgAEwAaQBnAGgAdABWAGUAcgBzAGkAbwBuACAAMgAgAGIAYQBlAGMAMgBhADkAMgBiAGYAZgBlADUAMAAzADIAIAAtACAAcwB1AGIAcwBlAHQAIABvAGYAIABKAHUAcgBhAEwAaQBnAGgAdABoAHQAdABwADoALwAvAHMAYwByAGkAcAB0AHMALgBzAGkAbAAuAG8AcgBnAC8ATwBGAEwAAAAAAgAAAAAAAP+BADMAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAAQACAQIAEQt6ZXJva2F5YWhsaQ==')}</style></head>
+<body class="">
+    	<script>
+			var el = document.getElementsByTagName("body")[0];
+			el.className = "";
+		</script>
+        <noscript>
+        	&lt;!--[if IE]&gt;
+            	&lt;link rel="stylesheet" href="css/ie.css"&gt;
+            &lt;![endif]--&gt;
+        </noscript>
+        
+
+<center>
+<table width="100%">
+<tbody><tr>
+<td>
+        
+
+
+<div id="wrapper"><!-- start header -->
+
+<div id="logo">
+<table width="100%">
+<tbody><tr>
+<td style="vertical-align: bottom;"><a href="/"><img src="logo.png"></a></td>
+<td>
+<h1 style="padding-top: 11px;">A<sup>2</sup> Online Judge</h1>
+<h2 class="author">»&nbsp;&nbsp;&nbsp;&nbsp; by <a href="https://www.facebook.com/ahmed.aly.tc" target="_blank" style="text-decoration: none;">Ahmed Aly</a></h2>
+<br>
+<h3>Sponsored by <b><a href="https://www.facebook.com/elcoachacademy/" target="_blank" style="text-decoration: none;">Coach Academy</a></b> &amp; <b><a href="https://www.facebook.com/acmacpc/" target="_blank" style="text-decoration: none;">ACPC</a></b>, <a href="https://www.codechef.com/" target="_blank" style="text-decoration: none;">CodeChef</a> and <a href="http://www.codability.net/" target="_blank" style="text-decoration: none;">Codability</a></h3>
+</td>
+<td style="text-align: right; padding-top: 27px;">
+<iframe src="https://www.facebook.com/plugins/like.php?show_faces=false&amp;href=https://www.facebook.com/A2OnlineJudge" scrolling="no" frameborder="0" style="border:none; height:45px"></iframe>
+</td>
+</tr>
+</tbody></table>
+</div>
+
+<div id="header3"><div align="right"><a href="signin?url=%2Fprofile%3FUsername%3Dsamiemad" style="font-size: 15px;">Sign In</a> - <a href="signup" style="font-size: 15px;">Sign Up</a></div></div>
+
+
+<div id="header2">
+<div id="menu2">
+
+        <nav id="topNav">
+          <ul>
+<li><a href="/">Contests</a></li><li><a href="ladders"><font color="red">Ladders</font></a></li><li><a href="ps">Problems</a></li><li><a href="status">Status</a></li><li><a href="categories">Categories</a></li><li><a href="groups">Groups</a></li><li><a href="javascript:void();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;More&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>^</span></a><ul><li><center><a href="http://goo.gl/Fq5mru" target="_blank">GCJ Tools</a></center></li><li><center><a href="codes">Source Codes</a></center></li><li><center><a href="finder">Problems Finder</a></center></li><li><center><a href="users">Users</a></center></li><li><center><a href="teams">Teams</a></center></li><li><center><a href="cumulative">Cumulative Rank</a></center></li></ul></li><li class="last"><a href="about">About</a></li>
+          </ul>
+        </nav>
+        
+        <script src="js/jquery.js"></script>
+        <script src="js/modernizr.js"></script>
+		<script>
+			(function($){
+				
+				//cache nav
+				var nav = $("#topNav");
+				
+				//add indicator and hovers to submenu parents
+				nav.find("li").each(function() {
+					if ($(this).find("ul").length > 0) {
+						$("<span>").text("^").appendTo($(this).children(":first"));
+
+						//show subnav on hover
+						$(this).mouseenter(function() {
+							$(this).find("ul").stop(true, true).slideDown();
+						});
+						
+						//hide submenus on exit
+						$(this).mouseleave(function() {
+							$(this).find("ul").stop(true, true).slideUp();
+						});
+					}
+				});
+			})(jQuery);
+		</script>
+
+
+</div>
+</div>
+<!-- end header --></div>
+<!-- start page -->
+</td>
+</tr>
+
+
+<tr>
+
+<td style="vertical-align: top;">
+<center>
+<table>
+<tbody><tr style="max-height: 0px; padding: 0px;">
+<td style="max-height: 0px; padding: 0px; min-width: 165px;"></td>
+<td style="max-height: 0px; padding: 0px; min-width: 1060px;"></td>
+<td style="max-height: 0px; padding: 0px; min-width: 165px;"></td>
+</tr>
+<tr>
+<td style="padding: 0px; vertical-align: top;">
+<div id="leftAd">
+
+
+</div>
+</td>
+<td style="padding: 0px; vertical-align: top;">
+<div id="page">
+
+<font size="3">
+<center>
+
+
+
+
+
+
+
+
+
+
+<b>
+<font size="5">
+<u>
+samiemad's Coder Profile (Syria)
+
+</u>
+
+</font>
+</b>
+
+<br><br><b><a href="status?Username=samiemad">samiemad's A2 Online Judge Submissions</a></b>
+
+<br><br>
+<table border="1" cellpadding="5">
+
+<tbody><tr>
+<td><b>A2 Online Judge Solved Problems Count</b></td>
+<td title="A2 Online Judge Profile"><center>27</center></td>
+</tr>
+
+
+<tr>
+<td><b>All Solved Problems Count</b></td>
+<td><center>234
+</center></td>
+</tr>
+
+<tr>
+<td><b>UVA Solved Problems Count</b></td>
+<td title="UVA Profile"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_authorstats&amp;userid=187803" target="_blank">12</a></center></td>
+</tr>
+<tr>
+<td><b>SPOJ Solved Problems Count</b></td>
+<td title="SPOJ Profile"><center><a href="http://www.spoj.com/users/samiemad/" target="_blank">65</a>
+</center></td>
+</tr>
+<tr>
+<td><b>SPOJ Poland Solved Problems Count</b></td>
+<td title="SPOJ Poland Profile"><center><a href="http://pl.spoj.com/users/samiemad/" target="_blank">0</a>
+</center></td>
+</tr>
+<tr>
+<td><b>Live Archive Solved Problems Count</b></td>
+<td title="Live Archive Profile"><center><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_authorstats&amp;userid=42656" target="_blank">3</a>
+</center></td>
+</tr>
+<tr>
+<td><b>Codeforces Solved Problems Count</b></td>
+<td title="Codeforces Profile"><center><a href="http://codeforces.com/profile/samiemad" target="_blank">127</a>
+</center></td>
+</tr>
+
+
+</tbody></table>
+<br><br>
+<b style="font: 22px arial, sans-serif;
+  color: #5C5C5C;">A2 Online Judge Solved Problems (27 Problems)</b>
+<p style="border-bottom: 1px solid #5C5C5C;
+  padding-bottom: 6px;
+  margin-bottom: 1em;">
+</p>
+
+<table border="1" cellpadding="5">
+<tbody><tr>
+<td title="Omar"><center><a href="p?ID=1">1</a></center></td>
+<td title="Cup of Cowards"><center><a href="p?ID=5">5</a></center></td>
+<td title="Balloons Colors"><center><a href="p?ID=6">6</a></center></td>
+<td title="NASSA's Robot"><center><a href="p?ID=7">7</a></center></td>
+<td title="The Stones Game"><center><a href="p?ID=8">8</a></center></td>
+<td title="Omar's Bug"><center><a href="p?ID=13">13</a></center></td>
+<td title="Arabic and English"><center><a href="p?ID=24">24</a></center></td>
+<td title="Between the Mountains"><center><a href="p?ID=25">25</a></center></td>
+<td title="Circleland"><center><a href="p?ID=26">26</a></center></td>
+<td title="Ahmed Aly"><center><a href="p?ID=72">72</a></center></td>
+<td title="Mohammed Refaat"><center><a href="p?ID=80">80</a></center></td>
+<td title="Teams"><center><a href="p?ID=122">122</a></center></td>
+<td title="Party"><center><a href="p?ID=124">124</a></center></td>
+<td title="Objects Count"><center><a href="p?ID=125">125</a></center></td>
+<td title="Subtraction"><center><a href="p?ID=129">129</a></center></td>
+</tr>
+<tr>
+<td title="Anagram String"><center><a href="p?ID=132">132</a></center></td>
+<td title="Time Jumper (Easy)"><center><a href="p?ID=133">133</a></center></td>
+<td title="Slow Snails"><center><a href="p?ID=134">134</a></center></td>
+<td title="Meet Mad Max"><center><a href="p?ID=135">135</a></center></td>
+<td title="Time Jumper (Hard)"><center><a href="p?ID=136">136</a></center></td>
+<td title="Cryptography"><center><a href="p?ID=137">137</a></center></td>
+<td title="Chess Knights"><center><a href="p?ID=142">142</a></center></td>
+<td title="Balls"><center><a href="p?ID=149">149</a></center></td>
+<td title="Fibo"><center><a href="p?ID=150">150</a></center></td>
+<td title="Segments"><center><a href="p?ID=166">166</a></center></td>
+<td title="Omar Loves Candies, Again"><center><a href="p?ID=193">193</a></center></td>
+<td title="Connecting Ropes"><center><a href="p?ID=194">194</a></center></td>
+<td></td>
+<td></td>
+<td></td>
+</tr></tbody></table>
+
+
+<br><br>
+<b style="font: 22px arial, sans-serif;
+  color: #5C5C5C;">UVA Solved Problems (<a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_authorstats&amp;userid=187803" target="_blank" title="UVA Profile">12 Problems</a>)</b>
+<p style="border-bottom: 1px solid #5C5C5C;
+  padding-bottom: 6px;
+  margin-bottom: 1em;">
+</p>
+
+<table border="1" cellpadding="5">
+<tbody><tr>
+<td title="Fixed Partition Memory Management"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3447" target="_blank">1006</a></center></td>
+<td title="Toil for Oil"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3455" target="_blank">1014</a></center></td>
+<td title="The Great Wall Game"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3486" target="_blank">1045</a></center></td>
+<td title="To Add or to Multiply"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3542" target="_blank">1101</a></center></td>
+<td title="Coffee Central"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3546" target="_blank">1105</a></center></td>
+<td title="Wordfish"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3650" target="_blank">1209</a></center></td>
+<td title="Party Games"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=4485" target="_blank">1610</a></center></td>
+<td title="The Problem with the Problem Setter"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1033" target="_blank">10092</a></center></td>
+<td title="Pebble Solitaire"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1592" target="_blank">10651</a></center></td>
+<td title="Super Lucky Numbers"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1663" target="_blank">10722</a></center></td>
+<td title="Sticker Collector Robot"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2931" target="_blank">11831</a></center></td>
+<td title="All Integer Average"><center><a href="https://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=3212" target="_blank">12060</a></center></td>
+</tr></tbody></table>
+<br><br>
+<b style="font: 22px arial, sans-serif;
+  color: #5C5C5C;">SPOJ Solved Problems (<a href="http://www.spoj.com/users/samiemad/" target="_blank" title="SPOJ Profile">65 Problems</a>)</b>
+<p style="border-bottom: 1px solid #5C5C5C;
+  padding-bottom: 6px;
+  margin-bottom: 1em;">
+</p>
+
+<table border="1" cellpadding="5">
+<tbody><tr>
+<td title="ABC Path"><center><a href="http://www.spoj.com/problems/ABCPATH/" target="_blank">ABCPATH</a></center></td>
+<td title="What&amp;#8217;s Next"><center><a href="http://www.spoj.com/problems/ACPC10A/" target="_blank">ACPC10A</a></center></td>
+<td title="Tri graphs"><center><a href="http://www.spoj.com/problems/ACPC10D/" target="_blank">ACPC10D</a></center></td>
+<td title="Adding Reversed Numbers"><center><a href="http://www.spoj.com/problems/ADDREV/" target="_blank">ADDREV</a></center></td>
+<td title="Adding two numbers"><center><a href="http://www.spoj.com/problems/ADUN/" target="_blank">ADUN</a></center></td>
+<td title="Invisible point"><center><a href="http://www.spoj.com/problems/ADV04J/" target="_blank">ADV04J</a></center></td>
+<td title="Rectangles"><center><a href="http://www.spoj.com/problems/AE00/" target="_blank">AE00</a></center></td>
+<td title="Aggressive cows"><center><a href="http://www.spoj.com/problems/AGGRCOW/" target="_blank">AGGRCOW</a></center></td>
+<td title="Cookies Piles"><center><a href="http://www.spoj.com/problems/AMR10F/" target="_blank">AMR10F</a></center></td>
+</tr>
+<tr>
+<td title="Christmas Play"><center><a href="http://www.spoj.com/problems/AMR10G/" target="_blank">AMR10G</a></center></td>
+<td title="Here Be Dragons"><center><a href="http://www.spoj.com/problems/AMR11G/" target="_blank">AMR11G</a></center></td>
+<td title="Think I will Buy Me a Football Team"><center><a href="http://www.spoj.com/problems/ANARC08G/" target="_blank">ANARC08G</a></center></td>
+<td title="AVERAGE"><center><a href="http://www.spoj.com/problems/AVG/" target="_blank">AVG</a></center></td>
+<td title="Bottom Coder (Easy)"><center><a href="http://www.spoj.com/problems/BCEASY/" target="_blank">BCEASY</a></center></td>
+<td title="Binary Stirling Numbers"><center><a href="http://www.spoj.com/problems/BINSTIRL/" target="_blank">BINSTIRL</a></center></td>
+<td title="Candy I"><center><a href="http://www.spoj.com/problems/CANDY/" target="_blank">CANDY</a></center></td>
+<td title="Candy III"><center><a href="http://www.spoj.com/problems/CANDY3/" target="_blank">CANDY3</a></center></td>
+<td title="Count on Cantor"><center><a href="http://www.spoj.com/problems/CANTON/" target="_blank">CANTON</a></center></td>
+</tr>
+<tr>
+<td title="Fill the Cisterns"><center><a href="http://www.spoj.com/problems/CISTFILL/" target="_blank">CISTFILL</a></center></td>
+<td title="The Clocks"><center><a href="http://www.spoj.com/problems/CLOCKS/" target="_blank">CLOCKS</a></center></td>
+<td title="Find the Clones"><center><a href="http://www.spoj.com/problems/CLONE/" target="_blank">CLONE</a></center></td>
+<td title="Bytelandian gold coins"><center><a href="http://www.spoj.com/problems/COINS/" target="_blank">COINS</a></center></td>
+<td title="Sum of Digits"><center><a href="http://www.spoj.com/problems/CPCRC1C/" target="_blank">CPCRC1C</a></center></td>
+<td title="An Experiment by Penny"><center><a href="http://www.spoj.com/problems/CRAN01/" target="_blank">CRAN01</a></center></td>
+<td title="Cards"><center><a href="http://www.spoj.com/problems/CRDS/" target="_blank">CRDS</a></center></td>
+<td title="Divisor Summation"><center><a href="http://www.spoj.com/problems/DIVSUM/" target="_blank">DIVSUM</a></center></td>
+<td title="Distinct Subsequences"><center><a href="http://www.spoj.com/problems/DSUBSEQ/" target="_blank">DSUBSEQ</a></center></td>
+</tr>
+<tr>
+<td title="Edit distance"><center><a href="http://www.spoj.com/problems/EDIST/" target="_blank">EDIST</a></center></td>
+<td title="Edit Distance Again"><center><a href="http://www.spoj.com/problems/EDIT/" target="_blank">EDIT</a></center></td>
+<td title="Medium Factorization"><center><a href="http://www.spoj.com/problems/FACTCG2/" target="_blank">FACTCG2</a></center></td>
+<td title="Family Problems"><center><a href="http://www.spoj.com/problems/FAMILYP/" target="_blank">FAMILYP</a></center></td>
+<td title="Factorial"><center><a href="http://www.spoj.com/problems/FCTRL/" target="_blank">FCTRL</a></center></td>
+<td title="Build a Fence"><center><a href="http://www.spoj.com/problems/FENCE1/" target="_blank">FENCE1</a></center></td>
+<td title="Fibonacci Sum"><center><a href="http://www.spoj.com/problems/FIBOSUM/" target="_blank">FIBOSUM</a></center></td>
+<td title="Girls and Boys"><center><a href="http://www.spoj.com/problems/GIRLSNBS/" target="_blank">GIRLSNBS</a></center></td>
+<td title="Mispelling"><center><a href="http://www.spoj.com/problems/GNY07A/" target="_blank">GNY07A</a></center></td>
+</tr>
+<tr>
+<td title="Conversions"><center><a href="http://www.spoj.com/problems/GNY07B/" target="_blank">GNY07B</a></center></td>
+<td title="111&amp;#8230;1 Squared"><center><a href="http://www.spoj.com/problems/GUANGGUN/" target="_blank">GUANGGUN</a></center></td>
+<td title="Enormous Input Test"><center><a href="http://www.spoj.com/problems/INTEST/" target="_blank">INTEST</a></center></td>
+<td title="Inversion Count"><center><a href="http://www.spoj.com/problems/INVCNT/" target="_blank">INVCNT</a></center></td>
+<td title="Julka"><center><a href="http://www.spoj.com/problems/JULKA/" target="_blank">JULKA</a></center></td>
+<td title="Knight Moves"><center><a href="http://www.spoj.com/problems/KMOVES/" target="_blank">KMOVES</a></center></td>
+<td title="Johnny divides by 2"><center><a href="http://www.spoj.com/problems/LCPC12A/" target="_blank">LCPC12A</a></center></td>
+<td title="Johnny The Gambler"><center><a href="http://www.spoj.com/problems/LCPC12F/" target="_blank">LCPC12F</a></center></td>
+<td title="MAXIMUM WOOD CUTTER"><center><a href="http://www.spoj.com/problems/MAXWOODS/" target="_blank">MAXWOODS</a></center></td>
+</tr>
+<tr>
+<td title="Make them equal !"><center><a href="http://www.spoj.com/problems/MKEQUAL/" target="_blank">MKEQUAL</a></center></td>
+<td title="MODIFY SEQUENCE"><center><a href="http://www.spoj.com/problems/NITK06/" target="_blank">NITK06</a></center></td>
+<td title="Problem 2"><center><a href="http://www.spoj.com/problems/NOVICE22/" target="_blank">NOVICE22</a></center></td>
+<td title="Number Steps"><center><a href="http://www.spoj.com/problems/NSTEPS/" target="_blank">NSTEPS</a></center></td>
+<td title="Penney Game"><center><a href="http://www.spoj.com/problems/NY10A/" target="_blank">NY10A</a></center></td>
+<td title="Nim-B Sum"><center><a href="http://www.spoj.com/problems/NY10B/" target="_blank">NY10B</a></center></td>
+<td title="Onotole needs your help"><center><a href="http://www.spoj.com/problems/OLOLO/" target="_blank">OLOLO</a></center></td>
+<td title="Ambiguous Permutations"><center><a href="http://www.spoj.com/problems/PERMUT2/" target="_blank">PERMUT2</a></center></td>
+<td title="Jobs"><center><a href="http://www.spoj.com/problems/POSAO/" target="_blank">POSAO</a></center></td>
+</tr>
+<tr>
+<td title="STONE GAME "><center><a href="http://www.spoj.com/problems/RESN04/" target="_blank">RESN04</a></center></td>
+<td title="Roads"><center><a href="http://www.spoj.com/problems/ROADS/" target="_blank">ROADS</a></center></td>
+<td title="Negative Score"><center><a href="http://www.spoj.com/problems/RPLN/" target="_blank">RPLN</a></center></td>
+<td title="Feynman"><center><a href="http://www.spoj.com/problems/SAMER08F/" target="_blank">SAMER08F</a></center></td>
+<td title="Alaska"><center><a href="http://www.spoj.com/problems/SCPC11B/" target="_blank">SCPC11B</a></center></td>
+<td title="Egypt"><center><a href="http://www.spoj.com/problems/SCPC11D/" target="_blank">SCPC11D</a></center></td>
+<td title="Life, the Universe, and Everything"><center><a href="http://www.spoj.com/problems/TEST/" target="_blank">TEST</a></center></td>
+<td title="Counting Triangles"><center><a href="http://www.spoj.com/problems/TRICOUNT/" target="_blank">TRICOUNT</a></center></td>
+<td title="Progression"><center><a href="http://www.spoj.com/problems/VUDAAB/" target="_blank">VUDAAB</a></center></td>
+</tr>
+<tr>
+<td title="Wachovia Bank"><center><a href="http://www.spoj.com/problems/WACHOVIA/" target="_blank">WACHOVIA</a></center></td>
+<td title="Will it ever stop"><center><a href="http://www.spoj.com/problems/WILLITST/" target="_blank">WILLITST</a></center></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr></tbody></table>
+<br><br>
+<b style="font: 22px arial, sans-serif;
+  color: #5C5C5C;">Live Archive Solved Problems (<a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_authorstats&amp;userid=42656" target="_blank" title="Live Archive Profile">3 Problems</a>)</b>
+<p style="border-bottom: 1px solid #5C5C5C;
+  padding-bottom: 6px;
+  margin-bottom: 1em;">
+</p>
+
+<table border="1" cellpadding="5">
+<tbody><tr>
+<td title="Seinfeld"><center><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2734" target="_blank">4733</a></center></td>
+<td title="Not So Flat After All"><center><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2736" target="_blank">4735</a></center></td>
+<td title="Probability One"><center><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2737" target="_blank">4736</a></center></td>
+</tr></tbody></table>
+<br><br>
+<b style="font: 22px arial, sans-serif;
+  color: #5C5C5C;">Codeforces Solved Problems (<a href="http://codeforces.com/profile/samiemad" target="_blank" title="Codeforces Profile">127 Problems</a>)</b>
+<p style="border-bottom: 1px solid #5C5C5C;
+  padding-bottom: 6px;
+  margin-bottom: 1em;">
+</p>
+
+<table border="1" cellpadding="5">
+<tbody><tr>
+<td title="Dress'em in Vests!"><center><a href="http://codeforces.com/problemset/problem/161/A" target="_blank">161A</a></center></td>
+<td title="Little Elephant and Cards"><center><a href="http://codeforces.com/problemset/problem/204/B" target="_blank">204B</a></center></td>
+<td title="Is your horseshoe on the other hoof?"><center><a href="http://codeforces.com/problemset/problem/228/A" target="_blank">228A</a></center></td>
+<td title="Two Tables"><center><a href="http://codeforces.com/problemset/problem/228/B" target="_blank">228B</a></center></td>
+<td title="Fractal Detector"><center><a href="http://codeforces.com/problemset/problem/228/C" target="_blank">228C</a></center></td>
+<td title="Team"><center><a href="http://codeforces.com/problemset/problem/231/A" target="_blank">231A</a></center></td>
+<td title="Lefthanders and Righthanders "><center><a href="http://codeforces.com/problemset/problem/234/A" target="_blank">234A</a></center></td>
+<td title="Reading"><center><a href="http://codeforces.com/problemset/problem/234/B" target="_blank">234B</a></center></td>
+<td title="Weather"><center><a href="http://codeforces.com/problemset/problem/234/C" target="_blank">234C</a></center></td>
+<td title="Cinema"><center><a href="http://codeforces.com/problemset/problem/234/D" target="_blank">234D</a></center></td>
+<td title="Fence"><center><a href="http://codeforces.com/problemset/problem/234/F" target="_blank">234F</a></center></td>
+<td title="Greg's Workout"><center><a href="http://codeforces.com/problemset/problem/255/A" target="_blank">255A</a></center></td>
+<td title="Code Parsing"><center><a href="http://codeforces.com/problemset/problem/255/B" target="_blank">255B</a></center></td>
+<td title="Prime Matrix"><center><a href="http://codeforces.com/problemset/problem/271/B" target="_blank">271B</a></center></td>
+<td title="Point on Spiral"><center><a href="http://codeforces.com/problemset/problem/279/A" target="_blank">279A</a></center></td>
+</tr>
+<tr>
+<td title="Books"><center><a href="http://codeforces.com/problemset/problem/279/B" target="_blank">279B</a></center></td>
+<td title="Ladder"><center><a href="http://codeforces.com/problemset/problem/279/C" target="_blank">279C</a></center></td>
+<td title="Bit++"><center><a href="http://codeforces.com/problemset/problem/282/A" target="_blank">282A</a></center></td>
+<td title="Painting Eggs"><center><a href="http://codeforces.com/problemset/problem/282/B" target="_blank">282B</a></center></td>
+<td title="XOR and OR"><center><a href="http://codeforces.com/problemset/problem/282/C" target="_blank">282C</a></center></td>
+<td title="Polo the Penguin and Strings"><center><a href="http://codeforces.com/problemset/problem/288/A" target="_blank">288A</a></center></td>
+<td title="Polo the Penguin and Segments "><center><a href="http://codeforces.com/problemset/problem/289/A" target="_blank">289A</a></center></td>
+<td title="Greg and Array"><center><a href="http://codeforces.com/problemset/problem/295/A" target="_blank">295A</a></center></td>
+<td title="Magic Numbers"><center><a href="http://codeforces.com/problemset/problem/320/A" target="_blank">320A</a></center></td>
+<td title="Vasily the Bear and Triangle"><center><a href="http://codeforces.com/problemset/problem/336/A" target="_blank">336A</a></center></td>
+<td title="Helpful Maths"><center><a href="http://codeforces.com/problemset/problem/339/A" target="_blank">339A</a></center></td>
+<td title="The Wall"><center><a href="http://codeforces.com/problemset/problem/340/A" target="_blank">340A</a></center></td>
+<td title="Fixed Points"><center><a href="http://codeforces.com/problemset/problem/347/B" target="_blank">347B</a></center></td>
+<td title="Jeff and Digits"><center><a href="http://codeforces.com/problemset/problem/352/A" target="_blank">352A</a></center></td>
+<td title="Group of Students"><center><a href="http://codeforces.com/problemset/problem/357/A" target="_blank">357A</a></center></td>
+</tr>
+<tr>
+<td title="Dima and Guards"><center><a href="http://codeforces.com/problemset/problem/366/A" target="_blank">366A</a></center></td>
+<td title="Dima and To-do List"><center><a href="http://codeforces.com/problemset/problem/366/B" target="_blank">366B</a></center></td>
+<td title="Valera and Plates"><center><a href="http://codeforces.com/problemset/problem/369/A" target="_blank">369A</a></center></td>
+<td title="Valera and Contest"><center><a href="http://codeforces.com/problemset/problem/369/B" target="_blank">369B</a></center></td>
+<td title="Valera and Elections"><center><a href="http://codeforces.com/problemset/problem/369/C" target="_blank">369C</a></center></td>
+<td title="Valera and Fools"><center><a href="http://codeforces.com/problemset/problem/369/D" target="_blank">369D</a></center></td>
+<td title="Valera and Queries"><center><a href="http://codeforces.com/problemset/problem/369/E" target="_blank">369E</a></center></td>
+<td title="Rook, Bishop and King"><center><a href="http://codeforces.com/problemset/problem/370/A" target="_blank">370A</a></center></td>
+<td title="Berland Bingo"><center><a href="http://codeforces.com/problemset/problem/370/B" target="_blank">370B</a></center></td>
+<td title="Mittens"><center><a href="http://codeforces.com/problemset/problem/370/C" target="_blank">370C</a></center></td>
+<td title="Broken Monitor"><center><a href="http://codeforces.com/problemset/problem/370/D" target="_blank">370D</a></center></td>
+<td title="Fox Dividing Cheese"><center><a href="http://codeforces.com/problemset/problem/371/B" target="_blank">371B</a></center></td>
+<td title="Sereja and Brackets"><center><a href="http://codeforces.com/problemset/problem/380/C" target="_blank">380C</a></center></td>
+<td title="Inna and Alarm Clock"><center><a href="http://codeforces.com/problemset/problem/390/A" target="_blank">390A</a></center></td>
+<td title="Inna, Dima and Song"><center><a href="http://codeforces.com/problemset/problem/390/B" target="_blank">390B</a></center></td>
+</tr>
+<tr>
+<td title="Inna and Candy Boxes"><center><a href="http://codeforces.com/problemset/problem/390/C" target="_blank">390C</a></center></td>
+<td title="Tower of Hanoi"><center><a href="http://codeforces.com/problemset/problem/392/B" target="_blank">392B</a></center></td>
+<td title="Sereja and Contests"><center><a href="http://codeforces.com/problemset/problem/401/B" target="_blank">401B</a></center></td>
+<td title="Team"><center><a href="http://codeforces.com/problemset/problem/401/C" target="_blank">401C</a></center></td>
+<td title="Upgrading Array"><center><a href="http://codeforces.com/problemset/problem/402/D" target="_blank">402D</a></center></td>
+<td title="Strictly Positive Matrix"><center><a href="http://codeforces.com/problemset/problem/402/E" target="_blank">402E</a></center></td>
+<td title="Poster"><center><a href="http://codeforces.com/problemset/problem/412/A" target="_blank">412A</a></center></td>
+<td title="Network Configuration"><center><a href="http://codeforces.com/problemset/problem/412/B" target="_blank">412B</a></center></td>
+<td title="Pattern"><center><a href="http://codeforces.com/problemset/problem/412/C" target="_blank">412C</a></center></td>
+<td title="Data Recovery"><center><a href="http://codeforces.com/problemset/problem/413/A" target="_blank">413A</a></center></td>
+<td title="Spyke Chatting"><center><a href="http://codeforces.com/problemset/problem/413/B" target="_blank">413B</a></center></td>
+<td title="Jeopardy!"><center><a href="http://codeforces.com/problemset/problem/413/C" target="_blank">413C</a></center></td>
+<td title="Feed with Candy"><center><a href="http://codeforces.com/problemset/problem/436/A" target="_blank">436A</a></center></td>
+<td title="Om Nom and Spiders"><center><a href="http://codeforces.com/problemset/problem/436/B" target="_blank">436B</a></center></td>
+<td title="Dungeons and Candies"><center><a href="http://codeforces.com/problemset/problem/436/C" target="_blank">436C</a></center></td>
+</tr>
+<tr>
+<td title="DZY Loves Sequences"><center><a href="http://codeforces.com/problemset/problem/446/A" target="_blank">446A</a></center></td>
+<td title="DZY Loves Hash"><center><a href="http://codeforces.com/problemset/problem/447/A" target="_blank">447A</a></center></td>
+<td title="DZY Loves Strings"><center><a href="http://codeforces.com/problemset/problem/447/B" target="_blank">447B</a></center></td>
+<td title="Rewards"><center><a href="http://codeforces.com/problemset/problem/448/A" target="_blank">448A</a></center></td>
+<td title="Suffix Structures"><center><a href="http://codeforces.com/problemset/problem/448/B" target="_blank">448B</a></center></td>
+<td title="Painting Fence"><center><a href="http://codeforces.com/problemset/problem/448/C" target="_blank">448C</a></center></td>
+<td title="Multiplication Table"><center><a href="http://codeforces.com/problemset/problem/448/D" target="_blank">448D</a></center></td>
+<td title="Jzzhu and Chocolate"><center><a href="http://codeforces.com/problemset/problem/449/A" target="_blank">449A</a></center></td>
+<td title="Little Pony and Expected Maximum"><center><a href="http://codeforces.com/problemset/problem/453/A" target="_blank">453A</a></center></td>
+<td title="Little Pony and Crystal Mine"><center><a href="http://codeforces.com/problemset/problem/454/A" target="_blank">454A</a></center></td>
+<td title="Little Pony and Sort by Shift"><center><a href="http://codeforces.com/problemset/problem/454/B" target="_blank">454B</a></center></td>
+<td title="Boredom"><center><a href="http://codeforces.com/problemset/problem/455/A" target="_blank">455A</a></center></td>
+<td title="A Lot of Games"><center><a href="http://codeforces.com/problemset/problem/455/B" target="_blank">455B</a></center></td>
+<td title="Civilization"><center><a href="http://codeforces.com/problemset/problem/455/C" target="_blank">455C</a></center></td>
+<td title="Laptops"><center><a href="http://codeforces.com/problemset/problem/456/A" target="_blank">456A</a></center></td>
+</tr>
+<tr>
+<td title="Fedya and Maths"><center><a href="http://codeforces.com/problemset/problem/456/B" target="_blank">456B</a></center></td>
+<td title="Pashmak and Garden"><center><a href="http://codeforces.com/problemset/problem/459/A" target="_blank">459A</a></center></td>
+<td title="Pashmak and Flowers"><center><a href="http://codeforces.com/problemset/problem/459/B" target="_blank">459B</a></center></td>
+<td title="Vasya and Socks"><center><a href="http://codeforces.com/problemset/problem/460/A" target="_blank">460A</a></center></td>
+<td title="Little Dima and Equation"><center><a href="http://codeforces.com/problemset/problem/460/B" target="_blank">460B</a></center></td>
+<td title="Appleman and Toastman"><center><a href="http://codeforces.com/problemset/problem/461/A" target="_blank">461A</a></center></td>
+<td title="Appleman and Easy Task"><center><a href="http://codeforces.com/problemset/problem/462/A" target="_blank">462A</a></center></td>
+<td title="Appleman and Card Game"><center><a href="http://codeforces.com/problemset/problem/462/B" target="_blank">462B</a></center></td>
+<td title="George and Accommodation"><center><a href="http://codeforces.com/problemset/problem/467/A" target="_blank">467A</a></center></td>
+<td title="Fedor and New Game"><center><a href="http://codeforces.com/problemset/problem/467/B" target="_blank">467B</a></center></td>
+<td title="George and Job"><center><a href="http://codeforces.com/problemset/problem/467/C" target="_blank">467C</a></center></td>
+<td title="MUH and Sticks"><center><a href="http://codeforces.com/problemset/problem/471/A" target="_blank">471A</a></center></td>
+<td title="MUH and Important Things"><center><a href="http://codeforces.com/problemset/problem/471/B" target="_blank">471B</a></center></td>
+<td title="MUH and House of Cards"><center><a href="http://codeforces.com/problemset/problem/471/C" target="_blank">471C</a></center></td>
+<td title="Design Tutorial: Learn from Math"><center><a href="http://codeforces.com/problemset/problem/472/A" target="_blank">472A</a></center></td>
+</tr>
+<tr>
+<td title="Design Tutorial: Learn from Life"><center><a href="http://codeforces.com/problemset/problem/472/B" target="_blank">472B</a></center></td>
+<td title="Design Tutorial: Make It Nondeterministic"><center><a href="http://codeforces.com/problemset/problem/472/C" target="_blank">472C</a></center></td>
+<td title="Worms"><center><a href="http://codeforces.com/problemset/problem/474/B" target="_blank">474B</a></center></td>
+<td title="Bayan Bus"><center><a href="http://codeforces.com/problemset/problem/475/A" target="_blank">475A</a></center></td>
+<td title="Strongly Connected City"><center><a href="http://codeforces.com/problemset/problem/475/B" target="_blank">475B</a></center></td>
+<td title="Bits"><center><a href="http://codeforces.com/problemset/problem/484/A" target="_blank">484A</a></center></td>
+<td title="Maximum Value"><center><a href="http://codeforces.com/problemset/problem/484/B" target="_blank">484B</a></center></td>
+<td title="Factory"><center><a href="http://codeforces.com/problemset/problem/485/A" target="_blank">485A</a></center></td>
+<td title="Valuable Resources"><center><a href="http://codeforces.com/problemset/problem/485/B" target="_blank">485B</a></center></td>
+<td title="Fight the Monster"><center><a href="http://codeforces.com/problemset/problem/487/A" target="_blank">487A</a></center></td>
+<td title="Given Length and Sum of Digits..."><center><a href="http://codeforces.com/problemset/problem/489/C" target="_blank">489C</a></center></td>
+<td title="Vanya and Cubes"><center><a href="http://codeforces.com/problemset/problem/492/A" target="_blank">492A</a></center></td>
+<td title="Vanya and Lanterns"><center><a href="http://codeforces.com/problemset/problem/492/B" target="_blank">492B</a></center></td>
+<td title="Vanya and Exams"><center><a href="http://codeforces.com/problemset/problem/492/C" target="_blank">492C</a></center></td>
+<td title="Vasya and Football"><center><a href="http://codeforces.com/problemset/problem/493/A" target="_blank">493A</a></center></td>
+</tr>
+<tr>
+<td title="Vasya and Wrestling"><center><a href="http://codeforces.com/problemset/problem/493/B" target="_blank">493B</a></center></td>
+<td title="Treasure"><center><a href="http://codeforces.com/problemset/problem/494/A" target="_blank">494A</a></center></td>
+<td title="Digital Counter"><center><a href="http://codeforces.com/problemset/problem/495/A" target="_blank">495A</a></center></td>
+<td title="Modular Equations"><center><a href="http://codeforces.com/problemset/problem/495/B" target="_blank">495B</a></center></td>
+<td title="Crazy Town"><center><a href="http://codeforces.com/problemset/problem/498/A" target="_blank">498A</a></center></td>
+<td title="New Year Permutation"><center><a href="http://codeforces.com/problemset/problem/500/B" target="_blank">500B</a></center></td>
+<td title="Misha and Forest"><center><a href="http://codeforces.com/problemset/problem/501/C" target="_blank">501C</a></center></td>
+<td title="Amr and Music"><center><a href="http://codeforces.com/problemset/problem/507/A" target="_blank">507A</a></center></td>
+<td title="Amr and Pins"><center><a href="http://codeforces.com/problemset/problem/507/B" target="_blank">507B</a></center></td>
+<td title="Guess Your Way Out!"><center><a href="http://codeforces.com/problemset/problem/507/C" target="_blank">507C</a></center></td>
+<td title="Breaking Good"><center><a href="http://codeforces.com/problemset/problem/507/E" target="_blank">507E</a></center></td>
+<td title="Maximum in Table"><center><a href="http://codeforces.com/problemset/problem/509/A" target="_blank">509A</a></center></td>
+<td title="Painting Pebbles"><center><a href="http://codeforces.com/problemset/problem/509/B" target="_blank">509B</a></center></td>
+<td title="Fox And Two Dots"><center><a href="http://codeforces.com/problemset/problem/510/B" target="_blank">510B</a></center></td>
+<td title="Fox And Names"><center><a href="http://codeforces.com/problemset/problem/510/C" target="_blank">510C</a></center></td>
+</tr>
+<tr>
+<td title="Fox And Jumping"><center><a href="http://codeforces.com/problemset/problem/510/D" target="_blank">510D</a></center></td>
+<td title="R2D2 and Droid Army"><center><a href="http://codeforces.com/problemset/problem/514/D" target="_blank">514D</a></center></td>
+<td title="Shop"><center><a href="http://codeforces.com/problemset/problem/521/D" target="_blank">521D</a></center></td>
+<td title="King of Thieves"><center><a href="http://codeforces.com/problemset/problem/526/A" target="_blank">526A</a></center></td>
+<td title="Om Nom and Dark Park"><center><a href="http://codeforces.com/problemset/problem/526/B" target="_blank">526B</a></center></td>
+<td title="Om Nom and Candies"><center><a href="http://codeforces.com/problemset/problem/526/C" target="_blank">526C</a></center></td>
+<td title="Double Cola"><center><a href="http://codeforces.com/problemset/problem/82/A" target="_blank">82A</a></center></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr></tbody></table>
+
+
+</center>
+</font>
+
+</div>
+</td>
+<td style="padding: 0px; vertical-align: top;">
+<div id="rightAd">
+
+
+</div>
+</td>
+</tr>
+</tbody></table>
+</center>
+<!-- end page -->
+<!-- start footer -->
+<div id="footer">
+<p id="legal">A2OJ © Copyright 2011-2016 <b><a href="https://www.facebook.com/ahmed.aly.tc" target="_blank" style="text-decoration: none;">Ahmed Aly</a></b> All Rights Reserved. A2OJ uses <a href="http://sphere-engine.com" target="_blank" style="text-decoration: none;">Sphere Engine</a>™ © by <a href="http://sphere-research.com" target="_blank" style="text-decoration: none;">Sphere Research Labs</a>.</p>
+</div>
+</td>
+
+
+</tr>
+</tbody></table>
+</center><span style="font-style: normal; font-variant: normal; font-weight: normal; font-size: 99px; line-height: normal; font-family: testfont, _, serif; position: absolute; visibility: hidden; bottom: 0px;" id="fonttest">........</span>
+<!-- end footer -->
+
+
+
+
+</body></html>

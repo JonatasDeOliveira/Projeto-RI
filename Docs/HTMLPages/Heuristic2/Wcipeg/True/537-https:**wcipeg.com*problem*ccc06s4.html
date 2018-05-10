@@ -1,0 +1,361 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - CCC06S4 - Groups</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "8c45b434a3b7582378f7341582f131fd";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fccc06s4"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>2006 Canadian Computing Competition, Stage 1</h3>
+<h2>Problem S4: Groups</h2>
+<p> In mathematics, a group, <var>G</var>, is an object that consists of a set of elements and an operator (which we will call  ×) so that if <var>x</var> and <var>y</var> are in <var>G</var> so is <var>x</var> × <var>y</var>. Operations also have the following properties:</p>
+<ul>
+  <li>Associativity: For all <var>x</var>, <var>y</var>, and <var>z</var> in <var>G</var>, <var>x</var> × (<var>y</var> × <var>z</var>) = (<var>x</var> × <var>y</var>) × <var>z</var>.</li>
+  <li>Identity: the group contains an “identity element” (we can use <var>i</var>) so that for each <var>x</var> in <var>G</var>, <var>x</var> × <var>i</var> = <var>x</var> and <var>i</var> × <var>x</var> = <var>x</var>.</li>
+  <li> Inverse: for every element <var>x</var> there is an inverse element (we denote by <var>x<sup>-1</sup></var>) so that <var>x</var> × <var>x<sup>-1</sup></var> = i and <var>x<sup>-1</sup></var> × <var>x</var> = <var>i</var>.</li>
+</ul>
+<p>Groups have a wide variety of applications including the modeling of quantum states of an atom and the moves in solving a Rubik’s cube puzzle. Clearly the integers under addition from a group (0 is the identity, and the inverse of <var>x</var> is  -<var>x</var>, and you can prove associativity as an exercise), though that group is infinite and this problem will deal only with finite groups.</p>
+<p>One simple example of a finite group is the integers modulo 10 under the operation addition.</p>
+<p>That is, the group consists of the integers 0, 1, ..., 9 and the operation is to add two keeping only the least significant digit. Here the identity is 0. This particular group has the property that <var>x</var> × <var>y</var> = <var>y</var> × <var>x</var>, but this is not always the case. Consider the group that consists of the elements <var>a</var>, <var>b</var>, <var>c</var>, <var>d</var>, <var>e</var> and <var>i</var>. The “multiplication table” below defines the operations. Note that each of the required properties is satisfied (associativity, identity and inverse) but, for example, <var>c</var>&nbsp;×&nbsp;<var>d</var>&nbsp;=&nbsp;<var>a</var> while <var>d</var>&nbsp;×&nbsp;<var>c</var>&nbsp;=&nbsp;<var>b</var>.</p>
+<table class="temp" style="margin: 0px auto">
+  <tbody><tr>
+    <td>×</td>
+    <td><strong><var>i</var></strong></td>
+    <td><strong><var>a</var></strong></td>
+    <td><strong><var>b</var></strong></td>
+    <td><strong><var>c</var></strong></td>
+    <td><strong><var>d</var></strong></td>
+    <td><strong><var>e</var></strong></td>
+  </tr>
+  <tr>
+    <td><strong><var>i</var></strong></td>
+    <td><var>i</var></td>
+    <td><var>a</var></td>
+    <td><var>b</var></td>
+    <td><var>c</var></td>
+    <td><var>d</var></td>
+    <td><var>e</var></td>
+  </tr>
+  <tr>
+    <td><strong><var>a</var></strong></td>
+    <td><var>a</var></td>
+    <td><var>i</var></td>
+    <td><var>d</var></td>
+    <td><var>e</var></td>
+    <td><var>b</var></td>
+    <td><var>c</var></td>
+  </tr>
+  <tr>
+    <td><strong><var>b</var></strong></td>
+    <td><var>b</var></td>
+    <td><var>e</var></td>
+    <td><var>i</var></td>
+    <td><var>d</var></td>
+    <td><var>c</var></td>
+    <td><var>a</var></td>
+  </tr>
+  <tr>
+    <td><strong><var>c</var></strong></td>
+    <td><var>c</var></td>
+    <td><var>d</var></td>
+    <td><var>e</var></td>
+    <td><var>i</var></td>
+    <td><var>a</var></td>
+    <td><var>b</var></td>
+  </tr>
+  <tr>
+    <td><strong><var>d</var></strong></td>
+    <td><var>d</var></td>
+    <td><var>c</var></td>
+    <td><var>a</var></td>
+    <td><var>b</var></td>
+    <td><var>e</var></td>
+    <td><var>i</var></td>
+  </tr>
+  <tr>
+    <td><strong><var>e</var></strong></td>
+    <td><var>e</var></td>
+    <td><var>b</var></td>
+    <td><var>c</var></td>
+    <td><var>a</var></td>
+    <td><var>i</var></td>
+    <td><var>d</var></td>
+  </tr>
+</tbody></table>
+<p>Your task is to write a program which will read a sequence of multiplication tables and determine whether each structure defined is a group.</p>
+<h3>Input</h3>
+<p>The input will consist of a number of test cases. Each test case begins with an integer <var>n</var> (0 ≤ <var>n</var> ≤ 100). If the test case begins with <var>n</var> = 0, the program terminates. To simplify the input, we will use the integers 1..<var>n</var> to represent elements of the candidate group structure; the identity could be any of these (i.e., it is not necessarily the element 1). Following the number <var>n </var>in each test case are <var>n</var> lines of input, each containing integers in the range [1..<var>n</var>]. The  <var>q</var>th integer on the <var>p</var>th line of this sequence is the value <var>p</var> × <var>q</var>.</p>
+<h3>Output</h3>
+<p>If the object is a group, output <code>yes</code> (on its own line), otherwise output <code>no</code> (on its own line). You should not output anything for the test case where <var>n </var>= 0.</p>
+<h3>Sample Input</h3>
+<p><code>2<br>
+  1 2<br>
+  2 1<br>
+  6<br>
+  1 2 3 4 5 6<br>
+  2 1 5 6 3 4<br>
+  3 6 1 5 4 2<br>
+  4 5 6 1 2 3<br>
+  5 4 2 3 6 1<br>
+  6 3 4 2 1 5<br>
+  7<br>
+  1 2 3 4 5 6 7<br>
+  2 1 1 1 1 1 1<br>
+  3 1 1 1 1 1 1<br>
+  4 1 1 1 1 1 1<br>
+  5 1 1 1 1 1 1<br>
+  6 1 1 1 1 1 1<br>
+  7 1 1 1 1 1 1<br>
+  3<br>
+  1 2 3<br>
+  3 1 2<br>
+  3 1 2<br>
+  0</code></p>
+<h3>Sample Output</h3>
+<p><code>yes<br>
+  yes<br>
+  no<br>
+  no</code></p>
+<h3>Explanation</h3>
+<p>The first two collections of elements are in fact groups (that is, all properties are satisfied). For the third candidate, it is not a group, since 3 × (2 × 2) = 3 ×  1 = 3 but (3 × 2) × 2 = 1 × 2 = 2. In the last candidate, there is no identity, since 1 is not the identity, since 2 × 1 = 3 (not 2), and 2 is not the identity, since 1 × 3 = 3 (not 1). </p>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,ccc06s4">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/ccc06s4">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 10<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Sep 30, 2008<br>
+      </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=ccc06s4">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment1260">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/qinhaotian">qinhaotian</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1260">Jan 13, 2009 - 3:08:22 am UTC</a>      </span>
+      <a class="comment_title" id="title1260" onclick="toggle(&quot;body1260&quot;)">Associativity</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1260">
+    (<span class="upvotes"><span id="upvotes1260">0</span></span>/<span class="downvotes"><span id="downvotes1260">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1260" class="comment_body">
+    <pre id="msg1260" style="display: none">Can someone explain how that works?</pre>
+    <div style="opacity: 1">
+      Can someone explain how that works?    </div>
+    <br><div class="comment_block" id="comment1261">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1261">Jan 13, 2009 - 3:10:45 am UTC</a>      </span>
+      <a class="comment_title" id="title1261" onclick="toggle(&quot;body1261&quot;)">Re: Associativity</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1261">
+    (<span class="upvotes"><span id="upvotes1261">0</span></span>/<span class="downvotes"><span id="downvotes1261">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1261" class="comment_body">
+    <pre id="msg1261" style="display: none">Exactly as stated. If x, y, and z are three elements of a group, then (x*y)*z = x*(y*z) - that is, it doesn't matter what order you do operations in, as long as what is on the left of a multiplication sign stays on the left and what is on the right stays on the right.</pre>
+    <div style="opacity: 1">
+      Exactly as stated. If x, y, and z are three elements of a group, then (x*y)*z = x*(y*z) - that is, it doesn't matter what order you do operations in, as long as what is on the left of a multiplication sign stays on the left and what is on the right stays on the right.    </div>
+    <br><div class="comment_block" id="comment2642">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/zhxl0903">zhxl0903</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2642">Jan 28, 2010 - 9:22:50 pm UTC</a>      </span>
+      <a class="comment_title" id="title2642" onclick="toggle(&quot;body2642&quot;)">Re: Re: Associativity</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2642">
+    (<span class="upvotes"><span id="upvotes2642">0</span></span>/<span class="downvotes"><span id="downvotes2642">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2642" class="comment_body">
+    <pre id="msg2642" style="display: none">What does z represent?</pre>
+    <div style="opacity: 0.79345670852611">
+      What does z represent?    </div>
+    <br><div class="comment_block" id="comment2643">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2643">Jan 28, 2010 - 11:41:51 pm UTC</a>      </span>
+      <a class="comment_title" id="title2643" onclick="toggle(&quot;body2643&quot;)">Re: Re: Associativity</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2643">
+    (<span class="upvotes"><span id="upvotes2643">0</span></span>/<span class="downvotes"><span id="downvotes2643">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2643" class="comment_body">
+    <pre id="msg2643" style="display: none">[quote]If x, y, and z are three elements of a group, then (x*y)*z = x*(y*z)[/quote] That is, associativity is the statement that this holds true no matter how you select [i]x[/i], [i]y[/i], and [i]z[/i]: they may be any elements whatsoever of the group.
+</pre>
+    <div style="opacity: 1">
+      <table style="width: 90%; margin: 0 auto">
+            <tbody><tr>
+            <td><span class="quotecodeheader"></span></td>
+            </tr>
+            <tr>
+            <td class="quotebody">If x, y, and z are three elements of a group, then (x*y)*z = x*(y*z)</td>
+            </tr>
+            </tbody></table> That is, associativity is the statement that this holds true no matter how you select <span class="italics">x</span>, <span class="italics">y</span>, and <span class="italics">z</span>: they may be any elements whatsoever of the group.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0226s.<br>
+    Server time on page load:
+    May 9, 2018 15:29:30 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fccc06s4">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

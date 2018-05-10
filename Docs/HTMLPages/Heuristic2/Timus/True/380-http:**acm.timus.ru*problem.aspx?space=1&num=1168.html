@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=768"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>1168. Radio Stations @ Timus Online Judge</title><link rel="alternate" hreflang="x-default" href="/problem.aspx?space=1&amp;num=1168"><link rel="alternate" hreflang="en-us" href="/problem.aspx?space=1&amp;num=1168&amp;locale=en"><link rel="alternate" hreflang="ru-ru" href="/problem.aspx?space=1&amp;num=1168&amp;locale=ru"><link rel="stylesheet" type="text/css" href="/style52.css"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"></head><body><table width="100%" cellspacing="0" cellpadding="0" class="body"><tbody><tr><td class="caption"><table width="100%" cellspacing="0" cellpadding="0"><tbody><tr><td width="130" class="locale"><a href="/problem.aspx?space=1&amp;num=1168&amp;locale=en">ENG</a>&nbsp;&nbsp;<a href="/problem.aspx?space=1&amp;num=1168&amp;locale=ru">RUS</a></td><td class="title"><a href="/">Timus Online Judge</a></td><td width="130"></td></tr></tbody></table></td></tr><tr><td class="panel"><table width="100%" cellspacing="0" cellpadding="0"><tbody><tr><td width="130" valign="TOP" align="CENTER" style="padding-bottom:5px;"><a href="/"><img border="0" src="/images/usu-summer.jpg" height="134" width="106" alt=""></a></td><td valign="TOP" align="LEFT"><table width="100%" cellspacing="0" cellpadding="0" class="panel"><tbody><tr><th width="25%"><div>Online Judge</div></th><th width="25%"><div>Problems</div></th><th width="25%"><div>Authors</div></th><th width="25%"><div>Online contests</div></th></tr><tr><td valign="TOP" align="LEFT"><a href="/">About Online Judge</a><br><a href="/help.aspx?topic=faq">Frequently asked questions</a><br><a href="/news.aspx">Site news</a><br><a href="/forum/">Webboard</a><br><a href="/help.aspx?topic=links">Links</a><br></td><td valign="TOP" align="LEFT"><a href="/problemset.aspx">Problem set</a><br><a href="/submit.aspx">Submit solution</a><br><a href="/status.aspx">Judge status</a><br><a href="/help.aspx?topic=judge">Guide</a><br></td><td valign="TOP"><a href="/register.aspx">Register</a><br><a href="/authedit.aspx">Update your info</a><br><a href="/ranklist.aspx">Authors ranklist</a><br><form action="/search.aspx" method="GET" style="margin-top:0.6em;"><input name="Str" size="12" value="" placeholder="Author’s name"> <input type="SUBMIT" value="Search"></form></td><td valign="TOP"><a href="/contest.aspx">Current contest</a><br><a href="/schedule.aspx">Scheduled contests</a><br><a href="/archive.aspx">Past contests</a><br><a href="/help.aspx?topic=contest">Rules</a><br></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr><td style="padding-top: 32px; padding-bottom: 20px;"><table align="CENTER" cellspacing="0" cellpadding="0"><tbody><tr><td width="800"><div class="problem_content"><h2 class="problem_title">1168. Radio Stations</h2><div class="problem_limits">Time limit: 1.0 second<br>Memory limit: 64 MB<br></div><div id="problem_text"><div class="problem_par"><div class="problem_par_normal">Along the surface of Romania, there are <b>K</b> radio stations positioned
+at different points and altitudes. Each of these radio stations has
+a given broadcast radius, that is, the maximum distance it can send
+its signal to. The government wants to place a radio receiver somewhere
+on the map, so that it will receive the signals from all
+the K radio stations: this means that the distance to every radio station
+should be less or equal to the broadcast radius of that radio station.
+</div></div><div class="problem_par"><div class="problem_par_normal">The map of Romania is given as a <b>M*N</b> matrix, where the value
+in row i and column j represents the altitude of the corresponding 
+zone. The side of a square in this matrix is 1. All the
+K radio stations are placed at distinct coordinates on the map and
+at the same height as the corresponding zone (plus, they are
+placed exactly in the center of their square). The radio receiver
+can be placed in the center of any square not occupied by a radio station,
+at the same altitude of the square or it can be placed higher
+with an integer number of meters. The radio receiver cannot
+be placed in a square occupied by a radio station.
+</div></div><div class="problem_par"><div class="problem_par_normal">Your task is to decide how many possibilities to place the radio receiver
+the government has. Note that if the radio receiver may be placed in row
+<b>i</b> and column <b>j</b> at altitudes <b>h1</b> and <b>h2</b> (h1 ≠ h2), this
+counts as 2 different possibilities.
+</div></div><h3 class="problem_subtitle">Input</h3><div class="problem_par"><div class="problem_par_normal">The first line of input contains 3 integers: <b>M</b>, <b>N</b> (1 ≤
+M, N ≤ 50) and <b>K</b> (1 ≤ K ≤ min(M*N-1, 1000)),
+representing the dimensions of the map and the number of radio
+stations. Next there are M lines each containing N integers, which are
+the altitudes of the zones on the map (no altitude will be higher than
+32000 or lower than 0). After that, there will be K lines, each containing
+3 numbers: <b>i, j</b> and <b>R</b>. i and j will be the location of
+the radio station on the map and R will be its broadcast radius (R
+is a real number, not larger than 100000 and not less than 0).
+</div></div><div class="problem_par"><div class="problem_par_normal">No two radio stations will be placed on the same square.
+</div></div><h3 class="problem_subtitle">Output</h3><div class="problem_par"><div class="problem_par_normal">You should output one integer number, which is the total number of
+valid possibilities to place the radio receiver on the map.
+</div></div><h3 class="problem_subtitle">Sample</h3><table class="sample"><tbody><tr><th width="350">input</th><th width="350">output</th></tr><tr><td><pre>5 5 3
+1 2 3 4 5
+6 7 8 9 10
+1 2 3 4 5
+6 7 8 9 10
+5 4 3 2 1
+1 1 4.3
+5 5 4.3
+5 1 4.3
+</pre></td><td><pre>4
+</pre></td></tr></tbody></table><h3 class="problem_subtitle">Notes</h3><div class="problem_par"><div class="problem_par_normal">The radio receiver can be placed at position (3, 2), with extra height 0 and extra height 1, and at position (3, 3), with extra height 0 and extra height 1. So,
+there are 4 possible ways to place the receiver.
+</div></div><div class="problem_par"><div class="problem_par_normal">When you compute distances,
+be aware that they are distances in a 3D space.
+</div></div><div class="problem_source"><b>Problem Author: </b>Mugurel Ionut Andreica<br><b>Problem Source: </b>Romanian Open Contest, December 2001<br></div></div></div><div><b>Tags: </b><a href="problemset.aspx?space=1&amp;tag=geometry">geometry</a> &nbsp;<span class="problem_tags_toggle">(<form method="POST" action="problem.aspx?space=1&amp;num=1168" style="display:inline;" id="ToggleTagsForm"><a href="problem.aspx?space=1&amp;num=1168" onclick="document.getElementById('ToggleTagsForm').submit();return false;"><input type="hidden" name="Action" value="HideTags">hide tags for unsolved problems</a></form>)</span></div><div class="problem_links"><span>Difficulty: 702</span> &nbsp;&nbsp;&nbsp;<a href="print.aspx?space=1&amp;num=1168" target="_blank">Printable version</a> &nbsp;&nbsp;&nbsp;<a href="submit.aspx?space=1&amp;num=1168">Submit solution</a> &nbsp;&nbsp;&nbsp;<a href="forum/?space=1&amp;num=1168">Discussion (12)</a><br><a href="status.aspx?space=1&amp;num=1168">All submissions (3271)</a> &nbsp;&nbsp;&nbsp;<a href="status.aspx?space=1&amp;num=1168&amp;status=accepted">All accepted submissions (794)</a> &nbsp;&nbsp;&nbsp;<a href="rating.aspx?space=1&amp;num=1168">Solutions rating (588)</a></div></td></tr></tbody></table></td></tr><tr><td class="footer"><script type="text/javascript" async="" src="https://mc.yandex.ru/metrika/watch.js"></script><script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter20918869 = new Ya.Metrika({ id:20918869, clickmap:true, trackLinks:true, accurateTrackBounce:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript>&lt;div&gt;&lt;img src="https://mc.yandex.ru/watch/20918869" style="position:absolute; left:-9999px;" alt=""&gt;&lt;/div&gt;</noscript>© 2000–2017 <a href="/team.aspx">Timus Online Judge Team</a>. All rights reserved.</td></tr></tbody></table></body></html>

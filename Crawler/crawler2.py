@@ -17,12 +17,10 @@ i = 0
 def robots(pathTotal, rp):
     return rp.allowed(pathTotal,"*")
 
-def get_all_links(domain, pathTotal, maxSize, rp):
+def get_all_links(domain, pathTotal, maxSize, rp, driver):
     #response = requests.get(domain+path, headers={'User-Agent': 'Mozilla/5.0'})
-    driver = webdriver.PhantomJS( service_args=['--ignore-ssl-errors=true', '--ssl-protocol=any'])
     driver.get(pathTotal)
     soup = BeautifulSoup(driver.page_source, "html.parser")
-    driver.service.process.send_signal(signal.SIGTERM)
     links = []
     for link in soup.findAll('a', href=True):
         regex = re.compile(
@@ -72,12 +70,13 @@ def crawler(domain, pathseed, maxSize = 1000):
     pq.put((value(domain+pathseed),domain+pathseed))
     visited.append(domain+pathseed)
     rp = Robots.fetch(domain+'/robots.txt',verify=False)
+    driver = webdriver.PhantomJS( service_args=['--ignore-ssl-errors=true', '--ssl-protocol=any'])
     while(not pq.empty() and pq.qsize()<maxSize*2):
         a = pq.get()[1]
         print("! " + str(len(links)) + " " + a)
         if(len(links) < maxSize):
             links.append(a)
-            ls = get_all_links(domain, a, maxSize, rp)
+            ls = get_all_links(domain, a, maxSize, rp, driver)
             for l in ls:
                 if(l not in visited):
                     visited.append(l)
@@ -96,8 +95,8 @@ def crawler(domain, pathseed, maxSize = 1000):
     res = ""
     for l in links:
         v += 1
-        driver = webdriver.PhantomJS( service_args=['--ignore-ssl-errors=true', '--ssl-protocol=any'])
         driver.get(l)
+        time.sleep(1)
         soup = BeautifulSoup(driver.page_source, "html.parser")
         res =  str(clf.classify(soup))
         print(str(v)+ " "+l + " "+ res)
@@ -106,7 +105,6 @@ def crawler(domain, pathseed, maxSize = 1000):
             pos += 1
         with open('Docs/HTMLPages/Heuristic/'+folder(domain)+'/'+res+'/'+str(v) +'-'+l.replace('/','*')+'.html', 'wb') as f:
             f.write(bytes(driver.page_source,'UTF-8'))
-        driver.service.process.send_signal(signal.SIGTERM) 
     hr = pos/maxSize
     with open('Docs/HTMLPages/Heuristic/'+folder(domain)+'/'+'hr.txt', 'wb') as f:
         f.write(bytes(str(hr),'UTF-8'))
@@ -146,8 +144,10 @@ def value(link):
     if('http://www.spoj.com' in link):
         if('problems' in link and ('tag' in link or 'classical' in link)):
             return 2
-        elif('problems' in link):
+        elif('problems/' in link and 'cstart' not in link):
             return 1
+        elif('problems' in link and 'cstart' not in link):
+            return 2
         else:
             return 3
     if('https://dmoj.ca' in link):
@@ -209,13 +209,13 @@ def value(link):
             return 3
     return 5
 
-
-#crawler('https://wcipeg.com','')
+##rode wcipeg
+crawler('https://wcipeg.com','')
 #crawler('http://www.codeforces.com','')
-#crawler('https://a2oj.com','')
+#crawler('https://a2oj.com','') #max 273
 ##crawler('https://www.codechef.com','')
 #crawler('http://www.spoj.com','')
 #crawler('https://dmoj.ca','')
-crawler('http://acm.timus.ru','')
-#crawler('https://www.urionlinejudge.com.br','')
-crawler('https://leetcode.com','')
+#crawler('http://acm.timus.ru','')
+##crawler('https://www.urionlinejudge.com.br','')
+#crawler('https://leetcode.com','')

@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=768"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>1524. Men in Black @ Timus Online Judge</title><link rel="alternate" hreflang="x-default" href="/problem.aspx?space=1&amp;num=1524"><link rel="alternate" hreflang="en-us" href="/problem.aspx?space=1&amp;num=1524&amp;locale=en"><link rel="alternate" hreflang="ru-ru" href="/problem.aspx?space=1&amp;num=1524&amp;locale=ru"><link rel="stylesheet" type="text/css" href="/style52.css"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"></head><body><table width="100%" cellspacing="0" cellpadding="0" class="body"><tbody><tr><td class="caption"><table width="100%" cellspacing="0" cellpadding="0"><tbody><tr><td width="130" class="locale"><a href="/problem.aspx?space=1&amp;num=1524&amp;locale=en">ENG</a>&nbsp;&nbsp;<a href="/problem.aspx?space=1&amp;num=1524&amp;locale=ru">RUS</a></td><td class="title"><a href="/">Timus Online Judge</a></td><td width="130"></td></tr></tbody></table></td></tr><tr><td class="panel"><table width="100%" cellspacing="0" cellpadding="0"><tbody><tr><td width="130" valign="TOP" align="CENTER" style="padding-bottom:5px;"><a href="/"><img border="0" src="/images/usu-summer.jpg" height="134" width="106" alt=""></a></td><td valign="TOP" align="LEFT"><table width="100%" cellspacing="0" cellpadding="0" class="panel"><tbody><tr><th width="25%"><div>Online Judge</div></th><th width="25%"><div>Problems</div></th><th width="25%"><div>Authors</div></th><th width="25%"><div>Online contests</div></th></tr><tr><td valign="TOP" align="LEFT"><a href="/">About Online Judge</a><br><a href="/help.aspx?topic=faq">Frequently asked questions</a><br><a href="/news.aspx">Site news</a><br><a href="/forum/">Webboard</a><br><a href="/help.aspx?topic=links">Links</a><br></td><td valign="TOP" align="LEFT"><a href="/problemset.aspx">Problem set</a><br><a href="/submit.aspx">Submit solution</a><br><a href="/status.aspx">Judge status</a><br><a href="/help.aspx?topic=judge">Guide</a><br></td><td valign="TOP"><a href="/register.aspx">Register</a><br><a href="/authedit.aspx">Update your info</a><br><a href="/ranklist.aspx">Authors ranklist</a><br><form action="/search.aspx" method="GET" style="margin-top:0.6em;"><input name="Str" size="12" value="" placeholder="Author’s name"> <input type="SUBMIT" value="Search"></form></td><td valign="TOP"><a href="/contest.aspx">Current contest</a><br><a href="/schedule.aspx">Scheduled contests</a><br><a href="/archive.aspx">Past contests</a><br><a href="/help.aspx?topic=contest">Rules</a><br></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr><td style="padding-top: 32px; padding-bottom: 20px;"><table align="CENTER" cellspacing="0" cellpadding="0"><tbody><tr><td width="800"><div class="problem_content"><h2 class="problem_title">1524. Men in Black</h2><div class="problem_limits">Time limit: 3.0 second<br>Memory limit: 64 MB<br></div><div id="problem_text"><div class="problem_par"><div class="problem_par_normal">Everybody knows that men in black protect our Earth from alien cockroaches 
+and other vermin. The track all movements of our alien foes and friends
+and control their actions. But recently the government has learned
+about men in black and decided to track all their movements.</div></div><div class="problem_par"><div class="problem_par_normal">There are several agents. Each agent has several characteristics:
+accuracy, intelligence, walking speed, experience, driving skill.
+All characteristics are real numbers ranging from 0 to 1. 
+Also each agent has a code letter "A" to "Z", since his name
+is top secret. When the new agent comes to the organization
+he is assigned a letter closest to first letter of the agent name,
+that is not assigned to any agent. If
+there are several such letters, the one which goes first lexicographically
+is chosen. For example, if there are already agents "J", "K" and "L"
+in the organization, and the agent with the name "Killer"
+comes, he gets letter "I".
+</div></div><div class="problem_par"><div class="problem_par_normal">Men in black have several cars that agents use in their work.
+The speed of the agent when driving is equal to his driving skill.
+But some cars require the agent that drives it to have a
+driving skill greater or equal to some predefined value.
+Each car has some distance that it can pass before it can
+no longer be used.
+</div></div><div class="problem_par"><div class="problem_par_normal">There are several kinds of alien monsters in the universe that 
+men in black fight with. The agent can kill monster if
+his experience and his intelligence are greater or equal
+to some predefine values for this kind of monsters. Each 
+kind of monsters has evasiveness, and depending on
+agent's accuracy it can take different time to kill a monster.
+A killed monster gives the agent who has killed him
+some experience.
+</div></div><div class="problem_par"><div class="problem_par_normal">There are four types of quests that men in black perform.
+
+<ol>
+<li> 
+ Delivery quest&nbsp;— get from the office to the 
+ destination point and back. For such quests the distance
+ from the office to the destination point is given.
+</li>
+<li>
+ Kill the monster quest&nbsp;— get to the monster, kill him,
+ get back. For such quest you are given a distance to the
+ monster and its kind. The time that an agent with accuracy
+ <i>a</i> needs to kill a monster with evasiveness <i>e</i> is equal to <i>e</i>/<i>a</i>.
+ The agent gets (1−<i>x</i>)·<i>m</i>/<i>maxx</i> experience,
+ here <i>x</i> is the experience of the agent, 
+ <i>m</i> is some experience value that is associated with this
+ kind of monsters, and <i>maxx</i> is the theoretically 
+ maximal experience value. Agent's
+ accuracy increases by (1−<i>a</i>)·<i>e</i>/<i>maxe</i> where <i>maxe</i>
+ is the maximal theoretically possible evasiveness of monsters.
+</li>
+<li>
+ Investigation&nbsp;— get to the point where the investigation
+ is needed, perform it, get back. For such quest you are
+ given a distance to the investigation point, and the minimal
+ intelligence required to perform the investigation.
+ The time needed to perform investigation by an agent
+ with intelligence <i>i</i> is <i>mint</i>/<i>i</i> where <i>mint</i> is the minimal
+ time required to perform this investigation. After completing
+ the investigation the agent gets (1−<i>x</i>)·<i>i</i>/<i>mint</i> experience,
+ where <i>x</i> is agent's experience before the operation.
+ His intelligence increases by (1−<i>i</i>)·<i>i</i>/<i>mint</i>.
+</li>
+<li>
+ Negotiations&nbsp;— get to the point of negotiations, discuss
+ hot issues, get back. You are given the distance from the office
+ to the negotiations point, and the minimal experience of an
+ agent that can take part in negotiations. The time needed
+ for an agent with experience <i>x</i> 
+ to complete the discussion is equal <i>mint</i>/<i>x</i>
+ where <i>mint</i> is the minimal time needed. After the negotiations
+ the agent gets (1−<i>x</i>)·<i>x</i>/<i>mint</i> additional experience.
+</li>
+</ol>
+</div></div><div class="problem_par"><div class="problem_par_normal">Each quest can be performed by one or two agents. If two agents
+perform the same quest, after it their characteristics change as if each
+of them completed this quest by himself. Agent can walk to the location
+where the quest must be performed, or drive there. If the car
+breaks while the agent is driving, he must continue to walk
+to the location he was driving to. If the quest is performed
+by two agents, they can use the same car to get to its location.
+
+</div></div><div class="problem_par"><div class="problem_par_normal">The following algorithm is used to choose an agent or a pair of 
+agents to perform the quest. An agent (a pair of agents) is chosen
+that would perform the quest in smallest time. If there are
+several possibilities, the following tie breaking rules are used.
+If it is possible to choose one agent or a pair of agents, one
+agent is chosen. If there are two candidate agents, the one who has 
+the smaller letter assigned is chosen (for pairs of agents
+the ordered pairs of letters are compared). <b>Agents always choose a car 
+in such a way to perform their quest in smallest time.</b> If the quest
+is completed without using a car in the same time, the car
+is not used. If there are several cars available 
+<b>with the same quest performing time</b>, the car with
+the lexicographically smaller id is chosen.
+</div></div><div class="problem_par"><div class="problem_par_normal">All quests are performed as soon as they can be performed.
+If there are several quests available, the one that was
+received earlier is performed first.
+</div></div><div class="problem_par"><div class="problem_par_normal">After the agent completed the quest where he had to walk,
+his walking speed increases by (1−<i>s</i>)·<i>d</i>/<i>maxd</i> where
+<i>s</i> is his walking speed before the quest, <i>d</i> is the distance
+he walked while performing the quest, <i>maxd</i> is the maximal
+possible walking distance. If the agent was driving
+a car for some distance, his driving skill increases by 
+(1−<i>z</i>)·<i>d</i>/<i>maxd</i> where <i>z</i> is the driving skill of the agent
+before the quest, <b><i>d</i> is the distance he driven while performing the quest</b>.
+</div></div><div class="problem_par"><div class="problem_par_normal">When the pair of agents perform the quest, the characteristics
+of the pair are calculated using the following algorithm.
+Pair's walking speed is minimum of agents' walking speeds, 
+pair's driving skill is maximum of agents' driving skills,
+pair's accuracy is (<i>a</i><sub>1</sub>+<i>a</i><sub>2</sub>)/2,
+pair's experience is 1−(1−<i>e</i><sub>1</sub>)·(1−<i>e</i><sub>2</sub>), pair's
+intelligence is 1−(1−<i>i</i><sub>1</sub>)·(1−<i>i</i><sub>2</sub>).
+</div></div><div class="problem_par"><div class="problem_par_normal">The following events can happen: new quest can be received,
+new agent can come, new car can be bought.
+</div></div><div class="problem_par"><div class="problem_par_normal">If the agent's experience becomes greater or equal to 
+some predefined value called retirement experience,
+agent gets tired and leaves the organization 
+<b>immediately after finishing his last quest</b>.
+<b>His letter becomes free, new agent can get it since that moment.
+It is guaranteed that at each moment there are no more than 26 agents in the agency.</b>
+</div></div><div class="problem_par"><div class="problem_par_normal">All time intervals in this problem are measured in minutes,
+all time interval lengths are rounded to closest minute, standard
+rounding rules are used. <b>For example, the intervals when 
+the agent drive a car, when he walk after the car was broken, 
+when he kill a monster must be rounded separately.</b></div></div><h3 class="problem_subtitle">Input</h3><div class="problem_par"><div class="problem_par_normal">All numbers and words in the input are separated by 
+spaces and/or line feeds.
+</div></div><div class="problem_par"><div class="problem_par_normal">The input contains:
+
+<ul>
+<li>
+ The number of agents (at most 26) followed by
+ the description of agents. Each agent is described by
+ his name, accuracy, walking speed, intelligence,
+ experience, driving skill, and the letter he is assigned.
+ All assigned letters are different. Experience
+ of each agent is less than the retirement experience.
+</li>
+<li>
+ The number of car types (at most 50), after that
+ for each car type: the minimal required driving skill to
+ drive the car of this type, the distance the car of this
+ type can run before breaking, the name of the type.
+</li>
+<li>
+ The number of cars (at most 50), after that for each car:
+ its type, current distance passed (not exceeding the maximal
+ distance for cars of this type), its id.
+</li>
+<li>
+ The number of monster kinds (at most 50), after that for
+ each monster kind: the minimal experience needed to kill
+ a monster of this kind, minimal intelligence needed to kill
+ a monster of this kind, evasiveness of monsters of this kind,
+ experience value associated with monsters of this kind,
+ and the name of this kind.
+</li>
+<li>
+ Maximal walking distance, maximal monsters evasiveness,
+ maximal experience for monster killing, retirement experience.
+</li>
+<li>
+ The number of events in the organization (at most 2000).
+ After that for each event the time it occurs and:
+ <ul>
+  <li>
+   For a new agent coming to the organization:
+   "newagent", followed by agent's name, his
+   accuracy, walking speed, intelligence, experience, driving
+   skill. The number of agents never exceeds 26.
+  </li><li>
+   For a new car bought: 
+   "newcar" followed by the type of the car,
+   its current distance passed, its id.
+  </li><li>
+   For a delivery quest: 
+   "quest run" followed by the distance from the office
+   to the destination point.
+  </li><li>
+   For a kill the monster quest: 
+   "quest kill" followed by the distance from the office
+   to the monster and the monster type.
+  </li><li>
+   For an investigation quest: 
+   "quest findout" followed by the distance from the office,
+   the minimal required intelligence and the minimal investigation 
+   time.
+  </li><li>
+   For a negotiations quest: 
+   "quest talk" followed by the distance from the office,
+   the minimal required experience and the minimal discussion
+   time.
+  </li>
+ </ul>
+</li>
+</ul>
+</div></div><div class="problem_par"><div class="problem_par_normal">All characteristics are floating point numbers ranging from 0 to 1 (not inclusive) <b>with no more than 2 digits after decimal point</b>.
+All other numbers are positive integers and do not exceed 10<sup>6</sup>.
+All agent names, car type names, monster kind names, and car ids
+contain only letters of the English alphabet <b>and digits</b>, <b>the lengths of</b> the names
+do not exceed 10. All names and ids are different. All events
+are sorted by the time of occurrence, all times are different.
+</div></div><h3 class="problem_subtitle">Output</h3><div class="problem_par"><div class="problem_par_normal">Output all interesting moments to the output in the following format:
+"dddd:hh:mm&nbsp;&nbsp;&nbsp;&lt;description&gt;", where "dddd:hh:mm" are day, hour and 
+minute when the interesting event occurs.
+</div></div><div class="problem_par"><div class="problem_par_normal">The following moments are interesting <b>(pay attention to the order)</b>:
+
+<ul>
+<li> "MIB bought a car of class &lt;car type&gt;." </li>
+<li> "Car &lt;id&gt; was broken." </li>
+<li> "Agent &lt;letter1&gt;[ and agent &lt;letter2&gt;] killed monster &lt;monster kind&gt;." </li>
+<li> "Agent &lt;letter1&gt;[ and agent &lt;letter2&gt;] finished quest &lt;number&gt;." </li>
+<li> "Agent &lt;letter&gt; has tired." </li>
+<li> "New agent &lt;name&gt; got a letter &lt;letter&gt;." </li>
+<li> "Agent &lt;letter1&gt;[ and agent &lt;letter2&gt;] started quest &lt;number&gt;[ using car &lt;car id&gt;]." </li>
+</ul>
+</div></div><div class="problem_par"><div class="problem_par_normal">All quests are numbered starting from 1 in order they are received.
+If several interesting events occur simultaneously, they
+must be listed in the same order they are described above.
+<b>If several interesting events of the same type occur 
+simultaneously, they must be listed in lexicographic order.</b>
+<b>If two agents perform the quest they must be listed in the 
+messages in the order of their code letters.</b>
+</div></div><div class="problem_par"><div class="problem_par_normal"><b>It is guaranteed that all quests can be performed by men in black before 10000 day since beginnig.</b></div></div><h3 class="problem_subtitle">Sample</h3><table class="sample"><tbody><tr><th width="350">input</th><th width="350">output</th></tr><tr><td><pre>1
+James 0.8 0.7 0.75 0.5 0.85 J
+
+1
+0.4 100 mibLexus
+
+2
+mibLexus 0 pq123bu
+mibLexus 12 ab891ah
+
+1
+0.2 0.3 18 100 cockroach
+
+200 20 200 0.95
+
+4
+10 newagent Klint 0.9 0.8 0.5 0.7 0.86
+20 quest run 48
+30 newcar mibLexus 47 aa890bu
+43 quest kill 100 cockroach
+</pre></td><td><pre>0000:00:10    New agent Klint got a letter K.
+0000:00:20    Agent J started quest 1 using car pq123bu.
+0000:00:30    MIB bought a car of class mibLexus.
+0000:00:43    Agent K started quest 2 using car ab891ah.
+0000:02:12    Agent J finished quest 1.
+0000:02:25    Car ab891ah was broken.
+0000:03:00    Agent K killed monster cockroach.
+0000:05:05    Agent K finished quest 2.
+</pre></td></tr></tbody></table><div class="problem_source"><b>Problem Author: </b>Dmitry Gozman<br><b>Problem Source: </b>Dmitry Gozman Contest 1, Petrozavodsk training camp, January 2007<br></div></div></div><div><b>Tags: </b><a href="problemset.aspx?space=1&amp;tag=hardest">hardest problem</a> &nbsp;<span class="problem_tags_toggle">(<form method="POST" action="problem.aspx?space=1&amp;num=1524" style="display:inline;" id="ToggleTagsForm"><a href="problem.aspx?space=1&amp;num=1524" onclick="document.getElementById('ToggleTagsForm').submit();return false;"><input type="hidden" name="Action" value="HideTags">hide tags for unsolved problems</a></form>)</span></div><div class="problem_links"><span>Difficulty: 12111</span> &nbsp;&nbsp;&nbsp;<a href="print.aspx?space=1&amp;num=1524" target="_blank">Printable version</a> &nbsp;&nbsp;&nbsp;<a href="submit.aspx?space=1&amp;num=1524">Submit solution</a> &nbsp;&nbsp;&nbsp;<a href="forum/?space=1&amp;num=1524">Discussion (18)</a><br><a href="status.aspx?space=1&amp;num=1524">All submissions (1750)</a> &nbsp;&nbsp;&nbsp;<a href="status.aspx?space=1&amp;num=1524&amp;status=accepted">All accepted submissions (126)</a> &nbsp;&nbsp;&nbsp;<a href="rating.aspx?space=1&amp;num=1524">Solutions rating (22)</a></div></td></tr></tbody></table></td></tr><tr><td class="footer"><script type="text/javascript" async="" src="https://mc.yandex.ru/metrika/watch.js"></script><script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter20918869 = new Ya.Metrika({ id:20918869, clickmap:true, trackLinks:true, accurateTrackBounce:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript>&lt;div&gt;&lt;img src="https://mc.yandex.ru/watch/20918869" style="position:absolute; left:-9999px;" alt=""&gt;&lt;/div&gt;</noscript>© 2000–2017 <a href="/team.aspx">Timus Online Judge Team</a>. All rights reserved.</td></tr></tbody></table></body></html>
