@@ -1,0 +1,588 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - WC98 - Return of the Plachta</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "a846b326ae579368c4a4e84e51d36946";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fwc98p6"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>Woburn Challenge 1998</h3>
+<h2>Episode 6: Return of the Plachta</h2>
+
+<p> Han Solo (who is a pilot), having handily beaten Three Thumbs Plachta at bowling 
+  is talking to some friends at a bar. Here, he recounts a tale of the legendary 
+  driver known only as "Forth-and-back" Plachta. He tells of a day when she was 
+  driving a bunch of students down in a foreign land known as the United States. 
+  Unsatisfied with the posted speed limit of 70mph, Ms. Plachta makes the calculations 
+  to prepare her van for the jump to hyperspace. Of course, everyone knows that 
+  this is a difficult task and some complicated calculations need to be made, 
+  including the adding of fractions. You will help her make the jump to light 
+  speed because, obviously, you want to live. All you have to do is add 2 fractions 
+  together and return the resulting fraction in reduced form.
+</p>
+
+<h3>Input</h3>
+<p>
+  4 numbers separated by spaces representing respectively numerator1, denominator1, 
+  numerator2, denominator2.
+  Each of the input numbers will be in the range 0 ≤ numerator ≤ 32000 or 0 
+  &lt; denominator ≤ 32000.
+  There will be 5 such inputs, ie. 5 sets of fractions to add.
+</p>
+
+<h3>Output</h3>
+  Add the 2 fractions on each line together and return the reduced fraction (one 
+  line for each set). If the reduced fraction is a whole number, you should output 
+  it as a whole number and not as a fraction.
+
+<h3>Sample Input</h3>
+  <code>2 3 4 5</code> (ie. <sup>2</sup>/<sub>3</sub> + <sup>4</sup>/<sub>5</sub>)<br>
+  <code>2 3 5 6 </code> (ie. <sup>2</sup>/<sub>3</sub> + <sup>5</sup>/<sub>6</sub>)<br>
+  <code>1 2 1 2 </code> (ie. <sup>1</sup>/<sub>2</sub> + <sup>1</sup>/<sub>2</sub>)<br>
+  <code>24000 1 24000 2<br>
+  0 2 0 5</code>
+
+<h3>Sample Output</h3>
+<code> 22 15 </code> (ie. <sup>22</sup>/<sub>15</sub>)<br>
+<code>3 2 </code> (ie. <sup>3</sup>/<sub>2</sub>)<br>
+<pre>1
+36000
+0
+</pre>
+
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,wc98p6">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/wc98p6">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 10<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Sep 29, 2008<br>
+      </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=wc98p6">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment3956">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Thinkdifferent">Thinkdifferent</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3956">Jan 11, 2012 - 12:16:47 am UTC</a>      </span>
+      <a class="comment_title" id="title3956" onclick="toggle(&quot;body3956&quot;)"></a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3956">
+    (<span class="upvotes"><span id="upvotes3956">1</span></span>/<span class="downvotes"><span id="downvotes3956">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3956" class="comment_body">
+    <pre id="msg3956" style="display: none">My program worked fine and passed all the sample input,but when I submit it says Your Output:"./a:_line_2:__5679_C..."
+is this because my program is too slow?
+</pre>
+    <div style="opacity: 1">
+      My program worked fine and passed all the sample input,but when I submit it says Your Output:"./a:_line_2:__5679_C..." <br>is this because my program is too slow?    </div>
+    <br><div class="comment_block" id="comment3958">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3958">Jan 11, 2012 - 12:26:50 am UTC</a>      </span>
+      <a class="comment_title" id="title3958" onclick="toggle(&quot;body3958&quot;)">Re: ...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3958">
+    (<span class="upvotes"><span id="upvotes3958">1</span></span>/<span class="downvotes"><span id="downvotes3958">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3958" class="comment_body">
+    <pre id="msg3958" style="display: none">Yes; the message says says "5679 CPU time limit exceeded."</pre>
+    <div style="opacity: 1">
+      Yes; the message says says "5679 CPU time limit exceeded."    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment3648">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bobbyg212009">bobbyg212009</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3648">Nov 04, 2011 - 9:02:42 pm UTC</a>      </span>
+      <a class="comment_title" id="title3648" onclick="toggle(&quot;body3648&quot;)"></a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3648">
+    (<span class="upvotes"><span id="upvotes3648">0</span></span>/<span class="downvotes"><span id="downvotes3648">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3648" class="comment_body">
+    <pre id="msg3648" style="display: none">why i get wrong
+time error
+</pre>
+    <div style="opacity: 1">
+      why i get wrong <br>time error    </div>
+    <br><div class="comment_block" id="comment3650">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Daniel">Daniel</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3650">Nov 05, 2011 - 12:02:54 am UTC</a>      </span>
+      <a class="comment_title" id="title3650" onclick="toggle(&quot;body3650&quot;)">Re: ...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3650">
+    (<span class="upvotes"><span id="upvotes3650">0</span></span>/<span class="downvotes"><span id="downvotes3650">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3650" class="comment_body">
+    <pre id="msg3650" style="display: none">That means your program is too slow.
+Did you try extreme test cases on your computer?
+(Remember that the numerator and denominator can go up to 32000)</pre>
+    <div style="opacity: 1">
+      That means your program is too slow. <br>Did you try extreme test cases on your computer? <br>(Remember that the numerator and denominator can go up to 32000)    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment1110">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/purohit3105">purohit3105</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1110">Jan 01, 2009 - 3:42:23 am UTC</a>      </span>
+      <a class="comment_title" id="title1110" onclick="toggle(&quot;body1110&quot;)">Whats wrong?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1110">
+    (<span class="upvotes"><span id="upvotes1110">0</span></span>/<span class="downvotes"><span id="downvotes1110">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1110" class="comment_body">
+    <pre id="msg1110" style="display: none">Can someone look at my program and tell me whats wrong with it??
+
+It calculates the samples properly??</pre>
+    <div style="opacity: 1">
+      Can someone look at my program and tell me whats wrong with it?? <br> <br>It calculates the samples properly??    </div>
+    <br><div class="comment_block" id="comment1111">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bleung91">bleung91</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1111">Jan 01, 2009 - 4:00:21 am UTC</a>      </span>
+      <a class="comment_title" id="title1111" onclick="toggle(&quot;body1111&quot;)">Re: Whats wrong?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1111">
+    (<span class="upvotes"><span id="upvotes1111">0</span></span>/<span class="downvotes"><span id="downvotes1111">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1111" class="comment_body">
+    <pre id="msg1111" style="display: none">why do you have semicolons after your if statements braces?</pre>
+    <div style="opacity: 1">
+      why do you have semicolons after your if statements braces?    </div>
+    <br><div class="comment_block" id="comment1112">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1112">Jan 01, 2009 - 4:21:12 am UTC</a>      </span>
+      <a class="comment_title" id="title1112" onclick="toggle(&quot;body1112&quot;)">Re: Re: Whats wrong?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1112">
+    (<span class="upvotes"><span id="upvotes1112">2</span></span>/<span class="downvotes"><span id="downvotes1112">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1112" class="comment_body">
+    <pre id="msg1112" style="display: none">That in itself does not constitute a problem. Most of the time, an extra semicolon is simply an empty statement. The problem arises when they are placed after for loop headers, if statement [i]conditions[/i], [i]etc.[/i]</pre>
+    <div style="opacity: 1">
+      That in itself does not constitute a problem. Most of the time, an extra semicolon is simply an empty statement. The problem arises when they are placed after for loop headers, if statement <span class="italics">conditions</span>, <span class="italics">etc.</span>    </div>
+    <br><div class="comment_block" id="comment1115">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/purohit3105">purohit3105</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1115">Jan 01, 2009 - 5:28:16 am UTC</a>      </span>
+      <a class="comment_title" id="title1115" onclick="toggle(&quot;body1115&quot;)">Re: Re: Re: Whats wrong?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1115">
+    (<span class="upvotes"><span id="upvotes1115">0</span></span>/<span class="downvotes"><span id="downvotes1115">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1115" class="comment_body">
+    <pre id="msg1115" style="display: none">I removed the semicolons now.., It still doesn't work..</pre>
+    <div style="opacity: 1">
+      I removed the semicolons now.., It still doesn't work..    </div>
+    <br><div class="comment_block" id="comment1116">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bleung91">bleung91</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1116">Jan 01, 2009 - 5:48:37 am UTC</a>      </span>
+      <a class="comment_title" id="title1116" onclick="toggle(&quot;body1116&quot;)">Re: Re: Re: Re: Whats wrong?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1116">
+    (<span class="upvotes"><span id="upvotes1116">1</span></span>/<span class="downvotes"><span id="downvotes1116">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1116" class="comment_body">
+    <pre id="msg1116" style="display: none">well in that case, you should look at your algorithm.
+
+[url]http://en.wikipedia.org/wiki/Euclidean_algorithm[/url]
+
+I refer you here, because this is the best way to do this problem.</pre>
+    <div style="opacity: 1">
+      well in that case, you should look at your algorithm. <br> <br><a href="http://en.wikipedia.org/wiki/Euclidean_algorithm" target="_blank">http://en.wikipedia.org/wiki/Euclidean_algorithm</a> <br> <br>I refer you here, because this is the best way to do this problem.    </div>
+    <br><div class="comment_block" id="comment1126">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/purohit3105">purohit3105</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1126">Jan 01, 2009 - 10:26:42 pm UTC</a>      </span>
+      <a class="comment_title" id="title1126" onclick="toggle(&quot;body1126&quot;)">Re: Re: Re: Re: Re: Whats wrong?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1126">
+    (<span class="upvotes"><span id="upvotes1126">0</span></span>/<span class="downvotes"><span id="downvotes1126">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1126" class="comment_body">
+    <pre id="msg1126" style="display: none">So my program isn't working because its taking too much time?? Is everything else fine??</pre>
+    <div style="opacity: 1">
+      So my program isn't working because its taking too much time?? Is everything else fine??    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br><div class="comment_block" id="comment1127">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hansonw1">hansonw1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1127">Jan 01, 2009 - 10:31:58 pm UTC</a>      </span>
+      <a class="comment_title" id="title1127" onclick="toggle(&quot;body1127&quot;)">Re: Whats wrong?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1127">
+    (<span class="upvotes"><span id="upvotes1127">0</span></span>/<span class="downvotes"><span id="downvotes1127">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1127" class="comment_body">
+    <pre id="msg1127" style="display: none">Actually only your output format is wrong.
+Look at your output, and the sample output, and the difference should be clear.</pre>
+    <div style="opacity: 1">
+      Actually only your output format is wrong. <br>Look at your output, and the sample output, and the difference should be clear.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment1061">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Bob">Bob</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1061">Dec 30, 2008 - 6:24:42 pm UTC</a>      </span>
+      <a class="comment_title" id="title1061" onclick="toggle(&quot;body1061&quot;)">what's wrong with my program?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1061">
+    (<span class="upvotes"><span id="upvotes1061">0</span></span>/<span class="downvotes"><span id="downvotes1061">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1061" class="comment_body">
+    <pre id="msg1061" style="display: none">(the one that got 3/5)</pre>
+    <div style="opacity: 1">
+      (the one that got 3/5)    </div>
+    <br><div class="comment_block" id="comment1073">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1073">Dec 30, 2008 - 8:35:35 pm UTC</a>      </span>
+      <a class="comment_title" id="title1073" onclick="toggle(&quot;body1073&quot;)">Re: what's wrong with my program?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1073">
+    (<span class="upvotes"><span id="upvotes1073">0</span></span>/<span class="downvotes"><span id="downvotes1073">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1073" class="comment_body">
+    <pre id="msg1073" style="display: none">I can't tell you because your submissions got accidentally deleted.</pre>
+    <div style="opacity: 1">
+      I can't tell you because your submissions got accidentally deleted.    </div>
+    <br><div class="comment_block" id="comment1084">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Bob">Bob</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1084">Dec 31, 2008 - 1:24:16 am UTC</a>      </span>
+      <a class="comment_title" id="title1084" onclick="toggle(&quot;body1084&quot;)">Re: Re: what's wrong with my program?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1084">
+    (<span class="upvotes"><span id="upvotes1084">0</span></span>/<span class="downvotes"><span id="downvotes1084">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1084" class="comment_body">
+    <pre id="msg1084" style="display: none">never mind - i found out what it was.</pre>
+    <div style="opacity: 1">
+      never mind - i found out what it was.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment348">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hansonw1">hansonw1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/348">Nov 15, 2008 - 6:01:17 pm UTC</a>      </span>
+      <a class="comment_title" id="title348" onclick="toggle(&quot;body348&quot;)">Hint</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating348">
+    (<span class="upvotes"><span id="upvotes348">1</span></span>/<span class="downvotes"><span id="downvotes348">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body348" class="comment_body">
+    <pre id="msg348" style="display: none">[url=http://en.wikipedia.org/wiki/Euclidean_algorithm]Euclidean algorithm[/url] to find the greatest common factor</pre>
+    <div style="opacity: 1">
+      <a href="http://en.wikipedia.org/wiki/Euclidean_algorithm" target="_blank">Euclidean algorithm</a> to find the greatest common factor    </div>
+    <br><div class="comment_block" id="comment1079">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bleung91">bleung91</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1079">Dec 31, 2008 - 12:53:27 am UTC</a>      </span>
+      <a class="comment_title" id="title1079" onclick="toggle(&quot;body1079&quot;)">Re: Hint</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1079">
+    (<span class="upvotes"><span id="upvotes1079">0</span></span>/<span class="downvotes"><span id="downvotes1079">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1079" class="comment_body">
+    <pre id="msg1079" style="display: none">how do you do the link thingy?</pre>
+    <div style="opacity: 1">
+      how do you do the link thingy?    </div>
+      </div>
+</div>
+<br><div class="comment_block" id="comment1082">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hansonw1">hansonw1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1082">Dec 31, 2008 - 1:21:23 am UTC</a>      </span>
+      <a class="comment_title" id="title1082" onclick="toggle(&quot;body1082&quot;)">Re: Hint</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1082">
+    (<span class="upvotes"><span id="upvotes1082">0</span></span>/<span class="downvotes"><span id="downvotes1082">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1082" class="comment_body">
+    <pre id="msg1082" style="display: none">What do you think "BBCode/Smilies" is for...</pre>
+    <div style="opacity: 1">
+      What do you think "BBCode/Smilies" is for...    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment346">
+  <div class="comment_header" style="opacity: 0.56150608044902">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/HelloMello">HelloMello</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/346">Nov 15, 2008 - 5:26:39 pm UTC</a>      </span>
+      <a class="comment_title" id="title346" onclick="toggle(&quot;body346&quot;)">Fast Times</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating346">
+    (<span class="upvotes"><span id="upvotes346">0</span></span>/<span class="downvotes"><span id="downvotes346">3</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body346" class="comment_body">
+    <pre id="msg346" style="display: none">How do you guys get such fast run times?</pre>
+    <div style="opacity: 0.56150608044902">
+      How do you guys get such fast run times?    </div>
+    <br><div class="comment_block" id="comment347">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/dAedaL">dAedaL</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/347">Nov 15, 2008 - 5:43:36 pm UTC</a>      </span>
+      <a class="comment_title" id="title347" onclick="toggle(&quot;body347&quot;)">?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating347">
+    (<span class="upvotes"><span id="upvotes347">0</span></span>/<span class="downvotes"><span id="downvotes347">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body347" class="comment_body">
+    <pre id="msg347" style="display: none">What do you mean? What runtime did you get?</pre>
+    <div style="opacity: 1">
+      What do you mean? What runtime did you get?    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0598s.<br>
+    Server time on page load:
+    May 9, 2018 16:19:29 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fwc98p6">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

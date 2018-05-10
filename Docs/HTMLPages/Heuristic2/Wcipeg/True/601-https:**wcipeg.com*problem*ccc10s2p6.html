@@ -1,0 +1,334 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - CCC10 Stage 2 - Shuffle</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "8c45b434a3b7582378f7341582f131fd";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fccc10s2p6"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>2010 Canadian Computing Competition, Stage 2</h3>
+<h2>Day 2, Problem 3: Shuffle</h2>
+
+<p>You want to keep some secrets, so you invent a simple encryption
+algorithm.</p>
+<p>You will map each uppercase character and underscore to some other
+uppercase character or underscore. In other words, this is a permutation of the
+characters, or, to put it another way, you create a 1:1 and onto map from
+{<code>'A'</code>, <code>'B'</code>, ...., <code>'Z'</code>, <code>'-'</code>}
+to {<code>'A'</code>, <code>'B'</code>, ...., <code>'Z'</code>,
+<code>'-'</code>}.</p>
+<p>However, you will repeatedly apply this encryption in an attempt to make your
+message more secure.</p>
+
+<h3>Input</h3>
+<p>The input will be 29 lines long. The first 27 lines will each contain a
+single integer from the set {<code>'A'</code>, <code>'B'</code>, ....,
+<code>'Z'</code>, <code>'-'</code>}. The first of these lines represents what
+the character <code>'A'</code> maps to, the second of these lines represents
+what the character <code>'B'</code> maps to, and so on, until the 27th line
+represents what the underscore character maps to.</p>
+<p>On the 28th line will be an integer <code>N</code> (1 ≤ <code>N</code>
+≤ 2×10<sup>9</sup>), which represents the number of times this
+encryption should be applied.</p>
+<p>On the 29th line is <var>T</var>, a string of less than 80 characters from
+the set {<code>'A'</code>, <code>'B'</code>, ...., <code>'Z'</code>,
+<code>'-'</code>}.</p>
+
+<h3>Output</h3>
+<p>On one line, output the string created after shuffling <var>T</var> a total
+of <var>N</var> times, using the given shuffle permutation.</p>
+
+<h3>Sample Input</h3>
+<pre>B
+C
+D
+E
+F
+G
+H
+I
+J
+K
+L
+M
+N
+O
+P
+Q
+R
+S
+T
+U
+V
+W
+X
+Y
+Z
+_
+A
+3
+I_LOVE_THE_CCC</pre>
+
+<h3>Sample Output</h3>
+<pre>LCORYHCWKHCFFF</pre>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,ccc10s2p6">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/ccc10s2p6">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 10<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 256M<br>
+    <b>Added:</b> May 19, 2010<br>
+      </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=ccc10s2p6">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment3465">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/joe">joe</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3465">May 05, 2011 - 12:29:01 am UTC</a>      </span>
+      <a class="comment_title" id="title3465" onclick="toggle(&quot;body3465&quot;)">Another typo?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3465">
+    (<span class="upvotes"><span id="upvotes3465">0</span></span>/<span class="downvotes"><span id="downvotes3465">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3465" class="comment_body">
+    <pre id="msg3465" style="display: none">Is it - or _? The test data and the problem data are telling two different stories.</pre>
+    <div style="opacity: 1">
+      Is it - or _? The test data and the problem data are telling two different stories.    </div>
+    <br><div class="comment_block" id="comment3466">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/ilovepi">ilovepi</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3466">May 05, 2011 - 12:50:00 am UTC</a>      </span>
+      <a class="comment_title" id="title3466" onclick="toggle(&quot;body3466&quot;)">Re: Another typo?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3466">
+    (<span class="upvotes"><span id="upvotes3466">1</span></span>/<span class="downvotes"><span id="downvotes3466">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3466" class="comment_body">
+    <pre id="msg3466" style="display: none">[quote]until the 27th line represents what the underscore character maps to.[/quote]
+I believe '-' is supposed to be '_'.</pre>
+    <div style="opacity: 1">
+      <table style="width: 90%; margin: 0 auto">
+            <tbody><tr>
+            <td><span class="quotecodeheader"></span></td>
+            </tr>
+            <tr>
+            <td class="quotebody">until the 27th line represents what the underscore character maps to.</td>
+            </tr>
+            </tbody></table> <br>I believe '-' is supposed to be '_'.    </div>
+    <br><div class="comment_block" id="comment3467">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/joe">joe</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3467">May 05, 2011 - 2:16:11 am UTC</a>      </span>
+      <a class="comment_title" id="title3467" onclick="toggle(&quot;body3467&quot;)">Re: Re: Another typo?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3467">
+    (<span class="upvotes"><span id="upvotes3467">1</span></span>/<span class="downvotes"><span id="downvotes3467">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3467" class="comment_body">
+    <pre id="msg3467" style="display: none">Should probably update the problem to reflect that.</pre>
+    <div style="opacity: 1">
+      Should probably update the problem to reflect that.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment2712">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/ryuuga">ryuuga</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2712">Jul 23, 2010 - 8:18:17 pm UTC</a>      </span>
+      <a class="comment_title" id="title2712" onclick="toggle(&quot;body2712&quot;)">typo?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2712">
+    (<span class="upvotes"><span id="upvotes2712">0</span></span>/<span class="downvotes"><span id="downvotes2712">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2712" class="comment_body">
+    <pre id="msg2712" style="display: none">in sample input, 'Q' seems to map to '3'</pre>
+    <div style="opacity: 1">
+      in sample input, 'Q' seems to map to '3'    </div>
+    <br><div class="comment_block" id="comment2716">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/SourSpinach">SourSpinach</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2716">Jul 25, 2010 - 2:04:50 pm UTC</a>      </span>
+      <a class="comment_title" id="title2716" onclick="toggle(&quot;body2716&quot;)">Re: typo?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2716">
+    (<span class="upvotes"><span id="upvotes2716">0</span></span>/<span class="downvotes"><span id="downvotes2716">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2716" class="comment_body">
+    <pre id="msg2716" style="display: none">Wow, that's pretty weird...but it's been fixed.</pre>
+    <div style="opacity: 1">
+      Wow, that's pretty weird...but it's been fixed.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0214s.<br>
+    Server time on page load:
+    May 9, 2018 15:29:43 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fccc10s2p6">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

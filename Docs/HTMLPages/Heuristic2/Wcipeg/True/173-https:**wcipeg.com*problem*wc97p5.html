@@ -1,0 +1,280 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - WC97 - Encoding Grid</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "8c45b434a3b7582378f7341582f131fd";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fwc97p5"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>1997 Woburn Computer Programming Challenge</h3>
+<h2>5. Encoding Grid</h2>
+
+<p>A kind of grid is cometimes used for encoding messages. Our naval fleet (!) 
+officials decide to use this method of encoding messages for communication with 
+their ship captains. The encoding grid is a square sheet of paper divided into 
+2Nx2N little squares. N<sup>2</sup> of these little squares are cut out (see 
+figure 1).</p>
+<p>Let us briefly describe the encoding process. Take a message of length 4N<sup>2</sup> 
+characters. Then put an encoding grid onto a blank sheet of paper and beigin 
+to write the first N<sup>2</sup> letters of the message into the cut-out squares 
+(one letter per square, write letters in the first line from left to right, 
+then in the second line, etc). See figures 2 for the first step in the message 
+"HELLOYELLOWWORLD." After finishing the first step rotate the encoding 
+grid 90 degrees clockwise and continue similarly writing letters. (Figures 3, 
+4)<br>
+<br>
+After two more steps all of the letters should be written in (figure 5)</p>
+
+<table style="width: 1%; margin: 0 auto; border-spacing: 20px">
+<tbody><tr style="font-size: 150%; font-family: monospace"> 
+  <td> 
+	<p>O###<br>
+	  ##O#<br>
+	  O##O<br>
+	  #### </p>
+  </td>
+  <td>H###<br>
+	##E#<br>
+	L##L<br>
+	#### </td>
+  <td>#O#Y<br>
+	####<br>
+	##E#<br>
+	#L## </td>
+  <td>HO#Y<br>
+	##E#<br>
+	L#EL<br>
+	#L## </td>
+  <td>HOOY<br>
+	LREO<br>
+	LWEL<br>
+	LLDW </td>
+</tr>
+<tr style="vertical-align: top"> 
+  <td>fig. 1<br>
+	the grid</td>
+  <td>fig. 2<br>
+	we write in the first 4 letters<br>
+  </td>
+  <td>fig. 3<br>
+	we rotate and write the next 4</td>
+  <td>fig. 4<br>
+	after we remove the grid</td>
+  <td>fig. 5<br>
+	after we write in the rest</td>
+</tr>
+</tbody></table>
+
+<p>It is necessary to have a correctly constructed grid, so that 
+we never get a collision (i.e. we see some alread-written letters through 
+holes in the grid after we rotate). We need to always see N<sup>2</sup> blank 
+squares after we rotate the grid.</p>
+<p>The naval fleet officials encoded thousands of messages with 
+their grid and then they wanted to send them to ships. Unfortunately they 
+lost the grid. Fortunately the naval admiral remembered the original text 
+of one of the messages.</p>
+<p>Your task is, given this original message text and the filled-in 
+piece of paper with this encoded message, to find one possible correctly constructed 
+grid with which the message text could have been encoded.</p>
+
+<h3>Input</h3>
+<p>The first line of input contains an integer M specifying the number of 
+test cases.<br>
+The first line of each test case is N (the encoded message is written on a 
+2Nx2N grid).<br>
+N will be an integer between 1 and 10 inclusive.<br></p>
+<p>The second line of each test case the message which was encoded: a string 
+of 4N<sup>2</sup> characters.<br>
+Each of the next 2N lines contains a string of 2N characters representing 
+the letters in the encoded grid. This grid will contain only letters from 
+"A" to "Z".<br>
+</p>
+
+<h3>Output</h3>
+The output file should contain <i>one</i> correctly constructed grid for each 
+test case which could have been used to encode the given message into to given 
+grid. The grid should appear in the orientation in which the first N<sup>2</sup> 
+letters are written. As in figure 1 above, represent uncut parts of the paper 
+with "#" and holes with "O" (the capital letter, not the 
+number). Leave a blank space between the output for each test case; you may 
+leave a trailing blank line at the end of your output file.
+
+<h3>Sample Input</h3>
+<pre>2
+2
+HELLOYELLOWWORLD
+HOOY
+LREO
+LWEL
+LLDW
+1
+SUNK
+SU
+KN
+</pre>
+
+<h3>Sample Output</h3>
+<pre>O###
+##O#
+O##O
+####
+
+O#
+##
+</pre>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,wc97p5">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/wc97p5">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 20<br>
+    <b>Time Limit:</b> 10.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Sep 28, 2008<br>
+      </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=wc97p5">Search</a>)</h2><p style="text-align: center"></p>It's quiet in here...</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0137s.<br>
+    Server time on page load:
+    May 9, 2018 15:28:04 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fwc97p5">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

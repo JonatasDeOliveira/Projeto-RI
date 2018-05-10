@@ -1,0 +1,221 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - Gift Delivery</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "a846b326ae579368c4a4e84e51d36946";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fgiftdel"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>PEG Test - December 2014</h3>
+<h2>Problem B: Gift Delivery</h2>
+
+<p>Some people are curious of how Santa is always able to deliver all of his presents on time on Christmas Eve. Just how is it possible that St. Nick can travel such great distances across the world to deliver billions of presents? Well, the reality is that there will always be skeptics, doubters, and cynics. What these people don't know is that Santa was once the world's most ingenious relative physicist. After <strike>St.</strike> Dr. Nicholas finalized his study of using wormholes in the space-time continuum to time travel/teleport, he concluded that the world was most certainly not ready for his findings. Instead of publishing it, he ultimately decided to keep the momentous discovery to himself and use it for good — that is, delivering Christmas joy to every girl and boy!</p>
+
+<p>Every Christmas Eve, Santa plans his route on a map of the world. For the sake of simplicity, the world can be thought of as an <var>R</var> by <var>C</var> (1 ≤ <var>R</var>, <var>C</var> ≤ 50) two-dimensional grid. The top-left cell of the grid is denoted by coordinates (1, 1) and the bottom-right cell of the grid is denoted by coordinates (<var>R</var>, <var>C</var>). There are <var>N</var> houses at distinct locations on the grid, which Santa has numbered from 1 to <var>N</var>. Santa's packed the gifts in his bag in a specific way. Since there are so many gifts, he can't be digging through his giant bag to find a particular gift whenever he arrives at houses. That'll take too long. Instead he has a preplanned order to visit the house in based on how his bag is packed.</p>
+
+<p>Santa starts at the North Pole, located at coordinates (<var>S<sub>R</sub></var>, <var>S<sub>C</sub></var>). At any given time, Santa may fly to the cell above, below, left, or right of his current location. Remember that the Earth is a sphere, and the map is just a 2D representation, so flying off the border of the map is allowed! It just means that Santa will wrap back around from the other side of the map. For example, if he is located at (1, 1) and he travels left, he will arrive at (1, <var>C</var>). Or, if he is located at (<var>R</var>, <var>C</var>) and he travels right, he will end up at (<var>R</var>, 1).</p>
+
+
+<p>From his research, Santa also knows the secret locations of <var>M</var> wormholes (numbered from 1 to <var>M</var>) that will each take him from the location of the wormhole (guaranteed not to be a house or the North Pole) to another given place in the world. Any given cell on the grid is either a house, a wormhole opening, or neither. When he flies into a wormhole, he will be instantly teleported to whatever location the wormhole points to (this may be a house or an empty cell, but not another wormhole). Being teleported by a wormhole does not count towards Santa's distance traveled. Santa may fly over a house, even if it's not the house he's currently trying to deliver to.</p>
+
+<p>Now, your tasks is to determine the shortest number of units that Santa will need to travel to deliver gifts to all houses in the order he has specified, and then return to the North Pole.</p>
+
+<h3>Input Format</h3>
+<p>
+Line 1 contains the integers <var>R</var>, <var>C</var>, <var>N</var>, and <var>M</var>.<br>
+The next <var>N</var> lines will describe the coordinates of the houses. Namely, the <var>i</var>-th of these lines (for 1 ≤ <var>i</var> ≤ <var>N</var>) will contain a pair of integers describing the row and column of house <var>i</var>.<br>
+The next <var>M</var> lines will describe the locations and destinations of the wormholes. Namely, the <var>i</var>-th of these lines (for 1 ≤ <var>i</var> ≤ <var>M</var>) will contain four integers <var>r</var><sub>1</sub>, <var>c</var><sub>1</sub>, <var>r</var><sub>2</sub>, <var>c</var><sub>2</sub>. This means that wormhole <var>i</var> is located at (<var>r</var><sub>1</sub>, <var>c</var><sub>1</sub>), and going into it will teleport Santa to (<var>r</var><sub>2</sub>, <var>c</var><sub>2</sub>).<br>
+The last line of input will contain two space-separated integers <var>S<sub>R</sub></var> and <var>S<sub>C</sub></var>, representing the coordinates of the North Pole.
+</p>
+
+<h3>Output Format</h3>
+<p>The output should contain a single integer representing the length of shortest path it takes for Santa to travel to all <var>N</var> houses in the specified order and return to the North Pole.</p>
+
+<h3>Sample Input</h3>
+<pre>5 10 3 2
+4 1
+5 10
+2 10
+2 5 4 2
+5 5 1 10
+1 6
+</pre>
+
+<h3>Sample Output</h3>
+<pre>12
+</pre>
+
+<h3>Explanation</h3>
+
+<p>The map of the world is as follows. There are 3 houses (represented by the characters <code>1</code> through <code>3</code>) and 2 wormholes (we'll call these <code>A</code> and <code>B</code>, where their destinations are marked in the corresponding lowercase). <code>N</code> represents the North Pole. </p>
+
+<pre>.....N...b
+....A....3
+..........
+1a........
+....B....2
+</pre>
+
+<p>
+To get from the North Pole to house 1, Santa's path is: down → left through wormhole <code>A</code> → left onto house 1. (3 steps)<br>
+To get from house 1 to house 2, Santa's path is: left (this wraps him back around from the right side of the map) → down onto house 2. (2 steps)<br>
+To get from house 2 to house 3, Santa's path is: down (this wraps him back up to the destination of wormhole <code>B</code>. However, since <code>b</code> is only a destination, nothing happens) → down onto house 3 (2 steps)<br>
+To get from house 3 back to the North Pole, Santa's path can be: left → left → left → left → up. (5 steps)<br>
+Therefore, the total distance is 3 + 2 + 2 + 5 = 12.
+</p>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,giftdel">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/giftdel">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 10<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Dec 13, 2014<br>
+        <b>Author:</b> <a href="https://wcipeg.com/user/Alex">Alex</a>  </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=giftdel">Search</a>)</h2><p style="text-align: center"></p>It's quiet in here...</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0133s.<br>
+    Server time on page load:
+    May 9, 2018 16:17:33 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fgiftdel">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

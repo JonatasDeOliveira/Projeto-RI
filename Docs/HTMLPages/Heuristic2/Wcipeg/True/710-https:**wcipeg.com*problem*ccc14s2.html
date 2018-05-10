@@ -1,0 +1,404 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - CCC14J5S2 - Assigning Partners</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "8c45b434a3b7582378f7341582f131fd";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fccc14s2"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>2014 Canadian Computing Competition, Stage 1</h3>
+<h2>Problem J5/S2: Assigning Partners</h2>
+
+<p>The CEMC is organizing a workshop with an activity involving pairs of students. They decided to assign partners ahead of time. You need to determine if they did this <em>consistently</em>. That is, whenever A is a partner of B, then B is also a partner of A, and no one is a partner of themselves.</p>
+
+<h3>Input</h3>
+<p>The input consists of three lines. The first line consists of an integer <var>N</var> (1 &lt; <var>N</var> ≤ 30), which is the number of students in the class. The second line contains the first names of the <var>N</var> students separated by single spaces. (Names contain only uppercase or lowercase letters, and no two students have the same first name). The third line contains the same <var>N</var> names in some order, separated by single spaces.</p>
+
+<p>The positions of the names in the last two lines indicate the assignment of partners: the <var>i</var>-th name on the second line is the assigned partner of the <var>i</var>-th name on the third line.</p>
+
+<h3>Output</h3>
+<p>The output will be <code>good</code> if the two lists of names are arranged consistently, and <code>bad</code> if the arrangement of partners is not consistent.</p>
+
+<h3>Sample Input 1</h3>
+<pre>4
+Ada Alan Grace John
+John Grace Alan Ada
+</pre>
+
+<h3>Sample Output 1</h3>
+<pre>good
+</pre>
+
+<h3>Explanation for Sample 1</h3>
+<p>Ada and John are partners, and Alan and Grace are partners. This arrangement is consistent.</p>
+
+<h3>Sample Input 2</h3>
+<pre>7
+Rich Graeme Michelle Sandy Vlado Ron Jacob
+Ron Vlado Sandy Michelle Rich Graeme Jacob
+</pre>
+
+<h3>Sample Output 2</h3>
+<pre>bad
+</pre>
+
+<h3>Explanation for Sample 1</h3>
+<p>Graeme is partnered with Vlado, but Vlado is partnered with Rich. This is not consistent. It is also inconsistent because Jacob is partnered with himself.</p>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,ccc14s2">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/ccc14s2">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 5<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Feb 27, 2014<br>
+      </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=ccc14s2">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment8437">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/loltroll21">loltroll21</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8437">Dec 05, 2017 - 2:46:12 am UTC</a>      </span>
+      <a class="comment_title" id="title8437" onclick="toggle(&quot;body8437&quot;)">Is this a mistake?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8437">
+    (<span class="upvotes"><span id="upvotes8437">3</span></span>/<span class="downvotes"><span id="downvotes8437">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8437" class="comment_body">
+    <pre id="msg8437" style="display: none">Underneath Sample output 2, it says explanation for sample 1??
+Confusing.</pre>
+    <div style="opacity: 1">
+      Underneath Sample output 2, it says explanation for sample 1?? <br>Confusing.    </div>
+    <br><div class="comment_block" id="comment8443">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Panicatol648989">Panicatol648989</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8443">Dec 05, 2017 - 10:26:06 pm UTC</a>      </span>
+      <a class="comment_title" id="title8443" onclick="toggle(&quot;body8443&quot;)">Re: Is this a mistake?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8443">
+    (<span class="upvotes"><span id="upvotes8443">1</span></span>/<span class="downvotes"><span id="downvotes8443">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8443" class="comment_body">
+    <pre id="msg8443" style="display: none">I think so.</pre>
+    <div style="opacity: 1">
+      I think so.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment6280">
+  <div class="comment_header" style="opacity: 0.56150608044902">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/paulkr">paulkr</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6280">Nov 09, 2014 - 12:52:49 am UTC</a>      </span>
+      <a class="comment_title" id="title6280" onclick="toggle(&quot;body6280&quot;)">30/50</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6280">
+    (<span class="upvotes"><span id="upvotes6280">0</span></span>/<span class="downvotes"><span id="downvotes6280">3</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6280" class="comment_body">
+    <pre id="msg6280" style="display: none">Can someone check my code out? Thanks</pre>
+    <div style="opacity: 0.56150608044902">
+      Can someone check my code out? Thanks    </div>
+    <br><div class="comment_block" id="comment6282">
+  <div class="comment_header" style="opacity: 0.65762804711038">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/LOLWHATOMGBBQ">LOLWHATOMGBBQ</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6282">Nov 09, 2014 - 3:56:06 pm UTC</a>      </span>
+      <a class="comment_title" id="title6282" onclick="toggle(&quot;body6282&quot;)">Re: 30/50</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6282">
+    (<span class="upvotes"><span id="upvotes6282">0</span></span>/<span class="downvotes"><span id="downvotes6282">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6282" class="comment_body">
+    <pre id="msg6282" style="display: none">The names aren't necessarily in order.
+EX.
+A B C D
+B A D C</pre>
+    <div style="opacity: 0.65762804711038">
+      The names aren't necessarily in order. <br>EX. <br>A B C D <br>B A D C    </div>
+      </div>
+</div>
+<br><div class="comment_block" id="comment6284">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/FatalEagle">FatalEagle</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6284">Nov 09, 2014 - 7:30:49 pm UTC</a>      </span>
+      <a class="comment_title" id="title6284" onclick="toggle(&quot;body6284&quot;)">Re: 30/50</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6284">
+    (<span class="upvotes"><span id="upvotes6284">3</span></span>/<span class="downvotes"><span id="downvotes6284">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6284" class="comment_body">
+    <pre id="msg6284" style="display: none">You are missing an important part of the question. Reread the question.
+Your code effectively only takes the last of the names of each row into consideration before you output anything.
+Furthermore, you have submitted a total of once at the time of this post. At least try to debug by yourself first before spamming the comments feed. There are many easy test cases you could have made and solved by hand which would have allowed you to immediately realize where your solution is incorrect. One such example is
+[code]3
+A X Y
+A Y X[/code]</pre>
+    <div style="opacity: 1">
+      You are missing an important part of the question. Reread the question. <br>Your code effectively only takes the last of the names of each row into consideration before you output anything. <br>Furthermore, you have submitted a total of once at the time of this post. At least try to debug by yourself first before spamming the comments feed. There are many easy test cases you could have made and solved by hand which would have allowed you to immediately realize where your solution is incorrect. One such example is <br><pre><code>3 <br>A X Y <br>A Y X</code></pre>    </div>
+    <br><div class="comment_block" id="comment6286">
+  <div class="comment_header" style="opacity: 0.65762804711038">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/paulkr">paulkr</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6286">Nov 10, 2014 - 2:17:29 am UTC</a>      </span>
+      <a class="comment_title" id="title6286" onclick="toggle(&quot;body6286&quot;)">Re: 30/50</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6286">
+    (<span class="upvotes"><span id="upvotes6286">0</span></span>/<span class="downvotes"><span id="downvotes6286">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6286" class="comment_body">
+    <pre id="msg6286" style="display: none">Thank you. I like the make my own cases idea</pre>
+    <div style="opacity: 0.65762804711038">
+      Thank you. I like the make my own cases idea    </div>
+    <br><div class="comment_block" id="comment6287">
+  <div class="comment_header" style="opacity: 0.91778283429098">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/thorthugnasty">thorthugnasty</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6287">Nov 10, 2014 - 4:10:54 am UTC</a>      </span>
+      <a class="comment_title" id="title6287" onclick="toggle(&quot;body6287&quot;)">Re: 30/50</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6287">
+    (<span class="upvotes"><span id="upvotes6287">5</span></span>/<span class="downvotes"><span id="downvotes6287">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6287" class="comment_body">
+    <pre id="msg6287" style="display: none">Don't worry, this is an extremely difficult problem. It is completely understandable that you did not get it first try. I think the only questions possibly harder than this one on the CCC Junior were J2, J3, and J4. </pre>
+    <div style="opacity: 0.91778283429098">
+      Don't worry, this is an extremely difficult problem. It is completely understandable that you did not get it first try. I think the only questions possibly harder than this one on the CCC Junior were J2, J3, and J4.    </div>
+    <br><div class="comment_block" id="comment6288">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/paulkr">paulkr</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6288">Nov 10, 2014 - 10:10:07 pm UTC</a>      </span>
+      <a class="comment_title" id="title6288" onclick="toggle(&quot;body6288&quot;)">Re: 30/50</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6288">
+    (<span class="upvotes"><span id="upvotes6288">0</span></span>/<span class="downvotes"><span id="downvotes6288">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6288" class="comment_body">
+    <pre id="msg6288" style="display: none">thanks -.-</pre>
+    <div style="opacity: 1">
+      thanks -.-    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment5805">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Butane">Butane</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5805">Mar 24, 2014 - 8:15:58 pm UTC</a>      </span>
+      <a class="comment_title" id="title5805" onclick="toggle(&quot;body5805&quot;)">This is not the J4 problem</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5805">
+    (<span class="upvotes"><span id="upvotes5805">1</span></span>/<span class="downvotes"><span id="downvotes5805">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5805" class="comment_body">
+    <pre id="msg5805" style="display: none">OK so the title at the top says Problem J4/S2 when this is actually J5/S2. I am pretty sure this is a misnaming error, since the name of the problem in the submissions says J5 which is right.</pre>
+    <div style="opacity: 1">
+      OK so the title at the top says Problem J4/S2 when this is actually J5/S2. I am pretty sure this is a misnaming error, since the name of the problem in the submissions says J5 which is right.    </div>
+    <br><div class="comment_block" id="comment5806">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Alex">Alex</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5806">Mar 24, 2014 - 8:20:13 pm UTC</a>      </span>
+      <a class="comment_title" id="title5806" onclick="toggle(&quot;body5806&quot;)">Re: This is not the J4 problem</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5806">
+    (<span class="upvotes"><span id="upvotes5806">1</span></span>/<span class="downvotes"><span id="downvotes5806">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5806" class="comment_body">
+    <pre id="msg5806" style="display: none">Fixed</pre>
+    <div style="opacity: 1">
+      Fixed    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0446s.<br>
+    Server time on page load:
+    May 9, 2018 15:30:05 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fccc14s2">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

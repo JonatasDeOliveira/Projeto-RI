@@ -1,0 +1,313 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - CCC11S4 - Blood Distribution</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "8c45b434a3b7582378f7341582f131fd";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fccc11s4"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>2011 Canadian Computing Competition, Stage 1</h3>
+<h2>Problem S4: Blood Distribution</h2>
+
+<p>At the Canadian Cardiac Centre there are four types of blood available: O, A, B, and AB. Each
+of these types of blood has an Rh factor, which is either “positive” or “negative”. There are many
+patients who each require 1 unit of blood. Each patient’s blood type determines the type of blood
+s/he may receive:</p>
+
+<ul>
+<li>Each Type O patient requires Type O blood.</li>
+<li>Each Type A patient may receive blood of Type A or Type O.</li>
+<li>Each Type B patient may receive blood of Type B or Type O.</li>
+<li>The Type AB patients may receive blood of any type.</li>
+</ul>
+
+<p>Patients who have Rh-negative blood can accept Rh-negative blood only, but patients with Rhpositive
+blood can accept either Rh-positive or Rh-negative types of blood.</p>
+<p>We want as many patients as possible to receive a unit of blood. What is the maximum number of
+patients that can receive blood?</p>
+
+<h3>Input Format</h3>
+<p>The first line of input contains 8 integers: the number of units of blood of Type O negative, O
+positive, A negative, A positive, B negative, B positive, AB negative and AB positive. This is followed
+by a line containing eight numbers: the number of patients whose blood type is O negative,
+O positive, A negative, A positive, B negative, B positive, and AB negative and AB positive. Each
+of these integers will be at least 0 and less than 10<sup>7</sup>.</p>
+
+<h3>Output Format</h3>
+<p>The output of your program should be a single number: the maximum number of patients that can
+receive blood.</p>
+
+<h3>Sample Input</h3>
+<pre>5 5 3 1 2 11 5 12
+2 4 9 2 3 9 7 3</pre>
+
+<h3>Sample Output</h3>
+<pre>33</pre>
+
+<h3>Explanation</h3>
+<ul>
+<li>2 Type O- patients receive Type O- blood</li>
+<li>4 Type O+ patients receive Type O+ blood</li>
+<li>3 Type A- patients receive Type A- blood</li>
+<li>3 Type A- patients receive Type 0- blood</li>
+<li>1 Type A+ patients receive Type A+ blood</li>
+<li>1 Type A+ patients receive Type O+ blood</li>
+<li>2 Type B- patients receive Type B- blood</li>
+<li>9 Type B+ patients receive Type B+ blood</li>
+<li>5 Type AB- patient receives Type AB- blood</li>
+<li>3 Type AB+ patients receive Type AB+ blood</li>
+</ul>
+
+<p><strong>Note:</strong> At least 30% of the test cases for this problem will have at most 1000 units of each type of blood.</p>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,ccc11s4">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/ccc11s4">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 7<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Mar 01, 2011<br>
+      </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=ccc11s4">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment8619">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/BenZhang">BenZhang</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8619">Feb 04, 2018 - 8:53:39 pm UTC</a>      </span>
+      <a class="comment_title" id="title8619" onclick="toggle(&quot;body8619&quot;)">help</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8619">
+    (<span class="upvotes"><span id="upvotes8619">0</span></span>/<span class="downvotes"><span id="downvotes8619">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8619" class="comment_body">
+    <pre id="msg8619" style="display: none">I'm getting wa on two cases and I've looked through my code, and I can't see what's wrong with it, could someone help?</pre>
+    <div style="opacity: 1">
+      I'm getting wa on two cases and I've looked through my code, and I can't see what's wrong with it, could someone help?    </div>
+    <br><div class="comment_block" id="comment8621">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8621">Feb 05, 2018 - 1:16:15 am UTC</a>      </span>
+      <a class="comment_title" id="title8621" onclick="toggle(&quot;body8621&quot;)">Re: help</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8621">
+    (<span class="upvotes"><span id="upvotes8621">0</span></span>/<span class="downvotes"><span id="downvotes8621">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8621" class="comment_body">
+    <pre id="msg8621" style="display: none">You only have one case WA now, so gj on finding your other error. You're overestimating the number of treated patients. Unfortunately this problem is kind of tedious to debug, so I can't quite pinpoint where your error is, but hopefully that should be enough to go off of. :-)</pre>
+    <div style="opacity: 1">
+      You only have one case WA now, so gj on finding your other error. You're overestimating the number of treated patients. Unfortunately this problem is kind of tedious to debug, so I can't quite pinpoint where your error is, but hopefully that should be enough to go off of. :-)    </div>
+    <br><div class="comment_block" id="comment8624">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/BenZhang">BenZhang</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8624">Feb 05, 2018 - 1:47:30 am UTC</a>      </span>
+      <a class="comment_title" id="title8624" onclick="toggle(&quot;body8624&quot;)">Re: help</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8624">
+    (<span class="upvotes"><span id="upvotes8624">0</span></span>/<span class="downvotes"><span id="downvotes8624">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8624" class="comment_body">
+    <pre id="msg8624" style="display: none">I tried condensing the code down to a for loop in the hopes that it would be easier to debug for me, but I still have the same problem. Is this a problem with my algorithm and not just a typo? </pre>
+    <div style="opacity: 1">
+      I tried condensing the code down to a for loop in the hopes that it would be easier to debug for me, but I still have the same problem. Is this a problem with my algorithm and not just a typo?    </div>
+    <br><div class="comment_block" id="comment8625">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8625">Feb 05, 2018 - 2:09:26 am UTC</a>      </span>
+      <a class="comment_title" id="title8625" onclick="toggle(&quot;body8625&quot;)">Re: help</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8625">
+    (<span class="upvotes"><span id="upvotes8625">0</span></span>/<span class="downvotes"><span id="downvotes8625">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8625" class="comment_body">
+    <pre id="msg8625" style="display: none">Okay, I see your error. Carefully re-read the section on which patients can receive which types of blood.</pre>
+    <div style="opacity: 1">
+      Okay, I see your error. Carefully re-read the section on which patients can receive which types of blood.    </div>
+    <br><div class="comment_block" id="comment8626">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/BenZhang">BenZhang</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8626">Feb 05, 2018 - 2:54:12 am UTC</a>      </span>
+      <a class="comment_title" id="title8626" onclick="toggle(&quot;body8626&quot;)">Re: help</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8626">
+    (<span class="upvotes"><span id="upvotes8626">0</span></span>/<span class="downvotes"><span id="downvotes8626">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8626" class="comment_body">
+    <pre id="msg8626" style="display: none">I tried putting in a fix, but now case 1 is getting wa. This is frustrating :/</pre>
+    <div style="opacity: 1">
+      I tried putting in a fix, but now case 1 is getting wa. This is frustrating :/    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0233s.<br>
+    Server time on page load:
+    May 9, 2018 15:29:45 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fccc11s4">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

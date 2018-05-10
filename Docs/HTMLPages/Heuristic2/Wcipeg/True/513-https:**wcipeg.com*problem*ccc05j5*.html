@@ -1,0 +1,717 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - CCC05J5 - Bananas</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "8c45b434a3b7582378f7341582f131fd";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fccc05j5%2F"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>2005 Canadian Computing Competition, Stage 1</h3>
+<h2>Problem J5: Bananas</h2>
+<p>	The term “code monkey” is sometimes used to refer to a programmer who doesn't know much about programming. This is unfair to monkeys, because contrary to popular belief, monkeys are quite smart. They have just been misunderstood. This may be because monkeys do not speak English, but only monkey language. Your job is to help humans and monkeys understand each other by writing a monkey language dictionary. For each word that is typed in, your program must determine whether it is a valid monkey language word.</p>
+<p>Unlike in English, spelling in monkey language is very simple. Every word in monkey language satisfies the following rules, and every word satisfying the following rules is a monkey language word.</p>
+<ol>
+  <li> A monkey language word is a special type of word called an A-word, which may be optionally followed by the letter N and a monkey language word.</li>
+  <li>An A-word is either only the single letter A, or the letter B followed by a monkey language word followed by the letter S.</li>
+</ol>
+<p>Here are some examples:</p>
+<ul>
+  <li>The word “A”' is a monkey language word because it is an A-word.</li>
+  <li>The word “ANA” is a monkey language word because it is the A-word “A” followed by the letter N and the monkey language word “A”.</li>
+  <li>The word “ANANA” is a monkey language word because it is the A-word “A” followed by the letter N and the monkey language word “ANA”.</li>
+  <li>The word “BANANAS” is a monkey language word because it is an A-word, since it is the letter B followed by the monkey language word “ANANA” followed by the letter S.</li>
+</ul>
+<p>Write a program which accepts words, one word on each line, and for each word prints YES if the word is a monkey language word, and NO if the word is not a monkey language word. The input word “X” indicates the program should terminate, and there is no output for word “X” (even though it is not a monkey word).</p>
+<h3>Sample Input</h3>
+<pre>A
+ANA
+ANANA
+BANANAS
+BANANA
+X</pre>
+<h3>Sample Output</h3>
+<pre>YES
+YES
+YES
+YES
+NO</pre></div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,ccc05j5">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/ccc05j5">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 10<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Oct 04, 2008<br>
+      </p>
+
+    <b>Problem Types:</b>
+  <noscript>
+    &lt;style type="text/css"&gt;
+      #show_types, #hide_types { display: none !important; }
+      #spoiler_id { display: inline !important; }
+    &lt;/style&gt;
+  </noscript>
+  <a href="javascript:void(null);" id="show_types" onclick="document.getElementById('spoiler_id').style.display=''; document.getElementById('show_types').style.display='none';">[Show]</a>
+  <span id="spoiler_id" style="display: none">
+    <a href="javascript:void(null);" id="hide_types" onclick="document.getElementById('spoiler_id').style.display='none'; document.getElementById('show_types').style.display='';">[Hide]</a><br>
+    <ul style="list-style-type: none; margin: 0; padding: 0;">
+      <li>String Manipulation</li><li>Recursion</li>    </ul>
+  </span>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=ccc05j5">Search</a>)</h2><p style="text-align: center"></p><div class="pagination-container"><div class="pagination-prev">&lt;</div><div class="pagination-cur">1</div><a href="https://wcipeg.com/problem/ccc05j5/10" class="pagination-link"><div class="pagination-num">2</div></a><a href="https://wcipeg.com/problem/ccc05j5/10" class="pagination-link"><div class="pagination-next">&gt;</div></a></div><p></p><div class="comment_block" id="comment7288">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/spencereir">spencereir</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7288">Jan 01, 2016 - 9:19:26 pm UTC</a>      </span>
+      <a class="comment_title" id="title7288" onclick="toggle(&quot;body7288&quot;)">Getting Runtime Errors</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7288">
+    (<span class="upvotes"><span id="upvotes7288">1</span></span>/<span class="downvotes"><span id="downvotes7288">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7288" class="comment_body">
+    <pre id="msg7288" style="display: none">Is there any way to catch errors in Ruby without getting a runtime error? I tested using CEMC data on my machine and it all worked fine, but the grader is giving RE. I realize my solution is.... pretty hacky (I prefer the word 'elegant')</pre>
+    <div style="opacity: 1">
+      Is there any way to catch errors in Ruby without getting a runtime error? I tested using CEMC data on my machine and it all worked fine, but the grader is giving RE. I realize my solution is.... pretty hacky (I prefer the word 'elegant')    </div>
+    <br><div class="comment_block" id="comment7294">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7294">Jan 02, 2016 - 1:45:04 am UTC</a>      </span>
+      <a class="comment_title" id="title7294" onclick="toggle(&quot;body7294&quot;)">Re: Getting Runtime Errors</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7294">
+    (<span class="upvotes"><span id="upvotes7294">0</span></span>/<span class="downvotes"><span id="downvotes7294">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7294" class="comment_body">
+    <pre id="msg7294" style="display: none">Haha that took me way too long to figure out. Guess my Ruby is rusty...
+
+Your problem is with Kernel#exit!, not with rescue. Kernel#exit! by default will result in an exit failure (a nonzero exit code on *nix), whereas Kernel#exit will result in a successful exit. Kernel#exit! is really more like an abort; you should really only be calling it when something has gone horribly wrong.
+
+To fix, replace your Kernel#exit! with either Kernel#exit or just a break. Or, you could call exit!(true) to force returning an exit success code.</pre>
+    <div style="opacity: 1">
+      Haha that took me way too long to figure out. Guess my Ruby is rusty... <br> <br>Your problem is with Kernel#exit!, not with rescue. Kernel#exit! by default will result in an exit failure (a nonzero exit code on *nix), whereas Kernel#exit will result in a successful exit. Kernel#exit! is really more like an abort; you should really only be calling it when something has gone horribly wrong. <br> <br>To fix, replace your Kernel#exit! with either Kernel#exit or just a break. Or, you could call exit!(true) to force returning an exit success code.    </div>
+    <br><div class="comment_block" id="comment7295">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/spencereir">spencereir</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7295">Jan 02, 2016 - 2:27:06 am UTC</a>      </span>
+      <a class="comment_title" id="title7295" onclick="toggle(&quot;body7295&quot;)">Re: Getting Runtime Errors</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7295">
+    (<span class="upvotes"><span id="upvotes7295">0</span></span>/<span class="downvotes"><span id="downvotes7295">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7295" class="comment_body">
+    <pre id="msg7295" style="display: none">That did the trick, thanks</pre>
+    <div style="opacity: 1">
+      That did the trick, thanks    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment2639">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Bryan">Bryan</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2639">Jan 23, 2010 - 3:52:33 pm UTC</a>      </span>
+      <a class="comment_title" id="title2639" onclick="toggle(&quot;body2639&quot;)">Typo?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2639">
+    (<span class="upvotes"><span id="upvotes2639">0</span></span>/<span class="downvotes"><span id="downvotes2639">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2639" class="comment_body">
+    <pre id="msg2639" style="display: none">Well I was looking at this problem and there seems to be a typo?
+
+The sample input has
+
+AA
+NA
+
+Shouldn't it be
+
+A
+ANA
+
+?
+</pre>
+    <div style="opacity: 1">
+      Well I was looking at this problem and there seems to be a typo? <br> <br>The sample input has <br> <br>AA <br>NA <br> <br>Shouldn't it be <br> <br>A <br>ANA <br> <br>?    </div>
+    <br><div class="comment_block" id="comment2641">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2641">Jan 23, 2010 - 8:12:37 pm UTC</a>      </span>
+      <a class="comment_title" id="title2641" onclick="toggle(&quot;body2641&quot;)">Re: Typo?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2641">
+    (<span class="upvotes"><span id="upvotes2641">0</span></span>/<span class="downvotes"><span id="downvotes2641">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2641" class="comment_body">
+    <pre id="msg2641" style="display: none">Fixed</pre>
+    <div style="opacity: 1">
+      Fixed    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment1767">
+  <div class="comment_header" style="opacity: 0.35433884297521">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/javic">javic</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1767">Mar 02, 2009 - 1:51:18 am UTC</a>      </span>
+      <a class="comment_title" id="title1767" onclick="toggle(&quot;body1767&quot;)"></a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1767">
+    (<span class="upvotes"><span id="upvotes1767">0</span></span>/<span class="downvotes"><span id="downvotes1767">7</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1767" class="comment_body">
+    <pre id="msg1767" style="display: none">ah this problem reminds me of a book i bought for 7 dollars in the US called Compiler Construction
+inside is full of those things like CFG</pre>
+    <div style="opacity: 0.35433884297521">
+      ah this problem reminds me of a book i bought for 7 dollars in the US called Compiler Construction <br>inside is full of those things like CFG    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment1766">
+  <div class="comment_header" style="opacity: 0.91778283429098">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/SourSpinach">SourSpinach</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1766">Mar 02, 2009 - 12:39:30 am UTC</a>      </span>
+      <a class="comment_title" id="title1766" onclick="toggle(&quot;body1766&quot;)">What's so hard to understand about this problem?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1766">
+    (<span class="upvotes"><span id="upvotes1766">5</span></span>/<span class="downvotes"><span id="downvotes1766">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1766" class="comment_body">
+    <pre id="msg1766" style="display: none">Why are people constantly asking about whether or not things are monkey language words???
+It's been explained several times, both in the problem itself and in many comments below. If you can't understand after all that, then you honestly just shouldn't be doing this problem yet...</pre>
+    <div style="opacity: 0.91778283429098">
+      Why are people constantly asking about whether or not things are monkey language words??? <br>It's been explained several times, both in the problem itself and in many comments below. If you can't understand after all that, then you honestly just shouldn't be doing this problem yet...    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment1578">
+  <div class="comment_header" style="opacity: 0.90323066744078">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/humanoidmanticore">humanoidmanticore</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1578">Feb 13, 2009 - 2:43:58 am UTC</a>      </span>
+      <a class="comment_title" id="title1578" onclick="toggle(&quot;body1578&quot;)"></a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1578">
+    (<span class="upvotes"><span id="upvotes1578">4</span></span>/<span class="downvotes"><span id="downvotes1578">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1578" class="comment_body">
+    <pre id="msg1578" style="display: none">but shouldnt this be possible?:
+
+BASNBASNANANA
+
+Because it says that an a-word can be followed by an N, and an a-word could be defined has having a B in front and an S at the end.</pre>
+    <div style="opacity: 0.90323066744078">
+      but shouldnt this be possible?: <br> <br>BASNBASNANANA <br> <br>Because it says that an a-word can be followed by an N, and an a-word could be defined has having a B in front and an S at the end.    </div>
+    <br><div class="comment_block" id="comment1579">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1579">Feb 13, 2009 - 2:51:12 am UTC</a>      </span>
+      <a class="comment_title" id="title1579" onclick="toggle(&quot;body1579&quot;)">Re: ...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1579">
+    (<span class="upvotes"><span id="upvotes1579">1</span></span>/<span class="downvotes"><span id="downvotes1579">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1579" class="comment_body">
+    <pre id="msg1579" style="display: none">Yes, that is a valid monkey language word.</pre>
+    <div style="opacity: 1">
+      Yes, that is a valid monkey language word.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment1576">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1576">Feb 12, 2009 - 2:41:45 am UTC</a>      </span>
+      <a class="comment_title" id="title1576" onclick="toggle(&quot;body1576&quot;)">BNF syntax for a monkey language word</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1576">
+    (<span class="upvotes"><span id="upvotes1576">2</span></span>/<span class="downvotes"><span id="downvotes1576">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1576" class="comment_body">
+    <pre id="msg1576" style="display: none">&lt;monkey-word&gt; ::= &lt;a-word&gt; | &lt;a-word&gt; "N" &lt;monkey-word&gt;
+&lt;a-word&gt; ::= A | "B" &lt;monkey-word&gt; "S"
+
+Or, if greater conciseness is desired,
+&lt;monkey-word&gt; ::= "A" | "B" &lt;monkey-word&gt; "S" | &lt;monkey-word&gt; "N" &lt;monkey-word&gt;
+
+(Challenge: Prove that these two grammars are equivalent.)
+
+You should not be having any trouble understanding the problem statement. The problem statement is very clear. If you don't understand it, you can't be trying hard enough - especially considering the amount of discussion on this problem.</pre>
+    <div style="opacity: 1">
+      &lt;monkey-word&gt; ::= &lt;a-word&gt; | &lt;a-word&gt; "N" &lt;monkey-word&gt; <br>&lt;a-word&gt; ::= A | "B" &lt;monkey-word&gt; "S" <br> <br>Or, if greater conciseness is desired, <br>&lt;monkey-word&gt; ::= "A" | "B" &lt;monkey-word&gt; "S" | &lt;monkey-word&gt; "N" &lt;monkey-word&gt; <br> <br>(Challenge: Prove that these two grammars are equivalent.) <br> <br>You should not be having any trouble understanding the problem statement. The problem statement is very clear. If you don't understand it, you can't be trying hard enough - especially considering the amount of discussion on this problem.    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment1573">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/humanoidmanticore">humanoidmanticore</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1573">Feb 12, 2009 - 12:19:03 am UTC</a>      </span>
+      <a class="comment_title" id="title1573" onclick="toggle(&quot;body1573&quot;)">Brackets</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1573">
+    (<span class="upvotes"><span id="upvotes1573">1</span></span>/<span class="downvotes"><span id="downvotes1573">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1573" class="comment_body">
+    <pre id="msg1573" style="display: none">so is this possible?
+
+BBANASANAS
+</pre>
+    <div style="opacity: 0.90547134519913">
+      so is this possible? <br> <br>BBANASANAS    </div>
+    <br><div class="comment_block" id="comment1575">
+  <div class="comment_header" style="opacity: 0.65762804711038">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1575">Feb 12, 2009 - 2:39:47 am UTC</a>      </span>
+      <a class="comment_title" id="title1575" onclick="toggle(&quot;body1575&quot;)">Re: Brackets</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1575">
+    (<span class="upvotes"><span id="upvotes1575">0</span></span>/<span class="downvotes"><span id="downvotes1575">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1575" class="comment_body">
+    <pre id="msg1575" style="display: none">No, BBANASANAS is not a monkey language word. If we assume that it is B + monkey word + S, then the monkey language word within must be BANASANA. Here, the B and S must be matched, so it must have BANAS as a smaller monkey language word contained within. But look, it is followed by ANA. A monkey language word can never be followed by A to form another monkey language word; it has to be followed by either S (if it is preceded by A) or N (if the N is then followed by another monkey language word.)
+
+If, on the other hand, we consider it to be two monkey language words joined together with a 'N' between them, we get the possibilities:
+BBA + N + ASANAS
+BBANASA + N + AS
+In each case, the numbers of B and S are unbalanced, so these are obviously incorrect.
+
+Having found no way to decompose BBANASANAS into smaller monkey language words according to the given rules, we conclude that it is not a monkey language word.</pre>
+    <div style="opacity: 0.65762804711038">
+      No, BBANASANAS is not a monkey language word. If we assume that it is B + monkey word + S, then the monkey language word within must be BANASANA. Here, the B and S must be matched, so it must have BANAS as a smaller monkey language word contained within. But look, it is followed by ANA. A monkey language word can never be followed by A to form another monkey language word; it has to be followed by either S (if it is preceded by A) or N (if the N is then followed by another monkey language word.) <br> <br>If, on the other hand, we consider it to be two monkey language words joined together with a 'N' between them, we get the possibilities: <br>BBA + N + ASANAS <br>BBANASA + N + AS <br>In each case, the numbers of B and S are unbalanced, so these are obviously incorrect. <br> <br>Having found no way to decompose BBANASANAS into smaller monkey language words according to the given rules, we conclude that it is not a monkey language word.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment725">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/zhxl0903">zhxl0903</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/725">Dec 12, 2008 - 4:05:09 am UTC</a>      </span>
+      <a class="comment_title" id="title725" onclick="toggle(&quot;body725&quot;)">It's still confusing...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating725">
+    (<span class="upvotes"><span id="upvotes725">0</span></span>/<span class="downvotes"><span id="downvotes725">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body725" class="comment_body">
+    <pre id="msg725" style="display: none">I still have 2 questions:
+
+Can you have double or triple brackets made up of B S.
+
+Is the 'N' optional after the 'A' or it must be there?</pre>
+    <div style="opacity: 1">
+      I still have 2 questions: <br> <br>Can you have double or triple brackets made up of B S. <br> <br>Is the 'N' optional after the 'A' or it must be there?    </div>
+    <br><div class="comment_block" id="comment731">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/731">Dec 12, 2008 - 10:03:55 pm UTC</a>      </span>
+      <a class="comment_title" id="title731" onclick="toggle(&quot;body731&quot;)">Re: It's still confusing...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating731">
+    (<span class="upvotes"><span id="upvotes731">0</span></span>/<span class="downvotes"><span id="downvotes731">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body731" class="comment_body">
+    <pre id="msg731" style="display: none">1: As in BBANASS? Yes.
+
+2: What do you mean? Attention to line: [quote]A monkey language word is a special type of word called an [i]A-word[/i], which may be optionally followed by the letter N and a monkey language word.[/quote] Therefore, 'A' is a monkey language word.</pre>
+    <div style="opacity: 1">
+      1: As in BBANASS? Yes. <br> <br>2: What do you mean? Attention to line: <table style="width: 90%; margin: 0 auto">
+            <tbody><tr>
+            <td><span class="quotecodeheader"></span></td>
+            </tr>
+            <tr>
+            <td class="quotebody">A monkey language word is a special type of word called an <span class="italics">A-word</span>, which may be optionally followed by the letter N and a monkey language word.</td>
+            </tr>
+            </tbody></table> Therefore, 'A' is a monkey language word.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment670">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Bob">Bob</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/670">Dec 07, 2008 - 5:45:24 pm UTC</a>      </span>
+      <a class="comment_title" id="title670" onclick="toggle(&quot;body670&quot;)">Question</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating670">
+    (<span class="upvotes"><span id="upvotes670">0</span></span>/<span class="downvotes"><span id="downvotes670">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body670" class="comment_body">
+    <pre id="msg670" style="display: none">what if the inputted string is in lowercase - does it matter?
+</pre>
+    <div style="opacity: 1">
+      what if the inputted string is in lowercase - does it matter?    </div>
+    <br><div class="comment_block" id="comment671">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/671">Dec 07, 2008 - 6:05:53 pm UTC</a>      </span>
+      <a class="comment_title" id="title671" onclick="toggle(&quot;body671&quot;)">Re: Question</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating671">
+    (<span class="upvotes"><span id="upvotes671">0</span></span>/<span class="downvotes"><span id="downvotes671">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body671" class="comment_body">
+    <pre id="msg671" style="display: none">I don't think there are any such cases. Whatever the case may be, assume that they're all uppercase.</pre>
+    <div style="opacity: 1">
+      I don't think there are any such cases. Whatever the case may be, assume that they're all uppercase.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment409">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/zhxl0903">zhxl0903</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/409">Nov 23, 2008 - 12:03:29 am UTC</a>      </span>
+      <a class="comment_title" id="title409" onclick="toggle(&quot;body409&quot;)">Is BNBNBNBNS a monkey language word? </a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating409">
+    (<span class="upvotes"><span id="upvotes409">0</span></span>/<span class="downvotes"><span id="downvotes409">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body409" class="comment_body">
+    <pre id="msg409" style="display: none"></pre>
+    <div style="opacity: 0.79345670852611">
+          </div>
+    <br><div class="comment_block" id="comment410">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/zerglingrush">zerglingrush</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/410">Nov 23, 2008 - 12:32:05 am UTC</a>      </span>
+      <a class="comment_title" id="title410" onclick="toggle(&quot;body410&quot;)">Monkey Word</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating410">
+    (<span class="upvotes"><span id="upvotes410">1</span></span>/<span class="downvotes"><span id="downvotes410">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body410" class="comment_body">
+    <pre id="msg410" style="display: none">No it is not, it has to contain at least one letter A. 
+
+monkey words are joined together by 'N'
+Also, some monkey words start with 'B' but must end in 'S'</pre>
+    <div style="opacity: 0.90547134519913">
+      No it is not, it has to contain at least one letter A.  <br> <br>monkey words are joined together by 'N' <br>Also, some monkey words start with 'B' but must end in 'S'    </div>
+    <br><div class="comment_block" id="comment412">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bleung91">bleung91</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/412">Nov 23, 2008 - 12:32:32 am UTC</a>      </span>
+      <a class="comment_title" id="title412" onclick="toggle(&quot;body412&quot;)">Re: Monkey Word</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating412">
+    (<span class="upvotes"><span id="upvotes412">0</span></span>/<span class="downvotes"><span id="downvotes412">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body412" class="comment_body">
+    <pre id="msg412" style="display: none">darn it scott, you're supposed to let him figure it out himself.</pre>
+    <div style="opacity: 1">
+      darn it scott, you're supposed to let him figure it out himself.    </div>
+    <br><div class="comment_block" id="comment413">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/zerglingrush">zerglingrush</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/413">Nov 23, 2008 - 12:33:57 am UTC</a>      </span>
+      <a class="comment_title" id="title413" onclick="toggle(&quot;body413&quot;)">Monkey Word</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating413">
+    (<span class="upvotes"><span id="upvotes413">1</span></span>/<span class="downvotes"><span id="downvotes413">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body413" class="comment_body">
+    <pre id="msg413" style="display: none">LOL, all you did was restate the problem statement...</pre>
+    <div style="opacity: 0.90547134519913">
+      LOL, all you did was restate the problem statement...    </div>
+    <br><div class="comment_block" id="comment416">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bleung91">bleung91</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/416">Nov 23, 2008 - 1:07:53 am UTC</a>      </span>
+      <a class="comment_title" id="title416" onclick="toggle(&quot;body416&quot;)">Re: Monkey Word</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating416">
+    (<span class="upvotes"><span id="upvotes416">0</span></span>/<span class="downvotes"><span id="downvotes416">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body416" class="comment_body">
+    <pre id="msg416" style="display: none">nope, I reworded it here and there.</pre>
+    <div style="opacity: 0.79345670852611">
+      nope, I reworded it here and there.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br><div class="comment_block" id="comment411">
+  <div class="comment_header" style="opacity: 0.65762804711038">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bleung91">bleung91</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/411">Nov 23, 2008 - 12:32:07 am UTC</a>      </span>
+      <a class="comment_title" id="title411" onclick="toggle(&quot;body411&quot;)">Look at the problem statement</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating411">
+    (<span class="upvotes"><span id="upvotes411">0</span></span>/<span class="downvotes"><span id="downvotes411">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body411" class="comment_body">
+    <pre id="msg411" style="display: none">A monkey language word is a special type of word called an A-word, which may be optionally followed by a "N" or a monkey language word.
+
+An A-word is either:
+1) The Letter "A"
+2) B followed by a monkey language word followed by an "s".
+
+Using these rules, it can be determined whether or not "BNBNBNBNS" is a monkey language word.</pre>
+    <div style="opacity: 0.65762804711038">
+      A monkey language word is a special type of word called an A-word, which may be optionally followed by a "N" or a monkey language word. <br> <br>An A-word is either: <br>1) The Letter "A" <br>2) B followed by a monkey language word followed by an "s". <br> <br>Using these rules, it can be determined whether or not "BNBNBNBNS" is a monkey language word.    </div>
+      </div>
+</div>
+<br><div class="comment_block" id="comment437">
+  <div class="comment_header" style="opacity: 0.93850968472384">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Saravannan">Saravannan</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/437">Nov 23, 2008 - 10:48:26 pm UTC</a>      </span>
+      <a class="comment_title" id="title437" onclick="toggle(&quot;body437&quot;)">Re: Is BNBNBNBNS a monkey language word? </a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating437">
+    (<span class="upvotes"><span id="upvotes437">2</span></span>/<span class="downvotes"><span id="downvotes437">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body437" class="comment_body">
+    <pre id="msg437" style="display: none">Nope, If it has a B it has to have a S to enclose the monkey word, think of the B and S as brackets. You can't have an open bracket that doesn't have a close bracket.</pre>
+    <div style="opacity: 0.93850968472384">
+      Nope, If it has a B it has to have a S to enclose the monkey word, think of the B and S as brackets. You can't have an open bracket that doesn't have a close bracket.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0669s.<br>
+    Server time on page load:
+    May 9, 2018 15:29:23 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fccc05j5%2F">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

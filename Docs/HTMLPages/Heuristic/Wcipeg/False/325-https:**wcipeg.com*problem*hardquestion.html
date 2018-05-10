@@ -1,0 +1,730 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - Hard Question</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "a846b326ae579368c4a4e84e51d36946";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fhardquestion"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h2>Hard Question</h2>
+
+<p>A stone is dropped into a well. <i>t</i> seconds later, a splash is heard.
+The acceleration due to gravity is <i>g</i> metres per second per second, and
+the speed of sound is <i>c</i> metres per second. Calculate the depth of the
+well and the downwards velocity with which the stone hits the water.</p>
+
+<h3>Input Format</h3>
+<p>Line 1: The value of <i>g</i> (0 &lt; <i>g</i> ≤ 1000)</p>
+<p>Line 2: The value of <i>c</i> (0 &lt; <i>c</i> ≤ 1000)</p>
+<p>Line 3: The value of <i>t</i> (0 &lt; <i>t</i> ≤ 1000)</p>
+
+<h3>Output Format</h3>
+<p>Line 1: The depth of the well in metres.</p>
+<p>Line 2: The speed of the stone as it hits the water, in metres per
+second.</p>
+
+<h3>Sample Input</h3>
+<pre>9.80
+334
+3.41</pre>
+
+<h3>Sample Output</h3>
+<pre>51.90
+31.90</pre>
+
+<p>Your answers must have a relative or absolute error of less than 0.01.</p>
+
+<h3>Notes</h3>
+<p>The following equations may be useful:</p>
+<ul>
+<li><img src="https://wcipeg.com/problems/latex/3e8e31ea732d44726999d9c614196875" alt="$\Delta \vec{d} = \vec{v} \Delta t$" class="latex"></li>
+<li><img src="https://wcipeg.com/problems/latex/bb3923830732f8e8437d698c9f890951" alt="$\vec{v}_2 - \vec{v}_1 = \vec{a} \Delta t$" class="latex"></li>
+<li><img src="https://wcipeg.com/problems/latex/8ad131d902519e90ee8ec5ed444bd9ec" alt="$\Delta \vec{d} = \frac{1}{2} (\vec{v}_1 + \vec{v}_2)
+\Delta t$" class="latex"></li>
+<li><img src="https://wcipeg.com/problems/latex/1d2ad0a62010cc0a41385c8cb29cfb49" alt="$\Delta \vec{d} = \vec{v}_1 \Delta t +
+\frac{1}{2} \vec{a}(\Delta t)^2$" class="latex"></li>
+<li><img src="https://wcipeg.com/problems/latex/415e90cc767aca0d083b400259d3600d" alt="$\Delta \vec{d} = \vec{v}_2 \Delta t -
+\frac{1}{2} \vec{a}(\Delta t)^2$" class="latex"></li>
+<li><img src="https://wcipeg.com/problems/latex/4fde99c835c31043a7bc909a16fb1edd" alt="$\|\vec{v}_2\|^2 - \|\vec{v}_1\|^2 =
+2\vec{a}\cdot \Delta \vec{d}$" class="latex"></li>
+</ul>
+<p>Here <img src="https://wcipeg.com/problems/latex/1634f4faae56a722601e18e972a4a800" alt="$\Delta t, \Delta \vec{d}, \vec{v}, \vec{v}_1, \vec{v}_2,
+\vec{a}$" class="latex"> represent time, displacement, velocity, initial velocity,
+final velocity, and acceleration, respectively.</p>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,hardquestion">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/hardquestion">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 3<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Jan 16, 2009<br>
+        <b>Author:</b> <a href="https://wcipeg.com/user/bbi5291">bbi5291</a>  </p>
+
+    <b>Problem Types:</b>
+  <noscript>
+    &lt;style type="text/css"&gt;
+      #show_types, #hide_types { display: none !important; }
+      #spoiler_id { display: inline !important; }
+    &lt;/style&gt;
+  </noscript>
+  <a href="javascript:void(null);" id="show_types" onclick="document.getElementById('spoiler_id').style.display=''; document.getElementById('show_types').style.display='none';">[Show]</a>
+  <span id="spoiler_id" style="display: none">
+    <a href="javascript:void(null);" id="hide_types" onclick="document.getElementById('spoiler_id').style.display='none'; document.getElementById('show_types').style.display='';">[Hide]</a><br>
+    <ul style="list-style-type: none; margin: 0; padding: 0;">
+      <li>Math</li>    </ul>
+  </span>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=hardquestion">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment8679">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/magicalsoup">magicalsoup</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8679">Feb 16, 2018 - 11:48:44 pm UTC</a>      </span>
+      <a class="comment_title" id="title8679" onclick="toggle(&quot;body8679&quot;)">jargon senpai! please help me</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8679">
+    (<span class="upvotes"><span id="upvotes8679">0</span></span>/<span class="downvotes"><span id="downvotes8679">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8679" class="comment_body">
+    <pre id="msg8679" style="display: none">my physics seems right, but why am i getting WA? can you please tell me if its a formating error/round error of algorithm error, help me please, thank you!</pre>
+    <div style="opacity: 1">
+      my physics seems right, but why am i getting WA? can you please tell me if its a formating error/round error of algorithm error, help me please, thank you!    </div>
+    <br><div class="comment_block" id="comment8680">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/magicalsoup">magicalsoup</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8680">Feb 16, 2018 - 11:49:06 pm UTC</a>      </span>
+      <a class="comment_title" id="title8680" onclick="toggle(&quot;body8680&quot;)">Re: jargon senpai! please help me</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8680">
+    (<span class="upvotes"><span id="upvotes8680">0</span></span>/<span class="downvotes"><span id="downvotes8680">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8680" class="comment_body">
+    <pre id="msg8680" style="display: none">rounding or algorithm error</pre>
+    <div style="opacity: 1">
+      rounding or algorithm error    </div>
+    <br><div class="comment_block" id="comment8683">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8683">Feb 17, 2018 - 7:11:38 am UTC</a>      </span>
+      <a class="comment_title" id="title8683" onclick="toggle(&quot;body8683&quot;)">Submissions rejudged.</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8683">
+    (<span class="upvotes"><span id="upvotes8683">1</span></span>/<span class="downvotes"><span id="downvotes8683">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8683" class="comment_body">
+    <pre id="msg8683" style="display: none">1. Please make use of the edit function instead of posting multiple comments in a row. You can edit your comments by clicking the pencil icon on the left side of your comment.
+
+2. Our [i]sincerest[/i] apologies. This problem was effectively impossible for a while, due to an error on our end. I have resolved this error, and [b]I manually rejudged several affected submissions[/b] (at least one from each user who posted since the mistake); the number of accepted users has increased from 49 to 63.
+
+Please resubmit if I missed you or you believe you may have been affected.</pre>
+    <div style="opacity: 1">
+      1. Please make use of the edit function instead of posting multiple comments in a row. You can edit your comments by clicking the pencil icon on the left side of your comment. <br> <br>2. Our <span class="italics">sincerest</span> apologies. This problem was effectively impossible for a while, due to an error on our end. I have resolved this error, and <span class="bold">I manually rejudged several affected submissions</span> (at least one from each user who posted since the mistake); the number of accepted users has increased from 49 to 63. <br> <br>Please resubmit if I missed you or you believe you may have been affected.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment8019">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/asdflkjh">asdflkjh</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8019">Mar 28, 2017 - 12:47:49 am UTC</a>      </span>
+      <a class="comment_title" id="title8019" onclick="toggle(&quot;body8019&quot;)">What does per second per second mean?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8019">
+    (<span class="upvotes"><span id="upvotes8019">0</span></span>/<span class="downvotes"><span id="downvotes8019">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8019" class="comment_body">
+    <pre id="msg8019" style="display: none">What does per second per second mean?
+[quote]The acceleration due to gravity is g metres per second per second[/quote]</pre>
+    <div style="opacity: 1">
+      What does per second per second mean? <br><table style="width: 90%; margin: 0 auto">
+            <tbody><tr>
+            <td><span class="quotecodeheader"></span></td>
+            </tr>
+            <tr>
+            <td class="quotebody">The acceleration due to gravity is g metres per second per second</td>
+            </tr>
+            </tbody></table>    </div>
+    <br><div class="comment_block" id="comment8020">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8020">Mar 28, 2017 - 8:58:52 am UTC</a>      </span>
+      <a class="comment_title" id="title8020" onclick="toggle(&quot;body8020&quot;)">Re: What does per second per second mean?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8020">
+    (<span class="upvotes"><span id="upvotes8020">0</span></span>/<span class="downvotes"><span id="downvotes8020">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8020" class="comment_body">
+    <pre id="msg8020" style="display: none">This will make sense once you've had exposure to elementary physics.</pre>
+    <div style="opacity: 1">
+      This will make sense once you've had exposure to elementary physics.    </div>
+    <br><div class="comment_block" id="comment8040">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/asdflkjh">asdflkjh</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8040">Apr 10, 2017 - 9:41:29 pm UTC</a>      </span>
+      <a class="comment_title" id="title8040" onclick="toggle(&quot;body8040&quot;)">Re: What does per second per second mean?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8040">
+    (<span class="upvotes"><span id="upvotes8040">0</span></span>/<span class="downvotes"><span id="downvotes8040">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8040" class="comment_body">
+    <pre id="msg8040" style="display: none">per second per second?
+it repeats twice!</pre>
+    <div style="opacity: 0.79345670852611">
+      per second per second? <br>it repeats twice!    </div>
+    <br><div class="comment_block" id="comment8042">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8042">Apr 12, 2017 - 12:19:04 am UTC</a>      </span>
+      <a class="comment_title" id="title8042" onclick="toggle(&quot;body8042&quot;)">Re: What does per second per second mean?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8042">
+    (<span class="upvotes"><span id="upvotes8042">0</span></span>/<span class="downvotes"><span id="downvotes8042">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8042" class="comment_body">
+    <pre id="msg8042" style="display: none">the short of it:
+
+how fast you go is change in displacement, measured in [metres] per second. (velocity.)
+how fast you're increasing how fast you go is change in velocity, measured in [metres per second] per second. (acceleration.)</pre>
+    <div style="opacity: 1">
+      the short of it: <br> <br>how fast you go is change in displacement, measured in [metres] per second. (velocity.) <br>how fast you're increasing how fast you go is change in velocity, measured in [metres per second] per second. (acceleration.)    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment7873">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/IMAGenius">IMAGenius</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7873">Dec 31, 2016 - 8:22:53 pm UTC</a>      </span>
+      <a class="comment_title" id="title7873" onclick="toggle(&quot;body7873&quot;)"></a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7873">
+    (<span class="upvotes"><span id="upvotes7873">0</span></span>/<span class="downvotes"><span id="downvotes7873">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7873" class="comment_body">
+    <pre id="msg7873" style="display: none">I'm not sure why my program doesn't work</pre>
+    <div style="opacity: 1">
+      I'm not sure why my program doesn't work    </div>
+    <br><div class="comment_block" id="comment7874">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7874">Jan 02, 2017 - 7:44:02 am UTC</a>      </span>
+      <a class="comment_title" id="title7874" onclick="toggle(&quot;body7874&quot;)">Re: ...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7874">
+    (<span class="upvotes"><span id="upvotes7874">0</span></span>/<span class="downvotes"><span id="downvotes7874">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7874" class="comment_body">
+    <pre id="msg7874" style="display: none">You are experiencing significant loss of precision.
+
+Edit: I was wrong. Your code was right, and the judge was wrong. I apologise.</pre>
+    <div style="opacity: 1">
+      You are experiencing significant loss of precision. <br> <br>Edit: I was wrong. Your code was right, and the judge was wrong. I apologise.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment5711">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Butane">Butane</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5711">Jan 12, 2014 - 12:05:56 am UTC</a>      </span>
+      <a class="comment_title" id="title5711" onclick="toggle(&quot;body5711&quot;)">Rounding for this question?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5711">
+    (<span class="upvotes"><span id="upvotes5711">0</span></span>/<span class="downvotes"><span id="downvotes5711">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5711" class="comment_body">
+    <pre id="msg5711" style="display: none">OK, so I tried all sorts of rounding methods, but I keep getting the wrong answer. In the sample input, my program rounds the speed of the stone to 31.93. How was the sample input rounded, because the full answer is around 31.929799, yet the sample output says only 31.90?</pre>
+    <div style="opacity: 1">
+      OK, so I tried all sorts of rounding methods, but I keep getting the wrong answer. In the sample input, my program rounds the speed of the stone to 31.93. How was the sample input rounded, because the full answer is around 31.929799, yet the sample output says only 31.90?    </div>
+    <br><div class="comment_block" id="comment5712">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/ImbaCalvin">ImbaCalvin</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5712">Jan 12, 2014 - 1:38:21 am UTC</a>      </span>
+      <a class="comment_title" id="title5712" onclick="toggle(&quot;body5712&quot;)">Re: Rounding for this question?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5712">
+    (<span class="upvotes"><span id="upvotes5712">1</span></span>/<span class="downvotes"><span id="downvotes5712">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5712" class="comment_body">
+    <pre id="msg5712" style="display: none">The exact answer is actually
+51.9029278687
+31.8950997212</pre>
+    <div style="opacity: 0.90547134519913">
+      The exact answer is actually <br>51.9029278687 <br>31.8950997212    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment2952">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/ilovepi">ilovepi</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2952">Jan 15, 2011 - 10:20:28 pm UTC</a>      </span>
+      <a class="comment_title" id="title2952" onclick="toggle(&quot;body2952&quot;)">HOW?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2952">
+    (<span class="upvotes"><span id="upvotes2952">0</span></span>/<span class="downvotes"><span id="downvotes2952">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2952" class="comment_body">
+    <pre id="msg2952" style="display: none">How are you supposed to do this questions? How come it's so hard when it's only worth 3 points? If anybody knows, can they give me the formuala in words that I can actually UNDERSTAND? THANK YOU!!!</pre>
+    <div style="opacity: 0.79345670852611">
+      How are you supposed to do this questions? How come it's so hard when it's only worth 3 points? If anybody knows, can they give me the formuala in words that I can actually UNDERSTAND? THANK YOU!!!    </div>
+    <br><div class="comment_block" id="comment2953">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2953">Jan 15, 2011 - 10:31:08 pm UTC</a>      </span>
+      <a class="comment_title" id="title2953" onclick="toggle(&quot;body2953&quot;)">Re: HOW?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2953">
+    (<span class="upvotes"><span id="upvotes2953">0</span></span>/<span class="downvotes"><span id="downvotes2953">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2953" class="comment_body">
+    <pre id="msg2953" style="display: none">It's not hard; it just requires a basic understanding of high school algebra and physics. The point value stands. (I even gave you the equations of kinematics you need to solve this!)</pre>
+    <div style="opacity: 1">
+      It's not hard; it just requires a basic understanding of high school algebra and physics. The point value stands. (I even gave you the equations of kinematics you need to solve this!)    </div>
+    <br><div class="comment_block" id="comment2954">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/ilovepi">ilovepi</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2954">Jan 16, 2011 - 6:00:24 pm UTC</a>      </span>
+      <a class="comment_title" id="title2954" onclick="toggle(&quot;body2954&quot;)">Re: Re: HOW?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2954">
+    (<span class="upvotes"><span id="upvotes2954">0</span></span>/<span class="downvotes"><span id="downvotes2954">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2954" class="comment_body">
+    <pre id="msg2954" style="display: none">Well then could you tell me the meaning of the equations? It's so hard to understand when your only in grade 7.</pre>
+    <div style="opacity: 1">
+      Well then could you tell me the meaning of the equations? It's so hard to understand when your only in grade 7.    </div>
+    <br><div class="comment_block" id="comment2955">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2955">Jan 17, 2011 - 12:36:47 am UTC</a>      </span>
+      <a class="comment_title" id="title2955" onclick="toggle(&quot;body2955&quot;)">Re: Re: HOW?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2955">
+    (<span class="upvotes"><span id="upvotes2955">0</span></span>/<span class="downvotes"><span id="downvotes2955">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2955" class="comment_body">
+    <pre id="msg2955" style="display: none">These equations describe uniformly accelerated linear motion, where Δ[i]t[/i] is elapsed time, Δ[b]d[/b] is displacement, [b]v[/b]₁ is initial velocity, [b]v[/b]₂ is final velocity, and [b]a[/b] is acceleration.</pre>
+    <div style="opacity: 1">
+      These equations describe uniformly accelerated linear motion, where Δ<span class="italics">t</span> is elapsed time, Δ<span class="bold">d</span> is displacement, <span class="bold">v</span>₁ is initial velocity, <span class="bold">v</span>₂ is final velocity, and <span class="bold">a</span> is acceleration.    </div>
+    <br><div class="comment_block" id="comment2956">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/SourSpinach">SourSpinach</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2956">Jan 17, 2011 - 4:04:04 am UTC</a>      </span>
+      <a class="comment_title" id="title2956" onclick="toggle(&quot;body2956&quot;)">Re: Re: HOW?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2956">
+    (<span class="upvotes"><span id="upvotes2956">0</span></span>/<span class="downvotes"><span id="downvotes2956">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2956" class="comment_body">
+    <pre id="msg2956" style="display: none">I recommend simply not doing this question until you've taken Grade 11 Physics.</pre>
+    <div style="opacity: 1">
+      I recommend simply not doing this question until you've taken Grade 11 Physics.    </div>
+    <br><div class="comment_block" id="comment2961">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/ilovepi">ilovepi</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2961">Jan 18, 2011 - 12:18:22 am UTC</a>      </span>
+      <a class="comment_title" id="title2961" onclick="toggle(&quot;body2961&quot;)">Re: Re: HOW?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2961">
+    (<span class="upvotes"><span id="upvotes2961">0</span></span>/<span class="downvotes"><span id="downvotes2961">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2961" class="comment_body">
+    <pre id="msg2961" style="display: none">I will listen to your advice. TY.</pre>
+    <div style="opacity: 1">
+      I will listen to your advice. TY.    </div>
+      </div>
+</div>
+<br><div class="comment_block" id="comment3030">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/HelloMelloC">HelloMelloC</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3030">Jan 27, 2011 - 3:36:59 pm UTC</a>      </span>
+      <a class="comment_title" id="title3030" onclick="toggle(&quot;body3030&quot;)">Re: Re: HOW?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3030">
+    (<span class="upvotes"><span id="upvotes3030">0</span></span>/<span class="downvotes"><span id="downvotes3030">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3030" class="comment_body">
+    <pre id="msg3030" style="display: none">LOL.
+No need for physics here, I just BF'ed.
+Digital technology's so great (compared to analog) as you can just set an arbitrary precision depending on how precise the situation needs (with the equivalent time costs, of course).</pre>
+    <div style="opacity: 1">
+      LOL. <br>No need for physics here, I just BF'ed. <br>Digital technology's so great (compared to analog) as you can just set an arbitrary precision depending on how precise the situation needs (with the equivalent time costs, of course).    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment1325">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/frenzybenzy">frenzybenzy</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1325">Jan 18, 2009 - 2:01:39 am UTC</a>      </span>
+      <a class="comment_title" id="title1325" onclick="toggle(&quot;body1325&quot;)">Anything wrong?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1325">
+    (<span class="upvotes"><span id="upvotes1325">0</span></span>/<span class="downvotes"><span id="downvotes1325">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1325" class="comment_body">
+    <pre id="msg1325" style="display: none">I can't find anything wrong in my equation.</pre>
+    <div style="opacity: 1">
+      I can't find anything wrong in my equation.    </div>
+    <br><div class="comment_block" id="comment1327">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/DrSane">DrSane</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1327">Jan 18, 2009 - 2:09:42 am UTC</a>      </span>
+      <a class="comment_title" id="title1327" onclick="toggle(&quot;body1327&quot;)">Re: Anything wrong?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1327">
+    (<span class="upvotes"><span id="upvotes1327">0</span></span>/<span class="downvotes"><span id="downvotes1327">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1327" class="comment_body">
+    <pre id="msg1327" style="display: none">I haven't read the problem, so I can't comment on who's doing what right, but Sour Spinach has a different algorithm  to get 5/5. Notice the time his solution took.
+
+[b]Edit[/b]: But, according to the analysis, it's not necessary. So I don't actually know what's going on.</pre>
+    <div style="opacity: 1">
+      I haven't read the problem, so I can't comment on who's doing what right, but Sour Spinach has a different algorithm  to get 5/5. Notice the time his solution took. <br> <br><span class="bold">Edit</span>: But, according to the analysis, it's not necessary. So I don't actually know what's going on.    </div>
+      </div>
+</div>
+<br><div class="comment_block" id="comment1331">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1331">Jan 18, 2009 - 3:02:23 am UTC</a>      </span>
+      <a class="comment_title" id="title1331" onclick="toggle(&quot;body1331&quot;)">Re: Anything wrong?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1331">
+    (<span class="upvotes"><span id="upvotes1331">2</span></span>/<span class="downvotes"><span id="downvotes1331">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1331" class="comment_body">
+    <pre id="msg1331" style="display: none">Aah, you don't know how close you are! You forgot to divide by 2 when using the fourth equation, most likely.</pre>
+    <div style="opacity: 1">
+      Aah, you don't know how close you are! You forgot to divide by 2 when using the fourth equation, most likely.    </div>
+    <br><div class="comment_block" id="comment1332">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/frenzybenzy">frenzybenzy</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1332">Jan 18, 2009 - 3:05:32 am UTC</a>      </span>
+      <a class="comment_title" id="title1332" onclick="toggle(&quot;body1332&quot;)">Re: Re: Anything wrong?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1332">
+    (<span class="upvotes"><span id="upvotes1332">0</span></span>/<span class="downvotes"><span id="downvotes1332">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1332" class="comment_body">
+    <pre id="msg1332" style="display: none">THANK YOU SO MUCH
+</pre>
+    <div style="opacity: 1">
+      THANK YOU SO MUCH    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment1302">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Bob">Bob</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1302">Jan 17, 2009 - 1:26:36 am UTC</a>      </span>
+      <a class="comment_title" id="title1302" onclick="toggle(&quot;body1302&quot;)">Why is this only two points?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1302">
+    (<span class="upvotes"><span id="upvotes1302">0</span></span>/<span class="downvotes"><span id="downvotes1302">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1302" class="comment_body">
+    <pre id="msg1302" style="display: none">How do people in Grade 6-7 do this program (how is it only 2 points!!!)? We don't know anything about this physics stuff (or something like that).</pre>
+    <div style="opacity: 1">
+      How do people in Grade 6-7 do this program (how is it only 2 points!!!)? We don't know anything about this physics stuff (or something like that).    </div>
+    <br><div class="comment_block" id="comment1304">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1304">Jan 17, 2009 - 2:52:45 am UTC</a>      </span>
+      <a class="comment_title" id="title1304" onclick="toggle(&quot;body1304&quot;)">Re: Why is this only two points?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1304">
+    (<span class="upvotes"><span id="upvotes1304">1</span></span>/<span class="downvotes"><span id="downvotes1304">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1304" class="comment_body">
+    <pre id="msg1304" style="display: none">It's for didactic purposes only. Although, since, when I think of it, the same can be said for all problems on the judge, I guess it should be 3 points, since it's harder than A plus B, and around the difficulty of an easy CCC problem.</pre>
+    <div style="opacity: 1">
+      It's for didactic purposes only. Although, since, when I think of it, the same can be said for all problems on the judge, I guess it should be 3 points, since it's harder than A plus B, and around the difficulty of an easy CCC problem.    </div>
+    <br><div class="comment_block" id="comment1305">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Bob">Bob</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1305">Jan 17, 2009 - 3:02:30 am UTC</a>      </span>
+      <a class="comment_title" id="title1305" onclick="toggle(&quot;body1305&quot;)">Re: Re: Why is this only two points?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1305">
+    (<span class="upvotes"><span id="upvotes1305">0</span></span>/<span class="downvotes"><span id="downvotes1305">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1305" class="comment_body">
+    <pre id="msg1305" style="display: none">Thanks for the equations! :smile:</pre>
+    <div style="opacity: 1">
+      Thanks for the equations! <img src="https://wcipeg.com/assets/img/smiley/smile.gif" alt="smile.gif">    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0781s.<br>
+    Server time on page load:
+    May 9, 2018 16:22:34 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fhardquestion">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>
