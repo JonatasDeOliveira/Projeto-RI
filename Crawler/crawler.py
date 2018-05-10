@@ -63,7 +63,7 @@ def get_all_links(domain, pathTotal, maxSize, rp, driver):
     return links
 
 
-def crawler(domain, pathseed, maxSize = 10):
+def crawler(domain, pathseed, maxSize = 50):
     q = queue.Queue()
     visited = []
     links = []
@@ -131,15 +131,15 @@ def folder(domain):
         return 'A2oj'
 
 #Falta leetcode
-crawler('https://wcipeg.com','')
-crawler('http://www.codeforces.com','')
-crawler('https://a2oj.com','')
-#crawler('https://www.codechef.com','')
-crawler('http://www.spoj.com','')
-crawler('https://dmoj.ca','')
-crawler('http://acm.timus.ru','')
-#crawler('https://www.urionlinejudge.com.br','')
-crawler('https://leetcode.com','')
+#crawler('https://wcipeg.com','')
+#crawler('http://www.codeforces.com','')
+#crawler('https://a2oj.com','')
+##crawler('https://www.codechef.com','')
+#crawler('http://www.spoj.com','')
+#crawler('https://dmoj.ca','')
+#crawler('http://acm.timus.ru','')
+##crawler('https://www.urionlinejudge.com.br','')
+crawler('https://leetcode.com','/problems/two-sum/')
 
 rp = Robots.fetch('http://www.codeforces.com'+'/robots.txt',verify=False)
 print(rp.allowed('http://www.codeforces.com','*'))

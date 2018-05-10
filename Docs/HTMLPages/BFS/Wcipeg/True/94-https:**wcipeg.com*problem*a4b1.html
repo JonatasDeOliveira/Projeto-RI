@@ -1,0 +1,483 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - Sorting</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "fec0f8415c95379f36f6163da33a3f23";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fa4b1"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h2>Sorting :)</h2>
+
+<p>Given a list of <var>n</var> numbers, sort them and output them one per line from smallest to largest</p>
+
+
+<h3>Input</h3>
+<p>The first line of the input contains a positive integer <var>n</var> no greater than 100, the number of numbers to follow.</p>
+
+<p>Each line after will have a single positive integer less than 32000</p>
+
+<h3>Output</h3>
+
+<p>Output the numbers in sorted order from smallest to largest, one per line.</p>
+
+<h3>Sample Input</h3>
+<pre>4
+4
+3
+2
+1
+</pre>
+
+<h3>Sample Output</h3>
+<pre>1
+2
+3
+4
+</pre>
+
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,a4b1">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/a4b1">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 5<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Apr 08, 2011<br>
+      </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=a4b1">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment6944">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/zakomon">zakomon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6944">Oct 02, 2015 - 7:22:17 am UTC</a>      </span>
+      <a class="comment_title" id="title6944" onclick="toggle(&quot;body6944&quot;)">Why wouldn't this work(RUBY Solution)</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6944">
+    (<span class="upvotes"><span id="upvotes6944">0</span></span>/<span class="downvotes"><span id="downvotes6944">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6944" class="comment_body">
+    <pre id="msg6944" style="display: none">[url]http://wcipeg.com/submissions/src/308766[/url]</pre>
+    <div style="opacity: 0.79345670852611">
+      <a href="http://wcipeg.com/submissions/src/308766" target="_blank">http://wcipeg.com/submissions/src/308766</a>    </div>
+    <br><div class="comment_block" id="comment6945">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6945">Oct 02, 2015 - 7:44:44 pm UTC</a>      </span>
+      <a class="comment_title" id="title6945" onclick="toggle(&quot;body6945&quot;)">Re: Why wouldn't this work(RUBY Solution)</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6945">
+    (<span class="upvotes"><span id="upvotes6945">1</span></span>/<span class="downvotes"><span id="downvotes6945">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6945" class="comment_body">
+    <pre id="msg6945" style="display: none">The input is on multiple lines...
+
+Also, please refrain from writing actual code in comments. Admins (and in fact, people who've solved the problem) are able to look at your submissions and decide to help or not.</pre>
+    <div style="opacity: 1">
+      The input is on multiple lines... <br> <br>Also, please refrain from writing actual code in comments. Admins (and in fact, people who've solved the problem) are able to look at your submissions and decide to help or not.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment6605">
+  <div class="comment_header" style="opacity: 0.50984315327928">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/mharis">mharis</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6605">Mar 06, 2015 - 9:35:02 pm UTC</a>      </span>
+      <a class="comment_title" id="title6605" onclick="toggle(&quot;body6605&quot;)">sorting</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6605">
+    (<span class="upvotes"><span id="upvotes6605">2</span></span>/<span class="downvotes"><span id="downvotes6605">8</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6605" class="comment_body">
+    <pre id="msg6605" style="display: none">Python 2's [code]list.sort()[/code] is the best method</pre>
+    <div style="opacity: 0.50984315327928">
+      Python 2's <pre><code class=" cpp"><span class="built_in">list</span>.sort()</code></pre> is the best method    </div>
+    <br><div class="comment_block" id="comment6606">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6606">Mar 07, 2015 - 2:36:33 am UTC</a>      </span>
+      <a class="comment_title" id="title6606" onclick="toggle(&quot;body6606&quot;)">Re: sorting</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6606">
+    (<span class="upvotes"><span id="upvotes6606">8</span></span>/<span class="downvotes"><span id="downvotes6606">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6606" class="comment_body">
+    <pre id="msg6606" style="display: none">If your goal is to get points, then sure!
+
+If your goal is to learn how to sort, then maybe not so much ...</pre>
+    <div style="opacity: 1">
+      If your goal is to get points, then sure! <br> <br>If your goal is to learn how to sort, then maybe not so much ...    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment4138">
+  <div class="comment_header" style="opacity: 0.65762804711038">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/zzh8829">zzh8829</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/4138">Aug 04, 2012 - 10:13:42 pm UTC</a>      </span>
+      <a class="comment_title" id="title4138" onclick="toggle(&quot;body4138&quot;)">What kind of data does case #2  include ?? </a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating4138">
+    (<span class="upvotes"><span id="upvotes4138">0</span></span>/<span class="downvotes"><span id="downvotes4138">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body4138" class="comment_body">
+    <pre id="msg4138" style="display: none">I have used two different way to sort the integers;
+all passed case #1;
+but both got 4 in case #2?
+how is this happened?
+sort:
+9 8 7 6 5 4 1 2 3 10 10 3 2 3 4 1 4 
+to:
+1 2 3 4 5 6 7 8 9 10
+i think these data include all possible case of this problem......</pre>
+    <div style="opacity: 0.65762804711038">
+      I have used two different way to sort the integers; <br>all passed case #1; <br>but both got 4 in case #2? <br>how is this happened? <br>sort: <br>9 8 7 6 5 4 1 2 3 10 10 3 2 3 4 1 4  <br>to: <br>1 2 3 4 5 6 7 8 9 10 <br>i think these data include all possible case of this problem......    </div>
+    <br><div class="comment_block" id="comment4139">
+  <div class="comment_header" style="opacity: 0.95441393735536">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/4139">Aug 05, 2012 - 4:25:14 am UTC</a>      </span>
+      <a class="comment_title" id="title4139" onclick="toggle(&quot;body4139&quot;)">Re: What kind of data does case #2  include ?? </a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating4139">
+    (<span class="upvotes"><span id="upvotes4139">3</span></span>/<span class="downvotes"><span id="downvotes4139">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body4139" class="comment_body">
+    <pre id="msg4139" style="display: none">[code]9 8 7 6 5 4 1 2 3 10 10 3 2 3 4 1 4[/code]
+should actually be sorted to become
+[code]1 1 2 2 3 3 3 4 4 4 5 6 7 8 9 10 10[/code]</pre>
+    <div style="opacity: 0.95441393735536">
+      <pre><code>9 8 7 6 5 4 1 2 3 10 10 3 2 3 4 1 4</code></pre> <br>should actually be sorted to become <br><pre><code>1 1 2 2 3 3 3 4 4 4 5 6 7 8 9 10 10</code></pre>    </div>
+    <br><div class="comment_block" id="comment4140">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/zzh8829">zzh8829</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/4140">Aug 05, 2012 - 2:32:32 pm UTC</a>      </span>
+      <a class="comment_title" id="title4140" onclick="toggle(&quot;body4140&quot;)">Re: Re: What kind of data does case #2  include ?? </a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating4140">
+    (<span class="upvotes"><span id="upvotes4140">1</span></span>/<span class="downvotes"><span id="downvotes4140">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body4140" class="comment_body">
+    <pre id="msg4140" style="display: none">omg... i did totally wrong... thx :)</pre>
+    <div style="opacity: 0.90547134519913">
+      omg... i did totally wrong... thx :)    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment4040">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/ImbaCalvin">ImbaCalvin</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/4040">Apr 21, 2012 - 11:55:58 pm UTC</a>      </span>
+      <a class="comment_title" id="title4040" onclick="toggle(&quot;body4040&quot;)">About the input file of the question</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating4040">
+    (<span class="upvotes"><span id="upvotes4040">0</span></span>/<span class="downvotes"><span id="downvotes4040">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body4040" class="comment_body">
+    <pre id="msg4040" style="display: none">cant see the analysis(actual input data) for this question? Not understanding why is my code not working properly for the second test case...</pre>
+    <div style="opacity: 1">
+      cant see the analysis(actual input data) for this question? Not understanding why is my code not working properly for the second test case...    </div>
+    <br><div class="comment_block" id="comment4041">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/4041">Apr 22, 2012 - 5:17:42 am UTC</a>      </span>
+      <a class="comment_title" id="title4041" onclick="toggle(&quot;body4041&quot;)">Re: About the input file of the question</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating4041">
+    (<span class="upvotes"><span id="upvotes4041">0</span></span>/<span class="downvotes"><span id="downvotes4041">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body4041" class="comment_body">
+    <pre id="msg4041" style="display: none">The numbers are not guaranteed to be unique.</pre>
+    <div style="opacity: 1">
+      The numbers are not guaranteed to be unique.    </div>
+    <br><div class="comment_block" id="comment4043">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/ImbaCalvin">ImbaCalvin</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/4043">Apr 22, 2012 - 12:31:15 pm UTC</a>      </span>
+      <a class="comment_title" id="title4043" onclick="toggle(&quot;body4043&quot;)">Re: Re: About the input file of the question</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating4043">
+    (<span class="upvotes"><span id="upvotes4043">1</span></span>/<span class="downvotes"><span id="downvotes4043">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body4043" class="comment_body">
+    <pre id="msg4043" style="display: none">I did the remove the same number part, and I got OK for the first test case which contains the same number too...</pre>
+    <div style="opacity: 0.90547134519913">
+      I did the remove the same number part, and I got OK for the first test case which contains the same number too...    </div>
+    <br><div class="comment_block" id="comment4044">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/4044">Apr 22, 2012 - 5:17:54 pm UTC</a>      </span>
+      <a class="comment_title" id="title4044" onclick="toggle(&quot;body4044&quot;)">Re: Re: About the input file of the question</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating4044">
+    (<span class="upvotes"><span id="upvotes4044">0</span></span>/<span class="downvotes"><span id="downvotes4044">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body4044" class="comment_body">
+    <pre id="msg4044" style="display: none">I've looked at each of your submissions, and aside from the first, which got WA for output format but nothing else, you've always kept a line that filters out numbers that you've already seen.
+
+Specifically, that would be this line:
+[code]    if each not in new:[/code]
+
+As an aside, no, the first case contains all unique numbers.</pre>
+    <div style="opacity: 1">
+      I've looked at each of your submissions, and aside from the first, which got WA for output format but nothing else, you've always kept a line that filters out numbers that you've already seen. <br> <br>Specifically, that would be this line: <br><pre><code class=" delphi">    <span class="keyword">if</span> each <span class="keyword">not</span> <span class="keyword">in</span> new:</code></pre> <br> <br>As an aside, no, the first case contains all unique numbers.    </div>
+    <br><div class="comment_block" id="comment4046">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/ImbaCalvin">ImbaCalvin</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/4046">Apr 22, 2012 - 10:23:52 pm UTC</a>      </span>
+      <a class="comment_title" id="title4046" onclick="toggle(&quot;body4046&quot;)">Re: Re: About the input file of the question</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating4046">
+    (<span class="upvotes"><span id="upvotes4046">0</span></span>/<span class="downvotes"><span id="downvotes4046">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body4046" class="comment_body">
+    <pre id="msg4046" style="display: none">thank you...</pre>
+    <div style="opacity: 1">
+      thank you...    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment3583">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bobbyg212009">bobbyg212009</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3583">Sep 22, 2011 - 1:43:30 am UTC</a>      </span>
+      <a class="comment_title" id="title3583" onclick="toggle(&quot;body3583&quot;)">my program is messed up</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3583">
+    (<span class="upvotes"><span id="upvotes3583">0</span></span>/<span class="downvotes"><span id="downvotes3583">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3583" class="comment_body">
+    <pre id="msg3583" style="display: none"></pre>
+    <div style="opacity: 1">
+          </div>
+    <br><div class="comment_block" id="comment3585">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/SourSpinach">SourSpinach</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3585">Sep 24, 2011 - 9:55:40 pm UTC</a>      </span>
+      <a class="comment_title" id="title3585" onclick="toggle(&quot;body3585&quot;)">Re: my program is messed up</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3585">
+    (<span class="upvotes"><span id="upvotes3585">0</span></span>/<span class="downvotes"><span id="downvotes3585">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3585" class="comment_body">
+    <pre id="msg3585" style="display: none">I recommend just doing some research on how sorting can be done.</pre>
+    <div style="opacity: 1">
+      I recommend just doing some research on how sorting can be done.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0561s.<br>
+    Server time on page load:
+    May 8, 2018 15:42:08 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fa4b1">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>
