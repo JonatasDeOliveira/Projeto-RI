@@ -96,6 +96,7 @@ def crawler(domain, pathseed, maxSize = 273):
     for l in links:
         v += 1
         driver.get(l)
+        time.sleep(1)
         soup = BeautifulSoup(driver.page_source, "html.parser")
         res =  str(clf.classify(soup))
         print(str(v)+ " "+l + " "+ res)

@@ -1,0 +1,231 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - Tours</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "221fe9b9644c0adc95c96655c1b1b5a1";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Ffbtours"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>Facebook Hacker Cup 2014 Finals</h3>
+<h2>Tours</h2>
+
+<p>Facebook Headquarters - a mysterious, intimidating place, full of magical code and trade secrets. If outsiders were ever to breach the walls of the compound, which are protected by a legion of security guards and, more importantly, security foxes, the entire company could well be brought to its knees!</p>
+
+<p>Actually, wait, tours of the place are given regularly...</p>
+
+<p>The compound consists of <var>N</var> (1 ≤ <var>N</var> ≤ 10<sup>5</sup>) buildings, with <var>M</var> (1 ≤ <var>M</var> ≤ 10<sup>6</sup>) walkways running amongst them. The <var>i</var>-th walkway connects buildings <var>A<sub>i</sub></var> and <var>B<sub>i</sub></var> (1 ≤ <var>A<sub>i</sub></var>, <var>B<sub>i</sub></var> ≤ <var>N</var>, <var>A<sub>i</sub></var> ≠ <var>B<sub>i</sub></var>), and no two buildings are directly connected by more than one walkway. There are no other ways to move from building to building.</p>
+
+<p>Over a period of <var>D</var> (1 ≤ <var>D</var> ≤ 10<sup>6</sup>) days, some events will occur at the Headquarters daily. One of two types of events will happen on the <var>i</var>-th day, indicated by the value of the character <var>E<sub>i</sub></var>. If <var>E<sub>i</sub></var> = "<code>T</code>" then a tour will take place – otherwise, <var>E<sub>i</sub></var> = "<code>S</code>", and a security sweep of a building will take place.</p>
+
+
+<p>If a tour is given on the <var>i</var>-th day, visitors will enter the compound at building <var>X<sub>i</sub></var>, and leave from building <var>Y<sub>i</sub></var> (1 ≤ <var>X<sub>i</sub></var>, <var>Y<sub>i</sub></var> ≤ <var>N</var>, <var>X<sub>i</sub></var> ≠ <var>Y<sub>i</sub></var>). If it turns out that these two buildings are not actually connected by any sequence of walkways, then the tour will be cancelled, and the unfortunate visitors will be given Facebook T-shirts and promptly kicked out. Otherwise, a large number of groups of people will be led from building <var>X<sub>i</sub></var> to building <var>Y<sub>i</sub></var> along various routes. No route will involve travelling along the same walkway multiple times (even in different directions), but a route might revisit the same building repeatedly, including buildings <var>X<sub>i</sub></var> and <var>Y<sub>i</sub></var>. Along the way, some visitors will inevitably get "lost", and fail to rejoin their tour group. How many of them will get away with this will depend on the security levels that day, but it's safe to say that, in total, <var>O<sub>i</sub></var> (1 ≤ <var>O<sub>i</sub></var> ≤ 1000) new outsiders will be left behind in each building which could possibly be part of any valid tour route from building <var>X<sub>i</sub></var> to building <var>Y<sub>i</sub></var>. Good thing they'll no doubt have brought cameras to amuse themselves with while they wait to be found.</p>
+
+<p>On the other hand, if a security sweep is conducted on the <var>i</var>-th day, then the security guards (and foxes) will carefully search building <var>Z<sub>i</sub></var> (1 ≤ <var>Z<sub>i</sub></var> ≤ <var>N</var>) for any trespassers remaining from previous tours, who will be kindly escorted out of the Headquarters (after being given Facebook T-shirts for the road, of course).</p>
+
+<p>Because this company likes to collect data about everything, you've been hired to record how many outsiders were found in each sweep. However, to make things more interesting, you'll instead simply write a program to predict these values based on the map of the compound and the schedule of events!</p>
+
+<h3>Input</h3>
+
+<p>Line 1: 1 integer, <var>T</var> (1 ≤ <var>T</var> ≤ 20), the number of test cases</p>
+
+<p><strong>For each test case:</strong><br>
+Line 1: 3 integers, <var>N</var>, <var>M</var>, and <var>D</var><br>
+Next <var>M</var> lines: 2 integers, <var>A<sub>i</sub></var> and <var>B<sub>i</sub></var>, for <var>i</var> = 1..<var>M</var><br>
+Next <var>D</var> lines: 1 character, <var>E<sub>i</sub></var>, followed by the three integers <var>X<sub>i</sub></var>, <var>Y<sub>i</sub></var>, and <var>O<sub>i</sub></var> if <var>E<sub>i</sub></var> = "<code>T</code>", or the single integer <var>Z<sub>i</sub></var> if <var>E<sub>i</sub></var> = "<code>S</code>", for <var>i</var> = 1..<var>K</var>
+</p>
+
+<h3>Output</h3>
+
+<p>For each test case, output 1 integer, the total number of people escorted out of the compound, modulo 10<sup>9</sup> + 7.</p>
+
+<h3>Sample Input</h3>
+<pre>6 5 9
+1 2
+2 3
+3 4
+4 5
+5 3
+T 1 2 5
+T 5 6 1000
+S 2
+S 6
+T 2 3 1
+T 5 3 14
+S 1
+S 2
+S 4
+</pre>
+
+<h3>Sample Output</h3>
+<pre>26
+</pre>
+
+<h3>Explanation of Sample</h3>
+
+<p>On the first day, a tour is given from building 1 to building 2. The only valid route consists of simply crossing the walkway between these two buildings. As such, by the end of the day, 5 outsiders are left hiding in each of buildings 1 and 2.</p>
+
+<p>On the second day, the planned low-security tour unfortunately cannot take place, due to no routes existing between buildings 5 and 6. Facebook should probably hire some new tour planners, as well as architects.</p>
+
+<p>On the following two days, security sweeps of buildings 2 and 6 are carried out, with 5 and 0 outsiders found and removed, respectively.</p>
+
+<p>On the fifth day, a tour is given from building 2 to building 3. There are exactly three valid routes, passing through buildings 2-3, 2-3-4-5-3, and 2-3-5-4-3. As such, one new outsider remains behind in each of buildings 2, 3, 4, and 5.</p>
+
+<p>On the sixth day, a tour is given from building 5 to building 3. There are exactly two valid routes, passing through buildings 5-3 and 5-4-3. As such, 14 new outsiders take up residence in each of buildings 3, 4, and 5.</p>
+
+<p>Finally, security sweeps of buildings 1, 2, and 4 are conducted, evicting 5, 1, and 15 people, respectively. In total, then, 5 + 0 + 5 + 1 + 15 = 26 people will have been escorted out of the compound, which is still 26 when taken modulo 10<sup>9</sup> + 7. Following these events, buildings 3 and 5 still contain 15 outsiders, while the others contain none.</p>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,fbtours">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/fbtours">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 50<br>
+    <b>Time Limit:</b> 10.00s<br>
+    <b>Memory Limit:</b> 64M<br>
+    <b>Added:</b> Jul 08, 2014<br>
+        <b>Author:</b> <a href="https://wcipeg.com/user/SourSpinach">SourSpinach</a>  </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=fbtours">Search</a>)</h2><p style="text-align: center"></p>It's quiet in here...</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0122s.<br>
+    Server time on page load:
+    May 10, 2018 21:59:10 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Ffbtours">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

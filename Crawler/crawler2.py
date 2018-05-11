@@ -116,7 +116,7 @@ def folder(domain):
     if(domain=="http://www.codeforces.com"):
         return 'Codeforces'
     if(domain=='http://www.spoj.com'):
-        return 'Spoj'
+        return 'Spoj2'
     if(domain=='https://dmoj.ca'):
         return 'Dmoj'
     if(domain=='https://wcipeg.com'):
@@ -145,9 +145,9 @@ def value(link):
     if('http://www.spoj.com' in link):
         if('problems' in link and ('tag' in link or 'classical' in link)):
             return 2
-        elif('problems/' in link and 'cstart' not in link):
+        elif('problems/' in link and 'cstart' not in link and 'lang' not in link and 'main' not in link):
             return 1
-        elif('problems' in link and 'cstart' not in link):
+        elif('problems' in link and 'cstart' not in link and 'lang' not in link and 'main' not in link):
             return 2
         else:
             return 3
@@ -211,11 +211,11 @@ def value(link):
     return 5
 
 ##rode wcipeg
-crawler('https://wcipeg.com','')
+#crawler('https://wcipeg.com','')
 #crawler('http://www.codeforces.com','')
 #crawler('https://a2oj.com','') #max 273
 ##crawler('https://www.codechef.com','')
-#crawler('http://www.spoj.com','')
+crawler('http://www.spoj.com','')
 #crawler('https://dmoj.ca','')
 #crawler('http://acm.timus.ru','')
 ##crawler('https://www.urionlinejudge.com.br','')

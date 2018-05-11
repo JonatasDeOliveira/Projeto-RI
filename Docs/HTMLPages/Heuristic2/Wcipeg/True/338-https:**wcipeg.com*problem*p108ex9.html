@@ -1,0 +1,533 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - BlueBook - Pay</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "221fe9b9644c0adc95c96655c1b1b5a1";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fp108ex9"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>BlueBook</h3>
+<h2>p108ex9: Pay</h2>
+
+<p>You are to calculate weekly pay of T employees (1 ≤ T ≤ 1000) 
+based on four factors : rate of pay in dollars, hours worked, tax category, and donations.</p>
+
+<p>Any hours worked over 40 is considered "overtime" and is paid double.</p>
+
+<p>The five tax categories are, </p>
+
+<div>
+<style type="text/css" scoped="">
+  td { text-align: center }
+</style>
+<table id="sub" style="width: 300px">
+	<tbody><tr>
+		<td><b>Tax Category</b></td>
+		<td><b>Tax Deduction</b></td>
+	</tr>
+	<tr>
+		<td>A</td>
+		<td>0% Tax</td>
+	</tr>
+	<tr>
+		<td>B</td>
+		<td>10% tax</td>
+	</tr>
+	<tr>
+		<td>C</td>
+		<td>20% tax</td>
+	</tr>
+	<tr>
+		<td>D</td>
+		<td>29% tax</td>
+	</tr>
+	<tr>
+		<td>E</td>
+		<td>35% tax</td>
+	</tr>
+</tbody></table>
+</div>
+
+<h3>Input</h3>
+<p>Input starts with T, followed by the information for T employees on four separate lines.
+Each employee's information will be seperated with one newline.</p>
+
+<p>Line 1 : a real number denoting rate of hourly pay in dollars (≤ 1000).
+<br>
+Line 2 : an integer denoting hours worked. (&lt; 30000).
+<br>
+Line 3 : a character denoting the tax category of how much tax the government collects.
+<br>
+Line 4 : a "y" or "n" denoting whether they want to donate 10 dollars. Donations are calculated last.
+<br>
+</p>
+
+<h3>Output</h3>
+<p>Output each employee's pay in dollars, rounded to two decimal places.</p>
+
+<h3>Sample Input</h3>
+<pre>2</pre>
+<pre>1.0</pre>
+<pre>4</pre>
+<pre>A</pre>
+<pre>n</pre>
+<br>
+<pre>1.0</pre>
+<pre>41</pre>
+<pre>B</pre>
+<pre>y</pre>
+
+<h3>Sample Output</h3>
+<pre>4.00</pre>
+<pre>27.80</pre>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,p108ex9">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/p108ex9">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 4<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Oct 26, 2008<br>
+      </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=p108ex9">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment8681">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/magicalsoup">magicalsoup</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8681">Feb 17, 2018 - 12:50:01 am UTC</a>      </span>
+      <a class="comment_title" id="title8681" onclick="toggle(&quot;body8681&quot;)">lol</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8681">
+    (<span class="upvotes"><span id="upvotes8681">0</span></span>/<span class="downvotes"><span id="downvotes8681">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8681" class="comment_body">
+    <pre id="msg8681" style="display: none">peter, you cant hard code this, lol (but please, on a serious sidenote, please to not hard code, it doesn't help you in any way</pre>
+    <div style="opacity: 1">
+      peter, you cant hard code this, lol (but please, on a serious sidenote, please to not hard code, it doesn't help you in any way    </div>
+    <br><div class="comment_block" id="comment8682">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/magicalsoup">magicalsoup</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8682">Feb 17, 2018 - 12:51:45 am UTC</a>      </span>
+      <a class="comment_title" id="title8682" onclick="toggle(&quot;body8682&quot;)">Re: lol</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8682">
+    (<span class="upvotes"><span id="upvotes8682">0</span></span>/<span class="downvotes"><span id="downvotes8682">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8682" class="comment_body">
+    <pre id="msg8682" style="display: none">do not</pre>
+    <div style="opacity: 1">
+      do not    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment7687">
+  <div class="comment_header" style="opacity: 0.489900020404">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Chinadoll">Chinadoll</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7687">Sep 27, 2016 - 6:32:42 pm UTC</a>      </span>
+      <a class="comment_title" id="title7687" onclick="toggle(&quot;body7687&quot;)">Not Working?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7687">
+    (<span class="upvotes"><span id="upvotes7687">0</span></span>/<span class="downvotes"><span id="downvotes7687">4</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7687" class="comment_body">
+    <pre id="msg7687" style="display: none">I ran my code on my computer and it works perfectly, yet when I submit I get 0 marks?</pre>
+    <div style="opacity: 0.489900020404">
+      I ran my code on my computer and it works perfectly, yet when I submit I get 0 marks?    </div>
+    <br><div class="comment_block" id="comment7692">
+  <div class="comment_header" style="opacity: 0.93850968472384">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7692">Sep 29, 2016 - 4:43:14 am UTC</a>      </span>
+      <a class="comment_title" id="title7692" onclick="toggle(&quot;body7692&quot;)">Re: Not Working?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7692">
+    (<span class="upvotes"><span id="upvotes7692">2</span></span>/<span class="downvotes"><span id="downvotes7692">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7692" class="comment_body">
+    <pre id="msg7692" style="display: none">I doubt it works on your machine...
+
+[code]NameError: name 'b' is not defined[/code]</pre>
+    <div style="opacity: 0.93850968472384">
+      I doubt it works on your machine... <br> <br><pre><code class=" python">NameError: name <span class="string">'b'</span> <span class="keyword">is</span> <span class="keyword">not</span> defined</code></pre>    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment6703">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/ss3happy1">ss3happy1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6703">Apr 26, 2015 - 3:02:28 pm UTC</a>      </span>
+      <a class="comment_title" id="title6703" onclick="toggle(&quot;body6703&quot;)">Can Someone Help Me Out?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6703">
+    (<span class="upvotes"><span id="upvotes6703">1</span></span>/<span class="downvotes"><span id="downvotes6703">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6703" class="comment_body">
+    <pre id="msg6703" style="display: none">0.41
+18467
+A
+y
+
+Is this the correct input values for the 1st guy's pay?
+If so, I was wondering what should be the correct output, my program prints 15116.54
+
+I was just wondering about this, because the second line (indicating hours) is 18467, but the question states that it hours must be less than 216. This is the source of my confusion.</pre>
+    <div style="opacity: 0.90547134519913">
+      0.41 <br>18467 <br>A <br>y <br> <br>Is this the correct input values for the 1st guy's pay? <br>If so, I was wondering what should be the correct output, my program prints 15116.54 <br> <br>I was just wondering about this, because the second line (indicating hours) is 18467, but the question states that it hours must be less than 216. This is the source of my confusion.    </div>
+    <br><div class="comment_block" id="comment6704">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6704">Apr 26, 2015 - 5:05:23 pm UTC</a>      </span>
+      <a class="comment_title" id="title6704" onclick="toggle(&quot;body6704&quot;)">Re: Can Someone Help Me Out?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6704">
+    (<span class="upvotes"><span id="upvotes6704">1</span></span>/<span class="downvotes"><span id="downvotes6704">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6704" class="comment_body">
+    <pre id="msg6704" style="display: none">I've updated the problem statement to correctly reflect the range of values. Sorry about this.
+
+15116.54 is indeed the correct output for that input.</pre>
+    <div style="opacity: 0.90547134519913">
+      I've updated the problem statement to correctly reflect the range of values. Sorry about this. <br> <br>15116.54 is indeed the correct output for that input.    </div>
+    <br><div class="comment_block" id="comment6708">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/ss3happy1">ss3happy1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6708">Apr 26, 2015 - 11:05:31 pm UTC</a>      </span>
+      <a class="comment_title" id="title6708" onclick="toggle(&quot;body6708&quot;)">Re: Can Someone Help Me Out?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6708">
+    (<span class="upvotes"><span id="upvotes6708">1</span></span>/<span class="downvotes"><span id="downvotes6708">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6708" class="comment_body">
+    <pre id="msg6708" style="display: none">Thanks for the reply Jargon! 
+
+I was just wondering if you could take a look at my submission and see why I get 0/10. I would figure I would at least get 1/10 for getting the first output right then. </pre>
+    <div style="opacity: 0.90547134519913">
+      Thanks for the reply Jargon!  <br> <br>I was just wondering if you could take a look at my submission and see why I get 0/10. I would figure I would at least get 1/10 for getting the first output right then.    </div>
+    <br><div class="comment_block" id="comment6709">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6709">Apr 27, 2015 - 12:21:58 am UTC</a>      </span>
+      <a class="comment_title" id="title6709" onclick="toggle(&quot;body6709&quot;)">Re: Can Someone Help Me Out?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6709">
+    (<span class="upvotes"><span id="upvotes6709">1</span></span>/<span class="downvotes"><span id="downvotes6709">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6709" class="comment_body">
+    <pre id="msg6709" style="display: none">The only possible marks from this problem are 0/10, if any case is wrong, and 10/10, if all cases are right.</pre>
+    <div style="opacity: 0.90547134519913">
+      The only possible marks from this problem are 0/10, if any case is wrong, and 10/10, if all cases are right.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment3725">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/SidTriv">SidTriv</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3725">Nov 16, 2011 - 12:36:28 am UTC</a>      </span>
+      <a class="comment_title" id="title3725" onclick="toggle(&quot;body3725&quot;)"></a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3725">
+    (<span class="upvotes"><span id="upvotes3725">0</span></span>/<span class="downvotes"><span id="downvotes3725">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3725" class="comment_body">
+    <pre id="msg3725" style="display: none">I don't understand, I rounded my code to 2 decimal places, yet it's saying my output is wrong, and is at like 10 decimal places ? It's rounded in my code</pre>
+    <div style="opacity: 0.79345670852611">
+      I don't understand, I rounded my code to 2 decimal places, yet it's saying my output is wrong, and is at like 10 decimal places ? It's rounded in my code    </div>
+    <br><div class="comment_block" id="comment3728">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3728">Nov 16, 2011 - 1:54:28 am UTC</a>      </span>
+      <a class="comment_title" id="title3728" onclick="toggle(&quot;body3728&quot;)">Re: ...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3728">
+    (<span class="upvotes"><span id="upvotes3728">0</span></span>/<span class="downvotes"><span id="downvotes3728">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3728" class="comment_body">
+    <pre id="msg3728" style="display: none">Those numbers with the large amount of decimal places are from your debug (I assume) output: the problem never asks you to print out their overtime pay before taxes.</pre>
+    <div style="opacity: 0.79345670852611">
+      Those numbers with the large amount of decimal places are from your debug (I assume) output: the problem never asks you to print out their overtime pay before taxes.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment330">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/purohit3105">purohit3105</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/330">Nov 14, 2008 - 2:16:45 pm UTC</a>      </span>
+      <a class="comment_title" id="title330" onclick="toggle(&quot;body330&quot;)">wats wrong?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating330">
+    (<span class="upvotes"><span id="upvotes330">0</span></span>/<span class="downvotes"><span id="downvotes330">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body330" class="comment_body">
+    <pre id="msg330" style="display: none">why is it not accepting my answer? I get the answers right on my computer but on the website it keeps saying i have wrong answer. I matched all the inputs case to case, it still doesn't accept....</pre>
+    <div style="opacity: 0.79345670852611">
+      why is it not accepting my answer? I get the answers right on my computer but on the website it keeps saying i have wrong answer. I matched all the inputs case to case, it still doesn't accept....    </div>
+    <br><div class="comment_block" id="comment331">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/331">Nov 14, 2008 - 8:14:52 pm UTC</a>      </span>
+      <a class="comment_title" id="title331" onclick="toggle(&quot;body331&quot;)">Re: wats wrong?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating331">
+    (<span class="upvotes"><span id="upvotes331">0</span></span>/<span class="downvotes"><span id="downvotes331">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body331" class="comment_body">
+    <pre id="msg331" style="display: none">Most of the lines outputted by your program are wrong. Lines 1, 6, 11, 16, ... 96 are correct, the rest are wrong. Make of that what you will.</pre>
+    <div style="opacity: 0.79345670852611">
+      Most of the lines outputted by your program are wrong. Lines 1, 6, 11, 16, ... 96 are correct, the rest are wrong. Make of that what you will.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment93">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/93">Oct 26, 2008 - 5:47:27 pm UTC</a>      </span>
+      <a class="comment_title" id="title93" onclick="toggle(&quot;body93&quot;)">Clarification?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating93">
+    (<span class="upvotes"><span id="upvotes93">0</span></span>/<span class="downvotes"><span id="downvotes93">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body93" class="comment_body">
+    <pre id="msg93" style="display: none">Can I have clarification on input 2? I've worked it through by hand, and I'm not getting the same answer.
+Base pay is $1/hr * 41 hours = $41. Right?
+Adding double pay is + $1/hr * (41 - 41 = 1) hours = +$1 = $42.
+Subtracting tax is -10% = 42 - 4.2 = 37.8...?
+Then the donation of $10 makes it $27.80. 
+
+So what's wrong?
+Thanks in advance for the help.</pre>
+    <div style="opacity: 0.79345670852611">
+      Can I have clarification on input 2? I've worked it through by hand, and I'm not getting the same answer. <br>Base pay is $1/hr * 41 hours = $41. Right? <br>Adding double pay is + $1/hr * (41 - 41 = 1) hours = +$1 = $42. <br>Subtracting tax is -10% = 42 - 4.2 = 37.8...? <br>Then the donation of $10 makes it $27.80.  <br> <br>So what's wrong? <br>Thanks in advance for the help.    </div>
+    <br><div class="comment_block" id="comment94">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/admin">admin</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/94">Oct 26, 2008 - 6:20:38 pm UTC</a>      </span>
+      <a class="comment_title" id="title94" onclick="toggle(&quot;body94&quot;)">Re: Clarification?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating94">
+    (<span class="upvotes"><span id="upvotes94">0</span></span>/<span class="downvotes"><span id="downvotes94">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body94" class="comment_body">
+    <pre id="msg94" style="display: none">The solution submitted by the admin account gives the same answer, so the problem statement has been corrected.
+
+  --Brian</pre>
+    <div style="opacity: 0.79345670852611">
+      The solution submitted by the admin account gives the same answer, so the problem statement has been corrected. <br> <br>  --Brian    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0425s.<br>
+    Server time on page load:
+    May 10, 2018 21:52:19 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fp108ex9">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>
