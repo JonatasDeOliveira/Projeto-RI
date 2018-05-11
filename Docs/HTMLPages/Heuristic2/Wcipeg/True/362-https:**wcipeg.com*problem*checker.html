@@ -1,0 +1,343 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - Checkerboard Summation (Hard)</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "221fe9b9644c0adc95c96655c1b1b5a1";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fchecker"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h2>Checkerboard Summation (Hard)</h2>
+You are given a checkerboard with M rows and N columns (1 ≤ M,N ≤ 3000). Each square initially has the number zero written in it. For top-secret strategic reasons which are given out on a need-to-know basis only (and you do not, at the present moment, need to know) you must write a program that will perform two types of operation:<br>
+<i>Modify</i>: Given the row and column of a square on the checkerboard, change the number written in it to a new value.<br>
+<i>Query</i>: Given the coordinates of two squares on the checkerboard, find the alternating sum of all of the numbers within the rectangle delimited by those two squares. By alternating sum what is meant is that we add all numbers in squares with the same colour as the first square given, and subtract all numbers with the opposite colour.<br>
+
+<h3>Input</h3>
+The first line of the input file contains the integers M and N.<br>
+A number of input lines then follow. The integer at the beginning of the line signifies:<br>
+<b>0</b>: End of input.<br>
+<b>1</b>: A modify operation. Three integers follow: R, C, and X (1 ≤ R ≤ M, 1 ≤ C ≤ N, -1000 ≤ X ≤ 1000), indicating that the value X is to be written in row R and column C.<br>
+<b>2</b>: A query. Four integers follow: R1, C1, R2, and C2  (1 ≤ R1 ≤ R2 ≤ M, 1 ≤ C1 ≤ C2 ≤ N). Output the alternating sum of all squares contained within the box [R1,R2] × [C1,C2], as described.<br>
+There will never be more than 100000 commands given.<br>
+
+<h3>Output</h3>
+For each query operation, print the answer on its own line.
+
+<h3>Sample Input</h3>
+<pre>3 3
+1 1 2 5
+1 3 1 -2
+2 1 1 2 3
+1 2 3 11
+2 2 1 3 3
+0</pre>
+
+<h3>Sample Output</h3>
+<pre>-5
+13</pre>
+
+<h3>Explanation</h3>
+<p>The checkerboard is three cells by three cells. When the first query is executed, the board looks like this:</p>
+<pre>0  5  0
+0  0  0
+-2 0  0
+</pre>
+<p>We are asked to find the alternating sum of the first two rows. Since the 5 is on a square of opposite colour to the first square, it is subtracted to obtain an answer of -5. For the second query, the board looks like:</p>
+<pre> 0  5  0
+ 0  0 11
+-2  0  0
+</pre>
+<p>Now, we take the alternating sum of the second and third rows. 11 is added, whereas -2 is subtracted, to give the answer 13.</p>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,checker">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/checker">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 25 (partial)<br>
+    <b>Time Limit:</b> 1.00s<br>
+    <b>Memory Limit:</b> 256M<br>
+    <b>Added:</b> Oct 19, 2008<br>
+        <b>Author:</b> <a href="https://wcipeg.com/user/bbi5291">bbi5291</a>  </p>
+
+    <b>Problem Types:</b>
+  <noscript>
+    &lt;style type="text/css"&gt;
+      #show_types, #hide_types { display: none !important; }
+      #spoiler_id { display: inline !important; }
+    &lt;/style&gt;
+  </noscript>
+  <a href="javascript:void(null);" id="show_types" onclick="document.getElementById('spoiler_id').style.display=''; document.getElementById('show_types').style.display='none';">[Show]</a>
+  <span id="spoiler_id" style="display: none">
+    <a href="javascript:void(null);" id="hide_types" onclick="document.getElementById('spoiler_id').style.display='none'; document.getElementById('show_types').style.display='';">[Hide]</a><br>
+    <ul style="list-style-type: none; margin: 0; padding: 0;">
+      <li>Data Structures</li>    </ul>
+  </span>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=checker">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment8160">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/DannyYang">DannyYang</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8160">Aug 05, 2017 - 7:08:14 pm UTC</a>      </span>
+      <a class="comment_title" id="title8160" onclick="toggle(&quot;body8160&quot;)">Stupid test case</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8160">
+    (<span class="upvotes"><span id="upvotes8160">0</span></span>/<span class="downvotes"><span id="downvotes8160">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8160" class="comment_body">
+    <pre id="msg8160" style="display: none">u have to Set the bound of the array to M+2 and N+2, or it will IOE or WA.</pre>
+    <div style="opacity: 1">
+      u have to Set the bound of the array to M+2 and N+2, or it will IOE or WA.    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment5724">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/FatalEagle">FatalEagle</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5724">Jan 17, 2014 - 4:08:16 am UTC</a>      </span>
+      <a class="comment_title" id="title5724" onclick="toggle(&quot;body5724&quot;)">Test Data Inconsistency</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5724">
+    (<span class="upvotes"><span id="upvotes5724">8</span></span>/<span class="downvotes"><span id="downvotes5724">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5724" class="comment_body">
+    <pre id="msg5724" style="display: none">There are one-off errors in the following test cases:
+checker5.in -- first occurrence line 6951 R2&gt;M
+checker6.in -- first occurrence line 10253 X&gt;1000
+checker7.in -- first occurrence line 13977 C&gt;N
+checker8.in -- first occurrence line 1734 R2&gt;M
+checker9.in -- first occurrence line 11125 C2&gt;N
+If you bounded your BIT/FT with 3000, 3000 instead of M, N then you'll get WA.</pre>
+    <div style="opacity: 1">
+      There are one-off errors in the following test cases: <br>checker5.in -- first occurrence line 6951 R2&gt;M <br>checker6.in -- first occurrence line 10253 X&gt;1000 <br>checker7.in -- first occurrence line 13977 C&gt;N <br>checker8.in -- first occurrence line 1734 R2&gt;M <br>checker9.in -- first occurrence line 11125 C2&gt;N <br>If you bounded your BIT/FT with 3000, 3000 instead of M, N then you'll get WA.    </div>
+    <br><div class="comment_block" id="comment7598">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Paradox">Paradox</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7598">May 25, 2016 - 5:51:04 am UTC</a>      </span>
+      <a class="comment_title" id="title7598" onclick="toggle(&quot;body7598&quot;)">Re: Test Data Inconsistency</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7598">
+    (<span class="upvotes"><span id="upvotes7598">0</span></span>/<span class="downvotes"><span id="downvotes7598">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7598" class="comment_body">
+    <pre id="msg7598" style="display: none">Is this still an issue?
+Because I'm getting WA for #7 and #9</pre>
+    <div style="opacity: 1">
+      Is this still an issue? <br>Because I'm getting WA for #7 and #9    </div>
+    <br><div class="comment_block" id="comment7599">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/thomas0115">thomas0115</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7599">May 27, 2016 - 8:11:48 pm UTC</a>      </span>
+      <a class="comment_title" id="title7599" onclick="toggle(&quot;body7599&quot;)">Re: Test Data Inconsistency</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7599">
+    (<span class="upvotes"><span id="upvotes7599">0</span></span>/<span class="downvotes"><span id="downvotes7599">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7599" class="comment_body">
+    <pre id="msg7599" style="display: none">I believe so, it happened to my friend when he bounded his data structure with (3000,3000)</pre>
+    <div style="opacity: 1">
+      I believe so, it happened to my friend when he bounded his data structure with (3000,3000)    </div>
+    <br><div class="comment_block" id="comment8153">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Xue_Alex">Xue_Alex</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8153">Aug 01, 2017 - 12:00:42 am UTC</a>      </span>
+      <a class="comment_title" id="title8153" onclick="toggle(&quot;body8153&quot;)">Re: Test Data Inconsistency</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8153">
+    (<span class="upvotes"><span id="upvotes8153">0</span></span>/<span class="downvotes"><span id="downvotes8153">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8153" class="comment_body">
+    <pre id="msg8153" style="display: none">Any insight on why binding it with M/N AC's but 3000 doesn't?</pre>
+    <div style="opacity: 1">
+      Any insight on why binding it with M/N AC's but 3000 doesn't?    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment676">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/676">Dec 07, 2008 - 7:29:21 pm UTC</a>      </span>
+      <a class="comment_title" id="title676" onclick="toggle(&quot;body676&quot;)">Hint</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating676">
+    (<span class="upvotes"><span id="upvotes676">2</span></span>/<span class="downvotes"><span id="downvotes676">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body676" class="comment_body">
+    <pre id="msg676" style="display: none">There isn't much to be said except that you need a data structure called the Binary Indexed Tree or Fenwick Tree in order to solve this problem. There's also a harder, slower, and more memory-hungry way, the Segment Tree, which may nevertheless be more intuitive.</pre>
+    <div style="opacity: 1">
+      There isn't much to be said except that you need a data structure called the Binary Indexed Tree or Fenwick Tree in order to solve this problem. There's also a harder, slower, and more memory-hungry way, the Segment Tree, which may nevertheless be more intuitive.    </div>
+      </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0260s.<br>
+    Server time on page load:
+    May 10, 2018 21:52:49 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fchecker">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

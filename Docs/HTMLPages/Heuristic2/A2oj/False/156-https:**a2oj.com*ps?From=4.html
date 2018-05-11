@@ -1,0 +1,610 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" class=" canvas canvastext no-geolocation rgba hsla multiplebgs borderimage borderradius boxshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions  no-video no-audio localstorage sessionstorage webworkers applicationcache fontface"><head>
+
+<link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>A2 Online Judge</title>
+
+<meta name="description" content="A2 Online Judge (or Virtual Online Contests) is an online judge with hundreds of problems and it helps you to create, run and participate in virtual contests using problems from the following online judges: A2 Online Judge, Live Archive, Codeforces, Timus, SPOJ, TJU, SGU, PKU, ZOJ, URI. It also helps you to manage and track your programming comepetions training for you and your friends. It helps for ICPC ACM and IOI training also.">
+<meta name="keywords" content="ahmed aly,ahmed aly tools,voc,virtual online contests,programming,c++,java,contest,contests,competition,competitions,programming contest,programming contests,programming compitition,programming compititions,cf,codeforces,live archive,uva,spoj,tju,sgu,pku,timus,zoj,uri,programming tools,a2oj,a2 online judge">
+<meta name="author" content="Ahmed Aly">
+<link href="default.css" rel="stylesheet" type="text/css">
+<link href="DroidSansMono.css" rel="stylesheet" type="text/css">
+
+		<link rel="stylesheet" href="css/nav.css">
+		<!--[if IE]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+<!-- START TRACKING CODE -->
+<script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push( [ '_setAccount', 'UA-16947566-3' ]);
+	_gaq.push( [ '_trackPageview' ]);
+
+	( function() {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+				: 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+<!-- END TRACKING CODE -->
+
+<!-- START TABLE SORTER CODE -->
+<link rel="stylesheet" href="style.css" type="text/css" id="" media="print, projection, screen">
+<script type="text/javascript" src="jquery-latest.js"></script>
+<script type="text/javascript" src="jquery.tablesorter.js"></script>
+	
+<script type="text/javascript" id="js">
+$(document).ready(function() {
+	$.tablesorter.defaults.sortList = [[0,0]];
+	$.tablesorter.defaults.textExtraction = ['complex'];
+	$("table").tablesorter();
+});
+</script>
+<!-- END TABLE SORTER CODE -->
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+function view_changed() {
+	var views = document.getElementById("view").options;
+	var view = "all";
+	for (var i = 0; i < views.length; i++)
+		if (views[i].selected) {
+			view = views[i].value;
+			break;
+		}
+	if (view == "all")
+		window.location = 'ps';
+	else
+		window.location = 'ps?view=' + view;
+}
+</script>
+
+
+
+<style>@font-face{font-family:testfont;src:url('data:font/ttf;base64,AAEAAAAMAIAAAwBAT1MvMliohmwAAADMAAAAVmNtYXCp5qrBAAABJAAAANhjdnQgACICiAAAAfwAAAAEZ2FzcP//AAMAAAIAAAAACGdseWYv5OZoAAACCAAAANxoZWFk69bnvwAAAuQAAAA2aGhlYQUJAt8AAAMcAAAAJGhtdHgGDgC4AAADQAAAABRsb2NhAIQAwgAAA1QAAAAMbWF4cABVANgAAANgAAAAIG5hbWUgXduAAAADgAAABPVwb3N03NkzmgAACHgAAAA4AAECBAEsAAUAAAKZAswAAACPApkCzAAAAesAMwEJAAACAAMDAAAAAAAAgAACbwAAAAoAAAAAAAAAAFBmRWQAAAAgqS8DM/8zAFwDMwDNAAAABQAAAAAAAAAAAAMAAAADAAAAHAABAAAAAABGAAMAAQAAAK4ABAAqAAAABgAEAAEAAgAuqQD//wAAAC6pAP///9ZXAwAAAAAAAAACAAAABgBoAAAAAAAvAAEAAAAAAAAAAAAAAAAAAAABAAIAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEACoAAAAGAAQAAQACAC6pAP//AAAALqkA////1lcDAAAAAAAAAAIAAAAiAogAAAAB//8AAgACACIAAAEyAqoAAwAHAC6xAQAvPLIHBADtMrEGBdw8sgMCAO0yALEDAC88sgUEAO0ysgcGAfw8sgECAO0yMxEhESczESMiARDuzMwCqv1WIgJmAAACAFUAAAIRAc0ADwAfAAATFRQWOwEyNj0BNCYrASIGARQGKwEiJj0BNDY7ATIWFX8aIvAiGhoi8CIaAZIoN/43KCg3/jcoAWD0JB4eJPQkHh7++EY2NkbVRjY2RgAAAAABAEH/+QCdAEEACQAANjQ2MzIWFAYjIkEeEA8fHw8QDxwWFhwWAAAAAQAAAAIAAIuYbWpfDzz1AAsEAAAAAADFn9IuAAAAAMWf0i797/8zA4gDMwAAAAgAAgAAAAAAAAABAAADM/8zAFwDx/3v/98DiAABAAAAAAAAAAAAAAAAAAAABQF2ACIAAAAAAVUAAAJmAFUA3QBBAAAAKgAqACoAWgBuAAEAAAAFAFAABwBUAAQAAgAAAAEAAQAAAEAALgADAAMAAAAQAMYAAQAAAAAAAACLAAAAAQAAAAAAAQAhAIsAAQAAAAAAAgAFAKwAAQAAAAAAAwBDALEAAQAAAAAABAAnAPQAAQAAAAAABQAKARsAAQAAAAAABgAmASUAAQAAAAAADgAaAUsAAwABBAkAAAEWAWUAAwABBAkAAQBCAnsAAwABBAkAAgAKAr0AAwABBAkAAwCGAscAAwABBAkABABOA00AAwABBAkABQAUA5sAAwABBAkABgBMA68AAwABBAkADgA0A/tDb3B5cmlnaHQgMjAwOSBieSBEYW5pZWwgSm9obnNvbi4gIFJlbGVhc2VkIHVuZGVyIHRoZSB0ZXJtcyBvZiB0aGUgT3BlbiBGb250IExpY2Vuc2UuIEtheWFoIExpIGdseXBocyBhcmUgcmVsZWFzZWQgdW5kZXIgdGhlIEdQTCB2ZXJzaW9uIDMuYmFlYzJhOTJiZmZlNTAzMiAtIHN1YnNldCBvZiBKdXJhTGlnaHRiYWVjMmE5MmJmZmU1MDMyIC0gc3Vic2V0IG9mIEZvbnRGb3JnZSAyLjAgOiBKdXJhIExpZ2h0IDogMjMtMS0yMDA5YmFlYzJhOTJiZmZlNTAzMiAtIHN1YnNldCBvZiBKdXJhIExpZ2h0VmVyc2lvbiAyIGJhZWMyYTkyYmZmZTUwMzIgLSBzdWJzZXQgb2YgSnVyYUxpZ2h0aHR0cDovL3NjcmlwdHMuc2lsLm9yZy9PRkwAQwBvAHAAeQByAGkAZwBoAHQAIAAyADAAMAA5ACAAYgB5ACAARABhAG4AaQBlAGwAIABKAG8AaABuAHMAbwBuAC4AIAAgAFIAZQBsAGUAYQBzAGUAZAAgAHUAbgBkAGUAcgAgAHQAaABlACAAdABlAHIAbQBzACAAbwBmACAAdABoAGUAIABPAHAAZQBuACAARgBvAG4AdAAgAEwAaQBjAGUAbgBzAGUALgAgAEsAYQB5AGEAaAAgAEwAaQAgAGcAbAB5AHAAaABzACAAYQByAGUAIAByAGUAbABlAGEAcwBlAGQAIAB1AG4AZABlAHIAIAB0AGgAZQAgAEcAUABMACAAdgBlAHIAcwBpAG8AbgAgADMALgBiAGEAZQBjADIAYQA5ADIAYgBmAGYAZQA1ADAAMwAyACAALQAgAHMAdQBiAHMAZQB0ACAAbwBmACAASgB1AHIAYQBMAGkAZwBoAHQAYgBhAGUAYwAyAGEAOQAyAGIAZgBmAGUANQAwADMAMgAgAC0AIABzAHUAYgBzAGUAdAAgAG8AZgAgAEYAbwBuAHQARgBvAHIAZwBlACAAMgAuADAAIAA6ACAASgB1AHIAYQAgAEwAaQBnAGgAdAAgADoAIAAyADMALQAxAC0AMgAwADAAOQBiAGEAZQBjADIAYQA5ADIAYgBmAGYAZQA1ADAAMwAyACAALQAgAHMAdQBiAHMAZQB0ACAAbwBmACAASgB1AHIAYQAgAEwAaQBnAGgAdABWAGUAcgBzAGkAbwBuACAAMgAgAGIAYQBlAGMAMgBhADkAMgBiAGYAZgBlADUAMAAzADIAIAAtACAAcwB1AGIAcwBlAHQAIABvAGYAIABKAHUAcgBhAEwAaQBnAGgAdABoAHQAdABwADoALwAvAHMAYwByAGkAcAB0AHMALgBzAGkAbAAuAG8AcgBnAC8ATwBGAEwAAAAAAgAAAAAAAP+BADMAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAAQACAQIAEQt6ZXJva2F5YWhsaQ==')}</style></head>
+<body class="">
+    	<script>
+			var el = document.getElementsByTagName("body")[0];
+			el.className = "";
+		</script>
+        <noscript>
+        	&lt;!--[if IE]&gt;
+            	&lt;link rel="stylesheet" href="css/ie.css"&gt;
+            &lt;![endif]--&gt;
+        </noscript>
+        
+
+<center>
+<table width="100%">
+<tbody><tr>
+<td>
+        
+
+
+<div id="wrapper"><!-- start header -->
+
+<div id="logo">
+<table width="100%">
+<tbody><tr>
+<td style="vertical-align: bottom;"><a href="/"><img src="logo.png"></a></td>
+<td>
+<h1 style="padding-top: 11px;">A<sup>2</sup> Online Judge</h1>
+<h2 class="author">»&nbsp;&nbsp;&nbsp;&nbsp; by <a href="https://www.facebook.com/ahmed.aly.tc" target="_blank" style="text-decoration: none;">Ahmed Aly</a></h2>
+<br>
+<h3>Sponsored by <b><a href="https://www.facebook.com/elcoachacademy/" target="_blank" style="text-decoration: none;">Coach Academy</a></b> &amp; <b><a href="https://www.facebook.com/acmacpc/" target="_blank" style="text-decoration: none;">ACPC</a></b>, <a href="https://www.codechef.com/" target="_blank" style="text-decoration: none;">CodeChef</a> and <a href="http://www.codability.net/" target="_blank" style="text-decoration: none;">Codability</a></h3>
+</td>
+<td style="text-align: right; padding-top: 27px;">
+<iframe src="https://www.facebook.com/plugins/like.php?show_faces=false&amp;href=https://www.facebook.com/A2OnlineJudge" scrolling="no" frameborder="0" style="border:none; height:45px"></iframe>
+</td>
+</tr>
+</tbody></table>
+</div>
+
+<div id="header3"><div align="right"><a href="signin?url=%2Fps%3FFrom%3D4" style="font-size: 15px;">Sign In</a> - <a href="signup" style="font-size: 15px;">Sign Up</a></div></div>
+
+
+<div id="header2">
+<div id="menu2">
+
+        <nav id="topNav">
+          <ul>
+<li><a href="/">Contests</a></li><li><a href="ladders"><font color="red">Ladders</font></a></li><li><a href="ps">Problems</a></li><li><a href="status">Status</a></li><li><a href="categories">Categories</a></li><li><a href="groups">Groups</a></li><li><a href="javascript:void();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;More&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>^</span></a><ul><li><center><a href="http://goo.gl/Fq5mru" target="_blank">GCJ Tools</a></center></li><li><center><a href="codes">Source Codes</a></center></li><li><center><a href="finder">Problems Finder</a></center></li><li><center><a href="users">Users</a></center></li><li><center><a href="teams">Teams</a></center></li><li><center><a href="cumulative">Cumulative Rank</a></center></li></ul></li><li class="last"><a href="about">About</a></li>
+          </ul>
+        </nav>
+        
+        
+        <script src="js/modernizr.js"></script>
+		<script>
+			(function($){
+				
+				//cache nav
+				var nav = $("#topNav");
+				
+				//add indicator and hovers to submenu parents
+				nav.find("li").each(function() {
+					if ($(this).find("ul").length > 0) {
+						$("<span>").text("^").appendTo($(this).children(":first"));
+
+						//show subnav on hover
+						$(this).mouseenter(function() {
+							$(this).find("ul").stop(true, true).slideDown();
+						});
+						
+						//hide submenus on exit
+						$(this).mouseleave(function() {
+							$(this).find("ul").stop(true, true).slideUp();
+						});
+					}
+				});
+			})(jQuery);
+		</script>
+
+
+</div>
+</div>
+<!-- end header --></div>
+<!-- start page -->
+</td>
+</tr>
+
+
+<tr>
+
+<td style="vertical-align: top;">
+<center>
+<table>
+<tbody><tr style="max-height: 0px; padding: 0px;">
+<td style="max-height: 0px; padding: 0px; min-width: 165px;"></td>
+<td style="max-height: 0px; padding: 0px; min-width: 1060px;"></td>
+<td style="max-height: 0px; padding: 0px; min-width: 165px;"></td>
+</tr>
+<tr>
+<td style="padding: 0px; vertical-align: top;">
+<div id="leftAd">
+
+
+</div>
+</td>
+<td style="padding: 0px; vertical-align: top;">
+<div id="page">
+
+<font size="3">
+<center>
+
+
+
+
+<font size="4">
+<br><b><a href="sources">List of problems sources</a></b><br>
+</font>
+<br>
+<table cellspacing="1" class="tablesorter" style="text-align: center;">
+<thead>
+<tr>
+<th class="header headerSortDown"></th>
+<th class="header">Problem Name</th>
+<th class="header">Solved Count</th>
+<th class="header">Solved Percentage</th>
+<th class="header">Source</th>
+</tr>
+</thead>
+<tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr class="odd">
+<td>151</td>
+<td><a href="p?ID=247">247. Pawns</a></td>
+<td>4</td>
+<td>50%</td>
+<td>AAST Individuals Qualification 2014 #2</td>
+</tr><tr>
+<td>152</td>
+<td><a href="p?ID=248">248. Triangles Area</a></td>
+<td>6</td>
+<td>66%</td>
+<td>AAST Individuals Qualification 2014 #2</td>
+</tr><tr class="odd">
+<td>153</td>
+<td><a href="p?ID=249">249. Sorting</a></td>
+<td>0</td>
+<td>0%</td>
+<td>AAST Individuals Qualification 2014 #2</td>
+</tr><tr>
+<td>154</td>
+<td><a href="p?ID=250">250. Moving Robots</a></td>
+<td>2</td>
+<td>100%</td>
+<td>AAST Individuals Qualification 2014 #2</td>
+</tr><tr class="odd">
+<td>155</td>
+<td><a href="p?ID=251">251. Decreasing Sequence of Points</a></td>
+<td>2</td>
+<td>40%</td>
+<td>AAST Individuals Qualification 2014 #2</td>
+</tr><tr>
+<td>156</td>
+<td><a href="p?ID=252">252. ABC</a></td>
+<td>229</td>
+<td>90%</td>
+<td>AAST Individuals Qualification 2014 #3</td>
+</tr><tr class="odd">
+<td>157</td>
+<td><a href="p?ID=253">253. Colony</a></td>
+<td>3</td>
+<td>75%</td>
+<td>AAST Individuals Qualification 2014 #3</td>
+</tr><tr>
+<td>158</td>
+<td><a href="p?ID=254">254. Competitions</a></td>
+<td>0</td>
+<td>0%</td>
+<td>AAST Individuals Qualification 2014 #3</td>
+</tr><tr class="odd">
+<td>159</td>
+<td><a href="p?ID=255">255. Dwarves</a></td>
+<td>75</td>
+<td>93%</td>
+<td>AAST Individuals Qualification 2014 #3</td>
+</tr><tr>
+<td>160</td>
+<td><a href="p?ID=256">256. Exams</a></td>
+<td>5</td>
+<td>38%</td>
+<td>AAST Individuals Qualification 2014 #3</td>
+</tr><tr class="odd">
+<td>161</td>
+<td><a href="p?ID=257">257. Handshakes</a></td>
+<td>0</td>
+<td>0%</td>
+<td>AAST Individuals Qualification 2014 #3</td>
+</tr><tr>
+<td>162</td>
+<td><a href="p?ID=258">258. Polygon</a></td>
+<td>35</td>
+<td>89%</td>
+<td>AAST Individuals Qualification 2014 #3</td>
+</tr><tr class="odd">
+<td>163</td>
+<td><a href="p?ID=259">259. R2</a></td>
+<td>289</td>
+<td>96%</td>
+<td>AAST Individuals Qualification 2014 #3</td>
+</tr><tr>
+<td>164</td>
+<td><a href="p?ID=260">260. Reconstruction</a></td>
+<td>2</td>
+<td>100%</td>
+<td>AAST Individuals Qualification 2014 #3</td>
+</tr><tr class="odd">
+<td>165</td>
+<td><a href="p?ID=261">261. Riddles</a></td>
+<td>1</td>
+<td>50%</td>
+<td>AAST Individuals Qualification 2014 #3</td>
+</tr><tr>
+<td>166</td>
+<td><a href="p?ID=262">262. Tree</a></td>
+<td>12</td>
+<td>92%</td>
+<td>AAST Individuals Qualification 2014 #3</td>
+</tr><tr class="odd">
+<td>167</td>
+<td><a href="p?ID=263">263. Triplets</a></td>
+<td>2</td>
+<td>100%</td>
+<td>AAST Individuals Qualification 2014 #3</td>
+</tr><tr>
+<td>168</td>
+<td><a href="p?ID=275">275. EIII Extra</a></td>
+<td>165</td>
+<td>73%</td>
+<td>Jordan Universities Training Contest #1</td>
+</tr><tr class="odd">
+<td>169</td>
+<td><a href="p?ID=276">276. K-Palindrome</a></td>
+<td>144</td>
+<td>64%</td>
+<td>Jordan Universities Training Contest #1</td>
+</tr><tr>
+<td>170</td>
+<td><a href="p?ID=277">277. Cafeteria</a></td>
+<td>271</td>
+<td>71%</td>
+<td>Jordan Universities Training Contest #1</td>
+</tr><tr class="odd">
+<td>171</td>
+<td><a href="p?ID=278">278. Find the image!</a></td>
+<td>22</td>
+<td>70%</td>
+<td>Jordan Universities Training Contest #1</td>
+</tr><tr>
+<td>172</td>
+<td><a href="p?ID=279">279. The Phantom Menace</a></td>
+<td>5</td>
+<td>45%</td>
+<td>Jordan Universities Training Contest #1</td>
+</tr><tr class="odd">
+<td>173</td>
+<td><a href="p?ID=280">280. Lucky Number</a></td>
+<td>34</td>
+<td>43%</td>
+<td>Jordan Universities Training Contest #1</td>
+</tr><tr>
+<td>174</td>
+<td><a href="p?ID=281">281. Ninja Hacker</a></td>
+<td>12</td>
+<td>27%</td>
+<td>Jordan Universities Training Contest #1</td>
+</tr><tr class="odd">
+<td>175</td>
+<td><a href="p?ID=282">282. Maximum Score</a></td>
+<td>5</td>
+<td>19%</td>
+<td>Jordan Universities Training Contest #1</td>
+</tr><tr>
+<td>176</td>
+<td><a href="p?ID=283">283. iPhone 6!</a></td>
+<td>768</td>
+<td>91%</td>
+<td>ACM Egyptian Collegiate Programming Contest 2014</td>
+</tr><tr class="odd">
+<td>177</td>
+<td><a href="p?ID=284">284. Snakes</a></td>
+<td>41</td>
+<td>23%</td>
+<td>ACM Egyptian Collegiate Programming Contest 2014</td>
+</tr><tr>
+<td>178</td>
+<td><a href="p?ID=285">285. Omar the clown</a></td>
+<td>33</td>
+<td>55%</td>
+<td>ACM Egyptian Collegiate Programming Contest 2014</td>
+</tr><tr class="odd">
+<td>179</td>
+<td><a href="p?ID=286">286. Bab Al hara</a></td>
+<td>103</td>
+<td>43%</td>
+<td>ACM Egyptian Collegiate Programming Contest 2014</td>
+</tr><tr>
+<td>180</td>
+<td><a href="p?ID=287">287. Ad revenue</a></td>
+<td>78</td>
+<td>68%</td>
+<td>ACM Egyptian Collegiate Programming Contest 2014</td>
+</tr><tr class="odd">
+<td>181</td>
+<td><a href="p?ID=288">288. The Pattern Lover</a></td>
+<td>3</td>
+<td>13%</td>
+<td>ACM Egyptian Collegiate Programming Contest 2014</td>
+</tr><tr>
+<td>182</td>
+<td><a href="p?ID=289">289. 9 meters rule</a></td>
+<td>0</td>
+<td>0%</td>
+<td>ACM Egyptian Collegiate Programming Contest 2014</td>
+</tr><tr class="odd">
+<td>183</td>
+<td><a href="p?ID=290">290. Berliner</a></td>
+<td>15</td>
+<td>65%</td>
+<td>ACM Egyptian Collegiate Programming Contest 2014</td>
+</tr><tr>
+<td>184</td>
+<td><a href="p?ID=291">291. Fibonacci 2.0</a></td>
+<td>54</td>
+<td>50%</td>
+<td>ACM Egyptian Collegiate Programming Contest 2014</td>
+</tr><tr class="odd">
+<td>185</td>
+<td><a href="p?ID=292">292. Functions</a></td>
+<td>35</td>
+<td>87%</td>
+<td>ACM Egyptian Collegiate Programming Contest 2014</td>
+</tr><tr>
+<td>186</td>
+<td><a href="p?ID=293">293. CodeZilla</a></td>
+<td>576</td>
+<td>78%</td>
+<td>ACM Egyptian Collegiate Programming Contest 2014</td>
+</tr><tr class="odd">
+<td>187</td>
+<td><a href="p?ID=294">294. Shortest Path</a></td>
+<td>23</td>
+<td>88%</td>
+<td></td>
+</tr><tr>
+<td>188</td>
+<td><a href="p?ID=296">296. Amanda Lounges</a></td>
+<td>5</td>
+<td>71%</td>
+<td>Nordic Collegiate Programming Contest</td>
+</tr><tr class="odd">
+<td>189</td>
+<td><a href="p?ID=297">297. Basin City Surveillance</a></td>
+<td>1</td>
+<td>50%</td>
+<td>Nordic Collegiate Programming Contest</td>
+</tr><tr>
+<td>190</td>
+<td><a href="p?ID=298">298. Dice Game</a></td>
+<td>37</td>
+<td>84%</td>
+<td>Nordic Collegiate Programming Contest</td>
+</tr><tr class="odd">
+<td>191</td>
+<td><a href="p?ID=299">299. Opening Ceremony</a></td>
+<td>23</td>
+<td>85%</td>
+<td>Nordic Collegiate Programming Contest</td>
+</tr><tr>
+<td>192</td>
+<td><a href="p?ID=300">300. Particle Swapping</a></td>
+<td>1</td>
+<td>100%</td>
+<td>Nordic Collegiate Programming Contest</td>
+</tr><tr class="odd">
+<td>193</td>
+<td><a href="p?ID=302">302. Outing</a></td>
+<td>8</td>
+<td>50%</td>
+<td>Nordic Collegiate Programming Contest</td>
+</tr><tr>
+<td>194</td>
+<td><a href="p?ID=303">303. Clock Pictures</a></td>
+<td>25</td>
+<td>78%</td>
+<td>Nordic Collegiate Programming Contest</td>
+</tr><tr class="odd">
+<td>195</td>
+<td><a href="p?ID=304">304. How many squares?</a></td>
+<td>2</td>
+<td>25%</td>
+<td>Nordic Collegiate Programming Contest</td>
+</tr><tr>
+<td>196</td>
+<td><a href="p?ID=305">305. Road Work</a></td>
+<td>1</td>
+<td>20%</td>
+<td>Nordic Collegiate Programming Contest</td>
+</tr><tr class="odd">
+<td>197</td>
+<td><a href="p?ID=306">306. Train Passengers</a></td>
+<td>51</td>
+<td>68%</td>
+<td>Nordic Collegiate Programming Contest</td>
+</tr><tr>
+<td>198</td>
+<td><a href="p?ID=307">307. Buses To Sharm</a></td>
+<td>515</td>
+<td>90%</td>
+<td>ACM Oman Collegiate Programming Contest 2014</td>
+</tr><tr class="odd">
+<td>199</td>
+<td><a href="p?ID=308">308. Enter The Contest</a></td>
+<td>260</td>
+<td>93%</td>
+<td>ACM Oman Collegiate Programming Contest 2014</td>
+</tr><tr>
+<td>200</td>
+<td><a href="p?ID=309">309. Hangman</a></td>
+<td>12</td>
+<td>44%</td>
+<td>ACM Oman Collegiate Programming Contest 2014</td>
+</tr></tbody>
+</table>
+
+
+
+
+<a href="ps?From=3">&lt;Previous</a>
+ - 
+<a href="ps">1-50</a>
+&nbsp;
+<a href="ps?From=2">51-100</a>
+&nbsp;
+<a href="ps?From=3">101-150</a>
+&nbsp;
+<b>151-200</b>
+&nbsp;
+<a href="ps?From=5">201-250</a>
+&nbsp;
+<a href="ps?From=6">251-300</a>
+&nbsp;
+<a href="ps?From=7">301-320</a>
+ - 
+<a href="ps?From=5">Next&gt;</a>
+
+
+
+
+</center>
+</font>
+
+</div>
+</td>
+<td style="padding: 0px; vertical-align: top;">
+<div id="rightAd">
+
+
+</div>
+</td>
+</tr>
+</tbody></table>
+</center>
+<!-- end page -->
+<!-- start footer -->
+<div id="footer">
+<p id="legal">A2OJ © Copyright 2011-2016 <b><a href="https://www.facebook.com/ahmed.aly.tc" target="_blank" style="text-decoration: none;">Ahmed Aly</a></b> All Rights Reserved. A2OJ uses <a href="http://sphere-engine.com" target="_blank" style="text-decoration: none;">Sphere Engine</a>™ © by <a href="http://sphere-research.com" target="_blank" style="text-decoration: none;">Sphere Research Labs</a>.</p>
+</div>
+</td>
+
+
+</tr>
+</tbody></table>
+</center><span style="font-style: normal; font-variant: normal; font-weight: normal; font-size: 99px; line-height: normal; font-family: testfont, _, serif; position: absolute; visibility: hidden; bottom: 0px;" id="fonttest">........</span>
+<!-- end footer -->
+
+
+
+
+</body></html>

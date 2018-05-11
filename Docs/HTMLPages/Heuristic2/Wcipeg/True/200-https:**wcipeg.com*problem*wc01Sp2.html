@@ -1,0 +1,332 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - WC01 - S - Temptation Island</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "221fe9b9644c0adc95c96655c1b1b5a1";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fwc01Sp2"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>Woburn Challenge 2001 - Suicidal</h3>
+<h2>Tuesday - Temptation Island</h2>
+<p>On Monday, the number of frosh  were reduced in half. To further reduce  the number of engineers to a manageable number, the following challenge was  devised for the second day. Each of the  students would have to take this challenge individually.</p>
+<p>Each student would be placed at  a vertex of perimeter fence of Waterloo (oh yeah, some background: to keep UofT’s  engineering Lady Godiva band out of Waterloo, a fence was erected surrounding  the university. The fence just happens  to be an <var>N</var>-gon). At some other vertex  along the fence would be located a temptation so seductive that no Waterloo student could  resist – an extra-credit assignment. The  challenge of each student is to go from his starting vertex to the vertex with  the prize. There are, however, 3 rules:</p>
+<ol>
+  <li>The student can only travel  from vertex to vertex (backwards or forwards) along the polygonal fence.</li>
+  <li>The student has to make contact  with exactly <var>K</var> vertices (the vertex he starts at doesn’t count unless he  returns to it). The <var>K</var> vertices need not  be unique. The final vertex has to be  the one with the prize.</li>
+  <li>If the student cannot reach the  prize and make contact with exactly <var>K</var> vertices, he fails the test and is kicked  out of the university.</li>
+</ol>
+<p>Of course, no Waterloo student is satisfied with only 1  solution to any problem. Therefore,  inevitably, each student determines all ways that he/she can win. Note that there may be no solution to the  problem (the astute student has figured out that this will result in a class  size of 0 – this is entirely allowable as the variable used to quantify  enrollment was incorrectly defined as a whole number instead of a natural  number).</p>
+<h3>Input</h3>
+<p><var>N</var> <var>K</var> (<var>N</var>, <var>K</var> ≤ 50)<br>
+<var>A</var> <var>B</var> (<var>A</var> = the starting vertex  number, <var>B</var> = destination vertex number)</p>
+<p>There will be multiple test cases, one after another: a case where <var>N</var> = -1, <var>K</var> = -1  terminates input.</p>
+<h3>Output</h3>
+<p>The total number of ways of  reaching the destination from the starting point by following the above  rules. The total number of ways will be  less than 2,147,483,647 (ie. a longint).  Output 0 if there are no solutions.</p>
+<h3>Sample Input</h3>
+<p><code>8 5<br>
+  1 4<br>
+-1 -1</code></p>
+<h3>Sample Output</h3>
+<p><code>6</code></p>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,wc01Sp2">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/wc01Sp2">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 10<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Dec 05, 2008<br>
+      </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=wc01Sp2">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment715">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/qinhaotian">qinhaotian</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/715">Dec 11, 2008 - 11:16:25 pm UTC</a>      </span>
+      <a class="comment_title" id="title715" onclick="toggle(&quot;body715&quot;)">Re: Re: related to math</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating715">
+    (<span class="upvotes"><span id="upvotes715">1</span></span>/<span class="downvotes"><span id="downvotes715">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body715" class="comment_body">
+    <pre id="msg715" style="display: none">Good answer.
+
+No wonder you got -4 rating -.-</pre>
+    <div style="opacity: 0.90547134519913">
+      Good answer. <br> <br>No wonder you got -4 rating -.-    </div>
+    <br><div class="comment_block" id="comment716">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/dAedaL">dAedaL</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/716">Dec 11, 2008 - 11:24:43 pm UTC</a>      </span>
+      <a class="comment_title" id="title716" onclick="toggle(&quot;body716&quot;)">Re: Re: Re: related to math</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating716">
+    (<span class="upvotes"><span id="upvotes716">1</span></span>/<span class="downvotes"><span id="downvotes716">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body716" class="comment_body">
+    <pre id="msg716" style="display: none">-6*
+
+and I didn't use a math formula.
+Although it seems like there is one for some reason.</pre>
+    <div style="opacity: 0.90547134519913">
+      -6* <br> <br>and I didn't use a math formula. <br>Although it seems like there is one for some reason.    </div>
+    <br><div class="comment_block" id="comment717">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hansonw1">hansonw1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/717">Dec 11, 2008 - 11:42:47 pm UTC</a>      </span>
+      <a class="comment_title" id="title717" onclick="toggle(&quot;body717&quot;)">Re: Re: Re: Re: related to math</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating717">
+    (<span class="upvotes"><span id="upvotes717">0</span></span>/<span class="downvotes"><span id="downvotes717">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body717" class="comment_body">
+    <pre id="msg717" style="display: none">There is a sort of math formula.
+(It involves N choose K)
+It probably isn't easier than the 'regular' way.</pre>
+    <div style="opacity: 1">
+      There is a sort of math formula. <br>(It involves N choose K) <br>It probably isn't easier than the 'regular' way.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment712">
+  <div class="comment_header" style="opacity: 0.84996429117983">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/qinhaotian">qinhaotian</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/712">Dec 11, 2008 - 4:07:06 am UTC</a>      </span>
+      <a class="comment_title" id="title712" onclick="toggle(&quot;body712&quot;)">related to math</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating712">
+    (<span class="upvotes"><span id="upvotes712">2</span></span>/<span class="downvotes"><span id="downvotes712">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body712" class="comment_body">
+    <pre id="msg712" style="display: none">need to generate some math formula? </pre>
+    <div style="opacity: 0.84996429117983">
+      need to generate some math formula?    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment667">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hansonw1">hansonw1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/667">Dec 06, 2008 - 5:15:32 pm UTC</a>      </span>
+      <a class="comment_title" id="title667" onclick="toggle(&quot;body667&quot;)">Clarification</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating667">
+    (<span class="upvotes"><span id="upvotes667">0</span></span>/<span class="downvotes"><span id="downvotes667">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body667" class="comment_body">
+    <pre id="msg667" style="display: none">There are 4 numbers for every test case:
+N and K are different every time.</pre>
+    <div style="opacity: 1">
+      There are 4 numbers for every test case: <br>N and K are different every time.    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment647">
+  <div class="comment_header" style="opacity: 0.65762804711038">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/taimla101">taimla101</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/647">Dec 05, 2008 - 4:07:23 pm UTC</a>      </span>
+      <a class="comment_title" id="title647" onclick="toggle(&quot;body647&quot;)">are they all on the same vertex...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating647">
+    (<span class="upvotes"><span id="upvotes647">0</span></span>/<span class="downvotes"><span id="downvotes647">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body647" class="comment_body">
+    <pre id="msg647" style="display: none">or is there a person on every vertex</pre>
+    <div style="opacity: 0.65762804711038">
+      or is there a person on every vertex    </div>
+    <br><div class="comment_block" id="comment648">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hansonw1">hansonw1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/648">Dec 05, 2008 - 4:11:26 pm UTC</a>      </span>
+      <a class="comment_title" id="title648" onclick="toggle(&quot;body648&quot;)">Re: are they all on the same vertex...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating648">
+    (<span class="upvotes"><span id="upvotes648">0</span></span>/<span class="downvotes"><span id="downvotes648">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body648" class="comment_body">
+    <pre id="msg648" style="display: none">What do you mean?
+There is only one student trying to get from the start to the end. The 'other students' are irrelevant.</pre>
+    <div style="opacity: 1">
+      What do you mean? <br>There is only one student trying to get from the start to the end. The 'other students' are irrelevant.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0327s.<br>
+    Server time on page load:
+    May 10, 2018 21:49:17 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fwc01Sp2">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

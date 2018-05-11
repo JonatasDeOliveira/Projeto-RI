@@ -1,0 +1,616 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - A plus B 2</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "221fe9b9644c0adc95c96655c1b1b5a1";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Faplusb2"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h2>A plus B... again</h2>
+
+<p>Given two integers A and B (of no more than <b>100000 digits</b> each), find their exact sum.<br></p></div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,aplusb2">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/aplusb2">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 15<br>
+    <b>Time Limit:</b> 3.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Oct 24, 2008<br>
+      </p>
+
+    <b>Problem Types:</b>
+  <noscript>
+    &lt;style type="text/css"&gt;
+      #show_types, #hide_types { display: none !important; }
+      #spoiler_id { display: inline !important; }
+    &lt;/style&gt;
+  </noscript>
+  <a href="javascript:void(null);" id="show_types" onclick="document.getElementById('spoiler_id').style.display=''; document.getElementById('show_types').style.display='none';">[Show]</a>
+  <span id="spoiler_id" style="display: none">
+    <a href="javascript:void(null);" id="hide_types" onclick="document.getElementById('spoiler_id').style.display='none'; document.getElementById('show_types').style.display='';">[Hide]</a><br>
+    <ul style="list-style-type: none; margin: 0; padding: 0;">
+      <li>String Manipulation</li><li>Math</li>    </ul>
+  </span>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=aplusb2">Search</a>)</h2><p style="text-align: center"></p><div class="pagination-container"><div class="pagination-prev">&lt;</div><div class="pagination-cur">1</div><a href="https://wcipeg.com/problem/aplusb2/10" class="pagination-link"><div class="pagination-num">2</div></a><a href="https://wcipeg.com/problem/aplusb2/20" class="pagination-link"><div class="pagination-num">3</div></a><a href="https://wcipeg.com/problem/aplusb2/10" class="pagination-link"><div class="pagination-next">&gt;</div></a></div><p></p><div class="comment_block" id="comment8768">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/magicalsoup">magicalsoup</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8768">Mar 09, 2018 - 12:52:19 am UTC</a>      </span>
+      <a class="comment_title" id="title8768" onclick="toggle(&quot;body8768&quot;)">Re: Why can't we submit this in java?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8768">
+    (<span class="upvotes"><span id="upvotes8768">0</span></span>/<span class="downvotes"><span id="downvotes8768">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8768" class="comment_body">
+    <pre id="msg8768" style="display: none">cause that's too easy</pre>
+    <div style="opacity: 0.79345670852611">
+      cause that's too easy    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment8484">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/eric574">eric574</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8484">Dec 26, 2017 - 4:12:18 am UTC</a>      </span>
+      <a class="comment_title" id="title8484" onclick="toggle(&quot;body8484&quot;)">Solution WAs?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8484">
+    (<span class="upvotes"><span id="upvotes8484">0</span></span>/<span class="downvotes"><span id="downvotes8484">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8484" class="comment_body">
+    <pre id="msg8484" style="display: none">My code WAs here, but ACs on DMOJ. Any reason why?
+What happened to the test cases</pre>
+    <div style="opacity: 1">
+      My code WAs here, but ACs on DMOJ. Any reason why? <br>What happened to the test cases    </div>
+    <br><div class="comment_block" id="comment8486">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8486">Dec 26, 2017 - 7:15:17 pm UTC</a>      </span>
+      <a class="comment_title" id="title8486" onclick="toggle(&quot;body8486&quot;)">Re: Solution WAs?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8486">
+    (<span class="upvotes"><span id="upvotes8486">0</span></span>/<span class="downvotes"><span id="downvotes8486">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8486" class="comment_body">
+    <pre id="msg8486" style="display: none">Read the problem statement. It's only one sentence.</pre>
+    <div style="opacity: 1">
+      Read the problem statement. It's only one sentence.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment8467">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/SuperCyther">SuperCyther</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8467">Dec 17, 2017 - 5:32:43 pm UTC</a>      </span>
+      <a class="comment_title" id="title8467" onclick="toggle(&quot;body8467&quot;)">long</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8467">
+    (<span class="upvotes"><span id="upvotes8467">0</span></span>/<span class="downvotes"><span id="downvotes8467">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8467" class="comment_body">
+    <pre id="msg8467" style="display: none">in java, just use long insted of int</pre>
+    <div style="opacity: 0.79345670852611">
+      in java, just use long insted of int    </div>
+    <br><div class="comment_block" id="comment8471">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Panicatol648989">Panicatol648989</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8471">Dec 18, 2017 - 10:42:06 pm UTC</a>      </span>
+      <a class="comment_title" id="title8471" onclick="toggle(&quot;body8471&quot;)">Re: long</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8471">
+    (<span class="upvotes"><span id="upvotes8471">0</span></span>/<span class="downvotes"><span id="downvotes8471">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8471" class="comment_body">
+    <pre id="msg8471" style="display: none">There's another function to do, too.</pre>
+    <div style="opacity: 1">
+      There's another function to do, too.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment3951">
+  <div class="comment_header" style="opacity: 0.84178307773737">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Karthik">Karthik</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3951">Jan 10, 2012 - 12:14:43 am UTC</a>      </span>
+      <a class="comment_title" id="title3951" onclick="toggle(&quot;body3951&quot;)">Why can't we submit this in java?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3951">
+    (<span class="upvotes"><span id="upvotes3951">4</span></span>/<span class="downvotes"><span id="downvotes3951">3</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3951" class="comment_body">
+    <pre id="msg3951" style="display: none">It's not like it makes it any easier, we still have to use string manipulation because java variables can't store such big integers.</pre>
+    <div style="opacity: 0.84178307773737">
+      It's not like it makes it any easier, we still have to use string manipulation because java variables can't store such big integers.    </div>
+    <br><div class="comment_block" id="comment3952">
+  <div class="comment_header" style="opacity: 0.98010962867287">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3952">Jan 10, 2012 - 1:58:55 am UTC</a>      </span>
+      <a class="comment_title" id="title3952" onclick="toggle(&quot;body3952&quot;)">Re: Why can't we submit this in java?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3952">
+    (<span class="upvotes"><span id="upvotes3952">8</span></span>/<span class="downvotes"><span id="downvotes3952">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3952" class="comment_body">
+    <pre id="msg3952" style="display: none">Java has a built-in BigInteger class. A sample Java solution for this problem is as follows:
+
+[code]import java.util.Scanner;
+import java.math.BigInteger;
+
+public class aplusb2 {
+    public static void main(String[] foo) {
+        Scanner in = new Scanner(System.in);
+        System.out.println((new BigInteger(in.next())).add(new BigInteger(in.next())));
+    }
+}[/code]</pre>
+    <div style="opacity: 0.98010962867287">
+      Java has a built-in BigInteger class. A sample Java solution for this problem is as follows: <br> <br><pre><code class=" cpp">import java.util.Scanner; 
+import java.math.BigInteger; 
+ 
+<span class="keyword">public</span> <span class="keyword">class</span> aplusb2 { 
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] foo) { 
+        Scanner in = <span class="keyword">new</span> Scanner(System.in); 
+        System.out.println((<span class="keyword">new</span> BigInteger(in.next())).add(<span class="keyword">new</span> BigInteger(in.next()))); 
+    } 
+}</code></pre>    </div>
+    <br><div class="comment_block" id="comment8010">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/MstrPikachu">MstrPikachu</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8010">Mar 23, 2017 - 12:40:13 am UTC</a>      </span>
+      <a class="comment_title" id="title8010" onclick="toggle(&quot;body8010&quot;)">Re: Why can't we submit this in java?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8010">
+    (<span class="upvotes"><span id="upvotes8010">0</span></span>/<span class="downvotes"><span id="downvotes8010">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8010" class="comment_body">
+    <pre id="msg8010" style="display: none">What's the difference between
+public static void main(String[] args)
+and
+public static void main(String[] foo)?</pre>
+    <div style="opacity: 1">
+      What's the difference between <br>public static void main(String[] args) <br>and <br>public static void main(String[] foo)?    </div>
+      </div>
+</div>
+<br><div class="comment_block" id="comment8364">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Panicatol648989">Panicatol648989</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8364">Nov 26, 2017 - 5:28:56 pm UTC</a>      </span>
+      <a class="comment_title" id="title8364" onclick="toggle(&quot;body8364&quot;)">Re: Why can't we submit this in java?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8364">
+    (<span class="upvotes"><span id="upvotes8364">1</span></span>/<span class="downvotes"><span id="downvotes8364">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8364" class="comment_body">
+    <pre id="msg8364" style="display: none">If that's a sample Java solution for this problem, then why can't we submit it in JAVA? I mean, if you say that that is a way to solve it, then it means that there is a way to solve it in JAVA</pre>
+    <div style="opacity: 0.90547134519913">
+      If that's a sample Java solution for this problem, then why can't we submit it in JAVA? I mean, if you say that that is a way to solve it, then it means that there is a way to solve it in JAVA    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment8111">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hello12">hello12</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8111">May 24, 2017 - 3:55:47 pm UTC</a>      </span>
+      <a class="comment_title" id="title8111" onclick="toggle(&quot;body8111&quot;)">what is the point of this problem?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8111">
+    (<span class="upvotes"><span id="upvotes8111">0</span></span>/<span class="downvotes"><span id="downvotes8111">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8111" class="comment_body">
+    <pre id="msg8111" style="display: none">what is the point of this problem?
+isnt it just like the first one?</pre>
+    <div style="opacity: 0.79345670852611">
+      what is the point of this problem? <br>isnt it just like the first one?    </div>
+    <br><div class="comment_block" id="comment8112">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/spencereir">spencereir</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8112">May 24, 2017 - 10:33:52 pm UTC</a>      </span>
+      <a class="comment_title" id="title8112" onclick="toggle(&quot;body8112&quot;)">Re: what is the point of this problem?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8112">
+    (<span class="upvotes"><span id="upvotes8112">0</span></span>/<span class="downvotes"><span id="downvotes8112">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8112" class="comment_body">
+    <pre id="msg8112" style="display: none">64 bit integers cannot hold numbers of 100000 digits (i.e., of size 10^100000)</pre>
+    <div style="opacity: 1">
+      64 bit integers cannot hold numbers of 100000 digits (i.e., of size 10^100000)    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment8025">
+  <div class="comment_header" style="opacity: 0.65762804711038">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hello12">hello12</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8025">Mar 30, 2017 - 3:15:19 pm UTC</a>      </span>
+      <a class="comment_title" id="title8025" onclick="toggle(&quot;body8025&quot;)">lol</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8025">
+    (<span class="upvotes"><span id="upvotes8025">0</span></span>/<span class="downvotes"><span id="downvotes8025">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8025" class="comment_body">
+    <pre id="msg8025" style="display: none">lol</pre>
+    <div style="opacity: 0.65762804711038">
+      lol    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment7695">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Wise_Syrian">Wise_Syrian</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7695">Sep 30, 2016 - 1:40:40 pm UTC</a>      </span>
+      <a class="comment_title" id="title7695" onclick="toggle(&quot;body7695&quot;)">could there be negetive and postive ints ?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7695">
+    (<span class="upvotes"><span id="upvotes7695">1</span></span>/<span class="downvotes"><span id="downvotes7695">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7695" class="comment_body">
+    <pre id="msg7695" style="display: none"></pre>
+    <div style="opacity: 0.90547134519913">
+          </div>
+    <br><div class="comment_block" id="comment7696">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/wgma00">wgma00</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7696">Sep 30, 2016 - 9:02:03 pm UTC</a>      </span>
+      <a class="comment_title" id="title7696" onclick="toggle(&quot;body7696&quot;)">Re: could there be negetive and postive ints ?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7696">
+    (<span class="upvotes"><span id="upvotes7696">1</span></span>/<span class="downvotes"><span id="downvotes7696">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7696" class="comment_body">
+    <pre id="msg7696" style="display: none">yes, otherwise the problem would be trivial.</pre>
+    <div style="opacity: 0.90547134519913">
+      yes, otherwise the problem would be trivial.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment5523">
+  <div class="comment_header" style="opacity: 0.84996429117983">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Hzhang">Hzhang</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5523">Oct 26, 2013 - 3:28:30 am UTC</a>      </span>
+      <a class="comment_title" id="title5523" onclick="toggle(&quot;body5523&quot;)">Begginer here on Pascal</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5523">
+    (<span class="upvotes"><span id="upvotes5523">2</span></span>/<span class="downvotes"><span id="downvotes5523">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5523" class="comment_body">
+    <pre id="msg5523" style="display: none">[s]The program is not working!
+Is there a catch? I have used the same program as the 
+first A + B.
+For Some reason it no work!
+Its very Simple![/s]
+
+_________________
+
+[code]var
+[s]a,b:integer;
+begin
+    readln (a);
+    readln (b);
+    writeln (a+b);
+end.[/code]
+[/s]
+
+nothing to see here :whistle:</pre>
+    <div style="opacity: 0.84996429117983">
+      <span class="strikethrough">The program is not working! <br>Is there a catch? I have used the same program as the  <br>first A + B. <br>For Some reason it no work! <br>Its very Simple!</span> <br> <br>_________________ <br> <br><pre><code>var <br><span class="strikethrough">a,b:integer; <br>begin <br>    readln (a); <br>    readln (b); <br>    writeln (a+b); <br>end.</span></code></pre> <br> <br> <br>nothing to see here <img src="https://wcipeg.com/assets/img/smiley/whistle.gif" alt="whistle.gif">    </div>
+    <br><div class="comment_block" id="comment5524">
+  <div class="comment_header" style="opacity: 0.94331905201931">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/wgma00">wgma00</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5524">Oct 26, 2013 - 3:44:05 am UTC</a>      </span>
+      <a class="comment_title" id="title5524" onclick="toggle(&quot;body5524&quot;)">Re: Begginer here on Pascal</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5524">
+    (<span class="upvotes"><span id="upvotes5524">8</span></span>/<span class="downvotes"><span id="downvotes5524">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5524" class="comment_body">
+    <pre id="msg5524" style="display: none">[url]http://wiki.freepascal.org/Integer[/url]
+
+Integers only have a capacity of -2[sup]31[/sup] to 2[sup]31[/sup] -1 which is 10 digits long while this problem has input that may be up to 100 000 digits each. So you'll have to find another method to solve this. For future reference don't post your code in the comments and please refer to this before posting a question.
+
+[url]http://wcipeg.com/comments/view#comment3719[/url] </pre>
+    <div style="opacity: 0.94331905201931">
+      <a href="http://wiki.freepascal.org/Integer" target="_blank">http://wiki.freepascal.org/Integer</a> <br> <br>Integers only have a capacity of -2<sup>31</sup> to 2<sup>31</sup> -1 which is 10 digits long while this problem has input that may be up to 100 000 digits each. So you'll have to find another method to solve this. For future reference don't post your code in the comments and please refer to this before posting a question. <br> <br><a href="http://wcipeg.com/comments/view#comment3719" target="_blank">http://wcipeg.com/comments/view#comment3719</a>    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment4047">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/ImbaCalvin">ImbaCalvin</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/4047">Apr 22, 2012 - 10:28:14 pm UTC</a>      </span>
+      <a class="comment_title" id="title4047" onclick="toggle(&quot;body4047&quot;)">Is this high-precision calculation or something?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating4047">
+    (<span class="upvotes"><span id="upvotes4047">0</span></span>/<span class="downvotes"><span id="downvotes4047">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body4047" class="comment_body">
+    <pre id="msg4047" style="display: none">The same as the title</pre>
+    <div style="opacity: 0.79345670852611">
+      The same as the title    </div>
+    <br><div class="comment_block" id="comment4048">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/4048">Apr 23, 2012 - 1:05:01 am UTC</a>      </span>
+      <a class="comment_title" id="title4048" onclick="toggle(&quot;body4048&quot;)">Re: Is this high-precision calculation or something?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating4048">
+    (<span class="upvotes"><span id="upvotes4048">1</span></span>/<span class="downvotes"><span id="downvotes4048">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body4048" class="comment_body">
+    <pre id="msg4048" style="display: none">It's exactly as the problem states: add two numbers together, each of which may be up to 100 000 digits long.
+
+Note that python is disallowed because it has bignums.</pre>
+    <div style="opacity: 0.90547134519913">
+      It's exactly as the problem states: add two numbers together, each of which may be up to 100 000 digits long. <br> <br>Note that python is disallowed because it has bignums.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment3820">
+  <div class="comment_header" style="opacity: 0.93850968472384">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Alex">Alex</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3820">Dec 01, 2011 - 11:38:17 pm UTC</a>      </span>
+      <a class="comment_title" id="title3820" onclick="toggle(&quot;body3820&quot;)">Input Format</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3820">
+    (<span class="upvotes"><span id="upvotes3820">2</span></span>/<span class="downvotes"><span id="downvotes3820">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3820" class="comment_body">
+    <pre id="msg3820" style="display: none">Are A and B on the same line separated by a space or two separate lines?</pre>
+    <div style="opacity: 0.93850968472384">
+      Are A and B on the same line separated by a space or two separate lines?    </div>
+    <br><div class="comment_block" id="comment3823">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3823">Dec 02, 2011 - 5:20:19 am UTC</a>      </span>
+      <a class="comment_title" id="title3823" onclick="toggle(&quot;body3823&quot;)">Re: Input Format</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3823">
+    (<span class="upvotes"><span id="upvotes3823">0</span></span>/<span class="downvotes"><span id="downvotes3823">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3823" class="comment_body">
+    <pre id="msg3823" style="display: none">Separate lines.</pre>
+    <div style="opacity: 0.79345670852611">
+      Separate lines.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0691s.<br>
+    Server time on page load:
+    May 10, 2018 21:46:13 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Faplusb2">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>
