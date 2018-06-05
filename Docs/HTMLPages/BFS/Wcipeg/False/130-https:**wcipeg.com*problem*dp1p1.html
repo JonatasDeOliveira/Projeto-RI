@@ -1,0 +1,377 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - Maximum Sum</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "1f431cf4b28e866c03f008d06c030643";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fdp1p1"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h2>Maximum Sum</h2>
+
+Given an array of (positive) integers, find a subset with the maximal sum.<br>
+However, there is the additional restriction that no two numbers in the subset may be adjacent.<br>
+<br>
+For example, for the array 4 5 6 9 10:<br> 
+4 6 10 is valid, while 5 9 10 is invalid since 9 and 10 are next to each other.<br>
+4 6 10 happens to be the optimal sum in this case, so 20 is the answer.<br>
+<h3>Input</h3>
+An integer 1 &lt; N &lt;= 100,000.<br>
+N lines, each with one positive integer in the sequence &lt;= 1000<br>
+<h3>Output</h3>
+The maximum sum possible.</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,dp1p1">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/dp1p1">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 7<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Jun 27, 2013<br>
+      </p>
+
+    <b>Problem Types:</b>
+  <noscript>
+    &lt;style type="text/css"&gt;
+      #show_types, #hide_types { display: none !important; }
+      #spoiler_id { display: inline !important; }
+    &lt;/style&gt;
+  </noscript>
+  <a href="javascript:void(null);" id="show_types" onclick="document.getElementById('spoiler_id').style.display=''; document.getElementById('show_types').style.display='none';">[Show]</a>
+  <span id="spoiler_id" style="display: none">
+    <a href="javascript:void(null);" id="hide_types" onclick="document.getElementById('spoiler_id').style.display='none'; document.getElementById('show_types').style.display='';">[Hide]</a><br>
+    <ul style="list-style-type: none; margin: 0; padding: 0;">
+      <li>Dynamic Programming</li>    </ul>
+  </span>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=dp1p1">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment8147">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Cameron">Cameron</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8147">Jul 27, 2017 - 3:53:52 am UTC</a>      </span>
+      <a class="comment_title" id="title8147" onclick="toggle(&quot;body8147&quot;)">I don't understand the error</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8147">
+    (<span class="upvotes"><span id="upvotes8147">0</span></span>/<span class="downvotes"><span id="downvotes8147">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8147" class="comment_body">
+    <pre id="msg8147" style="display: none">I don't understand what the problem is. My submission gets 10/50 points. All the test examples that I am coming up with are coming out alright. Are the rest of my answers (for the submissions) wildly off, or am I just maybe missing an element (or something similar)?</pre>
+    <div style="opacity: 0.79345670852611">
+      I don't understand what the problem is. My submission gets 10/50 points. All the test examples that I am coming up with are coming out alright. Are the rest of my answers (for the submissions) wildly off, or am I just maybe missing an element (or something similar)?    </div>
+    <br><div class="comment_block" id="comment8150">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Xue_Alex">Xue_Alex</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8150">Jul 30, 2017 - 1:45:45 am UTC</a>      </span>
+      <a class="comment_title" id="title8150" onclick="toggle(&quot;body8150&quot;)">Re: I don't understand the error</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8150">
+    (<span class="upvotes"><span id="upvotes8150">2</span></span>/<span class="downvotes"><span id="downvotes8150">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8150" class="comment_body">
+    <pre id="msg8150" style="display: none">Judging on your submission that got 10/50 WA...
+
+What about 99, 100, 99, 1, 1
+
+Your submission would output 101, when in reality that answer would be 199 (taking 99 + 99 + 1, at indexes 0, 2, 4). I'd suggest that you look into "dynamic programming".
+
+Also, another suggestion is that you don't name your variables something that is already in the standard library (you named a vector "set").
+
+Good luck!
+</pre>
+    <div style="opacity: 1">
+      Judging on your submission that got 10/50 WA... <br> <br>What about 99, 100, 99, 1, 1 <br> <br>Your submission would output 101, when in reality that answer would be 199 (taking 99 + 99 + 1, at indexes 0, 2, 4). I'd suggest that you look into "dynamic programming". <br> <br>Also, another suggestion is that you don't name your variables something that is already in the standard library (you named a vector "set"). <br> <br>Good luck!    </div>
+    <br><div class="comment_block" id="comment8151">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Cameron">Cameron</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8151">Jul 30, 2017 - 2:34:04 pm UTC</a>      </span>
+      <a class="comment_title" id="title8151" onclick="toggle(&quot;body8151&quot;)">Re: I don't understand the error</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8151">
+    (<span class="upvotes"><span id="upvotes8151">0</span></span>/<span class="downvotes"><span id="downvotes8151">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8151" class="comment_body">
+    <pre id="msg8151" style="display: none">Thanks
+I'll see about this dynamic programming solution, but I was thinking that I could simply delete elements of the vector that the solution didn't need.
+
+Additionally, could you check my solution to Rock Climbing problem (unrelated problem)?</pre>
+    <div style="opacity: 1">
+      Thanks <br>I'll see about this dynamic programming solution, but I was thinking that I could simply delete elements of the vector that the solution didn't need. <br> <br>Additionally, could you check my solution to Rock Climbing problem (unrelated problem)?    </div>
+    <br><div class="comment_block" id="comment8155">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Xue_Alex">Xue_Alex</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8155">Aug 01, 2017 - 12:08:15 am UTC</a>      </span>
+      <a class="comment_title" id="title8155" onclick="toggle(&quot;body8155&quot;)">Re: I don't understand the error</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8155">
+    (<span class="upvotes"><span id="upvotes8155">2</span></span>/<span class="downvotes"><span id="downvotes8155">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8155" class="comment_body">
+    <pre id="msg8155" style="display: none">Yeah sure! I replied to your comment on that problem page.</pre>
+    <div style="opacity: 1">
+      Yeah sure! I replied to your comment on that problem page.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment8144">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/gpfault">gpfault</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8144">Jul 19, 2017 - 3:16:07 am UTC</a>      </span>
+      <a class="comment_title" id="title8144" onclick="toggle(&quot;body8144&quot;)">[user] hardcoding</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8144">
+    (<span class="upvotes"><span id="upvotes8144">0</span></span>/<span class="downvotes"><span id="downvotes8144">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8144" class="comment_body">
+    <pre id="msg8144" style="display: none">Again. Fun fact: the top submissions calculates the answer faster than [user]'s hardcoding submission</pre>
+    <div style="opacity: 1">
+      Again. Fun fact: the top submissions calculates the answer faster than [user]'s hardcoding submission    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment7950">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Chinadoll">Chinadoll</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7950">Feb 11, 2017 - 4:50:39 pm UTC</a>      </span>
+      <a class="comment_title" id="title7950" onclick="toggle(&quot;body7950&quot;)">?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7950">
+    (<span class="upvotes"><span id="upvotes7950">0</span></span>/<span class="downvotes"><span id="downvotes7950">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7950" class="comment_body">
+    <pre id="msg7950" style="display: none">is the array of positive integers guaranteed to be in order from least to greatest? (eg.4 5 6 9 10 instead of 4 6 5 10 9)</pre>
+    <div style="opacity: 1">
+      is the array of positive integers guaranteed to be in order from least to greatest? (eg.4 5 6 9 10 instead of 4 6 5 10 9)    </div>
+    <br><div class="comment_block" id="comment7951">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7951">Feb 11, 2017 - 7:17:26 pm UTC</a>      </span>
+      <a class="comment_title" id="title7951" onclick="toggle(&quot;body7951&quot;)">Re: ?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7951">
+    (<span class="upvotes"><span id="upvotes7951">0</span></span>/<span class="downvotes"><span id="downvotes7951">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7951" class="comment_body">
+    <pre id="msg7951" style="display: none">The problem doesn't say this, so I don't see why you would assume it.</pre>
+    <div style="opacity: 1">
+      The problem doesn't say this, so I don't see why you would assume it.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment7681">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/tankibuds">tankibuds</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7681">Sep 18, 2016 - 12:08:50 am UTC</a>      </span>
+      <a class="comment_title" id="title7681" onclick="toggle(&quot;body7681&quot;)">clarification</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7681">
+    (<span class="upvotes"><span id="upvotes7681">3</span></span>/<span class="downvotes"><span id="downvotes7681">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7681" class="comment_body">
+    <pre id="msg7681" style="display: none">The question states "no two numbers in the subset may be adjacent". Adjacent as in consecutive in value or adjacent as in adjacent position in the sequence?</pre>
+    <div style="opacity: 1">
+      The question states "no two numbers in the subset may be adjacent". Adjacent as in consecutive in value or adjacent as in adjacent position in the sequence?    </div>
+    <br><div class="comment_block" id="comment7682">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7682">Sep 18, 2016 - 7:30:38 am UTC</a>      </span>
+      <a class="comment_title" id="title7682" onclick="toggle(&quot;body7682&quot;)">Re: clarification</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7682">
+    (<span class="upvotes"><span id="upvotes7682">4</span></span>/<span class="downvotes"><span id="downvotes7682">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7682" class="comment_body">
+    <pre id="msg7682" style="display: none">Adjacent in position.</pre>
+    <div style="opacity: 1">
+      Adjacent in position.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0376s.<br>
+    Server time on page load:
+    May 8, 2018 15:43:07 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fdp1p1">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

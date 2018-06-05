@@ -1,0 +1,373 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - CCC15S4 - Convex Hull</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "8c45b434a3b7582378f7341582f131fd";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fccc15s4"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>2015 Canadian Computing Competition, Stage 1</h3>
+<h2>Problem S4: Convex Hull</h2>
+
+<p>You are travelling on a ship in an archipelago. The ship has a convex hull which is <var>K</var> centimetres thick. The archipelago has <var>N</var> islands, numbered from 1 to <var>N</var>. There are <var>M</var> sea routes amongst them, where the <var>i</var>-th route runs directly between two different islands <var>a<sub>i</sub></var> and <var>b<sub>i</sub></var> (1 ≤ <var>a<sub>i</sub></var>, <var>b<sub>i</sub></var> ≤ <var>N</var>), takes <var>t<sub>i</sub></var> minutes to travel along in either direction, and has rocks that wear down the ship's hull by <var>h<sub>i</sub></var> centimetres. There may be multiple routes running between a pair of islands.</p>
+
+<p>You would like to travel from island <var>A</var> to a different island <var>B</var> (1 ≤ <var>A</var>, <var>B</var> ≤ <var>N</var>) along a sequence of sea routes, such that your ship's hull remains intact – in other words, such that the sum of the routes' <var>h<sub>i</sub></var> values is strictly less than <var>K</var>.</p>
+
+<p>Additionally, you are in a hurry, so you would like to minimize the amount of time necessary to reach island <var>B</var> from island <var>A</var>. It may not be possible to reach island <var>B</var> from island <var>A</var>, however either due to insufficient sea routes or the having the ship's hull wear out.</p>
+
+<h3>Input</h3>
+
+<p>The first line of input contains three integers <var>K</var>, <var>N</var> and <var>M</var> (1 ≤ <var>K</var> ≤ 200; 2 ≤ <var>N</var> ≤ 2000; 1 ≤ <var>M</var> ≤ 10000), each separated by one space.</p>
+
+<p>The next <var>M</var> lines each contain 4 integers <var>a<sub>i</sub></var> <var>b<sub>i</sub></var> <var>t<sub>i</sub></var> <var>h<sub>i</sub></var> (1 ≤ <var>a<sub>i</sub></var>, <var>b<sub>i</sub></var> ≤ <var>N</var>; 1 ≤ <var>t<sub>i</sub></var> ≤ 10<sup>5</sup>; 0 ≤ <var>h<sub>i</sub></var> ≤ 200), each separated by one space. The <var>i</var>-th line in this set of <var>M</var> lines describes the <var>i</var>-th sea route (which runs from island <var>a<sub>i</sub></var> to island <var>b<sub>i</sub></var>, takes <var>t<sub>i</sub></var> minutes and wears down the ship's hull by <var>h<sub>i</sub></var> centimetres). Notice that <var>a<sub>i</sub></var> ≠ <var>b<sub>i</sub></var> (that is, the ends of a sea route are distinct islands).</p>
+
+<p>The last line of input contains two integers <var>A</var> and <var>B</var> (1 ≤ <var>A</var>, <var>B</var> ≤ <var>N</var>; <var>A</var> ≠ <var>B</var>), the islands between which we want to travel.</p>
+
+<p>For 20% of marks for this question, <var>K</var> = 1 and <var>N</var> ≤ 200. For another 20% of the marks for this problem, <var>K</var> = 1 and <var>N</var> ≤ 2000.</p>
+
+<h3>Output</h3>
+
+<p>Output a single integer: the integer representing the minimal time required to travel from <var>A</var> to <var>B</var> without wearing out the ship's hull, or <code>-1</code> to indicate that there is no way to travel from <var>A</var> to <var>B</var> without wearing out the ship's hull.</p>
+
+<h3>Sample Input 1</h3>
+<pre>10 4 7
+1 2 4 4
+1 3 7 2
+3 1 8 1
+3 2 2 2
+4 2 1 6
+3 4 1 1
+1 4 6 12
+1 4
+</pre>
+
+<h3>Sample Output 1</h3>
+<pre>7
+</pre>
+
+<h3>Explanation of Sample 1</h3>
+<p>The path of length 1 from 1 to 4 would wear out the hull of the ship. The three paths of length 2 ([1, 2, 4] and [1, 3, 4] two different ways) take at least 8 minutes. The path [1, 2, 3, 4] takes 7 minutes and only wears down the hull by 7 centimetres, whereas the path [1, 3, 2, 4] takes 13 minutes and wears down the hull by 5 centimetres.</p>
+
+<h3>Sample Input 2</h3>
+<pre>3 3 3
+1 2 5 1
+3 2 8 2
+1 3 1 3
+1 3
+</pre>
+
+<h3>Sample Output 2</h3>
+<pre>-1
+</pre>
+
+<h3>Explanation of Sample 2</h3>
+<p>The direct path [1, 3] wears down the hull to 0, as does the path [1, 2, 3].</p>
+
+
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,ccc15s4">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/ccc15s4">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 15 (partial)<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 256M<br>
+    <b>Added:</b> Feb 21, 2015<br>
+        <b>Author:</b> <a href="https://wcipeg.com/user/SourSpinach">SourSpinach</a>  </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=ccc15s4">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment7969">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/P234rer">P234rer</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7969">Feb 24, 2017 - 3:20:05 pm UTC</a>      </span>
+      <a class="comment_title" id="title7969" onclick="toggle(&quot;body7969&quot;)">Error</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7969">
+    (<span class="upvotes"><span id="upvotes7969">0</span></span>/<span class="downvotes"><span id="downvotes7969">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7969" class="comment_body">
+    <pre id="msg7969" style="display: none">Any hint as to why I got the error?
+Thanks</pre>
+    <div style="opacity: 1">
+      Any hint as to why I got the error? <br>Thanks    </div>
+    <br><div class="comment_block" id="comment7970">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7970">Feb 24, 2017 - 8:07:39 pm UTC</a>      </span>
+      <a class="comment_title" id="title7970" onclick="toggle(&quot;body7970&quot;)">Re: Error</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7970">
+    (<span class="upvotes"><span id="upvotes7970">1</span></span>/<span class="downvotes"><span id="downvotes7970">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7970" class="comment_body">
+    <pre id="msg7970" style="display: none">The judge currently uses Python 2.6.8, so some of the syntax you're using is not allowed. (Ex. no {} shorthand for sets.)</pre>
+    <div style="opacity: 1">
+      The judge currently uses Python 2.6.8, so some of the syntax you're using is not allowed. (Ex. no {} shorthand for sets.)    </div>
+    <br><div class="comment_block" id="comment7971">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/P234rer">P234rer</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7971">Feb 24, 2017 - 9:31:26 pm UTC</a>      </span>
+      <a class="comment_title" id="title7971" onclick="toggle(&quot;body7971&quot;)">Re: Error</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7971">
+    (<span class="upvotes"><span id="upvotes7971">0</span></span>/<span class="downvotes"><span id="downvotes7971">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7971" class="comment_body">
+    <pre id="msg7971" style="display: none">Thanks :D</pre>
+    <div style="opacity: 1">
+      Thanks :D    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment7946">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/gpfault">gpfault</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7946">Jan 31, 2017 - 8:04:14 pm UTC</a>      </span>
+      <a class="comment_title" id="title7946" onclick="toggle(&quot;body7946&quot;)">Weak test cases</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7946">
+    (<span class="upvotes"><span id="upvotes7946">1</span></span>/<span class="downvotes"><span id="downvotes7946">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7946" class="comment_body">
+    <pre id="msg7946" style="display: none">This breaks some top submissions
+
+3 3 4
+1 2 3 0
+1 2 2 1
+1 2 1 2
+2 3 1 1
+1 3
+
+Correct output:
+3</pre>
+    <div style="opacity: 1">
+      This breaks some top submissions <br> <br>3 3 4 <br>1 2 3 0 <br>1 2 2 1 <br>1 2 1 2 <br>2 3 1 1 <br>1 3 <br> <br>Correct output: <br>3    </div>
+    <br><div class="comment_block" id="comment7947">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/kobortor">kobortor</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7947">Jan 31, 2017 - 8:34:52 pm UTC</a>      </span>
+      <a class="comment_title" id="title7947" onclick="toggle(&quot;body7947&quot;)">Re: Weak test cases</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7947">
+    (<span class="upvotes"><span id="upvotes7947">0</span></span>/<span class="downvotes"><span id="downvotes7947">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7947" class="comment_body">
+    <pre id="msg7947" style="display: none">Can confirm, I got past the testcases during CCC even though I only tracked the shortest path and the least damaging path.</pre>
+    <div style="opacity: 1">
+      Can confirm, I got past the testcases during CCC even though I only tracked the shortest path and the least damaging path.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment6577">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/lolzballs">lolzballs</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6577">Feb 24, 2015 - 2:02:02 am UTC</a>      </span>
+      <a class="comment_title" id="title6577" onclick="toggle(&quot;body6577&quot;)">Undirected</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6577">
+    (<span class="upvotes"><span id="upvotes6577">0</span></span>/<span class="downvotes"><span id="downvotes6577">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6577" class="comment_body">
+    <pre id="msg6577" style="display: none">According to the explanation of Sample 1, [1, 2, 3, 4] is a valid path. This would mean that the path running from 3 to 2 with a time of 2 and wear of 2, can run from 2 to 3 as well.
+
+The problem text states that " ... i-th sea route (which runs from island ai to island bi ... ", implying that the graph that represents this is directed, rather than undirected, as according to the explanation.
+
+Is the graph directed or not?</pre>
+    <div style="opacity: 1">
+      According to the explanation of Sample 1, [1, 2, 3, 4] is a valid path. This would mean that the path running from 3 to 2 with a time of 2 and wear of 2, can run from 2 to 3 as well. <br> <br>The problem text states that " ... i-th sea route (which runs from island ai to island bi ... ", implying that the graph that represents this is directed, rather than undirected, as according to the explanation. <br> <br>Is the graph directed or not?    </div>
+    <br><div class="comment_block" id="comment6578">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Butane">Butane</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6578">Feb 24, 2015 - 2:34:50 am UTC</a>      </span>
+      <a class="comment_title" id="title6578" onclick="toggle(&quot;body6578&quot;)">Re: Undirected</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6578">
+    (<span class="upvotes"><span id="upvotes6578">0</span></span>/<span class="downvotes"><span id="downvotes6578">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6578" class="comment_body">
+    <pre id="msg6578" style="display: none">Its undirected. In the problem statement it says takes ti minutes to travel along in [b]either direction[/b]</pre>
+    <div style="opacity: 1">
+      Its undirected. In the problem statement it says takes ti minutes to travel along in <span class="bold">either direction</span>    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0331s.<br>
+    Server time on page load:
+    May 9, 2018 15:30:09 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fccc15s4">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

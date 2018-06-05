@@ -1,0 +1,364 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - CCC03 Stage 2 - Longest Substring</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "8c45b434a3b7582378f7341582f131fd";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fccc03s2p5"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>2003 Canadian Computing Competition, Stage 2</h3>
+<h2>Day 2, Problem 2: Longest Substring</h2>
+
+Within a sequence <i>S</i> of integers, find the longest contiguous subsequence that contains every integer at most once.<br>
+In other words, find the longest contiguous subsequence in which no integer is repeated. If there are several such subsequences, find the one that occurs first in <i>S</i>.
+
+<h3>Input</h3>
+
+The input will consist of the elements of <i>S</i>, one per line, in sequence, followed by 0.<br>
+Each element of <i>S</i> is a positive integer less than 65536. You should not assume anything about the length of <i>S</i>.
+
+<h3>Output</h3>
+The output should contain the correct subsequence of S, one element per line.
+
+<h3>Sample Input</h3>
+<pre>1
+9
+5
+3
+1
+2
+8
+3
+9
+0</pre>
+
+<h3>Sample Output</h3>
+<pre>9
+5
+3
+1
+2
+8</pre>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,ccc03s2p5">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/ccc03s2p5">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 20 (partial)<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 3M<br>
+    <b>Added:</b> Dec 28, 2008<br>
+      </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=ccc03s2p5">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment6943">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/_harun">_harun</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6943">Oct 02, 2015 - 7:19:23 am UTC</a>      </span>
+      <a class="comment_title" id="title6943" onclick="toggle(&quot;body6943&quot;)">RE</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6943">
+    (<span class="upvotes"><span id="upvotes6943">0</span></span>/<span class="downvotes"><span id="downvotes6943">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6943" class="comment_body">
+    <pre id="msg6943" style="display: none">I am getting RE. I think it is for memory limit...
+My code is taking 3.07M/3M.how can i reduce my memory ? . hint please :) </pre>
+    <div style="opacity: 1">
+      I am getting RE. I think it is for memory limit... <br>My code is taking 3.07M/3M.how can i reduce my memory ? . hint please :)    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment2540">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Bob">Bob</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2540">Sep 07, 2009 - 6:07:26 pm UTC</a>      </span>
+      <a class="comment_title" id="title2540" onclick="toggle(&quot;body2540&quot;)">Hints please?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2540">
+    (<span class="upvotes"><span id="upvotes2540">0</span></span>/<span class="downvotes"><span id="downvotes2540">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2540" class="comment_body">
+    <pre id="msg2540" style="display: none"></pre>
+    <div style="opacity: 1">
+          </div>
+    <br><div class="comment_block" id="comment2541">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2541">Sep 07, 2009 - 7:57:49 pm UTC</a>      </span>
+      <a class="comment_title" id="title2541" onclick="toggle(&quot;body2541&quot;)">Re: Hints please?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2541">
+    (<span class="upvotes"><span id="upvotes2541">1</span></span>/<span class="downvotes"><span id="downvotes2541">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2541" class="comment_body">
+    <pre id="msg2541" style="display: none">Try to avoid the linked lists please. They actually use [i]more[/i] memory than simple arrays, and are slower also. They will [i]not[/i] allow you to use more memory than you would otherwise be allowed.
+
+All the AC solutions so far are in C++. C++ has a convenient function that allows you to "rewind" a file, that is, start reading from the beginning again. In Pascal on Linux the following should work:
+[code]
+assign(input,'/dev/stdin');
+reset(input);
+[/code]
+After these lines have been executed, it should be possible to read the input over again. I leave it to you to determine how to use this knowledge.
+[color=#FFFFFF][size=1]Unfortunately, Pascal does not allow you to seek to the beginning of text files such as input and output.[/size][/color]</pre>
+    <div style="opacity: 1">
+      Try to avoid the linked lists please. They actually use <span class="italics">more</span> memory than simple arrays, and are slower also. They will <span class="italics">not</span> allow you to use more memory than you would otherwise be allowed. <br> <br>All the AC solutions so far are in C++. C++ has a convenient function that allows you to "rewind" a file, that is, start reading from the beginning again. In Pascal on Linux the following should work: <br><pre><code> <br>assign(input,'/dev/stdin'); <br>reset(input); <br></code></pre> <br>After these lines have been executed, it should be possible to read the input over again. I leave it to you to determine how to use this knowledge. <br><span style="color: #FFFFFF"><span style="font-size: 1px">Unfortunately, Pascal does not allow you to seek to the beginning of text files such as input and output.</span></span>    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment2532">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2532">Sep 05, 2009 - 5:56:40 pm UTC</a>      </span>
+      <a class="comment_title" id="title2532" onclick="toggle(&quot;body2532&quot;)">Invalid Return?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2532">
+    (<span class="upvotes"><span id="upvotes2532">0</span></span>/<span class="downvotes"><span id="downvotes2532">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2532" class="comment_body">
+    <pre id="msg2532" style="display: none">I've never had Invalid Return as a judge result before. What exactly does it mean?</pre>
+    <div style="opacity: 1">
+      I've never had Invalid Return as a judge result before. What exactly does it mean?    </div>
+    <br><div class="comment_block" id="comment2533">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hansonw1">hansonw1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2533">Sep 05, 2009 - 6:30:36 pm UTC</a>      </span>
+      <a class="comment_title" id="title2533" onclick="toggle(&quot;body2533&quot;)">Re: Invalid Return?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2533">
+    (<span class="upvotes"><span id="upvotes2533">1</span></span>/<span class="downvotes"><span id="downvotes2533">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2533" class="comment_body">
+    <pre id="msg2533" style="display: none">Hmm.. ok. The detailed error should appear in your output now (the IR is basically a RE here)</pre>
+    <div style="opacity: 1">
+      Hmm.. ok. The detailed error should appear in your output now (the IR is basically a RE here)    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment1402">
+  <div class="comment_header" style="opacity: 0.79234504487351">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bleung91">bleung91</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1402">Jan 20, 2009 - 3:54:09 am UTC</a>      </span>
+      <a class="comment_title" id="title1402" onclick="toggle(&quot;body1402&quot;)">time limit</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1402">
+    (<span class="upvotes"><span id="upvotes1402">1</span></span>/<span class="downvotes"><span id="downvotes1402">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1402" class="comment_body">
+    <pre id="msg1402" style="display: none">why has the time limit on this problem been changed?</pre>
+    <div style="opacity: 0.79234504487351">
+      why has the time limit on this problem been changed?    </div>
+    <br><div class="comment_block" id="comment1403">
+  <div class="comment_header" style="opacity: 0.93850968472384">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hansonw1">hansonw1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1403">Jan 20, 2009 - 3:59:10 am UTC</a>      </span>
+      <a class="comment_title" id="title1403" onclick="toggle(&quot;body1403&quot;)">Re: time limit</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1403">
+    (<span class="upvotes"><span id="upvotes1403">2</span></span>/<span class="downvotes"><span id="downvotes1403">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1403" class="comment_body">
+    <pre id="msg1403" style="display: none">It hasn't, I've added a tricky test case.</pre>
+    <div style="opacity: 0.93850968472384">
+      It hasn't, I've added a tricky test case.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment1009">
+  <div class="comment_header" style="opacity: 0.95441393735536">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hansonw1">hansonw1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1009">Dec 28, 2008 - 3:46:20 pm UTC</a>      </span>
+      <a class="comment_title" id="title1009" onclick="toggle(&quot;body1009&quot;)">Note</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1009">
+    (<span class="upvotes"><span id="upvotes1009">3</span></span>/<span class="downvotes"><span id="downvotes1009">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1009" class="comment_body">
+    <pre id="msg1009" style="display: none">To make it challenging, the memory limit is very strict.
+The input is [i]not[/i] guaranteed to fit in memory.</pre>
+    <div style="opacity: 0.95441393735536">
+      To make it challenging, the memory limit is very strict. <br>The input is <span class="italics">not</span> guaranteed to fit in memory.    </div>
+      </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0300s.<br>
+    Server time on page load:
+    May 9, 2018 15:29:18 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fccc03s2p5">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

@@ -1,0 +1,563 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - 3n+1</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "a846b326ae579368c4a4e84e51d36946";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fcollatz"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h2>3n+1</h2>
+
+<p>Pick a positive integer <i>n</i>. If it is odd, multiply it by three and then add one. Otherwise
+(if it is even), divide it by two. The positive integer obtained is the new <i>n</i>, and this
+procedure is repeated.</p>
+
+<p>It is believed that <i>n</i> will eventually become 1 (this is called the <i>Collatz conjecture</i>.)
+Computers have checked that any value of <i>n</i> less than 5×10<sup>18</sup> does, indeed,
+eventually become 1 if this procedure is applied enough times.</p>
+
+<p>You will be given the value of <i>n</i>. Determine how many times this procedure must be applied
+before <i>n</i> becomes 1.</p>
+
+<h3>Input</h3>
+The initial value of <i>n</i>.
+
+<h3>Output</h3>
+The number of operations we have to perform on <i>n</i> before it becomes 1.
+
+<h3>Sample Input</h3>
+<pre>7</pre>
+
+<h3>Sample Output</h3>
+<pre>16</pre>
+
+<h3>Explanation</h3>
+<i>n</i> will go through these steps:<br>
+7 22 11 34 17 52 26 13 40 20 10 5 16 8 4 2 1 
+
+<h3>Constraints</h3>
+Any value of <i>n</i>, initial or intermediate, will be less than 2<sup>31</sup>.
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,collatz">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/collatz">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 5<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Feb 19, 2010<br>
+      </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=collatz">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment8419">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/loltroll21">loltroll21</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8419">Nov 30, 2017 - 12:19:22 am UTC</a>      </span>
+      <a class="comment_title" id="title8419" onclick="toggle(&quot;body8419&quot;)">Help!!!!</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8419">
+    (<span class="upvotes"><span id="upvotes8419">0</span></span>/<span class="downvotes"><span id="downvotes8419">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8419" class="comment_body">
+    <pre id="msg8419" style="display: none">What is wrong with my code?</pre>
+    <div style="opacity: 1">
+      What is wrong with my code?    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment8348">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hackerboi69">hackerboi69</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8348">Nov 24, 2017 - 12:37:14 am UTC</a>      </span>
+      <a class="comment_title" id="title8348" onclick="toggle(&quot;body8348&quot;)">YES VE</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8348">
+    (<span class="upvotes"><span id="upvotes8348">3</span></span>/<span class="downvotes"><span id="downvotes8348">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8348" class="comment_body">
+    <pre id="msg8348" style="display: none">RY GOOD I PASS ON FIRST TRY. MANY THANK TO ERIC GU</pre>
+    <div style="opacity: 1">
+      RY GOOD I PASS ON FIRST TRY. MANY THANK TO ERIC GU    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment8266">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/nopu">nopu</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8266">Oct 08, 2017 - 6:55:16 pm UTC</a>      </span>
+      <a class="comment_title" id="title8266" onclick="toggle(&quot;body8266&quot;)">Re: Problem "3nplus1" renamed to "collatz"</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8266">
+    (<span class="upvotes"><span id="upvotes8266">0</span></span>/<span class="downvotes"><span id="downvotes8266">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8266" class="comment_body">
+    <pre id="msg8266" style="display: none">thank you asdflkjh will be proud :)</pre>
+    <div style="opacity: 1">
+      thank you asdflkjh will be proud :)    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment5493">
+  <div class="comment_header" style="opacity: 0.95441393735536">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/yesir360">yesir360</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5493">Oct 03, 2013 - 6:32:30 am UTC</a>      </span>
+      <a class="comment_title" id="title5493" onclick="toggle(&quot;body5493&quot;)">Compile Error?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5493">
+    (<span class="upvotes"><span id="upvotes5493">3</span></span>/<span class="downvotes"><span id="downvotes5493">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5493" class="comment_body">
+    <pre id="msg5493" style="display: none">I had done many other questions and this was no exception.
+I used Java and copied the code onto the project name.
+However, it still gives me a compile error saying that "public class 3nplus1{" is incorrect.</pre>
+    <div style="opacity: 0.95441393735536">
+      I had done many other questions and this was no exception. <br>I used Java and copied the code onto the project name. <br>However, it still gives me a compile error saying that "public class 3nplus1{" is incorrect.    </div>
+    <br><div class="comment_block" id="comment5494">
+  <div class="comment_header" style="opacity: 0.96994741412827">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5494">Oct 03, 2013 - 3:48:35 pm UTC</a>      </span>
+      <a class="comment_title" id="title5494" onclick="toggle(&quot;body5494&quot;)">Re: Compile Error?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5494">
+    (<span class="upvotes"><span id="upvotes5494">5</span></span>/<span class="downvotes"><span id="downvotes5494">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5494" class="comment_body">
+    <pre id="msg5494" style="display: none">3nplus1 is an exception. Java does not permit you to begin class names with numbers. This conflicts with our requirement to use the problem code as the class name.
+
+We're working on a way to resolve this, but for now, this problem cannot be done in Java.</pre>
+    <div style="opacity: 0.96994741412827">
+      3nplus1 is an exception. Java does not permit you to begin class names with numbers. This conflicts with our requirement to use the problem code as the class name. <br> <br>We're working on a way to resolve this, but for now, this problem cannot be done in Java.    </div>
+    <br><div class="comment_block" id="comment5501">
+  <div class="comment_header" style="opacity: 0.96994741412827">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/ImbaCalvin">ImbaCalvin</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5501">Oct 09, 2013 - 10:36:25 pm UTC</a>      </span>
+      <a class="comment_title" id="title5501" onclick="toggle(&quot;body5501&quot;)">Re: Compile Error?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5501">
+    (<span class="upvotes"><span id="upvotes5501">5</span></span>/<span class="downvotes"><span id="downvotes5501">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5501" class="comment_body">
+    <pre id="msg5501" style="display: none">Change the problem code to something like threenplusone?</pre>
+    <div style="opacity: 0.96994741412827">
+      Change the problem code to something like threenplusone?    </div>
+    <br><div class="comment_block" id="comment5509">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5509">Oct 18, 2013 - 8:33:38 pm UTC</a>      </span>
+      <a class="comment_title" id="title5509" onclick="toggle(&quot;body5509&quot;)">Re: Compile Error?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5509">
+    (<span class="upvotes"><span id="upvotes5509">1</span></span>/<span class="downvotes"><span id="downvotes5509">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5509" class="comment_body">
+    <pre id="msg5509" style="display: none">Changing problem codes is not trivial, but we do plan to allow it eventually.</pre>
+    <div style="opacity: 0.90547134519913">
+      Changing problem codes is not trivial, but we do plan to allow it eventually.    </div>
+    <br><div class="comment_block" id="comment6567">
+  <div class="comment_header" style="opacity: 0.95441393735536">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/coolsoso">coolsoso</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6567">Feb 18, 2015 - 1:40:16 am UTC</a>      </span>
+      <a class="comment_title" id="title6567" onclick="toggle(&quot;body6567&quot;)">Re: Compile Error?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6567">
+    (<span class="upvotes"><span id="upvotes6567">3</span></span>/<span class="downvotes"><span id="downvotes6567">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6567" class="comment_body">
+    <pre id="msg6567" style="display: none">I would like to know when you have resolved this error for Java
+
+Thanks</pre>
+    <div style="opacity: 0.95441393735536">
+      I would like to know when you have resolved this error for Java <br> <br>Thanks    </div>
+    <br><div class="comment_block" id="comment7535">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/christinakemp">christinakemp</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7535">Mar 30, 2016 - 1:48:52 pm UTC</a>      </span>
+      <a class="comment_title" id="title7535" onclick="toggle(&quot;body7535&quot;)">Re: Compile Error?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7535">
+    (<span class="upvotes"><span id="upvotes7535">1</span></span>/<span class="downvotes"><span id="downvotes7535">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7535" class="comment_body">
+    <pre id="msg7535" style="display: none">Maybe you could take Java off the languages allowed if it doesn't compile properly?</pre>
+    <div style="opacity: 0.90547134519913">
+      Maybe you could take Java off the languages allowed if it doesn't compile properly?    </div>
+    <br><div class="comment_block" id="comment8015">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/asdflkjh">asdflkjh</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8015">Mar 27, 2017 - 11:53:52 pm UTC</a>      </span>
+      <a class="comment_title" id="title8015" onclick="toggle(&quot;body8015&quot;)">Re: Compile Error?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8015">
+    (<span class="upvotes"><span id="upvotes8015">1</span></span>/<span class="downvotes"><span id="downvotes8015">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8015" class="comment_body">
+    <pre id="msg8015" style="display: none">Half a year later...
+And the problem is still not fixed.</pre>
+    <div style="opacity: 1">
+      Half a year later... <br>And the problem is still not fixed.    </div>
+    <br><div class="comment_block" id="comment8016">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/asdflkjh">asdflkjh</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8016">Mar 27, 2017 - 11:54:31 pm UTC</a>      </span>
+      <a class="comment_title" id="title8016" onclick="toggle(&quot;body8016&quot;)">Re: Compile Error?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8016">
+    (<span class="upvotes"><span id="upvotes8016">1</span></span>/<span class="downvotes"><span id="downvotes8016">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8016" class="comment_body">
+    <pre id="msg8016" style="display: none">actually 4 years later</pre>
+    <div style="opacity: 1">
+      actually 4 years later    </div>
+    <br><div class="comment_block" id="comment8252">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/nopu">nopu</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8252">Sep 28, 2017 - 12:57:34 am UTC</a>      </span>
+      <a class="comment_title" id="title8252" onclick="toggle(&quot;body8252&quot;)">Re: Compile Error?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8252">
+    (<span class="upvotes"><span id="upvotes8252">0</span></span>/<span class="downvotes"><span id="downvotes8252">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8252" class="comment_body">
+    <pre id="msg8252" style="display: none">its fixed now u satisfi3d</pre>
+    <div style="opacity: 1">
+      its fixed now u satisfi3d    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment8031">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8031">Apr 06, 2017 - 11:09:51 am UTC</a>      </span>
+      <a class="comment_title" id="title8031" onclick="toggle(&quot;body8031&quot;)">Problem "3nplus1" renamed to "collatz"</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8031">
+    (<span class="upvotes"><span id="upvotes8031">3</span></span>/<span class="downvotes"><span id="downvotes8031">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8031" class="comment_body">
+    <pre id="msg8031" style="display: none">It should be possible to solve it in Java now.</pre>
+    <div style="opacity: 1">
+      It should be possible to solve it in Java now.    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment8027">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hello12">hello12</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8027">Mar 30, 2017 - 3:17:45 pm UTC</a>      </span>
+      <a class="comment_title" id="title8027" onclick="toggle(&quot;body8027&quot;)">help!</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8027">
+    (<span class="upvotes"><span id="upvotes8027">0</span></span>/<span class="downvotes"><span id="downvotes8027">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8027" class="comment_body">
+    <pre id="msg8027" style="display: none">3nplus1.cpp:2:14: error: invalid suffix "nplus1" on integer constant
+3nplus1.cpp:1: error: ‘import’ does not name a type
+3nplus1.cpp:2: error: expected unqualified-id before ‘public’
+can you please help me? i really want to pass this problem!</pre>
+    <div style="opacity: 1">
+      3nplus1.cpp:2:14: error: invalid suffix "nplus1" on integer constant <br>3nplus1.cpp:1: error: ‘import’ does not name a type <br>3nplus1.cpp:2: error: expected unqualified-id before ‘public’ <br>can you please help me? i really want to pass this problem!    </div>
+    <br><div class="comment_block" id="comment8028">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8028">Mar 30, 2017 - 5:54:29 pm UTC</a>      </span>
+      <a class="comment_title" id="title8028" onclick="toggle(&quot;body8028&quot;)">Re: help!</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8028">
+    (<span class="upvotes"><span id="upvotes8028">3</span></span>/<span class="downvotes"><span id="downvotes8028">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8028" class="comment_body">
+    <pre id="msg8028" style="display: none">This problem is not currently accepting Java submissions. Submitting your Java program as a C++03 program is not going to work.</pre>
+    <div style="opacity: 1">
+      This problem is not currently accepting Java submissions. Submitting your Java program as a C++03 program is not going to work.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment5816">
+  <div class="comment_header" style="opacity: 0.84996429117983">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/akumangel">akumangel</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5816">Apr 12, 2014 - 11:35:04 pm UTC</a>      </span>
+      <a class="comment_title" id="title5816" onclick="toggle(&quot;body5816&quot;)">Complier Error</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5816">
+    (<span class="upvotes"><span id="upvotes5816">2</span></span>/<span class="downvotes"><span id="downvotes5816">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5816" class="comment_body">
+    <pre id="msg5816" style="display: none">Unhandled Exception: System.Security.Cryptography.CryptographicException: Couldn't access random source.
+  at System.Security.Cryptography.RNGCryptoServiceProvider.Check () [0x00000] 
+  at System.Security.Cryptography.RNGCryptoServiceProvider..ctor () [0x00000] 
+  at System.Guid.FastNewGuidArray () [0x00000] 
+  at System.Reflection.Emit.ModuleBuilder..ctor (System.Reflection.Emit.AssemblyBuilder assb, System.String name, System.String fullyqname, Boolean emitSymbolInfo, Boolean transient) [0x00000] 
+  at System.Reflection.Emit.AssemblyBuilder.DefineDynamicModule (System.String name, System.String fileName, Boolean emitSymbolInfo, Boolean transient) [0x00000] 
+  at System.Reflection.Emit.AssemblyBuilder.DefineDynamicModule (System.String name, System.String fileName, Boolean emitSymbolInfo) [0x00000] 
+  at Mono.CSharp.CodeGen.Init (System.String name, System.String output, Boolean want_debugging_support) [0x00000] 
+  at Mono.CSharp.Driver.Compile () [0x00000] 
+  at Mono.CSharp.Driver.Main (System.String[] args) [0x00000] </pre>
+    <div style="opacity: 0.84996429117983">
+      Unhandled Exception: System.Security.Cryptography.CryptographicException: Couldn't access random source. <br>  at System.Security.Cryptography.RNGCryptoServiceProvider.Check () [0x00000]  <br>  at System.Security.Cryptography.RNGCryptoServiceProvider..ctor () [0x00000]  <br>  at System.Guid.FastNewGuidArray () [0x00000]  <br>  at System.Reflection.Emit.ModuleBuilder..ctor (System.Reflection.Emit.AssemblyBuilder assb, System.String name, System.String fullyqname, Boolean emitSymbolInfo, Boolean transient) [0x00000]  <br>  at System.Reflection.Emit.AssemblyBuilder.DefineDynamicModule (System.String name, System.String fileName, Boolean emitSymbolInfo, Boolean transient) [0x00000]  <br>  at System.Reflection.Emit.AssemblyBuilder.DefineDynamicModule (System.String name, System.String fileName, Boolean emitSymbolInfo) [0x00000]  <br>  at Mono.CSharp.CodeGen.Init (System.String name, System.String output, Boolean want_debugging_support) [0x00000]  <br>  at Mono.CSharp.Driver.Compile () [0x00000]  <br>  at Mono.CSharp.Driver.Main (System.String[] args) [0x00000]    </div>
+    <br><div class="comment_block" id="comment5817">
+  <div class="comment_header" style="opacity: 0.96994741412827">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Alex">Alex</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5817">Apr 13, 2014 - 6:16:21 am UTC</a>      </span>
+      <a class="comment_title" id="title5817" onclick="toggle(&quot;body5817&quot;)">Re: Complier Error</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5817">
+    (<span class="upvotes"><span id="upvotes5817">5</span></span>/<span class="downvotes"><span id="downvotes5817">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5817" class="comment_body">
+    <pre id="msg5817" style="display: none">In the language dropdown list, it clearly says that C# is "(NOT WORKING)".</pre>
+    <div style="opacity: 0.96994741412827">
+      In the language dropdown list, it clearly says that C# is "(NOT WORKING)".    </div>
+      </div>
+</div>
+<br><div class="comment_block" id="comment6569">
+  <div class="comment_header" style="opacity: 0.96377683903021">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6569">Feb 20, 2015 - 7:44:48 pm UTC</a>      </span>
+      <a class="comment_title" id="title6569" onclick="toggle(&quot;body6569&quot;)">Re: Complier Error</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6569">
+    (<span class="upvotes"><span id="upvotes6569">4</span></span>/<span class="downvotes"><span id="downvotes6569">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6569" class="comment_body">
+    <pre id="msg6569" style="display: none">This will be fixed eventually, but it's very low-pri.</pre>
+    <div style="opacity: 0.96377683903021">
+      This will be fixed eventually, but it's very low-pri.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0547s.<br>
+    Server time on page load:
+    May 9, 2018 16:16:57 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fcollatz">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>
