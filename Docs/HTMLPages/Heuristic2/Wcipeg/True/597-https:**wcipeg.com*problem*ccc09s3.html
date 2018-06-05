@@ -1,0 +1,357 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - CCC09J5S3 - Degrees of Separation</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "221fe9b9644c0adc95c96655c1b1b5a1";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fccc09s3"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>2009 Canadian Computing Competition, Stage 1</h3>
+<h2>Problem J5/S3: Degrees of Separation</h2>
+<p>The main socializing tool for students today is Facebook. There are many interesting computational questions connected to Facebook, such as the "degree of separation" between two people.</p>
+<p>For example, in the diagram below, there are many different paths between Abby and Alberto. Some of these paths are:</p>
+
+
+<ul>
+  <li>Abby → Zoey → Alberto</li>
+  <li>Abby → Natalie→ Zoey → Alberto</li>
+  <li>Abby → George → Ali → Kara → Richardo → Jeff → Alberto</li>
+</ul>
+<p>The shortest path between Abby and Alberto has two steps (Abby → Zoey, and Zoey → Alberto), so we say the degree of separation is 2. Additionally, Alberto would be a friend of a friend of Abby.</p>
+
+<p style="text-align: center"><img src="images/ccc09s3/ccc09s3.png" alt="complicated and pointless graph"></p>
+
+<p>You can assume an initial configuration of who is friends with who as outlined in the diagram above. You will need to store these relationships in your program. These relationships can change though, and your program needs to handle these changes. In particular, friendships can begin, possibly with new people. Friendships can end. You should be able to find friends of friends and determine the degree of separation between two people.</p>
+<p>Your program will read in six possible commands, with the action to be performed by your program outlined below. You may assume that x and y are integers, with x ≠ y, x ≥ 1, y ≥ 1, x &lt; 50 and y &lt; 50. You may also assume that instructions (i, d, n, f, s, q) occur one per line and parameters (zero, one or two integers) occur one per line.</p>
+<ul>
+  <li><code>i x y </code>- make person x and person y friends. If they are already friends, no change needs to be made. If either x or y is a new person, add them.</li>
+  <li><code>d x y</code> - delete the friendship between person x and person y.</li>
+  <li><code>n x</code> - output the number of friends that person x has.</li>
+  <li><code>f x</code> - output the number of "friends of friends" that person x has. Notice that x and direct friends of x are not counted as "friends of friends."</li>
+  <li><code>s x y</code> - output the degree of separation between x and y. If there is no path from x to y, output "Not connected".</li>
+  <li><code>q</code> - quit the program.</li>
+</ul>
+<h3>Sample Input</h3>
+<pre>i
+20
+10
+i
+20
+9
+n
+20
+f
+20
+s
+20
+6
+q</pre>
+<h3>Sample Output</h3>
+<pre>2
+3
+4</pre>
+<h3>Explanation</h3>
+<p><code>n 20</code>: Person 20 has two friends (10 and 9)<br>
+  <code>f 20</code>: The friends of friends of 20 are 8, 11, 12.<br>
+  <code>s 20 6</code>: The shortest path is 20 → 9 → 8 → 7 → 6.
+</p>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,ccc09s3">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/ccc09s3">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 12<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> May 11, 2009<br>
+      </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=ccc09s3">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment2629">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Daniel">Daniel</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2629">Jan 02, 2010 - 2:20:34 am UTC</a>      </span>
+      <a class="comment_title" id="title2629" onclick="toggle(&quot;body2629&quot;)">Incorrect Data</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2629">
+    (<span class="upvotes"><span id="upvotes2629">0</span></span>/<span class="downvotes"><span id="downvotes2629">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2629" class="comment_body">
+    <pre id="msg2629" style="display: none">I believe that the sample input data is incorrect...</pre>
+    <div style="opacity: 1">
+      I believe that the sample input data is incorrect...    </div>
+    <br><div class="comment_block" id="comment2630">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Bryan">Bryan</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2630">Jan 02, 2010 - 4:06:58 pm UTC</a>      </span>
+      <a class="comment_title" id="title2630" onclick="toggle(&quot;body2630&quot;)">Re: Incorrect Data</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2630">
+    (<span class="upvotes"><span id="upvotes2630">0</span></span>/<span class="downvotes"><span id="downvotes2630">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2630" class="comment_body">
+    <pre id="msg2630" style="display: none">Which one?</pre>
+    <div style="opacity: 1">
+      Which one?    </div>
+    <br><div class="comment_block" id="comment2631">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Daniel">Daniel</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2631">Jan 02, 2010 - 5:26:42 pm UTC</a>      </span>
+      <a class="comment_title" id="title2631" onclick="toggle(&quot;body2631&quot;)">Re: Re: Incorrect Data</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2631">
+    (<span class="upvotes"><span id="upvotes2631">0</span></span>/<span class="downvotes"><span id="downvotes2631">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2631" class="comment_body">
+    <pre id="msg2631" style="display: none">The example test data.</pre>
+    <div style="opacity: 1">
+      The example test data.    </div>
+    <br><div class="comment_block" id="comment2632">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Bryan">Bryan</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2632">Jan 02, 2010 - 9:02:13 pm UTC</a>      </span>
+      <a class="comment_title" id="title2632" onclick="toggle(&quot;body2632&quot;)">Re: Re: Incorrect Data</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2632">
+    (<span class="upvotes"><span id="upvotes2632">0</span></span>/<span class="downvotes"><span id="downvotes2632">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2632" class="comment_body">
+    <pre id="msg2632" style="display: none">Look at the explanation?</pre>
+    <div style="opacity: 1">
+      Look at the explanation?    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br><div class="comment_block" id="comment2637">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2637">Jan 14, 2010 - 9:50:42 pm UTC</a>      </span>
+      <a class="comment_title" id="title2637" onclick="toggle(&quot;body2637&quot;)">Re: Incorrect Data</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2637">
+    (<span class="upvotes"><span id="upvotes2637">0</span></span>/<span class="downvotes"><span id="downvotes2637">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2637" class="comment_body">
+    <pre id="msg2637" style="display: none">[quote]You can assume an initial configuration of who is friends with who as outlined in the diagram above.[/quote]
+Read more carefully.</pre>
+    <div style="opacity: 1">
+      <table style="width: 90%; margin: 0 auto">
+            <tbody><tr>
+            <td><span class="quotecodeheader"></span></td>
+            </tr>
+            <tr>
+            <td class="quotebody">You can assume an initial configuration of who is friends with who as outlined in the diagram above.</td>
+            </tr>
+            </tbody></table> <br>Read more carefully.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment1755">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Bryan">Bryan</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1755">Feb 28, 2009 - 2:56:51 am UTC</a>      </span>
+      <a class="comment_title" id="title1755" onclick="toggle(&quot;body1755&quot;)">what does invalid numeric format mean?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1755">
+    (<span class="upvotes"><span id="upvotes1755">0</span></span>/<span class="downvotes"><span id="downvotes1755">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1755" class="comment_body">
+    <pre id="msg1755" style="display: none"></pre>
+    <div style="opacity: 1">
+          </div>
+    <br><div class="comment_block" id="comment1762">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hansonw1">hansonw1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1762">Feb 28, 2009 - 1:11:20 pm UTC</a>      </span>
+      <a class="comment_title" id="title1762" onclick="toggle(&quot;body1762&quot;)">Re: what does invalid numeric format mean?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1762">
+    (<span class="upvotes"><span id="upvotes1762">0</span></span>/<span class="downvotes"><span id="downvotes1762">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1762" class="comment_body">
+    <pre id="msg1762" style="display: none">This usually means you read the input incorrectly.
+However this was the fault of the CCC (the test data used spaces instead of newlines) It's fixed now.</pre>
+    <div style="opacity: 1">
+      This usually means you read the input incorrectly. <br>However this was the fault of the CCC (the test data used spaces instead of newlines) It's fixed now.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0284s.<br>
+    Server time on page load:
+    May 10, 2018 21:57:42 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fccc09s3">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

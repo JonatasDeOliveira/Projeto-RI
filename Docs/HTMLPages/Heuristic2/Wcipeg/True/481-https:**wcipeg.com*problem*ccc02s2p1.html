@@ -1,0 +1,345 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - CCC02 Stage 2 - Spam</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "221fe9b9644c0adc95c96655c1b1b5a1";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fccc02s2p1"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>2002 Canadian Computing Competition, Stage 2</h3>
+<h2>Day 1, Problem 1: Spam</h2> 
+
+<p>Unsolicited email (spam) is annoying and clutters your mailbox. You are to write a <i>spam filter</i> - a program that reads email messages of regular ASCII characters and tries to determine whether or not each message is spam.</p> 
+<p>How can we determine whether or not a message is spam? Spam contains words and phrases that are not common in genuine email messages. For example, the phrase </p> 
+<p>MAKE MONEY FAST, HONEY!!</p> 
+<p>is in all-uppercase, contains the word "money" and ends with a double exclamation mark.</p> 
+<p>One way to create a spam filter is to read through many spam and non-spam messages and to come up with a set of rules that will classify any particular message as spam or not. This process can be tedious and error prone to do manually. Instead you will write a program to automate the process. </p> 
+<p>A useful step in automatic classification is to split the text up into set of <i>trigrams</i>. A trigram is a sequence of three adjacent characters that appear in the message. A trigram is case sensitive. The example above is composed of the trigrams: </p> 
+<code>MAK<br> 
+AKE<br> 
+KE<br> 
+E M<br> 
+ MO<br> 
+MON<br> 
+ONE<br> 
+NEY<br> 
+EY <br> 
+Y F<br> 
+ FA<br> 
+FAS<br> 
+AST<br> 
+ST,<br> 
+T,<br> 
+, H<br> 
+ HO<br> 
+HON<br> 
+ONE<br> 
+NEY<br> 
+EY!<br> 
+Y!!</code>
+ 
+<p>If we examine a sample of spam and non-spam messages we find that some trigrams are more common in spam; whereas others are more common in non-spam. This observation leads to a classification method: </p> 
+ 
+<ul> 
+<li>Examine a sample consisting of a large number of spam messages. Count the number of times that each trigram occurs.
+In the example above, there are 20 distinct trigrams; the trigrams ONE and NEY occur twice each and the remaining 18
+trigrams occur once each. (Trigrams that do not occur are considered to occur 0 times.) More formally, for each trigram
+<i>t</i> we compute the frequency <i>f<sub>spam</sub>(t)</i> with which it occurs in the sample of spam. </li>
+<li>Examine a sample consisting of a large number of non-spam messages. Compute <i>f<sub>non-spam</sub>(t)</i>, the
+frequency with which each trigram <i>t</i> appears in the sample of non-spam. </li> 
+<li>For a each message to be filtered, compute <i>f<sub>message</sub>(t)</i> for each trigram <i>t</i>. </li> 
+<li>If <i>f</i><sub><i>message</i></sub> resembles <i>f</i><sub><i>spam</i></sub> more closely than it resembles <i>f</i><sub><i>non-spam</i></sub>
+it is determined to be spam; otherwise it is determined to be non-spam. </li> 
+<li>A <i>similarity measure</i> determines how closely <i>f</i><sub><i>1</i></sub> and <i>f</i><sub><i>2</i></sub> resemble one another.
+One of the simplest measures is the cosine measure: </li></ul> 
+
+<blockquote>
+ 
+<p><img src="images/ccc02s2p1/ccc02s2p1.png" alt="
+\displaystyle\textrm{similarity}(f_1,f_2) = \frac{\sum_t^{} f_1(t) \cdot f_2(t)}
+{\sqrt{\sum_t^{}\left[f_1(t)\right]^2} \cdot \sqrt{\sum_t^{}\left[f_2(t)\right]^2}}"></p> 
+ 
+<p>Then we say that a message is spam if </p> 
+<p>	similarity(f<sub>message</sub>, f<sub>spam</sub>) &gt; similarity(f<sub>message</sub>, f<sub>non-spam</sub>)</p>
+
+</blockquote>
+ 
+<h3>Input</h3>
+ 
+<p>The first line of input contains three integers: <i>s</i> the number of sample spam messages to follow; <i>n</i> the number of sample non-spam messages to follow; <i>c</i> the number of messages to be classified as spam or non-spam, based on trigram the trigram frequencies of the sample messages. Each message consists of several lines of text and is terminated by a line containing "<code>ENDMESSAGE</code>". This line will not appear elsewhere in the input, and is not considered part of the message.</p> 
+
+<h3>Output</h3>
+
+<p>For each of the <i>c</i> messages, your program will output two lines. On the
+first line, output similarity(f<sub>message</sub>, f<sub>spam</sub>) and similarity(f<sub>message</sub>,
+f<sub>non-spam</sub>). On the second line print the classification of the message
+("spam" or "non-spam"). Round the numbers to five decimal digits.</p> 
+
+<p>When forming trigrams, we never include a newline character. We don't include trigrams that span multiple lines, either.
+So in the first spam message of Sample Input 1, the only trigrams are: </p>
+<blockquote><code>"AAA", "BBB", "BB ", "B  ", " C", " CC", and "CCC".</code></blockquote>
+
+<h3>Sample Input 1</h3>
+<pre>2 1 1
+AAAA
+BBBB  CCCC
+ENDMESSAGE
+BBBB
+ENDMESSAGE
+AAAABBBB
+ENDMESSAGE
+AAABB
+ENDMESSAGE
+</pre> 
+
+<h3>Sample Output 1</h3> 
+ 
+<code>0.21822 0.73030<br> 
+non-spam<br></code>
+ 
+<h3>Sample Input 2</h3> 
+<p>Found in this <a href="images/ccc02s2p1/sample.txt">file</a></p> 
+ 
+<h3>Sample Output 2</h3>
+ 
+<code>0.28761 0.20595<br> 
+spam<br> 
+0.44314 0.49243<br>non-spam</code>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,ccc02s2p1">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/ccc02s2p1">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 10<br>
+    <b>Time Limit:</b> 3.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Apr 17, 2009<br>
+      </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=ccc02s2p1">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment6776">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/EasierPlanet3">EasierPlanet3</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6776">May 31, 2015 - 11:55:04 pm UTC</a>      </span>
+      <a class="comment_title" id="title6776" onclick="toggle(&quot;body6776&quot;)">Off by one 100000th</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6776">
+    (<span class="upvotes"><span id="upvotes6776">0</span></span>/<span class="downvotes"><span id="downvotes6776">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6776" class="comment_body">
+    <pre id="msg6776" style="display: none">On the "spam" component on the last test case only. Can anyone suggest a reason why?  Thanks,</pre>
+    <div style="opacity: 1">
+      On the "spam" component on the last test case only. Can anyone suggest a reason why?  Thanks,    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment6146">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Alex">Alex</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6146">Sep 28, 2014 - 8:31:49 am UTC</a>      </span>
+      <a class="comment_title" id="title6146" onclick="toggle(&quot;body6146&quot;)">Clarification on bounds</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6146">
+    (<span class="upvotes"><span id="upvotes6146">0</span></span>/<span class="downvotes"><span id="downvotes6146">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6146" class="comment_body">
+    <pre id="msg6146" style="display: none">The lengths of messages will not exceed ~5000 characters. In addition, 1 &lt;= [i]s[/i], [i]n[/i], [i]c[/i] &lt;= 5.</pre>
+    <div style="opacity: 1">
+      The lengths of messages will not exceed ~5000 characters. In addition, 1 &lt;= <span class="italics">s</span>, <span class="italics">n</span>, <span class="italics">c</span> &lt;= 5.    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment2116">
+  <div class="comment_header" style="opacity: 0.65762804711038">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2116">Apr 18, 2009 - 5:56:19 pm UTC</a>      </span>
+      <a class="comment_title" id="title2116" onclick="toggle(&quot;body2116&quot;)">Could someone explain...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2116">
+    (<span class="upvotes"><span id="upvotes2116">0</span></span>/<span class="downvotes"><span id="downvotes2116">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2116" class="comment_body">
+    <pre id="msg2116" style="display: none">... how the cosine measure works?</pre>
+    <div style="opacity: 0.65762804711038">
+      ... how the cosine measure works?    </div>
+    <br><div class="comment_block" id="comment2117">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2117">Apr 18, 2009 - 6:10:59 pm UTC</a>      </span>
+      <a class="comment_title" id="title2117" onclick="toggle(&quot;body2117&quot;)">Re: Could someone explain...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2117">
+    (<span class="upvotes"><span id="upvotes2117">3</span></span>/<span class="downvotes"><span id="downvotes2117">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2117" class="comment_body">
+    <pre id="msg2117" style="display: none">Let (x0, x1, x2, x3, ...) be the trigraph frequencies for X, and (y0, y1, y2, y3, ...) be the trigraph frequencies for Y. Then, the similarity between X and Y is given by
+(x0*y0 + x1*y1 + x2*y2 + x3*y3 + ...) / (sqrt(x0^2 + x1^2 + x2^2 + x3^2 + ...) sqrt(y0^2 + y1^2 + y2^2 + y3^2 + ...))
+
+Essentially, if X and Y are vectors to the points (x0, x1, x2, x3, ...) and (y0, y1, y2, y3, ...) in N-dimensional space, then the cosine measure gives the cosine of the angle between these two vectors. Since the cosine is monotone decreasing on [0,pi], the higher the cosine measure, the smaller the angle (that is, the closer are the vectors X and Y). It also follows that the cosine measure has an absolute value less than or equal to one.</pre>
+    <div style="opacity: 1">
+      Let (x0, x1, x2, x3, ...) be the trigraph frequencies for X, and (y0, y1, y2, y3, ...) be the trigraph frequencies for Y. Then, the similarity between X and Y is given by <br>(x0*y0 + x1*y1 + x2*y2 + x3*y3 + ...) / (sqrt(x0^2 + x1^2 + x2^2 + x3^2 + ...) sqrt(y0^2 + y1^2 + y2^2 + y3^2 + ...)) <br> <br>Essentially, if X and Y are vectors to the points (x0, x1, x2, x3, ...) and (y0, y1, y2, y3, ...) in N-dimensional space, then the cosine measure gives the cosine of the angle between these two vectors. Since the cosine is monotone decreasing on [0,pi], the higher the cosine measure, the smaller the angle (that is, the closer are the vectors X and Y). It also follows that the cosine measure has an absolute value less than or equal to one.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0206s.<br>
+    Server time on page load:
+    May 10, 2018 21:55:16 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fccc02s2p1">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

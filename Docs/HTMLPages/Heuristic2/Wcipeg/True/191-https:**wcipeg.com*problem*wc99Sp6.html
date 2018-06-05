@@ -1,0 +1,323 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - WC99 - S - Wedding Juicer</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "221fe9b9644c0adc95c96655c1b1b5a1";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fwc99Sp6"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>Woburn Challenge 1999 - Suicidal</h3>
+<h2>The Wedding Juicer</h2>
+<p> Adam Sandler is now a wedding juicer, i.e. he designs interesting punch-bowl 
+  designs. His latest design is as follows: it is built up from a flat board of 
+  dimensions nxm (m,n ≤ 100). Onto the board, he pastes nxm solid blocks - each 
+  1x1 in width, but with variable heights (height will be integers ≤ 10000), 
+  i.e. the entire board is covered with these blocks and no 2 blocks are stacked. 
+  To determine if this is a feasible design for a wedding, he needs to determine 
+  how much punch can fit into this funky punchbowl. So, you might wonder where 
+  the juice is going to go if all the blocks are solid. Keep in mind that juice 
+  can get trapped between boxes.</p>
+<p>You will be given n and m, followed by a grid of n rows of m items (each item 
+  separated by ONE space). This grid will contain the heights of the cuboid block 
+  at that grid position on the board. Given these numbers, you must output the 
+  volume of punch that will fit into the bowl. Assume that there is no surface 
+  tension on the board and so an unbounded region can hold no juice. </p>
+<h3>Input</h3>
+  Line 1: Number of input sets<br>
+  Each input set has the following format: <br>
+  - 1st line: n m, the height and width of the board<br>
+  - n lines each containing m positive integers, representing the height of the 
+  squares of the bowl
+<h3>Output</h3>
+<p>For each test case, output the amount of juice 
+the given bowl can hold.</p>
+<h3>Sample Input</h3>
+<pre>1
+4 4
+4 4 4 4
+4 1 1 4
+4 1 1 4
+4 4 4 4</pre>
+<h3>Sample Output</h3>
+<pre>12</pre>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,wc99Sp6">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/wc99Sp6">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 25<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Sep 28, 2008<br>
+      </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=wc99Sp6">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment579">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/SourSpinach">SourSpinach</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/579">Nov 30, 2008 - 11:41:08 pm UTC</a>      </span>
+      <a class="comment_title" id="title579" onclick="toggle(&quot;body579&quot;)">Clarification</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating579">
+    (<span class="upvotes"><span id="upvotes579">1</span></span>/<span class="downvotes"><span id="downvotes579">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body579" class="comment_body">
+    <pre id="msg579" style="display: none">Some of the heights of the bowl can be 0 - however, this doesn't mean that there's a hole in the bowl! A height of 0 is simply lower than a height of 1.</pre>
+    <div style="opacity: 1">
+      Some of the heights of the bowl can be 0 - however, this doesn't mean that there's a hole in the bowl! A height of 0 is simply lower than a height of 1.    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment273">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hansonw1">hansonw1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/273">Nov 11, 2008 - 12:56:34 am UTC</a>      </span>
+      <a class="comment_title" id="title273" onclick="toggle(&quot;body273&quot;)">Rejudged</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating273">
+    (<span class="upvotes"><span id="upvotes273">0</span></span>/<span class="downvotes"><span id="downvotes273">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body273" class="comment_body">
+    <pre id="msg273" style="display: none">Sorry, but you shouldn't get 25 points for solutions that don't work :(</pre>
+    <div style="opacity: 1">
+      Sorry, but you shouldn't get 25 points for solutions that don't work :(    </div>
+    <br><div class="comment_block" id="comment323">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Bryan">Bryan</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/323">Nov 14, 2008 - 12:43:03 am UTC</a>      </span>
+      <a class="comment_title" id="title323" onclick="toggle(&quot;body323&quot;)">Re: Re: Rejudged</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating323">
+    (<span class="upvotes"><span id="upvotes323">0</span></span>/<span class="downvotes"><span id="downvotes323">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body323" class="comment_body">
+    <pre id="msg323" style="display: none">How do you choose whether or not a problem deserves partial points?</pre>
+    <div style="opacity: 1">
+      How do you choose whether or not a problem deserves partial points?    </div>
+    <br><div class="comment_block" id="comment327">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hansonw1">hansonw1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/327">Nov 14, 2008 - 1:07:41 am UTC</a>      </span>
+      <a class="comment_title" id="title327" onclick="toggle(&quot;body327&quot;)">Partial points</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating327">
+    (<span class="upvotes"><span id="upvotes327">1</span></span>/<span class="downvotes"><span id="downvotes327">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body327" class="comment_body">
+    <pre id="msg327" style="display: none">For this problem, if you have the correct idea (and no bugs) you will get full points. It's one of those "you get it or you don't" things. There is no need for partial marks, and doing so would just encourage solutions that don't really work. (Especially since this is a 25 pt problem)
+
+For some problems, like Daycare, you get partial marks because there is also the question of efficiency - you can make a correct but slow algorithm. Thus you'll get some points for this, but making it faster is quite difficult, and hence worth more points.</pre>
+    <div style="opacity: 1">
+      For this problem, if you have the correct idea (and no bugs) you will get full points. It's one of those "you get it or you don't" things. There is no need for partial marks, and doing so would just encourage solutions that don't really work. (Especially since this is a 25 pt problem) <br> <br>For some problems, like Daycare, you get partial marks because there is also the question of efficiency - you can make a correct but slow algorithm. Thus you'll get some points for this, but making it faster is quite difficult, and hence worth more points.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment269">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/HelloMello">HelloMello</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/269">Nov 10, 2008 - 10:26:06 pm UTC</a>      </span>
+      <a class="comment_title" id="title269" onclick="toggle(&quot;body269&quot;)">Multiple Spaces?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating269">
+    (<span class="upvotes"><span id="upvotes269">1</span></span>/<span class="downvotes"><span id="downvotes269">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body269" class="comment_body">
+    <pre id="msg269" style="display: none">Does the funky punch-bowl have more than 1 space between the boxes?
+eg.
+1
+3 5
+5 5 5 5 5
+5 4 5 1 3
+5 5 5 5 5</pre>
+    <div style="opacity: 0.90547134519913">
+      Does the funky punch-bowl have more than 1 space between the boxes? <br>eg. <br>1 <br>3 5 <br>5 5 5 5 5 <br>5 4 5 1 3 <br>5 5 5 5 5    </div>
+    <br><div class="comment_block" id="comment272">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hansonw1">hansonw1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/272">Nov 10, 2008 - 11:46:56 pm UTC</a>      </span>
+      <a class="comment_title" id="title272" onclick="toggle(&quot;body272&quot;)">Re: Multiple Spaces?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating272">
+    (<span class="upvotes"><span id="upvotes272">0</span></span>/<span class="downvotes"><span id="downvotes272">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body272" class="comment_body">
+    <pre id="msg272" style="display: none">Sure, why not?</pre>
+    <div style="opacity: 1">
+      Sure, why not?    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0253s.<br>
+    Server time on page load:
+    May 10, 2018 21:49:06 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fwc99Sp6">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

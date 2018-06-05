@@ -1,0 +1,335 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - Geometric Sequence</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "221fe9b9644c0adc95c96655c1b1b5a1";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fseq"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h2>Geometric Sequence</h2>
+A sequence of integers is called a geometric sequence if the ratio of consecutive numbers is constant.<br>
+For example, (3,6,12,24) is a geometric sequence (each term is equal to twice the previous number)<br>
+<br>
+Now, with such a sequence, we will shuffle it around and remove some of the elements.<br>
+Given the result of such a transformation, try to recover the "geometric ratio" of the original sequence.<br>
+<br>
+If there are multiple values, output the one with the greatest absolute value (if there's still a tie, output the positive one)<br>
+If there is no such sequence, output 0.<br>
+
+<h3>Input</h3>
+The number of integers, 2 ≤ N ≤ 100,000<br>
+N lines, each with one non-zero integer x ( |x| ≤ 10^18 )<br>
+
+<h3>Output</h3>
+The ratio of the original sequence (if one exists).<br>
+The relative error of the answer must be within 10^-9. ( |answer - expected| / |expected| &lt; 10^-9 )<br>
+
+<h3>Sample Input</h3>
+<code>3<br>
+1 3 27<br></code>
+
+<h3>Sample Output</h3>
+<pre>3</pre>
+<br>
+The original sequence could have been 1,3,9,27 or 27,9,3,1; the former has the greater ratio.<br>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,seq">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/seq">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 10<br>
+    <b>Time Limit:</b> 1.00s<br>
+    <b>Memory Limit:</b> 64M<br>
+    <b>Added:</b> Sep 26, 2008<br>
+        <b>Author:</b> <a href="https://wcipeg.com/user/hansonw1">hansonw1</a>  </p>
+
+    <b>Problem Types:</b>
+  <noscript>
+    &lt;style type="text/css"&gt;
+      #show_types, #hide_types { display: none !important; }
+      #spoiler_id { display: inline !important; }
+    &lt;/style&gt;
+  </noscript>
+  <a href="javascript:void(null);" id="show_types" onclick="document.getElementById('spoiler_id').style.display=''; document.getElementById('show_types').style.display='none';">[Show]</a>
+  <span id="spoiler_id" style="display: none">
+    <a href="javascript:void(null);" id="hide_types" onclick="document.getElementById('spoiler_id').style.display='none'; document.getElementById('show_types').style.display='';">[Hide]</a><br>
+    <ul style="list-style-type: none; margin: 0; padding: 0;">
+      <li>Math</li>    </ul>
+  </span>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=seq">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment1520">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/javic">javic</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1520">Feb 06, 2009 - 3:16:12 am UTC</a>      </span>
+      <a class="comment_title" id="title1520" onclick="toggle(&quot;body1520&quot;)">= =</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1520">
+    (<span class="upvotes"><span id="upvotes1520">1</span></span>/<span class="downvotes"><span id="downvotes1520">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1520" class="comment_body">
+    <pre id="msg1520" style="display: none">didn't see that there is possibly no such sequence......
+that makes my algorithm totally fail = =
+gonna take a break XD</pre>
+    <div style="opacity: 1">
+      didn't see that there is possibly no such sequence...... <br>that makes my algorithm totally fail = = <br>gonna take a break XD    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment1493">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/zhxl0903">zhxl0903</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1493">Feb 01, 2009 - 6:21:55 pm UTC</a>      </span>
+      <a class="comment_title" id="title1493" onclick="toggle(&quot;body1493&quot;)">can there be decimal ratios?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1493">
+    (<span class="upvotes"><span id="upvotes1493">0</span></span>/<span class="downvotes"><span id="downvotes1493">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1493" class="comment_body">
+    <pre id="msg1493" style="display: none"></pre>
+    <div style="opacity: 1">
+          </div>
+    <br><div class="comment_block" id="comment1494">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1494">Feb 01, 2009 - 6:26:29 pm UTC</a>      </span>
+      <a class="comment_title" id="title1494" onclick="toggle(&quot;body1494&quot;)">Re: can there be decimal ratios?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1494">
+    (<span class="upvotes"><span id="upvotes1494">1</span></span>/<span class="downvotes"><span id="downvotes1494">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1494" class="comment_body">
+    <pre id="msg1494" style="display: none">A non-integer ratio, you mean? Of course. It would be too easy otherwise.
+Note:
+[quote]The relative error of the answer must be within 10^-9. ( |answer - expected| / |expected| &lt; 10^-9 )[/quote]
+If the answer were guaranteed to be an integer, this line would be unnecessary, since integers are exact numbers. These lines are only included when the answer can be a floating-point number, because then your answer might be off by a tiny bit depending on how you obtained it - meaning it will still be judged correct if you have an error of less than one part in a billion (thousand million?)</pre>
+    <div style="opacity: 1">
+      A non-integer ratio, you mean? Of course. It would be too easy otherwise. <br>Note: <br><table style="width: 90%; margin: 0 auto">
+            <tbody><tr>
+            <td><span class="quotecodeheader"></span></td>
+            </tr>
+            <tr>
+            <td class="quotebody">The relative error of the answer must be within 10^-9. ( |answer - expected| / |expected| &lt; 10^-9 )</td>
+            </tr>
+            </tbody></table> <br>If the answer were guaranteed to be an integer, this line would be unnecessary, since integers are exact numbers. These lines are only included when the answer can be a floating-point number, because then your answer might be off by a tiny bit depending on how you obtained it - meaning it will still be judged correct if you have an error of less than one part in a billion (thousand million?)    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment521">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hansonw1">hansonw1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/521">Nov 29, 2008 - 3:30:37 am UTC</a>      </span>
+      <a class="comment_title" id="title521" onclick="toggle(&quot;body521&quot;)">Hint 3</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating521">
+    (<span class="upvotes"><span id="upvotes521">1</span></span>/<span class="downvotes"><span id="downvotes521">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body521" class="comment_body">
+    <pre id="msg521" style="display: none">If I have a partial geometric sequence (a geometric sequence with numbers possibly removed), the ratios between adjacent numbers will form another partial geometric sequence [i]with the same ratio as the original[/i] (if arranged properly)</pre>
+    <div style="opacity: 1">
+      If I have a partial geometric sequence (a geometric sequence with numbers possibly removed), the ratios between adjacent numbers will form another partial geometric sequence <span class="italics">with the same ratio as the original</span> (if arranged properly)    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment27">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hansonw1">hansonw1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/27">Oct 21, 2008 - 1:25:08 pm UTC</a>      </span>
+      <a class="comment_title" id="title27" onclick="toggle(&quot;body27&quot;)">Hint 2</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating27">
+    (<span class="upvotes"><span id="upvotes27">0</span></span>/<span class="downvotes"><span id="downvotes27">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body27" class="comment_body">
+    <pre id="msg27" style="display: none">N seems to be really big, but does it matter?</pre>
+    <div style="opacity: 1">
+      N seems to be really big, but does it matter?    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment26">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hansonw1">hansonw1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/26">Oct 21, 2008 - 1:24:45 pm UTC</a>      </span>
+      <a class="comment_title" id="title26" onclick="toggle(&quot;body26&quot;)">Hint 1</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating26">
+    (<span class="upvotes"><span id="upvotes26">0</span></span>/<span class="downvotes"><span id="downvotes26">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body26" class="comment_body">
+    <pre id="msg26" style="display: none">Use long doubles; they can store more than 18 digits.</pre>
+    <div style="opacity: 1">
+      Use long doubles; they can store more than 18 digits.    </div>
+      </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0270s.<br>
+    Server time on page load:
+    May 10, 2018 21:53:38 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fseq">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

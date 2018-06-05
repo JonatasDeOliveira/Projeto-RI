@@ -107,14 +107,14 @@ def generateTF():
     for key in idf.keys():
         idf[key] = math.log((length_neg_docs+length_pos_docs)/idf.get(key))
     
-    with open('idf.json', 'w') as fp:
+    with open('Classifier/idf.json', 'w') as fp:
         json.dump(idf, fp)
     
 
 def getIDF():
     global idf
-    if os.path.exists("idf.json"):
-        with open('idf.json') as data_file:    
+    if os.path.exists('Classifier/idf.json'):
+        with open('Classifier/idf.json') as data_file:    
             data = json.load(data_file)
         return data
     else:
@@ -126,8 +126,8 @@ def countFiles(path):
     return len(files)
     
 def getTrainData(keys):
-    pos_path = "positive_docs/"
-    neg_path = "negative_docs/"
+    pos_path = "Classifier/positive_docs/"
+    neg_path = "Classifier/negative_docs/"
     positive_files = [f for f in listdir(pos_path) if isfile(join(pos_path, f))]
     negative_files = [f for f in listdir(neg_path) if isfile(join(neg_path, f))]
     
@@ -167,8 +167,8 @@ def classify():
     
     #generateTF()
         
-    length_pos_docs = countFiles("positive_docs")
-    length_neg_docs = countFiles("negative_docs")
+    #length_pos_docs = countFiles("positive_docs")
+    #length_neg_docs = countFiles("negative_docs")
     
     idf = getIDF()
     
@@ -203,8 +203,15 @@ def classify():
     
     
     accuracy = 0.0
+    precision = 0.0
+    recall = 0.0
+    f_mesure = 0.0
     got_right = 0.0
     got_wrong = 0.0
+    tp = 0.0
+    fp = 0.0
+    fn = 0.0
+    tn = 0.0
     count = 0
     
     for train_indexes, test_indexes in sets:
@@ -215,16 +222,33 @@ def classify():
             train_set_clas.append(y[i])
         
         for i in test_indexes:
-            prediction = classifyDecisionTree(train_set_inst, train_set_clas, X[i])
+            prediction = classifyLogisticRegression(train_set_inst, train_set_clas, X[i])
             if prediction == y[i]:
+                if prediction == 'negative':
+                    tn += 1
+                else:
+                    tp += 1
                 got_right += 1
             else:
+                if prediction == 'negative':
+                    fn += 1
+                else:
+                    fp += 1
                 print(i, X[i], y[i], features)
                 got_wrong += 1
-        accuracy += got_right/(got_right+got_wrong)
+        accuracy += (tp + tn)/(tp+tn+fp+fn)
+        precision += tp/(tp+fp)
+        recall += tp/(tp+fn)
+        f_mesure = (2*precision*recall)/(precision+recall)
         count+=1
     accuracy /= count
+    f_mesure /= count
+    recall /= count
+    precision /= count
     print("accuracy = ", accuracy, "%")
+    print("precision = ", precision, "%")
+    print("recall = ", recall, "%")
+    print("f_mesure = ", f_mesure, "%")
     #print(y)
     #print(features)
 

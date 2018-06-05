@@ -75,8 +75,7 @@ def crawler(domain, pathseed, maxSize = 1000):
         a = pq.get()[1]
         print("! " + str(len(links)) + " " + a)
         if(len(links) < maxSize):
-            if(value(a)==1):
-                links.append(a)
+            links.append(a)
             ls = get_all_links(domain, a, maxSize, rp, driver)
             for l in ls:
                 if(l not in visited):
@@ -146,9 +145,9 @@ def value(link):
     if('http://www.spoj.com' in link):
         if('problems' in link and ('tag' in link or 'classical' in link)):
             return 2
-        elif('problems/' in link and 'cstart' not in link):
+        elif('problems/' in link and 'cstart' not in link and 'lang' not in link and 'main' not in link):
             return 1
-        elif('problems' in link and 'cstart' not in link):
+        elif('problems' in link and 'cstart' not in link and 'lang' not in link and 'main' not in link):
             return 2
         else:
             return 3
@@ -213,10 +212,10 @@ def value(link):
 
 
 #crawler('https://wcipeg.com','')
-crawler('http://www.codeforces.com','')
+#crawler('http://www.codeforces.com','')
 #crawler('https://a2oj.com','')
 #crawler('https://www.codechef.com','')
-#crawler('http://www.spoj.com','')
+crawler('http://www.spoj.com','')
 #crawler('https://dmoj.ca','')
 #crawler('http://acm.timus.ru','')
 ##crawler('https://www.urionlinejudge.com.br','')

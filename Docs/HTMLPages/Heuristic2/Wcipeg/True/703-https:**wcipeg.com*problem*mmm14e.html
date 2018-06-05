@@ -1,0 +1,367 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - English Essay</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "221fe9b9644c0adc95c96655c1b1b5a1";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fmmm14e"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>Maniacal Midsummer Marathon 2014 by AL, TL, JJ</h3>
+<h2>Problem E: English Essay</h2>
+
+<p>The school year is finally coming to a close, and you're dying to get out of school. However, there's still one subject that has yet to be fully taken care of — English. Writing essays is the bane of your existence, but you still have a final essay due that's worth 30% of your final grade. Your English mark is currently at a whopping 64%, and all that really matters now is passing (with a 50%). Luckily, your English teacher also happens to be the CompSci teacher, so some strings may be pulled to save your butt.</p>
+
+<p>You calculated that if you get 20% on this essay, your final grade will be 64×0.7 + 20×0.3 = 50.8% — barely enough to pass! Considering that you're a really bright programmer, your teacher pities you quite a bit, and has decided to make a deal with you. He claims that he will give you a bare minimum of 20% on your essay, provided that it is in proper essay format with formal English, proper grammar, spelling, blah blah blah. You really don't want him to eat his words and fail you by accident, so you decided to make him clearly explain what he wants.</p>
+
+<p>So you ask your teacher, "hey mister, what exactly <i>is</i> a formal essay format?". In response, he asks you what you've even been doing the entire year in his class, but you do not succumb to his begging of the question. Finally, he gives in to you because he is impressed by how much you care about this assignment. Being a CompSci teacher, he decides to send you the formal definition of an English essay in <a href="http://en.wikipedia.org/wiki/Backus%E2%80%93Naur_Form">Backus-Naur Form</a> (BNF).</p>
+
+<p>In BNF, a language or article can be described using a list of symbol definitions. Each definition associates a symbol (represented by an identifier in <code>&lt;&gt;</code> angle-brackets) to an expression. <b>An expression is any combination of concatenations and/or unions of symbols, literal values, and expressions.</b></p>
+
+<p>For example, a BNF definition for any integer is as follows:</p>
+<pre style="word-break: break-word;">       &lt;integer&gt; ::= "0" | [ "-" ] &lt;natural-number&gt;
+&lt;natural-number&gt; ::= &lt;non-zero-digit&gt; { &lt;digit&gt; }
+&lt;non-zero-digit&gt; ::= 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+         &lt;digit&gt; ::= 0 | &lt;non-zero-digit&gt;
+</pre>
+
+<p>In the above example: "<code>::=</code>" indicates a definition. Any series of consecutive expressions indicate a concatenation, meaning that all those expressions must be matched in the order given by the definition. "<code>|</code>" denotes a union, indicating that either the expression on the left or the expression on the right side of the sign can be matched. An expression in curly brackets <code>{}</code> indicates that it may be matched 0 or more times. An expression in square brackets <code>[]</code> indicates that it may be matched 0 or 1 times. Note that quotations marks around literal values are optional. However, literals tokens that not enclosed in quotations are assumed to not have any leading, trailing, or joining spaces. That means the definition of <code>&lt;foo&gt;</code> below:</p>
+<pre style="margin-left: 15px">&lt;foo&gt; ::= ab | a "b" | "a"  b | "ab" | &lt;a&gt; &lt;b&gt;
+&lt;a&gt; ::= "a"
+&lt;b&gt; ::= b
+</pre>
+
+<p>will strictly accept nothing else except for the string "<code>ab</code>" (without quotes). For the purposes of this problem, you may assume that literals will only consist of upper and lowercase alphabetical characters from <code>A</code> to <code>Z</code>, numerical digits from <code>0</code> to <code>9</code>, spaces, and punctuation. You do not have to worry about quotation marks, or angled/square/curly brackets being a part of string literals. Symbol names will be between 1 and 20 characters in length, and will only contain lowercase letters from <code>a</code> to <code>z</code>, numerical digits, and dashes '<code>-</code>'. We shall assume that the special symbol <code>&lt;EOL&gt;</code> represents an end-of-line character. For the sake of simplicity in this problem, <b>comparisons with definitions and texts are not case sensitive</b>.</p>
+
+<p>For another example of BNF, we can try to define an actual essay. In order to define an essay with proper spelling, your teacher will first have to give you a large lexicon of valid words defined in BNF like the following. Don't worry, these lists will be provided to you in the same BNF definition list so that all symbols are defined.</p>
+
+<pre style="word-break: break-word;">     &lt;noun&gt; ::= cat | mice | …
+  &lt;pronoun&gt; ::= I | me | you | …
+     &lt;verb&gt; ::= am | are | is | eats | …
+&lt;adjective&gt; ::= cool | smelly | smart | …
+   &lt;adverb&gt; ::= quickly | slowly | …
+  &lt;article&gt; ::= the | a | an | …
+</pre>
+
+<p>Following this, we can define the actual structure of an essay. Below, an essay is defined as a series of paragraphs, which themselves are a series of pseudo-English sentences. For illustration purposes, this definition is very simple and clearly does not cover all English sentences. In actuality, your teacher may send you something much more rigorous and extensive.</p>
+
+<table>
+<tbody><tr><th>Definition</th><th>Example Matches/Breakdown</th></tr>
+<tr><td style="vertical-align: text-top;">
+<pre style="word-break: break-word;">      &lt;essay&gt; ::= &lt;paragraph&gt; { &lt;paragraph&gt; }
+  &lt;paragraph&gt; ::= &lt;sentence&gt; "." { " " &lt;sentence&gt; "." } &lt;EOL&gt;
+   &lt;sentence&gt; ::= &lt;noun-phrase&gt; " " &lt;verb-phrase&gt;
+&lt;noun-phrase&gt; ::= &lt;pronoun&gt; |
+                  &lt;noun&gt; |
+                  &lt;article&gt; " " &lt;noun&gt;
+&lt;verb-phrase&gt; ::= &lt;verb&gt; |
+                  &lt;verb-phrase&gt; " " &lt;noun-phrase&gt; |
+                  &lt;verb-phrase&gt; " " &lt;adverb&gt; |
+                  &lt;verb-phrase&gt; " " &lt;adjective&gt;
+</pre>
+</td><td style="padding-left: 30px; vertical-align: text-top;">
+<pre style="word-break: break-word;">"I am cool" + "." + " " + "You are cool" + "."
+"The cat" + " " + "eats mice quickly"
+"I"
+"mice"
+"The" + " " + "cat"
+"eats"
+"eats" + " " + "mice"
+"eats mice" + " " + "quickly"
+"am" + " " + "cool"
+</pre>
+</td></tr>
+</tbody></table>
+
+<p>You may have noticed from the above, definitions can be recursive in nature, calling upon themselves. Furthermore, the order in which symbols are defined do not matter, as long as all of the symbols used in definitions are defined somewhere. The support for recursive definitions can sometimes lead to indeterminate definitions like the following:</p>
+
+<pre>&lt;foo&gt; ::= &lt;foo&gt;</pre>
+<p>or</p>
+<pre>&lt;foo&gt; ::= &lt;bar&gt;
+&lt;bar&gt; ::= &lt;foo&gt;
+</pre>
+
+<p>In either of these two cases, we shall consider the number of accepted strings by the defined symbols to be 0. Note that if we had defined <code>&lt;foo&gt; ::= &lt;foo&gt; | "a"</code>, then the set of all accepted strings would be {<code>a</code>, <code>aa</code>, <code>aaa</code>, …}, and the definition would no longer be indeterminate.</p>
+
+<p>Now back to your English essay.</p>
+
+<p>Obviously you would like to do as little work as possible to pass English. So, given the Backus-Naur Form that your teacher has sent you, you would like to write a program that determines the length of the shortest possible string accepted by the symbol <code>&lt;essay&gt;</code> in the definition.</p>
+
+<h3>Input Format</h3>
+<p>The input will contain the proper format of the essay, using the Backus-Naur Form variant as described above. It is guaranteed that all used symbols, including the symbol <code>&lt;essay&gt;</code>, will be defined exactly once in the input. Definitions may span across multiple lines, although the start of a new definition will always be on a separate line than the end of the previous definition. A literal in quotes will never span across multiple lines. Symbols, literals, "<code>::=</code>"s, "<code>|</code>"s, and brackets will be separated by 1 or more spaces. There may be up to 10000 symbols defined, and the size of the input will not exceed 5MiB. There may be empty lines in the input which you must ignore.</p>
+
+<p>Note that the Backus-Naur Form is not particularly standardized. It is mostly used to describe languages rather than to implement them, so different sources will have different variations. Some constructs used in this problem such as the quantifier brackets are part of the Extended Backus-Naur Form. The input will <b>not</b> employ any other constructs from this form (e.g. single quoted strings, comments, grouping with parentheses, etc.) unless it is explicitly mentioned in this problem statement.</p>
+
+<h3>Output Format</h3>
+<p>The output should consist of a single integer - the length of the shortest string accepted by the symbol <code>&lt;essay&gt;</code>. Since the answer can be very big, output it modulo 1000000007 (10<sup>9</sup> + 7). An end-of-line symbol <code>&lt;EOL&gt;</code> counts as 1 character when matched. If the symbol's definition is indeterminate, output <code>-1</code>.</p>
+
+<h3>Sample Input 1</h3>
+<pre>       &lt;integer&gt; ::= "0" | [ "-" ] &lt;natural-number&gt;
+&lt;natural-number&gt; ::= &lt;non-zero-digit&gt; { &lt;digit&gt; }
+&lt;non-zero-digit&gt; ::= 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+         &lt;digit&gt; ::= 0 | &lt;non-zero-digit&gt;
+         &lt;essay&gt; ::= &lt;integer&gt;
+</pre>
+
+<h3>Sample Output 1</h3>
+<pre>1</pre>
+
+<h3>Explanation for Sample 1</h3>
+<p>Here, an essay is just an integer. The set of shortest strings for this input is {"<code>0</code>", "<code>1</code>", "<code>2</code>", "<code>3</code>", "<code>4</code>", "<code>5</code>", "<code>6</code>", "<code>7</code>", "<code>8</code>", "<code>9</code>"}.</p>  
+
+<h3>Sample Input 2</h3>
+<pre>      &lt;essay&gt; ::= &lt;paragraph&gt; { &lt;paragraph&gt; }
+  &lt;paragraph&gt; ::= &lt;sentence&gt; "." { " " &lt;sentence&gt; "." } &lt;EOL&gt;
+   &lt;sentence&gt; ::= &lt;noun-phrase&gt; " " &lt;verb-phrase&gt;
+&lt;noun-phrase&gt; ::= &lt;pronoun&gt; |
+                  &lt;noun&gt; |
+                  &lt;article&gt; " " &lt;noun&gt;
+&lt;verb-phrase&gt; ::= &lt;verb&gt; |
+                  &lt;verb-phrase&gt; " " &lt;noun-phrase&gt; |
+                  &lt;verb-phrase&gt; " " &lt;adverb&gt; |
+                  &lt;verb-phrase&gt; " " &lt;adjective&gt;
+       &lt;noun&gt; ::= cat | mice
+    &lt;pronoun&gt; ::= I | me | you
+       &lt;verb&gt; ::= am | are | is | eats
+  &lt;adjective&gt; ::= cool | smelly | smart
+     &lt;adverb&gt; ::= quickly | slowly
+    &lt;article&gt; ::= the | a | an
+</pre>
+
+<h3>Sample Output 2</h3>
+<pre>6</pre>
+
+<h3>Explanation for Sample 2</h3>
+<p>One possible shortest string is "<code>I am.</code>" followed by an EOL character, for a total length of 6.</p>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,mmm14e">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/mmm14e">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 30 (partial)<br>
+    <b>Time Limit:</b> 10.00s<br>
+    <b>Memory Limit:</b> 256M<br>
+    <b>Added:</b> Jul 15, 2014<br>
+        <b>Author:</b> <a href="https://wcipeg.com/user/Alex">Alex</a>  </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=mmm14e">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment6057">
+  <div class="comment_header" style="opacity: 0.62447173588146">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Alex">Alex</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6057">Aug 10, 2014 - 11:49:28 pm UTC</a>      </span>
+      <a class="comment_title" id="title6057" onclick="toggle(&quot;body6057&quot;)">New test case added</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6057">
+    (<span class="upvotes"><span id="upvotes6057">1</span></span>/<span class="downvotes"><span id="downvotes6057">4</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6057" class="comment_body">
+    <pre id="msg6057" style="display: none">I've added a new test case to the last batch (worth 20% of points) to make sure that a certain sneaky trick fails. All submissions have been rejudged.</pre>
+    <div style="opacity: 0.62447173588146">
+      I've added a new test case to the last batch (worth 20% of points) to make sure that a certain sneaky trick fails. All submissions have been rejudged.    </div>
+    <br><div class="comment_block" id="comment6058">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/SourSpinach">SourSpinach</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6058">Aug 11, 2014 - 10:27:12 pm UTC</a>      </span>
+      <a class="comment_title" id="title6058" onclick="toggle(&quot;body6058&quot;)">Re: New test case added</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6058">
+    (<span class="upvotes"><span id="upvotes6058">0</span></span>/<span class="downvotes"><span id="downvotes6058">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6058" class="comment_body">
+    <pre id="msg6058" style="display: none">Wow.</pre>
+    <div style="opacity: 1">
+      Wow.    </div>
+    <br><div class="comment_block" id="comment6059">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/awaykened">awaykened</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6059">Aug 12, 2014 - 12:55:33 am UTC</a>      </span>
+      <a class="comment_title" id="title6059" onclick="toggle(&quot;body6059&quot;)">Re: New test case added</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6059">
+    (<span class="upvotes"><span id="upvotes6059">2</span></span>/<span class="downvotes"><span id="downvotes6059">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6059" class="comment_body">
+    <pre id="msg6059" style="display: none">9999 looks better than 10,000 anyways ;3</pre>
+    <div style="opacity: 1">
+      9999 looks better than 10,000 anyways ;3    </div>
+      </div>
+</div>
+<br><div class="comment_block" id="comment6060">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Alex">Alex</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6060">Aug 12, 2014 - 1:46:45 am UTC</a>      </span>
+      <a class="comment_title" id="title6060" onclick="toggle(&quot;body6060&quot;)">Re: New test case added</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6060">
+    (<span class="upvotes"><span id="upvotes6060">1</span></span>/<span class="downvotes"><span id="downvotes6060">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6060" class="comment_body">
+    <pre id="msg6060" style="display: none">Yeah, I personally prefer the 9999 because it looks like you capped it.</pre>
+    <div style="opacity: 1">
+      Yeah, I personally prefer the 9999 because it looks like you capped it.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0271s.<br>
+    Server time on page load:
+    May 10, 2018 21:59:53 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fmmm14e">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

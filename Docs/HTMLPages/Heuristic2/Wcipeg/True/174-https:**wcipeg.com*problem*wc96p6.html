@@ -1,0 +1,382 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - WC96 - Bases Multiplication</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "221fe9b9644c0adc95c96655c1b1b5a1";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fwc96p6"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>Woburn Challenge 1996</h3>
+<h2>Problem 6: Different Bases Multiplication</h2>
+
+<p>In normal everyday usage numbers are thought of in base ten. The reason for 
+  this is naturally due to humans having ten fingers on which to perform mathematical 
+  operations such as add, subtract and multiply. However, in computer technology, 
+  the use of low and high voltage states lends itself to thinking of operations 
+  defined on having only these two states. Hence, the binary system as a descriptive 
+  tool in computers in quite useful. Moreover, we could easily have a use for 
+  other number systems (cartoon characters couting in base 8, some alien species 
+  counting in base 97).</p>
+<p>Your task is to take two different-base numbers, calculate their product, and 
+  return the answer in another base.</p>
+<p>For example, "Find 12<sub>8</sub> * 35<sub>9</sub> in base 10."</p>
+
+<h3>Input</h3>
+<p>
+  The input file contains 5 data sets.<br>
+  The first line of each data set is the first number and its base.<br>
+  The second line of each data set is the second number and its base.<br>
+  The third line of each data set is the base in which the product is to be reported.<br>
+  All bases will be integers from 2 to 10 inclusive.<br>
+</p>
+
+<h3>Output</h3>
+<p>
+  Give the product of the numbers in the specified base.<br>
+  Each product will be less than or equal to 2 billion (base ten).
+</p>
+
+<h3>Sample Input</h3>
+<pre>12 8
+35 9
+10
+121 7
+121 7
+7
+</pre>
+<p>(and 3 more inputs)</p>
+
+<h3>Sample Output</h3>
+<pre>320
+14641
+</pre>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,wc96p6">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/wc96p6">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 5<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Sep 29, 2008<br>
+      </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=wc96p6">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment1209">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/zhxl0903">zhxl0903</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1209">Jan 09, 2009 - 11:57:16 pm UTC</a>      </span>
+      <a class="comment_title" id="title1209" onclick="toggle(&quot;body1209&quot;)">what's the first test case?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1209">
+    (<span class="upvotes"><span id="upvotes1209">0</span></span>/<span class="downvotes"><span id="downvotes1209">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1209" class="comment_body">
+    <pre id="msg1209" style="display: none">I got all of them right, except for that one...</pre>
+    <div style="opacity: 1">
+      I got all of them right, except for that one...    </div>
+    <br><div class="comment_block" id="comment1210">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/SourSpinach">SourSpinach</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1210">Jan 10, 2009 - 12:28:41 am UTC</a>      </span>
+      <a class="comment_title" id="title1210" onclick="toggle(&quot;body1210&quot;)">Re: what's the first test case?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1210">
+    (<span class="upvotes"><span id="upvotes1210">1</span></span>/<span class="downvotes"><span id="downvotes1210">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1210" class="comment_body">
+    <pre id="msg1210" style="display: none">Well, your output ends in a single 0, but there should actually be 2 zeros at the end of that number. Hopefully that's enough for you to figure out what's going on.</pre>
+    <div style="opacity: 1">
+      Well, your output ends in a single 0, but there should actually be 2 zeros at the end of that number. Hopefully that's enough for you to figure out what's going on.    </div>
+    <br><div class="comment_block" id="comment1211">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/zhxl0903">zhxl0903</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1211">Jan 10, 2009 - 1:06:01 am UTC</a>      </span>
+      <a class="comment_title" id="title1211" onclick="toggle(&quot;body1211&quot;)">Re: Re: what's the first test case?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1211">
+    (<span class="upvotes"><span id="upvotes1211">0</span></span>/<span class="downvotes"><span id="downvotes1211">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1211" class="comment_body">
+    <pre id="msg1211" style="display: none">Thanks alot! I finally figured out the problem.</pre>
+    <div style="opacity: 1">
+      Thanks alot! I finally figured out the problem.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment1207">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/zhxl0903">zhxl0903</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1207">Jan 09, 2009 - 7:32:48 pm UTC</a>      </span>
+      <a class="comment_title" id="title1207" onclick="toggle(&quot;body1207&quot;)">Is pascal longint large enough for this program?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1207">
+    (<span class="upvotes"><span id="upvotes1207">0</span></span>/<span class="downvotes"><span id="downvotes1207">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1207" class="comment_body">
+    <pre id="msg1207" style="display: none"></pre>
+    <div style="opacity: 1">
+          </div>
+    <br><div class="comment_block" id="comment1208">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1208">Jan 09, 2009 - 8:36:11 pm UTC</a>      </span>
+      <a class="comment_title" id="title1208" onclick="toggle(&quot;body1208&quot;)">Re: Is pascal longint larger enough for this program?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1208">
+    (<span class="upvotes"><span id="upvotes1208">2</span></span>/<span class="downvotes"><span id="downvotes1208">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1208" class="comment_body">
+    <pre id="msg1208" style="display: none">Yes.</pre>
+    <div style="opacity: 1">
+      Yes.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment721">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/ragulan5">ragulan5</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/721">Dec 12, 2008 - 12:44:07 am UTC</a>      </span>
+      <a class="comment_title" id="title721" onclick="toggle(&quot;body721&quot;)">Negatives</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating721">
+    (<span class="upvotes"><span id="upvotes721">0</span></span>/<span class="downvotes"><span id="downvotes721">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body721" class="comment_body">
+    <pre id="msg721" style="display: none">Are any of the numbers negative?</pre>
+    <div style="opacity: 1">
+      Are any of the numbers negative?    </div>
+    <br><div class="comment_block" id="comment722">
+  <div class="comment_header" style="opacity: 0.88238176884075">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/zerglingrush">zerglingrush</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/722">Dec 12, 2008 - 1:10:52 am UTC</a>      </span>
+      <a class="comment_title" id="title722" onclick="toggle(&quot;body722&quot;)">Negatives</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating722">
+    (<span class="upvotes"><span id="upvotes722">3</span></span>/<span class="downvotes"><span id="downvotes722">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body722" class="comment_body">
+    <pre id="msg722" style="display: none">nope</pre>
+    <div style="opacity: 0.88238176884075">
+      nope    </div>
+      </div>
+</div>
+<br><div class="comment_block" id="comment724">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/dAedaL">dAedaL</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/724">Dec 12, 2008 - 4:01:47 am UTC</a>      </span>
+      <a class="comment_title" id="title724" onclick="toggle(&quot;body724&quot;)">Re: Negatives</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating724">
+    (<span class="upvotes"><span id="upvotes724">1</span></span>/<span class="downvotes"><span id="downvotes724">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body724" class="comment_body">
+    <pre id="msg724" style="display: none">Would it really be any more difficult if there were?</pre>
+    <div style="opacity: 1">
+      Would it really be any more difficult if there were?    </div>
+    <br><div class="comment_block" id="comment730">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Saravannan">Saravannan</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/730">Dec 12, 2008 - 8:20:40 pm UTC</a>      </span>
+      <a class="comment_title" id="title730" onclick="toggle(&quot;body730&quot;)">Re: Re: Negatives</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating730">
+    (<span class="upvotes"><span id="upvotes730">1</span></span>/<span class="downvotes"><span id="downvotes730">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body730" class="comment_body">
+    <pre id="msg730" style="display: none">Mine wouldn't work o_O</pre>
+    <div style="opacity: 1">
+      Mine wouldn't work o_O    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0405s.<br>
+    Server time on page load:
+    May 10, 2018 21:48:46 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fwc96p6">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>
