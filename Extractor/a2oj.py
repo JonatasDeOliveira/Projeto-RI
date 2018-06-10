@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
-import util
+from Extractor import util
 
 def a2oj(page, crawlerType, extractorType, domain, fileName):
     #request = requests.get("https://a2oj.com/p?ID=134", verify = False)

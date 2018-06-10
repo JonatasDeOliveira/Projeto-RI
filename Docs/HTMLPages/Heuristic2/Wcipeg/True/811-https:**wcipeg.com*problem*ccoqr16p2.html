@@ -1,0 +1,262 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - CCOQR16 - Through A Maze Darkly</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "3d9c83c15e0f324305366b918ab3d51c";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fccoqr16p2"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>2016 Canadian Computing Olympiad Qualifying Round</h3>
+<h2>Problem Q2: Through A Maze Darkly</h2>
+
+<p>There is a maze that is formed by connecting <var>N</var> rooms via some corridors. The rooms are numbered 1 to <var>N</var> and each room has the shape of a circle. The corridors have the following constraints:</p>
+
+<ul>
+<li>Each corridor forms a connection between two distinct rooms.</li>
+<li>No two corridors will connect the same pair of rooms.</li>
+<li>Each room will have at least 1 corridor that connects to it.</li>
+</ul>
+
+<p>One difficulty in navigating through this maze is that the lights are all out, so you cannot see where you are.</p>
+
+<p>One way to move through the maze is to place your right hand at some point on the wall of the starting room and walk forward through the corridors and other rooms without ever taking your hand off the wall. If you walk through the maze in this way, you will end up returning to the original room. The path that you follow will depend upon where you place your right hand in the starting room, since that will determine which corridor you take first.</p>
+
+<p>Given the structure of the maze you need to answer <var>Q</var> queries. Each query will specify a distinct starting room <var>r</var>. Determine the maximum number of traversals of corridors as you move through the maze by keeping your right hand on the wall beginning in room <var>r</var> and returning (for the first time) to room <var>r</var>.</p>
+
+<h3>Input Format</h3>
+<p>The first line of input contains the integer <var>N</var> (2 ≤ <var>N</var> ≤ 100&nbsp;000).</p>
+<p>The next <var>N</var> lines describe the maze's layout, with the <var>i</var>-th of these lines containing information about room <var>i</var>. Specifically, it contains an integer <var>k</var>, the number of corridors connecting to room <var>i</var>, followed by <var>k</var> integers, <var>c</var><sub>1</sub> <var>c</var><sub>2</sub> … <var>c<sub>k</sub></var>, indicating the rooms that these <var>k</var> corridors lead to (in clockwise order from room <var>i</var>).</p>
+<p>For example, if the corridor information for room <var>i</var> is 3 4 2 7, this means that there are 3 corridors connecting room <var>i</var> to rooms 4, 2, and 7. Since they are listed in clockwise order, we would have the following picture:</p>
+
+<p><img src="images/ccoqr16p2/q2.1.png" alt="" width="300px"></p>
+
+<p>The next line contains an integer <var>Q</var>.</p>
+
+<p>The final <var>Q</var> lines describe the starting rooms to be queried, with each line containing an integer <var>r</var> (1 ≤ <var>r</var> ≤ <var>N</var>).</p>
+
+<p>Let <var>M</var> be the total number of corridors that exist in the maze. The value of <var>M</var> can be calculated as <sup>1</sup>/<sub>2</sub> × (sum of all <var>k</var> values).</p>
+
+<h3>Subtasks</h3>
+<p>
+For 2 of of the 15 marks available, 2 ≤ <var>N</var> ≤ 100, 1 ≤ <var>M</var> ≤ 100, and 1 ≤ <var>Q</var> ≤ <var>N</var>.<br>
+For another 3 of the 15 marks available, 2 ≤ <var>N</var> ≤ 100&nbsp;000, 1 ≤ <var>M</var> ≤ 200&nbsp;000, and <var>Q</var> = 1.<br>
+</p>
+
+<h3>Output Format</h3>
+<p>Output <var>Q</var> lines answering the queries in order.</p>
+
+<h3>Sample Input</h3>
+<pre>6
+1 3
+2 5 4
+1 1
+3 2 5 6
+2 4 2
+1 4
+6
+1
+2
+3
+4
+5
+6
+</pre>
+
+<h3>Sample Output</h3>
+<pre>2
+5
+2
+3
+5
+5
+</pre>
+
+<h3>Explanation</h3>
+
+<p>The following picture corresponds to one arrangement of the sample input.</p>
+
+<p><img src="images/ccoqr16p2/q2.2.png" alt="" width="200px"></p>
+
+<p>Rooms 1 and 3 are connected by one corridor, and it is traversed twice while leaving and returning to the same room, regardless of where we start in rooms 1 or 3.</p>
+
+<p>For room 2, we start at the position A and move counter-clockwise, we will go into the corridors connecting (2, 4), then the corridor connecting (4, 6), then the corridor connecting (6, 4), then the corridor connecting (4, 5), then finally the corridor connecting (5, 2), for a total of 5 traversals of corridors. This is the maximum possible number of traversals.</p>
+
+<p>For room 4, we may start at position B, move counter clockwise, and then traverse corridors (4, 5), (5, 2) and (2, 4), for a total of 3 traversals of corridors. Notice that starting anywhere else in room 4 will yield no more than 3 traversals of corridors.</p>
+
+<p>Starting at positions C and D, in rooms 5 and 6 respectively will yield a reordering of the same path traversed as we found starting from A in room 2, which is yields a total of 5 traversals of corridors in these cases.</p>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,ccoqr16p2">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/ccoqr16p2">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 15 (partial)<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 64M<br>
+    <b>Added:</b> Mar 09, 2016<br>
+        <b>Author:</b> <a href="https://wcipeg.com/user/nullptr">nullptr</a>  </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=ccoqr16p2">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment7508">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Butane">Butane</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7508">Mar 10, 2016 - 1:10:41 am UTC</a>      </span>
+      <a class="comment_title" id="title7508" onclick="toggle(&quot;body7508&quot;)">RIP GFSS</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7508">
+    (<span class="upvotes"><span id="upvotes7508">12</span></span>/<span class="downvotes"><span id="downvotes7508">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7508" class="comment_body">
+    <pre id="msg7508" style="display: none">Never forget.</pre>
+    <div style="opacity: 1">
+      Never forget.    </div>
+      </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0193s.<br>
+    Server time on page load:
+    Jun 7, 2018 07:45:33 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fccoqr16p2">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

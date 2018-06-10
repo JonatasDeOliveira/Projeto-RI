@@ -1,0 +1,272 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - CCC15J5 - Pi-day</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "3d9c83c15e0f324305366b918ab3d51c";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fccc15j5"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>2015 Canadian Computing Competition, Stage 1</h3>
+<h2>Problem J5: π-day</h2>
+
+<p>You may know that March 14 is known as "π-day", since 3.14 (which is the third month and fourteenth day) is a good approximation of π.</p>
+
+<p>Mathematicians celebrate this day by eating pie.</p>
+
+<p>Suppose that you have <var>n</var> pieces of pie, and <var>k</var> people who are lined up for pieces of pie. All <var>n</var> pieces of pie will be given out. Each person will get at least one piece of pie, but mathematicians are a bit greedy at times. So, they always get at least as many of pieces of pie as the person in front of them.</p>
+
+<p>For example, if you have 8 pieces of pie and 4 people in line, you could give out pieces of pie in the following five ways (with the first person in line being the first number in the list): [1, 1, 1, 5], [1, 1, 2, 4], [1, 1, 3, 3], [1, 2, 2, 3], [2, 2, 2, 2].</p>
+
+<p>Notice that if <var>k</var> = <var>n</var>, there is only one way to give out the pieces of pie: every person gets exactly one piece. Also, if <var>k</var> = 1, there is only one way to give out the pieces of pie: that single person gets all the pieces.</p>
+
+<p>Write a program that determines the number of ways that the pieces of pie can be given out.</p>
+
+<h3>Input</h3>
+
+<p>
+The first line of input is the integer number of pieces of pie, <var>n</var> (1 ≤ <var>n</var> ≤ 250).<br>
+The second line of input is the integer <var>k</var> which is the number of people in line (1 ≤ <var>k</var> ≤ <var>n</var>).
+</p>
+
+<p>For at least 20% of the marks for this problem, <var>n</var> ≤ 9. For at least 50% of the marks for this problem, <var>n</var> ≤ 70. For at least 85% of the marks for this problem, <var>n</var> ≤ 120.</p>
+
+<h3>Output</h3>
+
+<p>The output will consist of a single integer which is the number of ways that pieces of pie can be distributed. The output is guaranteed to be less than 2<sup>31</sup>.</p>
+
+<h3>Sample Input 1</h3>
+<pre>8
+4
+</pre>
+
+<h3>Sample Output 1</h3>
+<pre>5
+</pre>
+
+<h3>Sample Input 2</h3>
+<pre>6
+2
+</pre>
+
+<h3>Sample Output 2</h3>
+<pre>3
+</pre>
+
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,ccc15j5">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/ccc15j5">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 10 (partial)<br>
+    <b>Time Limit:</b> 5.00s<br>
+    <b>Memory Limit:</b> 256M<br>
+    <b>Added:</b> Feb 21, 2015<br>
+      </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=ccc15j5">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment6572">
+  <div class="comment_header" style="opacity: 0.489900020404">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/SUPER_ET_DUPER">SUPER_ET_DUPER</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6572">Feb 22, 2015 - 10:49:44 pm UTC</a>      </span>
+      <a class="comment_title" id="title6572" onclick="toggle(&quot;body6572&quot;)">Python 3 TLE</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6572">
+    (<span class="upvotes"><span id="upvotes6572">0</span></span>/<span class="downvotes"><span id="downvotes6572">4</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6572" class="comment_body">
+    <pre id="msg6572" style="display: none">Is this problem possible with python 3?
+I get TLE for the last 2
+</pre>
+    <div style="opacity: 0.489900020404">
+      Is this problem possible with python 3? <br>I get TLE for the last 2    </div>
+    <br><div class="comment_block" id="comment6573">
+  <div class="comment_header" style="opacity: 0.90323066744078">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/ImbaCalvin">ImbaCalvin</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6573">Feb 22, 2015 - 11:02:43 pm UTC</a>      </span>
+      <a class="comment_title" id="title6573" onclick="toggle(&quot;body6573&quot;)">Re: Python 3 TLE</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6573">
+    (<span class="upvotes"><span id="upvotes6573">4</span></span>/<span class="downvotes"><span id="downvotes6573">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6573" class="comment_body">
+    <pre id="msg6573" style="display: none">Your solution is too slow. It has nothing to do with Python...</pre>
+    <div style="opacity: 0.90323066744078">
+      Your solution is too slow. It has nothing to do with Python...    </div>
+    <br><div class="comment_block" id="comment6576">
+  <div class="comment_header" style="opacity: 0.62447173588146">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/SUPER_ET_DUPER">SUPER_ET_DUPER</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6576">Feb 23, 2015 - 11:33:11 pm UTC</a>      </span>
+      <a class="comment_title" id="title6576" onclick="toggle(&quot;body6576&quot;)">Re: Python 3 TLE</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6576">
+    (<span class="upvotes"><span id="upvotes6576">1</span></span>/<span class="downvotes"><span id="downvotes6576">4</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6576" class="comment_body">
+    <pre id="msg6576" style="display: none">Any tips?
+Is the recursive function the good way to go?
+Thanks</pre>
+    <div style="opacity: 0.62447173588146">
+      Any tips? <br>Is the recursive function the good way to go? <br>Thanks    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0180s.<br>
+    Server time on page load:
+    Jun 7, 2018 07:44:16 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fccc15j5">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

@@ -1,12 +1,12 @@
-import a2oj
-import codeforces
-import dmoj
-import leetcode
-import spoj
-import timus
-import wcipeg
-import genericExtractor as g1
-import genericExtractor2 as g2
+from Extractor import a2oj
+from Extractor import codeforces
+from Extractor import dmoj
+from Extractor import leetcode
+from Extractor import spoj
+from Extractor import timus
+from Extractor import wcipeg
+from Extractor import genericExtractor as g1
+from Extractor import genericExtractor2 as g2
 import os
 
 def extractor(page, domain, crawlerType, fileName):
@@ -30,5 +30,5 @@ def extractor(page, domain, crawlerType, fileName):
     elif domain == "Wcipeg":
         wcipeg.wcipeg(page, crawlerType, "Specific",domain,  fileName)
     
-    g1.genericExtractor(page, crawlerType, "General_1", domain, fileName)
-    g2.genericExtractor2(page, crawlerType, "General_2", domain, fileName)
+#    g1.genericExtractor(page, crawlerType, "General_1", domain, fileName)
+#    g2.genericExtractor2(page, crawlerType, "General_2", domain, fileName)

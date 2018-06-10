@@ -1,0 +1,357 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - Shortest Path</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "3d9c83c15e0f324305366b918ab3d51c";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fgraph1p2"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h2>Shortest Path</h2>
+
+Given a graph as an adjacency matrix, find the shortest path from the first to the last vertex.<br>
+
+<h3>Input</h3>
+N ≤ 100, the number of vertices.<br>
+The adjacency matrix - N rows of N numbers.<br>
+The first row represents the first vertex, and similarly the last row = the last vertex.<br>
+
+<h3>Output</h3>
+The distance from the first vertex to the last one.<br>
+
+<h3>Sample Input</h3>
+<pre>3
+0 1 0
+0 0 1
+0 0 0</pre>
+
+<h3>Sample Output</h3>
+<pre>2</pre>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,graph1p2">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/graph1p2">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 5<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Jun 28, 2013<br>
+      </p>
+
+    <b>Problem Types:</b>
+  <noscript>
+    &lt;style type="text/css"&gt;
+      #show_types, #hide_types { display: none !important; }
+      #spoiler_id { display: inline !important; }
+    &lt;/style&gt;
+  </noscript>
+  <a href="javascript:void(null);" id="show_types" onclick="document.getElementById('spoiler_id').style.display=''; document.getElementById('show_types').style.display='none';">[Show]</a>
+  <span id="spoiler_id" style="display: none">
+    <a href="javascript:void(null);" id="hide_types" onclick="document.getElementById('spoiler_id').style.display='none'; document.getElementById('show_types').style.display='';">[Hide]</a><br>
+    <ul style="list-style-type: none; margin: 0; padding: 0;">
+      <li>Graph Theory</li>    </ul>
+  </span>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=graph1p2">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment7957">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Chinadoll">Chinadoll</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7957">Feb 17, 2017 - 9:25:52 pm UTC</a>      </span>
+      <a class="comment_title" id="title7957" onclick="toggle(&quot;body7957&quot;)">weight?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7957">
+    (<span class="upvotes"><span id="upvotes7957">0</span></span>/<span class="downvotes"><span id="downvotes7957">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7957" class="comment_body">
+    <pre id="msg7957" style="display: none">Is the weight always going to be 0 or 1?</pre>
+    <div style="opacity: 1">
+      Is the weight always going to be 0 or 1?    </div>
+    <br><div class="comment_block" id="comment7960">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7960">Feb 18, 2017 - 10:29:19 pm UTC</a>      </span>
+      <a class="comment_title" id="title7960" onclick="toggle(&quot;body7960&quot;)">Re: weight?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7960">
+    (<span class="upvotes"><span id="upvotes7960">0</span></span>/<span class="downvotes"><span id="downvotes7960">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7960" class="comment_body">
+    <pre id="msg7960" style="display: none">Yes.</pre>
+    <div style="opacity: 1">
+      Yes.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment7801">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/4Dmovie">4Dmovie</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7801">Nov 24, 2016 - 5:02:21 pm UTC</a>      </span>
+      <a class="comment_title" id="title7801" onclick="toggle(&quot;body7801&quot;)"></a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7801">
+    (<span class="upvotes"><span id="upvotes7801">0</span></span>/<span class="downvotes"><span id="downvotes7801">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7801" class="comment_body">
+    <pre id="msg7801" style="display: none">What does the problem mean? Should the sample print 0 instead of 2? Because it seems that dist[1][3] = 0 so we can directly go from 1 to 3. </pre>
+    <div style="opacity: 0.79345670852611">
+      What does the problem mean? Should the sample print 0 instead of 2? Because it seems that dist[1][3] = 0 so we can directly go from 1 to 3.    </div>
+    <br><div class="comment_block" id="comment7802">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Kirito">Kirito</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7802">Nov 25, 2016 - 12:50:18 am UTC</a>      </span>
+      <a class="comment_title" id="title7802" onclick="toggle(&quot;body7802&quot;)">Re: ...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7802">
+    (<span class="upvotes"><span id="upvotes7802">0</span></span>/<span class="downvotes"><span id="downvotes7802">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7802" class="comment_body">
+    <pre id="msg7802" style="display: none">Read this first:
+http://wcipeg.com/wiki/Graph_theory#Adjacency_matrix</pre>
+    <div style="opacity: 1">
+      Read this first: <br>http://wcipeg.com/wiki/Graph_theory#Adjacency_matrix    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment6672">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Guru_Charis">Guru_Charis</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6672">Apr 15, 2015 - 4:32:09 pm UTC</a>      </span>
+      <a class="comment_title" id="title6672" onclick="toggle(&quot;body6672&quot;)"></a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6672">
+    (<span class="upvotes"><span id="upvotes6672">0</span></span>/<span class="downvotes"><span id="downvotes6672">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6672" class="comment_body">
+    <pre id="msg6672" style="display: none">My program solves all test cases in a few milliseconds, but i am always getting that timeline expired error in the last test case and i' m wondering if that is a bug</pre>
+    <div style="opacity: 1">
+      My program solves all test cases in a few milliseconds, but i am always getting that timeline expired error in the last test case and i' m wondering if that is a bug    </div>
+    <br><div class="comment_block" id="comment6673">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/wgma00">wgma00</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6673">Apr 16, 2015 - 4:56:26 am UTC</a>      </span>
+      <a class="comment_title" id="title6673" onclick="toggle(&quot;body6673&quot;)">Re: ...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6673">
+    (<span class="upvotes"><span id="upvotes6673">2</span></span>/<span class="downvotes"><span id="downvotes6673">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6673" class="comment_body">
+    <pre id="msg6673" style="display: none">You're not pruning your depth first search correctly. Lets assume your program does find the shortest path of length 100 from vertex 1 to 100. It will still take a long time traversing all of the possible paths of length 1-99 that may or may not reach vertex 100.
+
+
+</pre>
+    <div style="opacity: 1">
+      You're not pruning your depth first search correctly. Lets assume your program does find the shortest path of length 100 from vertex 1 to 100. It will still take a long time traversing all of the possible paths of length 1-99 that may or may not reach vertex 100.    </div>
+    <br><div class="comment_block" id="comment6674">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Guru_Charis">Guru_Charis</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6674">Apr 16, 2015 - 10:05:03 am UTC</a>      </span>
+      <a class="comment_title" id="title6674" onclick="toggle(&quot;body6674&quot;)">Re: ...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6674">
+    (<span class="upvotes"><span id="upvotes6674">0</span></span>/<span class="downvotes"><span id="downvotes6674">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6674" class="comment_body">
+    <pre id="msg6674" style="display: none">Thank You!!! :)</pre>
+    <div style="opacity: 1">
+      Thank You!!! :)    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br><div class="comment_block" id="comment6677">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6677">Apr 17, 2015 - 3:15:40 am UTC</a>      </span>
+      <a class="comment_title" id="title6677" onclick="toggle(&quot;body6677&quot;)">Re: ...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6677">
+    (<span class="upvotes"><span id="upvotes6677">2</span></span>/<span class="downvotes"><span id="downvotes6677">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6677" class="comment_body">
+    <pre id="msg6677" style="display: none">In general, if other people have solved the problem (there've been 65 in this case!), it probably isn't a problem with the judge.</pre>
+    <div style="opacity: 1">
+      In general, if other people have solved the problem (there've been 65 in this case!), it probably isn't a problem with the judge.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0303s.<br>
+    Server time on page load:
+    Jun 7, 2018 07:43:10 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fgraph1p2">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

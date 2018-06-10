@@ -1,0 +1,247 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - A Brief Expedition</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "3d9c83c15e0f324305366b918ab3d51c";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Facmtryouts3e"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>University of Toronto ACM-ICPC Tryouts 2013</h3>
+<h2>E: A Brief Expedition</h2>
+
+<p>Alice has convinced Bob to accompany her on a shopping trip! For some reason, he seems reluctant to spend too much time on it, but she has every intention of hitting every single store at <var>M</var> (1 ≤ <var>M</var> ≤ 100) different malls today. Still, she's promised to get it over with as quickly as possible.</p>
+
+<p>A given mall can be modelled as a two-dimensional grid of cells, with <var>R</var> (1 ≤ <var>R</var> ≤ 100) rows and <var>C</var> (1 ≤ <var>C</var> ≤ 100) columns. Each cell contains either a wall (represented by a "<code>#</code>"), open space ("<code>.</code>"), a store ("<code>S</code>", of which there is at least one), or Bob's car ("<code>C</code>", of which there is exactly one). Alice and Bob can walk from one cell to a horizontally- or vertically-adjacent one in 1 minute if neither cell is blocked by a wall.</p>
+
+<p>The two of them will start at Bob's car, and walk to a store (possibly passing through other stores on the way) so that Alice can do what she does best, which only takes her 60 minutes. At that point, due to the large volume of items purchased, they'll need to return to the car to drop them off. This process will repeat until all stores in the mall have been visited, in some order. It's guaranteed that each store is reachable from the car.</p>
+
+<p>To reassure Bob that they won't spend too much time at each mall, Alice will leave a stopwatch running until the final items have been dropped off in the car. However, sneaky as she is, Alice will only start timing when she actually starts shopping at the first store they decide to visit. She'd like to know how much time will be spent at each mall - though she's sure that it won't be much at all.</p>
+
+<h3>Input</h3>
+
+<p>Line 1: 1 integer, <var>M</var></p>
+
+<p><strong>For each mall:</strong><br>
+Line 1: 2 integers, <var>R</var> and <var>C</var><br>
+Next <var>R</var> lines: <var>C</var> characters, representing the <var>i</var>-th row of the mall grid, for <var>i</var> = 1..<var>H</var>
+</p>
+
+<h3>Output</h3>
+<p>For each mall, output 1 integer, the minimal number of minutes required to visit all stores and return to the car, as per Alice's stopwatch.</p>
+
+<h3>Sample Input</h3>
+<pre>2
+4 4
+..S#
+.##C
+....
+S.#S
+1 5
+SSCSS
+</pre>
+
+<h3>Sample Output</h3>
+<pre>202
+250
+</pre>
+
+<h3>Explanation of Sample</h3>
+
+<p>At the first mall, Alice and Bob can decide to visit the top store, followed by the bottom-left, and finally the bottom-right. In this case, they'll spend 60 minutes shopping, 8 minutes returning to the car, 5 minutes walking to the second store, 60 minutes shopping, 5 minutes returning to the car, 2 minutes walking to the third store, 60 minutes shopping, and 2 minutes again returning to the car. This is a total of 202 minutes.</p>
+
+<p>At the second mall, they can decide to visit the stores left-to-right. This shopping trip will take 60 + 2 + 1 + 60 + 1 + 1 + 60 + 1 + 2 + 60 + 2 = 250 minutes.</p>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,acmtryouts3e">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/acmtryouts3e">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 10<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 64M<br>
+    <b>Added:</b> Jul 08, 2014<br>
+        <b>Author:</b> <a href="https://wcipeg.com/user/SourSpinach">SourSpinach</a>  </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=acmtryouts3e">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment6726">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/ultblad1">ultblad1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6726">May 01, 2015 - 10:33:39 pm UTC</a>      </span>
+      <a class="comment_title" id="title6726" onclick="toggle(&quot;body6726&quot;)">Bad Input</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6726">
+    (<span class="upvotes"><span id="upvotes6726">1</span></span>/<span class="downvotes"><span id="downvotes6726">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6726" class="comment_body">
+    <pre id="msg6726" style="display: none">Just a heads up, the input file has extra whitespace! Don't use things like getchar(), because that will mess up your input. Use whitespace ignoring input functions like cin instead.</pre>
+    <div style="opacity: 1">
+      Just a heads up, the input file has extra whitespace! Don't use things like getchar(), because that will mess up your input. Use whitespace ignoring input functions like cin instead.    </div>
+    <br><div class="comment_block" id="comment6731">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Alex">Alex</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6731">May 02, 2015 - 9:03:45 pm UTC</a>      </span>
+      <a class="comment_title" id="title6731" onclick="toggle(&quot;body6731&quot;)">Re: Bad Input</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6731">
+    (<span class="upvotes"><span id="upvotes6731">1</span></span>/<span class="downvotes"><span id="downvotes6731">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6731" class="comment_body">
+    <pre id="msg6731" style="display: none">Fixed. In the future, we are planning on making it easier for problem setters to strip carriage returns from data files.</pre>
+    <div style="opacity: 1">
+      Fixed. In the future, we are planning on making it easier for problem setters to strip carriage returns from data files.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0289s.<br>
+    Server time on page load:
+    Jun 7, 2018 07:29:41 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Facmtryouts3e">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - Coin Change</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "3d9c83c15e0f324305366b918ab3d51c";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fcchange"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<table style="width: 100%; margin-top:10px">
+<tbody><tr>
+	<td>
+		<h2>Coin Change</h2>
+		<h2>Problem code: CCHANGE</h2>
+	</td>
+	</tr>
+</tbody></table>
+
+<p>Given a value of x cents, and an infinite supply of coins of n denominations, followed by their denominations, find the least amount of coins required to make change for x.</p>
+
+<h3>Input</h3>
+<p>Line 1: x, an integer between 1 and 10000</p>
+<p>Line 2: n, the number of different denominations</p>
+<p>Line 3..3+n: the denominations of the coins</p>
+
+<h3>Output</h3>
+<p>An integer, on a single line - the least coins required to make change for x.</p>
+
+<h3>Example</h3>
+
+<pre><b>Input:</b>
+24
+4
+12
+13
+5
+6
+
+<b>Output:</b>
+2
+</pre>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,cchange">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/cchange">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 10<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Apr 08, 2011<br>
+        <b>Author:</b> <a href="https://wcipeg.com/user/jargon">jargon</a>  </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=cchange">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment6952">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/competitivecoder">competitivecoder</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6952">Oct 09, 2015 - 1:46:27 pm UTC</a>      </span>
+      <a class="comment_title" id="title6952" onclick="toggle(&quot;body6952&quot;)">Help me with test case 10</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6952">
+    (<span class="upvotes"><span id="upvotes6952">0</span></span>/<span class="downvotes"><span id="downvotes6952">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6952" class="comment_body">
+    <pre id="msg6952" style="display: none">Guys I am getting WA for just one case i.e 10 making 110/120.Can you please tell me what acutally answer for this case.</pre>
+    <div style="opacity: 1">
+      Guys I am getting WA for just one case i.e 10 making 110/120.Can you please tell me what acutally answer for this case.    </div>
+    <br><div class="comment_block" id="comment6955">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6955">Oct 10, 2015 - 8:08:37 pm UTC</a>      </span>
+      <a class="comment_title" id="title6955" onclick="toggle(&quot;body6955&quot;)">Re: Help me with test case 10</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6955">
+    (<span class="upvotes"><span id="upvotes6955">0</span></span>/<span class="downvotes"><span id="downvotes6955">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6955" class="comment_body">
+    <pre id="msg6955" style="display: none">You're making a mistake in your end conditions.
+
+Edit: Here's another hint for you: you're going out of bounds.</pre>
+    <div style="opacity: 1">
+      You're making a mistake in your end conditions. <br> <br>Edit: Here's another hint for you: you're going out of bounds.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment5787">
+  <div class="comment_header" style="opacity: 0.84996429117983">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/helios26">helios26</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5787">Mar 14, 2014 - 3:38:20 pm UTC</a>      </span>
+      <a class="comment_title" id="title5787" onclick="toggle(&quot;body5787&quot;)"></a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5787">
+    (<span class="upvotes"><span id="upvotes5787">2</span></span>/<span class="downvotes"><span id="downvotes5787">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5787" class="comment_body">
+    <pre id="msg5787" style="display: none">Why is my Pascal solution faster than my C++ solution? They're practically identical.</pre>
+    <div style="opacity: 0.84996429117983">
+      Why is my Pascal solution faster than my C++ solution? They're practically identical.    </div>
+    <br><div class="comment_block" id="comment5788">
+  <div class="comment_header" style="opacity: 0.96994741412827">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Alex">Alex</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5788">Mar 14, 2014 - 7:25:02 pm UTC</a>      </span>
+      <a class="comment_title" id="title5788" onclick="toggle(&quot;body5788&quot;)">Re: ...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5788">
+    (<span class="upvotes"><span id="upvotes5788">5</span></span>/<span class="downvotes"><span id="downvotes5788">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5788" class="comment_body">
+    <pre id="msg5788" style="display: none">For the past few months, running time measurements for programs have been abnormally slow and unpredictable. This is a known issue with the server that we just have to cope with for now. If it ever gets fixed in the future, it's likely that all submissions that were affected will be rejudged for consistency.</pre>
+    <div style="opacity: 0.96994741412827">
+      For the past few months, running time measurements for programs have been abnormally slow and unpredictable. This is a known issue with the server that we just have to cope with for now. If it ever gets fixed in the future, it's likely that all submissions that were affected will be rejudged for consistency.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment4072">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/michael137">michael137</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/4072">May 19, 2012 - 5:07:15 am UTC</a>      </span>
+      <a class="comment_title" id="title4072" onclick="toggle(&quot;body4072&quot;)">output</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating4072">
+    (<span class="upvotes"><span id="upvotes4072">0</span></span>/<span class="downvotes"><span id="downvotes4072">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body4072" class="comment_body">
+    <pre id="msg4072" style="display: none">It could be possible there is no amount of coins that can make change for x</pre>
+    <div style="opacity: 0.79345670852611">
+      It could be possible there is no amount of coins that can make change for x    </div>
+    <br><div class="comment_block" id="comment4073">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/4073">May 19, 2012 - 1:54:44 pm UTC</a>      </span>
+      <a class="comment_title" id="title4073" onclick="toggle(&quot;body4073&quot;)">Re: output</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating4073">
+    (<span class="upvotes"><span id="upvotes4073">0</span></span>/<span class="downvotes"><span id="downvotes4073">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body4073" class="comment_body">
+    <pre id="msg4073" style="display: none">See my note below.</pre>
+    <div style="opacity: 0.79345670852611">
+      See my note below.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment3449">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bobbyg212009">bobbyg212009</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3449">Apr 18, 2011 - 1:02:46 am UTC</a>      </span>
+      <a class="comment_title" id="title3449" onclick="toggle(&quot;body3449&quot;)">can the coins added together be bigger than x as long as it is the least number </a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3449">
+    (<span class="upvotes"><span id="upvotes3449">0</span></span>/<span class="downvotes"><span id="downvotes3449">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3449" class="comment_body">
+    <pre id="msg3449" style="display: none">can the coins added together be bigger than x as long as it is the least number </pre>
+    <div style="opacity: 0.79345670852611">
+      can the coins added together be bigger than x as long as it is the least number    </div>
+    <br><div class="comment_block" id="comment3450">
+  <div class="comment_header" style="opacity: 0.65762804711038">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/ilovepi">ilovepi</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3450">Apr 18, 2011 - 1:07:08 am UTC</a>      </span>
+      <a class="comment_title" id="title3450" onclick="toggle(&quot;body3450&quot;)">Re: can the coins added together be bigger than x as long as it is the least num</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3450">
+    (<span class="upvotes"><span id="upvotes3450">0</span></span>/<span class="downvotes"><span id="downvotes3450">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3450" class="comment_body">
+    <pre id="msg3450" style="display: none">You may assume they will be smaller than 100000. (Use a longint).
+
+Did you even read Yves's comment? It will tell you all you need to know.
+N is at max 100. A denomination is at most 1000. 100*1000=100000...use a longint.</pre>
+    <div style="opacity: 0.65762804711038">
+      You may assume they will be smaller than 100000. (Use a longint). <br> <br>Did you even read Yves's comment? It will tell you all you need to know. <br>N is at max 100. A denomination is at most 1000. 100*1000=100000...use a longint.    </div>
+    <br><div class="comment_block" id="comment3451">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bobbyg212009">bobbyg212009</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3451">Apr 20, 2011 - 2:58:28 am UTC</a>      </span>
+      <a class="comment_title" id="title3451" onclick="toggle(&quot;body3451&quot;)">Re: Re: can the coins added together be bigger than x as long as it is the least</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3451">
+    (<span class="upvotes"><span id="upvotes3451">0</span></span>/<span class="downvotes"><span id="downvotes3451">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3451" class="comment_body">
+    <pre id="msg3451" style="display: none">thx...more
+</pre>
+    <div style="opacity: 0.79345670852611">
+      thx...more    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment3406">
+  <div class="comment_header" style="opacity: 0.97432104405103">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3406">Apr 08, 2011 - 8:25:33 pm UTC</a>      </span>
+      <a class="comment_title" id="title3406" onclick="toggle(&quot;body3406&quot;)">Note</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3406">
+    (<span class="upvotes"><span id="upvotes3406">6</span></span>/<span class="downvotes"><span id="downvotes3406">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3406" class="comment_body">
+    <pre id="msg3406" style="display: none">1 &lt;= n &lt;= 100; 1 &lt;= di &lt;= 1000, where di = ith denomination coin.
+Also, it will always be possible to make change for x.</pre>
+    <div style="opacity: 0.97432104405103">
+      1 &lt;= n &lt;= 100; 1 &lt;= di &lt;= 1000, where di = ith denomination coin. <br>Also, it will always be possible to make change for x.    </div>
+      </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0389s.<br>
+    Server time on page load:
+    Jun 7, 2018 07:30:00 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fcchange">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

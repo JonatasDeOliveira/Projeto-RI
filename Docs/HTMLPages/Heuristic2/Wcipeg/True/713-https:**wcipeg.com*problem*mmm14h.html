@@ -1,0 +1,404 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - Lift Control</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "3d9c83c15e0f324305366b918ab3d51c";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fmmm14h"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>Maniacal Midsummer Marathon 2014 by AL, TL, JJ</h3>
+<h2>Problem H: Lift Control</h2>
+
+<p>Fun fact: Do you like mashing on those door-close buttons in elevators? Well, in most elevators built since the 90s, those buttons are just there to give passengers a false sense of control.</p>
+
+<p>You were noticeably enraged when your friend, the lead engineer working for a large elevator firm, told you this fact. "What is this bamboozlement I've been experiencing my whole life?" you ask him. "Elevators are always so slow and lead to such long waiting times. And you blame <i>us</i>, the <i>passengers</i> for always being in a hurry and slamming on the door-close buttons. Can't <i>you</i> guys just design better elevators?"</p>
+
+<p>He responds by telling you that behind-the-scenes, elevator companies work really hard to make elevators really efficient. The best elevator algorithm still remains a very difficult open problem. Companies even keep their own algorithms a trade secret.</p>
+
+<p>That's when your entitled ass started boasting to him about easily being able to design a way better algorithm than whatever garbage his incompetent team can come up with. You quickly realize that this was a big mistake, because he actually challenged you to an elevator face-off. Being the lead engineer, he actually has the resources to pull this off. He claims that he'll give you a job at his firm if you manage to win or tie against him, but that you'll have to wax his hairy back if you lose. Being the sad, unemployed dweeb you are, living with your parents and eating Cheetos off your chest everyday, you have no choice but to accept his challenge to finally try and land yourself a job.</p>
+
+<p>The challenge is to write a program for the computer of the elevator in a building, such that <b>the average waiting time for passengers is minimized</b>. There will be cameras on each floor of the building to record the waiting times of passengers. First, he'll hook your algorithm up to run for a period of time and record the results. Then, your friend will take the passenger data collected from your service period, enter it into his special elevator simulator software, and run his own company's algorithm on it. In the end, the average waiting time of your algorithm and his algorithm will be compared.</p>
+
+<p>After digging through some articles online, you discovered that - big surprise! - elevators systems actually do require quite a bit of complicated mathematical theory. There's no way you'll be able to learn it all in time. Just as you were heading out to buy some wax-paper, a dastardly thought suddenly goes through your mind – what if you rigged the challenge?</p>
+
+<p>The day before your contest, you've secretly paid off the building manager, having him make an announcement to everyone that the elevators are out of service for the time period of your bet. You also told him to seal off the doors so that only certain people can enter and use the elevators. Why? Well, you've secretly arranged for <var>N</var> passengers to use the elevator during the challenge. You'll know the exact times and floors related to their elevator usage so that you can rig your algorithm accordingly. Since your engineer friend has no clue of this, he'll have to rely on his algorithm being efficient during the actual service, while your algorithm will secretly have the traffic data way beforehand. What a perfect trick!</p>
+
+<p>Your program will have the following information before the challenge:</p>
+<ul>
+<li>There are <var>F</var> (1 ≤ <var>F</var> ≤ 1000) floors in the building being serviced, uniquely labeled with an integer from 1 to <var>F</var>.</li>
+<li>The elevator may change directions at any time. The time it takes to change directions is negligible.</li>
+<li>The elevator travels at a constant speed of <var>V</var> (0 &lt; <var>V</var> ≤ 20, <var>V</var> is a real number) floors per second. While the elevator is traveling, it may stop at any floor, either to remain idle, or to pick up/drop off passengers.</li>
+<li>The elevator may stop for as long as possible on a floor. Standard regulations require for elevator doors to open for at least <var>S</var> (1 ≤ <var>S</var> ≤ 20, <var>S</var> is an integer) seconds each time. This means that if an elevator is told to stop for fewer than <var>S</var> seconds, it will simply remain idle with its doors closed, and no passengers may get on or off. Note that your passengers are bribed, so they will take no more than <var>S</var> total seconds to get on and off. They will never delay the door-close by hitting the door-open button or stand in the way of the sensors.</li>
+<li>There are <var>N</var> (1 ≤ <var>N</var> ≤ 1000) passengers that need to be serviced. The passengers are each uniquely labeled with an integer from 1 to <var>N</var>.</li>
+<li>The following information is known about the passengers you've bribed:
+    <ul>
+      <li>At <var>t<sub>i</sub></var> seconds (0 ≤ <var>t<sub>i</sub></var> ≤ 1000000, <var>t<sub>i</sub></var> is an integer), passenger <var>i</var> (1 ≤ <var>i</var> ≤ <var>N</var>) will arrive at the elevator doors on floor <var>A<sub>i</sub></var> (1 ≤ <var>A<sub>i</sub></var> ≤ <var>F</var>).</li>
+      <li>Passenger <var>i</var> would like to go to floor <var>B<sub>i</sub></var> (1 ≤ <var>B<sub>i</sub></var> ≤ <var>F</var>, <var>A<sub>i</sub></var> ≠ <var>B<sub>i</sub></var>).</li>
+      <li>Passengers will be patient. That is, a passenger will never abandon their waiting spot until the elevator arrives.</li>
+      <li>If the elevator doors are open on a passenger's initial floor <var>A<sub>i</sub></var>, then the passenger will immediately step into the elevator.</li>
+      <li>Similarly, if a passenger is on the elevator which is currently on their designated floor <var>B<sub>i</sub></var> with its doors open, then the passenger will <b>immediately</b> step out of the elevator. For example, if the elevator doors open at <var>t</var> = 10s, then we consider the time of all passengers getting off during this stop to also be 10s.</li>
+      <li>If an elevator door opens at <var>t<sub>o</sub></var> and closes at <var>t<sub>c</sub></var>, and a passenger arrives at <var>t<sub>i</sub></var> during that range, then they may enter the elevator if and only if <var>t<sub>o</sub></var> ≤ <var>t<sub>i</sub></var> &lt; <var>t<sub>c</sub></var>.</li>
+    </ul>
+</li>
+</ul>
+
+<p>The <i>waiting time</i> experienced by passenger <var>i</var> is the time from when they arrive, <var>t<sub>i</sub></var>, to the time when they get off (i.e. the moment the elevator doors open on their designated floor <var>B<sub>i</sub></var>).<br>
+The <i>average waiting time</i> is the sum of the waiting times of all of the passengers, divided by the number of passengers <var>N</var>.</p>
+
+<p>Initially, the elevator is on floor 1 (closed) and the time is 0. Your program must output commands to direct the elevator, and must eventually move all the <var>N</var> passengers to their designated floors. Furthermore, your program should try to service all passengers such that the average waiting time of all passengers is minimized. In the end, your average end time will be scored against your friend's. Only when you beat or tie him will you be safe from waxing his back. The odds are already in your favor, so you'd better not screw up!</p>
+
+<h3>Input Format</h3>
+<p>
+The 1st line will contain the numbers <var>F</var>, <var>S</var>, and <var>V</var>, respectively representing the number of floors in the building, the minimum time that the elevator must open, and the speed of the elevator in floors/second. <var>F</var> and <var>S</var> will be integers, while <var>V</var> will be a real number.<br>
+The 2nd line will contain the integer <var>N</var>, representing the number of passengers.<br>
+The following <var>N</var> lines each contain three integers describing the request of a passenger. Namely, line <var>i</var> + 2 will contain the values <var>t<sub>i</sub></var>, <var>A<sub>i</sub></var>, and <var>B<sub>i</sub></var>, indicating that passenger <var>i</var> starts his or her wait at time <var>t<sub>i</sub></var> by the elevator doors on floor <var>A<sub>i</sub></var>, and would like to be taken to floor <var>B<sub>i</sub></var>.
+</p>
+
+<h3>Output Format</h3>
+<p>In order to control the elevator, you must first become familiar with the two commands of the elevator's system. They are the following:</p>
+
+<style type="text/css">
+#command-table {
+  border: 1px solid black;
+  border-collapse: collapse;
+  max-width: 800px;
+}
+
+#command-table th, #command-table td {
+  border: 1px solid black;
+  padding: 3px 5px 3px 5px;
+}
+</style>
+
+<table id="command-table">
+<tbody><tr><th>Command</th><th>Format</th><th>Description</th></tr>
+<tr><td>GO <var>b</var></td><td><pre>G <var>b</var></pre></td><td>Move the elevator from its current floor to floor <var>b</var> (1 ≤ <var>b</var> ≤ <var>F</var>, <var>b</var> is an integer) at a speed of <var>V</var> floors per second. If the elevator arrives on floor <var>b</var> at a non-whole number of seconds, then it will wait until the entire second is over before processing more commands. Specifically, if the current floor is <var>a</var> and the current time is <var>t</var><sub>1</sub>, then the elevator will stop on floor <var>b</var> at time <var>t</var><sub>2</sub> = <var>t</var><sub>1</sub> + ⌈ | <var>b</var> − <var>a</var> | ÷ <var>V</var> ⌉, where | <var>x</var> | is the absolute value function, and ⌈<var>x</var>⌉ is the smallest integer greater than or equal to <var>x</var>.</td></tr>
+<tr><td>STOP <var>t</var></td><td><pre>S <var>t</var></pre></td><td>Stop the elevator for <var>t</var> (0 ≤ <var>t</var> ≤ 1000000, <var>t</var> is an integer) seconds. If <var>t</var> is less than the minimum regulated time <var>S</var>, then the elevator will simply idle on its current floor and passengers will <var>not</var> be able to get on for this stopped period. Otherwise if <var>t</var> ≥ <var>S</var>, then the elevator doors will open for <var>t</var> seconds, allowing passengers to get on or off at the floor it's currently on. If the current time is <var>t</var><sub>1</sub>, then passengers arriving may step into the elevator during any time in the range [<var>t</var><sub>1</sub>, <var>t</var><sub>1</sub> + <var>t</var>) — that is, including <var>t</var><sub>1</sub> but not including <var>t</var><sub>1</sub> + <var>t</var> (when the door closes).</td></tr>
+</tbody></table>
+
+<p>Each line of the output should describe an elevator command in one of the two formats listed above. The commands will be performed back to back (with the slight exception of those that follow a <code>GO</code> command, which will be performed at the next available whole number second after the elevator arrives at its floor), and will control the behavior of the elevator from start to finish.</p>
+
+<h3>Sample Input</h3>
+<pre>10 2 3.0
+4
+0 2 5
+2 1 10
+4 5 10
+21 10 4
+</pre>
+
+
+<h3>Sample Output</h3>
+<pre>S 3
+G 2
+S 2
+G 5
+S 2
+G 10
+S 11
+G 4
+S 2
+</pre>
+
+<h3>Explanation</h3>
+<p>There are 10 floors in the building. The elevator must stay open for at least 2 seconds every time it opens. The elevator moves at a rate of 3 floors per second. There are 4 passengers, respectively arriving at times 0, 2, 4, and 21. The execution of the output commands are as outlined in the following table.</p>
+
+<style type="text/css">
+.tg  { border-collapse:collapse; border-spacing:0;}
+.tg td { padding:4px 4px; border-style:solid; border-width:1px; overflow:hidden; word-break:normal; }
+.tg th { font-weight:normal; padding:4px 4px; border-style:solid; border-width:1px; overflow:hidden; word-break:normal; }
+.tg .tg-hgcj { font-weight:bold; text-align:center; }
+.tg .tg-oj3y { background-color:#9b9b9b; text-align:center; font-weight: bold;}
+.tg .tg-p2e8 { background-color:#ffcc67; text-align:center; font-weight: bold;}
+.tg .tg-wsnc { background-color:#fffc9e; text-align:center; font-weight: bold;}
+.tg .tg-7h0m { background-color:#9b9b9b; text-align:center; font-weight: bold;}
+</style>
+
+<table class="tg">
+  <tbody><tr>
+    <th class="tg-hgcj" rowspan="2">Time</th><th class="tg-hgcj" rowspan="2">Command</th>
+    <th class="tg-hgcj" rowspan="2">Description</th><th class="tg-hgcj" colspan="4">Passenger Status</th>
+  </tr>
+  <tr>
+    <th class="tg-hgcj">1</th><th class="tg-hgcj">2</th><th class="tg-hgcj">3</th><th class="tg-hgcj">4</th>
+  </tr>
+  <tr>
+    <td class="tg-031e">0</td><td class="tg-031e" rowspan="3">STOP 3</td>
+    <td class="tg-031e">The elevator is on floor 1. It opens for 3 seconds to wait for passenger 2.<br>Meanwhile, passenger 1 has arrived and now waits on floor 2.</td>
+    <td class="tg-wsnc" rowspan="4">A</td><td class="tg-7h0m"></td><td class="tg-7h0m"></td><td class="tg-7h0m"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e">1</td><td class="tg-031e"></td><td class="tg-7h0m"></td><td class="tg-7h0m"></td><td class="tg-7h0m"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e">2</td>
+    <td class="tg-031e">Passenger 2 arrives on floor 1, immediately entering the elevator just before it closes.</td>
+    <td class="tg-p2e8" rowspan="10">E</td><td class="tg-7h0m"></td><td class="tg-7h0m"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e">3</td><td class="tg-031e">GO 2</td>
+    <td class="tg-031e">The elevator travels at 3 floors per second, so going up by 1 more floor will require 1/3 of a second.<br>Thus, the elevator will only take (1/3) seconds&nbsp;rounded up, which is 1 second.</td>
+    <td class="tg-7h0m"></td><td class="tg-7h0m"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e">4</td><td class="tg-031e" rowspan="2">STOP 2</td>
+    <td class="tg-031e">The elevator is on floor 2.&nbsp;It opens for 2 seconds, and the waiting passenger 1 enters.</td>
+    <td class="tg-p2e8" rowspan="4">E</td>
+    <td class="tg-wsnc" rowspan="3">A</td><td class="tg-7h0m"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e">5</td><td class="tg-031e"></td><td class="tg-7h0m"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e">6</td><td class="tg-031e">GO 5</td>
+    <td class="tg-031e">The elevator travels to floor 5 from floor 2 (3 floors total). Since its speed is 3 floors/second,<br>its total time to reach floor 5 will be 1 second.</td><td class="tg-7h0m"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e">7</td><td class="tg-031e" rowspan="2">STOP 2</td>
+    <td class="tg-031e">The elevator is on floor 5. It opens for 2 seconds. During this second, passenger 1 gets off.<br>Also, passenger 3 gets on.</td>
+    <td class="tg-p2e8" rowspan="5">E</td><td class="tg-7h0m"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e">8</td><td class="tg-031e"></td><td class="tg-7h0m"></td><td class="tg-7h0m"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e">9</td><td class="tg-031e" rowspan="2">GO 10</td>
+    <td class="tg-031e" rowspan="2">The elevator goes to floor 10 from floor 5. This takes ⌈(10 − 5) / 3⌉ = 2 seconds.</td>
+    <td class="tg-7h0m"></td><td class="tg-7h0m"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e">10</td><td class="tg-7h0m"></td><td class="tg-7h0m"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e">11</td>
+    <td class="tg-031e" rowspan="3">STOP 11</td>
+    <td class="tg-031e">The elevator is on floor 10. It opens for 11 seconds to allow both passengers 2 and 3 to get off.<br>Afterwards, the elevator idles to wait for passenger 4 to arrive at t = 21.</td>
+    <td class="tg-7h0m"></td><td class="tg-7h0m"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e">…</td>
+    <td class="tg-031e"></td><td class="tg-7h0m"></td><td class="tg-oj3y">
+    </td><td class="tg-oj3y"></td><td class="tg-7h0m"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e">21</td>
+    <td class="tg-031e">Passenger 4 arrives and enters immediately.</td>
+    <td class="tg-7h0m"></td><td class="tg-oj3y"></td><td class="tg-oj3y"></td>
+    <td class="tg-p2e8" rowspan="4">E</td>
+  </tr>
+  <tr>
+    <td class="tg-031e">22</td>
+    <td class="tg-031e" rowspan="2">GO 4</td>
+    <td class="tg-031e">6 floors will take ⌈(10 − 4) / 3⌉ = 2 seconds to traverse.</td>
+    <td class="tg-7h0m"></td><td class="tg-oj3y"></td><td class="tg-oj3y"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e">23</td><td class="tg-031e"></td><td class="tg-7h0m"></td><td class="tg-oj3y"></td><td class="tg-oj3y"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e">24</td>
+    <td class="tg-031e" rowspan="2">STOP 2</td>
+    <td class="tg-031e">The elevator doors open on floor 4. Passenger 4 exits immediately.</td>
+    <td class="tg-7h0m"></td><td class="tg-oj3y"></td><td class="tg-oj3y"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e">25</td>
+    <td class="tg-031e"></td><td class="tg-7h0m"></td><td class="tg-oj3y"></td><td class="tg-oj3y"></td><td class="tg-7h0m"></td>
+  </tr>
+</tbody></table>
+
+<p>In the above table: <b>A</b> means that the passenger has arrived and is waiting at their initial floor, and <b>E</b> means that the passenger is inside the elevator.</p>
+
+<p>Passenger 1 waits during the range [0, 7] for a total of 8 seconds.<br>
+Passenger 2 waits during the range [2, 11] for a total of 10 seconds.<br>
+Passenger 3 waits during the range [4, 11] for a total of 8 seconds.<br>
+Passenger 4 waits during the range [21, 24] for a total of 4 seconds.<br>
+The average waiting time is (8 + 10 + 8 + 4) / 4 = 7.5 seconds. Note that this may not be the best possible solution for this scenario.</p>
+
+<h3>Scoring</h3>
+<p>For each test case, let's say the average waiting time for passengers during your lift service is <var>X</var> seconds, and the average waiting time for friend's algorithm is <var>Y</var> seconds.<br>
+Then, your score out of 100 for the test case will be:</p>
+
+<ul>
+  <li>0, if any of the following holds true:
+    <ul>
+      <li>The output format is incorrect (lines do not follow one of the two formats listed above); or</li>
+      <li>Not all passengers have an opportunity to get on and off the elevator to reach their destination.</li>
+    </ul>
+  </li>
+  <li>between 10 and 100, if <var>X</var> ≥ <var>Y</var>.
+    <ul>
+      <li>Your program scores 10 base points for getting any valid way of moving all passengers to their designated floors, plus an additional score that is determined from a rational scale based on the values <var>X</var> and <var>Y</var>.</li>
+      <li>Specifically, your score will be 10 + 90 × (<var>Y</var> / <var>X</var>), rounded to the nearest integer.</li>
+    </ul>
+  </li>
+  <li>100 (or over), if <var>X</var> &lt; <var>Y</var>.</li>
+</ul>
+
+<p>Here, <var>Y</var> will actually be the average waiting time for the test case obtained by the current submission with the highest score. Thus, the cases will be updated periodically in accordance to the current best submission (perhaps until a very nice solution is found).</p>
+
+<h3>Experimentation</h3>
+<p>For testing purposes, you are provided with an program to simulate the activities of the elevator and passengers. The simulator program <a href="images/mmm14h/simulator.py" target="_blank">simulator.py</a> will accept the following command line options:</p>
+
+<ul>
+<li><code>-h</code> will give a brief overview of the available options</li>
+<li><code>-i INFILE </code> loads the input file in the input format as described above</li>
+<li><code>-cmd CMDFILE </code> loads the command file in the output format as described above</li>
+<li><code>-log LOGFILE </code> specifies the file into which to dump information about the simulation. This is optional, as the same information will always be logged in standard output.</li>
+</ul>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,mmm14h">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/mmm14h">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 25 (partial)<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 256M<br>
+    <b>Added:</b> Jul 15, 2014<br>
+        <b>Author:</b> <a href="https://wcipeg.com/user/Alex">Alex</a>  </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=mmm14h">Search</a>)</h2><p style="text-align: center"></p>It's quiet in here...</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0124s.<br>
+    Server time on page load:
+    Jun 7, 2018 07:43:34 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fmmm14h">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

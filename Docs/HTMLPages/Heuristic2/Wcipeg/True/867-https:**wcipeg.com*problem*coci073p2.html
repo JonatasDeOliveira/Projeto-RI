@@ -1,0 +1,442 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - COCI07 #3 - Oktalni</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "3d9c83c15e0f324305366b918ab3d51c";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fcoci073p2"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<style type="text/css">
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+ 
+.clearfix {
+    display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+    display: block;
+}
+ 
+* html .clearfix {
+    height: 1%;
+}
+
+    #descContent span.nobr {
+        white-space: nowrap;
+    }
+    
+    .tmp1 {
+        border: 5px solid white;
+        border-collapse: collapse;
+    }
+    
+    .tmp1, tr, td {
+        border: 5px solid white;
+        padding: 2px 5px 2px 5px;
+        vertical-align: top;
+    }
+    
+    .tmp2 {
+        border: 5px solid white;
+        border-collapse: collapse;
+    }
+    
+    .tmp2, tr, td {
+        border: 1px solid black;
+        padding: 2px 5px 2px 5px;
+    }
+
+</style>
+<!-- For quick copy-pasting: 
+<span class="nobr"></span>
+<p style="text-align: center"><img src="images/coci073p2/"/></p>
+-->
+
+<h3>COCI 2007/2008, Contest #3</h3>
+<h2>Task OKTALNI</h2>
+
+<div class="clearfix">
+
+<div style="float:left; width:80%; margin-right:30px;">
+<p>Slavko is learning about different numeral systems. Slavko is not the brightest when it comes to math,
+so he is starting out converting binary numerals to octal. The algorithm Slavko uses is this:</p>
+<ul>
+<li>Pad the binary numeral with zeros on the left until the number
+of digits is divisible by three.</li>
+<li>Group adjacent binary digits into groups of 3 digits.</li>
+<li>Replace each group of binary digits with the corresponding
+octal digit (as in the table on the right).</li>
+</ul>
+<p>Write a program that converts a binary numeral to octal so that Slavko
+can verify his results.</p>
+</div>
+
+<table class="tmp2">
+<tbody><tr><td>000</td><td>0</td></tr>
+<tr><td>001</td><td>1</td></tr>
+<tr><td>010</td><td>2</td></tr>
+<tr><td>011</td><td>3</td></tr>
+<tr><td>100</td><td>4</td></tr>
+<tr><td>101</td><td>5</td></tr>
+<tr><td>110</td><td>6</td></tr>
+<tr><td>111</td><td>7</td></tr>
+</tbody></table>
+
+</div>
+
+<h3 style="margin-top:0">Input</h3>
+<p>The input contains a binary numeral. The number of digits will be less than 100, and the first digit will
+be 1.</p>
+
+<h3>Output</h3>
+<p>Output the number in octal.</p>
+
+<h3>Examples</h3>
+
+<table id="sub">
+<tbody><tr>
+    <td>
+        <h3>Input</h3>
+<pre>1010</pre><br>
+        <h3>Output</h3>
+<pre>12</pre>
+    </td>
+    <td>
+        <h3>Input</h3>
+<pre>11001100</pre><br>
+        <h3>Output</h3>
+<pre>314</pre>
+    </td>
+</tr>
+</tbody></table></div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,coci073p2">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/coci073p2">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 3<br>
+    <b>Time Limit:</b> 1.00s<br>
+    <b>Memory Limit:</b> 32M<br>
+    <b>Added:</b> Jul 30, 2013<br>
+      </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=coci073p2">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment8564">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/loltroll21">loltroll21</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8564">Jan 19, 2018 - 5:12:20 pm UTC</a>      </span>
+      <a class="comment_title" id="title8564" onclick="toggle(&quot;body8564&quot;)">Help</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8564">
+    (<span class="upvotes"><span id="upvotes8564">0</span></span>/<span class="downvotes"><span id="downvotes8564">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8564" class="comment_body">
+    <pre id="msg8564" style="display: none"></pre>
+    <div style="opacity: 1">
+          </div>
+    <br><div class="comment_block" id="comment8565">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8565">Jan 19, 2018 - 7:37:36 pm UTC</a>      </span>
+      <a class="comment_title" id="title8565" onclick="toggle(&quot;body8565&quot;)">Re: Help</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8565">
+    (<span class="upvotes"><span id="upvotes8565">1</span></span>/<span class="downvotes"><span id="downvotes8565">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8565" class="comment_body">
+    <pre id="msg8565" style="display: none">An important skill in computer science is the ability to create your own test cases, and verify your solution.
+
+Do some testing of your own. Create some inputs, figure out what the output should be, then run it on your code. You will want to ensure that every possible case is covered.</pre>
+    <div style="opacity: 1">
+      An important skill in computer science is the ability to create your own test cases, and verify your solution. <br> <br>Do some testing of your own. Create some inputs, figure out what the output should be, then run it on your code. You will want to ensure that every possible case is covered.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment5634">
+  <div class="comment_header" style="opacity: 0.93850968472384">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Butane">Butane</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5634">Dec 20, 2013 - 4:30:26 am UTC</a>      </span>
+      <a class="comment_title" id="title5634" onclick="toggle(&quot;body5634&quot;)">What is wrong?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5634">
+    (<span class="upvotes"><span id="upvotes5634">2</span></span>/<span class="downvotes"><span id="downvotes5634">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5634" class="comment_body">
+    <pre id="msg5634" style="display: none">My code works fine, however I get 0 on the test cases. I am a bit confused because the problem seems simple enough, and I tested many different numbers and the program works. Is there something I am missing from the question?</pre>
+    <div style="opacity: 0.93850968472384">
+      My code works fine, however I get 0 on the test cases. I am a bit confused because the problem seems simple enough, and I tested many different numbers and the program works. Is there something I am missing from the question?    </div>
+    <br><div class="comment_block" id="comment5744">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Tang">Tang</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5744">Jan 30, 2014 - 6:06:39 am UTC</a>      </span>
+      <a class="comment_title" id="title5744" onclick="toggle(&quot;body5744&quot;)">Re: What is wrong?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5744">
+    (<span class="upvotes"><span id="upvotes5744">1</span></span>/<span class="downvotes"><span id="downvotes5744">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5744" class="comment_body">
+    <pre id="msg5744" style="display: none">Hope it's not too late, but I solved this issue (in Python) by using input().strip() instead of only input().</pre>
+    <div style="opacity: 1">
+      Hope it's not too late, but I solved this issue (in Python) by using input().strip() instead of only input().    </div>
+    <br><div class="comment_block" id="comment5745">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Butane">Butane</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5745">Jan 30, 2014 - 6:17:23 am UTC</a>      </span>
+      <a class="comment_title" id="title5745" onclick="toggle(&quot;body5745&quot;)">Re: What is wrong?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5745">
+    (<span class="upvotes"><span id="upvotes5745">1</span></span>/<span class="downvotes"><span id="downvotes5745">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5745" class="comment_body">
+    <pre id="msg5745" style="display: none">I ended up solving the problem by converting the input into base 10, and then to base 8. However, I got my old code that was done by using the method given in the question, and I added .strip() to the end, and it did work! Thanks anyway, and it really was a strange issue.</pre>
+    <div style="opacity: 1">
+      I ended up solving the problem by converting the input into base 10, and then to base 8. However, I got my old code that was done by using the method given in the question, and I added .strip() to the end, and it did work! Thanks anyway, and it really was a strange issue.    </div>
+    <br><div class="comment_block" id="comment5752">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5752">Feb 02, 2014 - 6:42:09 am UTC</a>      </span>
+      <a class="comment_title" id="title5752" onclick="toggle(&quot;body5752&quot;)">Re: What is wrong?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5752">
+    (<span class="upvotes"><span id="upvotes5752">0</span></span>/<span class="downvotes"><span id="downvotes5752">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5752" class="comment_body">
+    <pre id="msg5752" style="display: none">In case you're curious, here's your exact error output:
+
+[code][quote]Traceback (most recent call last):
+  File "./a", line 7, in &lt;module&gt;
+    x=y+x
+TypeError: cannot concatenate 'str' and 'list' objects[/quote][/code]</pre>
+    <div style="opacity: 1">
+      In case you're curious, here's your exact error output: <br> <br><pre><code><table style="width: 90%; margin: 0 auto">
+            <tbody><tr>
+            <td><span class="quotecodeheader"></span></td>
+            </tr>
+            <tr>
+            <td class="quotebody">Traceback (most recent call last): <br>  File "./a", line 7, in &lt;module&gt; <br>    x=y+x <br>TypeError: cannot concatenate 'str' and 'list' objects</td>
+            </tr>
+            </tbody></table></code></pre>    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br><div class="comment_block" id="comment5822">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/awaykened">awaykened</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5822">Apr 19, 2014 - 12:46:06 am UTC</a>      </span>
+      <a class="comment_title" id="title5822" onclick="toggle(&quot;body5822&quot;)">Re: What is wrong?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5822">
+    (<span class="upvotes"><span id="upvotes5822">0</span></span>/<span class="downvotes"><span id="downvotes5822">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5822" class="comment_body">
+    <pre id="msg5822" style="display: none">same thing here o.o my code worked when i used raw_input().strip() instead of raw_input()
+is there a reason to why this is?</pre>
+    <div style="opacity: 1">
+      same thing here o.o my code worked when i used raw_input().strip() instead of raw_input() <br>is there a reason to why this is?    </div>
+    <br><div class="comment_block" id="comment5823">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/FatalEagle">FatalEagle</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5823">Apr 19, 2014 - 12:48:26 am UTC</a>      </span>
+      <a class="comment_title" id="title5823" onclick="toggle(&quot;body5823&quot;)">Re: What is wrong?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5823">
+    (<span class="upvotes"><span id="upvotes5823">3</span></span>/<span class="downvotes"><span id="downvotes5823">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5823" class="comment_body">
+    <pre id="msg5823" style="display: none">There are carriage returns ('\r') in the input.</pre>
+    <div style="opacity: 1">
+      There are carriage returns ('\r') in the input.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0300s.<br>
+    Server time on page load:
+    Jun 7, 2018 07:46:43 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fcoci073p2">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

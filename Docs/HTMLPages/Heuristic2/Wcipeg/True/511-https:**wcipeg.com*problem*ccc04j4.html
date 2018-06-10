@@ -1,0 +1,509 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - CCC04J4 - Simple Encryption</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "3d9c83c15e0f324305366b918ab3d51c";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fccc04j4"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>2004 Canadian Computing Competition, Stage 1</h3>
+<h2>Problem J4: Simple Encryption</h2>
+
+<p>One of the simplest ways of coding a message is to do a letter shift.</p>
+<p>For example, if you shift the letters in the original message by 5 then A in your original message becomes F in the coded message.
+(B → G, C → H, ..., T → Y, U → Z, V → A, ..., Z → E). To decode the message, you simply need to shift back by the same number.</p>
+<p>A slightly trickier encryption uses a keyword to determine the amount of the shift. Suppose you were using a keyword "ACT". To encode the message, you take the original message, remove everthing but the alphabetic characters, and form the message into a block that has the same width as the keyword. Here is a sample message to encrypt:</p>
+<code>BANANA &amp; PEEL</code>
+<p>The blocked version of the message is shown below with the keyword ACT as a header.</p>
+
+<table class="nicetab" style="width: 100px; margin: 0px auto">
+<tbody><tr class="heading">
+       <td>A</td>
+       <td>C</td>
+       <td>T</td>
+</tr>
+<tr>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+</tr>
+<tr>
+       <td>B</td>
+       <td>A</td>
+       <td>N</td>
+</tr>
+<tr>
+       <td>A</td>
+       <td>N</td>
+       <td>A</td>
+</tr>
+<tr>
+       <td>P</td>
+       <td>E</td>
+       <td>E</td>
+</tr>
+<tr>
+       <td>L</td>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+</tr>
+</tbody></table>
+
+<p>Now, the message is encoded using a letter shift. However, this time it is not a uniform shift, it will depend upon the keyword letter at the top of the column. 
+If the letter at the top of the column is an "A", the the letters in that column are not shifted. If the letter is a "B", then the letter in that column shift by 1, and so on.
+In the example, the letters in the third column will shift by 19 since the "T" is the 20th letter of the alphabet.
+</p>
+
+<p>The encoded message is: </p>
+
+<table class="nicetab" style="width: 100px; margin: 0px auto">
+
+<tbody><tr class="heading">
+       <td>A</td>
+       <td>C</td>
+       <td>T</td>
+</tr>
+<tr>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+</tr>
+<tr>
+       <td>B</td>
+       <td>C</td>
+       <td>G</td>
+</tr>
+<tr>
+       <td>A</td>
+       <td>P</td>
+       <td>T</td>
+</tr>
+<tr>
+       <td>P</td>
+       <td>G</td>
+       <td>X</td>
+</tr>
+<tr>
+       <td>L</td>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+</tr>
+</tbody></table>
+
+<p>You will write a program that will accept a keyword and a string to be encoded. The keyword will never have more than 6 characters. The message will always be given in all upper case characters. The total message length will never exceed 60 characters.</p>
+
+<h3>Input</h3>
+<p>The first line of input consists of the keyword. The second line of the input is the message to be encoded. The keyword length will never exceed 6 characters. The total message length also will never exceed 60 characters.</p>
+
+<h3>Output</h3>
+<p>Output the encoded message on a single line.</p>
+
+<h3>Sample Input 1</h3>
+<pre>ACT</pre>
+<pre>BANANA &amp; PEEL</pre>
+
+<h3>Sample Output 1</h3>
+<pre>BCGAPTPGXL</pre>
+
+<h3>Sample Input 2</h3>
+<pre>TRICKY</pre>
+<pre>I LOVE PROGRAMMING!</pre>
+
+<h3>Sample Output 2</h3>
+<pre>BCWXONKFOTKKFZVI</pre>
+
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,ccc04j4">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/ccc04j4">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 5<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Oct 03, 2008<br>
+      </p>
+
+    <b>Problem Types:</b>
+  <noscript>
+    &lt;style type="text/css"&gt;
+      #show_types, #hide_types { display: none !important; }
+      #spoiler_id { display: inline !important; }
+    &lt;/style&gt;
+  </noscript>
+  <a href="javascript:void(null);" id="show_types" onclick="document.getElementById('spoiler_id').style.display=''; document.getElementById('show_types').style.display='none';">[Show]</a>
+  <span id="spoiler_id" style="display: none">
+    <a href="javascript:void(null);" id="hide_types" onclick="document.getElementById('spoiler_id').style.display='none'; document.getElementById('show_types').style.display='';">[Hide]</a><br>
+    <ul style="list-style-type: none; margin: 0; padding: 0;">
+      <li>String Manipulation</li>    </ul>
+  </span>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=ccc04j4">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment3763">
+  <div class="comment_header" style="opacity: 0.97432104405103">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Alex">Alex</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3763">Nov 18, 2011 - 10:51:51 pm UTC</a>      </span>
+      <a class="comment_title" id="title3763" onclick="toggle(&quot;body3763&quot;)">Value</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3763">
+    (<span class="upvotes"><span id="upvotes3763">6</span></span>/<span class="downvotes"><span id="downvotes3763">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3763" class="comment_body">
+    <pre id="msg3763" style="display: none">This problem should be worth more!</pre>
+    <div style="opacity: 0.97432104405103">
+      This problem should be worth more!    </div>
+    <br><div class="comment_block" id="comment3764">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3764">Nov 19, 2011 - 2:09:34 am UTC</a>      </span>
+      <a class="comment_title" id="title3764" onclick="toggle(&quot;body3764&quot;)">Re: Value</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3764">
+    (<span class="upvotes"><span id="upvotes3764">2</span></span>/<span class="downvotes"><span id="downvotes3764">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3764" class="comment_body">
+    <pre id="msg3764" style="display: none">Why do you say that? The algorithm involved is extremely simple.</pre>
+    <div style="opacity: 1">
+      Why do you say that? The algorithm involved is extremely simple.    </div>
+    <br><div class="comment_block" id="comment8044">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/asdflkjh">asdflkjh</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8044">Apr 13, 2017 - 1:24:02 am UTC</a>      </span>
+      <a class="comment_title" id="title8044" onclick="toggle(&quot;body8044&quot;)">Re: Value</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8044">
+    (<span class="upvotes"><span id="upvotes8044">0</span></span>/<span class="downvotes"><span id="downvotes8044">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8044" class="comment_body">
+    <pre id="msg8044" style="display: none">Char math!</pre>
+    <div style="opacity: 1">
+      Char math!    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment2882">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/helios26">helios26</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2882">Dec 19, 2010 - 5:57:50 pm UTC</a>      </span>
+      <a class="comment_title" id="title2882" onclick="toggle(&quot;body2882&quot;)">Can anyone tell me what's wrong with my program?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2882">
+    (<span class="upvotes"><span id="upvotes2882">0</span></span>/<span class="downvotes"><span id="downvotes2882">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2882" class="comment_body">
+    <pre id="msg2882" style="display: none">An overused question. I can only get 4/5? Is there something wrong with my submission?</pre>
+    <div style="opacity: 1">
+      An overused question. I can only get 4/5? Is there something wrong with my submission?    </div>
+    <br><div class="comment_block" id="comment2883">
+  <div class="comment_header" style="opacity: 0.93850968472384">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2883">Dec 19, 2010 - 6:40:36 pm UTC</a>      </span>
+      <a class="comment_title" id="title2883" onclick="toggle(&quot;body2883&quot;)">Re: Can anyone tell me what's wrong with my program?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2883">
+    (<span class="upvotes"><span id="upvotes2883">2</span></span>/<span class="downvotes"><span id="downvotes2883">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2883" class="comment_body">
+    <pre id="msg2883" style="display: none">[quote]To encode the message, you take the original message, remove everthing [[i]sic[/i]] but the alphabetic characters[/quote]</pre>
+    <div style="opacity: 0.93850968472384">
+      <table style="width: 90%; margin: 0 auto">
+            <tbody><tr>
+            <td><span class="quotecodeheader"></span></td>
+            </tr>
+            <tr>
+            <td class="quotebody">To encode the message, you take the original message, remove everthing [<span class="italics">sic</span>] but the alphabetic characters</td>
+            </tr>
+            </tbody></table>    </div>
+    <br><div class="comment_block" id="comment2887">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/helios26">helios26</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2887">Dec 19, 2010 - 9:21:26 pm UTC</a>      </span>
+      <a class="comment_title" id="title2887" onclick="toggle(&quot;body2887&quot;)">Re: Re: Can anyone tell me what's wrong with my program?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2887">
+    (<span class="upvotes"><span id="upvotes2887">0</span></span>/<span class="downvotes"><span id="downvotes2887">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2887" class="comment_body">
+    <pre id="msg2887" style="display: none">I did! The [s]first[/s] third thing I did was to delete everything other than the alphabetic characters. And what does [quote]everthing [[i]sic[/i]] but[/quote] mean?</pre>
+    <div style="opacity: 1">
+      I did! The <span class="strikethrough">first</span> third thing I did was to delete everything other than the alphabetic characters. And what does <table style="width: 90%; margin: 0 auto">
+            <tbody><tr>
+            <td><span class="quotecodeheader"></span></td>
+            </tr>
+            <tr>
+            <td class="quotebody">everthing [<span class="italics">sic</span>] but</td>
+            </tr>
+            </tbody></table> mean?    </div>
+    <br><div class="comment_block" id="comment2888">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2888">Dec 20, 2010 - 7:31:57 am UTC</a>      </span>
+      <a class="comment_title" id="title2888" onclick="toggle(&quot;body2888&quot;)">Re: Re: Can anyone tell me what's wrong with my program?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2888">
+    (<span class="upvotes"><span id="upvotes2888">0</span></span>/<span class="downvotes"><span id="downvotes2888">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2888" class="comment_body">
+    <pre id="msg2888" style="display: none">But you didn't do it correctly. As your loop is written, it always skips the character right after any character that it deletes (trace through if you don't see why). Also, see [url=http://en.wikipedia.org/wiki/Sic]this[/url].</pre>
+    <div style="opacity: 1">
+      But you didn't do it correctly. As your loop is written, it always skips the character right after any character that it deletes (trace through if you don't see why). Also, see <a href="http://en.wikipedia.org/wiki/Sic" target="_blank">this</a>.    </div>
+    <br><div class="comment_block" id="comment2889">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/helios26">helios26</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2889">Dec 21, 2010 - 4:12:43 pm UTC</a>      </span>
+      <a class="comment_title" id="title2889" onclick="toggle(&quot;body2889&quot;)">Re: Re: Can anyone tell me what's wrong with my program?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2889">
+    (<span class="upvotes"><span id="upvotes2889">0</span></span>/<span class="downvotes"><span id="downvotes2889">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2889" class="comment_body">
+    <pre id="msg2889" style="display: none">Ok...now I get it.</pre>
+    <div style="opacity: 1">
+      Ok...now I get it.    </div>
+    <br><div class="comment_block" id="comment2891">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/helios26">helios26</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2891">Dec 23, 2010 - 2:36:59 am UTC</a>      </span>
+      <a class="comment_title" id="title2891" onclick="toggle(&quot;body2891&quot;)">Re: Re: Can anyone tell me what's wrong with my program?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2891">
+    (<span class="upvotes"><span id="upvotes2891">0</span></span>/<span class="downvotes"><span id="downvotes2891">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2891" class="comment_body">
+    <pre id="msg2891" style="display: none">And, now I don't! Okay, I fix up all the problems, and guess what! TIME LIMIT EXCEEDED. Really disappointed to see today's tech dwarfed by a max of 66 loops XD.</pre>
+    <div style="opacity: 1">
+      And, now I don't! Okay, I fix up all the problems, and guess what! TIME LIMIT EXCEEDED. Really disappointed to see today's tech dwarfed by a max of 66 loops XD.    </div>
+    <br><div class="comment_block" id="comment2896">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/SourSpinach">SourSpinach</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2896">Dec 25, 2010 - 3:21:52 am UTC</a>      </span>
+      <a class="comment_title" id="title2896" onclick="toggle(&quot;body2896&quot;)">Re: Re: Can anyone tell me what's wrong with my program?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2896">
+    (<span class="upvotes"><span id="upvotes2896">1</span></span>/<span class="downvotes"><span id="downvotes2896">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2896" class="comment_body">
+    <pre id="msg2896" style="display: none">Your program must be going into an infinite loop, meaning that it never stops. Try looking at it more closely to see why that would happen, or try finding a test case for which it occurs (as it only happens under certain circumstances).</pre>
+    <div style="opacity: 1">
+      Your program must be going into an infinite loop, meaning that it never stops. Try looking at it more closely to see why that would happen, or try finding a test case for which it occurs (as it only happens under certain circumstances).    </div>
+      </div>
+</div>
+<br><div class="comment_block" id="comment3220">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/ilovepi">ilovepi</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3220">Feb 26, 2011 - 5:08:22 am UTC</a>      </span>
+      <a class="comment_title" id="title3220" onclick="toggle(&quot;body3220&quot;)">Re: Re: Can anyone tell me what's wrong with my program?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3220">
+    (<span class="upvotes"><span id="upvotes3220">0</span></span>/<span class="downvotes"><span id="downvotes3220">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3220" class="comment_body">
+    <pre id="msg3220" style="display: none">Hint: Write a sample test case in which the output is all the same letter. See if you program works.</pre>
+    <div style="opacity: 1">
+      Hint: Write a sample test case in which the output is all the same letter. See if you program works.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0417s.<br>
+    Server time on page load:
+    Jun 7, 2018 07:39:27 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fccc04j4">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

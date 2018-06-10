@@ -1,6 +1,6 @@
 import requests
 import bs4 as bs
-import util
+from Extractor import util
 
 def spoj(page, crawlerType, extractorType, domain, fileName):
     #request = requests.get("http://www.spoj.com/problems/TTABLE/")

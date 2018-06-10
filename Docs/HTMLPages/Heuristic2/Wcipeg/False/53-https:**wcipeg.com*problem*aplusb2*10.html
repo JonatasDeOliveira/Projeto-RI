@@ -1,0 +1,1025 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - A plus B 2</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "3d9c83c15e0f324305366b918ab3d51c";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Faplusb2%2F10"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h2>A plus B... again</h2>
+
+<p>Given two integers A and B (of no more than <b>100000 digits</b> each), find their exact sum.<br></p></div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,aplusb2">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/aplusb2">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 15<br>
+    <b>Time Limit:</b> 3.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Oct 24, 2008<br>
+      </p>
+
+    <b>Problem Types:</b>
+  <noscript>
+    &lt;style type="text/css"&gt;
+      #show_types, #hide_types { display: none !important; }
+      #spoiler_id { display: inline !important; }
+    &lt;/style&gt;
+  </noscript>
+  <a href="javascript:void(null);" id="show_types" onclick="document.getElementById('spoiler_id').style.display=''; document.getElementById('show_types').style.display='none';">[Show]</a>
+  <span id="spoiler_id" style="display: none">
+    <a href="javascript:void(null);" id="hide_types" onclick="document.getElementById('spoiler_id').style.display='none'; document.getElementById('show_types').style.display='';">[Hide]</a><br>
+    <ul style="list-style-type: none; margin: 0; padding: 0;">
+      <li>String Manipulation</li><li>Math</li>    </ul>
+  </span>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=aplusb2">Search</a>)</h2><p style="text-align: center"></p><div class="pagination-container"><a href="https://wcipeg.com/problem/aplusb2/" class="pagination-link"><div class="pagination-prev">&lt;</div></a><a href="https://wcipeg.com/problem/aplusb2/" class="pagination-link"><div class="pagination-num">1</div></a><div class="pagination-cur">2</div><a href="https://wcipeg.com/problem/aplusb2/20" class="pagination-link"><div class="pagination-num">3</div></a><a href="https://wcipeg.com/problem/aplusb2/20" class="pagination-link"><div class="pagination-next">&gt;</div></a></div><p></p><div class="comment_block" id="comment3262">
+  <div class="comment_header" style="opacity: 0.65762804711038">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/ilovepi">ilovepi</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3262">Mar 09, 2011 - 4:18:37 am UTC</a>      </span>
+      <a class="comment_title" id="title3262" onclick="toggle(&quot;body3262&quot;)">Suggestions?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3262">
+    (<span class="upvotes"><span id="upvotes3262">0</span></span>/<span class="downvotes"><span id="downvotes3262">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3262" class="comment_body">
+    <pre id="msg3262" style="display: none">This took a while to get. Can anyone help shorten my code and possibly how to make it so that my code doesn't have those extra if statements at the end? Thnx</pre>
+    <div style="opacity: 0.65762804711038">
+      This took a while to get. Can anyone help shorten my code and possibly how to make it so that my code doesn't have those extra if statements at the end? Thnx    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment1847">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/purohit3105">purohit3105</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1847">Mar 21, 2009 - 7:54:24 pm UTC</a>      </span>
+      <a class="comment_title" id="title1847" onclick="toggle(&quot;body1847&quot;)">Problem?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1847">
+    (<span class="upvotes"><span id="upvotes1847">1</span></span>/<span class="downvotes"><span id="downvotes1847">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1847" class="comment_body">
+    <pre id="msg1847" style="display: none">I just wanted to make sure that the only thing that I need to add in my program is adding one negative and one positive numbers right?
+</pre>
+    <div style="opacity: 0.90547134519913">
+      I just wanted to make sure that the only thing that I need to add in my program is adding one negative and one positive numbers right?    </div>
+    <br><div class="comment_block" id="comment1848">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1848">Mar 21, 2009 - 8:09:17 pm UTC</a>      </span>
+      <a class="comment_title" id="title1848" onclick="toggle(&quot;body1848&quot;)">Re: Problem?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1848">
+    (<span class="upvotes"><span id="upvotes1848">1</span></span>/<span class="downvotes"><span id="downvotes1848">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1848" class="comment_body">
+    <pre id="msg1848" style="display: none">Assuming you have correctly implemented the sum of two positive numbers and the sum of two negative numbers, logically, yes, all that remains is handling the cases in which one is positive and one is negative.
+
+Make sure it's done correctly though :tongue:</pre>
+    <div style="opacity: 0.90547134519913">
+      Assuming you have correctly implemented the sum of two positive numbers and the sum of two negative numbers, logically, yes, all that remains is handling the cases in which one is positive and one is negative. <br> <br>Make sure it's done correctly though <img src="https://wcipeg.com/assets/img/smiley/tongue.gif" alt="tongue.gif">    </div>
+      </div>
+</div>
+<br><div class="comment_block" id="comment1854">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/purohit3105">purohit3105</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1854">Mar 21, 2009 - 11:22:48 pm UTC</a>      </span>
+      <a class="comment_title" id="title1854" onclick="toggle(&quot;body1854&quot;)">Re: Problem?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1854">
+    (<span class="upvotes"><span id="upvotes1854">1</span></span>/<span class="downvotes"><span id="downvotes1854">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1854" class="comment_body">
+    <pre id="msg1854" style="display: none">What is the correct answer for 6th and 8th test case?? I just want to compare it to what I am outputting....</pre>
+    <div style="opacity: 0.90547134519913">
+      What is the correct answer for 6th and 8th test case?? I just want to compare it to what I am outputting....    </div>
+    <br><div class="comment_block" id="comment1855">
+  <div class="comment_header" style="opacity: 0.95441393735536">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/SourSpinach">SourSpinach</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1855">Mar 21, 2009 - 11:43:07 pm UTC</a>      </span>
+      <a class="comment_title" id="title1855" onclick="toggle(&quot;body1855&quot;)">Re: Re: Problem?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1855">
+    (<span class="upvotes"><span id="upvotes1855">3</span></span>/<span class="downvotes"><span id="downvotes1855">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1855" class="comment_body">
+    <pre id="msg1855" style="display: none">You have the correct number of digits...they just seem to pretty much all be wrong &gt;.&lt;</pre>
+    <div style="opacity: 0.95441393735536">
+      You have the correct number of digits...they just seem to pretty much all be wrong &gt;.&lt;    </div>
+    <br><div class="comment_block" id="comment1856">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/purohit3105">purohit3105</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1856">Mar 21, 2009 - 11:44:42 pm UTC</a>      </span>
+      <a class="comment_title" id="title1856" onclick="toggle(&quot;body1856&quot;)">Re: Re: Re: Problem?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1856">
+    (<span class="upvotes"><span id="upvotes1856">1</span></span>/<span class="downvotes"><span id="downvotes1856">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1856" class="comment_body">
+    <pre id="msg1856" style="display: none">Ah.</pre>
+    <div style="opacity: 0.90547134519913">
+      Ah.    </div>
+      </div>
+</div>
+<br><div class="comment_block" id="comment1859">
+  <div class="comment_header" style="opacity: 0.84996429117983">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/purohit3105">purohit3105</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1859">Mar 22, 2009 - 1:49:25 am UTC</a>      </span>
+      <a class="comment_title" id="title1859" onclick="toggle(&quot;body1859&quot;)">Re: Re: Re: Problem?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1859">
+    (<span class="upvotes"><span id="upvotes1859">2</span></span>/<span class="downvotes"><span id="downvotes1859">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1859" class="comment_body">
+    <pre id="msg1859" style="display: none">Thanks, that helped me very much!! :):)</pre>
+    <div style="opacity: 0.84996429117983">
+      Thanks, that helped me very much!! :):)    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment1846">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Bob">Bob</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1846">Mar 21, 2009 - 7:04:47 pm UTC</a>      </span>
+      <a class="comment_title" id="title1846" onclick="toggle(&quot;body1846&quot;)">Question ...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1846">
+    (<span class="upvotes"><span id="upvotes1846">0</span></span>/<span class="downvotes"><span id="downvotes1846">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1846" class="comment_body">
+    <pre id="msg1846" style="display: none">After changing the way i read in the file (numbers),i found that the judge accepted the output that my program outputted, but when tested on my computer, i found that the program outputs an extra zero for the sum.
+Why is the judge accepting a wrong answer (or is the version of pascal that i am using just messed up)? Also, is this basically the same problem i had before?</pre>
+    <div style="opacity: 0.79345670852611">
+      After changing the way i read in the file (numbers),i found that the judge accepted the output that my program outputted, but when tested on my computer, i found that the program outputs an extra zero for the sum. <br>Why is the judge accepting a wrong answer (or is the version of pascal that i am using just messed up)? Also, is this basically the same problem i had before?    </div>
+    <br><div class="comment_block" id="comment1849">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1849">Mar 21, 2009 - 8:11:53 pm UTC</a>      </span>
+      <a class="comment_title" id="title1849" onclick="toggle(&quot;body1849&quot;)">Re: Question ...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1849">
+    (<span class="upvotes"><span id="upvotes1849">0</span></span>/<span class="downvotes"><span id="downvotes1849">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1849" class="comment_body">
+    <pre id="msg1849" style="display: none">I'm sorry, what cases are you talking about? (I cannot see the output of your program on the judge if it is judged as correct; only when there is a problem can I see it.)
+
+I do notice that for several cases you printed '0' instead of a minus sign.</pre>
+    <div style="opacity: 0.79345670852611">
+      I'm sorry, what cases are you talking about? (I cannot see the output of your program on the judge if it is judged as correct; only when there is a problem can I see it.) <br> <br>I do notice that for several cases you printed '0' instead of a minus sign.    </div>
+    <br><div class="comment_block" id="comment1850">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Bob">Bob</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1850">Mar 21, 2009 - 9:11:43 pm UTC</a>      </span>
+      <a class="comment_title" id="title1850" onclick="toggle(&quot;body1850&quot;)">Re: Re: Question ...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1850">
+    (<span class="upvotes"><span id="upvotes1850">0</span></span>/<span class="downvotes"><span id="downvotes1850">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1850" class="comment_body">
+    <pre id="msg1850" style="display: none">At my computer, the program outputs an extra zero for all sums of two positive integers (making it incorrect), though it is accepted here on the judge.</pre>
+    <div style="opacity: 0.79345670852611">
+      At my computer, the program outputs an extra zero for all sums of two positive integers (making it incorrect), though it is accepted here on the judge.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment1843">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Bob">Bob</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1843">Mar 21, 2009 - 6:28:05 pm UTC</a>      </span>
+      <a class="comment_title" id="title1843" onclick="toggle(&quot;body1843&quot;)">What is Runtime Error 26?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1843">
+    (<span class="upvotes"><span id="upvotes1843">0</span></span>/<span class="downvotes"><span id="downvotes1843">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1843" class="comment_body">
+    <pre id="msg1843" style="display: none"></pre>
+    <div style="opacity: 0.79345670852611">
+          </div>
+    <br><div class="comment_block" id="comment1844">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1844">Mar 21, 2009 - 6:35:19 pm UTC</a>      </span>
+      <a class="comment_title" id="title1844" onclick="toggle(&quot;body1844&quot;)">Re: What is Runtime Error 26?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1844">
+    (<span class="upvotes"><span id="upvotes1844">1</span></span>/<span class="downvotes"><span id="downvotes1844">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1844" class="comment_body">
+    <pre id="msg1844" style="display: none">Are you sure it's 26?</pre>
+    <div style="opacity: 0.90547134519913">
+      Are you sure it's 26?    </div>
+      </div>
+</div>
+<br><div class="comment_block" id="comment1845">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1845">Mar 21, 2009 - 6:47:40 pm UTC</a>      </span>
+      <a class="comment_title" id="title1845" onclick="toggle(&quot;body1845&quot;)">Re: What is Runtime Error 26?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1845">
+    (<span class="upvotes"><span id="upvotes1845">1</span></span>/<span class="downvotes"><span id="downvotes1845">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1845" class="comment_body">
+    <pre id="msg1845" style="display: none">I looked through your submission and it appears you had runtime error [b]216[/b].
+This indicates a general protection fault, probably caused by going out of bounds in memory.</pre>
+    <div style="opacity: 0.90547134519913">
+      I looked through your submission and it appears you had runtime error <span class="bold">216</span>. <br>This indicates a general protection fault, probably caused by going out of bounds in memory.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment1792">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/purohit3105">purohit3105</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1792">Mar 07, 2009 - 3:25:00 am UTC</a>      </span>
+      <a class="comment_title" id="title1792" onclick="toggle(&quot;body1792&quot;)">Re: Re: Re: Ending the input.</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1792">
+    (<span class="upvotes"><span id="upvotes1792">1</span></span>/<span class="downvotes"><span id="downvotes1792">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1792" class="comment_body">
+    <pre id="msg1792" style="display: none">I still seem to be getting an error. I think its because I am not reading the input properly.
+
+Any cryptic clues?? :P</pre>
+    <div style="opacity: 0.90547134519913">
+      I still seem to be getting an error. I think its because I am not reading the input properly. <br> <br>Any cryptic clues?? :P    </div>
+    <br><div class="comment_block" id="comment1793">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hansonw1">hansonw1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1793">Mar 07, 2009 - 3:57:54 pm UTC</a>      </span>
+      <a class="comment_title" id="title1793" onclick="toggle(&quot;body1793&quot;)">Re: Re: Re: Re: Ending the input.</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1793">
+    (<span class="upvotes"><span id="upvotes1793">0</span></span>/<span class="downvotes"><span id="downvotes1793">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1793" class="comment_body">
+    <pre id="msg1793" style="display: none">There are a lot of errors in your program - I think you need to learn a bit more about C++ before plugging in stuff from tutorials. (sizeof doesn't do what you think it does)
+
+Why are you using char arrays? Just use strings.</pre>
+    <div style="opacity: 0.79345670852611">
+      There are a lot of errors in your program - I think you need to learn a bit more about C++ before plugging in stuff from tutorials. (sizeof doesn't do what you think it does) <br> <br>Why are you using char arrays? Just use strings.    </div>
+    <br><div class="comment_block" id="comment1794">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/purohit3105">purohit3105</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1794">Mar 07, 2009 - 6:37:04 pm UTC</a>      </span>
+      <a class="comment_title" id="title1794" onclick="toggle(&quot;body1794&quot;)">Re: Re: Re: Re: Re: Ending the input.</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1794">
+    (<span class="upvotes"><span id="upvotes1794">1</span></span>/<span class="downvotes"><span id="downvotes1794">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1794" class="comment_body">
+    <pre id="msg1794" style="display: none">ok I am now using strlen(variable);  but it doesn't work on int arrays. I don't see how I can I get their lengths.
+
+And I am even on the right track??</pre>
+    <div style="opacity: 0.90547134519913">
+      ok I am now using strlen(variable);  but it doesn't work on int arrays. I don't see how I can I get their lengths. <br> <br>And I am even on the right track??    </div>
+    <br><div class="comment_block" id="comment1795">
+  <div class="comment_header" style="opacity: 0.65762804711038">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1795">Mar 07, 2009 - 7:01:03 pm UTC</a>      </span>
+      <a class="comment_title" id="title1795" onclick="toggle(&quot;body1795&quot;)">Re: Re: Re: Re: Re: Re: Ending the input.</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1795">
+    (<span class="upvotes"><span id="upvotes1795">0</span></span>/<span class="downvotes"><span id="downvotes1795">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1795" class="comment_body">
+    <pre id="msg1795" style="display: none">Hanson is correct; you should use strings. (This doesn't work in pascal because pascal strings are only 255 chars.)
+
+If you use strings, just use s.length(), where s is a string.</pre>
+    <div style="opacity: 0.65762804711038">
+      Hanson is correct; you should use strings. (This doesn't work in pascal because pascal strings are only 255 chars.) <br> <br>If you use strings, just use s.length(), where s is a string.    </div>
+    <br><div class="comment_block" id="comment1796">
+  <div class="comment_header" style="opacity: 0.65762804711038">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/purohit3105">purohit3105</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1796">Mar 07, 2009 - 8:53:21 pm UTC</a>      </span>
+      <a class="comment_title" id="title1796" onclick="toggle(&quot;body1796&quot;)">Re: Ending the input.</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1796">
+    (<span class="upvotes"><span id="upvotes1796">0</span></span>/<span class="downvotes"><span id="downvotes1796">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1796" class="comment_body">
+    <pre id="msg1796" style="display: none">But thats not the problem. I am reading in fine for sure but the thing is my solution requires to have a int array of a certain size and use that to get the answer but I don't know how to find the size of the array for the loop to go upto.
+
+Take a look at my solution. I tried to fix the problem, it still isn't working. :(</pre>
+    <div style="opacity: 0.65762804711038">
+      But thats not the problem. I am reading in fine for sure but the thing is my solution requires to have a int array of a certain size and use that to get the answer but I don't know how to find the size of the array for the loop to go upto. <br> <br>Take a look at my solution. I tried to fix the problem, it still isn't working. :(    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br><div class="comment_block" id="comment1799">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bleung91">bleung91</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1799">Mar 08, 2009 - 12:31:19 am UTC</a>      </span>
+      <a class="comment_title" id="title1799" onclick="toggle(&quot;body1799&quot;)">Re: Re: Re: Re: Re: Re: Ending the input.</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1799">
+    (<span class="upvotes"><span id="upvotes1799">0</span></span>/<span class="downvotes"><span id="downvotes1799">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1799" class="comment_body">
+    <pre id="msg1799" style="display: none">strlen(variable)?
+
+say I have the following:
+
+string str;
+
+the length of this string is str.length().
+
+so i can do this:
+
+for (i=0;i&lt;str.length();i++)
+  cout&lt;&lt;str[i];
+
+which would print the characters of the string.</pre>
+    <div style="opacity: 0.79345670852611">
+      strlen(variable)? <br> <br>say I have the following: <br> <br>string str; <br> <br>the length of this string is str.length(). <br> <br>so i can do this: <br> <br>for (i=0;i&lt;str.length();i++) <br>  cout&lt;&lt;str[i]; <br> <br>which would print the characters of the string.    </div>
+    <br><div class="comment_block" id="comment1800">
+  <div class="comment_header" style="opacity: 0.79234504487351">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/purohit3105">purohit3105</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1800">Mar 08, 2009 - 12:46:33 am UTC</a>      </span>
+      <a class="comment_title" id="title1800" onclick="toggle(&quot;body1800&quot;)">Ending the input.</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1800">
+    (<span class="upvotes"><span id="upvotes1800">1</span></span>/<span class="downvotes"><span id="downvotes1800">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1800" class="comment_body">
+    <pre id="msg1800" style="display: none">Yes, I know. But, it doesn't seem work if I want to find the length of an int array.</pre>
+    <div style="opacity: 0.79234504487351">
+      Yes, I know. But, it doesn't seem work if I want to find the length of an int array.    </div>
+    <br><div class="comment_block" id="comment1802">
+  <div class="comment_header" style="opacity: 0.65762804711038">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bleung91">bleung91</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1802">Mar 08, 2009 - 1:48:29 am UTC</a>      </span>
+      <a class="comment_title" id="title1802" onclick="toggle(&quot;body1802&quot;)">Re: Ending the input.</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1802">
+    (<span class="upvotes"><span id="upvotes1802">0</span></span>/<span class="downvotes"><span id="downvotes1802">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1802" class="comment_body">
+    <pre id="msg1802" style="display: none">KEep a running size count, which is easy to do, or use a vector, in which case you can indeed do:
+
+int vector_size = v.size();
+
+and that returns the number of elements in the vector.
+
+however, vectors are a bit more advanced to use, so as Hanson suggested, become more proficient in C++.</pre>
+    <div style="opacity: 0.65762804711038">
+      KEep a running size count, which is easy to do, or use a vector, in which case you can indeed do: <br> <br>int vector_size = v.size(); <br> <br>and that returns the number of elements in the vector. <br> <br>however, vectors are a bit more advanced to use, so as Hanson suggested, become more proficient in C++.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br><div class="comment_block" id="comment1797">
+  <div class="comment_header" style="opacity: 0.65762804711038">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/dAedaL">dAedaL</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1797">Mar 07, 2009 - 11:19:28 pm UTC</a>      </span>
+      <a class="comment_title" id="title1797" onclick="toggle(&quot;body1797&quot;)">Re: Re: Re: Re: Re: Ending the input.</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1797">
+    (<span class="upvotes"><span id="upvotes1797">0</span></span>/<span class="downvotes"><span id="downvotes1797">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1797" class="comment_body">
+    <pre id="msg1797" style="display: none">Please, at least [b]TRY[/b] to follow other people's advice [b]BEFORE[/b] you post another complaint.
+
+It was suggested twice that you use strings, and I've looked at your submissions and I still see char arrays.</pre>
+    <div style="opacity: 0.65762804711038">
+      Please, at least <span class="bold">TRY</span> to follow other people's advice <span class="bold">BEFORE</span> you post another complaint. <br> <br>It was suggested twice that you use strings, and I've looked at your submissions and I still see char arrays.    </div>
+    <br><div class="comment_block" id="comment1798">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/purohit3105">purohit3105</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1798">Mar 08, 2009 - 12:04:31 am UTC</a>      </span>
+      <a class="comment_title" id="title1798" onclick="toggle(&quot;body1798&quot;)">Re: Re: Re: Re: Re: Re: Ending the input.</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1798">
+    (<span class="upvotes"><span id="upvotes1798">1</span></span>/<span class="downvotes"><span id="downvotes1798">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1798" class="comment_body">
+    <pre id="msg1798" style="display: none">I already wrote another program without ever using chars. Then I modified the first program and it seemed to get me 20/100 so I am using that now. Check my 7:05 submission.</pre>
+    <div style="opacity: 0.90547134519913">
+      I already wrote another program without ever using chars. Then I modified the first program and it seemed to get me 20/100 so I am using that now. Check my 7:05 submission.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment1788">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/purohit3105">purohit3105</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1788">Mar 06, 2009 - 8:37:25 pm UTC</a>      </span>
+      <a class="comment_title" id="title1788" onclick="toggle(&quot;body1788&quot;)">Ending the input.</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1788">
+    (<span class="upvotes"><span id="upvotes1788">0</span></span>/<span class="downvotes"><span id="downvotes1788">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1788" class="comment_body">
+    <pre id="msg1788" style="display: none">How do I read and store the values into a char array? I can't seem to get a for loop working and ending when the user presses 'Enter'.
+
+Can someone help me?</pre>
+    <div style="opacity: 1">
+      How do I read and store the values into a char array? I can't seem to get a for loop working and ending when the user presses 'Enter'. <br> <br>Can someone help me?    </div>
+    <br><div class="comment_block" id="comment1789">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1789">Mar 06, 2009 - 8:44:58 pm UTC</a>      </span>
+      <a class="comment_title" id="title1789" onclick="toggle(&quot;body1789&quot;)">Re: Ending the input.</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1789">
+    (<span class="upvotes"><span id="upvotes1789">1</span></span>/<span class="downvotes"><span id="downvotes1789">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1789" class="comment_body">
+    <pre id="msg1789" style="display: none">[code]
+var
+  i: longint;
+  a: ansistring;
+begin
+  readln(a);
+  i := length(a);
+end.
+[/code]
+[code]
+#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+using namespace std;
+
+int i;
+char a[1000];
+int main()
+{
+   cin &gt;&gt; a; //gets(a) for more speed
+   i = strlen(a);
+   return 0;
+}
+[/code]</pre>
+    <div style="opacity: 1">
+      <pre><code class=" delphi"> 
+<span class="keyword">var</span> 
+  i: longint; 
+  a: ansistring; 
+<span class="keyword">begin</span> 
+  readln(a); 
+  i := length(a); 
+<span class="keyword">end</span>. 
+</code></pre> <br><pre><code class=" cpp"> 
+<span class="preprocessor">#include &lt;iostream&gt; </span>
+<span class="preprocessor">#include &lt;cstring&gt; </span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>; 
+ 
+<span class="keyword">int</span> i; 
+<span class="keyword">char</span> a[<span class="number">1000</span>]; 
+<span class="keyword">int</span> main() 
+{ 
+   <span class="built_in">cin</span> &gt;&gt; a; <span class="comment">//gets(a) for more speed </span>
+   i = strlen(a); 
+   <span class="keyword">return</span> <span class="number">0</span>; 
+} 
+</code></pre>    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment1601">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Bob">Bob</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1601">Feb 13, 2009 - 9:44:23 pm UTC</a>      </span>
+      <a class="comment_title" id="title1601" onclick="toggle(&quot;body1601&quot;)">Question - What am I outputting wrong?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1601">
+    (<span class="upvotes"><span id="upvotes1601">1</span></span>/<span class="downvotes"><span id="downvotes1601">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1601" class="comment_body">
+    <pre id="msg1601" style="display: none">Why does my program output 1000 for the sum of -1 and 10000, but outputs 9999 at home?</pre>
+    <div style="opacity: 0.90547134519913">
+      Why does my program output 1000 for the sum of -1 and 10000, but outputs 9999 at home?    </div>
+    <br><div class="comment_block" id="comment1615">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/SourSpinach">SourSpinach</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1615">Feb 14, 2009 - 5:12:05 pm UTC</a>      </span>
+      <a class="comment_title" id="title1615" onclick="toggle(&quot;body1615&quot;)">Re: Question - What am I outputting wrong?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1615">
+    (<span class="upvotes"><span id="upvotes1615">1</span></span>/<span class="downvotes"><span id="downvotes1615">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1615" class="comment_body">
+    <pre id="msg1615" style="display: none">Your code is extremely long, I don't think anyone wants to look through that and see exactly what's wrong.
+
+Firstly, you mention that one case of 10000 and -1. But does your program work at home on those other cases, such as 10 and 56? If not, fix those first.
+
+But in general, if your program behaves differently at home than on the judge, it means you're going out of bounds. So look over your code carefully - every time you access an array (like x[a]), make sure 1&lt;=a&lt;=(size of x).</pre>
+    <div style="opacity: 0.90547134519913">
+      Your code is extremely long, I don't think anyone wants to look through that and see exactly what's wrong. <br> <br>Firstly, you mention that one case of 10000 and -1. But does your program work at home on those other cases, such as 10 and 56? If not, fix those first. <br> <br>But in general, if your program behaves differently at home than on the judge, it means you're going out of bounds. So look over your code carefully - every time you access an array (like x[a]), make sure 1&lt;=a&lt;=(size of x).    </div>
+    <br><div class="comment_block" id="comment1652">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Bob">Bob</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1652">Feb 18, 2009 - 9:51:20 pm UTC</a>      </span>
+      <a class="comment_title" id="title1652" onclick="toggle(&quot;body1652&quot;)">Re: Re: Question - What am I outputting wrong?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1652">
+    (<span class="upvotes"><span id="upvotes1652">0</span></span>/<span class="downvotes"><span id="downvotes1652">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1652" class="comment_body">
+    <pre id="msg1652" style="display: none">Is initialization the only way to fix this (cuz I already did that)</pre>
+    <div style="opacity: 0.79345670852611">
+      Is initialization the only way to fix this (cuz I already did that)    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br><div class="comment_block" id="comment1616">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Saravannan">Saravannan</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1616">Feb 14, 2009 - 7:30:01 pm UTC</a>      </span>
+      <a class="comment_title" id="title1616" onclick="toggle(&quot;body1616&quot;)">Re: Question - What am I outputting wrong?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1616">
+    (<span class="upvotes"><span id="upvotes1616">1</span></span>/<span class="downvotes"><span id="downvotes1616">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1616" class="comment_body">
+    <pre id="msg1616" style="display: none">I'm sure people have pointed this out to you before. But if you want people to debug your code, at least make it readable. Go back and look at other people's code for programs you already solved and see how they indent. If you learn how to indent properly, your code will be much easier to read for everyone else.</pre>
+    <div style="opacity: 1">
+      I'm sure people have pointed this out to you before. But if you want people to debug your code, at least make it readable. Go back and look at other people's code for programs you already solved and see how they indent. If you learn how to indent properly, your code will be much easier to read for everyone else.    </div>
+      </div>
+</div>
+<br><div class="comment_block" id="comment1660">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Bob">Bob</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1660">Feb 19, 2009 - 12:54:10 am UTC</a>      </span>
+      <a class="comment_title" id="title1660" onclick="toggle(&quot;body1660&quot;)">Re: Question - What am I outputting wrong?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1660">
+    (<span class="upvotes"><span id="upvotes1660">0</span></span>/<span class="downvotes"><span id="downvotes1660">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1660" class="comment_body">
+    <pre id="msg1660" style="display: none">Does my program really output 6 for 10 and 56, and 1000 for -1 and 10000 - it doesn't happen in the school comp, my home comp, on my free pascal, or on TP7 (or is it outputting something else, but the judge shows back something different)</pre>
+    <div style="opacity: 1">
+      Does my program really output 6 for 10 and 56, and 1000 for -1 and 10000 - it doesn't happen in the school comp, my home comp, on my free pascal, or on TP7 (or is it outputting something else, but the judge shows back something different)    </div>
+    <br><div class="comment_block" id="comment1662">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/SourSpinach">SourSpinach</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1662">Feb 19, 2009 - 3:15:47 am UTC</a>      </span>
+      <a class="comment_title" id="title1662" onclick="toggle(&quot;body1662&quot;)">Re: Re: Question - What am I outputting wrong?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1662">
+    (<span class="upvotes"><span id="upvotes1662">0</span></span>/<span class="downvotes"><span id="downvotes1662">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1662" class="comment_body">
+    <pre id="msg1662" style="display: none">Just read my last post!
+
+Yes, your program is outputting wrong answers.
+No, initialization probably won't make a big difference, but you should ALWAYS do it.
+As I said, you're probably going out of bounds.</pre>
+    <div style="opacity: 1">
+      Just read my last post! <br> <br>Yes, your program is outputting wrong answers. <br>No, initialization probably won't make a big difference, but you should ALWAYS do it. <br>As I said, you're probably going out of bounds.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment1233">
+  <div class="comment_header" style="opacity: 0.43449149475208">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Bob">Bob</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1233">Jan 11, 2009 - 2:40:51 am UTC</a>      </span>
+      <a class="comment_title" id="title1233" onclick="toggle(&quot;body1233&quot;)">Does the sum fit in extended?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1233">
+    (<span class="upvotes"><span id="upvotes1233">0</span></span>/<span class="downvotes"><span id="downvotes1233">5</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1233" class="comment_body">
+    <pre id="msg1233" style="display: none"></pre>
+    <div style="opacity: 0.43449149475208">
+          </div>
+    <br><div class="comment_block" id="comment1235">
+  <div class="comment_header" style="opacity: 0.84996429117983">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hansonw1">hansonw1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1235">Jan 11, 2009 - 2:44:03 am UTC</a>      </span>
+      <a class="comment_title" id="title1235" onclick="toggle(&quot;body1235&quot;)">Re: Does the sum fit in extended?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1235">
+    (<span class="upvotes"><span id="upvotes1235">2</span></span>/<span class="downvotes"><span id="downvotes1235">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1235" class="comment_body">
+    <pre id="msg1235" style="display: none">As said below the sum can be up to 100,000 digits long.
+I imagine extended only fits about 19 or so..</pre>
+    <div style="opacity: 0.84996429117983">
+      As said below the sum can be up to 100,000 digits long. <br>I imagine extended only fits about 19 or so..    </div>
+      </div>
+</div>
+<br><div class="comment_block" id="comment1250">
+  <div class="comment_header" style="opacity: 0.93850968472384">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Saravannan">Saravannan</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1250">Jan 11, 2009 - 7:17:22 pm UTC</a>      </span>
+      <a class="comment_title" id="title1250" onclick="toggle(&quot;body1250&quot;)">Re: Does the sum fit in extended?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1250">
+    (<span class="upvotes"><span id="upvotes1250">2</span></span>/<span class="downvotes"><span id="downvotes1250">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1250" class="comment_body">
+    <pre id="msg1250" style="display: none">Why would the problem be worth 15 points if you could do it in about 10 lines?</pre>
+    <div style="opacity: 0.93850968472384">
+      Why would the problem be worth 15 points if you could do it in about 10 lines?    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment1241">
+  <div class="comment_header" style="opacity: 0.74954576959097">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/zerglingrush">zerglingrush</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1241">Jan 11, 2009 - 4:20:57 am UTC</a>      </span>
+      <a class="comment_title" id="title1241" onclick="toggle(&quot;body1241&quot;)">Woah</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1241">
+    (<span class="upvotes"><span id="upvotes1241">3</span></span>/<span class="downvotes"><span id="downvotes1241">4</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1241" class="comment_body">
+    <pre id="msg1241" style="display: none">It's weird how there's a big gap in the solution times.
+It's either faster that 0.1 seconds, or slower than 1.5 seconds...</pre>
+    <div style="opacity: 0.74954576959097">
+      It's weird how there's a big gap in the solution times. <br>It's either faster that 0.1 seconds, or slower than 1.5 seconds...    </div>
+    <br><div class="comment_block" id="comment1242">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/taimla101">taimla101</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1242">Jan 11, 2009 - 3:37:22 pm UTC</a>      </span>
+      <a class="comment_title" id="title1242" onclick="toggle(&quot;body1242&quot;)">Re: Woah</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1242">
+    (<span class="upvotes"><span id="upvotes1242">3</span></span>/<span class="downvotes"><span id="downvotes1242">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1242" class="comment_body">
+    <pre id="msg1242" style="display: none">there at least 2 ways to do this problem, some people coded the fast way, and some people coded the slow way.</pre>
+    <div style="opacity: 1">
+      there at least 2 ways to do this problem, some people coded the fast way, and some people coded the slow way.    </div>
+      </div>
+</div>
+<br><div class="comment_block" id="comment1243">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1243">Jan 11, 2009 - 3:50:14 pm UTC</a>      </span>
+      <a class="comment_title" id="title1243" onclick="toggle(&quot;body1243&quot;)">Re: Woah</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1243">
+    (<span class="upvotes"><span id="upvotes1243">3</span></span>/<span class="downvotes"><span id="downvotes1243">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1243" class="comment_body">
+    <pre id="msg1243" style="display: none">Ah yes, I see why now. The slow solutions involve padding the shorter string with zeroes on the front until it is as long as the longer string. When you add a character to the beginning of a string, all subsequent characters get pushed one byte to the right (like in insertion sort). If you do this multiple times, it incurs a huge cost in time.</pre>
+    <div style="opacity: 1">
+      Ah yes, I see why now. The slow solutions involve padding the shorter string with zeroes on the front until it is as long as the longer string. When you add a character to the beginning of a string, all subsequent characters get pushed one byte to the right (like in insertion sort). If you do this multiple times, it incurs a huge cost in time.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment406">
+  <div class="comment_header" style="opacity: 0.69936394755736">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Bob">Bob</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/406">Nov 22, 2008 - 7:01:04 pm UTC</a>      </span>
+      <a class="comment_title" id="title406" onclick="toggle(&quot;body406&quot;)">Can this program be done in Pascal?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating406">
+    (<span class="upvotes"><span id="upvotes406">1</span></span>/<span class="downvotes"><span id="downvotes406">3</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body406" class="comment_body">
+    <pre id="msg406" style="display: none">All the accepted answers were done in C++</pre>
+    <div style="opacity: 0.69936394755736">
+      All the accepted answers were done in C++    </div>
+    <br><div class="comment_block" id="comment407">
+  <div class="comment_header" style="opacity: 0.95441393735536">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/407">Nov 22, 2008 - 7:10:36 pm UTC</a>      </span>
+      <a class="comment_title" id="title407" onclick="toggle(&quot;body407&quot;)">Re: Can this program be done in Pascal?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating407">
+    (<span class="upvotes"><span id="upvotes407">3</span></span>/<span class="downvotes"><span id="downvotes407">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body407" class="comment_body">
+    <pre id="msg407" style="display: none">As noted, it is possible to do in Pascal, but not in Turbo Pascal or Borland Pascal. Instead, you need the Free Pascal compiler
+http://freepascal.org</pre>
+    <div style="opacity: 0.95441393735536">
+      As noted, it is possible to do in Pascal, but not in Turbo Pascal or Borland Pascal. Instead, you need the Free Pascal compiler <br>http://freepascal.org    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0988s.<br>
+    Server time on page load:
+    Jun 7, 2018 07:29:54 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Faplusb2%2F10">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

@@ -1,7 +1,7 @@
 import requests
 import bs4 as bs
 import re
-import util
+from Extractor import util
  
 def codeforces(page, crawlerType, extractorType, domain, fileName):   
     #request = requests.get("http://codeforces.com/problemset/problem/27/C")
@@ -23,12 +23,16 @@ def codeforces(page, crawlerType, extractorType, domain, fileName):
     
     description = problem.findAll("div")[10]
     problemDescripton = description.text
-    
+    #http://codeforces.com/problemset/problem/952/B
     inputDescripton = problem.find("div", {"class" : "input-specification"})
-    problemInput = inputDescripton.text[5:]
+    problemInput = ""
+    if inputDescripton is not None:
+        problemInput = inputDescripton.text[5:]
     
     outputDescripton = problem.find("div", {"class" : "output-specification"})
-    problemOutput = outputDescripton.text[6:]
+    problemOutput = ""
+    if outputDescripton is not None:
+        problemOutput = outputDescripton.text[6:]
     
     sampleTest = problem.find("div", {"class" : "sample-test"})
     samplesInput = sampleTest.findAll("div", {"class" : "input"})
@@ -39,9 +43,8 @@ def codeforces(page, crawlerType, extractorType, domain, fileName):
     
     
     note = problem.find("div", {"class":"note"})
-    if note is None:
-        problemNote = ""
-    else:
+    problemNote = ""
+    if note is not None:
         problemNote = note.text
     
     data = {"Title" : problemName,

@@ -1,0 +1,294 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - Fire</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "3d9c83c15e0f324305366b918ab3d51c";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Favatarfire"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>PEG Test – Oct 3rd, 2014</h3>
+<h2>Problem C: Fire</h2>
+
+<p>Firebending is an intense and aggressive bending art which uses concentrated barrages of fire, controlled by one's inner chi to overwhelm opponents. According to uncle Iroh, fire is the element of power. Of course, with great power comes great responsibility. Aang has just gained a new friend and firebending master, Zuko, to teach him the ways of the dragons.</p>
+
+<p>In the past, Aang has attempted firebending on his own. However, due to a serious incident where he accidentally burned Katara, he's learned that fire is not to be toyed with. Ever since, Aang has been scared of firebending. Zuko realized what he must do – to teach Aang control. Only when Aang feels completely in control can his true training begin.</p>
+
+<p>As an exercise, Zuko places <var>N</var> (1 ≤ <var>N</var> ≤ 10<sup>4</sup>) leaves in front of Aang. He simultaneously sets all of the leaves on fire. Aang's job must be to control the burning rate of the leaves. The leaves all start burning from the inside. The <var>i</var>-th leaf (1 ≤ <var>i</var> ≤ <var>N</var>) will spend <var>s<sub>i</sub></var> (1 ≤ <var>s<sub>i</sub></var> ≤ 10<sup>6</sup>) seconds burning before it is completely gone.</p>
+
+<p>Aang is very new at this, and can only handle a certain amount of leaves at once. Throughout the entire exercise, he is currently only able to focus his chi onto at most <var>K</var> (1 ≤ <var>K</var> ≤ <var>N</var>) leaves. When Aang focuses on a leaf, the time it takes for the leaf to completely burn out will double. Aang will pick the <var>K</var> leaves at the beginning of the exercise and cannot switch after he's made the decision. Can you help Aang determine the time it takes for the first leaf to burn out?</p>
+
+<h3>Input Format</h3>
+<p>
+Line 1: Two integers <var>N</var> and <var>K</var>, respectively representing the number of total leaves and the number of leaves Aang can focus on controlling.<br>
+Line 2: <var>N</var> space-separated integers <var>s</var><sub>1</sub>, <var>s</var><sub>2</sub>, … <var>s<sub>N</sub></var>, respresenting the time it takes for each leaf to burn out without Aang's interference.
+</p>
+
+<h3>Output Format</h3>
+<p>A single integer representing the number of seconds until the earliest leaf to burn out has fully burned out.</p>
+
+<h3>Sample Input 1</h3>
+<pre>10 3
+8 7 3 8 5 5 6 3 9 3
+</pre>
+
+<h3>Sample Output 1</h3>
+<pre>5
+</pre>
+
+<h3>Sample Input 2</h3>
+<pre>1 1
+3
+</pre>
+
+<h3>Sample Output 2</h3>
+<pre>6
+</pre>
+
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,avatarfire">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/avatarfire">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 5<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Oct 06, 2014<br>
+        <b>Author:</b> <a href="https://wcipeg.com/user/frenzybenzy">frenzybenzy</a>  </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=avatarfire">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment7674">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jialeyu">jialeyu</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7674">Aug 22, 2016 - 4:47:58 pm UTC</a>      </span>
+      <a class="comment_title" id="title7674" onclick="toggle(&quot;body7674&quot;)">help</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7674">
+    (<span class="upvotes"><span id="upvotes7674">0</span></span>/<span class="downvotes"><span id="downvotes7674">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7674" class="comment_body">
+    <pre id="msg7674" style="display: none">could anyone tell me why im getting the last 2 test cases wrong?</pre>
+    <div style="opacity: 1">
+      could anyone tell me why im getting the last 2 test cases wrong?    </div>
+    <br><div class="comment_block" id="comment7675">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7675">Aug 22, 2016 - 9:35:53 pm UTC</a>      </span>
+      <a class="comment_title" id="title7675" onclick="toggle(&quot;body7675&quot;)">Re: help</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7675">
+    (<span class="upvotes"><span id="upvotes7675">0</span></span>/<span class="downvotes"><span id="downvotes7675">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7675" class="comment_body">
+    <pre id="msg7675" style="display: none">You are not using some of your variables.</pre>
+    <div style="opacity: 1">
+      You are not using some of your variables.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment6356">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/SUPER_ET_DUPER">SUPER_ET_DUPER</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6356">Dec 03, 2014 - 12:41:36 am UTC</a>      </span>
+      <a class="comment_title" id="title6356" onclick="toggle(&quot;body6356&quot;)">Don't get the question</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6356">
+    (<span class="upvotes"><span id="upvotes6356">0</span></span>/<span class="downvotes"><span id="downvotes6356">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6356" class="comment_body">
+    <pre id="msg6356" style="display: none">How do you know witch leaves Aang picks?
+
+What are you supposed to find?</pre>
+    <div style="opacity: 1">
+      How do you know witch leaves Aang picks? <br> <br>What are you supposed to find?    </div>
+    <br><div class="comment_block" id="comment6359">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Hzhang">Hzhang</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6359">Dec 04, 2014 - 12:03:10 am UTC</a>      </span>
+      <a class="comment_title" id="title6359" onclick="toggle(&quot;body6359&quot;)">Re: Don't get the question</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6359">
+    (<span class="upvotes"><span id="upvotes6359">3</span></span>/<span class="downvotes"><span id="downvotes6359">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6359" class="comment_body">
+    <pre id="msg6359" style="display: none">You choose the leaves that Aang picks, and you find the maximum amount of time before the first leaf runs out of time.
+
+In the sample input Aang gets 3 leaves in which he can double the durability
+
+The most logical decisions is to pick:
+
+8 7 [color=red][b]3[/b][/color] 8 5 5 6 [color=red][b]3[/b][/color] 9 [color=red][b]3[/b][/color]
+
+That leaves the 2 fives as the fastest burning leaves.
+
+so you output 5 because the first leaves burn at 5 seconds.
+
+:wink:</pre>
+    <div style="opacity: 1">
+      You choose the leaves that Aang picks, and you find the maximum amount of time before the first leaf runs out of time. <br> <br>In the sample input Aang gets 3 leaves in which he can double the durability <br> <br>The most logical decisions is to pick: <br> <br>8 7 <span style="color: red"><span class="bold">3</span></span> 8 5 5 6 <span style="color: red"><span class="bold">3</span></span> 9 <span style="color: red"><span class="bold">3</span></span> <br> <br>That leaves the 2 fives as the fastest burning leaves. <br> <br>so you output 5 because the first leaves burn at 5 seconds. <br> <br><img src="https://wcipeg.com/assets/img/smiley/wink.gif" alt="wink.gif">    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0220s.<br>
+    Server time on page load:
+    Jun 7, 2018 07:30:24 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Favatarfire">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

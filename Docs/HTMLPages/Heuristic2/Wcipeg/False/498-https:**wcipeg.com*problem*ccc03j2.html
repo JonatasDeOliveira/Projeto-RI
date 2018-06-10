@@ -1,0 +1,646 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - CCC03J2 - Picture Perfect</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "3d9c83c15e0f324305366b918ab3d51c";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fccc03j2"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>2003 Canadian Computing Competition, Stage 1</h3>
+<h2>Problem J2: Picture Perfect</h2>
+
+<p>Roy&nbsp;has a stack of student yearbook photos. He wants to lay the pictures on a flat surtace edge-to-edge to form a filled rectangle with minimum perimeter. All photos must be fully visible. Each picture is a square with dimensions 1x1.</p>
+<p>For example, he would place 12 photos in the following configuration.&nbsp;where&nbsp;each photo is indicated with an x:</p>
+
+<pre>xxxx
+xxxx
+xxxx</pre>
+<p>Of course, he could orient them in the other direction, like so:</p>
+
+<pre>xxx
+xxx
+xxx
+xxx</pre>
+
+<p>which would have the same perimeter, 14 units.</p>
+<p> Your program should repeatedly read a positive integer C, the number of pictures to be laid out. For each input, it should print the smallest possible perimeter for a filled rectangle that is formed by laying all the pictures edge-to-edge. Also, print the dimensions of this rectangle. </p>
+<p> You may assume that there are less than 65,000 photos. An input value of C = 0 indicates that the program should terminate. </p>
+
+<h3>Sample Input</h3>
+
+<pre>100
+15
+195
+0</pre>
+
+<h3>Sample Output</h3>
+
+<pre>Minimum perimeter is 40 with dimensions 10 x 10
+Minimum perimeter is 16 with dimensions 3 x 5
+Minimum perimeter is 56 with dimensions 13 x 15</pre>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,ccc03j2">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/ccc03j2">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 3<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Sep 27, 2008<br>
+      </p>
+
+    <b>Problem Types:</b>
+  <noscript>
+    &lt;style type="text/css"&gt;
+      #show_types, #hide_types { display: none !important; }
+      #spoiler_id { display: inline !important; }
+    &lt;/style&gt;
+  </noscript>
+  <a href="javascript:void(null);" id="show_types" onclick="document.getElementById('spoiler_id').style.display=''; document.getElementById('show_types').style.display='none';">[Show]</a>
+  <span id="spoiler_id" style="display: none">
+    <a href="javascript:void(null);" id="hide_types" onclick="document.getElementById('spoiler_id').style.display='none'; document.getElementById('show_types').style.display='';">[Hide]</a><br>
+    <ul style="list-style-type: none; margin: 0; padding: 0;">
+      <li>Simple Math</li>    </ul>
+  </span>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=ccc03j2">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment8568">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/coderguy">coderguy</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8568">Jan 20, 2018 - 3:33:56 am UTC</a>      </span>
+      <a class="comment_title" id="title8568" onclick="toggle(&quot;body8568&quot;)">help with pasting code</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8568">
+    (<span class="upvotes"><span id="upvotes8568">0</span></span>/<span class="downvotes"><span id="downvotes8568">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8568" class="comment_body">
+    <pre id="msg8568" style="display: none">I am unsure of how to post a question regarding my code on this site without directly pasting it, I also can't find it anywhere online, can someone tell me?</pre>
+    <div style="opacity: 1">
+      I am unsure of how to post a question regarding my code on this site without directly pasting it, I also can't find it anywhere online, can someone tell me?    </div>
+    <br><div class="comment_block" id="comment8570">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8570">Jan 20, 2018 - 6:46:56 am UTC</a>      </span>
+      <a class="comment_title" id="title8570" onclick="toggle(&quot;body8570&quot;)">Re: help with pasting code</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8570">
+    (<span class="upvotes"><span id="upvotes8570">0</span></span>/<span class="downvotes"><span id="downvotes8570">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8570" class="comment_body">
+    <pre id="msg8570" style="display: none">Read the replies to your previous comment. Further comments without demonstration that you've made some effort at solving this yourself may disappear without warning.</pre>
+    <div style="opacity: 1">
+      Read the replies to your previous comment. Further comments without demonstration that you've made some effort at solving this yourself may disappear without warning.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment8562">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/coderguy">coderguy</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8562">Jan 19, 2018 - 2:19:37 am UTC</a>      </span>
+      <a class="comment_title" id="title8562" onclick="toggle(&quot;body8562&quot;)">what is wrong with my program</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8562">
+    (<span class="upvotes"><span id="upvotes8562">0</span></span>/<span class="downvotes"><span id="downvotes8562">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8562" class="comment_body">
+    <pre id="msg8562" style="display: none">My code works perfectly, not sure whether something is wrong with my time, can someone help me out.
+[admin note: code removed]</pre>
+    <div style="opacity: 1">
+      My code works perfectly, not sure whether something is wrong with my time, can someone help me out. <br>[admin note: code removed]    </div>
+    <br><div class="comment_block" id="comment8563">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Panicatol648989">Panicatol648989</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8563">Jan 19, 2018 - 4:03:02 pm UTC</a>      </span>
+      <a class="comment_title" id="title8563" onclick="toggle(&quot;body8563&quot;)">Re: what is wrong with my program</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8563">
+    (<span class="upvotes"><span id="upvotes8563">1</span></span>/<span class="downvotes"><span id="downvotes8563">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8563" class="comment_body">
+    <pre id="msg8563" style="display: none">Please don't post your code in your comment. People who have solved the question can look at your answer and help you.</pre>
+    <div style="opacity: 1">
+      Please don't post your code in your comment. People who have solved the question can look at your answer and help you.    </div>
+      </div>
+</div>
+<br><div class="comment_block" id="comment8566">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8566">Jan 19, 2018 - 8:08:13 pm UTC</a>      </span>
+      <a class="comment_title" id="title8566" onclick="toggle(&quot;body8566&quot;)">Re: what is wrong with my program</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8566">
+    (<span class="upvotes"><span id="upvotes8566">0</span></span>/<span class="downvotes"><span id="downvotes8566">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8566" class="comment_body">
+    <pre id="msg8566" style="display: none">Your code does not at all work perfectly. Try testing it out on some more cases.
+
+Come up with some input numbers, work out the answers by hand, then run your program with them.</pre>
+    <div style="opacity: 1">
+      Your code does not at all work perfectly. Try testing it out on some more cases. <br> <br>Come up with some input numbers, work out the answers by hand, then run your program with them.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment8217">
+  <div class="comment_header" style="opacity: 0.65762804711038">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hello12">hello12</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8217">Aug 22, 2017 - 6:43:05 pm UTC</a>      </span>
+      <a class="comment_title" id="title8217" onclick="toggle(&quot;body8217&quot;)">good question</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8217">
+    (<span class="upvotes"><span id="upvotes8217">0</span></span>/<span class="downvotes"><span id="downvotes8217">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8217" class="comment_body">
+    <pre id="msg8217" style="display: none">https://www.google.ca/search?q=good+question+meme&amp;rlz=1C1OCLT_enCA759CA759&amp;source=lnms&amp;tbm=isch&amp;sa=X&amp;ved=0ahUKEwjRwIiuv-vVAhXC3YMKHbevCvMQ_AUICigB&amp;biw=1130&amp;bih=647#imgrc=lGeK9t-s358foM:</pre>
+    <div style="opacity: 0.65762804711038">
+      https://www.google.ca/search?q=good+question+meme&amp;rlz=1C1OCLT_enCA759CA759&amp;source=lnms&amp;tbm=isch&amp;sa=X&amp;ved=0ahUKEwjRwIiuv-vVAhXC3YMKHbevCvMQ_AUICigB&amp;biw=1130&amp;bih=647#imgrc=lGeK9t-s358foM:    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment7870">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jlsajfk">jlsajfk</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7870">Dec 31, 2016 - 3:38:30 am UTC</a>      </span>
+      <a class="comment_title" id="title7870" onclick="toggle(&quot;body7870&quot;)">Output</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7870">
+    (<span class="upvotes"><span id="upvotes7870">1</span></span>/<span class="downvotes"><span id="downvotes7870">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7870" class="comment_body">
+    <pre id="msg7870" style="display: none">Should the output be smaller side first for dimensions of the rectangle? It looks that way in the sample.</pre>
+    <div style="opacity: 1">
+      Should the output be smaller side first for dimensions of the rectangle? It looks that way in the sample.    </div>
+    <br><div class="comment_block" id="comment8068">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8068">Apr 24, 2017 - 10:57:52 pm UTC</a>      </span>
+      <a class="comment_title" id="title8068" onclick="toggle(&quot;body8068&quot;)">Re: Output</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8068">
+    (<span class="upvotes"><span id="upvotes8068">0</span></span>/<span class="downvotes"><span id="downvotes8068">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8068" class="comment_body">
+    <pre id="msg8068" style="display: none">Sorry for the late response. Yes, please do this.</pre>
+    <div style="opacity: 1">
+      Sorry for the late response. Yes, please do this.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment7425">
+  <div class="comment_header" style="opacity: 0.65762804711038">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Aaisha">Aaisha</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7425">Feb 04, 2016 - 7:42:49 pm UTC</a>      </span>
+      <a class="comment_title" id="title7425" onclick="toggle(&quot;body7425&quot;)">Please Help</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7425">
+    (<span class="upvotes"><span id="upvotes7425">0</span></span>/<span class="downvotes"><span id="downvotes7425">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7425" class="comment_body">
+    <pre id="msg7425" style="display: none"></pre>
+    <div style="opacity: 0.65762804711038">
+          </div>
+    <br><div class="comment_block" id="comment7426">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7426">Feb 05, 2016 - 2:53:35 am UTC</a>      </span>
+      <a class="comment_title" id="title7426" onclick="toggle(&quot;body7426&quot;)">Re: Please Help</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7426">
+    (<span class="upvotes"><span id="upvotes7426">3</span></span>/<span class="downvotes"><span id="downvotes7426">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7426" class="comment_body">
+    <pre id="msg7426" style="display: none">Uh.. with what?</pre>
+    <div style="opacity: 1">
+      Uh.. with what?    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment6884">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/xJoker">xJoker</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6884">Aug 25, 2015 - 7:33:58 pm UTC</a>      </span>
+      <a class="comment_title" id="title6884" onclick="toggle(&quot;body6884&quot;)">Whats wrong</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6884">
+    (<span class="upvotes"><span id="upvotes6884">1</span></span>/<span class="downvotes"><span id="downvotes6884">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6884" class="comment_body">
+    <pre id="msg6884" style="display: none">Can admin check if I am doing something wrong or not. It seems to be working fine but it gave me a pretty vague error.</pre>
+    <div style="opacity: 1">
+      Can admin check if I am doing something wrong or not. It seems to be working fine but it gave me a pretty vague error.    </div>
+    <br><div class="comment_block" id="comment6885">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/wgma00">wgma00</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6885">Aug 25, 2015 - 8:01:46 pm UTC</a>      </span>
+      <a class="comment_title" id="title6885" onclick="toggle(&quot;body6885&quot;)">Re: Whats wrong</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6885">
+    (<span class="upvotes"><span id="upvotes6885">2</span></span>/<span class="downvotes"><span id="downvotes6885">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6885" class="comment_body">
+    <pre id="msg6885" style="display: none">You're receiving a TLE (time limit exceeded) error because your code is too slow. You should try something different.</pre>
+    <div style="opacity: 1">
+      You're receiving a TLE (time limit exceeded) error because your code is too slow. You should try something different.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment6442">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/pikzel">pikzel</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6442">Jan 13, 2015 - 12:01:31 pm UTC</a>      </span>
+      <a class="comment_title" id="title6442" onclick="toggle(&quot;body6442&quot;)">Right direction?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6442">
+    (<span class="upvotes"><span id="upvotes6442">1</span></span>/<span class="downvotes"><span id="downvotes6442">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6442" class="comment_body">
+    <pre id="msg6442" style="display: none">I'm using a simple method of finding the possible factors of C, and check which one would give the smallest perimeter. With this solution I get Time Limit Exceeded (TLE) all the time. Is my solution wrong mathematically, or should I try to optimize the program?</pre>
+    <div style="opacity: 1">
+      I'm using a simple method of finding the possible factors of C, and check which one would give the smallest perimeter. With this solution I get Time Limit Exceeded (TLE) all the time. Is my solution wrong mathematically, or should I try to optimize the program?    </div>
+    <br><div class="comment_block" id="comment6450">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/SUPER_ET_DUPER">SUPER_ET_DUPER</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6450">Jan 16, 2015 - 9:02:11 pm UTC</a>      </span>
+      <a class="comment_title" id="title6450" onclick="toggle(&quot;body6450&quot;)">Re: Right direction?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6450">
+    (<span class="upvotes"><span id="upvotes6450">1</span></span>/<span class="downvotes"><span id="downvotes6450">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6450" class="comment_body">
+    <pre id="msg6450" style="display: none">You can find the two factors with the smallest perimeter without actually calculating the perimeter for every factor.
+Try to find the connection between the factors and perimiter.
+Good luck!</pre>
+    <div style="opacity: 1">
+      You can find the two factors with the smallest perimeter without actually calculating the perimeter for every factor. <br>Try to find the connection between the factors and perimiter. <br>Good luck!    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment6279">
+  <div class="comment_header" style="opacity: 0.65762804711038">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/paulkr">paulkr</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6279">Nov 09, 2014 - 12:14:31 am UTC</a>      </span>
+      <a class="comment_title" id="title6279" onclick="toggle(&quot;body6279&quot;)">Wrong answer from my code</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6279">
+    (<span class="upvotes"><span id="upvotes6279">0</span></span>/<span class="downvotes"><span id="downvotes6279">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6279" class="comment_body">
+    <pre id="msg6279" style="display: none">Could someone help me out? My code works on the test cases.</pre>
+    <div style="opacity: 0.65762804711038">
+      Could someone help me out? My code works on the test cases.    </div>
+    <br><div class="comment_block" id="comment6285">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/12345x3">12345x3</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6285">Nov 09, 2014 - 11:30:26 pm UTC</a>      </span>
+      <a class="comment_title" id="title6285" onclick="toggle(&quot;body6285&quot;)">Re: Wrong answer from my code</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6285">
+    (<span class="upvotes"><span id="upvotes6285">1</span></span>/<span class="downvotes"><span id="downvotes6285">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6285" class="comment_body">
+    <pre id="msg6285" style="display: none">Make more test cases? And try them out?</pre>
+    <div style="opacity: 1">
+      Make more test cases? And try them out?    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment3994">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/mmmmoj">mmmmoj</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3994">Feb 05, 2012 - 1:52:08 pm UTC</a>      </span>
+      <a class="comment_title" id="title3994" onclick="toggle(&quot;body3994&quot;)">What is wrong about my program?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3994">
+    (<span class="upvotes"><span id="upvotes3994">0</span></span>/<span class="downvotes"><span id="downvotes3994">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3994" class="comment_body">
+    <pre id="msg3994" style="display: none">[code removed]</pre>
+    <div style="opacity: 0.79345670852611">
+      [code removed]    </div>
+    <br><div class="comment_block" id="comment3995">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3995">Feb 05, 2012 - 4:01:59 pm UTC</a>      </span>
+      <a class="comment_title" id="title3995" onclick="toggle(&quot;body3995&quot;)">Re: What is wrong about my program?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3995">
+    (<span class="upvotes"><span id="upvotes3995">1</span></span>/<span class="downvotes"><span id="downvotes3995">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3995" class="comment_body">
+    <pre id="msg3995" style="display: none">Please see [url=http://wcipeg.com/comments/view#3719]this comment[/url]. Note also that if you've submitted, you don't have to post your code; you can just ask us to check your latest submission, for instance.</pre>
+    <div style="opacity: 0.90547134519913">
+      Please see <a href="http://wcipeg.com/comments/view#3719" target="_blank">this comment</a>. Note also that if you've submitted, you don't have to post your code; you can just ask us to check your latest submission, for instance.    </div>
+    <br><div class="comment_block" id="comment3998">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/mmmmoj">mmmmoj</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3998">Feb 05, 2012 - 9:38:38 pm UTC</a>      </span>
+      <a class="comment_title" id="title3998" onclick="toggle(&quot;body3998&quot;)">Re: Re: What is wrong about my program?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3998">
+    (<span class="upvotes"><span id="upvotes3998">0</span></span>/<span class="downvotes"><span id="downvotes3998">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3998" class="comment_body">
+    <pre id="msg3998" style="display: none">So what is wrong about my code because it work good in my pc?</pre>
+    <div style="opacity: 1">
+      So what is wrong about my code because it work good in my pc?    </div>
+    <br><div class="comment_block" id="comment3999">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3999">Feb 05, 2012 - 10:53:06 pm UTC</a>      </span>
+      <a class="comment_title" id="title3999" onclick="toggle(&quot;body3999&quot;)">Re: Re: What is wrong about my program?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3999">
+    (<span class="upvotes"><span id="upvotes3999">1</span></span>/<span class="downvotes"><span id="downvotes3999">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3999" class="comment_body">
+    <pre id="msg3999" style="display: none">Your while(x&gt;0) loop never runs. Note that your x variable is uninitialised.
+
+Also: the comment states that if you'd like to ask for help, you should do so on either the IRC server or the forums. Any further questions asked in comments will simply be deleted.</pre>
+    <div style="opacity: 1">
+      Your while(x&gt;0) loop never runs. Note that your x variable is uninitialised. <br> <br>Also: the comment states that if you'd like to ask for help, you should do so on either the IRC server or the forums. Any further questions asked in comments will simply be deleted.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment3982">
+  <div class="comment_header" style="opacity: 0.39034303365306">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/mmmmoj">mmmmoj</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3982">Jan 30, 2012 - 6:07:24 pm UTC</a>      </span>
+      <a class="comment_title" id="title3982" onclick="toggle(&quot;body3982&quot;)">wrong in the problem</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3982">
+    (<span class="upvotes"><span id="upvotes3982">0</span></span>/<span class="downvotes"><span id="downvotes3982">6</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3982" class="comment_body">
+    <pre id="msg3982" style="display: none">my program is optimal than your because in the input 3 with 195 pictures the minimum perimeter is 16 with 3 x 65 . you can check it by yourself.
+please check the problem again and check my answer.</pre>
+    <div style="opacity: 0.39034303365306">
+      my program is optimal than your because in the input 3 with 195 pictures the minimum perimeter is 16 with 3 x 65 . you can check it by yourself. <br>please check the problem again and check my answer.    </div>
+    <br><div class="comment_block" id="comment3983">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/sherwinxu">sherwinxu</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3983">Jan 30, 2012 - 9:02:05 pm UTC</a>      </span>
+      <a class="comment_title" id="title3983" onclick="toggle(&quot;body3983&quot;)">Re: wrong in the problem</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3983">
+    (<span class="upvotes"><span id="upvotes3983">5</span></span>/<span class="downvotes"><span id="downvotes3983">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3983" class="comment_body">
+    <pre id="msg3983" style="display: none">The perimeter of 3 x 65 is actually 136. 3*2+65*2=136.</pre>
+    <div style="opacity: 1">
+      The perimeter of 3 x 65 is actually 136. 3*2+65*2=136.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0622s.<br>
+    Server time on page load:
+    Jun 7, 2018 07:39:12 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fccc03j2">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

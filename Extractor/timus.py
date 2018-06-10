@@ -1,6 +1,6 @@
 import requests
 import bs4 as bs
-import util
+from Extractor import util
 import re
 import math
 

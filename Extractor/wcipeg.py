@@ -1,6 +1,6 @@
 import bs4 as bs
 import requests
-import util
+from Extractor import util
 
 def wcipeg(page, crawlerType, extractorType, domain, fileName):
     #request = requests.get("https://wcipeg.com/problem/dt16l1p1")
@@ -18,9 +18,13 @@ def wcipeg(page, crawlerType, extractorType, domain, fileName):
     #contents
     elements = problem.findAll(["h3", "p", "pre", "li"])
     
-    #Existem casos q o primeiro elemento é nome da universidade ou coisa do tipo.
-    if elements[0].name == "h3":
+    if len(elements) == 0:
+        elements = problem.findAll()
         elements = elements[1:]
+    else:
+        #Existem casos q o primeiro elemento é nome da universidade ou coisa do tipo.
+        if elements[0].name == "h3":
+            elements = elements[1:]
         
     elementTitle = "Description"
     elementContent = ""

@@ -1,0 +1,735 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - CCC98S1 - Censor</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "3d9c83c15e0f324305366b918ab3d51c";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fccc98s1"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>1998 Canadian Computing Competition, Stage 1</h3>
+<h2>Problem A: Censor</h2>
+
+<p>The Society for the Prevention of Profanity on the Internet has observed a
+  growing number of chat lines on the World-Wide Web. A chat line allows a Web
+  user to type lines of text which are transmitted to all other users. The
+  Society is concerned about the number of four-letter words being transmitted by
+  these chat lines and has proposed the mandatory use of software to remove all
+  four-letter words from every transmission. Your job is to write the software to
+do this removal. </p>
+
+<h3>Input</h3>
+<p>The input to your program consists of an integer, <var>n</var>, on a line by
+itself, followed by <var>n</var> lines of text. Each line of text contains
+words separated by spaces. Each word consists of letters of the alphabet and
+exactly one space separates adjacent words. Lines do not exceed 80 characters
+in length. </p>
+
+<h3>Output</h3>
+<p>The output from your program should consist of the
+<var>n</var> lines of text, with each four-letter word replaced by four
+asterisks. The lines should be separated by one blank line. </p>
+
+<h3>Sample Input</h3>
+
+<pre>2
+The quick brown fox jumps over the lazy dog
+Now is the time for all good people to come to the aid of the party</pre>
+
+<h3>Sample Output</h3>
+
+<pre>The quick brown fox jumps **** the **** dog
+&nbsp;
+Now is the **** for all **** people to **** to the aid of the party</pre></div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,ccc98s1">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/ccc98s1">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 5<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Oct 01, 2008<br>
+      </p>
+
+    <b>Problem Types:</b>
+  <noscript>
+    &lt;style type="text/css"&gt;
+      #show_types, #hide_types { display: none !important; }
+      #spoiler_id { display: inline !important; }
+    &lt;/style&gt;
+  </noscript>
+  <a href="javascript:void(null);" id="show_types" onclick="document.getElementById('spoiler_id').style.display=''; document.getElementById('show_types').style.display='none';">[Show]</a>
+  <span id="spoiler_id" style="display: none">
+    <a href="javascript:void(null);" id="hide_types" onclick="document.getElementById('spoiler_id').style.display='none'; document.getElementById('show_types').style.display='';">[Hide]</a><br>
+    <ul style="list-style-type: none; margin: 0; padding: 0;">
+      <li>String Manipulation</li>    </ul>
+  </span>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=ccc98s1">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment7691">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Hisownmother">Hisownmother</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7691">Sep 28, 2016 - 10:36:39 pm UTC</a>      </span>
+      <a class="comment_title" id="title7691" onclick="toggle(&quot;body7691&quot;)"></a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7691">
+    (<span class="upvotes"><span id="upvotes7691">0</span></span>/<span class="downvotes"><span id="downvotes7691">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7691" class="comment_body">
+    <pre id="msg7691" style="display: none"></pre>
+    <div style="opacity: 1">
+          </div>
+    <br><div class="comment_block" id="comment7693">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7693">Sep 29, 2016 - 4:44:56 am UTC</a>      </span>
+      <a class="comment_title" id="title7693" onclick="toggle(&quot;body7693&quot;)">Re: hints...?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7693">
+    (<span class="upvotes"><span id="upvotes7693">1</span></span>/<span class="downvotes"><span id="downvotes7693">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7693" class="comment_body">
+    <pre id="msg7693" style="display: none">Think carefully about the order in which you're incrementing and censoring.</pre>
+    <div style="opacity: 1">
+      Think carefully about the order in which you're incrementing and censoring.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment7340">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/xXxP0t4t0MStRxXx">xXxP0t4t0MStRxXx</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7340">Jan 10, 2016 - 11:10:26 pm UTC</a>      </span>
+      <a class="comment_title" id="title7340" onclick="toggle(&quot;body7340&quot;)">How can I determine that a line is over?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7340">
+    (<span class="upvotes"><span id="upvotes7340">0</span></span>/<span class="downvotes"><span id="downvotes7340">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7340" class="comment_body">
+    <pre id="msg7340" style="display: none">How can I determine that a line is over?
+
+The sample case worked with my code, but for the actual test case, I am getting all of the lines with just one getline.</pre>
+    <div style="opacity: 1">
+      How can I determine that a line is over? <br> <br>The sample case worked with my code, but for the actual test case, I am getting all of the lines with just one getline.    </div>
+    <br><div class="comment_block" id="comment7341">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Butane">Butane</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7341">Jan 11, 2016 - 2:24:54 am UTC</a>      </span>
+      <a class="comment_title" id="title7341" onclick="toggle(&quot;body7341&quot;)">Re: How can I determine that a line is over?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7341">
+    (<span class="upvotes"><span id="upvotes7341">1</span></span>/<span class="downvotes"><span id="downvotes7341">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7341" class="comment_body">
+    <pre id="msg7341" style="display: none">Getline reads until the newline character, so it will automatically only read one line. You are actually reading line by line, its just that the judge clips output so you can't see all of your output.</pre>
+    <div style="opacity: 1">
+      Getline reads until the newline character, so it will automatically only read one line. You are actually reading line by line, its just that the judge clips output so you can't see all of your output.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment6291">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Ajna">Ajna</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6291">Nov 11, 2014 - 6:57:40 pm UTC</a>      </span>
+      <a class="comment_title" id="title6291" onclick="toggle(&quot;body6291&quot;)">Running time</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6291">
+    (<span class="upvotes"><span id="upvotes6291">0</span></span>/<span class="downvotes"><span id="downvotes6291">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6291" class="comment_body">
+    <pre id="msg6291" style="display: none">As I am striving to improve my code performances (at least with problems this east), seeing that a huge number of problems has basically 0 running times makes me either feel rather frustrated or wish that is due to some bug: can someone from the staff confirm about it?</pre>
+    <div style="opacity: 1">
+      As I am striving to improve my code performances (at least with problems this east), seeing that a huge number of problems has basically 0 running times makes me either feel rather frustrated or wish that is due to some bug: can someone from the staff confirm about it?    </div>
+    <br><div class="comment_block" id="comment6292">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/fifiman">fifiman</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6292">Nov 11, 2014 - 10:15:02 pm UTC</a>      </span>
+      <a class="comment_title" id="title6292" onclick="toggle(&quot;body6292&quot;)">Re: Running time</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6292">
+    (<span class="upvotes"><span id="upvotes6292">1</span></span>/<span class="downvotes"><span id="downvotes6292">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6292" class="comment_body">
+    <pre id="msg6292" style="display: none">Everyone who has those runtimes have written the code in either c++ or pascal. Both languages are much faster than python. Learn to ignore what the best solutions part says and focus on your own code. As long as you get it right you're fine. 
+</pre>
+    <div style="opacity: 1">
+      Everyone who has those runtimes have written the code in either c++ or pascal. Both languages are much faster than python. Learn to ignore what the best solutions part says and focus on your own code. As long as you get it right you're fine.    </div>
+    <br><div class="comment_block" id="comment6317">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Ajna">Ajna</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6317">Nov 19, 2014 - 1:02:54 pm UTC</a>      </span>
+      <a class="comment_title" id="title6317" onclick="toggle(&quot;body6317&quot;)">Re: Running time</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6317">
+    (<span class="upvotes"><span id="upvotes6317">0</span></span>/<span class="downvotes"><span id="downvotes6317">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6317" class="comment_body">
+    <pre id="msg6317" style="display: none">And thanks for your kind words too, fifiman; a more thorough answer to how I manage my challenges here on wcipeg is right below Alex's comment :).</pre>
+    <div style="opacity: 1">
+      And thanks for your kind words too, fifiman; a more thorough answer to how I manage my challenges here on wcipeg is right below Alex's comment :).    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br><div class="comment_block" id="comment6293">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Alex">Alex</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6293">Nov 11, 2014 - 10:18:15 pm UTC</a>      </span>
+      <a class="comment_title" id="title6293" onclick="toggle(&quot;body6293&quot;)">Re: Running time</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6293">
+    (<span class="upvotes"><span id="upvotes6293">2</span></span>/<span class="downvotes"><span id="downvotes6293">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6293" class="comment_body">
+    <pre id="msg6293" style="display: none">Certain languages (namely C, C++, and Pascal) are inherently very fast - much faster than Python, Ruby, Java, and the like. There is nothing you can do about this. Most problems are built so that all languages can pass provided that the asymptotic running time is correct. There are really no merits to improving your solution beyond getting AC (unless you want to practice constant optimization, which is a different issue). Your time is better spent on trying to work through harder problems.
+
+As a side note, you might've noticed that even recent C/C++/Pascal submissions cannot get [i]exactly[/i] 0.000s like many best submissions you've seen. This is because those were submitted back when the judge had a different grading system (and possibly even hardware?), so the execution times may not have been as accurate.
+</pre>
+    <div style="opacity: 1">
+      Certain languages (namely C, C++, and Pascal) are inherently very fast - much faster than Python, Ruby, Java, and the like. There is nothing you can do about this. Most problems are built so that all languages can pass provided that the asymptotic running time is correct. There are really no merits to improving your solution beyond getting AC (unless you want to practice constant optimization, which is a different issue). Your time is better spent on trying to work through harder problems. <br> <br>As a side note, you might've noticed that even recent C/C++/Pascal submissions cannot get <span class="italics">exactly</span> 0.000s like many best submissions you've seen. This is because those were submitted back when the judge had a different grading system (and possibly even hardware?), so the execution times may not have been as accurate.    </div>
+    <br><div class="comment_block" id="comment6316">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Ajna">Ajna</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6316">Nov 19, 2014 - 1:01:21 pm UTC</a>      </span>
+      <a class="comment_title" id="title6316" onclick="toggle(&quot;body6316&quot;)">Re: Running time</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6316">
+    (<span class="upvotes"><span id="upvotes6316">0</span></span>/<span class="downvotes"><span id="downvotes6316">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6316" class="comment_body">
+    <pre id="msg6316" style="display: none">Ops, I expected some kind of notification and missed this one: you may be right that my time is best spent elsewhere, though seeing that my slick algos are performing slower than some simple brute force may be frustrating.
+
+Even so, I am here also to try and improve my performances, not just getting the right answer (which often is way too plain to me), so I'll try not to focus too much on my own reported times and a tad more on other users best practices and interesting code.
+
+Btw, I sincerely doubt that C or the poor Pascal can really be HUNDREDS of time faster than my good old snake.</pre>
+    <div style="opacity: 1">
+      Ops, I expected some kind of notification and missed this one: you may be right that my time is best spent elsewhere, though seeing that my slick algos are performing slower than some simple brute force may be frustrating. <br> <br>Even so, I am here also to try and improve my performances, not just getting the right answer (which often is way too plain to me), so I'll try not to focus too much on my own reported times and a tad more on other users best practices and interesting code. <br> <br>Btw, I sincerely doubt that C or the poor Pascal can really be HUNDREDS of time faster than my good old snake.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment3897">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Srot">Srot</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3897">Dec 26, 2011 - 9:02:43 pm UTC</a>      </span>
+      <a class="comment_title" id="title3897" onclick="toggle(&quot;body3897&quot;)">PUnctuation and symbols?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3897">
+    (<span class="upvotes"><span id="upvotes3897">0</span></span>/<span class="downvotes"><span id="downvotes3897">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3897" class="comment_body">
+    <pre id="msg3897" style="display: none">Do i have to take care of punctuation or symbols or numbers (such as 1234. #%%$ or YEAH!!) because it does not mention anything about that in the description? Thank you very much in advance.
+</pre>
+    <div style="opacity: 1">
+      Do i have to take care of punctuation or symbols or numbers (such as 1234. #%%$ or YEAH!!) because it does not mention anything about that in the description? Thank you very much in advance.    </div>
+    <br><div class="comment_block" id="comment3898">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Srot">Srot</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3898">Dec 26, 2011 - 9:16:53 pm UTC</a>      </span>
+      <a class="comment_title" id="title3898" onclick="toggle(&quot;body3898&quot;)">Re: PUnctuation and symbols?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3898">
+    (<span class="upvotes"><span id="upvotes3898">0</span></span>/<span class="downvotes"><span id="downvotes3898">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3898" class="comment_body">
+    <pre id="msg3898" style="display: none">My program works perfectly fine on the given testcases but gives me 0 when i submit it? IS my code completely wrong? Thank You</pre>
+    <div style="opacity: 1">
+      My program works perfectly fine on the given testcases but gives me 0 when i submit it? IS my code completely wrong? Thank You    </div>
+    <br><div class="comment_block" id="comment3901">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/XZNZ">XZNZ</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3901">Dec 26, 2011 - 10:08:17 pm UTC</a>      </span>
+      <a class="comment_title" id="title3901" onclick="toggle(&quot;body3901&quot;)">Re: Re: PUnctuation and symbols?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3901">
+    (<span class="upvotes"><span id="upvotes3901">0</span></span>/<span class="downvotes"><span id="downvotes3901">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3901" class="comment_body">
+    <pre id="msg3901" style="display: none">also read announcement
+http://wcipeg.com/comments/view#3719</pre>
+    <div style="opacity: 1">
+      also read announcement <br>http://wcipeg.com/comments/view#3719    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br><div class="comment_block" id="comment3900">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/XZNZ">XZNZ</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3900">Dec 26, 2011 - 10:07:09 pm UTC</a>      </span>
+      <a class="comment_title" id="title3900" onclick="toggle(&quot;body3900&quot;)">Re: PUnctuation and symbols?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3900">
+    (<span class="upvotes"><span id="upvotes3900">1</span></span>/<span class="downvotes"><span id="downvotes3900">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3900" class="comment_body">
+    <pre id="msg3900" style="display: none">[quote]Each word consists of letters of the alphabet and exactly one space separates adjacent words.[/quote]</pre>
+    <div style="opacity: 1">
+      <table style="width: 90%; margin: 0 auto">
+            <tbody><tr>
+            <td><span class="quotecodeheader"></span></td>
+            </tr>
+            <tr>
+            <td class="quotebody">Each word consists of letters of the alphabet and exactly one space separates adjacent words.</td>
+            </tr>
+            </tbody></table>    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment976">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/humanoidmanticore">humanoidmanticore</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/976">Dec 25, 2008 - 11:16:06 pm UTC</a>      </span>
+      <a class="comment_title" id="title976" onclick="toggle(&quot;body976&quot;)"></a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating976">
+    (<span class="upvotes"><span id="upvotes976">0</span></span>/<span class="downvotes"><span id="downvotes976">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body976" class="comment_body">
+    <pre id="msg976" style="display: none">do we "absorb" all the inputs to we output, or do we output them as soon as the inputs appear?</pre>
+    <div style="opacity: 1">
+      do we "absorb" all the inputs to we output, or do we output them as soon as the inputs appear?    </div>
+    <br><div class="comment_block" id="comment977">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bleung91">bleung91</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/977">Dec 25, 2008 - 11:44:31 pm UTC</a>      </span>
+      <a class="comment_title" id="title977" onclick="toggle(&quot;body977&quot;)">Re: ...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating977">
+    (<span class="upvotes"><span id="upvotes977">0</span></span>/<span class="downvotes"><span id="downvotes977">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body977" class="comment_body">
+    <pre id="msg977" style="display: none">you output for each input in order.  So the second one.</pre>
+    <div style="opacity: 1">
+      you output for each input in order.  So the second one.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment739">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/zhxl0903">zhxl0903</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/739">Dec 13, 2008 - 6:15:27 pm UTC</a>      </span>
+      <a class="comment_title" id="title739" onclick="toggle(&quot;body739&quot;)">I tested my program and it was ok, but...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating739">
+    (<span class="upvotes"><span id="upvotes739">0</span></span>/<span class="downvotes"><span id="downvotes739">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body739" class="comment_body">
+    <pre id="msg739" style="display: none">...the Judge just wouldn't accept it.
+
+Do you need a blank line between the last line of input and the first line of output, too?  
+
+</pre>
+    <div style="opacity: 1">
+      ...the Judge just wouldn't accept it. <br> <br>Do you need a blank line between the last line of input and the first line of output, too?    </div>
+    <br><div class="comment_block" id="comment891">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/seyonv">seyonv</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/891">Dec 22, 2008 - 9:17:40 pm UTC</a>      </span>
+      <a class="comment_title" id="title891" onclick="toggle(&quot;body891&quot;)">Re: I tested my program and it was ok, but...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating891">
+    (<span class="upvotes"><span id="upvotes891">0</span></span>/<span class="downvotes"><span id="downvotes891">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body891" class="comment_body">
+    <pre id="msg891" style="display: none">I got the exact smae problem Xiao Lei, it works well for all posibilities on my compiler, but I get 0/10 on the judge</pre>
+    <div style="opacity: 1">
+      I got the exact smae problem Xiao Lei, it works well for all posibilities on my compiler, but I get 0/10 on the judge    </div>
+    <br><div class="comment_block" id="comment892">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hansonw1">hansonw1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/892">Dec 22, 2008 - 9:21:17 pm UTC</a>      </span>
+      <a class="comment_title" id="title892" onclick="toggle(&quot;body892&quot;)">Re: Re: I tested my program and it was ok, but...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating892">
+    (<span class="upvotes"><span id="upvotes892">0</span></span>/<span class="downvotes"><span id="downvotes892">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body892" class="comment_body">
+    <pre id="msg892" style="display: none">Well, looks like you didn't test for multiple lines.</pre>
+    <div style="opacity: 1">
+      Well, looks like you didn't test for multiple lines.    </div>
+    <br><div class="comment_block" id="comment894">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/seyonv">seyonv</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/894">Dec 22, 2008 - 9:27:07 pm UTC</a>      </span>
+      <a class="comment_title" id="title894" onclick="toggle(&quot;body894&quot;)">Re: Re: Re: I tested my program and it was ok, but...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating894">
+    (<span class="upvotes"><span id="upvotes894">0</span></span>/<span class="downvotes"><span id="downvotes894">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body894" class="comment_body">
+    <pre id="msg894" style="display: none">O.o-By multiple lines Hanson do you mean if one of the test cases is longer than the screen or multiple testcases</pre>
+    <div style="opacity: 1">
+      O.o-By multiple lines Hanson do you mean if one of the test cases is longer than the screen or multiple testcases    </div>
+      </div>
+</div>
+<br><div class="comment_block" id="comment895">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/hansonw1">hansonw1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/895">Dec 22, 2008 - 9:28:08 pm UTC</a>      </span>
+      <a class="comment_title" id="title895" onclick="toggle(&quot;body895&quot;)">Re: Re: Re: I tested my program and it was ok, but...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating895">
+    (<span class="upvotes"><span id="upvotes895">0</span></span>/<span class="downvotes"><span id="downvotes895">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body895" class="comment_body">
+    <pre id="msg895" style="display: none">I mean multiple cases.
+(The judge's "screen" is infinite, so no need to worry about stuff like that)</pre>
+    <div style="opacity: 1">
+      I mean multiple cases. <br>(The judge's "screen" is infinite, so no need to worry about stuff like that)    </div>
+    <br><div class="comment_block" id="comment898">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/seyonv">seyonv</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/898">Dec 22, 2008 - 9:39:46 pm UTC</a>      </span>
+      <a class="comment_title" id="title898" onclick="toggle(&quot;body898&quot;)">Re: Re: Re: Re: I tested my program and it was ok, but...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating898">
+    (<span class="upvotes"><span id="upvotes898">0</span></span>/<span class="downvotes"><span id="downvotes898">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body898" class="comment_body">
+    <pre id="msg898" style="display: none">Oh, ok, but it still works fine. The only doubts I may have is punctuation like a period, but thats not mentioned in the problem and it seems like it works fine for others, and spacing. Would spacing like this correct
+
+3
+Hello world
+
+**** ****
+
+this is so very random
+
+**** is so **** random
+
+finally i am done
+
+finally i am ****</pre>
+    <div style="opacity: 1">
+      Oh, ok, but it still works fine. The only doubts I may have is punctuation like a period, but thats not mentioned in the problem and it seems like it works fine for others, and spacing. Would spacing like this correct <br> <br>3 <br>Hello world <br> <br>**** **** <br> <br>this is so very random <br> <br>**** is so **** random <br> <br>finally i am done <br> <br>finally i am ****    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment742">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/zhxl0903">zhxl0903</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/742">Dec 13, 2008 - 6:43:53 pm UTC</a>      </span>
+      <a class="comment_title" id="title742" onclick="toggle(&quot;body742&quot;)">do 4 letter words include those with apostrophe?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating742">
+    (<span class="upvotes"><span id="upvotes742">0</span></span>/<span class="downvotes"><span id="downvotes742">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body742" class="comment_body">
+    <pre id="msg742" style="display: none">e.g. " Here's " -&gt; " ****'s "</pre>
+    <div style="opacity: 0.79345670852611">
+      e.g. " Here's " -&gt; " ****'s "    </div>
+    <br><div class="comment_block" id="comment745">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/745">Dec 13, 2008 - 7:09:56 pm UTC</a>      </span>
+      <a class="comment_title" id="title745" onclick="toggle(&quot;body745&quot;)">Re: do 4 letter words include those with apostrophe?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating745">
+    (<span class="upvotes"><span id="upvotes745">1</span></span>/<span class="downvotes"><span id="downvotes745">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body745" class="comment_body">
+    <pre id="msg745" style="display: none">There are no apostrophes in the test data. There is a test case which consists just of the word "Four", and you haven't censored it.</pre>
+    <div style="opacity: 1">
+      There are no apostrophes in the test data. There is a test case which consists just of the word "Four", and you haven't censored it.    </div>
+    <br><div class="comment_block" id="comment747">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/zhxl0903">zhxl0903</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/747">Dec 13, 2008 - 9:58:25 pm UTC</a>      </span>
+      <a class="comment_title" id="title747" onclick="toggle(&quot;body747&quot;)">Re: Re: do 4 letter words include those with apostrophe?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating747">
+    (<span class="upvotes"><span id="upvotes747">0</span></span>/<span class="downvotes"><span id="downvotes747">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body747" class="comment_body">
+    <pre id="msg747" style="display: none">Thanks a lot! It turned out that I forgot one of the conditions lol...</pre>
+    <div style="opacity: 1">
+      Thanks a lot! It turned out that I forgot one of the conditions lol...    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment741">
+  <div class="comment_header" style="opacity: 0.93850968472384">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/ultblad1">ultblad1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/741">Dec 13, 2008 - 6:28:02 pm UTC</a>      </span>
+      <a class="comment_title" id="title741" onclick="toggle(&quot;body741&quot;)"></a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating741">
+    (<span class="upvotes"><span id="upvotes741">2</span></span>/<span class="downvotes"><span id="downvotes741">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body741" class="comment_body">
+    <pre id="msg741" style="display: none">No idea what your problem is, the judge does not accept your solution, even with correct spacing.
+
+The output from your program should consists of the n lines of text, with each four-letter word replaced by four asterisks. The lines should be separated by one blank line.
+
+-Toby Li</pre>
+    <div style="opacity: 0.93850968472384">
+      No idea what your problem is, the judge does not accept your solution, even with correct spacing. <br> <br>The output from your program should consists of the n lines of text, with each four-letter word replaced by four asterisks. The lines should be separated by one blank line. <br> <br>-Toby Li    </div>
+      </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0707s.<br>
+    Server time on page load:
+    Jun 7, 2018 07:38:03 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fccc98s1">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

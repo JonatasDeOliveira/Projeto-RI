@@ -1,6 +1,6 @@
 import bs4 as bs
 import requests
-import util
+from Extractor import util
 
 def dmoj(page, crawlerType, extractorType, domain, fileName): 
     #request = requests.get("https://dmoj.ca/problem/ccc13j3")

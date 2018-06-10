@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
-import util
+from Extractor import util
 from selenium import webdriver
 import signal
 

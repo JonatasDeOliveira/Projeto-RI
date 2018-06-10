@@ -1,0 +1,404 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - Mock CCC14J1 - Love Overdose</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "3d9c83c15e0f324305366b918ab3d51c";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fmockccc14j1"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>2014 Mock CCC by Alex and Timothy</h3>
+<h2>Problem J1: Love Overdose</h2>
+
+<p>Alice has a crush on her friend Bob, but she is too shy to express it. From an ancient recipe passed down through her family, she has concocted a vial of love potion. She plans to slip this potion into Bob's food every day so he will love her forever. The only problem is that the potion is so potent, taking too much can make Bob overdose, resulting in him being utterly indifferent towards her.</p>
+
+<p>According to a note on the recipe, if some amount of the potion is ingested one day, only 50% percent of that amount is retained in the body on the next day, and 0% of that amount is retained on the day after that. You are given <var>A</var> and <var>B</var>, the amount of love potion in mL that Alice gives to Bob on the first and second day, respectively, and <var>R</var>, the recommended dosage in mL, according to her recipe. Write a program to determine whether Bob overdoses on the first day, the second day, or neither. Note that if Bob overdoses on the first day, he cannot overdose again on the second.</p>
+
+<h3>Input Format</h3>
+<p>Three lines, containing the three non-negative integers <var>A</var>, <var>B</var>, and <var>R</var>, each no greater than 1000.</p>
+
+<h3>Output Format</h3>
+<p>If he overdoses on the first day, output "<code>Bob overdoses on day 1.</code>" If he overdoses on the second day, output "<code>Bob overdoses on day 2.</code>" Otherwise, output "<code>Bob never overdoses.</code>"</p>
+
+<h3>Sample Input 1</h3>
+<pre>100
+200
+249
+</pre>
+
+<h3>Sample Output 1</h3>
+<pre>Bob overdoses on day 2.
+</pre>
+
+<h3>Sample Input 2</h3>
+<pre>50
+100
+125
+</pre>
+
+<h3>Sample Output 2</h3>
+<pre>Bob never overdoses.
+</pre>
+
+<h3>Explanation</h3>
+<p>For the first example, Alice slips Bob 100 mL of the potion on day one, of which, only 50 mL remain in Bob's body on day two. 50 mL is added on top of the 200 mL that he ingests on day two to make 250 mL, which is barely enough to make him overdose the recommended dosage of 249 mL.</p>
+<p>For the second example, the amount from day one reduces to 25 mL on day two, when he is given another 100 mL to yield a total of 125 mL for the second day. 125 mL happens to be just the right dosage, so he does not overdose.</p>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,mockccc14j1">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/mockccc14j1">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 3<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Feb 27, 2014<br>
+        <b>Author:</b> <a href="https://wcipeg.com/user/Alex">Alex</a>  </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=mockccc14j1">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment8514">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/vyom">vyom</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8514">Jan 02, 2018 - 4:29:31 pm UTC</a>      </span>
+      <a class="comment_title" id="title8514" onclick="toggle(&quot;body8514&quot;)">Helpppp</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8514">
+    (<span class="upvotes"><span id="upvotes8514">0</span></span>/<span class="downvotes"><span id="downvotes8514">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8514" class="comment_body">
+    <pre id="msg8514" style="display: none">what is wrong with my code.</pre>
+    <div style="opacity: 0.79345670852611">
+      what is wrong with my code.    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment7265">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/325243681">325243681</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7265">Dec 27, 2015 - 10:18:34 pm UTC</a>      </span>
+      <a class="comment_title" id="title7265" onclick="toggle(&quot;body7265&quot;)">Odd Numbers</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7265">
+    (<span class="upvotes"><span id="upvotes7265">1</span></span>/<span class="downvotes"><span id="downvotes7265">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7265" class="comment_body">
+    <pre id="msg7265" style="display: none">what if the amount she gives him is odd and we have to divide that? Do we round the decimal point or just keep it as is?</pre>
+    <div style="opacity: 1">
+      what if the amount she gives him is odd and we have to divide that? Do we round the decimal point or just keep it as is?    </div>
+    <br><div class="comment_block" id="comment7267">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/spencereir">spencereir</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7267">Dec 28, 2015 - 3:53:42 am UTC</a>      </span>
+      <a class="comment_title" id="title7267" onclick="toggle(&quot;body7267&quot;)">Re: Odd Numbers</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7267">
+    (<span class="upvotes"><span id="upvotes7267">1</span></span>/<span class="downvotes"><span id="downvotes7267">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7267" class="comment_body">
+    <pre id="msg7267" style="display: none">Yes, do record the decimal places. My code got 12/15 using integers, 15/15 using doubles.</pre>
+    <div style="opacity: 0.90547134519913">
+      Yes, do record the decimal places. My code got 12/15 using integers, 15/15 using doubles.    </div>
+    <br><div class="comment_block" id="comment8433">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Panicatol648989">Panicatol648989</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8433">Dec 04, 2017 - 9:23:30 pm UTC</a>      </span>
+      <a class="comment_title" id="title8433" onclick="toggle(&quot;body8433&quot;)">Re: Odd Numbers</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8433">
+    (<span class="upvotes"><span id="upvotes8433">0</span></span>/<span class="downvotes"><span id="downvotes8433">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8433" class="comment_body">
+    <pre id="msg8433" style="display: none">Same for me</pre>
+    <div style="opacity: 1">
+      Same for me    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment8359">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/loltroll21">loltroll21</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8359">Nov 26, 2017 - 12:05:10 am UTC</a>      </span>
+      <a class="comment_title" id="title8359" onclick="toggle(&quot;body8359&quot;)">My code!!</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8359">
+    (<span class="upvotes"><span id="upvotes8359">0</span></span>/<span class="downvotes"><span id="downvotes8359">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8359" class="comment_body">
+    <pre id="msg8359" style="display: none">What is wrong with my code????</pre>
+    <div style="opacity: 0.79345670852611">
+      What is wrong with my code????    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment7275">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/girishr2004">girishr2004</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7275">Dec 29, 2015 - 3:53:27 pm UTC</a>      </span>
+      <a class="comment_title" id="title7275" onclick="toggle(&quot;body7275&quot;)"></a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7275">
+    (<span class="upvotes"><span id="upvotes7275">3</span></span>/<span class="downvotes"><span id="downvotes7275">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7275" class="comment_body">
+    <pre id="msg7275" style="display: none">Why is my code not working?</pre>
+    <div style="opacity: 1">
+      Why is my code not working?    </div>
+    <br><div class="comment_block" id="comment7276">
+  <div class="comment_header" style="opacity: 0.79234504487351">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/aCookieBreak">aCookieBreak</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7276">Dec 29, 2015 - 5:06:11 pm UTC</a>      </span>
+      <a class="comment_title" id="title7276" onclick="toggle(&quot;body7276&quot;)">Re: ...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7276">
+    (<span class="upvotes"><span id="upvotes7276">1</span></span>/<span class="downvotes"><span id="downvotes7276">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7276" class="comment_body">
+    <pre id="msg7276" style="display: none">[quote]Note that if Bob overdoses on the first day, he cannot overdose again on the second.[/quote]
+
+Perhaps this will help.</pre>
+    <div style="opacity: 0.79234504487351">
+      <table style="width: 90%; margin: 0 auto">
+            <tbody><tr>
+            <td><span class="quotecodeheader"></span></td>
+            </tr>
+            <tr>
+            <td class="quotebody">Note that if Bob overdoses on the first day, he cannot overdose again on the second.</td>
+            </tr>
+            </tbody></table> <br> <br>Perhaps this will help.    </div>
+    <br><div class="comment_block" id="comment7281">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/girishr2004">girishr2004</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7281">Dec 31, 2015 - 3:32:34 pm UTC</a>      </span>
+      <a class="comment_title" id="title7281" onclick="toggle(&quot;body7281&quot;)">Re: ...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7281">
+    (<span class="upvotes"><span id="upvotes7281">2</span></span>/<span class="downvotes"><span id="downvotes7281">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7281" class="comment_body">
+    <pre id="msg7281" style="display: none">Thank you !</pre>
+    <div style="opacity: 1">
+      Thank you !    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment5781">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/eraj4eva">eraj4eva</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5781">Mar 01, 2014 - 4:06:18 am UTC</a>      </span>
+      <a class="comment_title" id="title5781" onclick="toggle(&quot;body5781&quot;)">um...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5781">
+    (<span class="upvotes"><span id="upvotes5781">1</span></span>/<span class="downvotes"><span id="downvotes5781">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5781" class="comment_body">
+    <pre id="msg5781" style="display: none">what does it mean when the program compiler says got \"Extended\" expected \"SmallInt\"</pre>
+    <div style="opacity: 1">
+      what does it mean when the program compiler says got \"Extended\" expected \"SmallInt\"    </div>
+    <br><div class="comment_block" id="comment5783">
+  <div class="comment_header" style="opacity: 0.79234504487351">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Hzhang">Hzhang</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5783">Mar 01, 2014 - 4:58:19 am UTC</a>      </span>
+      <a class="comment_title" id="title5783" onclick="toggle(&quot;body5783&quot;)">Re: um...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5783">
+    (<span class="upvotes"><span id="upvotes5783">1</span></span>/<span class="downvotes"><span id="downvotes5783">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5783" class="comment_body">
+    <pre id="msg5783" style="display: none">Try using div instead of /, maybe that would work better?</pre>
+    <div style="opacity: 0.79234504487351">
+      Try using div instead of /, maybe that would work better?    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0348s.<br>
+    Server time on page load:
+    Jun 7, 2018 07:44:31 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fmockccc14j1">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

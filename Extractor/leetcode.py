@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 from selenium import webdriver
 import signal
-import util
+from Extractor import util
 
 def leetcode(page, crawlerType, extractorType, domain, fileName):
     #driver = webdriver.PhantomJS()

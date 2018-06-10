@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - CCC05S4 - Pyramid Messaging Scheme</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "3d9c83c15e0f324305366b918ab3d51c";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fccc05s4"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>2005 Canadian Computing Competition, Stage 1</h3>
+<h2>Problem S4: Pyramid Message Scheme</h2>
+
+<p>Spamway Inc. maintains a network of zombie computers to solicit and collect orders for its various fine products. Each zombie computer is responsible for zero or more subordinate zombies that it coordinates in these activities.</p>
+<p>Spamway uses a simple communication strategy among its zombies for transmitting solicitations and receiving orders. Each solicitation originates at Spamway's head zombie, which then communicates it to each of its subordinates in turn, waiting to collect orders from one subordinate before proceeding to the next. Each subordinate employs the same strategy - it sends to and receives from each of its subordinates in turn.</p>
+<p>For example, suppose that Home has two subordinate zombies named Alfred and Betty; Alfred's subordinates are named Cindy and Dennis; Betty has no subordinates. This organization is pictured below.</p>
+
+<pre>            Cindy
+           /
+     Alfred
+    /      \
+Home        Dennis
+    \
+     Betty
+</pre>
+
+<p>Home first sends to Alfred; Alfred then sends to Cindy; Cindy responds to Alfred; Alfred sends to Dennis; Dennis responds to Alfred; Alfred responds to Home; Home sends to Betty; Betty responds to Home.</p>
+<p>Each message takes 10 seconds to be delivered. So the example given above would be completed in 80 seconds. You have been retained by Spamway, who will pay you handsomely (in Spam Bucks which may be redeemed for any of their valuable products) to help them reduce the time necessary to solicit and collect orders. In particular, Spamway is considering a new strategy in which each zombie sends out messages to each of its subordinates and waits for their responses only after all messages have been sent.</p>
+<p>Spamway's network administrator has captured a chronological list of the name of the recipient of each message involved in a particular solicitation. For the example above, using the slow strategy, this list would be: Alfred, Cindy, Alfred, Dennis, Alfred, Home, Betty, Home. (Note that 8 messages at 10 seconds per message is 80 seconds.)</p>
+<p>Using the new and improved strategy, Home sends to Alfred and Betty simultaneously, Alfred sends to Cindy and Dennis at the same time as Betty is responding, Cindy and Dennis respond simultaneously to Alfred and finally Alfred responds to Home. Using the new strategy, Spamway needs only 40 seconds to accomplish the communication that takes 80 seconds using the old strategy. Thus, Spamway can send twice as many solicitations and make twice as much money.</p>
+<h3>Input</h3>
+<p>As input, you are given lists of names describing the order that messages are received using the old Spamway strategy. The input contains the integer L, followed by L message lists. Each list begins with an integer, n, identifying the number of message recipients in the list, followed by n lines, each containing the name of a message recipient.</p>
+<h3>Output</h3>
+<p>For each list you are to print out a single integer indicating the amount of time in seconds that Spamway saves.</p>
+<h3>Sample Input</h3>
+<pre>1
+8
+Alfred
+Cindy
+Alfred
+Dennis
+Alfred
+Home
+Betty
+Home</pre>
+<h3>Sample Output</h3>
+<pre>40</pre>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,ccc05s4">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/ccc05s4">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 10<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Sep 30, 2008<br>
+      </p>
+
+    <b>Problem Types:</b>
+  <noscript>
+    &lt;style type="text/css"&gt;
+      #show_types, #hide_types { display: none !important; }
+      #spoiler_id { display: inline !important; }
+    &lt;/style&gt;
+  </noscript>
+  <a href="javascript:void(null);" id="show_types" onclick="document.getElementById('spoiler_id').style.display=''; document.getElementById('show_types').style.display='none';">[Show]</a>
+  <span id="spoiler_id" style="display: none">
+    <a href="javascript:void(null);" id="hide_types" onclick="document.getElementById('spoiler_id').style.display='none'; document.getElementById('show_types').style.display='';">[Hide]</a><br>
+    <ul style="list-style-type: none; margin: 0; padding: 0;">
+      <li>Graph Theory</li>    </ul>
+  </span>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=ccc05s4">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment6823">
+  <div class="comment_header" style="opacity: 0.84996429117983">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bobhob314">bobhob314</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6823">Jul 10, 2015 - 3:24:16 am UTC</a>      </span>
+      <a class="comment_title" id="title6823" onclick="toggle(&quot;body6823&quot;)">Links on legacy site still point to the wrong URL address.</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6823">
+    (<span class="upvotes"><span id="upvotes6823">2</span></span>/<span class="downvotes"><span id="downvotes6823">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6823" class="comment_body">
+    <pre id="msg6823" style="display: none">^ Title. Just a heads up, and great job with your project! May we all get IOI gold</pre>
+    <div style="opacity: 0.84996429117983">
+      ^ Title. Just a heads up, and great job with your project! May we all get IOI gold    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment6819">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/kobortor">kobortor</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6819">Jul 05, 2015 - 11:38:21 pm UTC</a>      </span>
+      <a class="comment_title" id="title6819" onclick="toggle(&quot;body6819&quot;)">What would be the solution to this testcase</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6819">
+    (<span class="upvotes"><span id="upvotes6819">1</span></span>/<span class="downvotes"><span id="downvotes6819">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6819" class="comment_body">
+    <pre id="msg6819" style="display: none">1
+10
+Alfred
+Cindy
+Alfred
+Dennis
+Alfred
+Home
+Betty
+Home
+Cindy
+Home</pre>
+    <div style="opacity: 1">
+      1 <br>10 <br>Alfred <br>Cindy <br>Alfred <br>Dennis <br>Alfred <br>Home <br>Betty <br>Home <br>Cindy <br>Home    </div>
+    <br><div class="comment_block" id="comment6822">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6822">Jul 07, 2015 - 3:09:05 am UTC</a>      </span>
+      <a class="comment_title" id="title6822" onclick="toggle(&quot;body6822&quot;)">Re: What would be the solution to this testcase</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6822">
+    (<span class="upvotes"><span id="upvotes6822">0</span></span>/<span class="downvotes"><span id="downvotes6822">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6822" class="comment_body">
+    <pre id="msg6822" style="display: none">That doesn't appear to be a valid input.</pre>
+    <div style="opacity: 1">
+      That doesn't appear to be a valid input.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0192s.<br>
+    Server time on page load:
+    Jun 7, 2018 07:40:06 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fccc05s4">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>
