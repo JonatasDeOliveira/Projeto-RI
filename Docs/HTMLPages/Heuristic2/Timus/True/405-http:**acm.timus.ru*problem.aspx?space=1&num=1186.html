@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=768"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>1186. Chemical Reactions @ Timus Online Judge</title><link rel="alternate" hreflang="x-default" href="/problem.aspx?space=1&amp;num=1186"><link rel="alternate" hreflang="en-us" href="/problem.aspx?space=1&amp;num=1186&amp;locale=en"><link rel="alternate" hreflang="ru-ru" href="/problem.aspx?space=1&amp;num=1186&amp;locale=ru"><link rel="stylesheet" type="text/css" href="/style55.css"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"></head><body><table width="100%" cellspacing="0" cellpadding="0" class="body"><tbody><tr><td class="caption"><table width="100%" cellspacing="0" cellpadding="0"><tbody><tr><td width="130" class="locale"><a href="/problem.aspx?space=1&amp;num=1186&amp;locale=en">ENG</a>&nbsp;&nbsp;<a href="/problem.aspx?space=1&amp;num=1186&amp;locale=ru">RUS</a></td><td class="title"><a href="/">Timus Online Judge</a></td><td width="130"></td></tr></tbody></table></td></tr><tr><td class="panel"><table width="100%" cellspacing="0" cellpadding="0"><tbody><tr><td width="130" valign="TOP" align="CENTER" style="padding-bottom:5px;"><a href="/"><img border="0" src="/images/usu-summer.jpg" height="134" width="106" alt=""></a></td><td valign="TOP" align="LEFT"><table width="100%" cellspacing="0" cellpadding="0" class="panel"><tbody><tr><th width="25%"><div>Online Judge</div></th><th width="25%"><div>Problems</div></th><th width="25%"><div>Authors</div></th><th width="25%"><div>Online contests</div></th></tr><tr><td valign="TOP" align="LEFT"><a href="/">About Online Judge</a><br><a href="/help.aspx?topic=faq">Frequently asked questions</a><br><a href="/news.aspx">Site news</a><br><a href="/forum/">Webboard</a><br><a href="/help.aspx?topic=links">Links</a><br></td><td valign="TOP" align="LEFT"><a href="/problemset.aspx">Problem set</a><br><a href="/submit.aspx">Submit solution</a><br><a href="/status.aspx">Judge status</a><br><a href="/help.aspx?topic=judge">Guide</a><br></td><td valign="TOP"><a href="/register.aspx">Register</a><br><a href="/authedit.aspx">Update your info</a><br><a href="/ranklist.aspx">Authors ranklist</a><br><form action="/search.aspx" method="GET" style="margin-top:0.6em;"><input name="Str" size="12" value="" placeholder="Author’s name"> <input type="SUBMIT" value="Search"></form></td><td valign="TOP"><a href="/contest.aspx">Current contest</a><br><a href="/schedule.aspx">Scheduled contests</a><br><a href="/archive.aspx">Past contests</a><br><a href="/help.aspx?topic=contest">Rules</a><br></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr><td style="padding-top: 32px; padding-bottom: 20px;"><table align="CENTER" cellspacing="0" cellpadding="0"><tbody><tr><td width="800"><div class="problem_content"><h2 class="problem_title">1186. Chemical Reactions</h2><div class="problem_limits">Time limit: 1.0 second<br>Memory limit: 64 MB<br></div><div id="problem_text"><div class="problem_par"><div class="problem_par_normal">Bill teaches chemistry in the school and has prepared a number
+of tests for his students. Each test has a chemical formula and a number
+of possible reaction outcomes that his students are to choose one 
+correct from. However, Bill wants to make sure that he has not 
+made any typos while entering his tests into a computer and that his
+students won't easily throw away wrong answers simply by counting 
+a number of chemical elements on the left and on the right side of 
+the equation, which should be always equal in a valid reaction.</div></div><div class="problem_par"><div class="problem_par_normal">You are to write a program that will help Bill. The program
+shall read the description of the test for the students that
+consists of the given left side of the equation and a number of
+possible right sides, and determines if the number of chemical
+elements on each right side of the equation is equal to the
+number of chemical elements on the given left side of the
+equation.
+</div></div><div class="problem_par"><div class="problem_par_normal">To help you, poor computer folks, that are unaware of the
+complex world of chemistry, Bill has formalized your task. Each side
+of the equation is represented by a string of characters without
+spaces, and consists of one or more chemical sequences separated 
+by a '+' (plus) characters. Each sequence has an optional
+preceding integer multiplier that applies to the whole sequence
+and a number of elements. Each element is optionally followed by an
+integer multiplier that applies to it. An element in this equation
+can be either distinct chemical element or a whole sequence
+that is placed in round parenthesis.
+Every distinct chemical element is represented by either one 
+capital letter or a capital letter that is followed by a small
+letter.</div></div><div class="problem_par"><div class="problem_par_normal">Even more formally, using notation that is similar to BNF, we can write:
+<ul>
+<li>&lt;formula&gt; ::= [&lt;number&gt;] &lt;sequence&gt; { '+' [&lt;number&gt;] &lt;sequence&gt; }</li>
+<li>&lt;sequence&gt; ::= &lt;element&gt; [&lt;number&gt;] { &lt;element&gt; [&lt;number&gt;] }</li>
+<li>&lt;element&gt; ::= &lt;chem&gt; | '(' &lt;sequence&gt; ')'</li>
+<li>&lt;chem&gt; ::= &lt;uppercase_letter&gt; [ &lt;lowercase_letter&gt; ]</li>
+<li>&lt;uppercase_letter&gt; ::= 'A'..'Z'</li>
+<li>&lt;lowercase_letter&gt; ::= 'a'..'z'</li>
+<li>&lt;number&gt; ::= '1'..'9' { '0'..'9' }</li>
+</ul>
+</div></div><div class="problem_par"><div class="problem_par_normal">Every distinct chemical element is said to occur in the given formula
+for some total number X, if X is the sum of all separate occurrences 
+of this chemical element multiplied to all numbers that apply to it.
+For example, in the following chemical formula:</div></div><div class="problem_par"><div class="problem_par_normal"><tt>C2H5OH+3O2+3(SiO2)</tt>
+<ul>
+<li><tt>C</tt> occurs for a total of 2 times.</li>
+<li><tt>H</tt> occurs for a total of 6 times (5 + 1).</li>
+<li><tt>O</tt> occurs for a total of 13 times (1 + 3*2 + 3*2).</li>
+<li><tt>Si</tt> occurs for a total of 3 times.</li>
+</ul>
+</div></div><div class="problem_par"><div class="problem_par_normal">All multipliers in the formula are integer numbers that are at least 2 if
+explicitly specified and are 1 by default. Each chemical formula is at most 100
+characters long, and every distinct chemical element is guaranteed to occur
+for a total of no more than 10000 times in each formula.</div></div><h3 class="problem_subtitle">Input</h3><div class="problem_par"><div class="problem_par_normal">The first line represents a chemical formula that is to
+be tested as the left side of the equation. The second line contains a single integer number <i>N</i> (1 ≤ <i>N</i> ≤ 10), which is the number of right sides of the equation that are to be tested. Each one of the following 
+<i>N</i> lines represents one such formula.</div></div><h3 class="problem_subtitle">Output</h3><div class="problem_par"><div class="problem_par_normal">You are to write <i>N</i> lines — one line per each possible 
+answer of the chemical test for Bill's students that is given in the 
+input. For each right-hand side formula that is encountered in the
+input, you should output:
+</div></div><div class="problem_par_pre"><pre>&lt;left_formula&gt;==&lt;right_formula&gt;</pre></div><div class="problem_par"><div class="problem_par_normal">if the total number of occurrences of each distinct chemical element on the
+left-hand side equals to the total number of occurrences of this
+chemical element on the right-hand side.
+Otherwise write:</div></div><div class="problem_par_pre"><pre>&lt;left_formula&gt;!=&lt;right_formula&gt;</pre></div><div class="problem_par"><div class="problem_par_normal">Here <tt>&lt;left_formula&gt;</tt> must be replaced exactly (character by
+character) with the original left-hand side formula as it is given in the first line
+of the input, and <tt>&lt;right_formula&gt;</tt> must be replaced exactly
+with each right-hand side formula as they are given in the input. Do not 
+place any spaces in the lines you write.</div></div><h3 class="problem_subtitle">Sample</h3><table class="sample"><tbody><tr><th width="350">input</th><th width="350">output</th></tr><tr><td><pre>C2H5OH+3O2+3(SiO2)
+7
+2CO2+3H2O+3SiO2
+2C+6H+13O+3Si
+99C2H5OH+3SiO2
+3SiO4+C2H5OH
+C2H5OH+3O2+3(SiO2)+Ge
+3(Si(O)2)+2CO+3H2O+O2
+2CO+3H2O+3O2+3Si</pre></td><td><pre>C2H5OH+3O2+3(SiO2)==2CO2+3H2O+3SiO2
+C2H5OH+3O2+3(SiO2)==2C+6H+13O+3Si
+C2H5OH+3O2+3(SiO2)!=99C2H5OH+3SiO2
+C2H5OH+3O2+3(SiO2)==3SiO4+C2H5OH
+C2H5OH+3O2+3(SiO2)!=C2H5OH+3O2+3(SiO2)+Ge
+C2H5OH+3O2+3(SiO2)==3(Si(O)2)+2CO+3H2O+O2
+C2H5OH+3O2+3(SiO2)!=2CO+3H2O+3O2+3Si
+</pre></td></tr></tbody></table><div class="problem_source"><b>Problem Author: </b>Joseph Romanosky, Roman Elizarov
+<br><b>Problem Source: </b>2001-2002 ACM Northeastern European Regional Programming Contest<br></div></div></div><div><b>Tags: </b>none &nbsp;<span class="problem_tags_toggle">(<form method="POST" action="problem.aspx?space=1&amp;num=1186" style="display:inline;" id="ToggleTagsForm"><a href="problem.aspx?space=1&amp;num=1186" onclick="document.getElementById('ToggleTagsForm').submit();return false;"><input type="hidden" name="Action" value="HideTags">hide tags for unsolved problems</a></form>)</span></div><div class="problem_links"><span>Difficulty: 669</span> &nbsp;&nbsp;&nbsp;<a href="print.aspx?space=1&amp;num=1186" target="_blank">Printable version</a> &nbsp;&nbsp;&nbsp;<a href="submit.aspx?space=1&amp;num=1186">Submit solution</a> &nbsp;&nbsp;&nbsp;<a href="forum/?space=1&amp;num=1186">Discussion (6)</a><br><a href="status.aspx?space=1&amp;num=1186">All submissions (1850)</a> &nbsp;&nbsp;&nbsp;<a href="status.aspx?space=1&amp;num=1186&amp;status=accepted">All accepted submissions (721)</a> &nbsp;&nbsp;&nbsp;<a href="rating.aspx?space=1&amp;num=1186">Solutions rating (622)</a></div></td></tr></tbody></table></td></tr><tr><td class="footer"><script type="text/javascript" async="" src="https://mc.yandex.ru/metrika/watch.js"></script><script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter20918869 = new Ya.Metrika({ id:20918869, clickmap:true, trackLinks:true, accurateTrackBounce:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript>&lt;div&gt;&lt;img src="https://mc.yandex.ru/watch/20918869" style="position:absolute; left:-9999px;" alt=""&gt;&lt;/div&gt;</noscript>© 2000–2017 <a href="/team.aspx">Timus Online Judge Team</a>. All rights reserved.</td></tr></tbody></table></body></html>

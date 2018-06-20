@@ -2,7 +2,7 @@ import requests
 import bs4 as bs
 from Extractor import util
 
-def spoj(page, crawlerType, extractorType, domain, fileName):
+def spoj(page, crawlerType, extractorType, domain, fileName, link, uniqueId):
     #request = requests.get("http://www.spoj.com/problems/TTABLE/")
     #page = bs.BeautifulSoup(request.content, "html.parser")
         
@@ -16,9 +16,10 @@ def spoj(page, crawlerType, extractorType, domain, fileName):
     data["Title"] = problemName
         
     tags = page.find("div", {"id" : "problem-tags"})
-        
-    problemTags = (tags.text)[1:]
-    problemTags = problemTags.replace("#", " - ")
+    problemTags = ""
+    if len(tags) >= 1:
+        problemTags = (tags.text)[1:]
+        problemTags = problemTags.replace("#", " - ")
         
     problemBody = problem.find("div", {"id" : "problem-body"})
     
@@ -40,8 +41,8 @@ def spoj(page, crawlerType, extractorType, domain, fileName):
     #time and memory limit
     problemInfo = page.find("div", {"class" : "col-lg-4 col-md-4"})
     table = problemInfo.find("table", {"id" : "problem-meta"})
-        
     rows = table.findAll("tr")
+    
     for row in rows:
         if "Time" in row.text:
             info = (row.text).split("limit:")
@@ -50,5 +51,9 @@ def spoj(page, crawlerType, extractorType, domain, fileName):
             if "Memory" in row.text:
                 info = (row.text).split("limit:")
                 data["Memory Limit"] = info[1]
-            
+    
+    data["Problem"] = util.getText(problem) + "\n" + util.getText(table)
+    data["ID"] = uniqueId
+    data["URL"] = link
+    
     util.writeToJSON(crawlerType, extractorType, domain, fileName, data)

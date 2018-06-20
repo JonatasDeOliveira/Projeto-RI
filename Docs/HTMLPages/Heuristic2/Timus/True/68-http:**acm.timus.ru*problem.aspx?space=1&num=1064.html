@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=768"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>1064. Binary Search @ Timus Online Judge</title><link rel="alternate" hreflang="x-default" href="/problem.aspx?space=1&amp;num=1064"><link rel="alternate" hreflang="en-us" href="/problem.aspx?space=1&amp;num=1064&amp;locale=en"><link rel="alternate" hreflang="ru-ru" href="/problem.aspx?space=1&amp;num=1064&amp;locale=ru"><link rel="stylesheet" type="text/css" href="/style55.css"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"></head><body><table width="100%" cellspacing="0" cellpadding="0" class="body"><tbody><tr><td class="caption"><table width="100%" cellspacing="0" cellpadding="0"><tbody><tr><td width="130" class="locale"><a href="/problem.aspx?space=1&amp;num=1064&amp;locale=en">ENG</a>&nbsp;&nbsp;<a href="/problem.aspx?space=1&amp;num=1064&amp;locale=ru">RUS</a></td><td class="title"><a href="/">Timus Online Judge</a></td><td width="130"></td></tr></tbody></table></td></tr><tr><td class="panel"><table width="100%" cellspacing="0" cellpadding="0"><tbody><tr><td width="130" valign="TOP" align="CENTER" style="padding-bottom:5px;"><a href="/"><img border="0" src="/images/usu-summer.jpg" height="134" width="106" alt=""></a></td><td valign="TOP" align="LEFT"><table width="100%" cellspacing="0" cellpadding="0" class="panel"><tbody><tr><th width="25%"><div>Online Judge</div></th><th width="25%"><div>Problems</div></th><th width="25%"><div>Authors</div></th><th width="25%"><div>Online contests</div></th></tr><tr><td valign="TOP" align="LEFT"><a href="/">About Online Judge</a><br><a href="/help.aspx?topic=faq">Frequently asked questions</a><br><a href="/news.aspx">Site news</a><br><a href="/forum/">Webboard</a><br><a href="/help.aspx?topic=links">Links</a><br></td><td valign="TOP" align="LEFT"><a href="/problemset.aspx">Problem set</a><br><a href="/submit.aspx">Submit solution</a><br><a href="/status.aspx">Judge status</a><br><a href="/help.aspx?topic=judge">Guide</a><br></td><td valign="TOP"><a href="/register.aspx">Register</a><br><a href="/authedit.aspx">Update your info</a><br><a href="/ranklist.aspx">Authors ranklist</a><br><form action="/search.aspx" method="GET" style="margin-top:0.6em;"><input name="Str" size="12" value="" placeholder="Author’s name"> <input type="SUBMIT" value="Search"></form></td><td valign="TOP"><a href="/contest.aspx">Current contest</a><br><a href="/schedule.aspx">Scheduled contests</a><br><a href="/archive.aspx">Past contests</a><br><a href="/help.aspx?topic=contest">Rules</a><br></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr><td style="padding-top: 32px; padding-bottom: 20px;"><table align="CENTER" cellspacing="0" cellpadding="0"><tbody><tr><td width="800"><div class="problem_content"><h2 class="problem_title">1064. Binary Search</h2><div class="problem_limits">Time limit: 2.0 second<br>Memory limit: 64 MB<br></div><div id="problem_text"><div class="problem_par"><div class="problem_par_normal">The program fragment below performs binary search of an integer
+number in an array that is sorted in a nondescending order:</div></div><div class="problem_par"><div class="problem_par_normal"><table cellspacing="0" cellpadding="6" border="1" align="center">
+<tbody><tr><th>Pascal</th>
+<th>C</th></tr>
+<tr>
+<td style="width:50%; vertical-align:top">
+<pre>const
+  MAXN = 10000;
+var
+  A: array[0..MAXN-1] of integer;
+  N: integer;
+
+procedure BinarySearch(x: integer);
+var
+  p, q, i, L: integer;
+begin
+  p := 0;   { Left border of the search  }
+  q := N-1; { Right border of the search }
+  L := 0;   { Comparison counter         }
+  while p &lt;= q do begin
+    i := (p + q) div 2;
+    inc(L);
+    if A[i] = x then begin
+      writeln('Found item i = ', i,
+        ' in L = ', L, ' comparisons');
+      exit
+    end;
+    if x &lt; A[i] then
+      q := i - 1
+    else
+      p := i + 1
+  end
+end;
+</pre></td>
+<td style="width:50%; vertical-align:top">
+<pre>#define MAXN 10000
+
+int A[MAXN];
+int N;
+
+void BinarySearch(int x)
+{
+  int p, q, i, L;
+
+  p = 0;   /* Left border of the search  */
+  q = N-1; /* Right border of the search */
+  L = 0;   /* Comparison counter         */
+  while (p &lt;= q) {
+    i = (p + q) / 2;
+    ++L;
+    if (A[i] == x) {
+      printf("Found item i = %d"
+        " in L = %d comparisons", i, L);
+      return;
+    }
+    if (x &lt; A[i])
+      q = i - 1;
+    else
+      p = i + 1;
+  }
+}
+</pre></td>
+</tr>
+</tbody></table></div></div><div class="problem_par"><div class="problem_par_normal">Before <tt>BinarySearch</tt> was called, <tt>N</tt> was set to some 
+integer number from 1 to 10000 inclusive and
+array <tt>A</tt> was filled with a nondescending integer sequence.</div></div><div class="problem_par"><div class="problem_par_normal">It is known that the procedure has terminated with the message 
+"<tt>Found item i = XXX in L = XXX comparisons</tt>" with some
+known values of <tt>i</tt> and <tt>L</tt>.</div></div><div class="problem_par"><div class="problem_par_normal">Your task is to write a program that finds all possible values of
+<tt>N</tt> that could lead to such message. However, the number of 
+possible values of <tt>N</tt> can be quite big. Thus, you are asked to group all 
+consecutive <tt>N</tt>s into intervals and write down only first and 
+last value in each interval.</div></div><h3 class="problem_subtitle">Input</h3><div class="problem_par"><div class="problem_par_normal">The input consists of a single line with two integers <tt>i</tt>
+and <tt>L</tt> (0&nbsp;≤&nbsp;<tt>i</tt>&nbsp;&lt;&nbsp;10000 and
+1&nbsp;≤&nbsp;<tt>L</tt>&nbsp;≤&nbsp;14), separated by a space.</div></div><h3 class="problem_subtitle">Output</h3><div class="problem_par"><div class="problem_par_normal">On the first line of the output write the single 
+integer number <em>K</em>
+representing the total number of intervals for possible values of <tt>N</tt>.
+Then <em>K</em> lines shall follow listing those intervals in an ascending order.
+
+Each line shall contain
+two integers <em>A<sub>i</sub></em> and <em>B<sub>i</sub></em>
+(<em>A<sub>i</sub></em>&nbsp;≤&nbsp;<em>B<sub>i</sub></em>)
+separated by a space, representing first and last value of the interval.</div></div><div class="problem_par"><div class="problem_par_normal">If there are no possible values of <tt>N</tt> exist, then the output 
+shall contain the single 0.</div></div><h3 class="problem_subtitle">Samples</h3><table class="sample"><tbody><tr><th width="350">input</th><th width="350">output</th></tr><tr><td><pre>9000 2
+</pre></td><td><pre>0
+</pre></td></tr><tr><td><pre>10 3
+</pre></td><td><pre>4
+12 12
+17 18
+29 30
+87 94
+</pre></td></tr></tbody></table><div class="problem_source"><b>Problem Source: </b>2000-2001 ACM Northeastern European Regional Programming Contest<br></div></div></div><div><b>Tags: </b>none &nbsp;<span class="problem_tags_toggle">(<form method="POST" action="problem.aspx?space=1&amp;num=1064" style="display:inline;" id="ToggleTagsForm"><a href="problem.aspx?space=1&amp;num=1064" onclick="document.getElementById('ToggleTagsForm').submit();return false;"><input type="hidden" name="Action" value="HideTags">hide tags for unsolved problems</a></form>)</span></div><div class="problem_links"><span>Difficulty: 592</span> &nbsp;&nbsp;&nbsp;<a href="print.aspx?space=1&amp;num=1064" target="_blank">Printable version</a> &nbsp;&nbsp;&nbsp;<a href="submit.aspx?space=1&amp;num=1064">Submit solution</a> &nbsp;&nbsp;&nbsp;<a href="forum/?space=1&amp;num=1064">Discussion (17)</a><br><a href="status.aspx?space=1&amp;num=1064">All submissions (5332)</a> &nbsp;&nbsp;&nbsp;<a href="status.aspx?space=1&amp;num=1064&amp;status=accepted">All accepted submissions (2376)</a> &nbsp;&nbsp;&nbsp;<a href="rating.aspx?space=1&amp;num=1064">Solutions rating (2009)</a></div></td></tr></tbody></table></td></tr><tr><td class="footer"><script type="text/javascript" async="" src="https://mc.yandex.ru/metrika/watch.js"></script><script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter20918869 = new Ya.Metrika({ id:20918869, clickmap:true, trackLinks:true, accurateTrackBounce:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript>&lt;div&gt;&lt;img src="https://mc.yandex.ru/watch/20918869" style="position:absolute; left:-9999px;" alt=""&gt;&lt;/div&gt;</noscript>© 2000–2017 <a href="/team.aspx">Timus Online Judge Team</a>. All rights reserved.</td></tr></tbody></table></body></html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=768"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>1977. Energy Wall @ Timus Online Judge</title><link rel="alternate" hreflang="x-default" href="/problem.aspx?space=1&amp;num=1977"><link rel="alternate" hreflang="en-us" href="/problem.aspx?space=1&amp;num=1977&amp;locale=en"><link rel="alternate" hreflang="ru-ru" href="/problem.aspx?space=1&amp;num=1977&amp;locale=ru"><link rel="stylesheet" type="text/css" href="/style55.css"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"></head><body><table width="100%" cellspacing="0" cellpadding="0" class="body"><tbody><tr><td class="caption"><table width="100%" cellspacing="0" cellpadding="0"><tbody><tr><td width="130" class="locale"><a href="/problem.aspx?space=1&amp;num=1977&amp;locale=en">ENG</a>&nbsp;&nbsp;<a href="/problem.aspx?space=1&amp;num=1977&amp;locale=ru">RUS</a></td><td class="title"><a href="/">Timus Online Judge</a></td><td width="130"></td></tr></tbody></table></td></tr><tr><td class="panel"><table width="100%" cellspacing="0" cellpadding="0"><tbody><tr><td width="130" valign="TOP" align="CENTER" style="padding-bottom:5px;"><a href="/"><img border="0" src="/images/usu-summer.jpg" height="134" width="106" alt=""></a></td><td valign="TOP" align="LEFT"><table width="100%" cellspacing="0" cellpadding="0" class="panel"><tbody><tr><th width="25%"><div>Online Judge</div></th><th width="25%"><div>Problems</div></th><th width="25%"><div>Authors</div></th><th width="25%"><div>Online contests</div></th></tr><tr><td valign="TOP" align="LEFT"><a href="/">About Online Judge</a><br><a href="/help.aspx?topic=faq">Frequently asked questions</a><br><a href="/news.aspx">Site news</a><br><a href="/forum/">Webboard</a><br><a href="/help.aspx?topic=links">Links</a><br></td><td valign="TOP" align="LEFT"><a href="/problemset.aspx">Problem set</a><br><a href="/submit.aspx">Submit solution</a><br><a href="/status.aspx">Judge status</a><br><a href="/help.aspx?topic=judge">Guide</a><br></td><td valign="TOP"><a href="/register.aspx">Register</a><br><a href="/authedit.aspx">Update your info</a><br><a href="/ranklist.aspx">Authors ranklist</a><br><form action="/search.aspx" method="GET" style="margin-top:0.6em;"><input name="Str" size="12" value="" placeholder="Author’s name"> <input type="SUBMIT" value="Search"></form></td><td valign="TOP"><a href="/contest.aspx">Current contest</a><br><a href="/schedule.aspx">Scheduled contests</a><br><a href="/archive.aspx">Past contests</a><br><a href="/help.aspx?topic=contest">Rules</a><br></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr><td style="padding-top: 32px; padding-bottom: 20px;"><table align="CENTER" cellspacing="0" cellpadding="0"><tbody><tr><td width="800"><div class="problem_content"><h2 class="problem_title">1977. Energy Wall</h2><div class="problem_limits">Time limit: 2.0 second<br>Memory limit: 64 MB<br></div><div id="problem_text"><div class="problem_par"><div class="problem_par_normal">‘Assume that a player has built a base on a new planet.
+Then he needs some protective shelters to guard the base from a possible attack by locals.
+Let’s add watch towers to the game. The player can arrange towers along the perimeter of the base
+and equip them with laser guns. At the approach of the enemy, the towers will fire guns at them.’<br>
+‘Watch towers are a commonplace in all games. Let’s invent something new.
+What if we protect the base with a force field?’<br>
+‘A good idea. The base is located at the shore of a lava ocean, so it won’t be attacked from that side.
+And the other side can be protected by an energy wall consisting of <i>n</i> sections.
+Each section is an independent unit and constantly accumulates energy.’<br>
+‘What if the enemy attack comes too early or happens to be too strong for a particular section?’<br>
+‘Let’s build an energy repository at the base and allow the player
+to transfer energy from it to any sections of the wall in the case of an enemy attack.
+If enemy units approach the <i>i</i>-th section of the wall, the player can use
+the energy stored in the repository to enforce the <i>d</i>-area of the <i>i</i>-th section,
+i.e. sections with numbers from (<i>i</i> − <i>d</i> + 1)
+to (<i>i</i> + <i>d</i> − 1) (the sections are numbered consecutively by integers from 1 to&nbsp;<i>n</i>).
+The energy of the <i>i</i>-th section will increase by <i>d</i> × <i>x</i> units, the energy
+of the adjacent sections will increase by (<i>d</i> − 1) × <i>x</i> units, the energy of the sections
+at distance&nbsp;2 will increase by (<i>d</i> − 2) × <i>x</i> units, and so on.
+The energy of the sections with numbers <i>i</i> − <i>d</i> + 1 and <i>i</i> + <i>d</i> − 1 will increase by <i>x</i> energy units.
+The value of <i>x</i> should be selected so as to use all the energy stored in the repository for an enforcement of the wall.
+After the enforcement, there will be no energy left in the repository.’<br>
+‘There must be a possibility to refill the repository. Let’s make it possible for the player
+to transfer all the energy from some sections of the wall to the repository if he
+thinks that these sections won’t be attacked in the near future.
+The player will store energy and use it in the case of attacks, and so the base will be well protected.’<br></div></div><h3 class="problem_subtitle">Input</h3><div class="problem_par"><div class="problem_par_normal">The first line contains integers <i>n</i> and <i>p</i>, which are the number of wall sections
+and the amount of energy accumulated by each section in a unit of time
+(1 ≤ <i>n</i> ≤ 10<sup>9</sup>; 1 ≤ <i>p</i> ≤ 100).
+The second line contains the number <i>q</i> of the player’s actions
+<nobr>(1 ≤ <i>q</i> ≤ 10<sup>5</sup>)</nobr>. The following <i>q</i> lines describe these actions in the same order
+they took place.
+Each description starts with an integer&nbsp;<i>t</i>, which is the time when the action was
+performed (0 ≤ <i>t</i> ≤ 10<sup>9</sup>). Then you are given the type and parameters of the action.
+There can be two types of actions: “enforce i d” (1 ≤ <i>i</i> ≤ <i>n</i>;
+1 ≤ <i>i</i> − <i>d</i> + 1 ≤ <i>i</i> + <i>d</i> − 1 ≤ <i>n</i>) means the use of energy from the repository
+to enforce the <i>d</i>-area of
+the <i>i</i>-th section of the wall, and “save l r” (1 ≤ <i>l</i> ≤ <i>r</i> ≤ <i>n</i>)
+means the transfer of the whole energy of the sections with numbers from&nbsp;<i>l</i>
+to&nbsp;<i>r</i> to the repository.
+Each action’s duration can be neglected, no two actions have happened at the same moment of time.
+At the initial time <i>t</i> = 0, the energy level of each wall section and the amount of energy stored in the repository are zero.</div></div><h3 class="problem_subtitle">Output</h3><div class="problem_par"><div class="problem_par_normal">For each “save” action output the current amount of saved energy, including the just saved one.
+The answer should be given with absolute or relative error at most 10<sup>−6</sup>.</div></div><h3 class="problem_subtitle">Sample</h3><table class="sample"><tbody><tr><th width="350">input</th><th width="350">output</th></tr><tr><td><pre>5 1
+4
+2 save 4 5
+3 enforce 2 2
+4 save 3 5
+5 enforce 3 3
+</pre></td><td><pre>4.000000
+9.000000
+</pre></td></tr></tbody></table><h3 class="problem_subtitle">Notes</h3><div class="problem_par"><div class="problem_par_normal">The energies of the wall sections after each of the player’s actions in the example are as follows:
+(2, 2, 2, 0, 0), (4, 5, 4, 1, 1), (5, 6, 0, 0, 0), (7, 9, 4, 3, 2).</div></div><div class="problem_source"><b>Problem Author: </b>Denis Dublennykh<br><b>Problem Source: </b>Ural Sport Programming Championship 2013<br></div></div></div><div><b>Tags: </b><a href="problemset.aspx?space=1&amp;tag=structure">data structures</a> &nbsp;<span class="problem_tags_toggle">(<form method="POST" action="problem.aspx?space=1&amp;num=1977" style="display:inline;" id="ToggleTagsForm"><a href="problem.aspx?space=1&amp;num=1977" onclick="document.getElementById('ToggleTagsForm').submit();return false;"><input type="hidden" name="Action" value="HideTags">hide tags for unsolved problems</a></form>)</span></div><div class="problem_links"><span>Difficulty: 2050</span> &nbsp;&nbsp;&nbsp;<a href="print.aspx?space=1&amp;num=1977" target="_blank">Printable version</a> &nbsp;&nbsp;&nbsp;<a href="submit.aspx?space=1&amp;num=1977">Submit solution</a> &nbsp;&nbsp;&nbsp;<a href="forum/?space=1&amp;num=1977">Discussion (1)</a><br><a href="status.aspx?space=1&amp;num=1977">All submissions (1150)</a> &nbsp;&nbsp;&nbsp;<a href="status.aspx?space=1&amp;num=1977&amp;status=accepted">All accepted submissions (138)</a> &nbsp;&nbsp;&nbsp;<a href="rating.aspx?space=1&amp;num=1977">Solutions rating (73)</a></div></td></tr></tbody></table></td></tr><tr><td class="footer"><script type="text/javascript" async="" src="https://mc.yandex.ru/metrika/watch.js"></script><script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter20918869 = new Ya.Metrika({ id:20918869, clickmap:true, trackLinks:true, accurateTrackBounce:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript>&lt;div&gt;&lt;img src="https://mc.yandex.ru/watch/20918869" style="position:absolute; left:-9999px;" alt=""&gt;&lt;/div&gt;</noscript>© 2000–2017 <a href="/team.aspx">Timus Online Judge Team</a>. All rights reserved.</td></tr></tbody></table></body></html>

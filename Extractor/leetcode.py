@@ -3,7 +3,7 @@ from selenium import webdriver
 import signal
 from Extractor import util
 
-def leetcode(page, crawlerType, extractorType, domain, fileName):
+def leetcode(page, crawlerType, extractorType, domain, fileName, link, uniqueId):
     #driver = webdriver.PhantomJS()
     #driver.get("https://leetcode.com/problems/minimum-time-difference/description/")
     #page = BeautifulSoup(driver.page_source, "html.parser")
@@ -12,6 +12,8 @@ def leetcode(page, crawlerType, extractorType, domain, fileName):
     data = {}
     
     problemBody = page.find("div", {"class" : "question-description"})
+    if problemBody is None:
+        problemBody = page.find("div", {"class" : "question-description__3U1T"})
     
     title = page.title
     title = title.text
@@ -47,5 +49,10 @@ def leetcode(page, crawlerType, extractorType, domain, fileName):
         else:
             elementContent += element + "\n"
     data[elementTitle] = elementContent
+    
+    title = page.find("div", {"class" : "question-title clearfix"})
+    data["Problem"] = title.text + "\n" + problemBody.text
+    data["ID"] = uniqueId
+    data["URL"] = link
     
     util.writeToJSON(crawlerType, extractorType, domain, fileName, data)

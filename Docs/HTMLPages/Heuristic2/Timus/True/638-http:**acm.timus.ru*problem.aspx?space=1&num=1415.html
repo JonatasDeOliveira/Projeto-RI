@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=768"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>1415. Mobile Life @ Timus Online Judge</title><link rel="alternate" hreflang="x-default" href="/problem.aspx?space=1&amp;num=1415"><link rel="alternate" hreflang="en-us" href="/problem.aspx?space=1&amp;num=1415&amp;locale=en"><link rel="alternate" hreflang="ru-ru" href="/problem.aspx?space=1&amp;num=1415&amp;locale=ru"><link rel="stylesheet" type="text/css" href="/style55.css"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"></head><body><table width="100%" cellspacing="0" cellpadding="0" class="body"><tbody><tr><td class="caption"><table width="100%" cellspacing="0" cellpadding="0"><tbody><tr><td width="130" class="locale"><a href="/problem.aspx?space=1&amp;num=1415&amp;locale=en">ENG</a>&nbsp;&nbsp;<a href="/problem.aspx?space=1&amp;num=1415&amp;locale=ru">RUS</a></td><td class="title"><a href="/">Timus Online Judge</a></td><td width="130"></td></tr></tbody></table></td></tr><tr><td class="panel"><table width="100%" cellspacing="0" cellpadding="0"><tbody><tr><td width="130" valign="TOP" align="CENTER" style="padding-bottom:5px;"><a href="/"><img border="0" src="/images/usu-summer.jpg" height="134" width="106" alt=""></a></td><td valign="TOP" align="LEFT"><table width="100%" cellspacing="0" cellpadding="0" class="panel"><tbody><tr><th width="25%"><div>Online Judge</div></th><th width="25%"><div>Problems</div></th><th width="25%"><div>Authors</div></th><th width="25%"><div>Online contests</div></th></tr><tr><td valign="TOP" align="LEFT"><a href="/">About Online Judge</a><br><a href="/help.aspx?topic=faq">Frequently asked questions</a><br><a href="/news.aspx">Site news</a><br><a href="/forum/">Webboard</a><br><a href="/help.aspx?topic=links">Links</a><br></td><td valign="TOP" align="LEFT"><a href="/problemset.aspx">Problem set</a><br><a href="/submit.aspx">Submit solution</a><br><a href="/status.aspx">Judge status</a><br><a href="/help.aspx?topic=judge">Guide</a><br></td><td valign="TOP"><a href="/register.aspx">Register</a><br><a href="/authedit.aspx">Update your info</a><br><a href="/ranklist.aspx">Authors ranklist</a><br><form action="/search.aspx" method="GET" style="margin-top:0.6em;"><input name="Str" size="12" value="" placeholder="Author’s name"> <input type="SUBMIT" value="Search"></form></td><td valign="TOP"><a href="/contest.aspx">Current contest</a><br><a href="/schedule.aspx">Scheduled contests</a><br><a href="/archive.aspx">Past contests</a><br><a href="/help.aspx?topic=contest">Rules</a><br></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr><td style="padding-top: 32px; padding-bottom: 20px;"><table align="CENTER" cellspacing="0" cellpadding="0"><tbody><tr><td width="800"><div class="problem_content"><h2 class="problem_title">1415. Mobile Life</h2><div class="problem_limits">Time limit: 2.0 second<br>Memory limit: 64 MB<br></div><div id="problem_text"><div class="problem_par"><div class="problem_par_normal">The Sunny Town keeps pace with modern technologies. Not much time has passed since cellular
+communication was introduced in the town, yet Shpuntik and Vintik have already designed their own
+mobile phone with a built-in location transmitter. With this phone, no one of the Mites (especially
+Neznaika) will get lost, because Vintik and Shpuntik will be able to know his location. Now the new
+phone must be tested. It is decided to carry out the testing in the following way. Shpuntik goes around
+the town with the phone and writes down its readings on a piece of paper. All of this time Vintik is at the
+workshop and traces Shpuntik's travel watching a special monitor. When Shpuntik is back, they compare
+their records. But there's one problem: Shpuntik's record is a list of lines with the phone's readings, and
+Vintik has a list of numbers describing Shpuntik's travel. Write a program that generates Shpuntik's list
+using Vintik's list under the assumption that the system works correctly.</div></div><div class="problem_par"><div class="problem_par_normal">The mobile phone that undergoes testing has a chromatic indicator of the signal's power and shows the
+identier of the current cell. The indicator can show seven dierent colors, namely, the colors of a rainbow.
+Violet corresponds to the strongest signal and red means that the signal is vanishing and the phone may
+become disconnected any moment.</div></div><div class="problem_par"><div class="problem_par_normal">If the distance between the phone and a base station is less then a certain value, then the signal is ideal
+(which corresponds to the violet color of the indicator). This threshold distance may be dierent for
+dierent stations. If the phone is moved away from a base station further than the threshold distance,
+then the indicator goes indigo, then blue, green, and so on, until it becomes red and not changes anymore
+as the signal decreases further. The indicator's color changes each time the signal's power falls 2 decibels.
+The signal's power depends only on the distance from a base station and is in inverse proportion to this
+distance. For example, when the distance increases two times, then the power decreases also two times.</div></div><div class="problem_par"><div class="problem_par_normal">The phone selects a base station according to the following rules:
+<ol>
+<li>When the phone is being turned on, it selects a station with the strongest signal. If there are several
+such stations, then the station with the minimal (with respect to the lexicographic order) name of
+the cell is selected among them.</li>
+<li>The phone stays connected to the same station until its signal goes red; then it switches to the
+search mode and tries to select a new station.</li>
+<li>The phone is in the search mode until it finds a station whose signal's level is enough for turning the indicator any color excepting red. If there are several such stations, then the phone uses the same selection rule as in the case of turning on.</li>
+</ol></div></div><div class="problem_par"><div class="problem_par_normal">Shpuntik writes down the phone's readings in the following format:
+<ol>
+<li><code>Power on. CELL_ID:&lt;cell's_name&gt;, SIGNAL_LEVEL:&lt;indicator's_color&gt;</code><br>
+— the phone is on.</li>
+<li><code>Cell changed. CELL_ID:&lt;cell's_name&gt;, SIGNAL_LEVEL:&lt;indicator's_color&gt;</code><br>
+— the change of a base station.</li>
+<li><code>Signal changed. SIGNAL_LEVEL:&lt;indicator's_color&gt;</code><br>
+— the change of the indicator's color.</li>
+</ol></div></div><div class="problem_par"><div class="problem_par_normal">Even if the phone instantly switches over to another station, Shpuntik nevertheless writes down the line
+registering the occurrence of the red indication in the previous cell.</div></div><div class="problem_par"><div class="problem_par_normal"><i>A comment for those who are not familiar with decibels:</i> a decibel is a logarithmic quantity characterizing ratios of values. If signal A has power W<sub>a</sub> and signal B has power W<sub>b</sub>, then the power of signal B differs from the power of signal A by <nobr>10 · log<sub>10</sub>(W<sub>b</sub>/W<sub>a</sub>)</nobr> decibels. When one compares not powers, but, say, voltages,
+then another formula is used: <nobr>20 · log<sub>10</sub>(U<sub>b</sub>/U<sub>a</sub>)</nobr>, but Vintik and Shpuntik use the first one.</div></div><h3 class="problem_subtitle">Input</h3><div class="problem_par"><div class="problem_par_normal">The first line contains the number of base stations in the Sunny Town: <i>N</i> (1 ≤ <i>N</i> ≤ 100). Then there are <i>N</i> lines describing the cells. Each of these lines is of the following form: X<sub>c</sub> Y<sub>c</sub> R<sub>c</sub> S<sub>c</sub>. The integer numbers X<sub>c</sub>
+and Y<sub>c</sub> are the coordinates of a base station.The integer number R<sub>c</sub> is its threshold distance within which the station's signal is shown by the violet color of the indicator. S<sub>c</sub> is a string without spaces of length not exceeding 50, which is the name of the cell.</div></div><div class="problem_par"><div class="problem_par_normal">The (<i>N</i>+2)-nd line contains a number <i>M</i>, which is the number of linear segments of Shpuntik's route. The following <i>M</i> lines contain 4 integer numbers each: X<sub>s</sub>, Y<sub>s</sub>, X<sub>e</sub>, Y<sub>e</sub>. They are the coordinates of the beginning and of the end of a segment; −10000 ≤ X<sub>c</sub>, Y<sub>c</sub>,X<sub>s</sub>, Y<sub>s</sub>, X<sub>e</sub>, Y<sub>e</sub> ≤ 10000, 0 &lt; R<sub>c</sub> ≤ 10000, 1 ≤ <i>M</i> ≤ 1000.</div></div><div class="problem_par"><div class="problem_par_normal">It is guaranteed that Shpuntik's motion is continuous, which means that the end of each segment coincides
+with the beginning of the following one. Also, we assume that at the points where the segments join,
+Shpuntik's phone never changed cells and that for each of the stations the curves of change of the signal's
+level do not pass through these points. And he never went at a tangent to that curves.</div></div><h3 class="problem_subtitle">Output</h3><div class="problem_par"><div class="problem_par_normal">Correct Shpuntik's list.</div></div><h3 class="problem_subtitle">Sample</h3><table class="sample"><tbody><tr><th width="350">input</th><th width="350">output</th></tr><tr><td><pre>4
+0 0 1 Romashka
+0 10 1 Lutik
+10 10 2 Znaika
+10 0 1 Children
+2
+5 5 -5 -5
+-5 -5 5 5
+</pre></td><td><pre>Power on. CELL_ID:Znaika, SIGNAL_LEVEL:GREEN
+Signal changed. SIGNAL_LEVEL:YELLOW
+Signal changed. SIGNAL_LEVEL:ORANGE
+Signal changed. SIGNAL_LEVEL:RED
+Cell changed. CELL_ID:Romashka, SIGNAL_LEVEL:YELLOW
+Signal changed. SIGNAL_LEVEL:ORANGE
+Signal changed. SIGNAL_LEVEL:YELLOW
+Signal changed. SIGNAL_LEVEL:GREEN
+Signal changed. SIGNAL_LEVEL:BLUE
+Signal changed. SIGNAL_LEVEL:INDIGO
+Signal changed. SIGNAL_LEVEL:VIOLET
+Signal changed. SIGNAL_LEVEL:INDIGO
+Signal changed. SIGNAL_LEVEL:BLUE
+Signal changed. SIGNAL_LEVEL:GREEN
+Signal changed. SIGNAL_LEVEL:YELLOW
+Signal changed. SIGNAL_LEVEL:ORANGE
+</pre></td></tr></tbody></table><div class="problem_source"><b>Problem Author: </b>Eugene Krokhalev<br><b>Problem Source: </b>The Ural State University Championship, October 29, 2005<br></div></div></div><div><b>Tags: </b><a href="problemset.aspx?space=1&amp;tag=geometry">geometry</a> &nbsp;<a href="problemset.aspx?space=1&amp;tag=hardest">hardest problem</a> &nbsp;<span class="problem_tags_toggle">(<form method="POST" action="problem.aspx?space=1&amp;num=1415" style="display:inline;" id="ToggleTagsForm"><a href="problem.aspx?space=1&amp;num=1415" onclick="document.getElementById('ToggleTagsForm').submit();return false;"><input type="hidden" name="Action" value="HideTags">hide tags for unsolved problems</a></form>)</span></div><div class="problem_links"><span>Difficulty: 9244</span> &nbsp;&nbsp;&nbsp;<a href="print.aspx?space=1&amp;num=1415" target="_blank">Printable version</a> &nbsp;&nbsp;&nbsp;<a href="submit.aspx?space=1&amp;num=1415">Submit solution</a> &nbsp;&nbsp;&nbsp;<a href="forum/?space=1&amp;num=1415">Discussion (20)</a><br><a href="status.aspx?space=1&amp;num=1415">All submissions (4062)</a> &nbsp;&nbsp;&nbsp;<a href="status.aspx?space=1&amp;num=1415&amp;status=accepted">All accepted submissions (303)</a> &nbsp;&nbsp;&nbsp;<a href="rating.aspx?space=1&amp;num=1415">Solutions rating (38)</a></div></td></tr></tbody></table></td></tr><tr><td class="footer"><script type="text/javascript" async="" src="https://mc.yandex.ru/metrika/watch.js"></script><script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter20918869 = new Ya.Metrika({ id:20918869, clickmap:true, trackLinks:true, accurateTrackBounce:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript>&lt;div&gt;&lt;img src="https://mc.yandex.ru/watch/20918869" style="position:absolute; left:-9999px;" alt=""&gt;&lt;/div&gt;</noscript>© 2000–2017 <a href="/team.aspx">Timus Online Judge Team</a>. All rights reserved.</td></tr></tbody></table></body></html>

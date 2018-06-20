@@ -70,7 +70,7 @@ def getMaxKey(mapList):
     return maxKey
     
 def writeToJSON(crawlerType, extractorType, domain, fileName, data):
-    file = './Docs/Jsons' + '/' + crawlerType + '/'+ extractorType + '/' + domain + '/' + fileName + '.json'
+    file = './Docs/Jsons/' + crawlerType + '/'+ extractorType + '/' + domain + '/' + fileName + '.json'
     #file = './Extractor' + '/' + fileName + '.json'
     
     exist = os.path.isfile(file) 
@@ -80,3 +80,18 @@ def writeToJSON(crawlerType, extractorType, domain, fileName, data):
     else:
         with open(file, 'w') as f:
             f.write(json.dumps(data, indent=2))
+    
+    #salva tudo em um arquivo
+    file = './Docs/Jsons/Datas.json'
+    
+    exist = os.path.isfile(file)
+    if exist:
+        with open(file, 'a') as f:
+            f.write(json.dumps(data, indent=2))
+    else:
+        with open(file, 'w') as f:
+            f.write(json.dumps(data, indent=2))
+            
+def getText(page):
+    [s.extract() for s in page.findAll(['style', 'script'])]
+    return page.text

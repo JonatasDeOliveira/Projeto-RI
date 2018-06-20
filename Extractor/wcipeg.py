@@ -2,7 +2,7 @@ import bs4 as bs
 import requests
 from Extractor import util
 
-def wcipeg(page, crawlerType, extractorType, domain, fileName):
+def wcipeg(page, crawlerType, extractorType, domain, fileName, link, uniqueId):
     #request = requests.get("https://wcipeg.com/problem/dt16l1p1")
     #page = bs.BeautifulSoup(request.content, "html.parser")
     
@@ -56,5 +56,8 @@ def wcipeg(page, crawlerType, extractorType, domain, fileName):
     data["Title"] = problemName
     data["Time Limit"] = problemTime
     data["Memory Limit"] = problemMemory
+    data["Problem"] = util.getText(problem) + "\n" + util.getText(problemSidebar)
+    data["ID"] = uniqueId
+    data["URL"] = link
     
     util.writeToJSON(crawlerType, extractorType, domain, fileName, data)

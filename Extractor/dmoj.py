@@ -2,7 +2,7 @@ import bs4 as bs
 import requests
 from Extractor import util
 
-def dmoj(page, crawlerType, extractorType, domain, fileName): 
+def dmoj(page, crawlerType, extractorType, domain, fileName, link, uniqueId): 
     #request = requests.get("https://dmoj.ca/problem/ccc13j3")
     #page = bs.BeautifulSoup(request.content, "html.parser")
     
@@ -69,12 +69,24 @@ def dmoj(page, crawlerType, extractorType, domain, fileName):
             data[bodyArray[indexes[i]]] = info
     
     limits = page.findAll("div", {"class": "problem-info-entry"})
-    
-    problemTime = limits[1].text[1:-1]
-    problemMemory = limits[2].text[1:-1]
+    problemTime = ""
+    problemMemory = ""
+    if (len(limits) >= 3):
+        problemTime = limits[1].text[1:-1]
+        problemMemory = limits[2].text[1:-1]
     
     data["Ttile"] = problemName
     data["Time Limit"] = problemTime.replace("Time limit:\n", "")
     data["Memory Limit"] = problemMemory.replace("Memory limit:\n", "")
+    
+    title = page.find("div", {"class" : "problem-title"})
+    
+    limit = ""
+    for lim in limits:
+        limit += lim.text + "\n"
+    
+    data["Problem"] = title.text + "\n" + util.getText(problem) + "\n" + limit[:-1]
+    data["ID"] = uniqueId
+    data["URL"] = link
     
     util.writeToJSON(crawlerType, extractorType, domain, fileName, data)
