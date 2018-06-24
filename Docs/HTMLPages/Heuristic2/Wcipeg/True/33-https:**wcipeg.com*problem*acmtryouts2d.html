@@ -1,0 +1,698 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - Diablo Bot</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "a5a6da31e315e7ee609958a2aedecd0f";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Facmtryouts2d"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>University of Toronto ACM-ICPC Tryouts 2012</h3>
+<h2>D: Diablo Bot</h2>
+
+<p>Maybe you've played Diablo? There are three different character classes: Noobs, Suckers, and Pros. Noobs don't know anything about the game. Suckers think they know how to play. Pros know that the goal of the game is to write a script that will farm for valuable items that they can turn around and sell to Suckers on the black market. Obviously Pros would sell to Noobs if they could, but Noobs don't even know how to buy items.</p>
+
+<p>An obvious piece of preqrequisite information for making such a bot is knowing what sorts of items are worth picking up. There are Normal, Magic, Rare, and Set items:</p>
+
+<ul>
+    <li>Set items always belong to some famous dead person, so they always begin with a word that ends in "<b>’s</b>" (e.g. <b>Andrew’s</b>). No other items are special enough to begin this way.</li>
+    <li>Rare items always have names that are two words long.</li>
+    <li>Magic items always have names that are between two and four words long. If, and only if, a Magic item has more than two words in its name, then the last two words are "<b>of [something]</b>" (e.g. <b>of Doom</b>).</li>
+    <li>If the first word is "<b>Damaged</b>", the item is a Normal item. Furthermore, any item that could not possibly be Magic, Rare, or Set must also be Normal. No other items are Normal.</li>
+    <li>You may not have played Diablo, but hopefully you still know that a "word" is a maximal substring of non-space characters. Also, letter case is irrelevant.</li>
+</ul>
+
+<p>You have a list of <var>N</var> (1 ≤ N ≤ 1000) item names, and you need to be able to classify these items as accurately as possible. It may not be possible to assign a unique type to each item, but as long as it's not Normal, surely you'll want it. Every item name is a string of no more than 100 characters, containing only alphabetic characters, spaces, and apostrophes. Every name begins and ends with a non-space character.</p>
+
+<h3>Input</h3>
+<p>Line 1: 1 integer, <var>N</var><br>
+Next <var>N</var> lines: The name of the <var>i</var>th item, for <var>i</var> = 1..<var>N</var></p>
+
+<h3>Output</h3>
+<p><var>N</var> lines: The type of the <var>i</var>th item (one of "Normal", "Set", "Magic", or "Rare"), or "Not sure, take anyways" (without quotes) if the item's type cannot be determined, but is known not to be Normal, for <var>i</var> = 1..<var>N</var></p>
+
+<h3>Sample Input</h3>
+<pre>7
+Somebody's Something of Whatever
+stone of jordan
+Wirt's Leg
+FLAMING TURNIP
+Damaged Goods
+Sword
+Fish shaped volatile organic compounds</pre>
+
+<h3>Sample Output</h3>
+<pre>Set
+Magic
+Set
+Not sure, take anyways
+Normal
+Normal
+Normal</pre>
+
+<p>The first and third items begin with possessives, so they must be Set items. The second item is three words long, and ends in "of [something]" so it must be Magic. The fourth item could be either Rare or Magic. The fifth item begins with "Damaged" so it's Normal. The last two items don't fit the descriptions of Set, Rare, or Magic, so they must be Normal also.</p>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,acmtryouts2d">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/acmtryouts2d">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 15<br>
+    <b>Time Limit:</b> 5.00s<br>
+    <b>Memory Limit:</b> 64M<br>
+    <b>Added:</b> Oct 02, 2012<br>
+        <b>Author:</b> <a href="https://wcipeg.com/user/wjomlex">wjomlex</a>  </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=acmtryouts2d">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment8770">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/pr0ject_1">pr0ject_1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8770">Mar 09, 2018 - 2:36:47 pm UTC</a>      </span>
+      <a class="comment_title" id="title8770" onclick="toggle(&quot;body8770&quot;)">Set Clarification</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8770">
+    (<span class="upvotes"><span id="upvotes8770">2</span></span>/<span class="downvotes"><span id="downvotes8770">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8770" class="comment_body">
+    <pre id="msg8770" style="display: none">Would [i]'s[/i] on its own count as a set item?</pre>
+    <div style="opacity: 1">
+      Would <span class="italics">'s</span> on its own count as a set item?    </div>
+    <br><div class="comment_block" id="comment8772">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8772">Mar 11, 2018 - 7:40:02 am UTC</a>      </span>
+      <a class="comment_title" id="title8772" onclick="toggle(&quot;body8772&quot;)">Re: Set Clarification</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8772">
+    (<span class="upvotes"><span id="upvotes8772">0</span></span>/<span class="downvotes"><span id="downvotes8772">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8772" class="comment_body">
+    <pre id="msg8772" style="display: none">Do exactly what the problem says.</pre>
+    <div style="opacity: 1">
+      Do exactly what the problem says.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment7996">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/gpfault">gpfault</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7996">Mar 18, 2017 - 6:42:20 pm UTC</a>      </span>
+      <a class="comment_title" id="title7996" onclick="toggle(&quot;body7996&quot;)">15 Points?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7996">
+    (<span class="upvotes"><span id="upvotes7996">0</span></span>/<span class="downvotes"><span id="downvotes7996">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7996" class="comment_body">
+    <pre id="msg7996" style="display: none">Why is this problem worth 15 points?? Is string processing really difficult, or is there something I missed? I almost feel like I'm walking into a trap reading this question.</pre>
+    <div style="opacity: 1">
+      Why is this problem worth 15 points?? Is string processing really difficult, or is there something I missed? I almost feel like I'm walking into a trap reading this question.    </div>
+    <br><div class="comment_block" id="comment7999">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7999">Mar 19, 2017 - 5:07:57 am UTC</a>      </span>
+      <a class="comment_title" id="title7999" onclick="toggle(&quot;body7999&quot;)">Re: 15 Points?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7999">
+    (<span class="upvotes"><span id="upvotes7999">1</span></span>/<span class="downvotes"><span id="downvotes7999">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7999" class="comment_body">
+    <pre id="msg7999" style="display: none">This question is somewhat tricky, yet I am inclined to agree with you that it is a touch overvalued. Personally I would decrease it to 10 points, but I don't want to step on anybody's toes... so for now, consider this as just a source of 5 free points. =]</pre>
+    <div style="opacity: 1">
+      This question is somewhat tricky, yet I am inclined to agree with you that it is a touch overvalued. Personally I would decrease it to 10 points, but I don't want to step on anybody's toes... so for now, consider this as just a source of 5 free points. =]    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment7583">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/skyfeather">skyfeather</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7583">May 07, 2016 - 3:25:35 am UTC</a>      </span>
+      <a class="comment_title" id="title7583" onclick="toggle(&quot;body7583&quot;)">Another plea for debugging...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7583">
+    (<span class="upvotes"><span id="upvotes7583">0</span></span>/<span class="downvotes"><span id="downvotes7583">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7583" class="comment_body">
+    <pre id="msg7583" style="display: none">Can someone please check my code and alert me (if possible and reasonable) of any mistakes? I have been trying to cover all of the cases, but am apparently still missing something. </pre>
+    <div style="opacity: 1">
+      Can someone please check my code and alert me (if possible and reasonable) of any mistakes? I have been trying to cover all of the cases, but am apparently still missing something.    </div>
+    <br><div class="comment_block" id="comment7586">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7586">May 07, 2016 - 4:10:49 pm UTC</a>      </span>
+      <a class="comment_title" id="title7586" onclick="toggle(&quot;body7586&quot;)">Re: Another plea for debugging...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7586">
+    (<span class="upvotes"><span id="upvotes7586">0</span></span>/<span class="downvotes"><span id="downvotes7586">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7586" class="comment_body">
+    <pre id="msg7586" style="display: none">If you want other people to read your code, I strongly suggest indenting it properly.
+
+Not algorithm related, but I suggest you read up about:
+- continue
+- List&lt;&gt; / ArrayList&lt;&gt;
+
+Furthermore, we explicitly recommend against saving and then printing output at the end.</pre>
+    <div style="opacity: 1">
+      If you want other people to read your code, I strongly suggest indenting it properly. <br> <br>Not algorithm related, but I suggest you read up about: <br>- continue <br>- List&lt;&gt; / ArrayList&lt;&gt; <br> <br>Furthermore, we explicitly recommend against saving and then printing output at the end.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment5161">
+  <div class="comment_header" style="opacity: 0.96994741412827">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/michael137">michael137</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5161">Oct 30, 2012 - 1:00:44 am UTC</a>      </span>
+      <a class="comment_title" id="title5161" onclick="toggle(&quot;body5161&quot;)">No rare items</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5161">
+    (<span class="upvotes"><span id="upvotes5161">5</span></span>/<span class="downvotes"><span id="downvotes5161">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5161" class="comment_body">
+    <pre id="msg5161" style="display: none">In what case would something be classified as rare? The only properties of rare is that is has 2 words in its name but so does magic.</pre>
+    <div style="opacity: 0.96994741412827">
+      In what case would something be classified as rare? The only properties of rare is that is has 2 words in its name but so does magic.    </div>
+    <br><div class="comment_block" id="comment5162">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/wjomlex">wjomlex</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5162">Oct 30, 2012 - 1:34:27 am UTC</a>      </span>
+      <a class="comment_title" id="title5162" onclick="toggle(&quot;body5162&quot;)">Re: No rare items</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5162">
+    (<span class="upvotes"><span id="upvotes5162">13</span></span>/<span class="downvotes"><span id="downvotes5162">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5162" class="comment_body">
+    <pre id="msg5162" style="display: none">I recommend a careful reading of the problem.</pre>
+    <div style="opacity: 1">
+      I recommend a careful reading of the problem.    </div>
+    <br><div class="comment_block" id="comment5163">
+  <div class="comment_header" style="opacity: 0.91778283429098">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/michael137">michael137</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5163">Oct 30, 2012 - 2:32:30 am UTC</a>      </span>
+      <a class="comment_title" id="title5163" onclick="toggle(&quot;body5163&quot;)">Re: Re: No rare items</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5163">
+    (<span class="upvotes"><span id="upvotes5163">5</span></span>/<span class="downvotes"><span id="downvotes5163">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5163" class="comment_body">
+    <pre id="msg5163" style="display: none">Can you explain? I've reread this problem so many times and I still cannot see where an item would be classified only as rare. Rare items only have 2 words and magic items have names between two and four word long. That means rare items could always be magic items. </pre>
+    <div style="opacity: 0.91778283429098">
+      Can you explain? I've reread this problem so many times and I still cannot see where an item would be classified only as rare. Rare items only have 2 words and magic items have names between two and four word long. That means rare items could always be magic items.    </div>
+    <br><div class="comment_block" id="comment5164">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/SourSpinach">SourSpinach</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5164">Oct 30, 2012 - 3:08:36 am UTC</a>      </span>
+      <a class="comment_title" id="title5164" onclick="toggle(&quot;body5164&quot;)">Re: Re: No rare items</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5164">
+    (<span class="upvotes"><span id="upvotes5164">12</span></span>/<span class="downvotes"><span id="downvotes5164">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5164" class="comment_body">
+    <pre id="msg5164" style="display: none">The problem statement contains all information necessary for solving it.</pre>
+    <div style="opacity: 1">
+      The problem statement contains all information necessary for solving it.    </div>
+    <br><div class="comment_block" id="comment5165">
+  <div class="comment_header" style="opacity: 0.92852231114197">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/michael137">michael137</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5165">Oct 30, 2012 - 3:33:27 am UTC</a>      </span>
+      <a class="comment_title" id="title5165" onclick="toggle(&quot;body5165&quot;)">Re: Re: No rare items</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5165">
+    (<span class="upvotes"><span id="upvotes5165">6</span></span>/<span class="downvotes"><span id="downvotes5165">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5165" class="comment_body">
+    <pre id="msg5165" style="display: none">Wow that wording is so snake &gt;.&lt; Thanks for the help!</pre>
+    <div style="opacity: 0.92852231114197">
+      Wow that wording is so snake &gt;.&lt; Thanks for the help!    </div>
+    <br><div class="comment_block" id="comment5166">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/SourSpinach">SourSpinach</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5166">Oct 30, 2012 - 4:11:55 am UTC</a>      </span>
+      <a class="comment_title" id="title5166" onclick="toggle(&quot;body5166&quot;)">Re: Re: No rare items</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5166">
+    (<span class="upvotes"><span id="upvotes5166">10</span></span>/<span class="downvotes"><span id="downvotes5166">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5166" class="comment_body">
+    <pre id="msg5166" style="display: none">There are indeed snakes involved =D</pre>
+    <div style="opacity: 1">
+      There are indeed snakes involved =D    </div>
+    <br><div class="comment_block" id="comment6118">
+  <div class="comment_header" style="opacity: 0.22810184305529">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Levesque">Levesque</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6118">Sep 09, 2014 - 3:48:31 pm UTC</a>      </span>
+      <a class="comment_title" id="title6118" onclick="toggle(&quot;body6118&quot;)">Re: Re: No rare items</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6118">
+    (<span class="upvotes"><span id="upvotes6118">0</span></span>/<span class="downvotes"><span id="downvotes6118">13</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6118" class="comment_body">
+    <pre id="msg6118" style="display: none">Nothing is explained in this program well...nothing is detailed in the program...</pre>
+    <div style="opacity: 0.22810184305529">
+      Nothing is explained in this program well...nothing is detailed in the program...    </div>
+    <br><div class="comment_block" id="comment6119">
+  <div class="comment_header" style="opacity: 0.95441393735536">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/wjomlex">wjomlex</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6119">Sep 09, 2014 - 5:32:39 pm UTC</a>      </span>
+      <a class="comment_title" id="title6119" onclick="toggle(&quot;body6119&quot;)">Re: Re: No rare items</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6119">
+    (<span class="upvotes"><span id="upvotes6119">3</span></span>/<span class="downvotes"><span id="downvotes6119">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6119" class="comment_body">
+    <pre id="msg6119" style="display: none">Do you have any particular questions?</pre>
+    <div style="opacity: 0.95441393735536">
+      Do you have any particular questions?    </div>
+    <br><div class="comment_block" id="comment6120">
+  <div class="comment_header" style="opacity: 0.29915275355096">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Levesque">Levesque</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6120">Sep 10, 2014 - 5:01:26 am UTC</a>      </span>
+      <a class="comment_title" id="title6120" onclick="toggle(&quot;body6120&quot;)">Re: Re: No rare items</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6120">
+    (<span class="upvotes"><span id="upvotes6120">0</span></span>/<span class="downvotes"><span id="downvotes6120">9</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6120" class="comment_body">
+    <pre id="msg6120" style="display: none">I cant understand when it would be Rare???</pre>
+    <div style="opacity: 0.29915275355096">
+      I cant understand when it would be Rare???    </div>
+    <br><div class="comment_block" id="comment6127">
+  <div class="comment_header" style="opacity: 0.24250075749924">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Levesque">Levesque</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6127">Sep 11, 2014 - 7:31:17 am UTC</a>      </span>
+      <a class="comment_title" id="title6127" onclick="toggle(&quot;body6127&quot;)">Re: Re: No rare items</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6127">
+    (<span class="upvotes"><span id="upvotes6127">0</span></span>/<span class="downvotes"><span id="downvotes6127">12</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6127" class="comment_body">
+    <pre id="msg6127" style="display: none">Cant a single person answer when it is RARE???</pre>
+    <div style="opacity: 0.24250075749924">
+      Cant a single person answer when it is RARE???    </div>
+    <br><div class="comment_block" id="comment6128">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/wjomlex">wjomlex</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6128">Sep 14, 2014 - 9:20:27 am UTC</a>      </span>
+      <a class="comment_title" id="title6128" onclick="toggle(&quot;body6128&quot;)">Re: Re: No rare items</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6128">
+    (<span class="upvotes"><span id="upvotes6128">8</span></span>/<span class="downvotes"><span id="downvotes6128">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6128" class="comment_body">
+    <pre id="msg6128" style="display: none">No, because reading problem statements carefully is an important skill to cultivate on one's own.</pre>
+    <div style="opacity: 1">
+      No, because reading problem statements carefully is an important skill to cultivate on one's own.    </div>
+    <br><div class="comment_block" id="comment6463">
+  <div class="comment_header" style="opacity: 0.489900020404">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/slutbamwalla">slutbamwalla</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6463">Jan 22, 2015 - 8:23:23 pm UTC</a>      </span>
+      <a class="comment_title" id="title6463" onclick="toggle(&quot;body6463&quot;)">Re: Re: No rare items</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6463">
+    (<span class="upvotes"><span id="upvotes6463">0</span></span>/<span class="downvotes"><span id="downvotes6463">4</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6463" class="comment_body">
+    <pre id="msg6463" style="display: none">Gotta say, after struggling with this one for a couple of days, that writing clearly defined problem statements is also an important skill, and this particular problem suffers from a lack of well-defined use cases. In the absence of a single example of an item that is unambiguously Rare, I've had to conclude there's no such thing, and yet, I continue to get WA'd.
+
+Is it not possible to be provided with a test case that should return Rare?</pre>
+    <div style="opacity: 0.489900020404">
+      Gotta say, after struggling with this one for a couple of days, that writing clearly defined problem statements is also an important skill, and this particular problem suffers from a lack of well-defined use cases. In the absence of a single example of an item that is unambiguously Rare, I've had to conclude there's no such thing, and yet, I continue to get WA'd. <br> <br>Is it not possible to be provided with a test case that should return Rare?    </div>
+    <br><div class="comment_block" id="comment6464">
+  <div class="comment_header" style="opacity: 0.96377683903021">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/FatalEagle">FatalEagle</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6464">Jan 22, 2015 - 10:24:07 pm UTC</a>      </span>
+      <a class="comment_title" id="title6464" onclick="toggle(&quot;body6464&quot;)">Re: Re: No rare items</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6464">
+    (<span class="upvotes"><span id="upvotes6464">4</span></span>/<span class="downvotes"><span id="downvotes6464">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6464" class="comment_body">
+    <pre id="msg6464" style="display: none">Actually, the case where an item is Rare is clearly defined. Providing a test case would defeat the purpose of having a problem such as this.</pre>
+    <div style="opacity: 0.96377683903021">
+      Actually, the case where an item is Rare is clearly defined. Providing a test case would defeat the purpose of having a problem such as this.    </div>
+    <br><div class="comment_block" id="comment6469">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/slutbamwalla">slutbamwalla</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6469">Jan 23, 2015 - 6:47:50 pm UTC</a>      </span>
+      <a class="comment_title" id="title6469" onclick="toggle(&quot;body6469&quot;)">Re: Re: No rare items</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6469">
+    (<span class="upvotes"><span id="upvotes6469">0</span></span>/<span class="downvotes"><span id="downvotes6469">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6469" class="comment_body">
+    <pre id="msg6469" style="display: none">In other words, the problem is meant to be deliberately vague in an attempt to artificially inflate the difficulty. Thanks for clearing that up.</pre>
+    <div style="opacity: 0.79345670852611">
+      In other words, the problem is meant to be deliberately vague in an attempt to artificially inflate the difficulty. Thanks for clearing that up.    </div>
+    <br><div class="comment_block" id="comment6470">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Alex">Alex</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6470">Jan 24, 2015 - 4:45:39 am UTC</a>      </span>
+      <a class="comment_title" id="title6470" onclick="toggle(&quot;body6470&quot;)">Re: Re: No rare items</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6470">
+    (<span class="upvotes"><span id="upvotes6470">2</span></span>/<span class="downvotes"><span id="downvotes6470">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6470" class="comment_body">
+    <pre id="msg6470" style="display: none">The description of item types is as precise as it needs to be without giving extraneous information. Perhaps you can say that not enough samples exist to spoonfeed you the answer, but it is definitely unfair to call the description vague. As far as I can see, none of the individual statements made in the description are unclear (I challenge you to find one that is). From these statements, it is definitely possible to deduce the trick to the solution. You really just need to think harder. Once you get it, you will agree with the rest of us.</pre>
+    <div style="opacity: 1">
+      The description of item types is as precise as it needs to be without giving extraneous information. Perhaps you can say that not enough samples exist to spoonfeed you the answer, but it is definitely unfair to call the description vague. As far as I can see, none of the individual statements made in the description are unclear (I challenge you to find one that is). From these statements, it is definitely possible to deduce the trick to the solution. You really just need to think harder. Once you get it, you will agree with the rest of us.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment6300">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/ImaxBlue">ImaxBlue</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6300">Nov 14, 2014 - 1:47:58 pm UTC</a>      </span>
+      <a class="comment_title" id="title6300" onclick="toggle(&quot;body6300&quot;)">Case Sensative?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6300">
+    (<span class="upvotes"><span id="upvotes6300">0</span></span>/<span class="downvotes"><span id="downvotes6300">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6300" class="comment_body">
+    <pre id="msg6300" style="display: none">Is the categories case sensitive? 
+eg. is "Somebody'S Something of Whatever" still a valid set item and is "stone OF Jordan" a valid magic item? Same for "damaged goods".</pre>
+    <div style="opacity: 1">
+      Is the categories case sensitive?  <br>eg. is "Somebody'S Something of Whatever" still a valid set item and is "stone OF Jordan" a valid magic item? Same for "damaged goods".    </div>
+    <br><div class="comment_block" id="comment6302">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/wgma00">wgma00</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6302">Nov 14, 2014 - 3:14:02 pm UTC</a>      </span>
+      <a class="comment_title" id="title6302" onclick="toggle(&quot;body6302&quot;)">Re: Case Sensative?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6302">
+    (<span class="upvotes"><span id="upvotes6302">2</span></span>/<span class="downvotes"><span id="downvotes6302">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6302" class="comment_body">
+    <pre id="msg6302" style="display: none">This is answered in the problem statement.</pre>
+    <div style="opacity: 1">
+      This is answered in the problem statement.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment6144">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/descrip">descrip</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6144">Sep 27, 2014 - 6:38:32 pm UTC</a>      </span>
+      <a class="comment_title" id="title6144" onclick="toggle(&quot;body6144&quot;)">Can someone please check my code?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6144">
+    (<span class="upvotes"><span id="upvotes6144">0</span></span>/<span class="downvotes"><span id="downvotes6144">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6144" class="comment_body">
+    <pre id="msg6144" style="display: none">I think I understand the trick behind the problem, but I am still getting the wrong answer when putting my code through the judge. Could someone please tell me what I am doing wrong?</pre>
+    <div style="opacity: 1">
+      I think I understand the trick behind the problem, but I am still getting the wrong answer when putting my code through the judge. Could someone please tell me what I am doing wrong?    </div>
+    <br><div class="comment_block" id="comment6145">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Alex">Alex</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6145">Sep 27, 2014 - 6:47:41 pm UTC</a>      </span>
+      <a class="comment_title" id="title6145" onclick="toggle(&quot;body6145&quot;)">Re: Can someone please check my code?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6145">
+    (<span class="upvotes"><span id="upvotes6145">5</span></span>/<span class="downvotes"><span id="downvotes6145">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6145" class="comment_body">
+    <pre id="msg6145" style="display: none">According to a few of your most recent submissions, it would appear that you do not understand the trick behind the problem.</pre>
+    <div style="opacity: 1">
+      According to a few of your most recent submissions, it would appear that you do not understand the trick behind the problem.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0807s.<br>
+    Server time on page load:
+    Jun 24, 2018 06:56:33 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Facmtryouts2d">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

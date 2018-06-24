@@ -1,0 +1,637 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - Rubik's Cube Solver</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "a5a6da31e315e7ee609958a2aedecd0f";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Frubik"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h2>Rubik's Cube Solver</h2>
+<p>The Rubik's Cube is often said to be the best-selling toy of all time (given
+suitable restrictions). Invented in 1974 by Ernő Rubik, a Hungarian
+sculptor and professor of architecture, it takes the appearance of a large cube
+divided into 3×3×3 smaller cubies, three to an edge. Centre cubies
+have one face exposed; edge cubies have two; and corner cubies have three.
+Each exposed cubie face has a sticker on it; other than this, all cubies are
+identical. Stickers are merely coloured squares, and cannot be distinguished
+from 90-degree rotations of themselves. In a solved configuration of the cube,
+all stickers on a particular face have the same colour. A special internal
+mechanism takes the place of the 27th cubie inside the cube; it holds the
+cubies together and allows <i>rotation</i> of any of the cube's six faces. When
+a face is rotated, each one of the nine cubies on that face revolves around the
+centre (although the centre is not visibly affected), taking their stickers
+along with them, without disturbing any of the other cubies. The overall shape
+of the cube is not changed by rotation, but the configuration of the stickers
+is changed.</p>
+
+<p>If one holds the cube such that one of the faces is pointed directly at
+oneself, it is possible to assign a notation to the faces of the cube - F for
+front (the face directly visible), U for up, D for down, L for left, R for
+right, and B for back (the face opposite the front face). From this it is only
+a small step to a notation for rotations. A 90-degree clockwise rotation is
+denoted by the letter corresponding to the face to be rotated; a 180-degree
+rotation is denoted by the letter followed by the numeral 2; and a 90-degree
+counterclockwise rotation is denoted by the letter followed by a single quote
+('). For example, R'D2F means to rotate the right face counterclockwise, then
+rotate the bottom face 180 degrees, then rotate the front face clockwise. Order
+is important. Any rotation, whether it is clockwise, counterclockwise, or 180
+degrees, is considered a single <i>face turn</i>, often shortened to
+<i>move</i>.<br></p>
+
+<p>In this problem, a configuration of the Rubik's cube will be represented by
+a net, such as the following:</p>
+<pre>      1 1 1
+      1 1 1
+      1 1 1
+2 2 2 3 3 3 4 4 4 5 5 5
+2 2 2 3 3 3 4 4 4 5 5 5
+2 2 2 3 3 3 4 4 4 5 5 5
+      6 6 6
+      6 6 6
+      6 6 6
+</pre>
+<p>Each 3×3 block represents the nine stickers of a face. The actual
+configuration represented by this net may be determined by folding it into the
+three-dimensional cube shape, and holding it such that the uppermost block
+forms the U face and the leftmost block forms the L face. Similarly, the centre
+block represents the F face, the block to the right represents the R face, the
+rightmost block represents the B face, and the bottom block represents the D
+face. This configuration is solved because all the stickers on each face match.
+On the other hand, the following configuration:</p>
+<pre>      3 1 1
+      3 1 1
+      3 1 1
+2 2 2 6 3 3 4 4 4 5 5 1
+2 2 2 6 3 3 4 4 4 5 5 1
+2 2 2 6 3 3 4 4 4 5 5 1
+      5 6 6
+      5 6 6
+      5 6 6
+</pre>
+<p>requires a clockwise twist of the L face in order to restore to the solved
+configuration above. Note that it is not necessarily the numerals 1 to 6 used
+to denote the faces; one could just as well use the letters A to F, or perhaps
+W R B O G Y for white, red, blue, orange, green, and yellow, a popular set of
+colours for the stickers.</p>
+
+<p>Given a configuration of the Rubik's cube, you are to find a sequence of
+moves that restores it to a "solved" configuration.</p>
+
+<h3>Input Format</h3>
+<p>Nine lines in the format described above.</p>
+
+<h3>Output Format</h3>
+<p>A string on a single line in the format given, that is, matching the regular
+expression ^([UDLRFB][2']?)*$, no longer than 10000 characters, that
+corresponds to a sequence of moves that restores the configuration in the input
+to a solved configuration. This will always be possible.</p>
+
+<h3>Sample Input</h3>
+<pre>      3 1 1
+      3 1 1
+      3 1 1
+2 2 2 6 3 3 4 4 4 5 5 1
+2 2 2 6 3 3 4 4 4 5 5 1
+2 2 2 6 3 3 4 4 4 5 5 1
+      5 6 6
+      5 6 6
+      5 6 6
+</pre>
+
+<h3>Sample Output</h3>
+<pre>L</pre>
+
+<h3>Scoring</h3>
+<p>It is known (Rokicki <i>et al</i>., 2010) that the exact upper bound on the
+number of moves required to solve any legal configuration of the Rubik's cube
+is 20. However, this requires impractical computer resources. A gentler
+solution method using A* gives solutions within 23 moves within a reasonable
+length of time on a desktop computer. Now, of the 25 test cases, some can be
+solved within a small number of moves, and the minimum number required is
+known; others were randomly-generated, and this is why any solution will be
+accepted. Thus, your score, a number between 0 and 1 inclusive, will be
+calculated as <var>K</var>/<var>N</var>, where <var>N</var> is the number of
+moves used by your solution. For the easier cases, <var>K</var> is the minimum
+number of moves required; for the harder cases, <var>K</var> is 23, although if
+you get more than 1, your score is adjusted to 1.</p>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,rubik">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/rubik">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 50 (partial)<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 512M<br>
+    <b>Added:</b> Dec 25, 2008<br>
+        <b>Author:</b> <a href="https://wcipeg.com/user/bbi5291">bbi5291</a>  </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=rubik">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment1499">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/javic">javic</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1499">Feb 02, 2009 - 1:02:11 am UTC</a>      </span>
+      <a class="comment_title" id="title1499" onclick="toggle(&quot;body1499&quot;)">Centers</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1499">
+    (<span class="upvotes"><span id="upvotes1499">0</span></span>/<span class="downvotes"><span id="downvotes1499">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1499" class="comment_body">
+    <pre id="msg1499" style="display: none">hmm... are the centers always going to be:
+U 1
+L 2
+F 3
+R 4
+B 5
+D 6
+?</pre>
+    <div style="opacity: 0.79345670852611">
+      hmm... are the centers always going to be: <br>U 1 <br>L 2 <br>F 3 <br>R 4 <br>B 5 <br>D 6 <br>?    </div>
+    <br><div class="comment_block" id="comment1500">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1500">Feb 02, 2009 - 1:19:32 am UTC</a>      </span>
+      <a class="comment_title" id="title1500" onclick="toggle(&quot;body1500&quot;)">Re: Centers</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1500">
+    (<span class="upvotes"><span id="upvotes1500">1</span></span>/<span class="downvotes"><span id="downvotes1500">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1500" class="comment_body">
+    <pre id="msg1500" style="display: none">No, they are random non-whitespace ASCII characters.</pre>
+    <div style="opacity: 0.90547134519913">
+      No, they are random non-whitespace ASCII characters.    </div>
+    <br><div class="comment_block" id="comment1501">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/javic">javic</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1501">Feb 02, 2009 - 1:34:07 am UTC</a>      </span>
+      <a class="comment_title" id="title1501" onclick="toggle(&quot;body1501&quot;)">Re: Re: Centers</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1501">
+    (<span class="upvotes"><span id="upvotes1501">0</span></span>/<span class="downvotes"><span id="downvotes1501">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1501" class="comment_body">
+    <pre id="msg1501" style="display: none">AWWW...... &gt;.&lt; that just makes it more annoying.... 
+oh well... =/
+guess it's not that hard to deal with...</pre>
+    <div style="opacity: 0.79345670852611">
+      AWWW...... &gt;.&lt; that just makes it more annoying....  <br>oh well... =/ <br>guess it's not that hard to deal with...    </div>
+    <br><div class="comment_block" id="comment1503">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bleung91">bleung91</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1503">Feb 02, 2009 - 2:09:12 am UTC</a>      </span>
+      <a class="comment_title" id="title1503" onclick="toggle(&quot;body1503&quot;)">Re: Re: Re: Centers</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1503">
+    (<span class="upvotes"><span id="upvotes1503">0</span></span>/<span class="downvotes"><span id="downvotes1503">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1503" class="comment_body">
+    <pre id="msg1503" style="display: none">lol, you actaully know how to do this problem?</pre>
+    <div style="opacity: 0.79345670852611">
+      lol, you actaully know how to do this problem?    </div>
+    <br><div class="comment_block" id="comment1504">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1504">Feb 02, 2009 - 2:10:53 am UTC</a>      </span>
+      <a class="comment_title" id="title1504" onclick="toggle(&quot;body1504&quot;)">Re: Re: Re: Re: Centers</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1504">
+    (<span class="upvotes"><span id="upvotes1504">0</span></span>/<span class="downvotes"><span id="downvotes1504">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1504" class="comment_body">
+    <pre id="msg1504" style="display: none">Jacob only used brute force, and got 20 points.</pre>
+    <div style="opacity: 0.79345670852611">
+      Jacob only used brute force, and got 20 points.    </div>
+    <br><div class="comment_block" id="comment1505">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/SourSpinach">SourSpinach</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1505">Feb 02, 2009 - 4:09:38 am UTC</a>      </span>
+      <a class="comment_title" id="title1505" onclick="toggle(&quot;body1505&quot;)">Re: Re: Re: Re: Re: Centers</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1505">
+    (<span class="upvotes"><span id="upvotes1505">0</span></span>/<span class="downvotes"><span id="downvotes1505">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1505" class="comment_body">
+    <pre id="msg1505" style="display: none">Hey, you can't say "only brute force". That was the hardest brute force I've ever done, hardcoding those rotations is SUCH a nitch.
+
+It was worth 20 points.</pre>
+    <div style="opacity: 0.79345670852611">
+      Hey, you can't say "only brute force". That was the hardest brute force I've ever done, hardcoding those rotations is SUCH a nitch. <br> <br>It was worth 20 points.    </div>
+    <br><div class="comment_block" id="comment1506">
+  <div class="comment_header" style="opacity: 0.53231033912066">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bleung91">bleung91</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1506">Feb 02, 2009 - 4:53:50 am UTC</a>      </span>
+      <a class="comment_title" id="title1506" onclick="toggle(&quot;body1506&quot;)">Re: Re: Re: Re: Re: Re: Centers</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1506">
+    (<span class="upvotes"><span id="upvotes1506">3</span></span>/<span class="downvotes"><span id="downvotes1506">9</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1506" class="comment_body">
+    <pre id="msg1506" style="display: none">lol, i think we should designate you as "The Ultimate Hard-Coder in PEG (TUHCIPEG)</pre>
+    <div style="opacity: 0.53231033912066">
+      lol, i think we should designate you as "The Ultimate Hard-Coder in PEG (TUHCIPEG)    </div>
+    <br><div class="comment_block" id="comment1507">
+  <div class="comment_header" style="opacity: 0.79234504487351">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Saravannan">Saravannan</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1507">Feb 03, 2009 - 2:05:18 am UTC</a>      </span>
+      <a class="comment_title" id="title1507" onclick="toggle(&quot;body1507&quot;)">Re: Re: Re: Re: Re: Re: Re: Centers</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1507">
+    (<span class="upvotes"><span id="upvotes1507">1</span></span>/<span class="downvotes"><span id="downvotes1507">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1507" class="comment_body">
+    <pre id="msg1507" style="display: none">Where did the G come from? </pre>
+    <div style="opacity: 0.79234504487351">
+      Where did the G come from?    </div>
+    <br><div class="comment_block" id="comment1508">
+  <div class="comment_header" style="opacity: 0.84178307773737">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/SourSpinach">SourSpinach</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1508">Feb 03, 2009 - 2:46:41 am UTC</a>      </span>
+      <a class="comment_title" id="title1508" onclick="toggle(&quot;body1508&quot;)">Re: Re: Re: Re: Re: Re: Re: Re: Centers</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1508">
+    (<span class="upvotes"><span id="upvotes1508">4</span></span>/<span class="downvotes"><span id="downvotes1508">3</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1508" class="comment_body">
+    <pre id="msg1508" style="display: none">LOL
+
+Bosco should take English lessons from either Hao (RCM = Royal Mountain Police) or Toby (BIT = Bacon Lettuce Tomato).</pre>
+    <div style="opacity: 0.84178307773737">
+      LOL <br> <br>Bosco should take English lessons from either Hao (RCM = Royal Mountain Police) or Toby (BIT = Bacon Lettuce Tomato).    </div>
+    <br><div class="comment_block" id="comment7401">
+  <div class="comment_header" style="opacity: 0.79234504487351">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Jlsajfj">Jlsajfj</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7401">Jan 23, 2016 - 4:43:56 pm UTC</a>      </span>
+      <a class="comment_title" id="title7401" onclick="toggle(&quot;body7401&quot;)">Re: Re: Re: Re: Re: Re: Re: Re: Centers</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7401">
+    (<span class="upvotes"><span id="upvotes7401">1</span></span>/<span class="downvotes"><span id="downvotes7401">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7401" class="comment_body">
+    <pre id="msg7401" style="display: none">TUHCIPEG challenge accepted
+:P i haz fastest hardcode
+</pre>
+    <div style="opacity: 0.79234504487351">
+      TUHCIPEG challenge accepted <br>:P i haz fastest hardcode    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment7400">
+  <div class="comment_header" style="opacity: 0.65762804711038">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Jlsajfj">Jlsajfj</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7400">Jan 23, 2016 - 4:43:08 pm UTC</a>      </span>
+      <a class="comment_title" id="title7400" onclick="toggle(&quot;body7400&quot;)">Hardcoding</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7400">
+    (<span class="upvotes"><span id="upvotes7400">0</span></span>/<span class="downvotes"><span id="downvotes7400">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7400" class="comment_body">
+    <pre id="msg7400" style="display: none">Damn this question is hard to hardcode.
+I actually have to assemble the cube into the correct position for all cases past 3</pre>
+    <div style="opacity: 0.65762804711038">
+      Damn this question is hard to hardcode. <br>I actually have to assemble the cube into the correct position for all cases past 3    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment4182">
+  <div class="comment_header" style="opacity: 0.84996429117983">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/zzh8829">zzh8829</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/4182">Sep 05, 2012 - 9:46:59 pm UTC</a>      </span>
+      <a class="comment_title" id="title4182" onclick="toggle(&quot;body4182&quot;)"></a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating4182">
+    (<span class="upvotes"><span id="upvotes4182">2</span></span>/<span class="downvotes"><span id="downvotes4182">2</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body4182" class="comment_body">
+    <pre id="msg4182" style="display: none"></pre>
+    <div style="opacity: 0.84996429117983">
+          </div>
+    <br><div class="comment_block" id="comment4183">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/4183">Sep 06, 2012 - 3:18:34 pm UTC</a>      </span>
+      <a class="comment_title" id="title4183" onclick="toggle(&quot;body4183&quot;)">Re: OMG? 23 steps....</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating4183">
+    (<span class="upvotes"><span id="upvotes4183">1</span></span>/<span class="downvotes"><span id="downvotes4183">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body4183" class="comment_body">
+    <pre id="msg4183" style="display: none">It's not supposed to be an easy problem.</pre>
+    <div style="opacity: 0.90547134519913">
+      It's not supposed to be an easy problem.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment1495">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/javic">javic</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1495">Feb 01, 2009 - 11:58:01 pm UTC</a>      </span>
+      <a class="comment_title" id="title1495" onclick="toggle(&quot;body1495&quot;)">is there a limit to how long your code can be?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1495">
+    (<span class="upvotes"><span id="upvotes1495">0</span></span>/<span class="downvotes"><span id="downvotes1495">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1495" class="comment_body">
+    <pre id="msg1495" style="display: none">is there a limit to how long your code can be?</pre>
+    <div style="opacity: 0.79345670852611">
+      is there a limit to how long your code can be?    </div>
+    <br><div class="comment_block" id="comment1496">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1496">Feb 02, 2009 - 12:02:50 am UTC</a>      </span>
+      <a class="comment_title" id="title1496" onclick="toggle(&quot;body1496&quot;)">Re: is there a limit to how long your code can be?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1496">
+    (<span class="upvotes"><span id="upvotes1496">0</span></span>/<span class="downvotes"><span id="downvotes1496">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1496" class="comment_body">
+    <pre id="msg1496" style="display: none">Hanson says that PHP limits your submissions to 2 MB. That being said, you shouldn't really be concerned with code length.
+By the way, congratulations on the COMC this year. Once again I find myself with a rank worse than 50th...</pre>
+    <div style="opacity: 0.79345670852611">
+      Hanson says that PHP limits your submissions to 2 MB. That being said, you shouldn't really be concerned with code length. <br>By the way, congratulations on the COMC this year. Once again I find myself with a rank worse than 50th...    </div>
+    <br><div class="comment_block" id="comment1497">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/javic">javic</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1497">Feb 02, 2009 - 12:11:54 am UTC</a>      </span>
+      <a class="comment_title" id="title1497" onclick="toggle(&quot;body1497&quot;)">Re: Re: is there a limit to how long your code can</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1497">
+    (<span class="upvotes"><span id="upvotes1497">0</span></span>/<span class="downvotes"><span id="downvotes1497">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1497" class="comment_body">
+    <pre id="msg1497" style="display: none">thanks xD
+good luck on the CCC this year!</pre>
+    <div style="opacity: 0.79345670852611">
+      thanks xD <br>good luck on the CCC this year!    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment1150">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/abr71310">abr71310</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1150">Jan 04, 2009 - 3:40:44 am UTC</a>      </span>
+      <a class="comment_title" id="title1150" onclick="toggle(&quot;body1150&quot;)"></a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1150">
+    (<span class="upvotes"><span id="upvotes1150">0</span></span>/<span class="downvotes"><span id="downvotes1150">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1150" class="comment_body">
+    <pre id="msg1150" style="display: none">I think the problem should be scored out of 23 --&gt; 30, 22 is a little ridiculous for your time constraints.</pre>
+    <div style="opacity: 0.79345670852611">
+      I think the problem should be scored out of 23 --&gt; 30, 22 is a little ridiculous for your time constraints.    </div>
+    <br><div class="comment_block" id="comment1153">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1153">Jan 04, 2009 - 4:01:27 am UTC</a>      </span>
+      <a class="comment_title" id="title1153" onclick="toggle(&quot;body1153&quot;)">All right...</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1153">
+    (<span class="upvotes"><span id="upvotes1153">0</span></span>/<span class="downvotes"><span id="downvotes1153">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1153" class="comment_body">
+    <pre id="msg1153" style="display: none">All right, 22 is changed to 23 (not a lot of difference that will make, but here I must defer to one greater than I) but the scoring algorithm stands as it is.</pre>
+    <div style="opacity: 0.79345670852611">
+      All right, 22 is changed to 23 (not a lot of difference that will make, but here I must defer to one greater than I) but the scoring algorithm stands as it is.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0670s.<br>
+    Server time on page load:
+    Jun 24, 2018 06:57:54 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Frubik">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

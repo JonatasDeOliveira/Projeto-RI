@@ -212,13 +212,12 @@ def value(link):
             return 3
     return 5
 
-
-#crawler('https://wcipeg.com','', 0) ok
+crawler('https://wcipeg.com','', 0)
 #crawler('http://www.codeforces.com','', 1000) ok
 #crawler('https://a2oj.com','', 2000) ok
 ##crawler('https://www.codechef.com','')
 #crawler('http://acm.timus.ru','', 3000)
 #crawler('https://www.spoj.com','', 4000)
-crawler('https://dmoj.ca','', 5000) 
+#crawler('https://dmoj.ca','', 5000) 
 ##crawler('https://www.urionlinejudge.com.br','')
 ##crawler('https://leetcode.com','')

@@ -1,0 +1,455 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - TC</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "a5a6da31e315e7ee609958a2aedecd0f";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Ftc"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h2>TC</h2>
+Some of the more elite (and not-so-elite) coders around take part in a contest called TC. In TC, there are multiple types of competitions. Here, we consider the Algorithm and TCHS competition types. For each type, each competitor receives a <i>rating</i>, an integer between 1 and 100000, inclusive. A coder's rating is based upon his or her level of performance in <i>single round matches</i> (SRMs) and is calculated using a complicated formula.<br>
+<br>
+Each SRM has three problems, usually called the 250, 500, and 1000 because of their most frequently occurring point values, although they can sometimes have slightly different values, such as 300, 550, and 900. In Algorithm SRMs, the 250 is usually fairly easy, the 500 requires some thought, and can be quite difficult, and the 1000 is usually very difficult, accessible only to those with an advanced knowledge of algorithms and well-honed problem-solving skills. In TCHS SRMs, in which only high school students are allowed to participate, the 250 and 500 are usually fairly easy, and the 1000 is most often not harder than an average problem from a typical national olympiad contest.<br>
+<br>
+The interesting thing is that there's a speed factor too - a coder gets no points for a solution if it is even slightly wrong (i.e. does not pass all of the test cases). Instead, partial scoring is based upon the time taken for a coder to submit his or her final solution for that problem. A coder who solves the 250 and 500 quickly may earn more points than a coder who solves only the 1000, but takes a long time to do so.<br>
+<br>
+Although the TCHS and Algorithm ratings for a coder who has participated in both TCHS and Algorithm SRMs lately are usually close, this is not always the case. In particular, TCHS is more about speed, since many coders are able to solve all three problems, whereas Algorithm SRMs require more thinking and there is a steeper curve in terms of problem difficulty.<br>
+<br>
+<b>Problem Statement</b><br>
+You are given <i>N</i> coders (1 ≤ <i>N</i> ≤ 300000), conveniently numbered from 1 to <i>N</i>. Each of these coders participates in both TCHS and Algorithm contests. For each coder, you are also given an Algorithm rating <i>A</i><sub><i>i</i></sub> and a TCHS rating <i>H</i><sub><i>i</i></sub>. Coder <i>i</i> is said to be <i>better</i> than coder <i>j</i> if and only if both of coder <i>i</i>'s ratings are greater than or equal to coder <i>j</i>'s corresponding ratings, with at least one being greater. For each coder <i>i</i>, determine how many coders coder <i>i</i> is better than.<br>
+<br>
+<b>Input Format</b><br>
+On the first line of input is a single integer <i>N</i>, as described above.<br>
+<i>N</i> lines then follow. Line <i>i</i>+1 contains two space-separated integers, <i>A</i><sub><i>i</i></sub> and <i>H</i><sub><i>i</i></sub>.<br>
+<br>
+<b>Output Format</b><br>
+Line <i>i</i> should contain the number of coders that coder <i>i</i> is better than.<br>
+<br>
+<b>Sample Input</b><pre>9
+2156 1789 <!-- bbi5291 -->
+862 700 <!-- iHate -->
+1106 1041 <!-- Saravannan -->
+1568 1557 <!-- sajninredoc -->
+2575 1984 <!-- v3ctor -->
+1033 950 <!-- zerglingrush -->
+1738 1649 <!-- SourSpinach -->
+1097 1089 <!-- litonshu -->
+1774 1630 <!-- Foundation -->
+</pre><br>
+<b>Sample Output</b><pre>7
+0
+2
+4
+8
+1
+5
+2
+5</pre>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,tc">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/tc">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 15 (partial)<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Jan 27, 2009<br>
+        <b>Author:</b> <a href="https://wcipeg.com/user/bbi5291">bbi5291</a>  </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=tc">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment8778">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Marko99">Marko99</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8778">Mar 15, 2018 - 5:14:07 pm UTC</a>      </span>
+      <a class="comment_title" id="title8778" onclick="toggle(&quot;body8778&quot;)">Hint</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8778">
+    (<span class="upvotes"><span id="upvotes8778">0</span></span>/<span class="downvotes"><span id="downvotes8778">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8778" class="comment_body">
+    <pre id="msg8778" style="display: none">Is possible to solve this problem using DP?</pre>
+    <div style="opacity: 1">
+      Is possible to solve this problem using DP?    </div>
+    <br><div class="comment_block" id="comment8779">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/magicalsoup">magicalsoup</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/8779">Mar 15, 2018 - 11:27:13 pm UTC</a>      </span>
+      <a class="comment_title" id="title8779" onclick="toggle(&quot;body8779&quot;)">Re: Hint</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating8779">
+    (<span class="upvotes"><span id="upvotes8779">0</span></span>/<span class="downvotes"><span id="downvotes8779">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body8779" class="comment_body">
+    <pre id="msg8779" style="display: none">yes</pre>
+    <div style="opacity: 0.79345670852611">
+      yes    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment7863">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Kirito">Kirito</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7863">Dec 25, 2016 - 6:03:39 am UTC</a>      </span>
+      <a class="comment_title" id="title7863" onclick="toggle(&quot;body7863&quot;)">SIGABRT</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7863">
+    (<span class="upvotes"><span id="upvotes7863">0</span></span>/<span class="downvotes"><span id="downvotes7863">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7863" class="comment_body">
+    <pre id="msg7863" style="display: none">Can I have a hint as to why I'm getting SIGABRT? Thanks!</pre>
+    <div style="opacity: 0.79345670852611">
+      Can I have a hint as to why I'm getting SIGABRT? Thanks!    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment6939">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bobhob314">bobhob314</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6939">Sep 30, 2015 - 12:08:19 am UTC</a>      </span>
+      <a class="comment_title" id="title6939" onclick="toggle(&quot;body6939&quot;)">SIGSEGV</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6939">
+    (<span class="upvotes"><span id="upvotes6939">0</span></span>/<span class="downvotes"><span id="downvotes6939">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6939" class="comment_body">
+    <pre id="msg6939" style="display: none">It seems that this [code]const int MAXN = 3*1e5+2;[/code] is illegal in PEG judges for some reason.
+
+[b]Edit:[/b] Thanks.</pre>
+    <div style="opacity: 1">
+      It seems that this <pre><code class=" cpp"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">3</span>*<span class="number">1</span>e5+<span class="number">2</span>;</code></pre> is illegal in PEG judges for some reason. <br> <br><span class="bold">Edit:</span> Thanks.    </div>
+    <br><div class="comment_block" id="comment6940">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6940">Sep 30, 2015 - 5:46:18 am UTC</a>      </span>
+      <a class="comment_title" id="title6940" onclick="toggle(&quot;body6940&quot;)">Re: SIGSEGV</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6940">
+    (<span class="upvotes"><span id="upvotes6940">1</span></span>/<span class="downvotes"><span id="downvotes6940">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6940" class="comment_body">
+    <pre id="msg6940" style="display: none">[code]10e5[/code] is not the same as [code]1e5[/code].</pre>
+    <div style="opacity: 1">
+      <pre><code>10e5</code></pre> is not the same as <pre><code>1e5</code></pre>.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment1977">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/javic">javic</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1977">Apr 06, 2009 - 7:13:08 am UTC</a>      </span>
+      <a class="comment_title" id="title1977" onclick="toggle(&quot;body1977&quot;)">mm</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1977">
+    (<span class="upvotes"><span id="upvotes1977">2</span></span>/<span class="downvotes"><span id="downvotes1977">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1977" class="comment_body">
+    <pre id="msg1977" style="display: none">i thought u said scores are from 1 to 100000 inclusive.... but apparently there is 0 in the first two test cases, which was funny how i got TLE for the first two cases xD</pre>
+    <div style="opacity: 1">
+      i thought u said scores are from 1 to 100000 inclusive.... but apparently there is 0 in the first two test cases, which was funny how i got TLE for the first two cases xD    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment1887">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Daniel">Daniel</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1887">Mar 24, 2009 - 9:52:53 pm UTC</a>      </span>
+      <a class="comment_title" id="title1887" onclick="toggle(&quot;body1887&quot;)">help?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1887">
+    (<span class="upvotes"><span id="upvotes1887">0</span></span>/<span class="downvotes"><span id="downvotes1887">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1887" class="comment_body">
+    <pre id="msg1887" style="display: none">For some reason my binary tree keeps on resetting itself after the insertion procedure. How do I stop this? </pre>
+    <div style="opacity: 0.79345670852611">
+      For some reason my binary tree keeps on resetting itself after the insertion procedure. How do I stop this?    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment1824">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Daniel">Daniel</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1824">Mar 17, 2009 - 12:49:09 am UTC</a>      </span>
+      <a class="comment_title" id="title1824" onclick="toggle(&quot;body1824&quot;)">help?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1824">
+    (<span class="upvotes"><span id="upvotes1824">0</span></span>/<span class="downvotes"><span id="downvotes1824">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1824" class="comment_body">
+    <pre id="msg1824" style="display: none">I keep on getting General Protection Fault and some Run-time 216. Does anyone know what that means?</pre>
+    <div style="opacity: 0.79345670852611">
+      I keep on getting General Protection Fault and some Run-time 216. Does anyone know what that means?    </div>
+    <br><div class="comment_block" id="comment1825">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1825">Mar 17, 2009 - 1:30:23 am UTC</a>      </span>
+      <a class="comment_title" id="title1825" onclick="toggle(&quot;body1825&quot;)">Re: help?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1825">
+    (<span class="upvotes"><span id="upvotes1825">0</span></span>/<span class="downvotes"><span id="downvotes1825">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1825" class="comment_body">
+    <pre id="msg1825" style="display: none">RE 216 [i]is[/i] GPE. As stated from Free Pascal:
+[quote][code]
+216  General Protection fault
+     The application tried to access invalid
+     memory space. This can be caused by
+     several problems:
+       -Dereferencing a nil pointer
+       -Trying to access memory which is out of
+        bounds (for example, calling move with
+        an invalid length).[/code][/quote]</pre>
+    <div style="opacity: 1">
+      RE 216 <span class="italics">is</span> GPE. As stated from Free Pascal: <br><table style="width: 90%; margin: 0 auto">
+            <tbody><tr>
+            <td><span class="quotecodeheader"></span></td>
+            </tr>
+            <tr>
+            <td class="quotebody"><pre><code class=" delphi"> 
+<span class="number">216</span>  General Protection fault 
+     The application tried <span class="keyword">to</span> access invalid 
+     memory space. This can be caused by 
+     several problems: 
+       -Dereferencing a <span class="keyword">nil</span> pointer 
+       -Trying <span class="keyword">to</span> access memory which is <span class="keyword">out</span> <span class="keyword">of</span> 
+        bounds (<span class="keyword">for</span> example, calling move <span class="keyword">with</span> 
+        an invalid length).</code></pre></td>
+            </tr>
+            </tbody></table>    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment1823">
+  <div class="comment_header" style="opacity: 0.95441393735536">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1823">Mar 16, 2009 - 8:28:40 pm UTC</a>      </span>
+      <a class="comment_title" id="title1823" onclick="toggle(&quot;body1823&quot;)">Hint</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1823">
+    (<span class="upvotes"><span id="upvotes1823">3</span></span>/<span class="downvotes"><span id="downvotes1823">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1823" class="comment_body">
+    <pre id="msg1823" style="display: none">Use a binary search tree or binary indexed tree.</pre>
+    <div style="opacity: 0.95441393735536">
+      Use a binary search tree or binary indexed tree.    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment1460">
+  <div class="comment_header" style="opacity: 0.95441393735536">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1460">Jan 28, 2009 - 1:06:22 am UTC</a>      </span>
+      <a class="comment_title" id="title1460" onclick="toggle(&quot;body1460&quot;)">Re: clarification?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1460">
+    (<span class="upvotes"><span id="upvotes1460">3</span></span>/<span class="downvotes"><span id="downvotes1460">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1460" class="comment_body">
+    <pre id="msg1460" style="display: none">Did you not bother to read the problem statement?
+[quote]Coder i is said to be better than coder j if and only if [b]both[/b] of coder i's ratings are greater than or equal to coder j's corresponding ratings, with at least one being greater.[/quote]
+Note that for a given pair of coders, it is possible that neither is better than the other. There is nothing unusual about this.</pre>
+    <div style="opacity: 0.95441393735536">
+      Did you not bother to read the problem statement? <br><table style="width: 90%; margin: 0 auto">
+            <tbody><tr>
+            <td><span class="quotecodeheader"></span></td>
+            </tr>
+            <tr>
+            <td class="quotebody">Coder i is said to be better than coder j if and only if <span class="bold">both</span> of coder i's ratings are greater than or equal to coder j's corresponding ratings, with at least one being greater.</td>
+            </tr>
+            </tbody></table> <br>Note that for a given pair of coders, it is possible that neither is better than the other. There is nothing unusual about this.    </div>
+      </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0472s.<br>
+    Server time on page load:
+    Jun 24, 2018 07:05:28 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Ftc">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>
