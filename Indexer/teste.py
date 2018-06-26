@@ -1,23 +1,30 @@
 import json
 import os.path
-
-
-"""
-file = './Indexer/teste.json'
-with open(file, 'w') as f:
-    f.write(json.dumps(data, indent=2))"""
+import collections
     
-file = './Docs/Jsons/Datas.json'
+file = './Docs/Jsons/datas.json'
+
+#file = './Indexer/wcipegTeste.json'
+
+#file = './Docs/Jsons/Heuristic2/Specific/Wcipeg/wcipeg.json'
 with open(file) as f:
     generalDatas = json.load(f)
 
+fixData = {}
+for i in range(len(generalDatas["Sites"])):
+    uniqueId = 0
+    insideData = {}
+    for a in generalDatas["Sites"][i]:
+        if a == "ID":
+            uniqueId = generalDatas["Sites"][i][a]
+            print(uniqueId)
+        else:
+            insideData[a] = generalDatas["Sites"][i][a]
+    fixData[uniqueId] = insideData
+    
+fixData = collections.OrderedDict(sorted(fixData.items()))
 
 
-
-
-
-
-"""file = './Indexer/Datas.json'
+file = './Indexer/datasTeste.json'
 with open(file, 'w') as f:
-    f.write(json.dumps(data, indent=2))"""
-
+    f.write(json.dumps(fixData, indent=2))
