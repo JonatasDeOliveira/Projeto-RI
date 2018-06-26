@@ -7,6 +7,7 @@ from Extractor import timus
 from Extractor import wcipeg
 from Extractor import genericExtractor as g1
 from Extractor import genericExtractor2 as g2
+from Extractor import util
 import os
 
 def extractor(page, domain, crawlerType, fileName, link, uniqueId):
@@ -16,21 +17,21 @@ def extractor(page, domain, crawlerType, fileName, link, uniqueId):
     os.makedirs('Docs/Jsons/' + crawlerType + '/General_1/' + domain, exist_ok=True)
     os.makedirs('Docs/Jsons/' + crawlerType + '/General_2/' + domain, exist_ok=True)
     
-    
     if domain == "A2oj":
-        a2oj.a2oj(page, crawlerType, "Specific", domain, fileName, link, uniqueId)
+        a2oj.a2oj(page, link, uniqueId)
     elif domain == "Codeforces":
-        codeforces.codeforces(page, crawlerType, "Specific", domain, fileName, link, uniqueId)
+        codeforces.codeforces(page, link, uniqueId)
     elif domain == "Dmoj":
-        dmoj.dmoj(page, crawlerType, "Specific", domain, fileName, link, uniqueId)
+        dmoj.dmoj(page, link, uniqueId)
     elif domain == "Leetcode":
-        leetcode.leetcode(page, crawlerType, "Specific", domain, fileName, link, uniqueId)
+        leetcode.leetcode(page, link, uniqueId)
     elif domain == "Spoj":
-        spoj.spoj(page, crawlerType, "Specific", domain, fileName, link, uniqueId)
+        spoj.spoj(page, link, uniqueId)
     elif domain == "Timus":
-        timus.timus(page, crawlerType, "Specific", domain, fileName, link, uniqueId)
+        timus.timus(page, link, uniqueId)
     elif domain == "Wcipeg":
-        wcipeg.wcipeg(page, crawlerType, "Specific",domain,  fileName, link, uniqueId)
+        wcipeg.wcipeg(page, link, uniqueId)
     
+    util.writeJSON(crawlerType, "Specific", domain, fileName)
 #    g1.genericExtractor(page, crawlerType, "General_1", domain, fileName)
 #    g2.genericExtractor2(page, crawlerType, "General_2", domain, fileName)

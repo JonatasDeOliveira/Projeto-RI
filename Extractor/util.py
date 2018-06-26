@@ -4,6 +4,8 @@ import math
 import json
 import os.path
 
+datas = {}
+
 def treatStr(sample):
     samples = re.findall('\>.*?\<',str(sample))
     sampleStr = ""
@@ -68,29 +70,25 @@ def getMaxKey(mapList):
             maxValue = mapList[key]
             maxKey = key
     return maxKey
-    
-def writeToJSON(crawlerType, extractorType, domain, fileName, data):
+
+def loadData(data):
+    datas.update(data)
+
+def writeJSON(crawlerType, extractorType, domain, fileName):
+    #Escrever em um JSON para o especifico
     file = './Docs/Jsons/' + crawlerType + '/'+ extractorType + '/' + domain + '/' + fileName + '.json'
+    with open(file, 'w') as f:
+            f.write(json.dumps(datas, indent=2))
     
-    exist = os.path.isfile(file) 
-    if exist:
-        with open(file, 'a') as f:
-            f.write(json.dumps(data, indent=2))
-    else:
-        with open(file, 'w') as f:
-            f.write(json.dumps(data, indent=2))
-    
-    #salva tudo em um arquivo
+    #Escreve em um JSON tudo
     file = './Docs/Jsons/Datas.json'
+    with open(file) as f:
+        generalDatas = json.load(f)
     
-    exist = os.path.isfile(file)
-    if exist:
-        with open(file, 'a') as f:
-            f.write(json.dumps(data, indent=2))
-    else:
-        with open(file, 'w') as f:
-            f.write(json.dumps(data, indent=2))
-       
+    generalDatas.update(datas)
+    with open(file, 'w') as f:
+        f.write(json.dumps(generalDatas, indent=2))
+
 def getText(page):
     [s.extract() for s in page.findAll(['style', 'script'])]
     return page.text

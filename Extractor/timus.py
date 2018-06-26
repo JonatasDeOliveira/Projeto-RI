@@ -4,7 +4,7 @@ from Extractor import util
 import re
 import math
 
-def timus(page, crawlerType, extractorType, domain, fileName, link, uniqueId):
+def timus(page, link, uniqueId):
     #request = requests.get("http://acm.timus.ru/problem.aspx?space=1&num=1328")
     #page = bs.BeautifulSoup(request.content, "html.parser")
     
@@ -68,8 +68,8 @@ def timus(page, crawlerType, extractorType, domain, fileName, link, uniqueId):
         tableInfos = samples.findAll("pre")
     
         problemSamples = tableTitles[0].text + "\n" + util.getEvenText(tableInfos) + tableTitles[1].text + "\n" + util.getOddText(tableInfos)
-    
-    data = {"ID" : uniqueId,
+    data = {}
+    data[uniqueId] = {
             "URL" : link,
             "Title" : problemName,
             "Description" : problemDescripton,
@@ -82,4 +82,4 @@ def timus(page, crawlerType, extractorType, domain, fileName, link, uniqueId):
             "Problem" : util.getText(problem)
     }
     
-    util.writeToJSON(crawlerType, extractorType, domain, fileName, data)
+    util.loadData(data)

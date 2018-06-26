@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 from Extractor import util
 
-def a2oj(page, crawlerType, extractorType, domain, fileName, link, uniqueId):
+def a2oj(page, link, uniqueId):
     #request = requests.get("https://a2oj.com/p?ID=134", verify = False)
     #page = BeautifulSoup(request.content, "html.parser")
     
@@ -40,7 +40,8 @@ def a2oj(page, crawlerType, extractorType, domain, fileName, link, uniqueId):
             problemTimeLimit = problemTimeLimit.replace("\n", "")
             break
     
-    data = {"ID" : uniqueId,
+    data = {}
+    data[uniqueId] = {
             "URL" : link,
             "Title" : problemName,
             "Description" : problemDescripton,
@@ -51,5 +52,5 @@ def a2oj(page, crawlerType, extractorType, domain, fileName, link, uniqueId):
             "Time Limit" : problemTimeLimit,
             "Problem" : util.getText(problem)
     }
-        
-    util.writeToJSON(crawlerType, extractorType, domain, fileName, data)
+    
+    util.loadData(data)

@@ -3,7 +3,7 @@ import bs4 as bs
 import re
 from Extractor import util
  
-def codeforces(page, crawlerType, extractorType, domain, fileName, link, uniqueId):   
+def codeforces(page, link, uniqueId):   
     #request = requests.get("http://codeforces.com/problemset/problem/27/C")
     #page = bs.BeautifulSoup(request.content, "html.parser")
         
@@ -48,7 +48,8 @@ def codeforces(page, crawlerType, extractorType, domain, fileName, link, uniqueI
     if note is not None:
         problemNote = note.text
     
-    data = {"ID" : uniqueId,
+    data = {}
+    data[uniqueId] = {
             "URL" : link,
             "Title" : problemName,
             "Description" : problemDescripton,
@@ -60,4 +61,4 @@ def codeforces(page, crawlerType, extractorType, domain, fileName, link, uniqueI
             "Note" : problemNote,
             "Problem" : util.getText(problem)}
             
-    util.writeToJSON(crawlerType, extractorType, domain, fileName, data)
+    util.loadData(data)
