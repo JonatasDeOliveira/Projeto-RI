@@ -44,13 +44,7 @@ def indexer(datas, field):
 
                     #Adiciona os valores comprimidos
                     if len(cIndexes) > 0:
-                        
                         compressed = pageId - indexes[-1]
-                        print(pageId)
-                        print( " - " )
-                        print(indexes[-1])
-                        print(" = ")
-                        print(compressed)
                         cIndexes.append(compressed)
                         cIndexesFrequency.append([compressed, frequency])
                     else:
@@ -75,5 +69,3 @@ indexer(datas, "Title")
 indexer(datas, "Input")         #Input, Input Descritpion, Input Format, INPUT
 indexer(datas, "Output")        #output, Output Descritpion, Output Format, OUTPUT
 indexer(datas, "Time Limit")"""
-
-#https://www.youtube.com/watch?v=2Tw39kZIbhs
