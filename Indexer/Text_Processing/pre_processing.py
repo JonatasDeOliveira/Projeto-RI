@@ -12,18 +12,13 @@ def processData(data):
     wordsFiltered = []
     
     for w in tokenize:
-        if len(w) == 1:
-            break
-        
         result = re.match('[0-9]*?\.', w)
-        if result:
-            break
-
-        if w not in stopWords:
+        if not result:
+           if w not in stopWords:
             wordsFiltered.append(w)
-    
+            
     #Stemmer
     stemmer = PorterStemmer()
     words = [stemmer.stem(word) for word in wordsFiltered]
-    
+    print (words)
     return words

@@ -6,6 +6,13 @@ import collections
 def indexer(datas, field):
     lField = field.lower()
     
+    indexes = {}
+    indexesFrequency = {}
+
+    #compressed
+    cIndexes = {}
+    cIndexesFrequency = {}
+    
     for n in datas:
         if (field is "Input") or (field is "Output"):
             for f in datas[n]:
@@ -13,51 +20,41 @@ def indexer(datas, field):
                     value = datas[n][f]
         else:
             value = datas[n][field]
-
+            
         pValue = p.processData(value)
         
         for word in pValue:
-            indexes = []
-            frequency = 0
-            indexesFrequency = []
-
-            #compressed
-            cIndexes = []
-            cIndexesFrequency = []
-    
-            for i in datas:
-                
-                #acha o verdadeiro atributo para pesquisa posterior
-                actualField = field
-                if (field is "Input") or (field is "Output"):
-                    for f in datas[n]:
-                        print(f)
-                        if field in f.title():
-                            actualField = f
-                            
-                text = datas[i][actualField]
-                text = text.lower()
-                if word in text:
-                    pageId = int(i)
-
-                    frequency = text.count(word)
-
-                    #Adiciona os valores comprimidos
-                    if len(cIndexes) > 0:
-                        compressed = pageId - indexes[-1]
-                        cIndexes.append(compressed)
-                        cIndexesFrequency.append([compressed, frequency])
-                    else:
-                        cIndexes.append(pageId)
-                        cIndexesFrequency.append([pageId, frequency])
-                        
-                    indexes.append(pageId)
-                    indexesFrequency.append([pageId, frequency])
-                    
-                    
+            pageId = int(n)
+            
             word = word.replace('/', '*')
-            util.loadData(word, indexes, indexesFrequency, cIndexes, cIndexesFrequency)
-    util.writeFiles(lField)
+            
+            if word not in indexes.keys():
+                indexes[word] = [pageId]
+                indexesFrequency[word] = [[pageId, 1]]
+                    
+                cIndexes[word] = [pageId]
+                cIndexesFrequency[word] = [[pageId, 1]]
+            else:
+                indexList = indexes[word]
+                compressedId = pageId - indexList[-1]
+                
+                frequency = 0
+                indexesLen = len(indexes[word])
+                for i in range(indexesLen):
+                    index = indexesFrequency[word][i]
+                    if index[0] == pageId:
+                        frequency = 1 + index[1]
+                        
+                        indexesFrequency[word][i][1] = frequency
+                        cIndexesFrequency[word][i][1] = frequency
+                
+                if frequency == 0:
+                    indexes[word].append(pageId)
+                    indexesFrequency[word].append([pageId, 1])
+                    
+                    cIndexes[word].append(compressedId)
+                    cIndexesFrequency[word].append([compressedId, 1])
+    util.writeFiles(lField, indexes, indexesFrequency, cIndexes, cIndexesFrequency)
 
 
 file = './Docs/Jsons/datas.json'
