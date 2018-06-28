@@ -1,17 +1,19 @@
 from bs4 import BeautifulSoup
 from selenium import webdriver
 import signal
-import util
+from Extractor import util
 
-def leetcode(page, crawlerType, extractorType, domain, fileName):
+def leetcode(page, link, uniqueId):
     #driver = webdriver.PhantomJS()
     #driver.get("https://leetcode.com/problems/minimum-time-difference/description/")
     #page = BeautifulSoup(driver.page_source, "html.parser")
     #driver.service.process.send_signal(signal.SIGTERM)
     
-    data = {}
+    dataT = {}
     
     problemBody = page.find("div", {"class" : "question-description"})
+    if problemBody is None:
+        problemBody = page.find("div", {"class" : "question-description__3U1T"})
     
     title = page.title
     title = title.text
@@ -21,13 +23,13 @@ def leetcode(page, crawlerType, extractorType, domain, fileName):
     bodyArray = bodyText.split("\n")
     bodyText = problemBody.find_all(["p", "pre", "li"])
     
-    data["Title"] = problemName
+    dataT["Title"] = problemName
     elementTitle = "Description"
     elementContent = ""
     
     for element in bodyArray:
         if "Note:" in element:
-            data[elementTitle] = elementContent[:-1]
+            dataT[elementTitle] = elementContent[:-1]
             elementTitle = "Note"
             if len(element.replace("Note:", "")) > 1:
                 elementContent = element.replace("Note: ", "")
@@ -37,15 +39,22 @@ def leetcode(page, crawlerType, extractorType, domain, fileName):
             if elementTitle == "Example":
                 continue
             else: 
-                data[elementTitle] = elementContent[:-1]
+                dataT[elementTitle] = elementContent[:-1]
                 elementTitle = "Example"
                 elementContent = ""
         elif "Follow up:" in element:
-            data[elementTitle] = elementContent[:-1]
+            dataT[elementTitle] = elementContent[:-1]
             elementTitle = "Follow up"
             elementContent = ""
         else:
             elementContent += element + "\n"
-    data[elementTitle] = elementContent
+    dataT[elementTitle] = elementContent
     
-    util.writeToJSON(crawlerType, extractorType, domain, fileName, data)
+    title = page.find("div", {"class" : "question-title clearfix"})
+    dataT["Problem"] = title.text + "\n" + problemBody.text
+    dataT["URL"] = link
+    
+    data = {}
+    data[uniqueId] = dataT
+    
+    util.loadData(data)

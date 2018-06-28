@@ -1,0 +1,246 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - WC15 #3 - LexCorp Infiltration</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "a5a6da31e315e7ee609958a2aedecd0f";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fwc153j4"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>Woburn Challenge 2015-16 Round 3 - Junior Division</h3>
+<h2>Problem 4: LexCorp Infiltration</h2>
+
+<img src="images/wc153j4/wc153j4.png" alt="" style="float:right; height:200px; padding:25px; padding-top: 0;">
+
+<p>While the dust settles in the battle between the dark knight and the last son of Krypton, the two have suddenly come to recognize the true mastermind behind it all. After General Zod's invasion on Earth, LexCorp was contracted by the U.S. government to carefully reverse-engineer leftover Kryptonian technology. As it turns out, the battle between the heroes had simply been Lex Luthor's test in his greater conspiracy to craft a powerful biotechnological weapon against Superman. At that point, it became clear to both that the world is in much graver danger than ever before. Luthor's international masquerade as a humanitarian has attracted the attention of Princess Diana of Themyscira, also known as Wonder Woman. After joining forces with Superman and Batman, the trio obtain intel of Luthor's dangerous bio-weapon project – Doomsday.</p>
+
+<p>But it's too late. To destroy the reputation of Superman, Doomsday has already been deployed by Luthor and is wreaking havoc and causing wanton destruction upon Metropolis. Doomsday was originally a deadly monster born from the depths of ancient Krypton. As Luthor has reanimated the abominable legend from his own laboratories on Earth, Doomsday is actually being puppeted from the very control rooms in LexCorp Tower. To stop this vicious foe, Wonder Woman will have to infiltrate LexCorp Tower and use Batman's knockout gas to shut down these control rooms one at a time.</p>
+
+<p>Using his X-ray vision, Superman has helped devise a map of the control floor of LexCorp Tower. He knows that the floor can be represented as a rectangular grid of <var>R</var> rows and <var>C</var> columns (1 ≤ <var>R</var>, <var>C</var> ≤ 1000). The rows are numbered 1..<var>R</var> from north to south, while the columns are numbered 1..<var>C</var> from west to east. The <var>j</var>-th cell in the <var>i</var>-th row can be referred to as cell (<var>i</var>, <var>j</var>). Each cell (<var>i</var>, <var>j</var>) is either part of a control room or a wall, which is indicated by the value of character <var>M<sub>i,j</sub></var> on the map (with "<code>.</code>" indicating it is part of a control room and "#" indicating it is a wall). At least one cell will be part of a control room.</p>
+
+<p>The control floor will obviously consist of some number control rooms (at least one), where each control room on the map consists of a consecutive region of "<code>.</code>" characters. More formally, every "<code>.</code>" cell is part of exactly one control room, and if a pair of "<code>.</code>" cells are adjacent to one another, then they must be part of the same control room. Two cells (<var>i</var><sub>1</sub>, <var>j</var><sub>1</sub>) and (<var>i</var><sub>2</sub>, <var>j</var><sub>2</sub>) are adjacent if and only if |<var>i</var><sub>1</sub> - <var>i</var><sub>2</sub>| + |<var>j</var><sub>1</sub> - <var>j</var><sub>2</sub>| = 1 (in other words, if they share a side). The size of a control room is the number of "<code>.</code>" cells that are part of it.</p>
+
+<p>Releasing knockout gas in a given room will knock out of all its controlpersons, permanently preventing the room from conveying a particular type of vital information to Doomsday's operations. Since Doomsday is already terrorizing Metropolis at a substantial rate, the order in which Wonder Woman infiltrates the rooms is vital in minimizing damage done to the city. Since it's likely that larger control rooms convey more important information, assigning ranks to rooms based on their size may help Wonder Woman workout her plan. At any time during the mission, the rank of control room <var>r</var> is an integer equal to the number of active control rooms whose sizes are strictly larger than control room <var>r</var>'s size.</p><p>
+
+</p><p>All that said, <var>N</var> (1 ≤ <var>N</var> ≤ 3000) events will take place in the mission, one after another. Each event <var>i</var> concerns a "<code>.</code>" cell (<var>A<sub>i</sub></var>, <var>B<sub>i</sub></var>) (1 ≤ <var>A<sub>i</sub></var> ≤ <var>R</var>, 1 ≤ <var>B<sub>i</sub></var> ≤ <var>C</var>), and can be of one of 2 types, indicated by the value <var>T<sub>i</sub></var> (1 ≤ <var>T<sub>i</sub></var> ≤ 2):</p>
+
+<ol>
+<li>Wonder Woman assesses the situation of the control room that cell (<var>A<sub>i</sub></var>, <var>B<sub>i</sub></var>) is part of.</li>
+<li>Wonder Woman travels to cell (<var>A<sub>i</sub></var>, <var>B<sub>i</sub></var>) and gasses the entire control room containing that cell.
+</li></ol>
+
+<p>To make her mission smooth, she has asked you to help her write a program to keep track of her progress. Right before each event <var>i</var> takes place, your program should determine the current rank of the control room containing cell (<var>A<sub>i</sub></var>, <var>B<sub>i</sub></var>) and output it. However, if that cell belongs to a control room that she has already gassed (in one of the first <var>i</var> − 1 events), you should instead output <code>-1</code> to remind her. When a control room is gassed, it ceases to convey signals to Doomsday, meaning that the ranks of other control rooms may change. On the other hand, gassing an already gassed room has no effect. Superman's reputation is dwindling with every moment of Metropolis's destruction, so you'd better code fast!</p>
+
+<p>
+In test cases worth 20/40 of the points, there will be no type-2 events.
+</p>
+
+<h3>Input Format</h3>
+<p>
+The first line of input will contain three space-separated integers <var>R</var>, <var>C</var>, and <var>N</var>.<br>
+The next <var>R</var> lines will each contain <var>C</var> characters <var>M</var><sub><var>i</var>,1</sub>, <var>M</var><sub><var>i</var>,2</sub>, …, <var>M</var><sub><var>i,C</var></sub>, for <var>i</var> = 1..<var>R</var>.<br>
+The next <var>N</var> lines will each contain three space-separated integers <var>T<sub>i</sub></var>, <var>A<sub>i</sub></var>, and <var>B<sub>i</sub></var>, for <var>i</var> = 1..<var>N</var>.
+</p>
+
+<h3>Output Format</h3>
+<p>
+Output <var>N</var> lines with a single integer per line.
+Line <var>i</var> should contain the rank of the control room of the cell targeted by the <var>i</var>-th event (or <code>-1</code> if the room has already been previously gassed), for <var>i</var> = 1..<var>N</var>.
+</p>
+
+<h3>Sample Input</h3>
+<pre>5 6 5
+..#.#.
+..####
+.#..##
+#..##.
+..###.
+1 1 4
+1 3 4
+2 1 2
+2 3 1
+1 1 4
+</pre>
+
+<h3>Sample Output</h3>
+<pre>3
+0
+1
+-1
+2
+</pre>
+
+<h3>Explanation</h3>
+
+<p>If we label each control room cell with the rank of its control room, the map initially looks as follows:</p>
+<pre>11#3#3
+11####
+1#00##
+#00##2
+00###2
+</pre>
+
+<p>There are 5 control rooms. The largest one (the one that includes the south-west cell) has size 6, so its rank is 0. The two size-1 rooms near the top right of the map both have rank 3.</p>
+
+<p>The 3rd event causes the north-west control room to be gassed, leaving the map looking as follows:</p>
+<pre>**#2#2
+**####
+*#00##
+#00##1
+00###1
+</pre>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,wc153j4">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/wc153j4">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 15 (partial)<br>
+    <b>Time Limit:</b> 1.00s<br>
+    <b>Memory Limit:</b> 64M<br>
+    <b>Added:</b> Feb 13, 2016<br>
+        <b>Authors:</b> <a href="https://wcipeg.com/user/SourSpinach">SourSpinach</a>, <a href="https://wcipeg.com/user/Alex">Alex</a>  </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=wc153j4">Search</a>)</h2><p style="text-align: center"></p>It's quiet in here...</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0125s.<br>
+    Server time on page load:
+    Jun 24, 2018 07:00:57 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fwc153j4">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

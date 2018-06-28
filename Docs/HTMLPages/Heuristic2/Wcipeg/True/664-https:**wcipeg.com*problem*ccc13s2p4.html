@@ -1,0 +1,395 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - CCC13 Stage 2 - A Romantic Movie Outing</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "a5a6da31e315e7ee609958a2aedecd0f";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fccc13s2p4"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>2013 Canadian Computing Competition, Stage 2</h3>
+<h2>Day 2, Problem 1: A Romantic Movie Outing</h2>
+
+<p>Brian the Computer Science Nerd is going on a date with his girlfriend,
+Anatevka! His romantic location of choice is a movie theatre - but not an IMAX
+theatre, of course, as that would be far too expensive.</p>
+
+<p>This theatre has 10<sup>9</sup> rows of 1000 seats each, which are initially
+empty. The rows are numbered 1..10<sup>9</sup> starting from the one closest to
+the screen, and the seats in each row are numbered 1..1000 from left to right.
+Seat <var>c</var> in row <var>r</var> is denoted as seat
+(<var>r</var>,<var>c</var>). Seats in rows 1..<var>L</var>
+(1&nbsp;≤&nbsp;<var>L</var>&nbsp;≤&nbsp;1000) are considered to be
+<q>close</q> to the screen, while seats in further rows are considered to be
+<q>far</q>.</p>
+
+<p>Over the course of <var>T</var>
+(1&nbsp;≤&nbsp;<var>T</var>&nbsp;≤&nbsp;500000) minutes before the movie
+starts, a number of events occur. During the <var>i</var><sup>th</sup> minute,
+either a person enters and sits in the empty seat
+(<var>R<sub>i</sub></var>,<var>C<sub>i</sub></var>), the person sitting in the
+occupied seat (<var>R<sub>i</sub></var>,<var>C<sub>i</sub></var>) leaves, or
+Anatevka suggests that she and Brian take seats
+(<var>R<sub>i</sub></var>,<var>C<sub>i</sub></var>) and
+(<var>R<sub>i</sub></var>,<var>C<sub>i</sub></var>&nbsp;+&nbsp;1). The type of
+the <var>i</var><sup>th</sup> event is represented by the character
+<var>E<sub>i</sub></var>, with <var>E<sub>i</sub></var> = <q>E</q> indicating a
+person entering, <var>E<sub>i</sub></var> = <q>L</q> indicating a person
+leaving, and <var>E<sub>i</sub></var> = <q>S</q> indicating a seating
+suggestion. All seats involved in the events are valid seats inside the
+theatre, and every seat that Anatevka suggests will be <q>close</q>, as she
+believes that they're the best.</p>
+
+<p>Every time Anatevka makes a suggestion, Brian must, of course, analyze its
+quality. If either of the two seats she suggests is already occupied, he should
+explain that her recommendation is invalid with a simple <q>No</q>. Otherwise,
+he'd like to calculate the total inconvenience of both seats in such an
+arrangement. The inconvenience of sitting in seat (<var>r</var>,<var>c</var>)
+is the number of occupied seats in its field of vision (excluding itself). The
+field of vision of seat (<var>r</var>,<var>c</var>) includes all seats which
+are no further than it from seat (1,<var>c</var>) by Manhattan distance (i.e.,
+Manhattan distance between
+(<var>x</var><sub>1</sub>,&nbsp;<var>y</var><sub>1</sub>) and
+(<var>x</var><sub>2</sub>,&nbsp;<var>y</var><sub>2</sub>) is
+|<var>x</var><sub>1</sub>&nbsp;-&nbsp;<var>x</var><sub>2</sub>| +
+|<var>y</var><sub>1</sub>&nbsp;-&nbsp;<var>y</var><sub>2</sub>|), as shown
+below (with the <q>S</q> representing a suggested seat, and an <q>F</q>
+representing a seat within its field of vision):</p>
+
+<p style="text-align: center"><img src="images/ccc13s2p4/ccc13s2p4_0.png" alt=""></p>
+
+<p>After all of the events have taken place, the movie is about to start, and a
+final decision must be made on where to sit - and Brian will handle that. He
+concludes that seats that are <q>far</q> are clearly superior (as they offer a
+broader view of the screen), and he knows that the point of going to the movies
+is to have an optimal viewing experience, so selecting two adjacent seats is
+certainly not mandatory. As such, he'd like to determine the minimum total
+inconvenience for any two <q>far</q>, unoccupied seats in the theatre. Note
+that, if one of the chosen seats is in the other's field of vision, this does
+not count towards its inconvenience - it's only determined by other people
+sitting in the theatre.</p>
+
+<h3>Input</h3>
+<p>The first line of each test case contains two integers, <var>L</var>
+(1&nbsp;≤&nbsp;<var>L</var>&nbsp;≤&nbsp;1000) and <var>T</var>
+(1&nbsp;≤&nbsp;<var>T</var>&nbsp;≤&nbsp;500000).</p>
+
+<p>The next <var>T</var> lines each contain one character,
+<var>E<sub>i</sub></var> (<var>E<sub>i</sub></var>&nbsp;∈&nbsp;{E, L, S}),
+and two integers, <var>R<sub>i</sub></var> and <var>C<sub>i</sub></var>, for
+<var>i</var>&nbsp;=&nbsp;1..<var>T</var>
+(1&nbsp;≤&nbsp;<var>R<sub>i</sub></var>&nbsp;≤&nbsp;10<sup>9</sup>;
+1&nbsp;≤&nbsp;<var>C<sub>i</sub></var>&nbsp;≤&nbsp;1000).</p>
+
+<p>For test cases worth 20% of the points, you may assume
+<var>L</var>&nbsp;≤&nbsp;100 and <var>T</var>&nbsp;≤&nbsp;400.</p>
+
+<p>For test cases worth 60% of the points, you may assume
+<var>L</var>&nbsp;≤&nbsp;500 and <var>T</var>&nbsp;≤&nbsp;50000.</p>
+
+<h3>Output</h3>
+<p>For each of Anatevka's suggestions (i.e., when
+<var>E<sub>i</sub></var>&nbsp;=&nbsp;S in the input), output the string
+<code>No</code> if the suggestion is invalid; otherwise, output the total
+inconvenience of the two suggested seats.</p>
+
+<p>The last line of output should contain the minimum total inconvenience of
+any pair of <q>far</q>, unoccupied seats.</p>
+
+<h3>Sample Input</h3>
+<pre>3 7
+E 1 2
+E 2 5
+S 3 4
+E 2 3
+L 2 5
+S 1 3
+S 2 2</pre>
+
+<h3>Sample Output</h3>
+<pre>3
+0
+No
+0</pre>
+
+<h3>Explanation</h3>
+<p>When Anatevka makes her first suggestion, the front 3 rows and leftmost 5
+columns of the theatre look as follows (where a <q>P</q> represents a person,
+and an <q>S</q> represents one of the suggested seats):</p>
+
+<p>The person sitting in seat (1,2) is in the field of vision of both suggested
+seats, while the person sitting in seat (2,5) is only in the way of the right
+one. As such, the total inconvenience of the two seats is
+1&nbsp;+&nbsp;2&nbsp;=&nbsp;3.</p>
+
+<p style="text-align: center"><img src="images/ccc13s2p4/ccc13s2p4_1.png" alt=""></p>
+
+<p>The second suggestion is shown below:</p>
+
+<p style="text-align: center"><img src="images/ccc13s2p4/ccc13s2p4_2.png" alt=""></p>
+
+<p>These two seats aren't obstructed by any people, so their total
+inconvenience is 0. The final suggestion is invalid, as one of its two seats
+(seat (2,3)) is already occupied.</p>
+
+<p>Finally, Brian can easily select two <q>far</q> seats which each have
+inconvenience 0, as the theatre has 10<sup>9</sup>&nbsp;-&nbsp;3 <q>far</q>
+rows with 1000 seats each, and most are far from the two people setting in the
+theatre after the last event. For example, he might choose to take seat (4,6),
+while recommending that Anatevka enjoy the view from seat (100,1000).</p>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,ccc13s2p4">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/ccc13s2p4">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 20 (partial)<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 128M<br>
+    <b>Added:</b> May 19, 2013<br>
+        <b>Author:</b> <a href="https://wcipeg.com/user/SourSpinach">SourSpinach</a>  </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=ccc13s2p4">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment6710">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/B">B</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6710">Apr 27, 2015 - 6:07:30 pm UTC</a>      </span>
+      <a class="comment_title" id="title6710" onclick="toggle(&quot;body6710&quot;)">RIP Ted Ying</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6710">
+    (<span class="upvotes"><span id="upvotes6710">7</span></span>/<span class="downvotes"><span id="downvotes6710">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6710" class="comment_body">
+    <pre id="msg6710" style="display: none">Never forget.</pre>
+    <div style="opacity: 1">
+      Never forget.    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment5595">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bruce">bruce</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5595">Nov 20, 2013 - 2:33:54 am UTC</a>      </span>
+      <a class="comment_title" id="title5595" onclick="toggle(&quot;body5595&quot;)">Wrong figure in explanation</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5595">
+    (<span class="upvotes"><span id="upvotes5595">0</span></span>/<span class="downvotes"><span id="downvotes5595">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5595" class="comment_body">
+    <pre id="msg5595" style="display: none">I think the two S in the 1st figure of explanation should shift one position to the right, although it doesn't affect the result.</pre>
+    <div style="opacity: 1">
+      I think the two S in the 1st figure of explanation should shift one position to the right, although it doesn't affect the result.    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment5296">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Daniel">Daniel</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5296">May 27, 2013 - 8:19:26 pm UTC</a>      </span>
+      <a class="comment_title" id="title5296" onclick="toggle(&quot;body5296&quot;)">Test Data</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5296">
+    (<span class="upvotes"><span id="upvotes5296">0</span></span>/<span class="downvotes"><span id="downvotes5296">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5296" class="comment_body">
+    <pre id="msg5296" style="display: none">In the test data, it is possible for a seat to have an "E" event twice, without an "L" event in between.</pre>
+    <div style="opacity: 1">
+      In the test data, it is possible for a seat to have an "E" event twice, without an "L" event in between.    </div>
+    <br><div class="comment_block" id="comment5299">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/SourSpinach">SourSpinach</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5299">May 30, 2013 - 3:46:53 am UTC</a>      </span>
+      <a class="comment_title" id="title5299" onclick="toggle(&quot;body5299&quot;)">Re: Test Data</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5299">
+    (<span class="upvotes"><span id="upvotes5299">0</span></span>/<span class="downvotes"><span id="downvotes5299">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5299" class="comment_body">
+    <pre id="msg5299" style="display: none">Ah, thanks for catching that - it's been fixed.
+
+This flawed data was indeed used at the CCC - this is my fault. However, looking at the full results, I believe it had no significant effect (and possibly none at all).</pre>
+    <div style="opacity: 1">
+      Ah, thanks for catching that - it's been fixed. <br> <br>This flawed data was indeed used at the CCC - this is my fault. However, looking at the full results, I believe it had no significant effect (and possibly none at all).    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment5279">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/SourSpinach">SourSpinach</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5279">May 20, 2013 - 2:49:33 pm UTC</a>      </span>
+      <a class="comment_title" id="title5279" onclick="toggle(&quot;body5279&quot;)">Correction</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5279">
+    (<span class="upvotes"><span id="upvotes5279">0</span></span>/<span class="downvotes"><span id="downvotes5279">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5279" class="comment_body">
+    <pre id="msg5279" style="display: none">The fourth line of the sample input should read "S 3 3", rather than "S 3 4", to match the diagram below (though both yield the same output).</pre>
+    <div style="opacity: 1">
+      The fourth line of the sample input should read "S 3 3", rather than "S 3 4", to match the diagram below (though both yield the same output).    </div>
+      </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0248s.<br>
+    Server time on page load:
+    Jun 24, 2018 07:09:36 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fccc13s2p4">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

@@ -1,8 +1,8 @@
 import bs4 as bs
 import requests
-import util
+from Extractor import util
 
-def dmoj(page, crawlerType, extractorType, domain, fileName): 
+def dmoj(page, link, uniqueId): 
     #request = requests.get("https://dmoj.ca/problem/ccc13j3")
     #page = bs.BeautifulSoup(request.content, "html.parser")
     
@@ -52,7 +52,7 @@ def dmoj(page, crawlerType, extractorType, domain, fileName):
     
     indexes = [startIndex, inputIndex, outputIndex, sampleIndex, notesIndex, constraintsIndex, endIndex, timeLimitIndex]
     indexes.sort()
-    data = {}
+    dataT = {}
     
     for i in range(len(indexes)):
         if indexes[i] == -1:
@@ -60,21 +60,35 @@ def dmoj(page, crawlerType, extractorType, domain, fileName):
         if (i+1) == (len(indexes)):
             continue
         if indexes[i] == 0:
-            data["Description"] = util.getTextInfo(bodyArray, indexes[i], indexes[i+1])
+            dataT["Description"] = util.getTextInfo(bodyArray, indexes[i], indexes[i+1])
         elif sampleIndex == indexes[i]:
-            data["Example"] = util.getTextInfo(bodyArray, indexes[i], indexes[i+1])
+            dataT["Example"] = util.getTextInfo(bodyArray, indexes[i], indexes[i+1])
         else:
             info = util.getTextInfo(bodyArray, indexes[i], indexes[i+1])
             info = info.replace(bodyArray[indexes[i]] + "\n", "")
-            data[bodyArray[indexes[i]]] = info
+            dataT[bodyArray[indexes[i]]] = info
     
     limits = page.findAll("div", {"class": "problem-info-entry"})
+    problemTime = ""
+    problemMemory = ""
+    if (len(limits) >= 3):
+        problemTime = limits[1].text[1:-1]
+        problemMemory = limits[2].text[1:-1]
     
-    problemTime = limits[1].text[1:-1]
-    problemMemory = limits[2].text[1:-1]
+    dataT["Title"] = problemName
+    dataT["Time Limit"] = problemTime.replace("Time limit:\n", "")
+    dataT["Memory Limit"] = problemMemory.replace("Memory limit:\n", "")
     
-    data["Ttile"] = problemName
-    data["Time Limit"] = problemTime.replace("Time limit:\n", "")
-    data["Memory Limit"] = problemMemory.replace("Memory limit:\n", "")
+    title = page.find("div", {"class" : "problem-title"})
     
-    util.writeToJSON(crawlerType, extractorType, domain, fileName, data)
+    limit = ""
+    for lim in limits:
+        limit += lim.text + "\n"
+    
+    dataT["Problem"] = title.text + "\n" + util.getText(problem) + "\n" + limit[:-1]
+    dataT["URL"] = link
+    
+    data = {}
+    data[uniqueId] = dataT
+    
+    util.loadData(data)

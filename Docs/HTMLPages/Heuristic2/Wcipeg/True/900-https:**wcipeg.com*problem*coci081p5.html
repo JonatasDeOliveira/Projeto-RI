@@ -1,0 +1,434 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - COCI08 #1 - Skakavac</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "a5a6da31e315e7ee609958a2aedecd0f";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fcoci081p5"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>COCI 2008/2009, Contest #1</h3>
+<h2>Task SKAKAVAC</h2>
+
+<p>A grasshopper is in a flower field. The field contains N·N flowers arranged in N rows and N columns.
+For each flower in the field, we know how many petals it has.</p>
+<p>The grasshopper is initially on the flower in row R and column C. Its goal is to visit as many flowers as
+possible while obeying these rules:</p>
+
+<ol>
+	<li>
+		It can only jump into an adjacent row or column. If it jumps into the adjacent row, it must jump
+		at least two columns, and if it jumps into the adjacent column, it must jump at least two rows.<br>
+		In other words, it can jump from flower (r<sub>1</sub>, c<sub>1</sub>) to flower (r<sub>2</sub>, c<sub>2</sub>) if:
+	<ul>
+		<li>|r<sub>1</sub> - r<sub>2</sub>| = 1 and |c<sub>1</sub> - c<sub>2</sub>| &gt; 1 or</li>
+		<li>|c<sub>1</sub> - c<sub>2</sub>| = 1 and |r<sub>1</sub> - r<sub>2</sub>| &gt; 1</li>
+	</ul></li>
+	<li>
+		The number of petals on the next flower must be strictly larger than the number of petals on the previous flower.
+	</li>
+</ol>
+
+Write a program that calculates the largest number of flowers the grasshopper can visit.
+
+<h3>Input</h3>
+
+The first line contains the integer N (1 ≤ N ≤ 1500), the size of the field.<br>
+The second line contains integers R (1 ≤ R ≤ N) and C (1 ≤ C ≤ N), the grasshopper's initial position.<br>
+The next N lines contain N positive integers separated by spaces, each less than 1 000 000, the numbers of petals on the flowers.
+
+<h3>Output</h3>
+
+Output a single integer—the largest number of flowers the grasshopper can visit.
+
+<h3>Grading</h3>
+
+In test data worth 50% of points, N will be at most 100.<br>
+In test data worth 80% of points, N will be at most 1000.
+
+<h3>Examples</h3>
+
+<!-- <style>#sub td { vertical-align: top; } #sub h3 { margin-top: 0; }</style> -->
+
+<table id="sub">
+<tbody><tr>
+<td>
+<h3>Input</h3>
+<pre>4
+1 1
+1 2 3 4
+2 3 4 5
+3 4 5 6
+4 5 6 7</pre><br>
+<h3>Output</h3>
+<pre>4</pre>
+</td>
+
+<td>
+<h3>Input</h3>
+<pre>5
+3 3
+20 16 25 17 12
+11 13 13 30 17
+15 29 10 26 11
+27 19 14 24 22
+23 21 28 18 13</pre><br>
+<h3>Output</h3>
+<pre>21</pre>
+</td>
+
+</tr>
+</tbody></table>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,coci081p5">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/coci081p5">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 30 (partial)<br>
+    <b>Time Limit:</b> 10.00s<br>
+    <b>Memory Limit:</b> 35M<br>
+    <b>Added:</b> Oct 18, 2008<br>
+      </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=coci081p5">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment7578">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Nurlykhan">Nurlykhan</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7578">Apr 29, 2016 - 12:51:00 pm UTC</a>      </span>
+      <a class="comment_title" id="title7578" onclick="toggle(&quot;body7578&quot;)">RE on last test</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7578">
+    (<span class="upvotes"><span id="upvotes7578">0</span></span>/<span class="downvotes"><span id="downvotes7578">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7578" class="comment_body">
+    <pre id="msg7578" style="display: none">Are tests from hsin.hr? I tested my program on last test and it passes on my computer, but here it gets RE. Could you help me?</pre>
+    <div style="opacity: 1">
+      Are tests from hsin.hr? I tested my program on last test and it passes on my computer, but here it gets RE. Could you help me?    </div>
+    <br><div class="comment_block" id="comment7580">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/7580">Apr 29, 2016 - 12:58:34 pm UTC</a>      </span>
+      <a class="comment_title" id="title7580" onclick="toggle(&quot;body7580&quot;)">Re: RE on last test</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating7580">
+    (<span class="upvotes"><span id="upvotes7580">0</span></span>/<span class="downvotes"><span id="downvotes7580">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body7580" class="comment_body">
+    <pre id="msg7580" style="display: none">You're getting SIGABRTs, which probably indicates you're exceeding the memory limit on an STL allocation. I checked your submission and confirmed this is the case.
+
+[url=http://wcipeg.com/wiki/Judge:Help]This information is listed in the README.[/url]</pre>
+    <div style="opacity: 1">
+      You're getting SIGABRTs, which probably indicates you're exceeding the memory limit on an STL allocation. I checked your submission and confirmed this is the case. <br> <br><a href="http://wcipeg.com/wiki/Judge:Help" target="_blank">This information is listed in the README.</a>    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment3864">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/fail">fail</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3864">Dec 13, 2011 - 4:27:36 pm UTC</a>      </span>
+      <a class="comment_title" id="title3864" onclick="toggle(&quot;body3864&quot;)">Hint ?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3864">
+    (<span class="upvotes"><span id="upvotes3864">0</span></span>/<span class="downvotes"><span id="downvotes3864">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3864" class="comment_body">
+    <pre id="msg3864" style="display: none">This problem seems to require specialized datastructures( or at least a trick, or is a very hard D.P ) as I just found out that when N &lt;= 100, it requires almost a second. My solution is poor ( it seems to be exponential ). 
+
+What did the people who solved it use ? Or the observations they made ?</pre>
+    <div style="opacity: 1">
+      This problem seems to require specialized datastructures( or at least a trick, or is a very hard D.P ) as I just found out that when N &lt;= 100, it requires almost a second. My solution is poor ( it seems to be exponential ).  <br> <br>What did the people who solved it use ? Or the observations they made ?    </div>
+    <br><div class="comment_block" id="comment3865">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3865">Dec 13, 2011 - 8:03:53 pm UTC</a>      </span>
+      <a class="comment_title" id="title3865" onclick="toggle(&quot;body3865&quot;)">Re: Hint ?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3865">
+    (<span class="upvotes"><span id="upvotes3865">0</span></span>/<span class="downvotes"><span id="downvotes3865">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3865" class="comment_body">
+    <pre id="msg3865" style="display: none">If you mean you think it requires knowledge of some pro data structure that most noobs wouldn't understand (like a Fibonacci heap), then no, it doesn't.</pre>
+    <div style="opacity: 1">
+      If you mean you think it requires knowledge of some pro data structure that most noobs wouldn't understand (like a Fibonacci heap), then no, it doesn't.    </div>
+    <br><div class="comment_block" id="comment3866">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/fail">fail</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3866">Dec 14, 2011 - 4:23:02 pm UTC</a>      </span>
+      <a class="comment_title" id="title3866" onclick="toggle(&quot;body3866&quot;)">Re: Re: Hint ?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3866">
+    (<span class="upvotes"><span id="upvotes3866">0</span></span>/<span class="downvotes"><span id="downvotes3866">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3866" class="comment_body">
+    <pre id="msg3866" style="display: none">Okay I am a noob. Please could anyone tell me what am I doing wrong ?</pre>
+    <div style="opacity: 1">
+      Okay I am a noob. Please could anyone tell me what am I doing wrong ?    </div>
+    <br><div class="comment_block" id="comment3867">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Daniel">Daniel</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3867">Dec 14, 2011 - 9:18:09 pm UTC</a>      </span>
+      <a class="comment_title" id="title3867" onclick="toggle(&quot;body3867&quot;)">Re: Re: Hint ?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3867">
+    (<span class="upvotes"><span id="upvotes3867">0</span></span>/<span class="downvotes"><span id="downvotes3867">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3867" class="comment_body">
+    <pre id="msg3867" style="display: none">You are currently using recursion, which is too slow.
+Find another way that only processes each location on the grid once. </pre>
+    <div style="opacity: 1">
+      You are currently using recursion, which is too slow. <br>Find another way that only processes each location on the grid once.    </div>
+    <br><div class="comment_block" id="comment3871">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/fail">fail</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3871">Dec 17, 2011 - 11:01:43 am UTC</a>      </span>
+      <a class="comment_title" id="title3871" onclick="toggle(&quot;body3871&quot;)">Re: Re: Hint ?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3871">
+    (<span class="upvotes"><span id="upvotes3871">0</span></span>/<span class="downvotes"><span id="downvotes3871">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3871" class="comment_body">
+    <pre id="msg3871" style="display: none">I still don't get it, is my recurrence wrong ? If this is a dp, then a greedy choice doesn't help, right ?</pre>
+    <div style="opacity: 1">
+      I still don't get it, is my recurrence wrong ? If this is a dp, then a greedy choice doesn't help, right ?    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment2710">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jsn1993">jsn1993</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2710">Jul 22, 2010 - 12:52:30 am UTC</a>      </span>
+      <a class="comment_title" id="title2710" onclick="toggle(&quot;body2710&quot;)">...memory limit really silly!</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2710">
+    (<span class="upvotes"><span id="upvotes2710">0</span></span>/<span class="downvotes"><span id="downvotes2710">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2710" class="comment_body">
+    <pre id="msg2710" style="display: none">in COCI 08-09's PDF it's 35M!!!!</pre>
+    <div style="opacity: 1">
+      in COCI 08-09's PDF it's 35M!!!!    </div>
+    <br><div class="comment_block" id="comment2711">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/SourSpinach">SourSpinach</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2711">Jul 23, 2010 - 4:21:35 pm UTC</a>      </span>
+      <a class="comment_title" id="title2711" onclick="toggle(&quot;body2711&quot;)">Re: ...memory limit really silly!</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2711">
+    (<span class="upvotes"><span id="upvotes2711">0</span></span>/<span class="downvotes"><span id="downvotes2711">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2711" class="comment_body">
+    <pre id="msg2711" style="display: none">Okay, it's been increased to 35M.</pre>
+    <div style="opacity: 1">
+      Okay, it's been increased to 35M.    </div>
+    <br><div class="comment_block" id="comment2713">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jsn1993">jsn1993</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2713">Jul 24, 2010 - 12:24:08 am UTC</a>      </span>
+      <a class="comment_title" id="title2713" onclick="toggle(&quot;body2713&quot;)">Re: Re: ...memory limit really silly!</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2713">
+    (<span class="upvotes"><span id="upvotes2713">0</span></span>/<span class="downvotes"><span id="downvotes2713">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2713" class="comment_body">
+    <pre id="msg2713" style="display: none">....thanks and i got ac by decrease array counts..</pre>
+    <div style="opacity: 1">
+      ....thanks and i got ac by decrease array counts..    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0420s.<br>
+    Server time on page load:
+    Jun 24, 2018 07:14:26 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fcoci081p5">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

@@ -1,8 +1,8 @@
 from bs4 import BeautifulSoup
 import requests
-import util
+from Extractor import util
 
-def a2oj(page, crawlerType, extractorType, domain, fileName):
+def a2oj(page, link, uniqueId):
     #request = requests.get("https://a2oj.com/p?ID=134", verify = False)
     #page = BeautifulSoup(request.content, "html.parser")
     
@@ -40,12 +40,17 @@ def a2oj(page, crawlerType, extractorType, domain, fileName):
             problemTimeLimit = problemTimeLimit.replace("\n", "")
             break
     
-    data = {"Title" : problemName,
+    data = {}
+    data[uniqueId] = {
+            "URL" : link,
+            "Title" : problemName,
             "Description" : problemDescripton,
             "Input Description" : problemInput,
             "Output Description" : problemOutput,
             "Example" : problemSamples,
             "Notes" : problemNotes,
-            "Time Limit" : problemTimeLimit}
-        
-    util.writeToJSON(crawlerType, extractorType, domain, fileName, data)
+            "Time Limit" : problemTimeLimit,
+            "Problem" : util.getText(problem)
+    }
+    
+    util.loadData(data)

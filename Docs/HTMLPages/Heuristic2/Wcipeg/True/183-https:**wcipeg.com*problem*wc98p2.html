@@ -1,0 +1,279 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - WC98 - The Hutts Strike Back</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "a5a6da31e315e7ee609958a2aedecd0f";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fwc98p2"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>Woburn Challenge 1998</h3>
+<h2>Episode 2: The Hutts Strike back (Will Han be Spared?)</h2>
+
+<p> Han Solo is deep in debt to Pizza the Hutt and Atilla the Hutt, Jabba's lesser 
+  known but equally blobular cousins. Together, Jabba, Atilla and Pizza form a 
+  deadly trio known as the The Other Three Tenors. Pizza, being the nice blob 
+  that he is, has made Han an offer he can't refuse to rectify the situation. 
+  He has challenged Han to a game of bowling - if Han loses, he will face the 
+  ultimate punishment of being put in a holding cell listening to recordings of 
+  C3PO's infernal whining for the rest of his life. Unfortunately, the Hutt family 
+  have been cursed with no elbows and thus can't bowl; so instead they have hired 
+  Peter "Three Thumbs" Plachta to bowl for him.Your job is to write a program 
+  that will tally up the scores so that they can determine who wins.</p>
+<p>In case you're unfamiliar with the rules of bowling, here's how it works: </p>
+<ol>
+  <li>There are 10 frames - in each frame, both bowlers, in turn, get 2 throws 
+    to try to knock down as many of the 10 pins as possible (the 10th frame is 
+    an exception - see below) </li>
+  <li>If a bowler fails to knock down all the pins, he is assigned a score based 
+    on the number of pins he knocks down (between 0 and 9) in each throw. At the 
+    beginning of each bowler's turn, all the pins are reset, ie. all 10 pins are 
+    put back up.</li>
+  <li>If a bowler knocks down all the 10 pins on the first throw, he is awarded 
+    a Strike and that bowler does not get a 2nd throw in that frame (except in 
+    the 10th frame). If a bowler knocks down all 10 pins in two throws, he is 
+    awarded a Spare. </li>
+  <li>If a bowler is awarded a Strike, he gets 10 points for that frame AND he 
+    also counts his scores from <b>the next 2 throws</b> towards his score on 
+    the current frame (of course, those throws also count for the frame in which 
+    they are actually bowled). If a bowler is awarded a Spare, he gets 10 points 
+    for that frame AND he also counts his score from <b>the next throw</b> towards 
+    his score on the current frame. </li>
+  <li>If a bowler bowls a Strike in the 10th (final) frame, he gets 2 more throws 
+    to add to the Strike. If he bowls a Spare in the 10th frame, he gets 1 more 
+    throw to add to the Spare. <b>Those throws don't count on their own - they 
+    only count towards the Strike or Spare</b>. You get at most 3 throws in the 
+    10th frame. </li>
+</ol>
+
+<h3>Input</h3>
+<p>
+  The first line of the input will be the number of bowlers.<br>
+  Following this is the result of each throw by each bowler (X = Strike, / = Spare, 
+  0..9=knocked # of pins down).<br>
+  There may be anywhere between 1 and 5 bowlers given - each bowler will be on 
+  a different line. </p>
+<p>Note: There is no space between throws in a frame (so for the example below, 
+  in the 1st frame, on the first throw, 2 pins were knocked down and on the second 
+  throw, 2 more pins were knocked down).<br>
+  Frames are separated using 1 hyphen.<br>
+  If a strike was bowled in a frame, there is no 2nd throw in that frame and so 
+  there is a blank space in the data file after the X to signify that there was 
+  no 2nd throw. </p>
+
+<h3>Output</h3>
+<p>
+  Output the total score of each player as shown in the example below: 
+</p>
+<h3>Sample Input</h3>
+<pre>2
+22-4/-X -55-42-X -X -4/-54-23
+X -X -X -X -X -X -X -X -X -XXX
+</pre>
+
+<p>Sample calculation for player 1 (score for each frame is shown after considering 
+  subsequent throws if strike/spare):<br>
+  4 - 20 - 20 - 10 - 6 - 24 - 20 - 15 - 9 - 5 =&gt; total = 133<br>
+  Sample for player<br>
+  2 30 - 30 - 30 - 30 - 30 - 30 - 30 - 30 - 30 - 30 =&gt; total = 300 (maximum score) 
+</p>
+
+<h3>Sample Output</h3>
+<pre>133
+300
+</pre>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,wc98p2">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/wc98p2">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 10<br>
+    <b>Time Limit:</b> 2.00s<br>
+    <b>Memory Limit:</b> 16M<br>
+    <b>Added:</b> Sep 29, 2008<br>
+      </p>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=wc98p2">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment6635">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/ImaxBlue">ImaxBlue</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6635">Mar 19, 2015 - 10:02:57 am UTC</a>      </span>
+      <a class="comment_title" id="title6635" onclick="toggle(&quot;body6635&quot;)">spares</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6635">
+    (<span class="upvotes"><span id="upvotes6635">0</span></span>/<span class="downvotes"><span id="downvotes6635">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6635" class="comment_body">
+    <pre id="msg6635" style="display: none">Isn't 5+5 a spare? It's all 10 pins.
+shouldn't answer 1 be 137?</pre>
+    <div style="opacity: 1">
+      Isn't 5+5 a spare? It's all 10 pins. <br>shouldn't answer 1 be 137?    </div>
+    <br><div class="comment_block" id="comment6637">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6637">Mar 19, 2015 - 5:28:25 pm UTC</a>      </span>
+      <a class="comment_title" id="title6637" onclick="toggle(&quot;body6637&quot;)">Re: spares</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6637">
+    (<span class="upvotes"><span id="upvotes6637">0</span></span>/<span class="downvotes"><span id="downvotes6637">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6637" class="comment_body">
+    <pre id="msg6637" style="display: none">Good eye! It is indeed a spare (in reality). Your program should still calculate 133 given that exact input though -- the spec doesn't actually expressly disallow knocking down more than 10 pins, as unintuitive as it may be.</pre>
+    <div style="opacity: 1">
+      Good eye! It is indeed a spare (in reality). Your program should still calculate 133 given that exact input though -- the spec doesn't actually expressly disallow knocking down more than 10 pins, as unintuitive as it may be.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0267s.<br>
+    Server time on page load:
+    Jun 24, 2018 06:59:41 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fwc98p2">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

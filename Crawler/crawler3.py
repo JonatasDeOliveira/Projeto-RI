@@ -10,10 +10,10 @@ import queue
 import time
 import os
 import signal
+from Extractor import extractorMain
 
 r = "http://www.codeforces.com"
 i = 0
-
 def robots(pathTotal, rp):
     return rp.allowed(pathTotal,"*")
 
@@ -63,7 +63,7 @@ def get_all_links(domain, pathTotal, maxSize, rp, driver):
     return links
 
 
-def crawler(domain, pathseed, maxSize = 1000):
+def crawler(domain, pathseed, uniqueId, maxSize = 1000):
     pq = queue.PriorityQueue()
     visited = []
     links = []
@@ -104,6 +104,8 @@ def crawler(domain, pathseed, maxSize = 1000):
         #print(driver.page_source)
         if(res == 'True'):
             pos += 1
+            extractorMain.extractor(soup, folder(domain), "Heuristic2", folder(domain).lower(), l, uniqueId)
+            uniqueId += 1
         with open('Docs/HTMLPages/Heuristic2/'+folder(domain)+'/'+res+'/'+str(v) +'-'+l.replace('/','*')+'.html', 'wb') as f:
             f.write(bytes(driver.page_source,'UTF-8'))
     hr = pos/maxSize
@@ -115,7 +117,7 @@ def crawler(domain, pathseed, maxSize = 1000):
 def folder(domain):
     if(domain=="http://www.codeforces.com"):
         return 'Codeforces'
-    if(domain=='http://www.spoj.com'):
+    if(domain=='https://www.spoj.com'):
         return 'Spoj'
     if(domain=='https://dmoj.ca'):
         return 'Dmoj'
@@ -142,8 +144,8 @@ def value(link):
             return 2
         else:
             return 3
-    if('http://www.spoj.com' in link):
-        if('problems' in link and ('tag' in link or 'classical' in link)):
+    if('https://www.spoj.com' in link):
+        if('problems' in link and ('tag' in link or 'classical' in link) and 'cstart' not in link and 'lang' not in link and 'main' not in link ):
             return 2
         elif('problems/' in link and 'cstart' not in link and 'lang' not in link and 'main' not in link):
             return 1
@@ -210,13 +212,12 @@ def value(link):
             return 3
     return 5
 
-
-#crawler('https://wcipeg.com','')
-#crawler('http://www.codeforces.com','')
-#crawler('https://a2oj.com','')
-#crawler('https://www.codechef.com','')
-crawler('http://www.spoj.com','')
-#crawler('https://dmoj.ca','')
-#crawler('http://acm.timus.ru','')
+#crawler('https://wcipeg.com','', 0)
+#crawler('http://www.codeforces.com','', 1000) ok
+#crawler('https://a2oj.com','', 2000)
+##crawler('https://www.codechef.com','')
+#crawler('http://acm.timus.ru','', 3000)
+#crawler('https://www.spoj.com','', 4000)
+#crawler('https://dmoj.ca','', 5000) 
 ##crawler('https://www.urionlinejudge.com.br','')
-#crawler('https://leetcode.com','')
+##crawler('https://leetcode.com','')

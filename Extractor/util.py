@@ -3,6 +3,9 @@ import re
 import math
 import json
 import os.path
+import collections
+
+datas = {}
 
 def treatStr(sample):
     samples = re.findall('\>.*?\<',str(sample))
@@ -68,15 +71,28 @@ def getMaxKey(mapList):
             maxValue = mapList[key]
             maxKey = key
     return maxKey
+
+def loadData(data):
+    datas.update(data)
+
+def writeJSON(crawlerType, extractorType, domain, fileName):
+    datas = collections.OrderedDict(sorted(datas.items()))
+    #Escrever em um JSON para o especifico
+    file = './Docs/Jsons/' + crawlerType + '/'+ extractorType + '/' + domain + '/' + fileName + '.json'
+    with open(file, 'w') as f:
+            f.write(json.dumps(datas, indent=2))
     
-def writeToJSON(crawlerType, extractorType, domain, fileName, data):
-    file = './Docs/Jsons' + '/' + crawlerType + '/'+ extractorType + '/' + domain + '/' + fileName + '.json'
-    #file = './Extractor' + '/' + fileName + '.json'
+    #Escreve em um JSON tudo
+    file = './Docs/Jsons/datas.json'
+    with open(file) as f:
+        generalDatas = json.load(f)
     
-    exist = os.path.isfile(file) 
-    if exist:
-        with open(file, 'a') as f:
-            f.write(json.dumps(data, indent=2))
-    else:
-        with open(file, 'w') as f:
-            f.write(json.dumps(data, indent=2))
+    generalDatas.update(datas)
+    
+    generalDatas = collections.OrderedDict(sorted(generalDatas.items()))
+    with open(file, 'w') as f:
+        f.write(json.dumps(generalDatas, indent=2))
+
+def getText(page):
+    [s.extract() for s in page.findAll(['style', 'script'])]
+    return page.text
