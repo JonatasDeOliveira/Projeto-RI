@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from codeit.models import Problem
 from django.core.paginator import Paginator
 
@@ -24,14 +24,6 @@ def list_problems(request):
 	else:
 		start_index = paginator.num_pages-4
 		end_index = paginator.num_pages+1
-	'''
-	if problems.number < (paginator.num_pages()-2) and problems.number > 3:
-		end_index = problems.number+2
-	elif problems.number <= 3:
-		end_index = 5
-	else:
-		end_index = paginator.num_pages()
-	'''
 
 	page_range = range(start_index,end_index)
 
@@ -39,5 +31,34 @@ def list_problems(request):
 		"problems": problems,
 		"page_range": page_range,
 	}
-	template = 'codeit/problems.html'
+	template = 'codeit/problems/problems.html'
 	return render(request, template, context)
+	
+def search(request):
+	title_query = None
+	problem_query = None
+	input_query = None
+	output_query = None
+	time_limit_query = None
+	if request.method == "GET":
+		title_query = request.GET.get('title_box', None)
+		problem_query = request.GET.get('problem_box', None)
+		input_query = request.GET.get('input_box', None)
+		output_query = request.GET.get('output_box', None)
+		time_limit_query = request.GET.get('time_limit_box', None)
+		
+	'''	
+	if request.method == "POST":
+		title_query = request.POST.get('title_box', None)
+		problem_query = request.POST.get('problem_box', None)
+		input_query = request.POST.get('input_box', None)
+		output_query = request.POST.get('output_box', None)
+		time_limit_query = request.POST.get('time_limit_box', None)
+		print(title_query, problem_query)
+	
+	
+		return redirect('/')'''
+	
+	#print(title_query, problem_query)
+	
+	return render(request, 'codeit/search/index.html')

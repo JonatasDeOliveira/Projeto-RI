@@ -18,5 +18,6 @@ from . import views
 
 urlpatterns = [
     re_path(r'^$', views.index, name='index'),
-    re_path(r'problems/', views.list_problems),
+    re_path(r'^problems/', views.list_problems),
+    re_path(r'^search/$', views.search),
 ]
