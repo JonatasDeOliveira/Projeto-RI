@@ -62,7 +62,8 @@ with open(file) as f:
     datas = json.load(f, object_pairs_hook=collections.OrderedDict)
 
 indexer(datas, "Title")
-"""indexer(datas, "Description")
+"""
+indexer(datas, "Description")
 indexer(datas, "Input")         #Input, Input Descritpion, Input Format, INPUT
 indexer(datas, "Output")        #output, Output Descritpion, Output Format, OUTPUT
 indexer(datas, "Time Limit")"""

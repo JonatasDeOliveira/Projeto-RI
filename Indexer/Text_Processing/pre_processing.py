@@ -12,13 +12,24 @@ def processData(data):
     wordsFiltered = []
     
     for w in tokenize:
-        result = re.match('[0-9]*?\.', w)
-        if not result:
-           if w not in stopWords:
-            wordsFiltered.append(w)
+        w = w.encode('ascii','ignore').decode()
+        
+        resultN = re.match('[0-9]*?\.', w)
+        resultT = re.match('[a-z]\.', w)
+        if resultN or resultT:
+            pass
+        elif w not in stopWords:
+            if re.match('[a-z]*?\.[a-z]*?', w):
+                words = w.split('.')
+                for i in range(len(words)):
+                    if len(words[i]) > 0:
+                        wordsFiltered.append(words[i])
+            elif len(w) > 0:
+                wordsFiltered.append(w)
+            
             
     #Stemmer
     stemmer = PorterStemmer()
     words = [stemmer.stem(word) for word in wordsFiltered]
-    print (words)
+    
     return words
