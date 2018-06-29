@@ -1,0 +1,334 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - Cable TV</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "a5a6da31e315e7ee609958a2aedecd0f";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fgraph3p3"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h2>Cable TV</h2>
+
+You would like to provide citizens of a newly constructed neighborhood with cable television.<br>
+As a computer scientist, you know this calls for... wires!<br>
+<br>
+Surveyors have done their work and have given you the cost of connecting pairs of locations.<br>
+However, they have also warned you that certain links might be dangerous - there is a risk of interference from power lines and such.<br>
+Find the minimum cost to connect all the houses, minimizing the cost but above all minimzing the number of dangerous links used.
+
+<h3>Input</h3>
+N ≤ 100, the number of locations.<br>
+M ≤ 10000, the number of possible links.<br>
+M lines, each with four integers a,b,c,d.<br>
+Each line signifies a possible (bidirectonal) link between locations a and b, with cost c. <i>d</i> will be 1 if the link is dangerous, and 0 otherwise.
+
+<h3>Output</h3>
+Two integers.<br>
+Output a) the minimum number of dangerous links required and b) the total minimum cost.<br> 
+
+<h3>Sample Input</h3>
+<pre>4 4
+1 2 2 0
+2 3 1 1
+3 1 1 0
+3 4 1 1</pre>
+
+<h3>Sample Output</h3>
+<pre>1 4</pre>
+<br>
+Take 1-2, 3-1, and 3-4.<br>
+The use of one dangerous cable is inevitable, but we can avoid the use of the other.<br>
+
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,graph3p3">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/graph3p3">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 15<br>
+    <b>Time Limit:</b> 1.00s<br>
+    <b>Memory Limit:</b> 32M<br>
+    <b>Added:</b> Mar 04, 2009<br>
+      </p>
+
+    <b>Problem Types:</b>
+  <noscript>
+    &lt;style type="text/css"&gt;
+      #show_types, #hide_types { display: none !important; }
+      #spoiler_id { display: inline !important; }
+    &lt;/style&gt;
+  </noscript>
+  <a href="javascript:void(null);" id="show_types" onclick="document.getElementById('spoiler_id').style.display=''; document.getElementById('show_types').style.display='none';">[Show]</a>
+  <span id="spoiler_id" style="display: none">
+    <a href="javascript:void(null);" id="hide_types" onclick="document.getElementById('spoiler_id').style.display='none'; document.getElementById('show_types').style.display='';">[Hide]</a><br>
+    <ul style="list-style-type: none; margin: 0; padding: 0;">
+      <li>Graph Theory</li>    </ul>
+  </span>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=graph3p3">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment6552">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jimgao">jimgao</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6552">Feb 16, 2015 - 3:16:31 am UTC</a>      </span>
+      <a class="comment_title" id="title6552" onclick="toggle(&quot;body6552&quot;)">Both dangerous and non-dangerous cost on the same edge?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6552">
+    (<span class="upvotes"><span id="upvotes6552">0</span></span>/<span class="downvotes"><span id="downvotes6552">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6552" class="comment_body">
+    <pre id="msg6552" style="display: none">Is it possible that we have both a dangerous and non-dangerous edges on the same edge? For example:
+
+1 2 10 0
+1 2 20 1
+
+It was not stated in the problem. </pre>
+    <div style="opacity: 0.79345670852611">
+      Is it possible that we have both a dangerous and non-dangerous edges on the same edge? For example: <br> <br>1 2 10 0 <br>1 2 20 1 <br> <br>It was not stated in the problem.    </div>
+    <br><div class="comment_block" id="comment6554">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6554">Feb 16, 2015 - 7:04:24 pm UTC</a>      </span>
+      <a class="comment_title" id="title6554" onclick="toggle(&quot;body6554&quot;)">Re: Both dangerous and non-dangerous cost on the same edge?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6554">
+    (<span class="upvotes"><span id="upvotes6554">0</span></span>/<span class="downvotes"><span id="downvotes6554">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6554" class="comment_body">
+    <pre id="msg6554" style="display: none">The way the problem is stated implies that there can only be one set of &lt;cost, danger&gt; for any pair of locations, so no, it cannot be both dangerous and safe to connect a pair of locations. (Nor can it cost both 10 and 20.)
+
+That said, a well-written solution should not care that there are multiple possible links.</pre>
+    <div style="opacity: 1">
+      The way the problem is stated implies that there can only be one set of &lt;cost, danger&gt; for any pair of locations, so no, it cannot be both dangerous and safe to connect a pair of locations. (Nor can it cost both 10 and 20.) <br> <br>That said, a well-written solution should not care that there are multiple possible links.    </div>
+    <br><div class="comment_block" id="comment6558">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jimgao">jimgao</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6558">Feb 16, 2015 - 9:14:51 pm UTC</a>      </span>
+      <a class="comment_title" id="title6558" onclick="toggle(&quot;body6558&quot;)">Re: Both dangerous and non-dangerous cost on the same edge?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6558">
+    (<span class="upvotes"><span id="upvotes6558">0</span></span>/<span class="downvotes"><span id="downvotes6558">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6558" class="comment_body">
+    <pre id="msg6558" style="display: none">True. </pre>
+    <div style="opacity: 1">
+      True.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment5917">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/xiaowuc1">xiaowuc1</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5917">Jun 19, 2014 - 3:32:35 am UTC</a>      </span>
+      <a class="comment_title" id="title5917" onclick="toggle(&quot;body5917&quot;)">No stated bounds on cost</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5917">
+    (<span class="upvotes"><span id="upvotes5917">1</span></span>/<span class="downvotes"><span id="downvotes5917">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5917" class="comment_body">
+    <pre id="msg5917" style="display: none">For reference, costs definitely do not exceed 1000, as verified by submission 183909. I point this out only because of the content in the analysis.</pre>
+    <div style="opacity: 1">
+      For reference, costs definitely do not exceed 1000, as verified by submission 183909. I point this out only because of the content in the analysis.    </div>
+      </div>
+</div>
+<br>
+<div class="comment_block" id="comment5469">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/B">B</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5469">Sep 22, 2013 - 9:32:06 pm UTC</a>      </span>
+      <a class="comment_title" id="title5469" onclick="toggle(&quot;body5469&quot;)">Are the two integers for the same case?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5469">
+    (<span class="upvotes"><span id="upvotes5469">0</span></span>/<span class="downvotes"><span id="downvotes5469">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5469" class="comment_body">
+    <pre id="msg5469" style="display: none">Do we separately calculate for minimal danger and minimal cost, or do we calculate both for the same case prioritizing danger over cost?</pre>
+    <div style="opacity: 1">
+      Do we separately calculate for minimal danger and minimal cost, or do we calculate both for the same case prioritizing danger over cost?    </div>
+    <br><div class="comment_block" id="comment5470">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Alex">Alex</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5470">Sep 22, 2013 - 9:49:07 pm UTC</a>      </span>
+      <a class="comment_title" id="title5470" onclick="toggle(&quot;body5470&quot;)">Re: Are the two integers for the same case?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5470">
+    (<span class="upvotes"><span id="upvotes5470">0</span></span>/<span class="downvotes"><span id="downvotes5470">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5470" class="comment_body">
+    <pre id="msg5470" style="display: none">The latter.</pre>
+    <div style="opacity: 1">
+      The latter.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0314s.<br>
+    Server time on page load:
+    Jun 24, 2018 07:10:21 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fgraph3p3">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

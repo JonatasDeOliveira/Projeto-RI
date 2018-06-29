@@ -1,0 +1,776 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - Primes 2</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "a5a6da31e315e7ee609958a2aedecd0f";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fprimes2%2F10"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h2>Primes... again</h2>
+
+Given two integers N and M (N ≤ M), output all the prime numbers between N and M inclusive, one per line.<br>
+<br>
+N and M will be positive integers less than or equal to 1,000,000,000.<br>
+The difference between N and M will be less than or equal to 5,000,000.<br>
+
+<h3>Sample Input</h3>
+<pre>5 20</pre>
+<h3>Sample Output</h3>
+<pre>5
+7
+11
+13
+17
+19</pre>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,primes2">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/primes2">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 15 (partial)<br>
+    <b>Time Limit:</b> 5.00s<br>
+    <b>Memory Limit:</b> 32M<br>
+    <b>Added:</b> Oct 18, 2008<br>
+      </p>
+
+    <b>Problem Types:</b>
+  <noscript>
+    &lt;style type="text/css"&gt;
+      #show_types, #hide_types { display: none !important; }
+      #spoiler_id { display: inline !important; }
+    &lt;/style&gt;
+  </noscript>
+  <a href="javascript:void(null);" id="show_types" onclick="document.getElementById('spoiler_id').style.display=''; document.getElementById('show_types').style.display='none';">[Show]</a>
+  <span id="spoiler_id" style="display: none">
+    <a href="javascript:void(null);" id="hide_types" onclick="document.getElementById('spoiler_id').style.display='none'; document.getElementById('show_types').style.display='';">[Hide]</a><br>
+    <ul style="list-style-type: none; margin: 0; padding: 0;">
+      <li>Math</li>    </ul>
+  </span>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=primes2">Search</a>)</h2><p style="text-align: center"></p><div class="pagination-container"><a href="https://wcipeg.com/problem/primes2/" class="pagination-link"><div class="pagination-prev">&lt;</div></a><a href="https://wcipeg.com/problem/primes2/" class="pagination-link"><div class="pagination-num">1</div></a><div class="pagination-cur">2</div><a href="https://wcipeg.com/problem/primes2/20" class="pagination-link"><div class="pagination-num">3</div></a><a href="https://wcipeg.com/problem/primes2/30" class="pagination-link"><div class="pagination-num">4</div></a><a href="https://wcipeg.com/problem/primes2/20" class="pagination-link"><div class="pagination-next">&gt;</div></a></div><p></p><div class="comment_block" id="comment6200">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/paulkr">paulkr</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6200">Oct 17, 2014 - 5:38:21 pm UTC</a>      </span>
+      <a class="comment_title" id="title6200" onclick="toggle(&quot;body6200&quot;)">Error in program</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6200">
+    (<span class="upvotes"><span id="upvotes6200">1</span></span>/<span class="downvotes"><span id="downvotes6200">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6200" class="comment_body">
+    <pre id="msg6200" style="display: none">I tried using Sieve of Eratosthenes but I cannot seem to find the error in this program... I understand it's harder in python but does anyone know what exactly is causing the errors? Thanks :)</pre>
+    <div style="opacity: 1">
+      I tried using Sieve of Eratosthenes but I cannot seem to find the error in this program... I understand it's harder in python but does anyone know what exactly is causing the errors? Thanks :)    </div>
+    <br><div class="comment_block" id="comment6201">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Butane">Butane</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6201">Oct 18, 2014 - 2:03:52 am UTC</a>      </span>
+      <a class="comment_title" id="title6201" onclick="toggle(&quot;body6201&quot;)">Re: Error in program</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6201">
+    (<span class="upvotes"><span id="upvotes6201">3</span></span>/<span class="downvotes"><span id="downvotes6201">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6201" class="comment_body">
+    <pre id="msg6201" style="display: none">N and M are at most 1,000,000,000. Any large test cases around that size will require way too much memory to store and there's no way you'll ever be able to do it like that. This problem is worth 15 points, which is a lot more than the average prime problem. This is due to the fact that this cannot be done using the naive way, and you would have to chance your algorithm a bit.</pre>
+    <div style="opacity: 1">
+      N and M are at most 1,000,000,000. Any large test cases around that size will require way too much memory to store and there's no way you'll ever be able to do it like that. This problem is worth 15 points, which is a lot more than the average prime problem. This is due to the fact that this cannot be done using the naive way, and you would have to chance your algorithm a bit.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment5996">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/LOLWHATOMGBBQ">LOLWHATOMGBBQ</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5996">Jul 23, 2014 - 2:38:56 am UTC</a>      </span>
+      <a class="comment_title" id="title5996" onclick="toggle(&quot;body5996&quot;)">Runtime Error</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5996">
+    (<span class="upvotes"><span id="upvotes5996">0</span></span>/<span class="downvotes"><span id="downvotes5996">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5996" class="comment_body">
+    <pre id="msg5996" style="display: none">I'm getting runtime error.
+Does this mean that I timed out? What does it mean?
+(It would be helpful if I could see the error message)</pre>
+    <div style="opacity: 1">
+      I'm getting runtime error. <br>Does this mean that I timed out? What does it mean? <br>(It would be helpful if I could see the error message)    </div>
+    <br><div class="comment_block" id="comment5997">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5997">Jul 23, 2014 - 3:23:28 am UTC</a>      </span>
+      <a class="comment_title" id="title5997" onclick="toggle(&quot;body5997&quot;)">Re: Runtime Error</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5997">
+    (<span class="upvotes"><span id="upvotes5997">0</span></span>/<span class="downvotes"><span id="downvotes5997">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5997" class="comment_body">
+    <pre id="msg5997" style="display: none">Try resubmitting. You should be able to see what kind of runtime error it is now.</pre>
+    <div style="opacity: 1">
+      Try resubmitting. You should be able to see what kind of runtime error it is now.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment5596">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Hzhang">Hzhang</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5596">Nov 20, 2013 - 8:54:14 pm UTC</a>      </span>
+      <a class="comment_title" id="title5596" onclick="toggle(&quot;body5596&quot;)">ordinal expected</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5596">
+    (<span class="upvotes"><span id="upvotes5596">0</span></span>/<span class="downvotes"><span id="downvotes5596">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5596" class="comment_body">
+    <pre id="msg5596" style="display: none">i know how to do this but the largest ordinal thing is longint...</pre>
+    <div style="opacity: 1">
+      i know how to do this but the largest ordinal thing is longint...    </div>
+    <br><div class="comment_block" id="comment5597">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/MuhammadKhattak">MuhammadKhattak</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5597">Nov 21, 2013 - 1:07:07 am UTC</a>      </span>
+      <a class="comment_title" id="title5597" onclick="toggle(&quot;body5597&quot;)">Re: ordinal expected</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5597">
+    (<span class="upvotes"><span id="upvotes5597">2</span></span>/<span class="downvotes"><span id="downvotes5597">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5597" class="comment_body">
+    <pre id="msg5597" style="display: none">Couldn't you also use Int64? and why would you need anything that large anyways?</pre>
+    <div style="opacity: 1">
+      Couldn't you also use Int64? and why would you need anything that large anyways?    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment3885">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/XZNZ">XZNZ</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3885">Dec 25, 2011 - 3:51:42 pm UTC</a>      </span>
+      <a class="comment_title" id="title3885" onclick="toggle(&quot;body3885&quot;)">c++</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3885">
+    (<span class="upvotes"><span id="upvotes3885">0</span></span>/<span class="downvotes"><span id="downvotes3885">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3885" class="comment_body">
+    <pre id="msg3885" style="display: none">what is SIGSEGV?</pre>
+    <div style="opacity: 0.79345670852611">
+      what is SIGSEGV?    </div>
+    <br><div class="comment_block" id="comment3886">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Daniel">Daniel</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3886">Dec 25, 2011 - 4:46:36 pm UTC</a>      </span>
+      <a class="comment_title" id="title3886" onclick="toggle(&quot;body3886&quot;)">Re: c++</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3886">
+    (<span class="upvotes"><span id="upvotes3886">1</span></span>/<span class="downvotes"><span id="downvotes3886">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3886" class="comment_body">
+    <pre id="msg3886" style="display: none">You may want to read the 'help' section.</pre>
+    <div style="opacity: 1">
+      You may want to read the 'help' section.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment3843">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3843">Dec 05, 2011 - 4:05:28 am UTC</a>      </span>
+      <a class="comment_title" id="title3843" onclick="toggle(&quot;body3843&quot;)">Time limits increased</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3843">
+    (<span class="upvotes"><span id="upvotes3843">0</span></span>/<span class="downvotes"><span id="downvotes3843">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3843" class="comment_body">
+    <pre id="msg3843" style="display: none">The time limit per case has been increased to 5 seconds so that Java users can solve this problem.
+
+In other languages, any solution that times out with 2 seconds will still time out with 5 seconds.</pre>
+    <div style="opacity: 1">
+      The time limit per case has been increased to 5 seconds so that Java users can solve this problem. <br> <br>In other languages, any solution that times out with 2 seconds will still time out with 5 seconds.    </div>
+    <br><div class="comment_block" id="comment3844">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/HelloMelloC">HelloMelloC</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3844">Dec 05, 2011 - 9:36:50 pm UTC</a>      </span>
+      <a class="comment_title" id="title3844" onclick="toggle(&quot;body3844&quot;)">Re: Time limits increased</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3844">
+    (<span class="upvotes"><span id="upvotes3844">0</span></span>/<span class="downvotes"><span id="downvotes3844">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3844" class="comment_body">
+    <pre id="msg3844" style="display: none">Can't you have a language specific time limit? E.g. slower langs like Java and anything interpreted could have a different time limit for problems (say 1.5x or something). This would also avoid having to manually redo all the other problems impossible to do in time limit which invariably exist.</pre>
+    <div style="opacity: 1">
+      Can't you have a language specific time limit? E.g. slower langs like Java and anything interpreted could have a different time limit for problems (say 1.5x or something). This would also avoid having to manually redo all the other problems impossible to do in time limit which invariably exist.    </div>
+    <br><div class="comment_block" id="comment3845">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3845">Dec 06, 2011 - 12:01:46 am UTC</a>      </span>
+      <a class="comment_title" id="title3845" onclick="toggle(&quot;body3845&quot;)">Re: Re: Time limits increased</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3845">
+    (<span class="upvotes"><span id="upvotes3845">0</span></span>/<span class="downvotes"><span id="downvotes3845">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3845" class="comment_body">
+    <pre id="msg3845" style="display: none">No, it would just be far too much trouble. If we increase the time limits by a factor of 1.5 for Java, what should the factor be for Python? PHP? Ruby? Perl?
+
+In my opinion, if you're not using a language that uses almost every machine instruction doing calculations (C, C++, Pascal, assembly) then you're already doing something wrong.</pre>
+    <div style="opacity: 1">
+      No, it would just be far too much trouble. If we increase the time limits by a factor of 1.5 for Java, what should the factor be for Python? PHP? Ruby? Perl? <br> <br>In my opinion, if you're not using a language that uses almost every machine instruction doing calculations (C, C++, Pascal, assembly) then you're already doing something wrong.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment3578">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/fail">fail</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3578">Sep 18, 2011 - 7:42:51 am UTC</a>      </span>
+      <a class="comment_title" id="title3578" onclick="toggle(&quot;body3578&quot;)">Making it faster?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3578">
+    (<span class="upvotes"><span id="upvotes3578">0</span></span>/<span class="downvotes"><span id="downvotes3578">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3578" class="comment_body">
+    <pre id="msg3578" style="display: none">I applied a variation of sieve of Eratosthenes. It takes approximately 3.9 seconds on the last case ? How can I make it faster ?</pre>
+    <div style="opacity: 1">
+      I applied a variation of sieve of Eratosthenes. It takes approximately 3.9 seconds on the last case ? How can I make it faster ?    </div>
+    <br><div class="comment_block" id="comment3579">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Daniel">Daniel</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3579">Sep 18, 2011 - 3:17:19 pm UTC</a>      </span>
+      <a class="comment_title" id="title3579" onclick="toggle(&quot;body3579&quot;)">Re: Making it faster?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3579">
+    (<span class="upvotes"><span id="upvotes3579">0</span></span>/<span class="downvotes"><span id="downvotes3579">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3579" class="comment_body">
+    <pre id="msg3579" style="display: none">A hint I can give is to try to combine your init() procedure with your main program. Output optimisations are not required in this problem.  </pre>
+    <div style="opacity: 1">
+      A hint I can give is to try to combine your init() procedure with your main program. Output optimisations are not required in this problem.    </div>
+    <br><div class="comment_block" id="comment3580">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/fail">fail</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3580">Sep 18, 2011 - 6:44:06 pm UTC</a>      </span>
+      <a class="comment_title" id="title3580" onclick="toggle(&quot;body3580&quot;)">Re: Re: Making it faster?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3580">
+    (<span class="upvotes"><span id="upvotes3580">0</span></span>/<span class="downvotes"><span id="downvotes3580">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3580" class="comment_body">
+    <pre id="msg3580" style="display: none">I am sorry I don't get it. I mean, did everyone use Sieve of Eratosthenes or something else. Like How do I integrate init( ) with the program ? </pre>
+    <div style="opacity: 1">
+      I am sorry I don't get it. I mean, did everyone use Sieve of Eratosthenes or something else. Like How do I integrate init( ) with the program ?    </div>
+    <br><div class="comment_block" id="comment3581">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3581">Sep 19, 2011 - 3:00:49 am UTC</a>      </span>
+      <a class="comment_title" id="title3581" onclick="toggle(&quot;body3581&quot;)">Re: Re: Making it faster?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3581">
+    (<span class="upvotes"><span id="upvotes3581">1</span></span>/<span class="downvotes"><span id="downvotes3581">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3581" class="comment_body">
+    <pre id="msg3581" style="display: none">Yeah, from just a quick glance, every accepted submission makes use of the Sieve of Eratosthenes.
+
+As Daniel said, with the right idea, output optimisation is unnecessary and over-complicates your code.
+
+Here's a hint: If you know all the primes up to some number M, you can determine all the primes up to some number N. How are M and N related? (Yes, your code implies you already know this; you're just not applying it in the best way.)</pre>
+    <div style="opacity: 1">
+      Yeah, from just a quick glance, every accepted submission makes use of the Sieve of Eratosthenes. <br> <br>As Daniel said, with the right idea, output optimisation is unnecessary and over-complicates your code. <br> <br>Here's a hint: If you know all the primes up to some number M, you can determine all the primes up to some number N. How are M and N related? (Yes, your code implies you already know this; you're just not applying it in the best way.)    </div>
+    <br><div class="comment_block" id="comment3582">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/fail">fail</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3582">Sep 19, 2011 - 1:51:52 pm UTC</a>      </span>
+      <a class="comment_title" id="title3582" onclick="toggle(&quot;body3582&quot;)">Re: Re: Making it faster?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3582">
+    (<span class="upvotes"><span id="upvotes3582">0</span></span>/<span class="downvotes"><span id="downvotes3582">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3582" class="comment_body">
+    <pre id="msg3582" style="display: none">Thanks to Daniel and jargon.Accepted.</pre>
+    <div style="opacity: 1">
+      Thanks to Daniel and jargon.Accepted.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment2959">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/ilovepi">ilovepi</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2959">Jan 18, 2011 - 12:16:46 am UTC</a>      </span>
+      <a class="comment_title" id="title2959" onclick="toggle(&quot;body2959&quot;)">So this is what your supposed to do, right?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2959">
+    (<span class="upvotes"><span id="upvotes2959">0</span></span>/<span class="downvotes"><span id="downvotes2959">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2959" class="comment_body">
+    <pre id="msg2959" style="display: none">So first you use the sieve of Eratosthenes and then...?</pre>
+    <div style="opacity: 1">
+      So first you use the sieve of Eratosthenes and then...?    </div>
+    <br><div class="comment_block" id="comment2964">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2964">Jan 18, 2011 - 1:21:21 am UTC</a>      </span>
+      <a class="comment_title" id="title2964" onclick="toggle(&quot;body2964&quot;)">Re: So this is what your supposed to do, right?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2964">
+    (<span class="upvotes"><span id="upvotes2964">0</span></span>/<span class="downvotes"><span id="downvotes2964">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2964" class="comment_body">
+    <pre id="msg2964" style="display: none">The Sieve of Eratosthenes finds prime numbers. So I'm not sure what you mean by "and then"... all you do is print the prime numbers you find. You do need to implement a [i]variation[/i] on the standard Sieve though, otherwise you'll need a boolean array of size one billion and your program will run out of time anyway. Once you figure out what that variation is, the problem should be easy. If you're stuck, try solving other problems and then coming back to this one later.</pre>
+    <div style="opacity: 1">
+      The Sieve of Eratosthenes finds prime numbers. So I'm not sure what you mean by "and then"... all you do is print the prime numbers you find. You do need to implement a <span class="italics">variation</span> on the standard Sieve though, otherwise you'll need a boolean array of size one billion and your program will run out of time anyway. Once you figure out what that variation is, the problem should be easy. If you're stuck, try solving other problems and then coming back to this one later.    </div>
+    <br><div class="comment_block" id="comment2981">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/ilovepi">ilovepi</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2981">Jan 20, 2011 - 2:18:15 am UTC</a>      </span>
+      <a class="comment_title" id="title2981" onclick="toggle(&quot;body2981&quot;)">Re: Re: So this is what your supposed to do, right?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2981">
+    (<span class="upvotes"><span id="upvotes2981">0</span></span>/<span class="downvotes"><span id="downvotes2981">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2981" class="comment_body">
+    <pre id="msg2981" style="display: none">Well, can you give me a clue on the variation?
+Is it, a), an integer,
+b) string,
+c) char?
+An array as well, right?</pre>
+    <div style="opacity: 1">
+      Well, can you give me a clue on the variation? <br>Is it, a), an integer, <br>b) string, <br>c) char? <br>An array as well, right?    </div>
+    <br><div class="comment_block" id="comment2982">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2982">Jan 20, 2011 - 2:19:08 am UTC</a>      </span>
+      <a class="comment_title" id="title2982" onclick="toggle(&quot;body2982&quot;)">Re: Re: So this is what your supposed to do, right?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2982">
+    (<span class="upvotes"><span id="upvotes2982">1</span></span>/<span class="downvotes"><span id="downvotes2982">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2982" class="comment_body">
+    <pre id="msg2982" style="display: none">I recommend that you try this problem later when you have more coding experience. You should at least try coding the original Sieve, anyway, and see whether you can get Primes (1) accepted.</pre>
+    <div style="opacity: 1">
+      I recommend that you try this problem later when you have more coding experience. You should at least try coding the original Sieve, anyway, and see whether you can get Primes (1) accepted.    </div>
+    <br><div class="comment_block" id="comment3299">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/ilovepi">ilovepi</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3299">Mar 15, 2011 - 5:44:02 pm UTC</a>      </span>
+      <a class="comment_title" id="title3299" onclick="toggle(&quot;body3299&quot;)">Re: Re: So this is what your supposed to do, right?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3299">
+    (<span class="upvotes"><span id="upvotes3299">0</span></span>/<span class="downvotes"><span id="downvotes3299">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3299" class="comment_body">
+    <pre id="msg3299" style="display: none">Can't you use an array of [1..5000000] of boolean for this question instead?</pre>
+    <div style="opacity: 1">
+      Can't you use an array of [1..5000000] of boolean for this question instead?    </div>
+    <br><div class="comment_block" id="comment3300">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3300">Mar 15, 2011 - 6:24:41 pm UTC</a>      </span>
+      <a class="comment_title" id="title3300" onclick="toggle(&quot;body3300&quot;)">Re: Re: So this is what your supposed to do, right?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3300">
+    (<span class="upvotes"><span id="upvotes3300">0</span></span>/<span class="downvotes"><span id="downvotes3300">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3300" class="comment_body">
+    <pre id="msg3300" style="display: none">Yes, you should. This is not necessarily the only array you need to use, though.</pre>
+    <div style="opacity: 1">
+      Yes, you should. This is not necessarily the only array you need to use, though.    </div>
+      </div>
+</div>
+<br><div class="comment_block" id="comment3301">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/SourSpinach">SourSpinach</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/3301">Mar 15, 2011 - 6:24:42 pm UTC</a>      </span>
+      <a class="comment_title" id="title3301" onclick="toggle(&quot;body3301&quot;)">Re: Re: So this is what your supposed to do, right?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating3301">
+    (<span class="upvotes"><span id="upvotes3301">0</span></span>/<span class="downvotes"><span id="downvotes3301">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body3301" class="comment_body">
+    <pre id="msg3301" style="display: none">You can use an array like that, it's just small enough to fit into the memory allowance. However, not just any solution will run in time.</pre>
+    <div style="opacity: 1">
+      You can use an array like that, it's just small enough to fit into the memory allowance. However, not just any solution will run in time.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment2930">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/HelloMelloC">HelloMelloC</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2930">Jan 09, 2011 - 11:57:54 pm UTC</a>      </span>
+      <a class="comment_title" id="title2930" onclick="toggle(&quot;body2930&quot;)">MinGW max array size</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2930">
+    (<span class="upvotes"><span id="upvotes2930">0</span></span>/<span class="downvotes"><span id="downvotes2930">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2930" class="comment_body">
+    <pre id="msg2930" style="display: none">Anyone know why you can't set an array of 5000000 bools in MinGW on Code::Blocks 10.05? Gives general SIGSEGV fault, but works fine on judge.
+Is it a Windows limitation? I thought I could create arrays of 5MB on Free Pascal...</pre>
+    <div style="opacity: 1">
+      Anyone know why you can't set an array of 5000000 bools in MinGW on Code::Blocks 10.05? Gives general SIGSEGV fault, but works fine on judge. <br>Is it a Windows limitation? I thought I could create arrays of 5MB on Free Pascal...    </div>
+    <br><div class="comment_block" id="comment2932">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/ryuuga">ryuuga</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2932">Jan 10, 2011 - 1:54:28 am UTC</a>      </span>
+      <a class="comment_title" id="title2932" onclick="toggle(&quot;body2932&quot;)">Re: MinGW max array size</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2932">
+    (<span class="upvotes"><span id="upvotes2932">2</span></span>/<span class="downvotes"><span id="downvotes2932">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2932" class="comment_body">
+    <pre id="msg2932" style="display: none">That's because memory on the stack is limited. There's much more on the heap.
+On windows, you could try (assuming mingw uses gnu gcc compiler )
+Go to CodeBlocks-&gt;Settings-&gt;Compiler and Debugger-&gt;Linker settings-&gt;Other linker options and add
+"--stack,16777216" (no quotes) to increase stack size to 16MB (or use any other reasonable value)
+Then your code should work, unless you want 20 million booleans.
+
+
+not that stack size is different from the total memory available to the program
+(you probably have at least a gigabyte of memory available on your own computer.)
+
+Or you could've just written your program in one of the following ways.
+
+Make a global boolean array of size 5 million
+
+or
+#include &lt;vector&gt;
+...
+vector&lt;bool&gt; isPrime (5000000); //(may cause frustration in some cases)
+or
+bool*isPrime = new bool[5000000];
+...
+delete []isPrime;</pre>
+    <div style="opacity: 1">
+      That's because memory on the stack is limited. There's much more on the heap. <br>On windows, you could try (assuming mingw uses gnu gcc compiler ) <br>Go to CodeBlocks-&gt;Settings-&gt;Compiler and Debugger-&gt;Linker settings-&gt;Other linker options and add <br>"--stack,16777216" (no quotes) to increase stack size to 16MB (or use any other reasonable value) <br>Then your code should work, unless you want 20 million booleans. <br> <br> <br>not that stack size is different from the total memory available to the program <br>(you probably have at least a gigabyte of memory available on your own computer.) <br> <br>Or you could've just written your program in one of the following ways. <br> <br>Make a global boolean array of size 5 million <br> <br>or <br>#include &lt;vector&gt; <br>... <br>vector&lt;bool&gt; isPrime (5000000); //(may cause frustration in some cases) <br>or <br>bool*isPrime = new bool[5000000]; <br>... <br>delete []isPrime;    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment2449">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/ragulan5">ragulan5</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2449">Aug 27, 2009 - 6:16:16 pm UTC</a>      </span>
+      <a class="comment_title" id="title2449" onclick="toggle(&quot;body2449&quot;)">runtime error</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2449">
+    (<span class="upvotes"><span id="upvotes2449">0</span></span>/<span class="downvotes"><span id="downvotes2449">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2449" class="comment_body">
+    <pre id="msg2449" style="display: none">I am getting runtime error. Is it because I am exceeding the memory limit.</pre>
+    <div style="opacity: 1">
+      I am getting runtime error. Is it because I am exceeding the memory limit.    </div>
+    <br><div class="comment_block" id="comment2450">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2450">Aug 27, 2009 - 7:42:16 pm UTC</a>      </span>
+      <a class="comment_title" id="title2450" onclick="toggle(&quot;body2450&quot;)">Re: runtime error</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2450">
+    (<span class="upvotes"><span id="upvotes2450">0</span></span>/<span class="downvotes"><span id="downvotes2450">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2450" class="comment_body">
+    <pre id="msg2450" style="display: none">Yeah, executing your program on the terminal gives
+"terminate called after throwing an instance of 'std::bad_alloc'
+  what():  std::bad_alloc
+Aborted"
+However, even when the memory limitation is removed, it TLEs.</pre>
+    <div style="opacity: 1">
+      Yeah, executing your program on the terminal gives <br>"terminate called after throwing an instance of 'std::bad_alloc' <br>  what():  std::bad_alloc <br>Aborted" <br>However, even when the memory limitation is removed, it TLEs.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment1577">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bleung91">bleung91</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/1577">Feb 12, 2009 - 2:51:05 am UTC</a>      </span>
+      <a class="comment_title" id="title1577" onclick="toggle(&quot;body1577&quot;)">Re: Any more hints????</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating1577">
+    (<span class="upvotes"><span id="upvotes1577">2</span></span>/<span class="downvotes"><span id="downvotes1577">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body1577" class="comment_body">
+    <pre id="msg1577" style="display: none">there is a "well-known" algorithm for generating prime numbers up to N, as Dr. Sane pointed out.  Try finding it.</pre>
+    <div style="opacity: 1">
+      there is a "well-known" algorithm for generating prime numbers up to N, as Dr. Sane pointed out.  Try finding it.    </div>
+      </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0817s.<br>
+    Server time on page load:
+    Jun 24, 2018 07:10:49 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fprimes2%2F10">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

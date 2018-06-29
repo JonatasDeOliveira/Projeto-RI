@@ -1,0 +1,816 @@
+<!DOCTYPE html><!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]--><!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]--><!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]--><!--[if (gte IE 9)|!(IE)]><!--><html class="not-ie" lang="en"><!--<![endif]--><head>
+	<!-- main header -->
+	<meta charset="utf-8">
+	
+				<title>Sphere Online Judge (SPOJ)</title>
+	  
+	<meta name="keywords" content="language, algorithm, spoj, contest, contester, Java, C#, Pascal, C, C++, python, ruby, caml, ocaml, perl, haskell, lisp, prolog, fortran, assembler, asembler, functional, online, judge, problem, problemset, ACM">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  		<meta property="og:image" content="//stx1.spoj.com/gfx/spoj-fb.jpg">
+	<meta property="og:description" content="SPOJ (Sphere Online Judge) is an online judge system with over 315,000 registered users and over 20000 problems. The solution to problems can be submitted in over 60 languages including C, C++, Java, Python, C#, Go, Haskell, Ocaml, and F#. SPOJ has a rapidly growing problem set/tasks available for practice 24 hours/day, including many original tasks prepared by the community of expert problem setters associated with the project.">
+	<meta name="description" content="SPOJ (Sphere Online Judge) is an online judge system with over 315,000 registered users and over 20000 problems. The solution to problems can be submitted in over 60 languages including C, C++, Java, Python, C#, Go, Haskell, Ocaml, and F#. SPOJ has a rapidly growing problem set/tasks available for practice 24 hours/day, including many original tasks prepared by the community of expert problem setters associated with the project.">
+		<meta property="og:site_name" content="spoj.com">
+
+  <!--[if (gte IE 9)|!(IE)]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" id="metatag">
+  <![endif]--> 
+
+	  <!-- Favicon -->
+	  <link href="//stx1.spoj.com/gfx/favicon_new.png" rel="shortcut icon" type="image/x-icon">
+	  
+	  <!-- RSS -->
+	  <link href="/rss/" rel="alternate" type="application/rss+xml" title="RSS Feed">
+	
+	  <!-- Web Fonts -->
+	  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet" type="text/css">  
+
+	<!-- Internet Explorer condition - HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]--> 
+	
+	
+	
+	<!-- CSS: Bootstrap, Font-awesome, Bootstrap libs,  -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+  	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  	<link href="//stx1.spoj.com/gfx/bootstrap-tour/build/css/bootstrap-tour.min.css" rel="stylesheet">
+  	<link href="//stx1.spoj.com/themes/bootstrap-social.css" rel="stylesheet" type="text/css">
+  	
+	<link href="//stx1.spoj.com/themes/common.css?5" rel="stylesheet" type="text/css" id="theme0">
+	<link href="//stx1.spoj.com/themes/en_new.css?4" rel="stylesheet" type="text/css" id="theme">
+	
+	<!-- JS -->
+	<script type="text/javascript" async="" src="https://www.google-analytics.com/plugins/ua/linkid.js"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script id="facebook-jssdk" src="//connect.facebook.net/pl_PL/sdk.js#xfbml=1&amp;appId=321676846207&amp;version=v2.0"></script><script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="//code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+	
+		
+		
+	<script type="text/javascript" language="javascript">
+	$(function () { 
+		$("#profile-menu").popover();
+	});
+	function UnCryptMailto(s) {
+		var n=0;
+		var r="";
+		for(var i=0;i<s.length;i++) {		
+			n=s.charCodeAt(i); 
+			if (n>=8364) {n = 128;}
+			r += String.fromCharCode(n+(2));	
+		}
+		return r;
+	}
+	function linkTo_UnCryptMailto(s)	{
+		location.href=UnCryptMailto(s);
+	}
+	</script>
+	
+	<script type="text/javascript">
+	function recordOutboundLink(link, category, action) {
+	  try {
+	    var pageTracker=_gat._getTracker("UA-XXXXX-X");
+	    pageTracker._trackEvent(category, action);
+	    setTimeout('document.location = "' + link.href + '"', 100)
+	  }catch(err){}
+	}
+	</script>
+	
+<script src="https://www.googleadservices.com/pagead/conversion/1021031341/?random=1529292304478&amp;cv=9&amp;fst=1529292304478&amp;num=1&amp;value=1&amp;currency_code=PLN&amp;label=0v9ACKW4jwIQrefu5gM&amp;bg=ffffff&amp;hl=en&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;u_h=768&amp;u_w=1024&amp;u_ah=768&amp;u_aw=1024&amp;u_cd=32&amp;u_his=100&amp;u_tz=0&amp;u_java=false&amp;u_nplug=0&amp;u_nmime=0&amp;frm=0&amp;url=https%3A%2F%2Fwww.spoj.com%2F&amp;tiba=Sphere%20Online%20Judge%20(SPOJ)&amp;rfmt=2&amp;fmt=4"></script><script async="" src="//static.hotjar.com/c/hotjar-334656.js?sv=5"></script><script id="_bsa_srv-CK7D4KJL_0" type="text/javascript" src="https://srv.buysellads.com/ads/CK7D4KJL.json?callback=_bsa_go&amp;segment=placement:demo"></script><script async="" src="https://script.hotjar.com/modules-bc9233e6eda7ce1b46e135a312414ff7.js"></script><style type="text/css">iframe#_hjRemoteVarsFrame {display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;}</style><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_customer_chat_bounce_in_v1{animation-duration:250ms;animation-name:fb_bounce_in_v1}.fb_customer_chat_bounce_out_v1{animation-duration:250ms;animation-name:fb_bounce_out_v1}.fb_customer_chat_bounce_in_v2{animation-duration:300ms;animation-name:fb_bounce_in_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_v2{animation-duration:300ms;animation-name:fb_bounce_out_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_in_v2_mobile_chat_started{animation-duration:300ms;animation-name:fb_bounce_in_v2_mobile_chat_started;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_v2_mobile_chat_started{animation-duration:300ms;animation-name:fb_bounce_out_v2_mobile_chat_started;transition-timing-function:ease-in}.fb_customer_chat_bubble_pop_in{animation-duration:250ms;animation-name:fb_customer_chat_bubble_bounce_in_animation}.fb_customer_chat_bubble_animated_no_badge{box-shadow:0 3px 12px rgba(0, 0, 0, .15);transition:box-shadow 150ms linear}.fb_customer_chat_bubble_animated_no_badge:hover{box-shadow:0 5px 24px rgba(0, 0, 0, .3)}.fb_customer_chat_bubble_animated_with_badge{box-shadow:-5px 4px 14px rgba(0, 0, 0, .15);transition:box-shadow 150ms linear}.fb_customer_chat_bubble_animated_with_badge:hover{box-shadow:-5px 8px 24px rgba(0, 0, 0, .2)}.fb_invisible_flow{display:inherit;height:0;overflow-x:hidden;width:0}.fb_mobile_overlay_active{background-color:#fff;height:100%;overflow:hidden;position:fixed;visibility:hidden;width:100%}@keyframes fb_bounce_in_v1{0%{opacity:0;transform:scale(.8, .8);transform-origin:bottom right}80%{opacity:.8;transform:scale(1.03, 1.03)}100%{opacity:1;transform:scale(1, 1)}}@keyframes fb_bounce_in_v2{0%{opacity:0;transform:scale(0, 0);transform-origin:bottom right}50%{transform:scale(1.03, 1.03);transform-origin:bottom right}100%{opacity:1;transform:scale(1, 1);transform-origin:bottom right}}@keyframes fb_bounce_in_v2_mobile_chat_started{0%{opacity:0;top:20px}100%{opacity:1;top:0}}@keyframes fb_bounce_out_v1{from{opacity:1}to{opacity:0}}@keyframes fb_bounce_out_v2{0%{opacity:1;transform:scale(1, 1);transform-origin:bottom right}100%{opacity:0;transform:scale(0, 0);transform-origin:bottom right}}@keyframes fb_bounce_out_v2_mobile_chat_started{0%{opacity:1;top:0}100%{opacity:0;top:20px}}@keyframes fb_customer_chat_bubble_bounce_in_animation{0%{bottom:6pt;opacity:0;transform:scale(0, 0);transform-origin:center}70%{bottom:18pt;opacity:1;transform:scale(1.2, 1.2)}100%{transform:scale(1, 1)}}</style></head>
+
+<body><div id="_flexbar_" data-attributes="{&quot;type&quot;:&quot;flexbar&quot;,&quot;key&quot;:&quot;CK7D4KJL&quot;,&quot;segment&quot;:&quot;placement:demo&quot;,&quot;options&quot;:{&quot;target&quot;:&quot;body&quot;,&quot;script_id&quot;:&quot;_bsa_srv-CK7D4KJL_0&quot;,&quot;platforms&quot;:[&quot;desktop&quot;,&quot;mobile&quot;]},&quot;ads&quot;:[{&quot;active&quot;:&quot;1&quot;,&quot;backgroundColor&quot;:&quot;#FFFFFF&quot;,&quot;backgroundHoverColor&quot;:&quot;#FFFFFF&quot;,&quot;bannerid&quot;:&quot;81255&quot;,&quot;callToAction&quot;:&quot;Learn More&quot;,&quot;company&quot;:&quot;AdMob&quot;,&quot;creativeid&quot;:&quot;172275&quot;,&quot;ctaBackgroundColor&quot;:&quot;#4285f4&quot;,&quot;ctaBackgroundHoverColor&quot;:&quot;#4285f4&quot;,&quot;ctaTextColor&quot;:&quot;#FFFFFF&quot;,&quot;ctaTextColorHover&quot;:&quot;#FFFFFF&quot;,&quot;description&quot;:&quot;Tap into global reach to raise demand for your ad space. Tap into AdMob.&quot;,&quot;evenodd&quot;:&quot;0&quot;,&quot;external_id&quot;:&quot;1965&quot;,&quot;height&quot;:&quot;0&quot;,&quot;i&quot;:&quot;0&quot;,&quot;image&quot;:&quot;https://cdn4.buysellads.net/uu/1/5915/1528922523-9ieRQewq_400x400_copy.png&quot;,&quot;logo&quot;:&quot;https://cdn4.buysellads.net/uu/1/5915/1528922528-AdMob_Native.png&quot;,&quot;longimp&quot;:&quot;T3HHBQBSTTTTTT4UDWIHNTTTTTTKFT3HZKTTTTTTCTE45NYTTTTTT&quot;,&quot;longlink&quot;:&quot;THHHBQBSTTTTTT4UDWIHNTTTTTTKFT3HZKTTTTTTCTE45NYTTTTTTBDW5JYFC5JGHRENVZI62RBN6SDHK2NCLYSZH7UCPR3GKJLCBZSW5QENCBSD2JMLOIJMCVAIPZJICK7I5K7MCMF64M4QP74WCW4DHR3D6K3YCW7DC27EHY7D6KJYC6YIE2QNF2LCCUSW5QMMOYZQKEOIVKJJCVYDV537CARNVYBX5J7CNUSD2HLDB5Q7CK7IC27ICYRNVYBX2JEUVGQSKJJMOAI62HLDB5SWKHIMO7IG5QGNCBDQ2JLHO7DQ5QLNCRDHKJGUVAIHKHBCB7Z55EOINRDC5MEIB&quot;,&quot;pixel&quot;:&quot;https://ad.doubleclick.net/ddm/trackimp/N5295.3337355NATIVECPC/B20852370.222811856;dc_trk_aid=421204897;dc_trk_cid=99333736;ord=[timestamp];dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=?&quot;,&quot;rendering&quot;:&quot;flexbar&quot;,&quot;smallImage&quot;:&quot;https://cdn4.buysellads.net/uu/1/5915/1528922535-Pasted_image_at_2018_06_04_02_28_PM_1_-1.png&quot;,&quot;statimp&quot;:&quot;//srv.buysellads.com/ads/imp/x/GTND42QLF67IT2JWCE74YKQMCVAI6KJWCW7IPZ3JCW7DLKQYCEBDPKQKC6BI65QLF6YDEK3EHJWNBADLKM7UCBZG2Y&quot;,&quot;statlink&quot;:&quot;//srv.buysellads.com/ads/click/x/GTND42QLF67IT2JWCE74YKQMCVAI6KJWCW7IPZ3JCW7DLKQYCEBDPKQKC6BI65QLF6YDEK3EHJNCLSIZ&quot;,&quot;textColor&quot;:&quot;#000000&quot;,&quot;textColorHover&quot;:&quot;#000000&quot;,&quot;timestamp&quot;:&quot;1529292166&quot;,&quot;title&quot;:&quot;AdMob&quot;,&quot;width&quot;:&quot;0&quot;,&quot;zoneid&quot;:&quot;32122&quot;,&quot;zonekey&quot;:&quot;CK7D4KJL&quot;}]}"><style type="text/css">._bsa_hide ._bsa_flexbar{display:none}._bsa_show ._bsa_flexbar{display:block}#_flexbar_{display:block}#_flexbar_._bsa_hide{margin-bottom:0}._bsa_flexbar{font-family:"Helvetica Neue", Helvetica, Arial, Sans-Serif !important;width:100%;z-index:999999;color:#fff;position:relative;height:95px;background:#FFFFFF;-webkit-animation:fadein 2s;-moz-animation:fadein 2s;-ms-animation:fadein 2s;-o-animation:fadein 2s;animation:fadein 2s}._bsa_flexbar:hover{background:#FFFFFF}._bsa_flexbar > a{display:flex;align-items:center;justify-content:space-between;padding:20px 30px;text-decoration:none}._bsa_flexbar .flexbar-left{display:flex;align-items:center;justify-content:flex-start}._bsa_flexbar .flexbar-close{position:absolute;top:50%;right:30px;margin:-20px 0 0 0;padding:0;color:rgba(255,255,255,0.5);background:rgba(0,0,0,0.1);display:block;float:right;width:40px;height:40px;border-radius:50px;font-size:20px;text-align:center;line-height:40px;text-decoration:none}._bsa_flexbar .flexbar-heading{font-size:10px;letter-spacing:3px;color:#000000;width:100%;padding-bottom:4px;line-height:180%;float:left;text-transform:uppercase;font-weight:500}._bsa_flexbar .flexbar-desc{font-weight:600;font-size:14px;max-width:768px;letter-spacing:1px;color:#000000;width:100%;line-height:160%;float:left;}._bsa_flexbar .flexbar-logo img{float:left;max-width:130px;margin:0 30px 0 0}._bsa_flexbar .flexbar-cta{text-align:center;float:right;color:#FFFFFF;background:#4285f4;text-decoration:none;border-radius:3px;font-weight:300;margin-right:70px;line-height:100%;padding:15px 20px;border:none;white-space:nowrap}._bsa_flexbar .flexbar-close:hover{color:rgba(255,255,255,0.8);background:rgba(0,0,0,0.3);cursor:pointer}@media all and (max-width: 1024px){._bsa_flexbar > a{padding:25px 100px 25px 25px}._bsa_flexbar .flexbar-logo{max-width:48px;margin:10px 20px 10px 0}}@media all and (max-width: 768px){._bsa_flexbar .flexbar-desc{font-size:13px}._bsa_flexbar > a{padding:20px 80px 20px 20px}._bsa_flexbar .flexbar-close{right:20px;margin:-15px 0 0 0;width:30px;height:30px;font-size:18px;line-height:30px}}@media all and (max-width: 1024px){._bsa_flexbar .flexbar-cta{display:none}._bsa_flexbar > a{padding:20px}._bsa_flexbar > a{padding-right:80px}._bsa_flexbar .flexbar-close{right:20px}._bsa_flexbar .flexbar-logo{max-width:130px;margin:10px 20px 10px 0}}@media all and (max-width: 568px){._bsa_flexbar .flexbar-logo{display:none}._bsa_flexbar .flexbar-cta{display:none}._bsa_flexbar .flexbar-heading{font-size:8px}._bsa_flexbar .flexbar-desc{font-size:12px}._bsa_flexbar > a{padding:15px}}@keyframes "fadein"{from{opacity:0;}to{opacity:1;}}@-moz-keyframes "fadein"{from{opacity:0;}to{opacity:1;}}@-webkit-keyframes "fadein"{from{opacity:0;}to{opacity:1;}}@-ms-keyframes fadein{from { opacity:0}to{opacity:1}} @-o-keyframes fadein{from { opacity:0}to{opacity:1}</style><div class="_bsa_flexbar"><a href="//srv.buysellads.com/ads/click/x/GTND42QLF67IT2JWCE74YKQMCVAI6KJWCW7IPZ3JCW7DLKQYCEBDPKQKC6BI65QLF6YDEK3EHJNCLSIZ?segment=placement:demo;" target="_blank" rel="nofollow noopener"><span class="flexbar-left"><span class="flexbar-logo"><img src="https://cdn4.buysellads.net/uu/1/5915/1528922528-AdMob_Native.png"></span><span class="flexbar-text"><span class="flexbar-heading">AdMob</span><span class="flexbar-desc">Tap into global reach to raise demand for your ad space. Tap into AdMob.</span></span></span><span class="flexbar-cta">Learn More</span></a><span class="flexbar-close" onclick="_bsa.close('_flexbar_')">✕</span><img src="https://ad.doubleclick.net/ddm/trackimp/N5295.3337355NATIVECPC/B20852370.222811856;dc_trk_aid=421204897;dc_trk_cid=99333736;ord=1529292166;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=?" style="display:none;" height="0" width="0"></div></div>
+
+	
+	<!-- <div class="space30"></div> -->
+	
+	<!-- Content -->
+	<div class="content">
+		<div class="container" id="header">
+			<div class="row">
+				<div class="col-md-12 text-right">
+										<form method="post" style="display: none;" action="/login/" id="login-form">
+						<div class="row">
+							<div class="col-md-10 col-md-offset-2">
+								<input type="hidden" name="next_raw" value="/">
+								<input type="hidden" name="autologin" value="1">
+								<input type="text" name="login_user" placeholder="Username" class="form-control input-sm" style="display: inline-block; width: 25%;">
+								<input type="password" name="password" placeholder="Password" class="form-control input-sm" style="display: inline-block; width: 25%;">
+																<button type="submit" class="btn btn-default btn-sm" style="display: inline-block; margin-right: 10px;"><span class="fa fa-sign-in fa-lg"></span> <strong>sign in</strong></button>
+																<a href="/register"><i class="fa fa-user-plus"></i> sign up</a> 
+								<a href="/forgot"><i class="fa fa-question-circle"></i> forgot</a>
+				        									</div>
+						</div>
+					</form>
+										
+					
+				</div>
+			</div>
+		
+			<div class="row">
+				<div class="col-md-4">
+					<a href="/" class="navbar-brand">
+						<img src="//stx1.spoj.com/gfx/2015e.png" style="height: 40px;">
+					</a>
+					<div class="navbar-header">
+				      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+				        <span class="sr-only">Toggle navigation</span>
+				        <i class="fa fa-bars"></i>
+				      </button>
+				    </div>
+				</div>
+				<div class="col-md-8" id="menu">
+				
+					
+					<div class="row">
+					<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation" style="border: 0px;">
+				      <ul class="nav navbar-nav" style="  float: right; margin-top: 10px;">
+				      						        <li>
+					          <a href="/problems"><i class="fa fa-puzzle-piece"></i> PROBLEMS</a>
+					        </li>
+					        					        <li>
+					          <a href="/status"><i class="fa fa-circle"></i> STATUS</a>
+					        </li>
+					        <li>
+					          <a href="/ranks"><i class="fa fa-trophy"></i> RANKS</a>
+					        </li>
+					        <li>
+					          <a href="http://spoj.com/forum"><i class="fa fa-comments-o"></i> DISCUSS</a>
+					        </li>
+					        <li>
+					          <a href="/contests">CONTESTS</a>
+					        </li>
+											        					        <li>
+					        	<a href="/login" class="text-success" onclick="$('#login-form').show(); $('input[name=login_user]').focus(); return false;"><i class="fa fa-sign-in"></i> sign in</a>
+					        </li>
+					        						
+				        
+				      </ul>
+				    </nav>
+				    </div>
+				    
+				    
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class="container" id="menu">
+			
+		</div>
+		
+		<div class="container" id="content">
+		
+	<div class="row">
+		<div class="col-lg-12" id="main-banner">
+			<div>
+				<br>
+				<h1 class="text-center" style="margin-top: 0px;"><strong>Become a true programming master</strong></h1>
+				<h2 class="text-center" style="margin-top: 10px; font-size: 24px;">Learn how to code and build efficient algorithms</h2>
+								<div class="text-center"><br>
+					<strong id="total-submissions">21853378</strong> submissions, <strong>599451</strong> registered users, <strong>6526</strong> public problems
+				</div><br>
+								<div class="text-center"><br><a class="btn btn-lg btn-primary" href="/register">Sign up &amp; Start coding!</a></div>
+				
+				<br><br>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-lg-8" style="padding-top: 0px;">
+		
+						<div class="row">
+				<div class="col-md-12 main-forum">
+					<table class="table">
+						
+						
+						<thead>
+							<tr>
+								<th>Topic</th>
+								<th>Users</th>
+								<th class="text-center" title="Replies">R</th>
+								<th class="text-center" title="Views">V</th>
+								<th class="text-center" title="Activity">A</th>
+							</tr>
+						</thead>
+						<tbody>
+																																																											<tr>
+								
+								<td><a href="http://discuss.spoj.com/t/what-is-wrong-with-my-solution/28867" target="_blank">What is wrong with my solution?</a></td>
+								<td>
+																		<a href="http://discuss.spoj.com/users/kartik_715" class="avatar" target="_blank"><img alt="" width="25" height="25" src="https://discuss.spoj.com/letter_avatar_proxy/v2/letter/k/6a8cbe/25.png"></a>
+																		<a href="http://discuss.spoj.com/users/simes" class="avatar" target="_blank"><img alt="" width="25" height="25" src="https://discuss.spoj.com/letter_avatar_proxy/v2/letter/s/dc4da7/25.png"></a>
+																	</td>
+								<td class="text-center"><strong>3</strong></td>
+								<td class="text-center">22</td>
+								<td class="text-center">1d</td>
+							</tr>
+																											<tr>
+								
+								<td><a href="http://discuss.spoj.com/t/wa-templeq/5270" target="_blank">Wa templeq</a></td>
+								<td>
+																		<a href="http://discuss.spoj.com/users/gauravm_sof" class="avatar" target="_blank"><img alt="" width="25" height="25" src="https://discuss.spoj.com/letter_avatar_proxy/v2/letter/g/da6949/25.png"></a>
+																		<a href="http://discuss.spoj.com/users/disillusioned" class="avatar" target="_blank"><img alt="" width="25" height="25" src="https://discuss.spoj.com/letter_avatar_proxy/v2/letter/d/cc9497/25.png"></a>
+																	</td>
+								<td class="text-center"><strong>2</strong></td>
+								<td class="text-center">48</td>
+								<td class="text-center">2d</td>
+							</tr>
+																											<tr>
+								
+								<td><a href="http://discuss.spoj.com/t/log-in-error/28866" target="_blank">"Log In" error</a></td>
+								<td>
+																		<a href="http://discuss.spoj.com/users/tarpauwatratar" class="avatar" target="_blank"><img alt="" width="25" height="25" src="https://discuss.spoj.com/letter_avatar_proxy/v2/letter/t/53a042/25.png"></a>
+																	</td>
+								<td class="text-center"><strong>1</strong></td>
+								<td class="text-center">15</td>
+								<td class="text-center">2d</td>
+							</tr>
+																											<tr>
+								
+								<td><a href="http://discuss.spoj.com/t/how-to-solve-btck/28800" target="_blank">How to solve BTCK?</a></td>
+								<td>
+																		<a href="http://discuss.spoj.com/users/learnerinblack" class="avatar" target="_blank"><img alt="" width="25" height="25" src="https://discuss.spoj.com/letter_avatar_proxy/v2/letter/l/b38774/25.png"></a>
+																		<a href="http://discuss.spoj.com/users/narbej" class="avatar" target="_blank"><img alt="" width="25" height="25" src="https://discuss.spoj.com/letter_avatar_proxy/v2/letter/n/ce7236/25.png"></a>
+																		<a href="http://discuss.spoj.com/users/simes" class="avatar" target="_blank"><img alt="" width="25" height="25" src="https://discuss.spoj.com/letter_avatar_proxy/v2/letter/s/dc4da7/25.png"></a>
+																	</td>
+								<td class="text-center"><strong>10</strong></td>
+								<td class="text-center">68</td>
+								<td class="text-center">3d</td>
+							</tr>
+																											<tr>
+								
+								<td><a href="http://discuss.spoj.com/t/lglove/28864" target="_blank">Lglove</a></td>
+								<td>
+																		<a href="http://discuss.spoj.com/users/disillusioned" class="avatar" target="_blank"><img alt="" width="25" height="25" src="https://discuss.spoj.com/letter_avatar_proxy/v2/letter/d/cc9497/25.png"></a>
+																	</td>
+								<td class="text-center"><strong>1</strong></td>
+								<td class="text-center">25</td>
+								<td class="text-center">4d</td>
+							</tr>
+																											<tr>
+								
+								<td><a href="http://discuss.spoj.com/t/c-cs0234/28840" target="_blank">C# cs0234</a></td>
+								<td>
+																		<a href="http://discuss.spoj.com/users/bnatividade" class="avatar" target="_blank"><img alt="" width="25" height="25" src="https://discuss.spoj.com/letter_avatar_proxy/v2/letter/b/8dc957/25.png"></a>
+																		<a href="http://discuss.spoj.com/users/simes" class="avatar" target="_blank"><img alt="" width="25" height="25" src="https://discuss.spoj.com/letter_avatar_proxy/v2/letter/s/dc4da7/25.png"></a>
+																	</td>
+								<td class="text-center"><strong>7</strong></td>
+								<td class="text-center">35</td>
+								<td class="text-center">4d</td>
+							</tr>
+																											<tr>
+								
+								<td><a href="http://discuss.spoj.com/t/gss1-test-case-9-wa/28858" target="_blank">Gss1 test case 9 wa</a></td>
+								<td>
+																		<a href="http://discuss.spoj.com/users/hdggxin" class="avatar" target="_blank"><img alt="" width="25" height="25" src="https://discuss.spoj.com/user_avatar/discuss.spoj.com/hdggxin/25/15049_1.png"></a>
+																	</td>
+								<td class="text-center"><strong>1</strong></td>
+								<td class="text-center">25</td>
+								<td class="text-center">4d</td>
+							</tr>
+																											<tr>
+								
+								<td><a href="http://discuss.spoj.com/t/how-to-handle-the-fans-problem/28820" target="_blank">'How to handle the fans' Problem</a></td>
+								<td>
+																		<a href="http://discuss.spoj.com/users/dia_aj0011" class="avatar" target="_blank"><img alt="" width="25" height="25" src="https://discuss.spoj.com/letter_avatar_proxy/v2/letter/d/e68b1a/25.png"></a>
+																	</td>
+								<td class="text-center"><strong>1</strong></td>
+								<td class="text-center">44</td>
+								<td class="text-center">7d</td>
+							</tr>
+																											<tr>
+								
+								<td><a href="http://discuss.spoj.com/t/runtime-error-nzec/89" target="_blank">Runtime error (NZEC)</a></td>
+								<td>
+																		<a href="http://discuss.spoj.com/users/Marcin_Kwiatkowski" class="avatar" target="_blank"><img alt="" width="25" height="25" src="https://discuss.spoj.com/letter_avatar_proxy/v2/letter/m/c6cbf5/25.png"></a>
+																		<a href="http://discuss.spoj.com/users/noix" class="avatar" target="_blank"><img alt="" width="25" height="25" src="https://discuss.spoj.com/letter_avatar_proxy/v2/letter/n/a183cd/25.png"></a>
+																		<a href="http://discuss.spoj.com/users/giero" class="avatar" target="_blank"><img alt="" width="25" height="25" src="https://discuss.spoj.com/letter_avatar_proxy/v2/letter/g/bb73d2/25.png"></a>
+																		<a href="http://discuss.spoj.com/users/Joachim_Wulff" class="avatar" target="_blank"><img alt="" width="25" height="25" src="https://discuss.spoj.com/letter_avatar_proxy/v2/letter/j/43a26b/25.png"></a>
+																		<a href="http://discuss.spoj.com/users/an0num0us" class="avatar" target="_blank"><img alt="" width="25" height="25" src="https://discuss.spoj.com/letter_avatar_proxy/v2/letter/a/49beb7/25.png"></a>
+																	</td>
+								<td class="text-center"><strong>28</strong></td>
+								<td class="text-center">860</td>
+								<td class="text-center">466d</td>
+							</tr>
+																											<tr>
+								
+								<td><a href="http://discuss.spoj.com/t/what-does-time-limit-exceeded-mean/28773" target="_blank">What does "time limit exceeded" mean?</a></td>
+								<td>
+																		<a href="http://discuss.spoj.com/users/khoaph" class="avatar" target="_blank"><img alt="" width="25" height="25" src="https://discuss.spoj.com/letter_avatar_proxy/v2/letter/k/9fc29f/25.png"></a>
+																		<a href="http://discuss.spoj.com/users/jeet9" class="avatar" target="_blank"><img alt="" width="25" height="25" src="https://discuss.spoj.com/letter_avatar_proxy/v2/letter/j/47e85d/25.png"></a>
+																	</td>
+								<td class="text-center"><strong>4</strong></td>
+								<td class="text-center">65</td>
+								<td class="text-center">7d</td>
+							</tr>
+																											<tr>
+								
+								<td><a href="http://discuss.spoj.com/t/what-is-wrong-in-this-solution/28771" target="_blank">What is wrong in this solution?</a></td>
+								<td>
+																		<a href="http://discuss.spoj.com/users/rishabh18" class="avatar" target="_blank"><img alt="" width="25" height="25" src="https://discuss.spoj.com/letter_avatar_proxy/v2/letter/r/ba8739/25.png"></a>
+																	</td>
+								<td class="text-center"><strong>1</strong></td>
+								<td class="text-center">58</td>
+								<td class="text-center">11d</td>
+							</tr>
+																											<tr>
+								
+								<td><a href="http://discuss.spoj.com/t/how-to-view-what-is-wrong-with-my-code/28758" target="_blank">How to view what is wrong with my code?</a></td>
+								<td>
+																		<a href="http://discuss.spoj.com/users/chris_b" class="avatar" target="_blank"><img alt="" width="25" height="25" src="https://discuss.spoj.com/letter_avatar_proxy/v2/letter/c/43a26b/25.png"></a>
+																		<a href="http://discuss.spoj.com/users/simes" class="avatar" target="_blank"><img alt="" width="25" height="25" src="https://discuss.spoj.com/letter_avatar_proxy/v2/letter/s/dc4da7/25.png"></a>
+																	</td>
+								<td class="text-center"><strong>2</strong></td>
+								<td class="text-center">60</td>
+								<td class="text-center">11d</td>
+							</tr>
+																			</tbody>
+					</table>
+				</div>
+			</div>
+					
+											    
+											
+						<div align="justify" style="margin-bottom: 0px;">
+							<h4 style="margin-bottom: 0px;"><strong>Innopolis Open 2018</strong></h4>
+							
+																					
+													
+						</div>
+						
+						
+										<div class="post-data"><p><strong>Seven days left to register for the Innopolis Open</strong> - Olympiad in Informatics for high school students under 19 years old held by Innopolis University. The Olympiad has two stages: the online contest and the on-site competition.</p>
+
+<p><strong>Why participate?</strong></p>
+
+<ul>
+<li><strong>It is a top-level contest</strong> - the problems on the Olympiad meet the level of the Russian
+Olympiad in Informatics. Contests are prepared under the guidance of the World Finals
+Champions of ACM ICPC.</li>
+<li><strong>Scholarship</strong> - winners of the second (on-site) stage will have an opportunity to be
+enrolled in Innopolis University without any admission tests.</li>
+<li><strong>Prizes</strong> – participants with the best results at the online contest will be invited to the final
+stage to Innopolis, the final stage winners will receive valuable prizes and souvenirs.
+Accommodation and meals are covered by the organizing committee.</li>
+</ul>
+
+<p>
+To find out more about the Olympiad, please, visit our page: <a href="http://2018.olymp.innopolis.ru/en/">http://2018.olymp.innopolis.ru/en/</a>
+</p>
+
+<p><strong>Schedule</strong></p>
+
+<p>The first stage (online contest) will be held on:</p>
+
+<ul>
+<li>December 2, 15:00 (UTC +3),</li>
+<li>December 17, 10:00 (UTC +3).</li>
+</ul>
+
+<p>You may participate on both dates; the organizing committee will consider your best result. Registration is open until <strong>December 1, 2017</strong>. Participation is free of charge.</p>
+
+<p>The second stage (on-site contest) will take place in Innopolis city on February 24-25, 2018.</p>
+
+<p><strong>Stay in touch</strong></p>
+
+<ul>
+<li>Subscribe to our <a href="https://t.me/innopolis_open">Telegram</a> account to receive quick information and reminders,</li>
+<li>Contact us via e-mail: <a href="mailto:olymp@innopolis.ru">olymp@innopolis.ru</a>,</li>
+<li>Subscribe to our <a href="https://www.facebook.com/InnopolisU">Facebook</a> page.</li>
+</ul>
+
+<img width="707" src="https://www.spoj.com/content/rlewon:innopolis2018" alt="Innopolis Open 2018">
+</div>
+										<div class="post-meta" style="color: #aaa;">
+							<img src="https://www.gravatar.com/avatar/b9655e1d09aab8832eaad421595cd5eb?s=14&amp;20150116">
+							<span>Robert Lewoń</span>, 
+							<span><i>2017-11-24 10:36:04</i></span>
+						</div>
+										<br>
+															    
+											
+						<div align="justify" style="margin-bottom: 0px;">
+							<h4 style="margin-bottom: 0px;"><strong>Coding can give more fun than computer games – an interview with Ivan Katanić</strong></h4>
+							
+																					
+													
+						</div>
+						
+						
+										<div class="post-data"><p>After publishing an interview with <strong>Keshav Dhandhania</strong> we have decided to continue this project and present you other successful Spoj users, who can share their experience and all wisdom gained during their struggle with Spoj problems.</p>
+
+<p>Today we present you <strong>Ivan Katanić</strong> a finalist in International Olympiad in Informatics a member of Croatian national team in computer contests and a long-time Spoj user with a <strong>#11th place in a world rank</strong> and almost 1000 solved problems.</p>
+
+<p>
+<a href="http://blog.spoj.com/index.php/2017/06/30/coding-can-give-fun-computer-games-interview-ivan-katanic/">Read more on our blog</a></p>
+</div>
+										<div class="post-meta" style="color: #aaa;">
+							<img src="https://www.gravatar.com/avatar/b9655e1d09aab8832eaad421595cd5eb?s=14&amp;20150116">
+							<span>Robert Lewoń</span>, 
+							<span><i>2017-07-03 12:14:04</i></span>
+						</div>
+										<br>
+															    
+											
+						<div align="justify" style="margin-bottom: 0px;">
+							<h4 style="margin-bottom: 0px;"><strong>Bubble Cup X</strong></h4>
+							
+																					
+													
+						</div>
+						
+						
+										<div class="post-data"><p><strong>Microsoft Development Center Serbia is excited to announce the start of the 10<sup>th</sup> anniversary edition of Bubble Cup competition!</strong></p>
+
+<p>Bubble Cup is an international, ACM-style team contest aimed at university and high school students.</p>
+
+<p>You can register now on <a href="http://bubblecup.org">BubbleCup.org</a>. Qualifications consist of two online rounds which start on the 1 st of April and on the 1 st of May and last for 25 days each. Both online rounds will feature several problems from the Sphere Online Judge. Ten best university teams and ten best high school teams will compete in the 5 hour long finals in Belgrade in September.</p>
+
+<p>Teams can consist of high school pupils or students. Students must attend the same university. Complete&nbsp;rules&nbsp;can be found&nbsp;<a href="http://bubblecup.org/Home/Rules">here</a>.</p>
+
+<p>There are going to be some great prizes awaiting the winners! More detailed information on prizes is coming on the website soon.</p>
+
+<p>We wish you best of luck in competition! Let the coding begin!</p>
+
+<img width="707" alt="Bubble Cup" src="https://www.spoj.com/content/rlewon:bubblecup">
+
+
+
+</div>
+										<div class="post-meta" style="color: #aaa;">
+							<img src="https://www.gravatar.com/avatar/b9655e1d09aab8832eaad421595cd5eb?s=14&amp;20150116">
+							<span>Robert Lewoń</span>, 
+							<span><i>2017-03-27 06:43:58</i></span>
+						</div>
+										<br>
+															    
+											
+						<div align="justify" style="margin-bottom: 0px;">
+							<h4 style="margin-bottom: 0px;"><strong>Big languages update!</strong></h4>
+							
+																					
+													
+						</div>
+						
+						
+										<div class="post-data"><p>We are happy to announce that we have updated our languages database.</p>
+<p>There are six new languages - one of them is a <strong>Swift</strong> which was on the top of your wishlist!</p>
+<p>Please <a href="http://blog.spoj.com/index.php/2017/02/10/the-big-update-more-languages-available-than-ever-before/">visit the article on our blog</a> to learn more details!</p>
+
+
+</div>
+										<div class="post-meta" style="color: #aaa;">
+							<img src="https://www.gravatar.com/avatar/b9655e1d09aab8832eaad421595cd5eb?s=14&amp;20150116">
+							<span>Robert Lewoń</span>, 
+							<span><i>2017-02-22 08:12:17</i></span>
+						</div>
+										<br>
+																						    
+											
+						<div align="justify" style="margin-bottom: 0px;">
+							<h4 style="margin-bottom: 0px;"><strong>From Spoj challenge to own startup. Short interview with Keshav Dhandhania</strong></h4>
+							
+																					
+													
+						</div>
+						
+						
+										<div class="post-data"><p>We would like to invite you to a completely new series of short interviews with successful Spoj users, we will talk about their projects and their first steps in the world of coding. If you think that you have your own story that can inspire others, write to us!</p>
+<p>Here's our first interview with one of old Spoj users: Keshav Dhandhania, a co-founder at Compose Labs, a San Francisco-based company that has just released their first project Commonlounge (with a special community for Spoj users too!).</p>
+<p><a href="http://blog.spoj.com/index.php/2017/01/18/spoj-talks-keshav-dhandhania/">Read more on our blog.</a></p>
+<img width="707" alt="Keshav Dhandhania photo" src="https://www.spoj.com/content/rlewon:dhandhania">
+
+</div>
+										<div class="post-meta" style="color: #aaa;">
+							<img src="https://www.gravatar.com/avatar/b9655e1d09aab8832eaad421595cd5eb?s=14&amp;20150116">
+							<span>Robert Lewoń</span>, 
+							<span><i>2017-01-30 08:56:47</i></span>
+						</div>
+										<br>
+															    
+											
+						<div align="justify" style="margin-bottom: 0px;">
+							<h4 style="margin-bottom: 0px;"><strong>Innopolis Open</strong></h4>
+							
+																					
+													
+						</div>
+						
+						
+										<div class="post-data"><p>University Innopolis is organizing and holding Innopolis Open, an Olympiad in Informatics for secondary school students (until 19 y.o.). The Olympiad consists of two rounds — online contest and the on-site competition (held at Innopolis, Russia).</p>
+ 
+<p>Winners of the first round will be invited to Innopolis to take part in the on-site competition. During the Olympiad, all participants will be offered a free of charge accommodation, meals and transfer from Kazan to Innopolis and back.</p>
+ 
+<p>Winners of the second (on-site) round will receive awards and can be enrolled in Innopolis University without any admission tests.</p>
+<ul>
+<li>The first (online contest) round will start on December 18 at 10.00 a.m. (UTC +3).</li>
+<li>The second (on-site) round will take place on February 25-26 in Innopolis city, Russia.</li>
+</ul>
+ 
+<p>Registration is open until December 15, 2016. Participation is free of charge.
+Please follow the link to register and find detailed information: <a href="https://olymp.innopolis.ru/en/ooui/16-17/">https://olymp.innopolis.ru/en/ooui/16-17/</a></p>
+
+<img width="707" src="https://www.spoj.com/content/rlewon:innopolis" alt="Innopolis Open">
+
+</div>
+										<div class="post-meta" style="color: #aaa;">
+							<img src="https://www.gravatar.com/avatar/b9655e1d09aab8832eaad421595cd5eb?s=14&amp;20150116">
+							<span>Robert Lewoń</span>, 
+							<span><i>2016-12-05 12:17:03</i></span>
+						</div>
+										<br>
+															    
+											
+						<div align="justify" style="margin-bottom: 0px;">
+							<h4 style="margin-bottom: 0px;"><strong>Registrations are now open for CodeChef SnackDown - a global programming contest | Qualifier starts on 27th May 2016!</strong></h4>
+							
+																					
+													
+						</div>
+						
+						
+										<div class="post-data"><p><a href="https://www.codechef.com/snackdown/2016?utm_source=spojsd&amp;utm_medium=home&amp;utm_campaign=sd16"><strong>CodeChef SnackDown</strong></a> is a multi-round computer programming contest, it will witness coders from schools, colleges, and organizations, across all ages, competing against each other on a global platform. This year there will be <strong>world's best 25 teams battling out with India's best 25 teams in Mumbai</strong> for the ultimate title of <strong>“SnackDown Champions” and hefty cash awards worth $22,500</strong>, a lucrative job offer with Directi, and plethora of cool SnackDown merchandises. The registrations are now open and the qualifying round will start on 27th May 2016. More information about the contest can be found here: <a href="https://www.codechef.com/snackdown/2016?utm_source=spojsd&amp;utm_medium=home&amp;utm_campaign=sd16"><strong>https://www.codechef.com/snackdown/2016</strong></a>.</p>
+<p>
+<a href="https://www.codechef.com/snackdown/2016?utm_source=spojsd&amp;utm_medium=home&amp;utm_campaign=sd16"><img width="707" src="./content/rlewon:snackdown2016"></a>
+</p>
+
+</div>
+										<div class="post-meta" style="color: #aaa;">
+							<img src="https://www.gravatar.com/avatar/b9655e1d09aab8832eaad421595cd5eb?s=14&amp;20150116">
+							<span>Robert Lewoń</span>, 
+							<span><i>2016-05-17 16:49:24</i></span>
+						</div>
+										<br>
+															    
+											
+						<div align="justify" style="margin-bottom: 0px;">
+							<h4 style="margin-bottom: 0px;"><strong>Deadline24</strong></h4>
+							
+																					
+													
+						</div>
+						
+						
+										<div class="post-data"><p>Passionate about algorithmic tasks? Take part in the eighth edition of international programming marathon Deadline24!</p>
+<p>The teams of three may register up until February, 25. They will compete in the qualifying round online on February 28. For more information <a href="http://www.deadline24.pl">http://www.deadline24.pl</a>.</p>
+<p>
+<img width="357" src="./content/rlewon:nasa">
+</p>
+
+
+
+
+</div>
+										<div class="post-meta" style="color: #aaa;">
+							<img src="https://www.gravatar.com/avatar/b9655e1d09aab8832eaad421595cd5eb?s=14&amp;20150116">
+							<span>Robert Lewoń</span>, 
+							<span><i>2016-01-26 12:29:45</i></span>
+						</div>
+										<br>
+															    
+											
+						<div align="justify" style="margin-bottom: 0px;">
+							<h4 style="margin-bottom: 0px;"><strong>Let the programming spirit flourish! Spoj.com becomes community partner in IndiaHacks</strong></h4>
+							
+																					
+													
+						</div>
+						
+						
+										<div class="post-data"><p><strong>Spoj.com</strong> is happy to become a Community Partner of Hacker Earth in their flagship event - <a href="http://hck.re/x4pyxe"><strong>IndiaHacks</strong></a>, the world's largest developer confluence, which aims to encourage programming and celebrate the spirit of coding among developers.<br>
+It comprises of a combination of online hackathons and programming contests. This massive event commenced on January 8th, 2016 with Fintech Hackathon and Bot Challenge programming contest - two of the nine technology tracks, scheduled for the month long code fest. The other tracks open for participation for developers are Algorithms, Machine Learning, IoT, Game development, Open Source, Online Commerce, Travel and Transportation. These hackathons will see developers build unique and interesting products in only 48 hours.</p>
+<p>The top 20 teams/individuals from the online phase will be shortlisted from each track and will be invited to the offline conference, where they will again hack for 24 hours and present their ideas to a panel of judges. Developers also get to win some cool prizes like a Trip to San Francisco, Xbox One, Go Pro 4 and much more.</p>
+<p>So if you are developer or a coder, register and participate in IndiaHacks -&gt;<a href="http://hck.re/x4pyxe"><strong>http://hck.re/x4pyxe</strong></a></p>
+
+<img style="width: 600px" src="./content/rlewon:IndiaHacks">
+
+
+
+</div>
+										<div class="post-meta" style="color: #aaa;">
+							<img src="https://www.gravatar.com/avatar/b9655e1d09aab8832eaad421595cd5eb?s=14&amp;20150116">
+							<span>Robert Lewoń</span>, 
+							<span><i>2016-01-11 17:37:49</i></span>
+						</div>
+										<br>
+									</div>
+		<div class="col-lg-4" style="padding-top: 0px;">
+			<div class="fb-like-box fb_iframe_widget" data-href="https://www.facebook.com/pages/SPOJ/248106793203" data-width="359px" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="true" data-show-border="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=321676846207&amp;color_scheme=light&amp;container_width=368&amp;header=true&amp;href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FSPOJ%2F248106793203&amp;locale=pl_PL&amp;sdk=joey&amp;show_border=false&amp;show_faces=true&amp;stream=true&amp;width=359px"><span style="vertical-align: bottom; width: 359px; height: 540px;"><iframe name="f63dc6e04" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" title="fb:like_box Facebook Social Plugin" src="https://www.facebook.com/v2.0/plugins/like_box.php?app_id=321676846207&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FmAiQUwlReIP.js%3Fversion%3D42%23cb%3Df3f34b051%26domain%3Dwww.spoj.com%26origin%3Dhttps%253A%252F%252Fwww.spoj.com%252Ff3460d3b74%26relation%3Dparent.parent&amp;color_scheme=light&amp;container_width=368&amp;header=true&amp;href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FSPOJ%2F248106793203&amp;locale=pl_PL&amp;sdk=joey&amp;show_border=false&amp;show_faces=true&amp;stream=true&amp;width=359px" style="border: none; visibility: visible; width: 359px; height: 540px;" class=""></iframe></span></div>
+			<br>
+			<center></center>
+		</div>
+	</div>
+	
+	
+	<style>
+	
+	#submissions li{
+		text-align: right;
+		color: #999;
+	}
+	#submissions li.running{
+		color: #333;
+	}
+	.btn.btn-lg.btn-primary{
+		background: white;
+	  color: #337ab7;
+	  font-weight: bold;
+	}
+	</style>
+	
+	
+	
+	
+	
+	<script type="text/javascript">
+	var submissions = {};
+	var counter = 0;
+	var activity = function(){
+		$(".activity-loader").removeClass('hidden');
+		$.ajax({
+			url: '/activity_refresh.php',
+			dataType: 'json',
+			success: function(data){
+				
+				$("#activity").html(data['activity_html']);
+				$("#submissions").html(data['activity_html2']);
+				
+				var c = $("#total-submissions").html();
+				$("#total-submissions").html(data['total_submissions']);
+				if( c != data['total_submissions']){
+					/*
+					$( "#total-submissions" ).animate({
+				          color: "red"
+					}, 300, function(){
+						$( "#total-submissions" ).animate({
+					          color: "#fff"
+						}, 1000);
+				    } );
+					*/
+				}
+				
+				
+				
+				counter = counter + 1;
+				setTimeout('activity()', 10000);
+			}
+		});
+	};
+	$(document).ready(function(){
+		activity();
+	});
+	</script>
+	
+
+
+<!-- Google Code for Poznanie oferty Conversion Page -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1021031341;
+var google_conversion_language = "en";
+var google_conversion_format = "2";
+var google_conversion_color = "ffffff";
+var google_conversion_label = "0v9ACKW4jwIQrefu5gM";
+var google_conversion_value = 1.00;
+var google_conversion_currency = "PLN";
+var google_remarketing_only = false;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script><iframe name="google_conversion_frame" id="goog_conv_iframe" title="Google conversion frame" width="200" height="26" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/1021031341/?random=1599016239&amp;cv=9&amp;fst=*&amp;num=1&amp;value=1&amp;currency_code=PLN&amp;label=0v9ACKW4jwIQrefu5gM&amp;bg=ffffff&amp;hl=en&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;u_h=768&amp;u_w=1024&amp;u_ah=768&amp;u_aw=1024&amp;u_cd=32&amp;u_his=100&amp;u_tz=0&amp;u_java=false&amp;u_nplug=0&amp;u_nmime=0&amp;frm=0&amp;url=https://www.spoj.com/&amp;tiba=Sphere%20Online%20Judge%20(SPOJ)&amp;fmt=2&amp;ctc_id=CAIVAgAAAB0CAAAA&amp;ct_cookie_present=false&amp;ocp_id=ECYnW-bVHcnRpAPs9YygAQ&amp;sscte=1&amp;crd=&amp;gsr="></iframe>
+<noscript>
+&lt;div style="display:inline;"&gt;
+&lt;img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/1021031341/?value=1.00&amp;amp;currency_code=PLN&amp;amp;label=0v9ACKW4jwIQrefu5gM&amp;amp;guid=ON&amp;amp;script=0"/&gt;
+&lt;/div&gt;
+</noscript>
+
+	<br>
+</div>
+		
+		
+		<div class="container" id="footer">
+			<div class="row">
+				<div class="col-md-10">
+					<p><a href="/info">About</a> | <a href="/tutorials">Tutorial</a> | <a href="/tools">Tools</a> | <a href="/clusters">Clusters</a> | <a href="/credits">Credits</a> | <a href="/sphereengine">API</a> | <a href="/sphereengine-widget">Widgets</a></p>
+					<p>Legal: 
+					   <a href="/legal-tos/" target="_blank">Terms of Service</a> | <a href="/legal-pp/" target="_blank">Privacy Policy</a> | <a href="/legal-gdpr/" target="_blank">GDPR Info</a>
+					</p>
+				</div>
+				<div class="col-md-2 text-right">
+					<a href="/rss/"><img src="//stx1.spoj.com/gfx/rss10x10.gif" border="0">&nbsp;RSS</a>&nbsp;
+				</div>
+			</div>
+		</div>
+		
+		<div class="text-center" id="footer-srl">
+			
+	© Spoj.com. All Rights Reserved. Spoj uses <a href="http://sphere-engine.com?utm_campaign=permanent&amp;utm_medium=footer&amp;utm_source=spoj" style="color:black">Sphere Engine</a>™ © by <a href="http://sphere-research.com?utm_campaign=permanent&amp;utm_medium=footer&amp;utm_source=spoj" style="color:black">Sphere Research Labs</a>.
+
+		</div> 
+	</div>
+
+	<!-- JavaScripts -->
+	
+		
+	
+	<script type="text/javascript">
+	$(function(){
+		setTimeout(function(){
+			$('.no_a_info').css('visibility', 'visible');
+		}, 5000);
+		
+		if(!$('.aProblemTop').length && !$('.aProblemsTop').length && !$('.aSubmitTop').length && !$('.aStatusTop').length && !$('.aMainRight').length){
+			ga('send', 'event', 'ads', 'no-ads', 'main-contest');
+		}
+		if ($('.aProblemTop').height() == 0){
+			$('.aProblemTop').css({'border': '1px solid #ddd', 'background': '#f0f4e3', 'height': 90});
+			$('.aProblemTop').html($('<p class="text-center">using adblock?</p><h4 class="text-center">Online ads help us to maintain site.</h4><p class="text-center"><strong>please whitelist *.spoj.com</strong></p>'));
+			ga('send', 'event', 'ads', 'adblock2', 'aProblemTop');
+		}
+		if ($('.aProblemsTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aProblemsTop');
+		}
+		if ($('.aSubmitTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aSubmitTop');
+		}
+		if ($('.aStatusTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aStatusTop');
+		}
+		if ($('.aMainRight').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aMainRight');
+		}
+	});
+	</script>
+	
+	
+	<script type="text/javascript" src="//stx1.spoj.com/gfx/jquery.timers.js"></script>
+	<script type="text/javascript" src="//stx1.spoj.com/gfx/jquery.cookie.js"></script>
+	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+	<script src="//stx1.spoj.com/gfx/md5.js"></script>
+	<script src="//stx1.spoj.com/gfx/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
+	<script src="//stx1.spoj.com/gfx/scripts/tour.js"></script>
+	
+	
+	<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="https://staticxx.facebook.com/connect/xd_arbiter/r/mAiQUwlReIP.js?version=42#channel=f3460d3b74&amp;origin=https%3A%2F%2Fwww.spoj.com" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&appId=321676846207&version=v2.0";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	
+	
+
+
+<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-10507872-1', 'auto');
+	  ga('require', 'linkid', 'linkid.js');
+	  ga('send', 'pageview');
+	</script>
+<!-- Hotjar Tracking Code for http://www.spoj.com -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:334656,hjsv:5};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+<script>
+(function(){
+  if(typeof _bsa !== 'undefined' && _bsa) {
+    // format, zoneKey, segment:value, options
+    _bsa.init('flexbar', 'CK7D4KJL', 'placement:demo');
+  }
+})();
+</script>
+<script type="text/javascript">
+	$(function(){
+		$(document).on('click', '.track', function(){
+			var event = $(this).attr('data-event');
+			var action = $(this).attr('data-action');
+			var value = $(this).attr('data-value');
+			ga('send', 'event', event, action, value);
+		});
+	});
+	//window.open('http://incoming.hotjar.com/s/7366', '_blank');
+	</script>
+
+
+
+<iframe name="_hjRemoteVarsFrame" title="_hjRemoteVarsFrame" id="_hjRemoteVarsFrame" style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;" src="https://vars.hotjar.com/rcj-99d43ead6bdf30da8ed5ffcb4f17100c.html"></iframe><div id="ads"></div></body></html>

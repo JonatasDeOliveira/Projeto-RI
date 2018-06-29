@@ -1,0 +1,542 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- This should probably be done with a server-side include, but
+         PHP is easier. -->
+    <meta name="description" content="Woburn Collegiate Institute Programming
+Enrichment Group Online Judge">
+<meta name="keywords" content="PEG Judge,wcipeg.com,Online judge,Canadian
+Computing Competition,CCC,American Computer Science League,ACSL,Programming
+Enrichment Group,Validator,COCI,Croatian Open Competition in Informatics,
+Woburn,Woburn Challenge,Woburn Collegiate Institute,APIO,Asian Pacific
+Informatics Olympiad,BOI,Bulgarian Olympiad in Informatics,SMAC,Sane's Monthly
+Algorithms Challenge,Problem Solving in Pascal,Bi-Weekly Challenge,Validator,
+Hanson Wang,Canada">
+
+    <title>PEG Judge - CCC10 Stage 2 - Wowow</title>
+
+    <link href="https://wcipeg.com/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/submissions.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/bbcode.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/highlight/styles/idea.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/icons/favicon.ico" rel="shortcut icon" type="text/css">
+    <link href="https://wcipeg.com/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/desc.css" rel="stylesheet" type="text/css">
+    <link href="https://wcipeg.com/assets/css/testcase_editor.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function get_csrf_key() {
+            return "csrf_test_name";
+        }
+        function get_csrf_value() {
+            return "a5a6da31e315e7ee609958a2aedecd0f";
+        }
+        function get_site_url() {
+            return "https:\/\/wcipeg.com\/";
+        }
+    </script>
+    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-1.10.1.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/jquery-post-csrf.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/global.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/js/moment-timezone.min.js"></script>    <script type="text/javascript" src="https://wcipeg.com/assets/highlight/highlight.pack.js"></script>    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body style="">
+    <div id="backheader"></div>
+    <div id="backmenu"></div>
+
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="logo">
+            <!-- TODO: Change "PEG" to something customizable -->
+            <a href="https://wcipeg.com/main"><img src="https://wcipeg.com/assets/img/logo.gif" alt="PEG"></a>          </div>
+          <div id="user">
+                                      Please <a href="https://wcipeg.com/auth/login?ref=%2Fproblem%2Fccc10s2p3"><b>log in</b></a>              or <a href="https://wcipeg.com/auth/register"><b>register an account</b></a>.
+                      </div> <!-- user -->
+                  </div> <!-- header -->
+
+<div id="menu">
+  <ul class="nav">
+        <li><a href="https://wcipeg.com/main">main</a></li>        <li><a href="https://wcipeg.com/announcements">announcements</a></li>        <li><a href="https://wcipeg.com/problems">problems</a></li>        <li><a href="https://wcipeg.com/submissions">submissions</a></li>        <li><a href="https://wcipeg.com/users">users</a></li>        <li><a href="https://wcipeg.com/organizations">organizations</a></li>        <li><a href="https://wcipeg.com/submit">submit</a></li>        <li><a href="https://wcipeg.com/contests">contests</a></li>        <li><a href="/wiki/Judge:Help" target="_blank">help (<strong>README</strong>)</a></li>        <li><a href="/wiki" target="_blank">wiki</a></li>        <li><a href="/legacy" target="_blank">old</a></li>        <li><a href="/wiki/Judge:Contact" target="_blank">contact</a></li>          </ul>
+</div>
+
+<div id="content">
+
+
+<div id="descContent">
+<h3>2010 Canadian Computing Competition, Stage 2</h3>
+<h2>Day 1, Problem 3: Wowow</h2>
+
+<p>In the <a href="http://www.youtube.com/watch?v=Rw8gE3lnpLQ">World of World of
+Warcraft</a>, there is a very competitive ladder system. Sometimes players will
+change their rating. Also, new players (including more and more of your
+friends!) are constantly joining the game.</p>
+
+<p>You and your group of friends would like to maintain a simple database with
+your scores, and you, as the computer scientist of the group, have been charged
+with the responsibility of maintaining it. Don't let your friends down!</p>
+
+<h3>Input</h3>
+<p>The input will consist of an integer <var>N</var> (1 ≤ <var>N</var> ≤
+10<sup>6</sup>), followed by <var>N</var> lines. Each of these <var>N</var>
+lines will correspond to one of the following three formats:</p>
+<ul>
+<li><code>N</code> <var>X R</var>, where <code>N</code> is the character
+<code>'N'</code> to indicate a new friend has been added, <var>X</var> is a
+number (1 ≤ <var>X</var> ≤ 10<sup>6</sup>) identifying this new friend,
+and <var>R</var> (1 ≤ <var>R</var> ≤ 10<sup>8</sup>) is the rating of this
+new friend.</li>
+<li><code>M</code> <var>X R</var>, where <code>M</code> is the character
+<code>'M'</code> to indicate a modification of an existing friend, <var>X</var>
+is a number (1 ≤ <var>X</var> ≤ 10<sup>6</sup>) identifying one of your
+friends, and <var>R</var> is the new rating assigned to this existing friend.
+</li>
+<li><code>Q</code> <var>K</var>, where <code>Q</code> is the character
+<code>'Q'</code> to represent a query, <var>K</var> is a number
+(1 ≤ <var>K</var> ≤ 10<sup>6</sup>), and <var>K</var> is at most the
+number of your friends that have a rating at this point.</li>
+</ul>
+<p>You may assume there will be no identical ratings in the input.</p>
+
+<h3>Output</h3>
+<p>For each line of input of the format <code>Q</code> <var>K</var>, you will
+output a line containing the identifier of the <var>K</var>th highest rated
+person in the database at that point. Note that when <var>K</var> = 1, that
+is the top rated person, and <var>K</var> = 2 is the second best rated person,
+and so on.</p>
+
+<h3>Sample Input</h3>
+<pre>7
+N 10 1000
+N 3 1014
+Q 1
+M 10 2000
+Q 1
+N 65 1950
+Q 2</pre>
+
+<h3>Sample Output</h3>
+<pre>3
+10
+65</pre>
+</div>
+
+<div id="descSidebar"> <!-- TODO: Make this nicer/more semantic -->
+  <p>
+        
+        <a href="https://wcipeg.com/submissions/,ccc10s2p3">All Submissions</a>    <br>
+    
+        <a href="https://wcipeg.com/submissions/rank/ccc10s2p3">Best Solutions</a>        <br>
+  </p>
+
+  <p>
+    
+      </p>
+
+  <p>
+            <br>
+  </p>
+
+  <p>
+    <!-- TODO: Move this into the controller -->
+    <b>Point Value:</b> 20 (partial)<br>
+    <b>Time Limit:</b> 3.00s<br>
+    <b>Memory Limit:</b> 256M<br>
+    <b>Added:</b> May 19, 2010<br>
+      </p>
+
+    <b>Problem Types:</b>
+  <noscript>
+    &lt;style type="text/css"&gt;
+      #show_types, #hide_types { display: none !important; }
+      #spoiler_id { display: inline !important; }
+    &lt;/style&gt;
+  </noscript>
+  <a href="javascript:void(null);" id="show_types" onclick="document.getElementById('spoiler_id').style.display=''; document.getElementById('show_types').style.display='none';">[Show]</a>
+  <span id="spoiler_id" style="display: none">
+    <a href="javascript:void(null);" id="hide_types" onclick="document.getElementById('spoiler_id').style.display='none'; document.getElementById('show_types').style.display='';">[Hide]</a><br>
+    <ul style="list-style-type: none; margin: 0; padding: 0;">
+      <li>Data Structures</li>    </ul>
+  </span>
+
+  
+  <p>
+  <b>Languages Allowed:</b><br>
+  <span title="C++03 (g++ 4.1.3)">C++03</span>, <span title="Pascal (fpc 2.6.0-9)">PAS</span>, <span title="C (gcc 4.7.2)">C</span>, <span title="Haskell (ghc-6.12.1)">HASK</span>, <span title="Intel x86 assembly (nasm 2.10.01)">ASM</span>, <span title="Ruby (ruby 2.1.2)">RUBY</span>, <span title="Python 2 (python 2.6.8)">PYTH2</span>, <span title="Java (OpenJDK javac 1.7.0_03)">JAVA</span>, <span title="PHP (PHP 5.4.4)">PHP</span>, <span title="Scheme (Racket v5.0.1) (NOT WORKING)">SCM</span>, <span title="OCaml (version 3.12.1)">CAML</span>, <span title="Perl, v5.10.1">PERL</span>, <span title="C# (Mono version 2.4.4.0) (NOT WORKING)">C#</span>, <span title="C++11 (g++ 4.9.1)">C++11</span>, <span title="Python 3 (python 3.2.3)">PYTH3</span>  </p>
+</div> <!-- descSidebar -->
+
+<div id="comments">
+  <h2 class="icon" style="background: url(https://wcipeg.com/assets/icons/comment_bubble.png) no-repeat right top">Comments (<a href="https://wcipeg.com/comments/search/place=ccc10s2p3">Search</a>)</h2><p style="text-align: center"></p><div class="comment_block" id="comment6690">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jungernaut165">jungernaut165</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6690">Apr 24, 2015 - 12:09:32 am UTC</a>      </span>
+      <a class="comment_title" id="title6690" onclick="toggle(&quot;body6690&quot;)">Hints?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6690">
+    (<span class="upvotes"><span id="upvotes6690">0</span></span>/<span class="downvotes"><span id="downvotes6690">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6690" class="comment_body">
+    <pre id="msg6690" style="display: none">Hi all, I tried using a binary indexed tree approach.  For the fenwick tree, I create a list (using python) that is of size 10^8.  I get RE on my solution, which works for the sample.  Am I using the correct approach here?  Any suggestions of how to solve this problem?  Thank you in advance.</pre>
+    <div style="opacity: 1">
+      Hi all, I tried using a binary indexed tree approach.  For the fenwick tree, I create a list (using python) that is of size 10^8.  I get RE on my solution, which works for the sample.  Am I using the correct approach here?  Any suggestions of how to solve this problem?  Thank you in advance.    </div>
+    <br><div class="comment_block" id="comment6691">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jeffreyxiao">jeffreyxiao</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6691">Apr 24, 2015 - 2:18:18 am UTC</a>      </span>
+      <a class="comment_title" id="title6691" onclick="toggle(&quot;body6691&quot;)">Re: Hints?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6691">
+    (<span class="upvotes"><span id="upvotes6691">0</span></span>/<span class="downvotes"><span id="downvotes6691">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6691" class="comment_body">
+    <pre id="msg6691" style="display: none">You exceeded the memory limit.</pre>
+    <div style="opacity: 1">
+      You exceeded the memory limit.    </div>
+    <br><div class="comment_block" id="comment6692">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jungernaut165">jungernaut165</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6692">Apr 24, 2015 - 5:23:24 am UTC</a>      </span>
+      <a class="comment_title" id="title6692" onclick="toggle(&quot;body6692&quot;)">Re: Hints?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6692">
+    (<span class="upvotes"><span id="upvotes6692">0</span></span>/<span class="downvotes"><span id="downvotes6692">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6692" class="comment_body">
+    <pre id="msg6692" style="display: none">Hi Jeff, thanks for input.  Is my approach to use a BIT correct?  Or am headed in the wrong direction for this problem?  If it is correct to use BIT, then given that R can potentially be as large as 10^8, how do I not go about creating a fenwick tree without using that array size? </pre>
+    <div style="opacity: 1">
+      Hi Jeff, thanks for input.  Is my approach to use a BIT correct?  Or am headed in the wrong direction for this problem?  If it is correct to use BIT, then given that R can potentially be as large as 10^8, how do I not go about creating a fenwick tree without using that array size?    </div>
+    <br><div class="comment_block" id="comment6693">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/awaykened">awaykened</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6693">Apr 24, 2015 - 5:01:23 pm UTC</a>      </span>
+      <a class="comment_title" id="title6693" onclick="toggle(&quot;body6693&quot;)">Re: Hints?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6693">
+    (<span class="upvotes"><span id="upvotes6693">1</span></span>/<span class="downvotes"><span id="downvotes6693">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6693" class="comment_body">
+    <pre id="msg6693" style="display: none">You can use compression! :D (maps and stuff)</pre>
+    <div style="opacity: 0.90547134519913">
+      You can use compression! :D (maps and stuff)    </div>
+    <br><div class="comment_block" id="comment6694">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jungernaut165">jungernaut165</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6694">Apr 25, 2015 - 1:00:43 am UTC</a>      </span>
+      <a class="comment_title" id="title6694" onclick="toggle(&quot;body6694&quot;)">Re: Hints?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6694">
+    (<span class="upvotes"><span id="upvotes6694">0</span></span>/<span class="downvotes"><span id="downvotes6694">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6694" class="comment_body">
+    <pre id="msg6694" style="display: none">Hi Awaykened, Thanks for your input.  I'm fairly new.  Can you elaborate a little further of what you mean by compression, maps?  Thank you!</pre>
+    <div style="opacity: 1">
+      Hi Awaykened, Thanks for your input.  I'm fairly new.  Can you elaborate a little further of what you mean by compression, maps?  Thank you!    </div>
+    <br><div class="comment_block" id="comment6695">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/fifiman">fifiman</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6695">Apr 25, 2015 - 2:14:36 am UTC</a>      </span>
+      <a class="comment_title" id="title6695" onclick="toggle(&quot;body6695&quot;)">Re: Hints?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6695">
+    (<span class="upvotes"><span id="upvotes6695">2</span></span>/<span class="downvotes"><span id="downvotes6695">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6695" class="comment_body">
+    <pre id="msg6695" style="display: none">You dont have to consider all the 10^8 possible ratings, just the ones that your friends will be using</pre>
+    <div style="opacity: 1">
+      You dont have to consider all the 10^8 possible ratings, just the ones that your friends will be using    </div>
+      </div>
+</div>
+<br><div class="comment_block" id="comment6697">
+  <div class="comment_header" style="opacity: 0.79345670852611">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/awaykened">awaykened</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6697">Apr 25, 2015 - 11:44:28 pm UTC</a>      </span>
+      <a class="comment_title" id="title6697" onclick="toggle(&quot;body6697&quot;)">Re: Hints?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6697">
+    (<span class="upvotes"><span id="upvotes6697">0</span></span>/<span class="downvotes"><span id="downvotes6697">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6697" class="comment_body">
+    <pre id="msg6697" style="display: none">like fifiman said, if you have friends with IDs 1,6,8,10 you don't need to keep an array of 1 to 10, you only need an array of 1-4, and a map that looks something like {1:0,6:2,8:3,10:4}. That way when you need the person with ID 6, you look at your map and redirect to index 4 in your array. (This is not necessarily how you want to use maps in this question)</pre>
+    <div style="opacity: 0.79345670852611">
+      like fifiman said, if you have friends with IDs 1,6,8,10 you don't need to keep an array of 1 to 10, you only need an array of 1-4, and a map that looks something like {1:0,6:2,8:3,10:4}. That way when you need the person with ID 6, you look at your map and redirect to index 4 in your array. (This is not necessarily how you want to use maps in this question)    </div>
+    <br><div class="comment_block" id="comment6700">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jungernaut165">jungernaut165</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6700">Apr 26, 2015 - 4:43:30 am UTC</a>      </span>
+      <a class="comment_title" id="title6700" onclick="toggle(&quot;body6700&quot;)">Re: Hints?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6700">
+    (<span class="upvotes"><span id="upvotes6700">0</span></span>/<span class="downvotes"><span id="downvotes6700">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6700" class="comment_body">
+    <pre id="msg6700" style="display: none">Thank you much! So I am assuming you didn't use a binary indexed tree for this problem?</pre>
+    <div style="opacity: 1">
+      Thank you much! So I am assuming you didn't use a binary indexed tree for this problem?    </div>
+    <br><div class="comment_block" id="comment6701">
+  <div class="comment_header" style="opacity: 0.90547134519913">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/awaykened">awaykened</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6701">Apr 26, 2015 - 1:43:51 pm UTC</a>      </span>
+      <a class="comment_title" id="title6701" onclick="toggle(&quot;body6701&quot;)">Re: Hints?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6701">
+    (<span class="upvotes"><span id="upvotes6701">1</span></span>/<span class="downvotes"><span id="downvotes6701">1</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6701" class="comment_body">
+    <pre id="msg6701" style="display: none">I passed with BIT + compression :biggrin:</pre>
+    <div style="opacity: 0.90547134519913">
+      I passed with BIT + compression <img src="https://wcipeg.com/assets/img/smiley/biggrin.gif" alt="biggrin.gif">    </div>
+    <br><div class="comment_block" id="comment6705">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jungernaut165">jungernaut165</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6705">Apr 26, 2015 - 7:29:17 pm UTC</a>      </span>
+      <a class="comment_title" id="title6705" onclick="toggle(&quot;body6705&quot;)">Re: Hints?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6705">
+    (<span class="upvotes"><span id="upvotes6705">0</span></span>/<span class="downvotes"><span id="downvotes6705">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6705" class="comment_body">
+    <pre id="msg6705" style="display: none">Ohh wow cool! Congrats!  Excuse my elementary understanding, but with a BIT you update at every incremented i &amp; -i position.  If you used a hashtable, you might  not have keys when you compute the incremented i &amp; -i positions.  How did you get around this?</pre>
+    <div style="opacity: 1">
+      Ohh wow cool! Congrats!  Excuse my elementary understanding, but with a BIT you update at every incremented i &amp; -i position.  If you used a hashtable, you might  not have keys when you compute the incremented i &amp; -i positions.  How did you get around this?    </div>
+    <br><div class="comment_block" id="comment6706">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jargon">jargon</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6706">Apr 26, 2015 - 7:47:13 pm UTC</a>      </span>
+      <a class="comment_title" id="title6706" onclick="toggle(&quot;body6706&quot;)">Re: Hints?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6706">
+    (<span class="upvotes"><span id="upvotes6706">1</span></span>/<span class="downvotes"><span id="downvotes6706">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6706" class="comment_body">
+    <pre id="msg6706" style="display: none">I think you're misunderstanding the point of the hashtable. Reread the above comments.
+
+In any case, I wonder whether this is getting to be too much discussion about the answer... people looking for clarifications in the comments don't necessarily want to be given the solution.</pre>
+    <div style="opacity: 1">
+      I think you're misunderstanding the point of the hashtable. Reread the above comments. <br> <br>In any case, I wonder whether this is getting to be too much discussion about the answer... people looking for clarifications in the comments don't necessarily want to be given the solution.    </div>
+    <br><div class="comment_block" id="comment6707">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/jungernaut165">jungernaut165</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6707">Apr 26, 2015 - 9:21:51 pm UTC</a>      </span>
+      <a class="comment_title" id="title6707" onclick="toggle(&quot;body6707&quot;)">Re: Hints?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6707">
+    (<span class="upvotes"><span id="upvotes6707">0</span></span>/<span class="downvotes"><span id="downvotes6707">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6707" class="comment_body">
+    <pre id="msg6707" style="display: none">Hi there, I understand the point for a hashtable.  I just don't know how to apply a BIT to a hashtable.</pre>
+    <div style="opacity: 1">
+      Hi there, I understand the point for a hashtable.  I just don't know how to apply a BIT to a hashtable.    </div>
+    <br><div class="comment_block" id="comment6753">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bobhob314">bobhob314</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/6753">May 18, 2015 - 3:46:07 pm UTC</a>      </span>
+      <a class="comment_title" id="title6753" onclick="toggle(&quot;body6753&quot;)">Re: Hints?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating6753">
+    (<span class="upvotes"><span id="upvotes6753">0</span></span>/<span class="downvotes"><span id="downvotes6753">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body6753" class="comment_body">
+    <pre id="msg6753" style="display: none">Python hashtable: Use integers as the keys. For each i &amp; -i update, first check if the idx is in your dict; then update if it is.</pre>
+    <div style="opacity: 1">
+      Python hashtable: Use integers as the keys. For each i &amp; -i update, first check if the idx is in your dict; then update if it is.    </div>
+      </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment5471">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/zzh8829">zzh8829</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5471">Sep 24, 2013 - 3:36:13 am UTC</a>      </span>
+      <a class="comment_title" id="title5471" onclick="toggle(&quot;body5471&quot;)">Wrong test data?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5471">
+    (<span class="upvotes"><span id="upvotes5471">0</span></span>/<span class="downvotes"><span id="downvotes5471">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5471" class="comment_body">
+    <pre id="msg5471" style="display: none">For last two cases, I'm pretty sure my answers are correct. I checked with official data.</pre>
+    <div style="opacity: 1">
+      For last two cases, I'm pretty sure my answers are correct. I checked with official data.    </div>
+    <br><div class="comment_block" id="comment5472">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/Alex">Alex</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/5472">Sep 24, 2013 - 5:54:44 am UTC</a>      </span>
+      <a class="comment_title" id="title5472" onclick="toggle(&quot;body5472&quot;)">Re: Wrong test data?</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating5472">
+    (<span class="upvotes"><span id="upvotes5472">0</span></span>/<span class="downvotes"><span id="downvotes5472">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body5472" class="comment_body">
+    <pre id="msg5472" style="display: none">endl appears to be causing the problem in your code. I think this is a judge/compiler issue. Use '\n' or printf for now.</pre>
+    <div style="opacity: 1">
+      endl appears to be causing the problem in your code. I think this is a judge/compiler issue. Use '\n' or printf for now.    </div>
+      </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="comment_block" id="comment2681">
+  <div class="comment_header" style="opacity: 1">
+    <span class="comment_info">
+            <b><a href="https://wcipeg.com/user/bbi5291">bbi5291</a></b>
+            <span class="comment_date">
+        on <a href="https://wcipeg.com/comments/thread/2681">May 19, 2010 - 11:48:16 pm UTC</a>      </span>
+      <a class="comment_title" id="title2681" onclick="toggle(&quot;body2681&quot;)">Huge input data</a>
+          </span>
+    <ul class="controls">
+              <li class="comment_rating" id="rating2681">
+    (<span class="upvotes"><span id="upvotes2681">0</span></span>/<span class="downvotes"><span id="downvotes2681">0</span></span>)
+  </li>
+  </ul>  </div>
+  <div id="body2681" class="comment_body">
+    <pre id="msg2681" style="display: none">If you have trouble solving this problem in Pascal due to the large amount of input data, tell me.</pre>
+    <div style="opacity: 1">
+      If you have trouble solving this problem in Pascal due to the large amount of input data, tell me.    </div>
+      </div>
+</div>
+<br>
+</div>
+
+<div style="clear: both">&nbsp;</div>
+
+</div> <!-- content -->
+</div> <!-- container -->
+</div> <!-- wrapper -->
+
+<div id="footer">
+  <div id="footer_time_info">
+    Loaded in 0.0570s.<br>
+    Server time on page load:
+    Jun 24, 2018 07:08:44 UTC 
+    <br>
+  </div>
+  <div style="clear: both; height: 1ex"></div>
+
+  <div style="float: right">
+    <a href="https://wcipeg.com%2Fproblem%2Fccc10s2p3">Secure server</a>  </div>
+
+<a href="http://www.debian.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/debian.png" alt="Powered by Debian GNU/Linux"></a>
+
+<a href="http://www.apache.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/apache.gif" alt="Powered by Apache"></a>
+
+<a href="http://www.mysql.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/mysql.png" alt="Powered by MySQL"></a>
+
+<a href="http://www.php.net" target="_blank">
+  <img src="https://wcipeg.com/assets/img/php.gif" alt="Powered by PHP"> 
+</a>
+
+<a href="http://www.openssl.org" target="_blank">
+  <img src="https://wcipeg.com/assets/img/openssl.png" alt="Powered by OpenSSL"> 
+</a>
+
+<a href="http://www.codeigniter.com" target="_blank">
+  <img src="https://wcipeg.com/assets/img/codeignited.gif" alt="Powered by CodeIgniter"> 
+</a>
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/html5.png" alt="Valid HTML 5"></a>
+
+<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+  <img src="https://wcipeg.com/assets/img/css3.png" alt="Valid CSS 3"></a>
+
+<span title="Thanks to Naomi Cui for helping to create this image">
+  <a href="http://git-scm.com/" target="_blank">
+    <img src="https://wcipeg.com/assets/img/git-80x15-final.png" alt="git managed">  </a>
+</span>
+
+<br>
+
+<div style="font-size: 85%; line-height: 1.5">
+  <a href="/wiki/Judge:Copyright" target="_blank">Notes on copyright</a> |
+  <a href="/wiki/Judge:TOS" target="_blank">Terms of service</a>
+  <br>
+  <a href="/wiki/Judge:Free_software" target="_blank">The PEG Judge is powered
+  solely by free software.</a>
+</div>
+ 
+</div> <!-- footer -->
+
+
+
+</body></html>

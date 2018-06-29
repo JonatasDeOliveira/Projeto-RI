@@ -100,8 +100,3 @@ class Classifier:
             inst.append(tf.get(feature, 0))
         
         return self.clf.predict([inst])[0]
-        
-    
-    
-    
-    
