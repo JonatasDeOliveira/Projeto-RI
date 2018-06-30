@@ -7,10 +7,11 @@ def processData(data):
     #Tokenizer
     tokenize = word_tokenize(data.lower())
     
-    #Remove stopwords
+    #stopwords
     stopWords = set(stopwords.words('english'))
     wordsFiltered = []
     
+    #Filtrando as palavras
     for w in tokenize:
         w = w.encode('ascii','ignore').decode()
         
@@ -18,6 +19,7 @@ def processData(data):
         resultT = re.match('[a-z]\.', w)
         if resultN or resultT:
             pass
+        #Remove Stopwords
         elif w not in stopWords:
             if re.match('[a-z]*?\.[a-z]*?', w):
                 words = w.split('.')
@@ -26,7 +28,6 @@ def processData(data):
                         wordsFiltered.append(words[i])
             elif len(w) > 0:
                 wordsFiltered.append(w)
-            
             
     #Stemmer
     stemmer = PorterStemmer()
