@@ -6,6 +6,7 @@ import collections
 def indexer(datas, field):
     lField = field.lower()
     
+    #normal
     indexes = {}
     indexesFrequency = {}
 
@@ -13,57 +14,93 @@ def indexer(datas, field):
     cIndexes = {}
     cIndexesFrequency = {}
     
+    #positional
+    posIndexes = {}
+    
     for n in datas:
-        if (field is "Input") or (field is "Output"):
+        if (field == "Input") or (field == "Output"):
             for f in datas[n]:
                 if field in f.title():
-                    value = datas[n][f]
+                    text = datas[n][f]
         else:
-            value = datas[n][field]
+            text = datas[n][field]
             
-        pValue = p.processData(value)
+            
+        if field == "Time Limit":
+            words = p.processTimeL(text)
+            
+        else:
+            words = p.processData(text)
         
-        for word in pValue:
+        for word in words:
             pageId = int(n)
             
+            normalWord = word
             word = word.replace('/', '*')
             
-            if word not in indexes.keys():
+            if field == "Time Limit":
+                if util.isNumber(word):
+                    word = util.searchOctil(octil, word)
+                    
+            if word not in indexes:
+                positions = util.getPositions(normalWord, words)
+                frequency = len(positions)
+                
                 indexes[word] = [pageId]
-                indexesFrequency[word] = [[pageId, 1]]
-                    
-                cIndexes[word] = [pageId]
-                cIndexesFrequency[word] = [[pageId, 1]]
-            else:
-                indexList = indexes[word]
-                compressedId = pageId - indexList[-1]
-                
-                frequency = 0
-                indexesLen = len(indexes[word])
-                for i in range(indexesLen):
-                    index = indexesFrequency[word][i]
-                    if index[0] == pageId:
-                        frequency = 1 + index[1]
-                        
-                        indexesFrequency[word][i][1] = frequency
-                        cIndexesFrequency[word][i][1] = frequency
-                
-                if frequency == 0:
-                    indexes[word].append(pageId)
-                    indexesFrequency[word].append([pageId, 1])
-                    
-                    cIndexes[word].append(compressedId)
-                    cIndexesFrequency[word].append([compressedId, 1])
-    util.writeFiles(lField, indexes, indexesFrequency, cIndexes, cIndexesFrequency)
+                indexesFrequency[word] = [[pageId, frequency]]
 
+                cIndexes[word] = [pageId]
+                cIndexesFrequency[word] = [[pageId, frequency]]
+                
+                posIndexes[word] = [[pageId, frequency, positions]]
+                
+            else:
+                compressedId = pageId - indexes[word][-1]
+                
+                indexesLen = len(indexes[word])
+                
+                #Vendo se o id já está adicionado, pois como podem existir palavras 
+                #repetidas no texto e elas ja foram adicionadas, não pode duplicar valores
+                exists = False
+                for i in range(indexesLen):
+                    value = indexes[word][i]
+                    if value == pageId:
+                        exists = True
+                
+                if not exists:
+                    positions = util.getPositions(normalWord, words)
+                    frequency = len(positions)
+                    
+                    indexes[word].append(pageId)
+                    indexesFrequency[word].append([pageId, frequency])
+    
+                    cIndexes[word].append(compressedId)
+                    cIndexesFrequency[word].append([compressedId, frequency])
+                    
+                    posIndexes[word].append([pageId, frequency, positions])
+                    
+    util.writeFiles(lField, indexes, indexesFrequency, cIndexes, cIndexesFrequency, posIndexes)
+
+def timeIndexer(datas):
+    timeWords = []
+    for n in datas:
+        text = datas[n]["Time Limit"]
+        words = p.processTimeL(text)
+        
+        for word in words:
+            timeWords.append(word)
+
+    global octil 
+    octil = util.octil(timeWords)
+    indexer(datas, "Time Limit")
+    
 
 file = './Docs/Jsons/datas.json'
 with open(file) as f:
     datas = json.load(f, object_pairs_hook=collections.OrderedDict)
 
-indexer(datas, "Title")
-"""
-indexer(datas, "Description")
-indexer(datas, "Input")         #Input, Input Descritpion, Input Format, INPUT
-indexer(datas, "Output")        #output, Output Descritpion, Output Format, OUTPUT
-indexer(datas, "Time Limit")"""
+#indexer(datas, "Title")
+#indexer(datas, "Description")
+#indexer(datas, "Input")         #Input, Input Descritpion, Input Format, INPUT
+#indexer(datas, "Output")        #output, Output Descritpion, Output Format, OUTPUT
+timeIndexer(datas)
