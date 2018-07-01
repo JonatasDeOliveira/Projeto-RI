@@ -6,6 +6,7 @@ import collections
 def indexer(datas, field):
     lField = field.lower()
     
+    #normal
     indexes = {}
     indexesFrequency = {}
 
@@ -13,38 +14,44 @@ def indexer(datas, field):
     cIndexes = {}
     cIndexesFrequency = {}
     
-    #Positional
+    #positional
     posIndexes = {}
     
     for n in datas:
-        if (field is "Input") or (field is "Output"):
+        if (field == "Input") or (field == "Output"):
             for f in datas[n]:
                 if field in f.title():
                     text = datas[n][f]
         else:
             text = datas[n][field]
             
-        words = p.processData(text)
+            
+        if field == "Time Limit":
+            words = p.processTimeL(text)
+            
+        else:
+            words = p.processData(text)
         
         for word in words:
             pageId = int(n)
             
             normalWord = word
             word = word.replace('/', '*')
-             
+            
+            if field == "Time Limit":
+                if util.isNumber(word):
+                    word = util.searchOctil(octil, word)
+                    
             if word not in indexes:
                 positions = util.getPositions(normalWord, words)
                 frequency = len(positions)
                 
-                #indice invertido 
                 indexes[word] = [pageId]
                 indexesFrequency[word] = [[pageId, frequency]]
 
-                #indice invertido com compressão
                 cIndexes[word] = [pageId]
                 cIndexesFrequency[word] = [[pageId, frequency]]
                 
-                #indice invertido posicional
                 posIndexes[word] = [[pageId, frequency, positions]]
                 
             else:
@@ -64,19 +71,29 @@ def indexer(datas, field):
                     positions = util.getPositions(normalWord, words)
                     frequency = len(positions)
                     
-                    #indice invertido 
                     indexes[word].append(pageId)
                     indexesFrequency[word].append([pageId, frequency])
     
-                    #indice invertido com compressão
                     cIndexes[word].append(compressedId)
                     cIndexesFrequency[word].append([compressedId, frequency])
                     
-                    #indice invertido posicional
                     posIndexes[word].append([pageId, frequency, positions])
                     
     util.writeFiles(lField, indexes, indexesFrequency, cIndexes, cIndexesFrequency, posIndexes)
 
+def timeIndexer(datas):
+    timeWords = []
+    for n in datas:
+        text = datas[n]["Time Limit"]
+        words = p.processTimeL(text)
+        
+        for word in words:
+            timeWords.append(word)
+
+    global octil 
+    octil = util.octil(timeWords)
+    indexer(datas, "Time Limit")
+    
 
 file = './Docs/Jsons/datas.json'
 with open(file) as f:
@@ -85,5 +102,5 @@ with open(file) as f:
 #indexer(datas, "Title")
 #indexer(datas, "Description")
 #indexer(datas, "Input")         #Input, Input Descritpion, Input Format, INPUT
-indexer(datas, "Output")        #output, Output Descritpion, Output Format, OUTPUT
-#indexer(datas, "Time Limit")
+#indexer(datas, "Output")        #output, Output Descritpion, Output Format, OUTPUT
+timeIndexer(datas)

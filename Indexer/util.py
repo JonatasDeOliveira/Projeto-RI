@@ -1,6 +1,7 @@
 import json
 import pickle
 import os
+import re
 
 def getPositions(word, words):
     positions = []
@@ -74,3 +75,44 @@ def writeFiles(field, indexes, indexesFrequency, cIndexes, cIndexesFrequency, po
     out = open(file, 'wb')
     pickle.dump(cIndexesFrequency, out)
     out.close()
+    
+
+def isNumber(string):
+    return re.match("[0-9]*?\.?[0-9]+?", string) is not None
+    
+def octil(data):
+    #get numbers from data
+    numbers = []
+    for n in data:
+        if isNumber(n):
+            if float(n) not in numbers:
+                numbers.append(float(n))
+
+    numbers = sorted(numbers)
+    numbersLen = len(numbers)
+    
+    o0 = 0
+    o1 = 0.125*numbersLen
+    o2 = 0.25*numbersLen
+    o3 = 0.375*numbersLen
+    o4 = 0.50*numbersLen
+    o5 = 0.625*numbersLen
+    o6 = 0.75*numbersLen
+    o7 = 0.875*numbersLen
+    o8 = numbersLen - 1
+    
+    return [str(numbers[round(o0)])+ "-" + str(numbers[round(o1)]),
+            str(numbers[round(o1)])+ "-" + str(numbers[round(o2)]),
+            str(numbers[round(o2)])+ "-" + str(numbers[round(o3)]),
+            str(numbers[round(o3)])+ "-" + str(numbers[round(o4)]),
+            str(numbers[round(o4)])+ "-" + str(numbers[round(o5)]),
+            str(numbers[round(o5)])+ "-" + str(numbers[round(o6)]),
+            str(numbers[round(o6)])+ "-" + str(numbers[round(o7)]),
+            str(numbers[round(o7)])+ "-" + str(numbers[round(o8)])]
+
+def searchOctil(oc, num):
+    for o in oc:
+        values = o.split('-')
+        if isNumber(values[0]):
+            if float(num) >= float(values[0]) and float(num) < (float(values[1]) + 0.1):
+                return o
