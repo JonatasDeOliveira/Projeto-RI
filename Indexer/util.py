@@ -101,14 +101,13 @@ def octil(data):
     o7 = 0.875*numbersLen
     o8 = numbersLen - 1
     
-    return [str(numbers[round(o0)])+ "-" + str(numbers[round(o1)]),
-            str(numbers[round(o1)])+ "-" + str(numbers[round(o2)]),
-            str(numbers[round(o2)])+ "-" + str(numbers[round(o3)]),
-            str(numbers[round(o3)])+ "-" + str(numbers[round(o4)]),
-            str(numbers[round(o4)])+ "-" + str(numbers[round(o5)]),
-            str(numbers[round(o5)])+ "-" + str(numbers[round(o6)]),
-            str(numbers[round(o6)])+ "-" + str(numbers[round(o7)]),
-            str(numbers[round(o7)])+ "-" + str(numbers[round(o8)])]
+    oc = [o0, o1, o2, o3, o4, o5, o6, o7, o8]
+    
+    ranges = []
+    for i in range(len(oc) - 1) :
+        ranges.append(str(numbers[round(oc[i])]) + "-" + str(numbers[round(oc[i+1])]))
+    
+    return ranges
 
 def searchOctil(oc, num):
     for o in oc:
