@@ -13,7 +13,7 @@ def processData(data):
     #Tokenizer
     wordsList = word_tokenize(data.lower())
     
-    
+    #stopwords
     stopWords = set(stopwords.words('english'))
     wordsFiltered = []
     

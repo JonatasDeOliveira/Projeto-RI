@@ -25,7 +25,6 @@ def indexer(datas, field):
         else:
             text = datas[n][field]
             
-            
         if field == "Time Limit":
             words = p.processTimeL(text)
             
@@ -103,4 +102,5 @@ with open(file) as f:
 #indexer(datas, "Description")
 #indexer(datas, "Input")         #Input, Input Descritpion, Input Format, INPUT
 #indexer(datas, "Output")        #output, Output Descritpion, Output Format, OUTPUT
-timeIndexer(datas)
+#timeIndexer(datas)
+indexer(datas, "Problem")

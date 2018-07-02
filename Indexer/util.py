@@ -91,17 +91,14 @@ def octil(data):
     numbers = sorted(numbers)
     numbersLen = len(numbers)
     
-    o0 = 0
-    o1 = 0.125*numbersLen
-    o2 = 0.25*numbersLen
-    o3 = 0.375*numbersLen
-    o4 = 0.50*numbersLen
-    o5 = 0.625*numbersLen
-    o6 = 0.75*numbersLen
-    o7 = 0.875*numbersLen
-    o8 = numbersLen - 1
-    
-    oc = [o0, o1, o2, o3, o4, o5, o6, o7, o8]
+    #pega os intervalos do octal
+    variation = 0.125
+    frame = 0.0
+    oc = []
+    while(frame < 1):
+        oc.append(frame * numbersLen)
+        frame = frame + variation
+    oc.append(numbersLen - 1)
     
     ranges = []
     for i in range(len(oc) - 1) :
