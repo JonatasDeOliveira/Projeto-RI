@@ -1,14 +1,18 @@
 import math
 import sys
 import itertools
-import json
+import simplejson as json
 from Indexer.Text_Processing import pre_processing
 from Indexer import util
 
 # function that returns the tdidf weight of a document
 def weightFileTDIDF(word, text, invertedFile, fileTotalNumber, fileRecoveredNumber):
     tf = len(invertedFile.get(word,[]))
-    idf = math.log(fileTotalNumber/fileRecoveredNumber,10);
+    idf = 0
+    try:
+        idf = math.log(fileTotalNumber/fileRecoveredNumber,10)
+    except:
+        pass
     tfidf = tf*idf
     return tfidf
     
@@ -35,7 +39,11 @@ def vectorFile(query, text, invertedFile, fileTotalNumber, fileRecoveredNumber, 
 # function that returns the tdidf weight of a query
 def weightQueryTDIDF(word, query, fileTotalNumber, fileRecoveredNumber):
     tf = query.count(word)/float(len(query))
-    idf = math.log(fileTotalNumber/fileRecoveredNumber,10);
+    idf = 0
+    try:
+        idf = math.log(fileTotalNumber/fileRecoveredNumber,10)
+    except:
+        pass
     tfidf = tf*idf
     return tfidf
     
@@ -194,7 +202,7 @@ def countTotalDocs():
             value += len(datas.keys())
     return value
 
-def rankingGeneral (query, invertedFile, space = False, boolean = False):
+def rankingGeneral (query, invertedFile, fileTotalNumber ,space = False, boolean = False):
     q = removeDuplicates(query)
     docsID = set()
     for e in q:
@@ -205,6 +213,7 @@ def rankingGeneral (query, invertedFile, space = False, boolean = False):
         docs.append(e)
     docsID = []
     docsID = docs
+    #print(docsID)
     invertedFileDocs = {}
     for d in docsID:
         invertedFileDocs[d] = {}
@@ -215,21 +224,21 @@ def rankingGeneral (query, invertedFile, space = False, boolean = False):
     invertedFileDocs = []
     for e in docs:
         invertedFileDocs.append(aux[e])
-    cont = countTotalDocs()
-    rank = rankingDocs(query,docsID, invertedFileDocs, cont, space, boolean)
+    rank = rankingDocs(query,docsID, invertedFileDocs, fileTotalNumber, space, boolean)
     return rank
    
 # python3 -m nltk.downloader stopwords
 # python3 -m nltk.downloader punkt
-   
+  
+invertedFileDescription = getInvertedFile('Positional', 'description')
+invertedFileInput = getInvertedFile('Positional', 'input')
+invertedFileOutput = getInvertedFile('Positional', 'output')
+invertedFileTimeLimit= getInvertedFile('Positional', 'time limit')
+invertedFileTitle = getInvertedFile('Positional', 'title')
+invertedFileProblem = getInvertedFile('Positional', 'problem')
     
-def ranking(description, inputDescription, outputDescription, timeLimit, title, problem):
-    invertedFileDescription = getInvertedFile('Positional', 'description')
-    invertedFileInput = getInvertedFile('Positional', 'input')
-    invertedFileOutput = getInvertedFile('Positional', 'output')
-    invertedFileTimeLimit= getInvertedFile('Positional', 'time limit')
-    invertedFileTitle = getInvertedFile('Positional', 'title')
-    invertedFileProblem = {} #getInvertedFile('Positional', 'problem')
+def ranking(description, inputDescription, outputDescription, timeLimit, title, problem, space = False, boolean = False):
+    cont = countTotalDocs()
     qDescription = pre_processing.processData(description)
     qInput = pre_processing.processData(inputDescription)
     qOutput = pre_processing.processData(outputDescription)
@@ -252,42 +261,42 @@ def ranking(description, inputDescription, outputDescription, timeLimit, title, 
     value = 0
     if(qDescription!=[]):
         value += 1
-        rank = rankingGeneral(qDescription, invertedFileDescription)
+        rank = rankingGeneral(qDescription, invertedFileDescription, cont, space, boolean)
         for r in rank:
             if(ans.get(r[2],[])==[]):
                 ans[r[2]] = []
             ans[r[2]].append(r)
     if(qInput!=[]):
         value += 1
-        rank = rankingGeneral(qInput, invertedFileInput)
+        rank = rankingGeneral(qInput, invertedFileInput, cont, space, boolean)
         for r in rank:
             if(ans.get(r[2],[])==[]):
                 ans[r[2]] = []
             ans[r[2]].append(r)   
     if(qOutput!=[]):
         value += 1
-        rank = rankingGeneral(qOutput, invertedFileOutput)
+        rank = rankingGeneral(qOutput, invertedFileOutput, cont, space, boolean)
         for r in rank:
             if(ans.get(r[2],[])==[]):
                 ans[r[2]] = []
             ans[r[2]].append(r)
     if(qTimeLimit!=[]):
         value += 1
-        rank = rankingGeneral(qTimeLimit, invertedFileTimeLimit)
+        rank = rankingGeneral(qTimeLimit, invertedFileTimeLimit, cont, space, boolean)
         for r in rank:
             if(ans.get(r[2],[])==[]):
                 ans[r[2]] = []
             ans[r[2]].append(r)       
     if(qTitle!=[]):
         value += 1
-        rank = rankingGeneral(qTitle, invertedFileTitle)
+        rank = rankingGeneral(qTitle, invertedFileTitle, cont, space, boolean)
         for r in rank:
             if(ans.get(r[2],[])==[]):
                 ans[r[2]] = []
             ans[r[2]].append(r)
     if(qProblem!=[]):
         value += 1
-        rank = rankingGeneral(qProblem, invertedFileProblem)
+        rank = rankingGeneral(qProblem, invertedFileProblem, cont, space, boolean)
         for r in rank:
             if(ans.get(r[2],[])==[]):
                 ans[r[2]] = []
@@ -311,6 +320,45 @@ def ranking(description, inputDescription, outputDescription, timeLimit, title, 
     return rankedDocs
     
 
-print(ranking("sorted","","","2","",""))   
 
+def spearman(query):
+    rank1 = ranking('','','','','',query,True,True)
+    table = {}
+    for i in range(0,len(rank1)):
+        table[rank1[i]] = []
+        table[rank1[i]].append(i)
+    rank2 = ranking('','','','','',query,True,False)
+    for i in range(0,len(rank2)):
+        table[rank2[i]].append(i)
+    sumSquares = 0.0
+    for k in table.keys():
+        sumSquares += ((table[k][0]-table[k][1])*(table[k][0]-table[k][1]))
+    sumSquares *= 6.0
+    k = len(rank1)
+    den = k*((k*k)-1)
+    ans = 1 - (sumSquares/den)
+    return ans
 
+def kendal(query):
+    rank1 = ranking('','','','','',query,True,True)
+    rank2 = ranking('','','','','',query,True,False)
+    p = {}
+    print(len(rank1))
+    for i in range(0,len(rank1)):
+        for j in range(i+1, len(rank1)):
+            if p.get((rank1[i],rank1[j]),-1) == -1:
+                p[(rank1[i],rank1[j])] = 0
+            p[(rank1[i],rank1[j])] += 1
+            if p.get((rank2[i],rank2[j]),-1) == -1:
+                p[(rank2[i],rank2[j])] = 0
+            p[(rank2[i],rank2[j])] += 1
+    dis = 0.0
+    for k in p.keys():
+        if(p[k]==1):
+            dis += 1
+    dis *= 2.0
+    k = len(rank1)
+    den = k*(k-1)
+    ans = 1 - (dis/den)
+    print(ans)
+    return ans
