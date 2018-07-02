@@ -63,7 +63,7 @@ def get_all_links(domain, pathTotal, maxSize, rp, driver):
     return links
 
 
-def crawler(domain, pathseed, uniqueId, maxSize = 1000):
+def crawler(domain, pathseed, uniqueId, maxSize = 5000):
     pq = queue.PriorityQueue()
     visited = []
     links = []
@@ -213,7 +213,7 @@ def value(link):
     return 5
 
 #crawler('https://wcipeg.com','', 0)
-#crawler('http://www.codeforces.com','', 1000) ok
+crawler('http://www.codeforces.com','', 5000)
 #crawler('https://a2oj.com','', 2000)
 ##crawler('https://www.codechef.com','')
 #crawler('http://acm.timus.ru','', 3000)

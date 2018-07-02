@@ -1,7 +1,6 @@
 import json
 import pickle
 import os
-import Text_Processing.pre_processing as p
 import re
 """
 file = './Indexer/t1P'
@@ -56,38 +55,5 @@ for d in data:
 file = './Indexer/Files/Inverted/Basic/nCompressed/time limit'
 with open(file) as f:  
     data = json.load(f)
-num = []
-for d in data:
-  if re.match("[0-9]*?\.?[0-9]+?", d) is not None:
-    num.append(float(d))
 
-numbers = sorted(num)
-numbersLen = len(numbers)
-
-q1 = 0.125*numbersLen
-q2 = 0.25*numbersLen
-q3 = 0.375*numbersLen
-q4 = 0.50*numbersLen
-q5 = 0.625*numbersLen
-q6 = 0.75*numbersLen
-q7 = 0.875*numbersLen
-
-
-print(round(q1))
-print(round(q2))
-print(round(q3))
-print(round(q4))
-print(round(q5))
-print(round(q6))
-print(round(q7))
-print("---------------")
-print(numbers[round(q1)])
-print(numbers[round(q2)])
-print(numbers[round(q3)])
-print(numbers[round(q4)])
-print(numbers[round(q5)])
-print(numbers[round(q6)])
-print(numbers[round(q7)])
-
-print("---------------")
-print (numbers)
+print(data)
