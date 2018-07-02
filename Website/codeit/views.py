@@ -31,17 +31,18 @@ def search(request):
 		input_query = request.GET.get('input_box', None)
 		output_query = request.GET.get('output_box', None)
 		time_limit_query = request.GET.get('time_limit_box', None)
+		free_query = request.GET.get('free_box', None)
 		
 		if title_query == None and problem_query == None and input_query == None \
-			and output_query == None and time_limit_query == None:
+			and output_query == None and time_limit_query == None and free_query == None:
 				context = {"problems": []}
 				return render(request, 'codeit/search/index.html', context)
 		
 		if title_query == "" and problem_query == "" and input_query == "" \
-			and output_query == "" and time_limit_query == "":
+			and output_query == "" and time_limit_query == "" and free_query == "":
 				return redirect('/search')
 		else:
-			problems_ids = ranking(title_query,problem_query,input_query,output_query,time_limit_query)
+			problems_ids = ranking(title_query,problem_query,input_query,output_query,time_limit_query,free_query)
 			problems = Problem.objects.filter(id__in=problems_ids)
 			
 			problems, page_range = get_pagination(request, problems, 10)
@@ -85,7 +86,7 @@ def get_pagination(request, problems, objects_number):
 	
 	
 
-def ranking(title_query,problem_query,input_query,output_query,time_limit_query):
+def ranking(title_query,problem_query,input_query,output_query,time_limit_query,free_query):
 	problems_ids = []
 	for x in range(0,4):
 		problems_ids.append(x)

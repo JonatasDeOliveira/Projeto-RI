@@ -11,27 +11,34 @@
     	    <div class="col-sm-5">
         	    <div class="form-group" >
         	        <label for="title_box">Title</label>
-                    <input id="title_box" class="form-control" type="text" name="title_box"  placeholder="Search..." value="{{ request.GET.title_box }}">
+                    <input id="title_box" class="form-control" type="text" name="title_box"  placeholder="Search by Title" value="{{ request.GET.title_box }}">
                 </div>
                 <div class="form-group">
         	        <label for="problem_box">Problem</label>
-                    <input  id="problem_box" class="form-control" type="text" name="problem_box"  placeholder="Search..." value="{{ request.GET.problem_box }}">
+                    <input  id="problem_box" class="form-control" type="text" name="problem_box"  placeholder="Search by Problem" value="{{ request.GET.problem_box }}">
                 </div>
     	    </div>
     	    <div class="col-sm-5">
                 <div class="form-group">
         	        <label for="input_box">Input</label>
-                    <input  id="input_box" class="form-control" type="text" name="input_box"  placeholder="Search..." value="{{ request.GET.input_box }}">
+                    <input  id="input_box" class="form-control" type="text" name="input_box"  placeholder="Search by Input" value="{{ request.GET.input_box }}">
                 </div>
                 <div class="form-group">
         	        <label for="output_box">Output</label>
-                    <input  id="output_box" class="form-control" type="text" name="output_box"  placeholder="Search..." value="{{ request.GET.output_box }}">
+                    <input  id="output_box" class="form-control" type="text" name="output_box"  placeholder="Search by Output" value="{{ request.GET.output_box }}">
                 </div>
     	    </div>
     	    <div class="col-sm-5">
                 <div class="form-group">
-        	        <label for="time_limit_box">Time Limit</label>
-                    <input  id="time_limit_box" class="form-control" type="text" name="time_limit_box"  placeholder="Search..." value="{{ request.GET.time_limit_box }}">
+                    <label for="time_limit_box">Time Limit</label>
+                    <input  id="time_limit_box" class="form-control" type="text" name="time_limit_box"  placeholder="Search by Time Limit" value="{{ request.GET.time_limit_box }}">
+                </div>
+                
+            </div>
+            <div class="col-sm-5">
+                 <div class="form-group">
+                    <label for="free_box">Free to Search</label>
+                    <input  id="free_box" class="form-control" type="text" name="free_box"  placeholder="Search in the Whole Doc" value="{{ request.GET.free_box }}">
                 </div>
             </div>
             <div class="col-sm-5">
@@ -50,7 +57,7 @@
                 <small class="container">Time Limit: {{problem.time_limit}}</small>
                 <div class="card-body">
                     <h6 class="card-title">Problem Description</h6>
-                    {% if problem.description|length > 297 %}
+                    {% if problem.description|length > 300 %}
                         <p class="card-text" style="max-height: 50px;text-overflow: ellipsis;overflow: hidden;">{{ problem.description }}</p>
                         <p>...</p>
                     {% else %}
