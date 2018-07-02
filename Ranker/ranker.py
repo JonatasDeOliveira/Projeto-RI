@@ -1,7 +1,7 @@
 import math
 import sys
 import itertools
-import simplejson as json
+import json
 from Indexer.Text_Processing import pre_processing
 from Indexer import util
 
