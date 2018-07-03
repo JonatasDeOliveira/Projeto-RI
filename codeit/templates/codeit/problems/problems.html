@@ -1,0 +1,12 @@
+{% extends "codeit/header.html" %}
+
+{% block content %}
+
+	<h2> Problemas </h2>
+	{% for problem in problems%}
+	   <h4><a target="_blank" href="{{problem.url}}">{{problem.title}}</a></h4>
+	{% endfor %}
+
+	{% include "codeit/problems/paginator.html" with problems=problems page_range=page_range optional_url=optional_url%}
+
+{% endblock %}
