@@ -3,6 +3,7 @@ import json
 with open('mutual-information/Title.json') as f:
     data = json.load(f)
 
+print(data['title']['count'])
 analyse_data = {}
 for i in range(1,100):
     analyse_data[i] = 0
