@@ -1,53 +1,114 @@
 import json
 import pickle
 import os
+import re
 
-def writeFiles(field, indexes, indexesFrequency, cIndexes, cIndexesFrequency):
+def getPositions(word, words):
+    positions = []
     
-    os.makedirs('Indexer/Files/Inverted/Compressed/' + field.title(), exist_ok=True)
-    os.makedirs('Indexer/Files/Inverted/nCompressed/' + field.title(), exist_ok=True)
-    os.makedirs('Indexer/Files/Inverted_Frequency/Compressed/' + field.title(), exist_ok=True)
-    os.makedirs('Indexer/Files/Inverted_Frequency/nCompressed/' + field.title(), exist_ok=True)
+    lenList = len(words)
+    for index in range(lenList):
+        if words[index] == word:
+            positions.append(index)
     
+    return positions
+
+def writeFiles(field, indexes, indexesFrequency, cIndexes, cIndexesFrequency, posIndexes):
+    
+    os.makedirs('Indexer/Files/Inverted/Basic/Compressed/', exist_ok=True)
+    os.makedirs('Indexer/Files/Inverted/Basic/nCompressed/', exist_ok=True)
+    os.makedirs('Indexer/Files/Inverted/Positional/', exist_ok=True)
+    os.makedirs('Indexer/Files/Inverted/Frequency/Compressed/', exist_ok=True)
+    os.makedirs('Indexer/Files/Inverted/Frequency/nCompressed/', exist_ok=True)
+    
+    os.makedirs('Indexer/Files/Pickled/Inverted/Basic/Compressed/', exist_ok=True)
+    os.makedirs('Indexer/Files/Pickled/Inverted/Basic/nCompressed/', exist_ok=True)
+    os.makedirs('Indexer/Files/Pickled/Inverted/Positional/', exist_ok=True)
+    os.makedirs('Indexer/Files/Pickled/Inverted/Frequency/Compressed/', exist_ok=True)
+    os.makedirs('Indexer/Files/Pickled/Inverted/Frequency/nCompressed/', exist_ok=True)
+
     #arquivo invertido
-    file = './Indexer/Files/Inverted/nCompressed/' + field.title() + '/' + field
-    exist = os.path.isfile(file) 
-    if not exist:
-        with open(file, 'w') as f:
-            f.write(json.dumps(indexes, indent=2))
+    file = './Indexer/Files/Inverted/Basic/nCompressed/' + field
+    with open(file, 'w') as f:
+        f.write(json.dumps(indexes, indent=2))
     
-    file = './Indexer/Files/Inverted/Compressed/' + field.title() + '/' + field
-    exist = os.path.isfile(file) 
-    if not exist:
-        with open(file, 'w') as f:
-            f.write(json.dumps(cIndexes, indent=2))
+    file = './Indexer/Files/Inverted/Basic/Compressed/' + field
+    with open(file, 'w') as f:
+        f.write(json.dumps(cIndexes, indent=2))
+    
+    #arquivo invertido posicional
+    file = './Indexer/Files/Inverted/Positional/' + field
+    with open(file, 'w') as f:
+        f.write(json.dumps(posIndexes, indent=2))
     
     #arquivo invertido com frequencia
-    file = './Indexer/Files/Inverted_Frequency/nCompressed/' + field.title() + '/' + field
-    exist = os.path.isfile(file) 
-    if not exist:
-       with open(file, 'w') as f:
-            f.write(json.dumps(indexesFrequency, indent=2))
+    file = './Indexer/Files/Inverted/Frequency/nCompressed/' + field
+    with open(file, 'w') as f:
+        f.write(json.dumps(indexesFrequency, indent=2))
 
-    file = './Indexer/Files/Inverted_Frequency/Compressed/' + field.title() + '/' + field
-    exist = os.path.isfile(file) 
-    if not exist:
-        with open(file, 'w') as f:
-            f.write(json.dumps(cIndexesFrequency, indent=2))
-        
-    """
-    file = './Indexer/Files/Inverted/Compressed/' + field.title() + '/' + word + '.' + field
-    exist = os.path.isfile(file) 
-    if not exist:
-        out = open(file, 'wb') #writebytes
-        pickle.dump(cIndexes, out)
-        out.close()
-            
-    file = './Indexer/Files/Inverted_Frequency/Compressed/' + field.title() + '/' + word + '.' + field
-    exist = os.path.isfile(file) 
-    if not exist:
-        out = open(file, 'wb') #writebytes
-        pickle.dump(cIndexesFrequency, out)
-        out.close()
+    file = './Indexer/Files/Inverted/Frequency/Compressed/' + field
+    with open(file, 'w') as f:
+        f.write(json.dumps(cIndexesFrequency, indent=2))
+       
+    #pickled
+    file = './Indexer/Files/Pickled/Inverted/Basic/nCompressed/' + field
+    out = open(file, 'wb') #writebytes
+    pickle.dump(cIndexes, out)
+    out.close()
     
-    """
+    file = './Indexer/Files/Pickled/Inverted/Basic/Compressed/' + field
+    out = open(file, 'wb') 
+    pickle.dump(indexes, out)
+    out.close()
+    
+    file = './Indexer/Files/Pickled/Inverted/Positional/' + field
+    out = open(file, 'wb') 
+    pickle.dump(posIndexes, out)
+    out.close()
+    
+    file = './Indexer/Files/Pickled/Inverted/Frequency/nCompressed/' + field
+    out = open(file, 'wb')
+    pickle.dump(indexesFrequency, out)
+    out.close()
+
+    file = './Indexer/Files/Pickled/Inverted/Frequency/Compressed/' + field
+    out = open(file, 'wb')
+    pickle.dump(cIndexesFrequency, out)
+    out.close()
+    
+
+def isNumber(string):
+    return re.match("[0-9]*?\.?[0-9]+?", string) is not None
+    
+def octil(data):
+    #get numbers from data
+    numbers = []
+    for n in data:
+        if isNumber(n):
+            if float(n) not in numbers:
+                numbers.append(float(n))
+
+    numbers = sorted(numbers)
+    numbersLen = len(numbers)
+    
+    #pega os intervalos do octal
+    variation = 0.125
+    frame = 0.0
+    oc = []
+    while(frame < 1):
+        oc.append(frame * numbersLen)
+        frame = frame + variation
+    oc.append(numbersLen - 1)
+    
+    ranges = []
+    for i in range(len(oc) - 1) :
+        ranges.append(str(numbers[round(oc[i])]) + "-" + str(numbers[round(oc[i+1])]))
+    
+    return ranges
+
+def searchOctil(oc, num):
+    for o in oc:
+        values = o.split('-')
+        if isNumber(values[0]):
+            if float(num) >= float(values[0]) and float(num) < (float(values[1]) + 0.1):
+                return o

@@ -115,7 +115,7 @@ def crawler(domain, pathseed, maxSize = 1000):
 def folder(domain):
     if(domain=="http://www.codeforces.com"):
         return 'Codeforces'
-    if(domain=='http://www.spoj.com'):
+    if(domain=='https://www.spoj.com'):
         return 'Spoj2'
     if(domain=='https://dmoj.ca'):
         return 'Dmoj'
@@ -142,7 +142,7 @@ def value(link):
             return 2
         else:
             return 3
-    if('http://www.spoj.com' in link):
+    if('https://www.spoj.com' in link):
         if('problems' in link and ('tag' in link or 'classical' in link)):
             return 2
         elif('problems/' in link and 'cstart' not in link and 'lang' not in link and 'main' not in link):
@@ -215,7 +215,7 @@ def value(link):
 #crawler('http://www.codeforces.com','')
 #crawler('https://a2oj.com','') #max 273
 ##crawler('https://www.codechef.com','')
-crawler('http://www.spoj.com','')
+crawler('https://www.spoj.com','')
 #crawler('https://dmoj.ca','')
 #crawler('http://acm.timus.ru','')
 ##crawler('https://www.urionlinejudge.com.br','')
