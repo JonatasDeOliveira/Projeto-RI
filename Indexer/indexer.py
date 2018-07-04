@@ -3,6 +3,8 @@ from Indexer.Text_Processing import pre_processing as p
 from Indexer import util
 import collections
 
+indexes = {}
+
 def indexer(datas, field):
     lField = field.lower()
     
@@ -16,8 +18,10 @@ def indexer(datas, field):
     
     #positional
     posIndexes = {}
+    cPosIndexes = {}
     
     for n in datas:
+        print("doc - " + n + " field - "+field)
         if (field == "Input") or (field == "Output"):
             for f in datas[n]:
                 if field in f.title():
@@ -39,7 +43,7 @@ def indexer(datas, field):
             
             if field == "Time Limit":
                 if util.isNumber(word):
-                    word = util.searchOctil(octil, word)
+                    word = util.searchRange(util.getRanges(), word)
                     
             if word not in indexes:
                 positions = util.getPositions(normalWord, words)
@@ -47,11 +51,11 @@ def indexer(datas, field):
                 
                 indexes[word] = [pageId]
                 indexesFrequency[word] = [[pageId, frequency]]
-
+                posIndexes[word] = [[pageId, frequency, positions]]
+                
                 cIndexes[word] = [pageId]
                 cIndexesFrequency[word] = [[pageId, frequency]]
-                
-                posIndexes[word] = [[pageId, frequency, positions]]
+                cPosIndexes[word] = [[pageId, frequency, positions]]
                 
             else:
                 compressedId = pageId - indexes[word][-1]
@@ -72,35 +76,41 @@ def indexer(datas, field):
                     
                     indexes[word].append(pageId)
                     indexesFrequency[word].append([pageId, frequency])
-    
-                    cIndexes[word].append(compressedId)
-                    cIndexesFrequency[word].append([compressedId, frequency])
-                    
                     posIndexes[word].append([pageId, frequency, positions])
                     
-    util.writeFiles(lField, indexes, indexesFrequency, cIndexes, cIndexesFrequency, posIndexes)
-
-def timeIndexer(datas):
-    timeWords = []
-    for n in datas:
-        text = datas[n]["Time Limit"]
-        words = p.processTimeL(text)
-        
-        for word in words:
-            timeWords.append(word)
-
-    global octil 
-    octil = util.octil(timeWords)
-    indexer(datas, "Time Limit")
+                    cIndexes[word].append(compressedId)
+                    cIndexesFrequency[word].append([compressedId, frequency])
+                    cPosIndexes[word].append([compressedId, frequency, positions])
+                    
+                    
+    util.writeFiles(lField, indexes, cIndexes, indexesFrequency, cIndexesFrequency, posIndexes, cPosIndexes)
     
+def getIndexes(word, indexerType, field):
+    if indexerType not in indexes:
+        indexes[indexerType] = dowloadIndexes(indexerType, field)
+    elif field not in indexes[indexerType]:
+        indexes[indexerType].update(dowloadIndexes(indexerType, field))
+        
+    if word not in indexes[indexerType][field]:
+        return []
+    else:
+        return indexes[indexerType][field][word]
 
+def dowloadIndexes(indexerType, field):
+    file = './Indexer/Files/Inverted/' +  indexerType + '/nCompressed/' + field
+    with open(file) as f:
+        datas = json.load(f)
+    return {field : datas}
+    
 file = './Docs/Jsons/datas.json'
 with open(file) as f:
     datas = json.load(f, object_pairs_hook=collections.OrderedDict)
 
 #indexer(datas, "Title")
-#indexer(datas, "Description")
-#indexer(datas, "Input")         #Input, Input Descritpion, Input Format, INPUT
-#indexer(datas, "Output")        #output, Output Descritpion, Output Format, OUTPUT
-#timeIndexer(datas)
+indexer(datas, "Description")
+indexer(datas, "Input")         #Input, Input Descritpion, Input Format, INPUT
+indexer(datas, "Output")        #output, Output Descritpion, Output Format, OUTPUT
+#indexer(datas, "Time Limit")
 indexer(datas, "Problem")
+
+

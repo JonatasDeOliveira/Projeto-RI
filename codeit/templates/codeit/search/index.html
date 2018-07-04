@@ -1,0 +1,81 @@
+{% extends "codeit/header.html" %}
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'codeit/css/codeit.css' %}">
+
+{% block content %}
+
+	<h1> Search Please!! </h1>
+    <form type="get" method="get">
+    	<div class="row">
+    	    <div class="col-sm-5">
+        	    <div class="form-group" >
+        	        <label for="title_box">Title</label>
+                    <input id="title_box" class="form-control" type="text" name="title_box"  placeholder="Search by Title" value="{{ request.GET.title_box }}">
+                    <small class="form-text text-muted">Ex: stage, game, number</small>
+                </div>
+                <div class="form-group">
+        	        <label for="problem_box">Problem Description</label>
+                    <input  id="problem_box" class="form-control" type="text" name="problem_box"  placeholder="Search by the Problem Description" value="{{ request.GET.problem_box }}">
+                    <small class="form-text text-muted">Ex: one, number, two</small>
+                </div>
+    	    </div>
+    	    <div class="col-sm-5">
+                <div class="form-group">
+        	        <label for="input_box">Input</label>
+                    <input  id="input_box" class="form-control" type="text" name="input_box"  placeholder="Search by Input" value="{{ request.GET.input_box }}">
+                    <small class="form-text text-muted">Ex: line, contains, number</small>
+                </div>
+                <div class="form-group">
+        	        <label for="output_box">Output</label>
+                    <input  id="output_box" class="form-control" type="text" name="output_box"  placeholder="Search by Output" value="{{ request.GET.output_box }}">
+                    <small class="form-text text-muted">Ex: output, number, line</small>
+                </div>
+    	    </div>
+    	    <div class="col-sm-5">
+                <div class="form-group">
+                    <label for="time_limit_box">Time Limit</label>
+                    <input  id="time_limit_box" class="form-control" type="text" name="time_limit_box"  placeholder="Search by Time Limit" value="{{ request.GET.time_limit_box }}">
+                    <small class="form-text text-muted">Ex: 1s, 2, 5s</small>
+                </div>
+                
+            </div>
+            <div class="col-sm-5">
+                 <div class="form-group">
+                    <label for="free_box">Whole Problem</label>
+                    <input  id="free_box" class="form-control" type="text" name="free_box"  placeholder="Search in the Whole Prob" value="{{ request.GET.free_box }}">
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <button id="search_submit" class="btn btn-prim" type="submit" >Search</button>
+            </div>
+    	</div>
+    </form>
+    {% if problems|length > 0 %}
+        <h3 style="margin-top: 10px;">Results</h3>
+    {% elif show_no_results %}
+        <h3 style="margin-top: 10px;">Results Not Found For Search</h3>
+    {% endif %}
+    
+    {% for problem in problems%}
+        <div class="mb-3">
+            <div class="card">
+                <h5 class="card-header"><a target="_blank" href="{{problem.url}}">{{problem.title}}</a></h5>
+                <small class="container">Time Limit: {{problem.time_limit}}</small>
+                <div class="card-body">
+                    <h6 class="card-title">Problem Description</h6>
+                    {% if problem.description|length > 300 %}
+                        <p class="card-text" style="max-height: 50px;text-overflow: ellipsis;overflow: hidden;">{{ problem.description }}</p>
+                        <p>...</p>
+                    {% else %}
+                        <p class="card-text">{{ problem.description }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+	   
+	{% endfor %}
+	
+	{% include "codeit/problems/paginator.html" with problems=problems page_range=page_range %}
+
+{% endblock %}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CodeIt!!</title>
+	<meta charset="utf-8" />
+
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'codeit/css/bootstrap.min.css' %}">
+	<meta name="viewport" content = "width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{% static 'codeit/css/codeit.css' %}">
+	<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
+</head>
+<body>
+	<div class="container-fluid code-header">
+      <div class="row">
+      	<div class="col-md-5 logo">
+      		<img src="{% static 'codeit/img/logo.png' %}" class="responsive-img" style='max-height:65px;' alt="logo">
+      	</div>
+
+      </div>
+  	</div>
+
+  	<div class="row">
+	  	<div class="col-md-2 sidebar">
+	      	<h2 style="color: #FFFFFF;">Options</h2>	                
+	  		<ul class="nav flex-column">
+	  			<li class="nav-item"><a class="btn btn-prim" href="/" role="button">Home</a></li>
+	  			<li class="nav-item"><a class="btn btn-secondary" href="/problems" role="button">Problems</a></li>
+	  			<li class="nav-item"><a class="btn btn-secondary" href="/search" role="button">Browse Problem</a></li>
+	  			<li class="nav-item"><a class="btn btn-secondary" href="/aboutus" role="button">About Us</a></li>
+    
+	  		</ul>
+	    </div>
+	  	<div class="col-md-10">
+			{% block content %}
+			{% endblock %}
+	    </div>
+	</div>
+</body>
+</html>

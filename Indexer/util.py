@@ -2,6 +2,9 @@ import json
 import pickle
 import os
 import re
+from Indexer.Variant_Size import encode
+
+folds = ['Inverted/', 'Variant/', 'Pickled/']
 
 def getPositions(word, words):
     positions = []
@@ -13,102 +16,48 @@ def getPositions(word, words):
     
     return positions
 
-def writeFiles(field, indexes, indexesFrequency, cIndexes, cIndexesFrequency, posIndexes):
-    
-    os.makedirs('Indexer/Files/Inverted/Basic/Compressed/', exist_ok=True)
-    os.makedirs('Indexer/Files/Inverted/Basic/nCompressed/', exist_ok=True)
-    os.makedirs('Indexer/Files/Inverted/Positional/', exist_ok=True)
-    os.makedirs('Indexer/Files/Inverted/Frequency/Compressed/', exist_ok=True)
-    os.makedirs('Indexer/Files/Inverted/Frequency/nCompressed/', exist_ok=True)
-    
-    os.makedirs('Indexer/Files/Pickled/Inverted/Basic/Compressed/', exist_ok=True)
-    os.makedirs('Indexer/Files/Pickled/Inverted/Basic/nCompressed/', exist_ok=True)
-    os.makedirs('Indexer/Files/Pickled/Inverted/Positional/', exist_ok=True)
-    os.makedirs('Indexer/Files/Pickled/Inverted/Frequency/Compressed/', exist_ok=True)
-    os.makedirs('Indexer/Files/Pickled/Inverted/Frequency/nCompressed/', exist_ok=True)
+def writeFile(field, indexType, fileType, data):
+    for fold in folds:
+        path = 'Indexer/Files/' + fold + indexType + fileType
+        os.makedirs(path, exist_ok=True)
+        
+        if 'Inverted' in fold:
+            with open(path + field, 'w') as f:
+                 f.write(json.dumps(data))
+        else:
+            if 'Variant' in fold:
+                newData = encode.encoder(data)
+            else:
+                newData = data
+            with open(path + field, 'wb') as f:
+                pickle.dump(newData, f)
 
-    #arquivo invertido
-    file = './Indexer/Files/Inverted/Basic/nCompressed/' + field
-    with open(file, 'w') as f:
-        f.write(json.dumps(indexes, indent=2))
+def writeFiles(field, indexes, cIndexes, indexesFrequency, cIndexesFrequency, posIndexes, cPosIndexes):
     
-    file = './Indexer/Files/Inverted/Basic/Compressed/' + field
-    with open(file, 'w') as f:
-        f.write(json.dumps(cIndexes, indent=2))
+    writeFile(field, 'Basic/', 'nCompressed/', indexes)
+    writeFile(field, 'Basic/', 'Compressed/', cIndexes)
     
-    #arquivo invertido posicional
-    file = './Indexer/Files/Inverted/Positional/' + field
-    with open(file, 'w') as f:
-        f.write(json.dumps(posIndexes, indent=2))
+    writeFile(field, 'Frequency/', 'nCompressed/', indexesFrequency)
+    writeFile(field, 'Frequency/', 'Compressed/', cIndexesFrequency)
     
-    #arquivo invertido com frequencia
-    file = './Indexer/Files/Inverted/Frequency/nCompressed/' + field
-    with open(file, 'w') as f:
-        f.write(json.dumps(indexesFrequency, indent=2))
+    writeFile(field, 'Positional/', 'nCompressed/', posIndexes)
+    writeFile(field, 'Positional/', 'Compressed/', cPosIndexes)
 
-    file = './Indexer/Files/Inverted/Frequency/Compressed/' + field
-    with open(file, 'w') as f:
-        f.write(json.dumps(cIndexesFrequency, indent=2))
-       
-    #pickled
-    file = './Indexer/Files/Pickled/Inverted/Basic/nCompressed/' + field
-    out = open(file, 'wb') #writebytes
-    pickle.dump(cIndexes, out)
-    out.close()
-    
-    file = './Indexer/Files/Pickled/Inverted/Basic/Compressed/' + field
-    out = open(file, 'wb') 
-    pickle.dump(indexes, out)
-    out.close()
-    
-    file = './Indexer/Files/Pickled/Inverted/Positional/' + field
-    out = open(file, 'wb') 
-    pickle.dump(posIndexes, out)
-    out.close()
-    
-    file = './Indexer/Files/Pickled/Inverted/Frequency/nCompressed/' + field
-    out = open(file, 'wb')
-    pickle.dump(indexesFrequency, out)
-    out.close()
-
-    file = './Indexer/Files/Pickled/Inverted/Frequency/Compressed/' + field
-    out = open(file, 'wb')
-    pickle.dump(cIndexesFrequency, out)
-    out.close()
+def searchRange(ranges, num):
+    for r in ranges:
+        values = r.split('-')
+        if isNumber(values[0]):
+            if (values[1] == "") and (float(num) >= float(values[0])):
+                return r
+            elif (float(num) >= float(values[0])) and (float(num) < (float(values[1]))):
+                return r
     
 
+def getRanges():
+    return ['0-0.5', '0.5-1', '1-2', '2-3', '3-4', '4-5',
+            '5-6', '6-7', '7-8', '8-9', '9-10', '10-15', 
+            '15-20', '20-30', '30-']
+    
 def isNumber(string):
     return re.match("[0-9]*?\.?[0-9]+?", string) is not None
     
-def octil(data):
-    #get numbers from data
-    numbers = []
-    for n in data:
-        if isNumber(n):
-            if float(n) not in numbers:
-                numbers.append(float(n))
-
-    numbers = sorted(numbers)
-    numbersLen = len(numbers)
-    
-    #pega os intervalos do octal
-    variation = 0.125
-    frame = 0.0
-    oc = []
-    while(frame < 1):
-        oc.append(frame * numbersLen)
-        frame = frame + variation
-    oc.append(numbersLen - 1)
-    
-    ranges = []
-    for i in range(len(oc) - 1) :
-        ranges.append(str(numbers[round(oc[i])]) + "-" + str(numbers[round(oc[i+1])]))
-    
-    return ranges
-
-def searchOctil(oc, num):
-    for o in oc:
-        values = o.split('-')
-        if isNumber(values[0]):
-            if float(num) >= float(values[0]) and float(num) < (float(values[1]) + 0.1):
-                return o
