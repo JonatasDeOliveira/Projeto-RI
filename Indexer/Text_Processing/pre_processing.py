@@ -10,6 +10,10 @@ stopWords = set(stopwords.words('english'))
 stemmer = PorterStemmer()
 
 def processData(data):
+    
+    #caracters = r'[\\\"\'\,\.\!\(\)\*\+\-\/\:\;\<\=\>\|\&\@\%\?\[\]\^\_\`\{\|\}\~\$\#\t\n]'
+    #data = re.sub(caracters, ' ', data)
+    
     #Tokenizer
     wordsList = word_tokenize(data.lower())
     
