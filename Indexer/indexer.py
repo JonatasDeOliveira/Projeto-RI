@@ -21,6 +21,7 @@ def indexer(datas, field):
     cPosIndexes = {}
     
     for n in datas:
+        print("doc - " + n + " field - "+field)
         if (field == "Input") or (field == "Output"):
             for f in datas[n]:
                 if field in f.title():
@@ -105,11 +106,11 @@ file = './Docs/Jsons/datas.json'
 with open(file) as f:
     datas = json.load(f, object_pairs_hook=collections.OrderedDict)
 
-indexer(datas, "Title")
-#indexer(datas, "Description")
-#indexer(datas, "Input")         #Input, Input Descritpion, Input Format, INPUT
-#indexer(datas, "Output")        #output, Output Descritpion, Output Format, OUTPUT
-indexer(datas, "Time Limit")
-#indexer(datas, "Problem")
+#indexer(datas, "Title")
+indexer(datas, "Description")
+indexer(datas, "Input")         #Input, Input Descritpion, Input Format, INPUT
+indexer(datas, "Output")        #output, Output Descritpion, Output Format, OUTPUT
+#indexer(datas, "Time Limit")
+indexer(datas, "Problem")
 
 
