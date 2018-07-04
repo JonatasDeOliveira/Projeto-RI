@@ -3,11 +3,12 @@ from nltk.tokenize import sent_tokenize, word_tokenize #Tokenizer
 from nltk.corpus import stopwords #Stopwords
 from nltk.stem.porter import * #Porter Stemmer
 import json
+import math
 
 input_options = ['Input', 'Input Format', 'Input Description', 'INPUT']
 output_options = ['Output', 'Output Format', 'Output Description', 'OUTPUT']
 stopWords = set(stopwords.words('english'))
-
+'''
 def pre_process(datas, field):
     
     new_data = {}
@@ -66,7 +67,38 @@ datas = load_json('Docs/Jsons/datas.json')
 fields = ['Title','Input','Output','Problem','Description']
 for field in fields:
     pre_process(datas,field)
+    '''
+
+def load_json(path):
+    with open(path) as f:
+        data = json.load(f)
+    return data
+
+corpus_data = load_json('mutual-information/Corpus.json')
+words_number = 0
+
+for key in corpus_data.keys():
+    words_number += corpus_data[key]['count']
+    
+number_docs = 4064.0
+
+def calculate_mutual_info(field):
+    
+    data = load_json('mutual-information/'+field+'.json')
+    mutual_info = {}
+    words_cont = 0.0
+    for key in data.keys():
+        words_cont += data[key]['count']
+    
+    for key in data.keys():
+        
+        mutual_info[key] = (float(data[key].get('count'))/words_cont)
+        
+    with open('mutual-information/calculated/'+field+'.json', 'w') as outfile:  
+        json.dump(mutual_info, outfile)
 
 
+fields = ['Title','Input','Output','Description']
 
-
+for field in fields:
+    calculate_mutual_info(field)
