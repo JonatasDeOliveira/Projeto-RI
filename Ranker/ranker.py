@@ -186,7 +186,7 @@ def rankingDocs(query, docs, invertedFiles, fileTotalNumber, space = False, bool
 
 
 def getInvertedFile(typeInverted, typeQuery):
-    file = 'Indexer/Files/Inverted/' + typeInverted + '/' +typeQuery
+    file = 'Indexer/Files/Inverted/' + typeInverted + '/nCompressed/' +typeQuery
     datas = {}
     with open(file) as f:
         datas = json.load(f)
@@ -254,7 +254,7 @@ def ranking(description, inputDescription, outputDescription, timeLimit, title, 
     aux = qTimeLimit
     qTimeLimit = []
     for a in aux:
-        qTimeLimit.append(util.searchOctil(invertedFileTimeLimit.keys(), a))
+        qTimeLimit.append(util.searchRange(invertedFileTimeLimit.keys(), a))
     qTitle = pre_processing.processData(title)
     qProblem = pre_processing.processData(problem)
     ans = {}
