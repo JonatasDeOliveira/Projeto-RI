@@ -63,12 +63,10 @@ def search(request):
 				free_query = ""
 			problems_ids = ranker.ranking(problem_query,input_query,output_query,time_limit_query,title_query,free_query)
 			problems = []
-			print(problems_ids)
 			for prob_id in problems_ids:
 				problems.append(Problem.objects.get(pk=prob_id))
 				
 			#problems = Problem.objects.filter(id__in=problems_ids)
-			print(problems)
 			
 			problems, page_range = get_pagination(request, problems, 10)
 			
