@@ -4,6 +4,7 @@ import math
 import json
 import os.path
 import collections
+import os
 
 datas = {}
 
@@ -78,7 +79,10 @@ def loadData(data):
 def writeJSON(crawlerType, extractorType, domain, fileName):
     #datas = collections.OrderedDict(sorted(datas.items()))
     #Escrever em um JSON para o especifico
-    file = './Docs/Jsons/' + crawlerType + '/'+ extractorType + '/' + domain + '/' + fileName + '.json'
+    #file = './Docs/Jsons/' + crawlerType + '/'+ extractorType + '/' + domain + '/' + fileName + '.json'
+    file = './Extrator/json' + crawlerType + '/'+ extractorType + '/' + domain + '/' + fileName + '.json'
+    os.makedirs('./Extrator/json' + crawlerType + '/'+ extractorType + '/' + domain + '/' , exist_ok=True)
+    print("oi")
     with open(file, 'w') as f:
             f.write(json.dumps(datas, indent=2))
     
