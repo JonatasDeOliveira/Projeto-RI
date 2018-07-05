@@ -26,7 +26,7 @@ SECRET_KEY = 'am1mqe!0z+pn$tw^ltj8t5rx8tsm3*9l^m0pb*&_y9z2(plsvb'
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['projeto-ri-update-joccin.c9users.io', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['projeto-ri-update-joccin.c9users.io', 'localhost', '127.0.0.1', 'projeto-ri-vrvs.c9users.io']
 
 
 # Application definition
