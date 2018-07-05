@@ -109,7 +109,7 @@ indexer(datas, "Title")
 #indexer(datas, "Description")
 #indexer(datas, "Input")         #Input, Input Descritpion, Input Format, INPUT
 #indexer(datas, "Output")        #output, Output Descritpion, Output Format, OUTPUT
-indexer(datas, "Time Limit")
+#indexer(datas, "Time Limit")
 #indexer(datas, "Problem")
 
 

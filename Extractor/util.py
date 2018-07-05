@@ -76,12 +76,13 @@ def loadData(data):
     datas.update(data)
 
 def writeJSON(crawlerType, extractorType, domain, fileName):
-    datas = collections.OrderedDict(sorted(datas.items()))
+    #datas = collections.OrderedDict(sorted(datas.items()))
     #Escrever em um JSON para o especifico
     file = './Docs/Jsons/' + crawlerType + '/'+ extractorType + '/' + domain + '/' + fileName + '.json'
     with open(file, 'w') as f:
             f.write(json.dumps(datas, indent=2))
     
+    """
     #Escreve em um JSON tudo
     file = './Docs/Jsons/datas.json'
     with open(file) as f:
@@ -92,7 +93,7 @@ def writeJSON(crawlerType, extractorType, domain, fileName):
     generalDatas = collections.OrderedDict(sorted(generalDatas.items()))
     with open(file, 'w') as f:
         f.write(json.dumps(generalDatas, indent=2))
-
+    """
 def getText(page):
     [s.extract() for s in page.findAll(['style', 'script'])]
     return page.text
