@@ -26,6 +26,9 @@ def search(request):
 	output_query = None
 	time_limit_query = None
 	
+	page = request.GET.get('page')
+	print(page)
+	
 	if request.method == "GET":
 		title_query = request.GET.get('title_box', None)
 		problem_query = request.GET.get('problem_box', None)
@@ -59,7 +62,13 @@ def search(request):
 			if free_query == None:
 				free_query = ""
 			problems_ids = ranker.ranking(problem_query,input_query,output_query,time_limit_query,title_query,free_query)
-			problems = Problem.objects.filter(id__in=problems_ids)
+			problems = []
+			print(problems_ids)
+			for prob_id in problems_ids:
+				problems.append(Problem.objects.get(pk=prob_id))
+				
+			#problems = Problem.objects.filter(id__in=problems_ids)
+			print(problems)
 			
 			problems, page_range = get_pagination(request, problems, 10)
 			
@@ -105,9 +114,3 @@ def get_pagination(request, problems, objects_number):
 	yield page_range
 	
 	
-
-def ranking(title_query,problem_query,input_query,output_query,time_limit_query,free_query):
-	problems_ids = []
-	for x in range(0,4):
-		problems_ids.append(x)
-	return problems_ids
