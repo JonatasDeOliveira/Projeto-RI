@@ -322,12 +322,12 @@ def ranking(description, inputDescription, outputDescription, timeLimit, title, 
 
 
 def spearman(query):
-    rank1 = ranking('','','','','',query,True,True)
+    rank1 = ranking('','','','','',query,True,False)
     table = {}
     for i in range(0,len(rank1)):
         table[rank1[i]] = []
         table[rank1[i]].append(i)
-    rank2 = ranking('','','','','',query,True,False)
+    rank2 = ranking('','','','','',query,False,False)
     for i in range(0,len(rank2)):
         table[rank2[i]].append(i)
     sumSquares = 0.0
@@ -340,10 +340,9 @@ def spearman(query):
     return ans
 
 def kendal(query):
-    rank1 = ranking('','','','','',query,True,True)
-    rank2 = ranking('','','','','',query,True,False)
+    rank1 = ranking('','','','','',query,True,False)
+    rank2 = ranking('','','','','',query,False,False)
     p = {}
-    print(len(rank1))
     for i in range(0,len(rank1)):
         for j in range(i+1, len(rank1)):
             if p.get((rank1[i],rank1[j]),-1) == -1:
@@ -360,5 +359,26 @@ def kendal(query):
     k = len(rank1)
     den = k*(k-1)
     ans = 1 - (dis/den)
-    print(ans)
     return ans
+
+c1 = 'Graph Search'
+c2 = 'Fibonacci Sum'
+c3 = 'Dynamic Programming'
+c4 = 'Card Game'
+c5 = 'Bit Manipulation'
+
+'''
+print("Spearman: ")
+print(c1+ ": "+str(spearman(c1)))
+print(c2+ ": "+str(spearman(c2)))
+print(c3+ ": "+str(spearman(c3)))
+print(c4+ ": "+str(spearman(c4)))
+print(c5+ ": "+str(spearman(c5)))
+print("Kendal Tau: ")
+print(c1+ ": "+str(kendal(c1)))
+print(c2+ ": "+str(kendal(c2)))
+print(c3+ ": "+str(kendal(c3)))
+print(c4+ ": "+str(kendal(c4)))
+print(c5+ ": "+str(kendal(c5)))
+'''
+
